@@ -1,0 +1,62 @@
+{
+  "name": "vult-cosmeticos",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp && gulp watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/corebiz_ag/vult-cosmeticos/src/master/"
+  },
+  "author": {
+    "name": "Rodrigo Reis",
+    "email": "br.rodrigoreis@gmail.com",
+    "homepage": "www.rodrigoreis.xyz"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "babel-eslint": "^10.0.1",
+    "browser-sync": "^2.23.6",
+    "del": "^4.1.1",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^3.2.1",
+    "gulp-uglify": "^3.0.0",
+    "promise-polyfill": "8.1.0",
+    "sass-rem": "^2.0.1",
+    "vtex-lazyload": "0.0.3",
+    "whatwg-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^8.0.0",
+    "browserify": "^16.2.3",
+    "gulp-babel": "^7.0.1",
+    "gulp-browserify": "^0.5.1"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ]
+    ]
+  },
+  "engines": {
+    "node": ">= 6.9.0"
+  }
+}

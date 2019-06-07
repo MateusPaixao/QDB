@@ -1,0 +1,25 @@
+
+@import "../settings/config-bases.scss";
+
+/*
+** GENERIC
+**
+*/
+@import "./generic/initialize";
+@import "./generic/reset";
+
+
+/*
+** VENDOR
+**
+*/
+@import "./vendor/form-reset/form-reset";
+// @import "./vendor/slick-carousel/slick-carousel";
+// @import "./vendor/slick-carousel/slick-carousel-theme";
+
+
+/* 
+** Elements
+**
+*/
+@import "./elements/roots";
