@@ -1,5 +1,5 @@
 {
-  "name": "vult-cosmeticos",
+  "name": "qdb-2019",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/corebiz_ag/vult-cosmeticos/src/master/"
+    "url": "https://bitbucket.org/lucasrwen/qdb-2019"
   },
   "author": {
-    "name": "Rodrigo Reis",
-    "email": "br.rodrigoreis@gmail.com",
-    "homepage": "www.rodrigoreis.xyz"
+    "name": "Lucas Wenceslau",
+    "email": "lucas.rwenceslau@gmail.com",
+    "homepage": "https://github.com/meetrodrigues/"
   },
   "license": "MIT",
   "dependencies": {
