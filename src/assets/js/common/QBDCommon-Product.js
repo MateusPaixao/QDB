@@ -1036,9 +1036,9 @@ function aviseme($this){
             $('.section-product').addClass('product-indisponivel');
 
             if($('.new-aviseme').length == 0){
-                $('.product-actions').prepend('<div class="new-aviseme"> <input class="product-aviseme" placeholder="seu email aqui"/> <input type="button" class="btn-send-aviseme" value="me avise!"/></div>');
+                $('.product-actions').prepend('<div class="new-aviseme active"> <input class="product-aviseme" placeholder="seu email aqui"/> <input type="button" class="btn-send-aviseme" value="me avise!"/></div>');
             }else{
-                $('.new-aviseme').show();
+                $('.new-aviseme').addClass('active');
             }
 
             $('#notifymeClientName').val('Quem disse berenice');
@@ -1064,7 +1064,7 @@ function aviseme($this){
                 $('.product-actions').append('<span class="success-aviseme"> cadastro realizado com sucesso</span>');
             });
         }else{
-            $('.product-actions .new-aviseme').hide();
+            $('.product-actions .new-aviseme').removeClass('active');
             $('#product-cal-frete').show();
             $('.product-details .product-info .product-preco-por').show();
             $('.product-details .product-tag').show();
