@@ -120,7 +120,7 @@ a,input[type=text] {/* font-size: 1.2em; */}
 .__btn-white.__arrow-right:after {content: "\e90a"; font-family: "tbb-icons"; font-size: 0.7em; display: inline-block; margin-left: 3px; font-weight: 800;}
 .__btn-white.__arrow-right:after {color:#333;color:var(--lead);}
 button {}
-.ac-empty-search-error {color: rgba(255, 0, 0, 0.43)!important;}
+
 /*VTEX-ELEMENTS*/
 #ajaxBusy {display: none !important;position: fixed;left: 3px;z-index: 100;}
 #ajaxBusy p {display: block;padding: 0 0 0 20px;height: 20px;background: url(http://tbb.vteximg.com.br/arquivos/_AjaxLoader-small.gif) no-repeat 0 0;text-transform: uppercase;}
@@ -161,18 +161,86 @@ body{
         overflow: hidden;
     }
 }
+
 html{
     .ac-overlay{
         opacity: .6 !important;
+        visibility: hidden;
+        &.lr-search-visible{
+          visibility: visible;
+        }
     }
     .ac-container {
-        left: 50% !important;
-        font-family: "Museo Sans", sans-serif !important;
-        width: 30% !important;
-        top: 50% !important;
-        transform: translate(-50%,-50%);
-        height: fit-content;
-        margin-top: 37px;
+          left: 0 !important;
+          font-family: "Museo Sans", sans-serif !important;
+          width: 100% !important;
+          top: 50% !important;
+          max-height: 520px;
+          bottom: inherit !important;
+          overflow-y: scroll;
+          visibility: hidden;
+        &::-webkit-scrollbar {
+          width: 5px;
+        }
+        
+        /* Track */
+        &::-webkit-scrollbar-track {
+          background: #f1f1f1; 
+        }
+        
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+          background: #888; 
+          border-radius: 10px;
+        }
+        
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+          background: #686162; 
+        }
+        &.lr-search-visible{
+          visibility: visible;
+        }
+    }
+    @mixin mq($width, $type: max) {
+      @if($width == 'tb') {
+          $width: 768px;
+      }
+  
+      @if($width == 'ml') {
+        $width: 425px;
+      }
+  
+      @if($width == 'mm') {
+        $width: 375px;
+      }
+      @media only screen and (#{$type}-width: $width) {
+          @content;
+      }
+  }
+    ._header-search-bar{
+      position: relative;
+      form{
+        position: relative;
+        .search-field{
+          visibility: visible;
+          width: 100%;
+          left: 0;
+          bottom: inherit;
+          border-radius: 50px;
+          @include mq('1150px', max){
+            background: white;
+            color: #000;
+          }
+        }
+        input[type="submit"]{
+          right: 0;
+          background-color: #686162;
+        }
+        .ac-empty-search-error {
+          background: white !important;
+        }
+      }
     }
 }
 .yv-testemunhos-prod .yv-slide h4,
@@ -408,9 +476,6 @@ html._light-off ::selection{
 
 ._header-main-wrapper {background-color: #686162;padding: 5px 0;}
 ._header-main {display: -webkit-box;display: -ms-flexbox;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;-webkit-box-flex: 1;-ms-flex: 1 1 160px;flex: 1 1 160px;position: relative;-webkit-transition:all 0.5s ease;transition:all 0.5s ease;margin: auto;max-width: 1150px;/* padding-right: 15px; *//* background-color: #FAF6F5; *//* background-color: var(--off-white); */}
-@media(max-width:768px){
-    ._header-main {padding:0 10px;}
-}
 ._header-menu {z-index: 2;}
 ._header-links {min-width: 152px;display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack: end;-ms-flex-pack: end;justify-content: flex-end;margin: 0px 0px 0 0;-webkit-box-flex: 1;-ms-flex-positive: 1;flex-grow: 1;/*! order: 1; */}
 ._header-links ul {list-style: none; padding: 0;display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack: end;-ms-flex-pack: end;justify-content: flex-end;margin: 0;}
@@ -429,23 +494,9 @@ html._light-off ::selection{
 .__wishlist-on ._header-links .__wishlist-link a:before {content:"\e90e";color:#4edac0 !important;}
 ._header-search-bar {width: 100%;-webkit-box-flex: 1;-ms-flex-positive: 1;flex-grow: 1;visibility: hidden;}
 
-.activeHeaderSearch,
-.activeHeaderSearchMOB {visibility:visible;/* position: relative; */top: 60px;left: 0;width: 100%!important;position: fixed;background-color: #fff!important;border-bottom: 1px solid #686162!important;margin: 0!important;}
-.activeHeaderSearch form,
-.activeHeaderSearchMOB form {background-color: #fff!important;/* border-bottom: 1px solid #686162!important; */width: 1150px;position: relative;margin: 0 auto;padding: 5px 20px;}
 
 
-.activeHeaderSearch .search-field,
-.activeHeaderSearchMOB .search-field {color: #686162!important;width:100%;height: auto!important;padding: 5px 0 0 10px!important;position: relative;border-left: 2px solid #686162!important;}
-@media(max-width:1500px){
-    .activeHeaderSearch input.search-btn,
-    .activeHeaderSearchMOB input.search-btn {background: url("https://qbbr.vteximg.com.br/arquivos/rf-lupa-busca-color.png") 6px 16px no-repeat #fff!important;height: 62px!important;width: 44px!important;top: -61px!important;right: 244px!important;}
-}
-@media(max-width:1920px){
-    .activeHeaderSearch input.search-btn,
-    .activeHeaderSearchMOB input.search-btn {background: url("https://qbbr.vteximg.com.br/arquivos/rf-lupa-busca-color.png") 6px 16px no-repeat #fff!important;height: 62px!important;width: 44px!important;top: -61px!important;right: 171px!important;}
-    .activeHeaderSearchMOB input.search-btn {right: 66px!important;}
-} 
+
 .nm-ac-close {
     top: 8px!important;
 }
@@ -458,8 +509,6 @@ html._light-off ::selection{
 ._d-top ._header-search-bar a.search-btn {background: url('https://qbbr.vteximg.com.br/arquivos/rf-lupa busca.png') 0 4px no-repeat;display:  block;width: 40px;height: 32px;visibility: hidden;}
 
 ._header-search-bar input {height: 35px;/* width: 100%; */padding: 0 15px;-webkit-box-flex: 1;-ms-flex-positive: 1;flex-grow: 1;border:none;font-size: 1.2em;background: transparent;/* visibility: visible; */color: #fff;}
-._header-search-bar input.search-btn {visibility:visible;background: url('https://qbbr.vteximg.com.br/arquivos/rf-lupa busca.png') 0 4px no-repeat;/* display:  block; *//* width: 40px; *//* height: 32px; */}
-
 /** HEADER:END */
 
 /* HERO SLICK */
@@ -1160,9 +1209,6 @@ html .feature-secondary {
         display:flex;
         /* width: 100%; */
     }
-
-    ._header-search-bar input.search-btn {visibility:visible;position:absolute;top: 1px;right: 175px;background-size:contain;height: 40px;width: 35px;}
-    ._d-top ._header-search-bar input.search-btn {/* visibility:hidden; */top: -1px!important;right: 0;height: 29px!important;width: 30px!important;}
 }
 @media screen and (max-width: 768px){
     ._footer-corp ._footer-selos {
@@ -1181,9 +1227,6 @@ html .feature-secondary {
         height: 50px;
         margin: -25px auto;
     }
-}
-@media (min-width:1500px){
-    ._header-search-bar input.search-btn {visibility:visible;position:absolute;top: 3px;right: 175px;background-size:contain;height: 38px;width: 32px;}
 }
 .texto--legal{
     font-size: 12px;

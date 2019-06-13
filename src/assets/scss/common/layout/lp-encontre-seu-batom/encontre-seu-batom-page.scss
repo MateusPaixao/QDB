@@ -1,3 +1,15 @@
+.batom-links{
+    &--list{
+        h2{
+            a{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}
+
 .owl-carousel,.owl-carousel .owl-item {
     -webkit-tap-highlight-color: transparent;
     position: relative
@@ -860,7 +872,7 @@ section .container {
     }
 
     .what-batom ul li a {
-        width: 180px;
+        width: 200px;
         font-size: 18px
     }
 
