@@ -1035,24 +1035,25 @@ $( document ).ready(function() {
 
 
 function menuBuscaNeemu() {
-    const searchBar = document.querySelector('._header-search-bar');
-    const buscaNeemu = document.querySelector('.ac-container');
-    const closeMenu = document.querySelector('.ac-overlay');
-    const body = document.querySelector('body'); 
+    const searchBar = $('._header-search-bar');
+    const buscaNeemu = $('.ac-container');
+    const closeMenu = $('.ac-overlay');
+    const body = $('body'); 
 
-    searchBar.appendChild(buscaNeemu);
-    searchBar.addEventListener('click',() => {
-        buscaNeemu.classList.add('lr-search-visible');
-        closeMenu.classList.add('lr-search-visible');
+    searchBar.append(buscaNeemu);
+    searchBar.on('click',() => {
+        buscaNeemu.addClass('lr-search-visible');
+        closeMenu.addClass('lr-search-visible');
     })
-    closeMenu.addEventListener('click', () => {
-        if(body.classList.contains('nm-noscroll')){
-            buscaNeemu.classList.remove('lr-search-visible');
-            closeMenu.classList.remove('lr-search-visible');
+    closeMenu.on('click', () => {
+        if(body.hasClass('nm-noscroll')){
+            buscaNeemu.removeClass('lr-search-visible');
+            closeMenu.removeClass('lr-search-visible');
+
         }
     })
 }
-window.addEventListener('DOMContentLoaded', menuBuscaNeemu);
+$(window).on('load', menuBuscaNeemu);
 // INICIO CONTADOR
 function cronometro(countdown, dateini, dateend, fretegratis, text, bgcolor, link) {
     var countDownDate,
