@@ -3015,7 +3015,8 @@ p.flag.leve-4-pague-2 {
     &--price{
       font-size: 30px;
       margin-top: 10px;
-      font-weight: 400;
+	  font-weight: 400;
+	  color: lighten($color: #686162, $amount: 40%)
       
     }
     h3 {
