@@ -1,0 +1,27 @@
+/* QDB */
+
+.item-unavailable-message{}
+.cart-items .item-unavailable-message span{}
+.cart-items .item-unavailable-message span{display:none;}
+.cart-items .item-unavailable-message .icon-warning-sign:after{
+	content:"Puxa, é tanta gente querendo esse produto que ele já esgotou! Que tal olhar nossas outras opções? :)";
+	font-size:12px;		
+	padding:0 0 0 5px;
+	font-weight:bold;
+	font-family: 'Museo', serif;
+	color: #484848;	
+}
+
+.cart-items .item-unavailable-message span:after{}
+
+.body-order-form .modal{}
+.body-order-form .unavailable-message p{ display:none;}
+.body-order-form .unavailable-message:after{
+	content:"Puxa, é tanta gente querendo esse produto que ele já esgotou! Que tal olhar nossas outras opções? :)";
+	font-size:14px;
+	font-family: 'Museo', serif;
+	color: #484848;	
+}
+#boxLight{
+    position: fixed;
+}
