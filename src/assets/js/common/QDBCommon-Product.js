@@ -1019,12 +1019,15 @@ function selectCor(){
         aviseme($(this));
     });
 }
-
+console.log('gegeggegegege')
 /* ====================================================================== *\
     #Produto indisponivel
 \* ====================================================================== */
 function aviseme($this){
     $('.notifyme-title-div .notifymetitle.notifyme-title').html("<div class='rw-indisponivel'><h3>Produto indisponível :( </h3><h4 class='rw-indisponivel--price'> R$"+parseFloat(dataLayer[0].productListPriceFrom).toFixed(2).replace('.',',')+"</h4></div>");
+    if(dataLayer[0].productListPriceFrom == 0){
+        $('.rw-indisponivel--price').addClass('hidden');
+    }
     setTimeout(function(){
         if($('.notifyme.sku-notifyme').css('display') == 'block'){
             $('.product-details .product-body .product-actions').addClass('product-disabled-hide');

@@ -436,7 +436,7 @@ html._light-off ::selection{
 ._d-top ._header-search-bar button {background: url(data:image/svg+xml;utf8;base64,) center center no-repeat;background-size: 24px auto;background-color:#E6E0E0;width:62px !important;text-indent: -99999px;display: inline-block;cursor:pointer;}
 ._d-top ._header-search-bar button {background: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2069.999997%2069.999997%22%3E%3Cpath%20d%3D%22m%2011.027788%2C19.367409%20c%20-1.6151341%2C6.028715%20-0.786257%2C12.325872%202.334468%2C17.731339%204.161963%2C7.208661%2011.923582%2C11.686921%2020.255734%2C11.686921%203.144653%2C0%206.260517%2C-0.646428%209.150188%2C-1.880586%20l%2012.153515%2C21.050203%204.85662%2C-2.80404%20L%2047.624424%2C44.100283%20C%2051.80209%2C40.977314%2054.799063%2C36.579063%2056.169685%2C31.4626%2057.784821%2C25.433885%2056.95594%2C19.136729%2053.835217%2C13.731262%2049.673627%2C6.5229742%2041.912006%2C2.044714%2033.579855%2C2.044714%20c%20-4.07971%2C0%20-8.113061%2C1.0838604%20-11.664488%2C3.1341851%20C%2016.509899%2C8.2996241%2012.64367%2C13.338694%2011.027788%2C19.367409%20Z%20M%2033.579855%2C7.6528222%20c%206.334917%2C0%2012.235768%2C3.4037468%2015.399115%2C8.8828668%202.371855%2C4.108126%203.001831%2C8.894084%201.77403%2C13.475907%20-1.227427%2C4.581824%20-4.166076%2C8.411786%20-8.274201%2C10.783267%20-2.700116%2C1.558682%20-5.763639%2C2.3827%20-8.860435%2C2.3827%20-6.334918%2C0%20-12.235768%2C-3.403749%20-15.399113%2C-8.882869%20-2.371855%2C-4.108124%20-3.001833%2C-8.893709%20-1.774031%2C-13.475533%201.227801%2C-4.582198%204.166075%2C-8.411786%208.2742%2C-10.783641%202.700116%2C-1.55868%205.763639%2C-2.3826978%208.860435%2C-2.3826978%20z%22%20style%3D%22stroke-width%3A0.3738738%22%20%2F%3E%3C%2Fsvg%3E') center center no-repeat;background-size: 24px auto;background-color:#E6E0E0;width:62px !important;text-indent: -99999px;display: inline-block;background-color:transparent;}
 
-._header-search-bar input {height: 35px;/* width: 100%; */padding: 0 15px;-webkit-box-flex: 1;-ms-flex-positive: 1;flex-grow: 1;border:none;font-size: 1.2em;background: transparent;/* visibility: visible; */color: #fff;}
+._header-search-bar input {height: 35px;/* width: 100%; */padding: 0 15px;-webkit-box-flex: 1;-ms-flex-positive: 1;flex-grow: 1;border:none;border-bottom:1px solid #fdfdfd ;font-size: 1.2em;background: transparent;/* visibility: visible; */color: #fff;}
 /** HEADER:END */
 
 /* HERO SLICK */
@@ -1644,11 +1644,11 @@ body.nm-noscroll{
     position: inherit !important;
  }   
 }
-body{
-  &.nm-noscroll{
-      overflow: hidden;
-  }
-}
+// body{
+//   &.nm-noscroll{
+//       overflow: hidden;
+//   }
+// }
 
 html{
   ._header-main-wrapper{
