@@ -1,4 +1,3 @@
-import { log } from "util";
 
 // FID/**201812112311*/
 var menuData = [{
@@ -182,16 +181,16 @@ var menuData = [{
         },
         {
             "text": "Contorno",
-            "link": "http://busca.quemdisseberenice.com.br/busca?q=contorno"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/contorno-facial"
         },
         {
             "text": "Demaquilante",
             "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/demaquilante/"
-        },
-        {
-            "text": "Cuidados p/ pele",
-            "link": "https://www.quemdisseberenice.com.br/cuidados/rosto"
-        }
+         }
+        // {
+        //     "text": "Cuidados p/ pele",
+        //     "link": "https://www.quemdisseberenice.com.br/cuidados/rosto"
+        // }
         // {
         //     "text": "Pincel",
         //     "link": "http://busca.quemdisseberenice.com.br/busca?q=pincel"
