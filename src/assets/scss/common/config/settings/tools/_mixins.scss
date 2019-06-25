@@ -2,17 +2,22 @@
  * Media Queries
  * Mobile first
  */
- @mixin mq($width, $type: min) {
-    @if map_has_key($breakpoints, $width) {
-        $width: map_get($breakpoints, $width);
-    }
+$l-device: 1199px;
+$m-b-device: 991px;
+$m-device: 767px;
+$s-device: 575px;
+$mobile: 400px;
 
+@mixin d($width, $type: max) {
     @if $type == max {
-        $width: $width - 1px;
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
     }
-
-    @media only screen and (#{$type}-width: $width) {
-        @content;
+    @else{
+        @media only screen and (#{$type}-width: $width + 1) {
+            @content;
+        }
     }
 }
 

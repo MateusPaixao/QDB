@@ -382,6 +382,11 @@ var menuData = [{
     "link": "https://www.quemdisseberenice.com.br/clube-das-beres"
 },
 {
+    "text": "Retorna Berê",
+    "class": ["__light-turquoise"],
+    "link": "https://www.quemdisseberenice.com.br/retorna-bere"
+},
+{
     "text": "Ajuda",
     "class": ["__dark"],
     "link": "https://www.quemdisseberenice.com.br/institucional/atendimento"
@@ -1403,105 +1408,20 @@ $(document).ready(function(){
     var day = new Date().getDate();
     if (document.querySelector(".counter") || document.querySelector(".topbanner")) {
         switch (day) {
-            // case 29:
-            //     setTopBanner("after", "April 27, 2019 00:00:00", "April 29, 2019 23:59:59", ['<svg class="frete-gratis" width="50" height="38" fill="none" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M19.5.5h-9L9 23.5h27.5l1-23h-14" stroke="#fff"></path><path d="M24 .5h13.5l-.5 12h5.5c4.458.533 5.965 2.013 7 6.5v12.5h-4" stroke="#fff"></path><path fill="#fff" d="M0 6h20v1H0z"></path><path d="M11.5 31.5h-3l2-31H19m3.5 31h12" stroke="#fff"></path><path fill="#fff" d="M5 17h11v1H5zM3 12h4v1H3z"></path><circle cx="17" cy="32" r="5.5" stroke="#fff"></circle><circle cx="40" cy="32" r="5.5" stroke="#fff"></circle></svg> Frete Gr�tis em todas as compras'], "#df917a", false);
-            //     break;
-            // case 1:
-            //     setTopBanner("after", "May 1, 2019 00:00:00", "May 4, 2019 23:59:59", ["30% de desconto na primeira compra*",'Use o cupom: <strong id="cupom-topbanner">BEMVINDO30</strong>'], "#AF4E64", true);
-            //     CopyText("#topbanner", "cupom-topbanner");
-            //     break;
-            // case 8:
-            //     setTopBanner("after", "May 8, 2019 09:00:00", "May 10, 2019 23:59:59", ['<svg class="frete-gratis" width="50" height="38" fill="none" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M19.5.5h-9L9 23.5h27.5l1-23h-14" stroke="#fff"></path><path d="M24 .5h13.5l-.5 12h5.5c4.458.533 5.965 2.013 7 6.5v12.5h-4" stroke="#fff"></path><path fill="#fff" d="M0 6h20v1H0z"></path><path d="M11.5 31.5h-3l2-31H19m3.5 31h12" stroke="#fff"></path><path fill="#fff" d="M5 17h11v1H5zM3 12h4v1H3z"></path><circle cx="17" cy="32" r="5.5" stroke="#fff"></circle><circle cx="40" cy="32" r="5.5" stroke="#fff"></circle></svg>Frete Expresso por R$ 4,99*'], "#F47B73", false);
-            //     break;
-            // case 9:
-            //     setTopBanner("after", "May 8, 2019 09:00:00", "May 10, 2019 23:59:59", ['<svg class="frete-gratis" width="50" height="38" fill="none" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M19.5.5h-9L9 23.5h27.5l1-23h-14" stroke="#fff"></path><path d="M24 .5h13.5l-.5 12h5.5c4.458.533 5.965 2.013 7 6.5v12.5h-4" stroke="#fff"></path><path fill="#fff" d="M0 6h20v1H0z"></path><path d="M11.5 31.5h-3l2-31H19m3.5 31h12" stroke="#fff"></path><path fill="#fff" d="M5 17h11v1H5zM3 12h4v1H3z"></path><circle cx="17" cy="32" r="5.5" stroke="#fff"></circle><circle cx="40" cy="32" r="5.5" stroke="#fff"></circle></svg>Frete Expresso por R$ 4,99*'], "#F47B73", false);
-            //     break;
-            // case 22:
-            //     cronometro("after", "May 21, 2019 21:00:00", "May 22, 2019 08:59:59", false, "Deo Col�nias com 30% de desconto*", "#cc50d4");
-            //     setTopBanner("after", "May 22, 2019 09:00:00", "May 22, 2019 23:59:59", ['20% de desconto em sua compra*', 'Use o cupom: MEABRACA'], "#cc50d4", true);
-            //     CopyText("#topbanner", "MEABRACA");
-            //     break;
-            case 29: 
-                cronometro("after", "May 29, 2019 14:00:00", "May 29, 2019 17:59:59", false, "Itens com 70% de desconto*", "#d16f66", "https://www.quemdisseberenice.com.br/busca/?fq=H:807");
+            case 24:
+                setTopBanner("after", "Jun 24, 2019 00:00:00", "Jun 28, 2019 23:59:59", ['Itens com até 60% de desconto*'], "#B43A38", false, "https://www.quemdisseberenice.com.br/busca/?fq=H:789");
                 break;
-            case 30: 
-                cronometro("after", "May 30, 2019 21:00:00", "May 31, 2019 08:59:59", false, "Produtos com 50% de desconto*", "#b29e9f", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
+            case 25:
+                setTopBanner("after", "Jun 24, 2019 00:00:00", "Jun 28, 2019 23:59:59", ['Itens com até 60% de desconto*'], "#B43A38", false, "https://www.quemdisseberenice.com.br/busca/?fq=H:789");
                 break;
-            case 31: 
-                cronometro("after", "May 30, 2019 21:00:00", "May 31, 2019 08:59:59", false, "Produtos com 50% de desconto*", "#b29e9f", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
+            case 26:
+                setTopBanner("after", "Jun 24, 2019 00:00:00", "Jun 28, 2019 23:59:59", ['Itens com até 60% de desconto*'], "#B43A38", false, "https://www.quemdisseberenice.com.br/busca/?fq=H:789");
                 break;
-            case 1: 
-                cronometro("after", "Jun 1, 2019 14:00:00", "Jun 1, 2019 17:59:59", false, "Produtos com 70% de desconto*", "#27bbab", "https://www.quemdisseberenice.com.br/busca/?fq=H:805");
+            case 27:
+                setTopBanner("after", "Jun 24, 2019 00:00:00", "Jun 28, 2019 23:59:59", ['Itens com até 60% de desconto*'], "#B43A38", false, "https://www.quemdisseberenice.com.br/busca/?fq=H:789");
                 break;
-            case 2: 
-                cronometro("after", "Jun 2, 2019 14:00:00", "Jun 2, 2019 17:59:59", false, "Produtos com 70% de desconto*", "#27bbab", "https://www.quemdisseberenice.com.br/busca/?fq=H:805");
-                break;
-            case 3: 
-                setTopBanner("after", "Jun 3, 2019 00:00:00", "Jun 4, 2019 13:59:59", ['Produtos com até 70% de desconto*'], "#27bbab", false, "https://www.quemdisseberenice.com.br/busca/?fq=H:805");
-                break;
-            case 4:
-                // cronometro("after", "Jun 4, 2019 14:00:00", "Jun 4, 2019 14:59:59", false, "Produtos com até 80% de desconto*", "#27bbab", "https://www.quemdisseberenice.com.br/busca/?fq=H:806");
-                setTopBanner("after", "Jun 4, 2019 15:00:00", "Jun 7, 2019 23:59:59", ['Produtos com até 70% de desconto*'], "#27bbab", false, "https://www.quemdisseberenice.com.br/busca/?fq=H:805");
-                break;
-            case 5:
-                setTopBanner("after", "Jun 4, 2019 15:00:00", "Jun 7, 2019 23:59:59", ['Produtos com até 70% de desconto*', '+ Frete Grátis em todas as compras'], "#27bbab", false, "https://www.quemdisseberenice.com.br/busca/?fq=H:805");
-                break;
-            case 6:
-                setTopBanner("after", "Jun 4, 2019 15:00:00", "Jun 7, 2019 23:59:59", ['Produtos com até 70% de desconto*'], "#27bbab", false, "https://www.quemdisseberenice.com.br/busca/?fq=H:805");
-                break;
-            case 7:
-                cronometro("after", "Jun 4, 2019 15:00:00", "Jun 7, 2019 23:59:59", false, "Produtos com até 70% de desconto*", "#27bbab", "https://www.quemdisseberenice.com.br/busca/?fq=H:805");
-                break;
-            case 8:
-                setTopBanner("after", "Jun 8, 2019 00:00:00", "Jun 8, 2019 13:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#27bbab", true);
-                cronometro("after", "Jun 8, 2019 14:00:00", "Jun 8, 2019 17:59:59", false, "Produtos com 70% de desconto*", "#27bbab", "https://www.quemdisseberenice.com.br/busca/?fq=H:805");
-                setTopBanner("after", "Jun 8, 2019 18:00:00", "Jun 8, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#27bbab", true);
-                CopyText("#topbanner", "BEMVINDO30");
-                break;
-            case 9:
-                setTopBanner("after", "Jun 9, 2019 00:00:00", "Jun 9, 2019 13:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#27bbab", true);
-                cronometro("after", "Jun 9, 2019 14:00:00", "Jun 9, 2019 17:59:59", false, "Produtos com 70% de desconto*", "#27bbab", "https://www.quemdisseberenice.com.br/busca/?fq=H:805");
-                setTopBanner("after", "Jun 9, 2019 18:00:00", "Jun 9, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#7b4aaa", true);
-                CopyText("#topbanner", "BEMVINDO30");
-                break;
-            case 10:
-                cronometro("after", "Jun 10, 2019 00:00:00", "Jun 10, 2019 23:59:59", false, "Produtos com até 70% de desconto*", "#7b4aaa", "https://www.quemdisseberenice.com.br/busca/?fq=H:805");
-                break;
-            case 11: 
-                cronometro("after", "Jun 11, 2019 21:00:00", "Jun 12, 2019 08:59:59", false, "Batons Líquidos com 40% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
-                break;
-            case 12:     
-                cronometro("after", "Jun 11, 2019 21:00:00", "Jun 12, 2019 08:59:59", false, "Batons Líquidos com 40% de desconto*", "#b29e9f", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
-                setTopBanner("after", "Jun 12, 2019 00:00:00", "Jun 12, 2019 23:59:59", ['Dia dos Namorados 20% de Desconto', 'Use o cupom: NAMORADXS'], "#B48269", true);
-                CopyText("#topbanner", "NAMORADXS");
-                break;
-            case 17:
-                setTopBanner("after", "Jun 17, 2019 00:00:00", "Jun 23, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", true);
-                CopyText("#topbanner", "BEMVINDO30");
-                break;
-            case 18:
-                setTopBanner("after", "Jun 17, 2019 00:00:00", "Jun 23, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", true);
-                CopyText("#topbanner", "BEMVINDO30");
-                break;
-            case 19:
-                setTopBanner("after", "Jun 17, 2019 00:00:00", "Jun 23, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", true);
-                CopyText("#topbanner", "BEMVINDO30");
-                break;
-            case 20:
-                setTopBanner("after", "Jun 17, 2019 00:00:00", "Jun 23, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", true);
-                CopyText("#topbanner", "BEMVINDO30");
-                break;
-            case 21:
-                setTopBanner("after", "Jun 17, 2019 00:00:00", "Jun 23, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", true);
-                CopyText("#topbanner", "BEMVINDO30");
-                break;
-            case 22:
-                setTopBanner("after", "Jun 17, 2019 00:00:00", "Jun 23, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", true);
-                CopyText("#topbanner", "BEMVINDO30");
-                break;
-            case 23:
-                setTopBanner("after", "Jun 17, 2019 00:00:00", "Jun 23, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", true);
-                CopyText("#topbanner", "BEMVINDO30");
+            case 28:
+                cronometro("after", "Jun 24, 2019 00:00:00", "Jun 28, 2019 23:59:59", false, "Itens com até 60% de desconto*", "#B43A38", "https://www.quemdisseberenice.com.br/busca/?fq=H:789");
                 break;
             default:
         }
