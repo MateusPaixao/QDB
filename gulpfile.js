@@ -3,7 +3,7 @@ const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
-const del = require('del');
+// const del = require('del');
 const browserify = require('gulp-browserify');
 const babelify = require('babelify');
 const pug = require('gulp-pug');
@@ -25,9 +25,9 @@ const paths = {
   }
 };
 
-const clean = () => {
-  return del(['dist']);
-}
+// const clean = () => {
+//   return del(['dist']);
+// }
 
 const htmls = () => {
   return gulp.src([
@@ -76,10 +76,10 @@ const watch = () => {
 }
 
 
-const build = gulp.series(clean, gulp.parallel(styles, scripts, htmls, pluginsJs));
+const build = gulp.series(gulp.parallel(styles, scripts, htmls, watch));
 
-exports.pluginsJs = pluginsJs;
-exports.clean = clean;
+// exports.pluginsJs = pluginsJs;
+// exports.clean = clean;
 exports.styles = styles;
 exports.scripts = scripts;
 exports.htmls = htmls;

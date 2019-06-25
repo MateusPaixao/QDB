@@ -1,4 +1,31 @@
 
+var BrowserVendor = "";
+(function(){
+    if(navigator.vendor.match(/google/i)) {
+        BrowserVendor = 'chrome/blink';
+    }
+    else if(navigator.vendor.match(/apple/i)) {
+        BrowserVendor = 'safari/webkit';
+    }
+    else if(navigator.userAgent.match(/firefox\//i)) {
+        BrowserVendor = 'firefox/gecko';
+    }
+    else if(navigator.userAgent.match(/edge\//i)) {
+        BrowserVendor = 'edge/edgehtml';
+    }
+    else if(navigator.userAgent.match(/trident\//i)) {
+        BrowserVendor = 'ie/trident';
+    }
+    else
+    {
+        BrowserVendor = navigator.userAgent + "\n" + navigator.vendor;
+    }
+})();
+function insertAfterr(newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
+
 (function($, window, document, undefined) {
     var $win = $(window);
     var $doc = $(document);
@@ -446,16 +473,32 @@ var DataSkuManager = function (selectorGroup){
                 // console.warn(error);
             }
         }).done(function(){
+            
             setTimeout(() => {
-                document.querySelectorAll(".select-cor-new .product-disabled,.select-cor-new .item_unavailable").forEach(element => {
-                    $(element).insertAfter($('.select-cor-new > span > label:last-child'))
-                    // console.log("colors unavaliable");
-                });
-                document.querySelectorAll(".select-cor-new .flag-discount-percent").forEach(element => {
-                    $(element).parent("label").insertAfter($('.select-cor-new > span label:last-child'));
-                    $(element).parent("label").insertBefore($('.select-cor-new > span label:first-child'));
-                    // console.log("discount first");
-                });
+                if(BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident' ){
+                    var coresNaoDisponiveis = document.querySelectorAll(".select-cor-new .product-disabled,.select-cor-new .item_unavailable");
+                    var produtosComDesconto = document.querySelectorAll(".select-cor-new .flag-discount-percent");
+                    var inserirDepois = document.querySelector('.select-cor-new > span > label:last-child')
+                    var inserirAntes = document.querySelector('.select-cor-new > span label:first-child')
+                    for (var i = 0; i < coresNaoDisponiveis.length; i++) {
+                        insertAfterr(coresNaoDisponiveis[i], inserirDepois)
+                    }
+                    for (var i = 0; i < produtosComDesconto.length; i++) {
+                        insertAfterr(produtosComDesconto[i].parent("label"),inserirDepois)
+                        produtosComDesconto[i].insertBefore(inserirAntes);
+                    }
+                }
+                else{
+                    document.querySelectorAll(".select-cor-new .product-disabled,.select-cor-new .item_unavailable").forEach(element => {
+                        $(element).insertAfter($('.select-cor-new > span > label:last-child'))
+                        // console.log("colors unavaliable");
+                    });
+                    document.querySelectorAll(".select-cor-new .flag-discount-percent").forEach(element => {
+                        $(element).parent("label").insertAfter($('.select-cor-new > span label:last-child'));
+                        $(element).parent("label").insertBefore($('.select-cor-new > span label:first-child'));
+                        // console.log("discount first");
+                    });
+                }
             }, 2000);
             selectLocation(window.location.href);
         });
@@ -902,11 +945,20 @@ function selectCor(){
 	
 	// #Monta slider seletor
 	
-	//Apenas para o batom mate, subir a nova paleta de cores (pois sera validado com esse produto inicialmente).
+    //Apenas para o batom mate, subir a nova paleta de cores (pois sera validado com esse produto inicialmente).
+        const productsIndisponiveis = document.querySelectorAll(".product-disabled.item_unavailable");
+        const inserirDepois2 = document.querySelector('.select-cor-new > span > label :last-child');
         if($('.select-cor-new > span > label').length > 0){
-            document.querySelectorAll(".product-disabled.item_unavailable").forEach(element => {
-                $(element).insertAfter($('.select-cor-new > span > label :last-child'))
-            });
+            if(BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
+                for (let i = 0; i < productsIndisponiveis.length; i++ ){
+                    productsIndisponiveis[i].insertAfterr(productsIndisponiveis[i],inserirDepois2)
+                }
+            }
+            else{
+                document.querySelectorAll(".product-disabled.item_unavailable").forEach(element => {
+                    $(element).insertAfter($('.select-cor-new > span > label :last-child'))
+                });
+            }
         }
 		if ($('.select-cor-new > span > label').length > 0 && $(window).width() > 768){
 			
@@ -1019,7 +1071,6 @@ function selectCor(){
         aviseme($(this));
     });
 }
-console.log('gegeggegegege')
 /* ====================================================================== *\
     #Produto indisponivel
 \* ====================================================================== */
