@@ -12,6 +12,8 @@ var curday = function(sp){
     if(mm<10) mm='0'+mm;
     return (dd+sp+mm+sp+yyyy);
 };
+console.log(dd);
+console.log(date.getHours());
 // CREATE BACKUP FILES
 if(date.getDay() == 3){
     var rule = new schedule.RecurrenceRule();
@@ -19,7 +21,7 @@ if(date.getDay() == 3){
 
     rule.dayOfWeek = 3;
     rule.hour = 18;
-    rule.minute = 0;
+    rule.minute = 4;
 
     var j = schedule.scheduleJob(rule, function(){
         
