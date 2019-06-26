@@ -29,7 +29,7 @@ const paths = {
 //   return del(['dist']);
 // }
 
-const htmls = () => {
+const pugtranspile = () => {
   return gulp.src([
     paths.htmls.src,
     '!src/views/common/_layouts/*.pug',
@@ -38,6 +38,10 @@ const htmls = () => {
     .pipe(pug({
       pretty: false,
     }))
+    .pipe(gulp.dest(paths.htmls.dest));
+}
+const htmls = () => {
+  return gulp.src('src/views/html_templates/*.html')
     .pipe(gulp.dest(paths.htmls.dest));
 }
 const styles = () => {
@@ -72,11 +76,11 @@ const pluginsJs = () => {
 const watch = () => {
   gulp.watch(paths.styles.srcWatch, styles);
   gulp.watch(paths.scripts.srcWatch, scripts);
-  gulp.watch('src/views/common/**/*.pug', htmls);
+  gulp.watch('src/views/**/*', htmls, pugtranspile);
 }
 
 
-const build = gulp.series(gulp.parallel(styles, scripts, htmls, watch));
+const build = gulp.series(gulp.parallel(styles, scripts, htmls, pugtranspile, watch));
 
 // exports.pluginsJs = pluginsJs;
 // exports.clean = clean;

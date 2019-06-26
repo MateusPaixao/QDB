@@ -1,0 +1,502 @@
+<!-- 12-11 -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-BR" class="_d-top">
+
+    <head>
+        <title><vtex.cmc:productPageTitle /></title>
+        <vtex:template id="00-0-QDB-Head"/>
+        
+        <link rel="stylesheet" href="/arquivos/QDBCommon-product.css"/>
+        <link rel="stylesheet" href="/arquivos/qdb-magnific-popup.css" />
+        <link rel="stylesheet" href="/arquivos/qdb-product.zoom.css" />
+        
+        <link rel="stylesheet" href="/arquivos/qdb-slick.css?v=1" />
+        
+        <script type="text/javascript" src="/arquivos/QDBCommon-Product.js"></script> 
+        <script type="text/javascript" src="/arquivos/qdb-jquery.magnific-popup.min.js"></script> 
+        <script type="text/javascript" src="/arquivos/qdb-product.zoom.js"></script> 
+        
+        <script type="text/javascript" src="/arquivos/vue.min.js"></script>
+        
+        <!-- temp -->
+        <style>
+            modal{
+                display: none;
+            }
+            .product-image .tags-product p.flag.batom-no-carrinho { display: none!important; }
+            
+            @media (max-width: 768px) {
+                .produto .section-product {
+                    padding-top: 0px!important;
+                }
+                .video-description iframe {
+                    width: 480px;
+                    height: 320px;
+                }
+            }
+            @media (max-width: 468px) {
+                .video-description iframe {
+                    width: 100%;
+                    height: 320px;
+                }
+            }
+            @media (max-width: 414px) {
+                .video-description iframe {
+                    width: 100%;
+                    height: 230px;
+                }
+            }
+            
+        </style>
+        
+        <vtex:contentPlaceHolder id="Flag mate"/>
+        
+    </head>
+
+    <body>
+    
+        <!-- modal de validade -->
+        <div id="vue-app" style="display:none;">
+            <modal>
+                <div slot="content">
+                    <div>
+                        <h3>PSIU!</h3>
+                        <div>
+                            <p>Este é um produto com validade até <strong>{{validade}}</strong>, tá?</p>
+                        </div>
+                    </div>
+                </div>
+            </modal>
+        </div>
+        <!-- ./ modal de validade -->
+        
+        <div class="wrapper">
+            <div class="cart" id="cart1" data-item="wish">
+               <!-- <vtex:template id="new-qdb-wishlist"/> -->
+            </div><!-- /#products1.products -->
+
+            
+            <div class="wrapper-inner">
+                <div class="container">
+                    <div class="container-group header-follder-page">
+                        <vtex:template id="00-0-QDB-Header" />
+                    </div><!-- /.container-group -->
+
+                    <div class="main">
+                        <div class="main-inner">
+                            <div class="shell"> 
+                                <div class="breadcrumbs">
+                                    <vtex.cmc:breadCrumb />
+                                </div><!-- /.breadcrumbs -->
+
+                                <section class="section-product">
+                                    <div class="product-details">
+                                        <header class="product-head">
+                                            <h1> <vtex.cmc:productName/> </h1>
+                                            <small>
+                                                Cód. do item: <vtex.cmc:skuReference/>
+                                            </small>
+                                            
+                                            <div class="product-rating">
+                                                <div id="yv-review-quickreview"></div> 
+                                            
+                                                <a class="trustvox-fluid-jump trustvox-widget-rating" href="#trustvox-reviews" title="Pergunte e veja opiniões de quem já comprou">
+                                                    <div class="trustvox-shelf-container" data-trustvox-product-code-js="dataLayer[0].productId" data-trustvox-should-skip-filter="true" data-trustvox-display-rate-schema="true"></div><span class="rating-click-here">Veja opinião de quem já comprou</span>
+                                                </a>
+                                            </div><!-- /.product-rating -->
+                                        </header><!-- /.product-head -->
+
+                                        <div class="product-image">
+                                        
+                                            <div class="hidden tags-product">
+                                                <vtex.cmc:HightLight/>
+                                            </div>
+                                        
+                                            <div class="section-gallery">
+                                                <div class="slider slider-product-image">
+                                                    <vtex.cmc:ProductImage />
+                                                </div><!-- /.slider -->
+                                            </div><!-- /.section-gallery -->
+                                        </div><!-- /.product-image -->
+
+                                        <div class="product-body">
+                                            <div class="slider-colors">
+                                                <vtex.cmc:skuSelection />
+                                                <div class="slider-actions">
+                                                    <a href="#" class="slider-prev">
+                                                        <i class="ico-next-sku"></i>
+                                                    </a>
+                                                    <a href="#" class="slider-next">
+                                                        <i class="ico-prev-sku"></i>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.slider-colors -->
+                                            
+                                            <div class="product-info">
+                                                <del class="product-preco-de">  </del>
+                                                <strong class="product-preco-por">  </strong>
+                                                <small class="product-parcelamento">  </small>
+
+                                                <span class="product-tag"> <i class="ico-star-blue-small"></i> 
+                                                    ou <span class="product-clube-pontos"> </span>
+                                                </span>
+                                    
+                                               <div class="product-buy-button">
+                                                   <vtex.cmc:BuyButton/>
+                                               </div><!-- /.product-buy-button -->
+                                    
+                                                <p>
+                                                    <like-button entity-id="" class="product-favorite toggle"> </like-button>
+                                                </p>
+                                            </div><!-- /.product-info -->
+
+                                            <div class="product-actions">
+                                                <a href="#" class="btn-black ajax-popup" id="product-cal-frete">
+                                                    <i class="ico-truck-white-small"></i>
+                                                    Calcular frete e prazo
+                                                </a><!-- /.btn-black ajax-popups -->
+                                                
+                                                <a href="/nossas-lojas" class="btn-black" id="product-entra-loja">
+                                                    <i class="ico-pointer-down"></i>
+                                                    Encontrar na loja
+                                                </a><!-- /.btn-blac -->
+                                            </div><!-- /.product-actions -->
+
+                                            <div class="product-banner">
+                                                <vtex:contentPlaceHolder id="Banner de Promoções" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <strong>Se joga nesse produto!</strong>
+                                    
+                                                <ul class="list-bullets">
+                                                    
+                                                </ul><!-- /.list-bullets -->
+                                    
+                                                <a href=".section-tabs" class="scroll">
+                                                    Ver todas as características
+                                                    <i class="ico-arrow-down"></i>
+                                                </a>
+                                            </div><!-- /.product-content -->
+
+                                            <div class="socials-secondary">
+                                                <p>Compartilhe este produto</p>
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" class="facebook">
+                                                            <i class="ico-facebook-secondary"></i>
+                                                        </a>
+                                                    </li>
+                                                    
+                                                    <li>
+                                                        <a href="#" class="twitter">
+                                                            <i class="ico-twitter-teritary"></i>
+                                                        </a>
+                                                    </li>
+                                                    
+                                                    <li>
+                                                        <a href="#" class="googleplus">
+                                                            <i class="ico-google-plus-secondary"></i>
+                                                        </a>
+                                                    </li>
+                                                    
+                                                    <li>
+                                                        <a href="#" class="pinterest">
+                                                            <i class="ico-pinterest-secondary"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div><!-- /.socials-secondary -->
+                                        </div><!-- /.product-body -->
+                                    </div><!-- /.product-details -->
+                                </section><!-- /.section-product -->
+                                
+                                <section class="section-tabs">
+                                    <div class="tabs">
+                                        <div class="tabs-head">
+                                            <nav class="tabs-nav">
+                                                <ul>
+                                                    <li class="current">
+                                                        <a href="tab1" class="toggle"> Descrição </a>
+                                                    </li>
+                                                    
+                                                    <li>
+                                                        <a href="tab2" class="toggle"> #ficadica </a>
+                                                    </li>
+                                                    
+                                                    <li>
+                                                        <a href="tab3" class="toggle"> Ficha técnica </a>
+                                                    </li>
+                                                    
+                                                    <li>
+                                                        <a href="tab4" class="toggle"> Precauções de uso </a>
+                                                    </li>
+                                                    
+                                                    <li>
+                                                        <a href="tab5" class="toggle avaliacoes"> Avaliações </a>
+                                                    </li>
+                                                </ul>
+                                            </nav><!-- /.tabs-nav -->
+                                        </div><!-- /.tabs-head -->
+                                        
+                                        <div class="tabs-body">
+                                            <div class="tab active" id="tab1">
+                                                <div class="tab-image">
+                                                    
+                                                </div><!-- /.tab-image -->
+
+                                                <div class="tab-content">
+                                                    <h3>Descrição</h3>
+                                                    <vtex.cmc:ProductDescription/>
+
+                                                    <h3>Modo de usar</h3>
+
+                                                    <div class="specification-modo-usar">
+                                                        <p> </p>
+                                                    </div><!-- /.modo-usar-specification -->
+                                                </div><!-- /.tab-content -->
+                                            </div><!-- /.tab -->
+
+                                            <div class="tab" id="tab2">
+                                                <p>  </p>
+                                            </div><!-- /.tab -->
+
+                                            <div class="tab" id="tab3">
+                                                
+                                            </div><!-- /.tab -->
+
+                                            <div class="tab" id="tab4">
+                                                <p> </p>                                                     
+                                            </div><!-- /.tab -->
+                                        </div><!-- /.tabs-body -->
+                                    </div><!-- /.tabs -->
+                                </section><!-- /.section-tabs -->    
+                                
+                                <!--VIDEO DESCRIPTION-->
+                                <section class="video-description" style="display:none;text-align:center;">
+                                </section>
+                                
+                                <section class="section-info">
+                                    <div class="cols">
+                                        <div class="col col-1of2">
+                                            <div class="section-entry">
+                                                <h3>Por que a gente ama <img src="http://qbbr.vteximg.com.br/arquivos/favicon.ico"/></h3>
+                                    
+                                                <ul class="list-hearts">
+                                                   
+                                                </ul><!-- /.list-hearts -->
+                                            </div><!-- /.section-entry -->
+                                        </div><!-- /.col col-1of2 -->
+                                        
+                                        <div class="col col-1of2">
+                                            <h3 class="section-title">O que as berês acham</h3>
+                                    
+                                            <div class="slider-entrys">
+                                                <div class="slider-clip">
+                                                    <ul class="slides owl-carousel">
+
+                                                    </ul><!-- /.slides -->
+                                                </div><!-- /.slider-clip -->
+                                            
+                                                <div class="slider-actions">
+                                                    <a href="#" class="slider-prev"></a>
+                                            
+                                                    <a href="#" class="slider-next"></a>
+                                                </div><!-- /.slider-actions -->
+                                            </div><!-- /.slider-entrys -->
+                                        </div><!-- /.col col-1of2 -->
+                                    </div><!-- /.cols -->
+                                </section><!-- /.section-info -->
+                                
+                                <section class="section-chaordic-top">
+                                    <div class="shell">
+                                        <div chaordic="top"></div>
+                                    </div><!-- /.shell -->
+                                </section><!-- /.section-chaordic -->
+                                
+                                <section class="section-chaordic-middle">
+                                    <div class="shell">
+                                        <div chaordic="middle"></div>
+                                    </div>
+                                </section><!-- /.section-chaordic -->
+                               
+                                <section class="section-chaordic-bottom">
+                                    <div class="shell">
+                                        <div chaordic="bottom"></div>
+                                    </div>
+                                </section><!-- /.section-chaordic -->
+                                
+                                <section class="section-rating">
+                                    <h2>Avaliações</h2>
+                                    
+                                    <div class="section-body">
+                                        <div id="yv-reviews"></div>
+                                    </div>
+
+                                    <div class="section-body">
+                                        <div class="yv-qa"></div>
+                                    </div>
+                                </section><!-- /.section-rating -->
+
+                                
+                                
+                            </div><!-- /.shell -->
+                        </div><!-- /.main-inner -->
+                        
+                        <div class="shell">
+                            <!-- Chaordic Bottom -->
+                            <div chaordic="bottom"></div> 
+                        </div>
+                        
+                    </div><!-- /.main -->
+
+                    <footer class="footer">
+                        <vtex:template id="00-0-QDB-Footer" />
+                    </footer><!-- /.footer -->
+                </div><!-- /.container -->
+            </div><!-- /.wrapper-inner -->
+        </div><!-- /.wrapper -->
+
+        <!-- /# Overlay calculo de cep #/ -->
+        <span class="overlay-cep"></span>
+
+        <!-- /# Calculo de cep modal #/-->
+        <div class="popup-steps" id="claculo-frete">
+            <div class="form-steps">
+                <form action="?" method="post">
+                    <div class="form-step current">
+                        <i class="ico-close-calc-cep"></i>
+                        <div class="form-head">
+                            <i class="ico-truck-secondary"></i>
+            
+                            <h3>Calcular frete e prazo</h3>
+                        </div><!-- /.form-head -->
+            
+                        <div class="form-body">
+                            <div class="form-inner">
+                                <div class="form-row">
+                                    <label for="field-cep" class="form-label">Informe o seu cep</label>
+                                    
+                                    <div class="form-controls">
+                                        <input type="text" class="field" name="field-cep" id="field-cep" value="" placeholder="digite aqui seu cep"/>
+                            
+                                        <input type="submit" value="calcular" class="btn btn-toggle"/>
+                                    </div><!-- /.form-controls -->
+                            
+                                    <a href=".form-inner-secondary" class="toggle">
+                                        <span>N</span>ão sei meu cep
+                                    </a>
+                                </div><!-- /.form-row -->
+                            </div><!-- /.popup-inner -->
+
+                            <div class="table-info">
+                                <table>
+                                    
+                                </table>
+                            </div><!-- /.table-info -->
+                        </div><!-- /.form-body -->
+                    </div><!-- /.form-step current -->
+                </form>
+            </div><!-- /.form-steps -->
+        </div><!-- /.popup popup-steps -->
+
+        <!-- /# Não sei meu cep modal #/-->
+        <div class="popup-steps" id="buscar-cep">
+            <div class="form-steps">
+                <form action="?" method="post">
+                    <div class="form-step current">            
+                        <div class="form-body">
+                            <div class="form-inner-secondary">
+                                <i class="ico-close-busca-cep"></i>
+                                <div class="form-group">
+                                    <i class="ico-question-black"></i>
+                                    <h3>Não sei meu cep</h3>
+                                    <div class="form-row">
+                                        <label for="field-endereco" class="form-label">endereço</label>
+                                        <div class="form-controls">
+                                            <input type="text" class="field" name="field-endereco" id="field-endereco" value="" placeholder="escreva aqui o endereço"/>
+                                        </div><!-- /.form-controls -->
+                                    </div><!-- /.form-row -->
+                                
+                                    <div class="form-row">
+                                        <label for="field-cidade" class="form-label">cidade</label>
+                                        <div class="form-controls">
+                                            <input type="text" class="field" name="field-cidade" id="field-cidade" value="" placeholder="digite aqui a cidade"/>
+                                        </div><!-- /.form-controls -->
+                                    </div><!-- /.form-row -->
+                                
+                                    <div class="form-row">
+                                        <label for="field-estado" class="form-label">estado</label>
+                                        <div class="cols">
+                                            <div class="col form-col-size1">
+                                                <div class="form-controls custom-select">
+                                                    <p class="custom-select-text">selecione</p><!-- /.custom-select-text -->
+                                                    <select name="field-estado" id="field-estado" class="select">
+                                                        <option value="ac">Acre</option> 
+                                                        <option value="al">Alagoas</option> 
+                                                        <option value="am">Amazonas</option> 
+                                                        <option value="ap">Amapá</option> 
+                                                        <option value="ba">Bahia</option> 
+                                                        <option value="ce">Ceará</option> 
+                                                        <option value="df">Distrito Federal</option> 
+                                                        <option value="es">Espírito Santo</option> 
+                                                        <option value="go">Goiás</option> 
+                                                        <option value="ma">Maranhão</option> 
+                                                        <option value="mt">Mato Grosso</option> 
+                                                        <option value="ms">Mato Grosso do Sul</option> 
+                                                        <option value="mg">Minas Gerais</option> 
+                                                        <option value="pa">Pará</option> 
+                                                        <option value="pb">Paraíba</option> 
+                                                        <option value="pr">Paraná</option> 
+                                                        <option value="pe">Pernambuco</option> 
+                                                        <option value="pi">Piauí</option> 
+                                                        <option value="rj">Rio de Janeiro</option> 
+                                                        <option value="rn">Rio Grande do Norte</option> 
+                                                        <option value="ro">Rondônia</option> 
+                                                        <option value="rs">Rio Grande do Sul</option> 
+                                                        <option value="rr">Roraima</option> 
+                                                        <option value="sc">Santa Catarina</option> 
+                                                        <option value="se">Sergipe</option> 
+                                                        <option value="sp">São Paulo</option> 
+                                                        <option value="to">Tocantins</option> 
+                                                    </select>
+                                                </div><!-- /.form-controls -->
+                                            </div><!-- /.col form-col-size1 -->
+                                            
+                                            <div class="col form-col-size1">
+                                                <a href=".form-inner-secondary" class="btn toggle">pesquisar</a>
+                                            </div><!-- /.col form-col-size1 -->
+                                        </div><!-- /.cols -->
+                                    </div><!-- /.form-row -->
+                                </div><!-- /.form-group -->
+                            </div><!-- /.form-inner-secondary -->
+                        </div><!-- /.form-body -->
+                    </div><!-- /.form-step current -->
+                </form>
+            </div><!-- /.form-steps -->
+        </div><!-- /.popup popup-steps -->
+        
+        <!-- /# Esconde controles padroes da vtex para serem manipilados #/-->
+        <div class="hidden">
+            <vtex.cmc:skuPrice/>
+            <vtex.cmc:productSpecification/>
+            <vtex.cmc:evaluationRate/>
+            
+            <div class="vtex-image hidden">
+                <vtex.cmc:ProductImage />
+                <vtex.cmc:ProductGifts />
+                <vtex.cmc:HightLight/>
+                <vtex.cmc:discountHightLight/>
+            </div>
+        </div><!-- /.hidden -->
+        
+        <vtex:contentPlaceHolder id="PopUp Message + Scripts"/>
+        
+        <script type="text/javascript" src="/arquivos/qdb-jquery.cookie.js"></script> 
+        <script type="text/javascript" src="/arquivos/qdb-gtx.js"></script> 
+        
+        <style>
+            .breadcrumbs {padding-top: 20px !important;}
+        </style>
+    </body>
+</html>
