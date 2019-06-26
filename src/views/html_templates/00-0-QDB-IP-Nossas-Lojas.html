@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-BR" ng-app="NossasLojas" class="_d-top">
+
+    <head>
+        <title>Nossas Lojas</title>
+        <meta name="description" content="Encontre a loja da quem disse, berenice? mais perto de você ou compre online" />
+        <vtex:metaTags />
+        <vtex:template id="00-0-QDB-Head"/>
+        <script type="text/javascript" src="/arquivos/new_qdb_functions.js"></script>
+        
+        <!-- Savana JS -->
+        <link href="/arquivos/animate.min.css" rel="stylesheet" />
+        <link href="/arquivos/savana.css" rel="stylesheet" />
+        <link href="/arquivos/nossas-lojas.css?v=29-04-2019" rel="stylesheet" />
+        <link href="/arquivos/new_qdb_magnific-popup.css" rel="stylesheet" />
+        
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYMKYcZr5kcGEeoZ_V6vlE-FyA43Oc7p4"></script>
+        <script type="text/javascript" src="/arquivos/new_qdb_markerclusterer.js"></script>
+        <script type="text/javascript" src="/arquivos/new_qdb_infobox.js"></script>
+        <script type="text/javascript" src="/arquivos/new_qdb_jquery.magnific-popup.min.js"></script>
+        
+        <script src="/arquivos/new_qdb_nossaslojas-functions.js"></script>
+        <script type="text/javascript" src="/arquivos/savana.min.js"></script>
+        <script type="text/javascript" src="/arquivos/angular.min.js"></script>
+        <script type="text/javascript" src="/arquivos/appNossasLojas.js"></script>
+        <script type="text/javascript" src="/arquivos/masterdataAPIService.js"></script>
+        <script type="text/javascript" src="/arquivos/storeService.js"></script>
+        <script type="text/javascript" src="/arquivos/controllerNossaslojas.js?v=29-04-2019-2"></script>
+        <style> 
+              .subscribe .subscribe-btn {
+                float: none;
+              }
+            .animated{
+                max-height: auto;
+                overflow: hidden;
+                transition: all 1s;
+                -moz-transition: all 1s;
+                -webkit-transition: all 1s;
+            }
+            .animated.ng-hide{
+                opacity: 0;
+                max-height: 0px!important;
+                display: block!important;
+            }
+    </style>
+    </head>
+
+    <body ng-controller="nossasLojasCtrl">
+        <div class="wrapper" ng-cloak="ng-cloak">
+          
+            <div class="wrapper-inner">
+                <div class="container">
+                    <div class="container-group">
+                        <vtex:template id="00-0-QDB-Header" />
+                    </div><!-- /.container-group -->
+
+                    <div class="slider">
+                        <div class="slider-clip ">
+                            <div class="slides owl-carousel">
+                                <vtex:contentPlaceHolder id="new-qdb-slider"/>
+                            </div><!-- /.slides owl-carousel -->
+                        </div><!-- /.slider-clip -->
+
+                        <div class="slider-actions">
+                            <div class="shell">
+                                <a href="#" class="slider-prev"></a>
+                                <a href="#" class="slider-next"></a>
+                            </div><!-- /.shell -->
+                        </div><!-- /.slider-actions -->
+                    </div><!-- /.slider -->
+
+                   <div class="main">
+                    <div class="breadcrumbs">
+                        <div class="shell">
+                            <a href="#">página inicial</a>
+                                        
+                            <span>&gt;</span> 
+                                        
+                            <a href="#" class="current">nossas lojas</a>
+                        </div><!-- /.shell -->
+                    </div>
+            
+                    <section class="section-form">
+                        <header class="section-head">
+                            <h3>
+                                <i class="ico-shop"></i>
+            
+                                Nossas Lojas {{title}}
+                            </h3>
+                        </header><!-- /.section-head -->
+            
+                        <div class="section-body fix-bg">
+                            <div class="shell">
+                                <img src="/arquivos/nossas-lojas-bg.jpg" height="480" width="1920" alt="" class="background" />
+                            
+                                <div class="form-locations">
+                                    <form action="?" method="post">
+                                        <div class="form-content">
+                                            <strong>escolha uma loja</strong>
+                            
+                                            <div class="form-row">
+                                                <div class="cols">
+                                                    <div ng-show="states.length > 0" class="col col-1of2 animated">
+                                                        <label for="field-select1" class="form-label hidden">select1</label>
+                                                        
+                                                        <div class="form-controls custom-select">
+                                                            <p class="custom-select-text">{{name_state_current}}</p><!-- /.custom-select-text -->                                   
+                                                            <select ng-change="getCitiesByUF(state)" ng-model="state.name_state" name="name_state" id="name_state" class="select">
+                                                                <option ng-bind="state.estado" ng-repeat="state in states | orderBy:'estado':false" value="{{state.uf | uppercase}}"></option>                                              
+                                                            </select>
+                                                        </div><!-- /.form-controls -->
+                                                    </div><!-- /.col col-1of2 -->
+                                                    
+                                                    <div class="col col-1of2 animated">
+                                                        <label for="field-select2" class="form-label hidden">select2</label>
+                                                        
+                                                        <div class="form-controls custom-select">
+                                                            <p class="custom-select-text">{{name_city_current}}</p><!-- /.custom-select-text -->
+                                                            
+                                                            <select ng-disabled="!state.name_state" ng-change="triggerGetStoresByCity(city)" ng-model="city.name_city" name="name_city" id="name_city" class="select">
+                                                                <option ng-bind="city.cidade" ng-repeat="city in cities | orderBy:'cidade':false" value="{{city.cidade}}"></option>
+                                                            </select>
+                                                        </div><!-- /.form-controls -->
+                                                    </div><!-- /.col col-1of2 -->
+                                                </div><!-- /.cols -->
+                                            </div><!-- /.form-row -->
+                            
+                                            <!--<strong>ou</strong>-->
+                                        </div><!-- /.form-content -->
+                                        
+                                        <!--<div class="form-actions">-->
+                                        <!--    <button ng-click="getGEO($event)" type="submit" value="Submit" class="form-btn btn">-->
+                                        <!--        encontre a loja mais perto de você-->
+                            
+                                        <!--        <i class="ico-gps"></i>-->
+                                        <!--    </button>-->
+                                        <!-- </div> /.form-actions -->
+                                    </form>
+                                </div><!-- /.form-locations -->
+                            </div><!-- /.shell -->
+                        </div><!-- /.section-body -->
+                    </section><!-- /.section-form -->
+            
+                    <section class="section-map">
+                        <header class="section-head">
+                            <div class="shell">
+            
+                                <h4 ng-hide="count > 0">são {{total_stores}} loja(s) no Brasil</h4>
+                                <h4 ng-if="count" ng-show="name_state_current">são {{count}} loja(s) no estado {{name_state_current}} foram encontradas</h4>
+                                <h4 ng-if="count" ng-show="name_city_current">são {{count}} loja(s) na cidade {{name_city_current}} foram encontradas</h4>
+            
+                                <ul ng-hide="msgerror" class="tabs-nav-secondary">
+                                    <li class="current">
+                                        <a href="#tab2" class="toggle" data-close-siblings="true">
+                                            lista
+                            
+                                            <i class="ico-dashes"></i>
+                                        </a>
+                                    </li>
+                                    
+                                    <!--<li>-->
+                                    <!--    <a href="#tab1" class="toggle" data-close-siblings="true">-->
+                                    <!--        mapa-->
+                            
+                                    <!--        <i class="ico-map"></i>-->
+                                    <!--    </a>-->
+                                    <!--</li>-->
+                                </ul><!-- /.tabs-nav -->
+                                <div style="clear:both"></div>
+                                
+                            </div><!-- /.shell -->
+                        </header><!-- /.section-head -->
+            
+                        <div class="section-body">
+                            
+                            <div class="shell">
+                                <div ng-show="msgerror" class="alert-box error"><span ng-bind="msgerror"></span></div>
+                            </div>
+             
+                            <div ng-show="storeslist.length" class="tab shell animated" id="tab1">
+                                <div class="gmap-container">
+                                    <div id="map1" class="gmap" data-mapdata="mapdata.json"></div><!-- /#map1 -->
+                                </div><!-- /.gmap-container -->
+                            </div><!-- /#tab1.tab -->
+            
+                            <div ng-show="storeslist.length" class="tab active" id="tab2">
+                                <div class="shell">
+                                    <ul ng-show="storeslist.length" class="locations shell animated">
+                                        <li ng-repeat="store in storeslist | orderBy:nome:false" class="location">
+                                            <!--<div class="location-map" id="container-1">-->
+                                            <!--    <div class="gmap-container">-->
+                                            <!--        <div class="gmap" id="map{{$index + 2}}" data-center='{"lat": {{store.lat}}, "lng": {{store.lng}}}'></div> /#map2.gmap -->
+                                            <!--    </div>/.gmap-container -->
+                                            <!--</div>  /.location-map -->
+                                            
+                                            <div class="location-content">
+                                                <h4>{{store.nome}}</h4>
+                                                
+                                                <strong>endereço</strong>
+                                                
+                                                <p>
+                                                    {{store.endereco}}, {{store.numero}}<br />
+                                                    {{store.estado}} - {{store.uf}}<br />
+                                
+                                                    <span>
+                                                        <a href="tel:1151812005">
+                                                            <i class="ico-phone-black"></i>
+            
+                                                            <em>Telefone:</em>
+            
+                                                            {{store.telefone}}
+                                                        </a>
+                                                        <br/>
+                                                        <a href="https://www.google.com/maps/search/?api=1&amp;query={{store.lat}},{{store.lng}}" target="_blank" class="btn">
+                                                            <i class="ico-pointer-down-black"></i>
+            
+                                                            Ver Localização
+                                                        </a>
+                                                    </span>
+                                                </p>
+                                                
+                                                <strong ng-if="store.atendimento">atendimento</strong>
+                                                
+                                                <ul class="list-schedule">
+                                                    <li ng-bind-html="atendimento.horario" ng-repeat="atendimento in store.atendimento track by $index"></li>                                   
+                                                </ul><!-- /.list-schedule -->
+            
+                                                <!-- Btn vejamais -->
+            
+                                            </div><!-- /.location-content -->
+                                        </li><!-- /.location -->
+                                    </ul><!-- /.locations -->
+                                    <center class="subscribe pagination">
+                                       <button ng-click="getStoresByPagination()" value="enviar" class="subscribe-btn">Veja mais lojas</button>
+                                    </center>
+                                </div><!-- /.shell -->
+                            </div><!-- /#tab2.tab -->
+                        </div><!-- /.section-body -->
+                    </section><!-- /.section-map -->
+                </div><!-- /.main -->
+
+                    <footer class="footer">
+                        <vtex:template id="00-0-QDB-Footer" />
+                    </footer><!-- /.footer -->
+                </div><!-- /.container -->
+            </div><!-- /.wrapper-inner -->
+        </div><!-- /.wrapper -->
+    </body>
+</html>
