@@ -13,5 +13,4 @@ pipelines:
           name: Deploy
           script:
             - npm install
-            - gulp
             - node node-tasks.js
