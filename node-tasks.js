@@ -15,13 +15,13 @@ var curday = function(sp){
 console.log(dd);
 console.log(date.getHours());
 // CREATE BACKUP FILES
-if(date.getDay() == 3){
+if(date.getDay() == 5){
     var rule = new schedule.RecurrenceRule();
     var dir = "backup";
 
-    rule.dayOfWeek = 3;
-    rule.hour = 18;
-    rule.minute = 4;
+    rule.dayOfWeek = 5;
+    rule.hour = 23;
+    rule.minute = 0;
 
     var j = schedule.scheduleJob(rule, function(){
         
