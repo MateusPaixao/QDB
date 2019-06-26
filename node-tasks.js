@@ -18,8 +18,8 @@ if(date.getDay() == 3){
     var dir = "backup";
 
     rule.dayOfWeek = 3;
-    rule.hour = 17;
-    rule.minute = 40;
+    rule.hour = 18;
+    rule.minute = 0;
 
     var j = schedule.scheduleJob(rule, function(){
         
