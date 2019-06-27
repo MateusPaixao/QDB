@@ -1,0 +1,18 @@
+.shelve-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    &--title{
+        color: rgb(161, 0, 0);
+        margin-bottom: 10px;
+    }
+    .carousel-list{
+        .carousel-products{
+            .carousel-item{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}
