@@ -1651,6 +1651,11 @@ body.nm-noscroll{
 // }
 
 html{
+  ._header-search-bar{
+    form{
+      display: flex;
+    }
+  }
   ._header-main-wrapper{
     z-index: 10;
     @include mq('768px', max){
@@ -1741,6 +1746,7 @@ html{
       input.search-btn{
         background: url("/arquivos/Search.svg.png") center center no-repeat !important;
         background-color: #686162;
+        visibility: visible;
         @include mq('1149px', max){
           border-bottom: 1px solid #fdfdfd;
         }
