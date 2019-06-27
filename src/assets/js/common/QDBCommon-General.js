@@ -1375,49 +1375,49 @@ function setHeader() {
   }
 }
 // ---------- SCROLL TO POSITION
-function scrollIt(destination) {
+window.scrollIt = function(destination) {
     var duration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 200;
     var easing = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'linear';
     var callback = arguments.length > 3 ? arguments[3] : undefined;
     var easings = {
-      linear: function linear(t) {
-        return t;
+      linear: function linear(time) {
+        return time;
       },
-      easeInQuad: function easeInQuad(t) {
-        return t * t;
+      easeInQuad: function easeInQuad(time) {
+        return time * time;
       },
-      easeOutQuad: function easeOutQuad(t) {
-        return t * (2 - t);
+      easeOutQuad: function easeOutQuad(time) {
+        return time * (2 - time);
       },
-      easeInOutQuad: function easeInOutQuad(t) {
-        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+      easeInOutQuad: function easeInOutQuad(time) {
+        return time < 0.5 ? 2 * time * time : -1 + (4 - 2 * time) * time;
       },
-      easeInCubic: function easeInCubic(t) {
-        return t * t * t;
+      easeInCubic: function easeInCubic(time) {
+        return time * time * time;
       },
-      easeOutCubic: function easeOutCubic(t) {
-        return --t * t * t + 1;
+      easeOutCubic: function easeOutCubic(time) {
+        return --time * time * time + 1;
       },
-      easeInOutCubic: function easeInOutCubic(t) {
-        return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+      easeInOutCubic: function easeInOutCubic(time) {
+        return time < 0.5 ? 4 * time * time * time : (time - 1) * (2 * time - 2) * (2 * time - 2) + 1;
       },
-      easeInQuart: function easeInQuart(t) {
-        return t * t * t * t;
+      easeInQuart: function easeInQuart(time) {
+        return time * time * time * time;
       },
-      easeOutQuart: function easeOutQuart(t) {
-        return 1 - --t * t * t * t;
+      easeOutQuart: function easeOutQuart(time) {
+        return 1 - --time * time * time * time;
       },
-      easeInOutQuart: function easeInOutQuart(t) {
-        return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * --t * t * t * t;
+      easeInOutQuart: function easeInOutQuart(time) {
+        return time < 0.5 ? 8 * time * time * time * time : 1 - 8 * --time * time * time * time;
       },
-      easeInQuint: function easeInQuint(t) {
-        return t * t * t * t * t;
+      easeInQuint: function easeInQuint(time) {
+        return time * time * time * time * time;
       },
-      easeOutQuint: function easeOutQuint(t) {
-        return 1 + --t * t * t * t * t;
+      easeOutQuint: function easeOutQuint(time) {
+        return 1 + --time * time * time * time * time;
       },
-      easeInOutQuint: function easeInOutQuint(t) {
-        return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * --t * t * t * t * t;
+      easeInOutQuint: function easeInOutQuint(time) {
+        return time < 0.5 ? 16 * time * time * time * time * time : 1 + 16 * --time * time * time * time * time;
       }
     };
     var start = window.pageYOffset;
