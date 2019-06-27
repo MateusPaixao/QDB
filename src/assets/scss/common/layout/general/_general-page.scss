@@ -1651,6 +1651,11 @@ body.nm-noscroll{
 // }
 
 html{
+  ._header-search-bar{
+    form{
+      display: flex;
+    }
+  }
   ._header-main-wrapper{
     z-index: 10;
     @include mq('768px', max){
@@ -1741,6 +1746,7 @@ html{
       input.search-btn{
         background: url("/arquivos/Search.svg.png") center center no-repeat !important;
         background-color: #686162;
+        visibility: visible;
         @include mq('1149px', max){
           border-bottom: 1px solid #fdfdfd;
         }
@@ -1802,4 +1808,28 @@ html{
 }
 .hidden{
   display: none;
+}
+.top-banner{
+	display: flex !important;
+	text-decoration: none;
+	color: #f8f8f8;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	background-color: #B43A38;
+	padding: 0;
+	margin: 0;
+	&:hover{
+		filter: brightness(110%);
+	}
+	&--content{
+    font-size: 1.5em;
+    font-weight: normal;
+    text-transform: capitalize;
+    margin-top: 5px;
+    margin-bottom: 5px;
+	}
+}
+.slick-vertical .slick-slide{
+  border: none !important;
 }
