@@ -1449,7 +1449,7 @@ window.scrollIt = function(destination) {
         }
   
         return;
-      }
+      } 
   
       requestAnimationFrame(scroll);
     }
