@@ -18,7 +18,6 @@ ul{
 .category-filter-null{
 	display: none !important;
 }
-
 /* ------------------------------------------------------------ *\
 	#Thumbs produto
 \* ------------------------------------------------------------ */
@@ -906,4 +905,11 @@ ul{
 	.wrapper #cart3 {
 		top: 0;
 	}
+}
+@media only screen and (max-width: 320px){
+	.nav-quaternary.nav-black ul li h2{
+		font-size: 11px !important;
+		margin-left: 20px;
+	}
+
 }
