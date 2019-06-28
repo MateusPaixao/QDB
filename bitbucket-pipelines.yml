@@ -1,16 +1,16 @@
 image: node:10.15.0
   
 pipelines:
-  # default:
-  #   - step:
-  #       name: Build and test
-  #       script:
-  #         - npm install
-  #         - node node-tasks.js
-  branches:
+  default:
+    - step:
+        name: Build and test
+        script:
+          - npm install
+          - node node-tasks.js
+  backup:
     master:
       - step:
-          name: Deploy
+          name: Create Backup
           script:
             - npm install
             - node node-tasks.js

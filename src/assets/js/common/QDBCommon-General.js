@@ -1470,6 +1470,16 @@ $('body').on({
     }
 });
 
+window.removeInvalidChars = function(input) {
+    let str = document.querySelectorAll(input);
+    this.console.log(str);
+    for(i = 0; i < str; i++){
+        str = str.value;
+
+        str = str.replace(new RegExp(ranges.join('|'), 'g'), '');
+    }
+}
+
 var GetCookie = function(name){
     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
     if (match) return match[2];
