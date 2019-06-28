@@ -1472,10 +1472,9 @@ $('body').on({
 
 window.removeInvalidChars = function(input) {
     let str = document.querySelectorAll(input);
-    this.console.log(str);
     for(i = 0; i < str; i++){
         str = str.value;
-
+        console.log(str);
         str = str.replace(new RegExp(ranges.join('|'), 'g'), '');
     }
 }

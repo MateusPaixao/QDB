@@ -6,9 +6,9 @@ pipelines:
         name: Build and test
         script:
           - npm install
-          - node node-tasks.js
-  backup:
-    master:
+          - npm test
+  branches:
+    backup:
       - step:
           name: Create Backup
           script:
