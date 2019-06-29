@@ -1243,7 +1243,7 @@ function CopyText(btn, txt){
 }
 // FIM CONTADOR
 //------------------ GET ELEMENT FROM ATRIBUTE
-function getAllElementsWithAttribute(attribute) {
+window.getAllElementsWithAttribute = function(attribute) {
     var matchingElements = [];
     var allElements = document.getElementsByTagName('*');
 
@@ -1257,9 +1257,9 @@ function getAllElementsWithAttribute(attribute) {
     return matchingElements;
 }  
 //------------- VIEWPORT ELEMENT
-var isInViewport = function isInViewport(elem) {
-  var bounding = elem.getBoundingClientRect();
-  return bounding.top >= 0 && bounding.left >= 0 && bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) && bounding.right <= (window.innerWidth || document.documentElement.clientWidth);
+window.isInViewport = function(elem) {
+    var bounding = elem.getBoundingClientRect();
+    return bounding.top >= 0 && bounding.left >= 0 && bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) && bounding.right <= (window.innerWidth || document.documentElement.clientWidth);
 };
 // ------------- DETECT SAFARI
 // var isSafari = /^((?!chrome|android|crios|fxios).)*safari/i.test(navigator.userAgent);
@@ -1286,24 +1286,34 @@ var BrowserVendor = "";
     }
 })();
 // ------------- SET VITRINE IMG
-var setVitrineDataImg = function(){
-    document.querySelectorAll(".imgsrc").forEach(function(img){
-        if(isInViewport(img)){
-            var imgSource = img.innerHTML;
-            if(BrowserVendor == 'safari/webkit'){
-                var imgSrc = imgSource.substring(
-                    imgSource.lastIndexOf('src="') + 5, 
-                    imgSource.lastIndexOf('?v=')
-                );
-                console.log(imgSrc);
-                img.nextSibling.nextSibling.setAttribute('data-img', imgSrc);
-            }else{
-                var RegexSrc = imgSource.match(/\<img.+src\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/);
-                img.nextSibling.nextSibling.setAttribute('data-img', RegexSrc[1]);
-                img.nextSibling.nextSibling.alt = imgSource.match(/\<img.+alt\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/)[1]
-            }
+window.setVitrineDataImg = function(){
+    if(BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
+        for(var i = 0; i < document.querySelectorAll(".imgsrc").length; i++){
+            var imgSource = document.querySelectorAll(".imgsrc")[i].innerHTML;
+            var imgSrc = imgSource.substring(
+                        imgSource.lastIndexOf('src="') + 5, 
+                        imgSource.lastIndexOf('?v=')
+                    );
+            document.querySelectorAll(".imgsrc")[i].nextSibling.nextSibling.setAttribute('data-img', imgSrc);
         }
-    });
+    }else{
+        document.querySelectorAll(".imgsrc").forEach(function(img){
+            if(isInViewport(img)){
+                var imgSource = img.innerHTML;
+                if(BrowserVendor == 'safari/webkit'){
+                    var imgSrc = imgSource.substring(
+                        imgSource.lastIndexOf('src="') + 5, 
+                        imgSource.lastIndexOf('?v=')
+                    );
+                    img.nextSibling.nextSibling.setAttribute('data-img', imgSrc);
+                }else{
+                    var RegexSrc = imgSource.match(/\<img.+src\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/);
+                    img.nextSibling.nextSibling.setAttribute('data-img', RegexSrc[1]);
+                    img.nextSibling.nextSibling.alt = imgSource.match(/\<img.+alt\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/)[1]
+                }
+            }
+        });
+    }
 }
 // -------------- DETECT DOMISREADY
 var domIsReady = (function(domIsReady) {
@@ -1333,22 +1343,29 @@ var domIsReady = (function(domIsReady) {
 })(domIsReady || {});
 
 // ------------- LOAD IMG ON SCROLL
-function loadImg() {
+window.loadImg = function() {
     setVitrineDataImg();
     var imginview = getAllElementsWithAttribute('data-img');
-    imginview.forEach(function (img) {
-      if (isInViewport(img)) {
-        // if(img.src == ""){
-        img.src = img.dataset.img; // }
-      }
-    });
-  };
-  $(".slick-arrow").on("click", function(){
+    if(BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
+        for(var i=0; i < imginview.length; i++){
+              imginview[i].src = imginview[i].dataset.img;
+          }
+    }else{
+        imginview.forEach(function (img) {
+          if (isInViewport(img)) {
+            // if(img.src == ""){
+            img.src = img.dataset.img; // }
+          }
+        });
+    }
+};
+
+$(".slick-arrow").on("click", function(){
     loadImg();
-  });
-  window.onmousemove = function () {
+});
+window.onmousemove = function () {
     loadImg();
-  };
+};
 // ----------- HEADER POSITION
 var prevScrollpos = 0;
 function setHeader() {
@@ -1479,19 +1496,19 @@ window.removeInvalidChars = function(input) {
     }
 }
 
-var GetCookie = function(name){
+window.GetCookie = function(name){
     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
     if (match) return match[2];
 }
 $(document).ready(function(){
     loadImg(); // adicionado para carregar no load as imagens iniciais
-    if(BrowserVendor == 'safari/webkit'){
+    if(BrowserVendor == 'safari/webkit' || BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
         setVitrineDataImg();
+        console.log("Set OnLoad IE / Safari");
         var imginview = getAllElementsWithAttribute('data-img');
-        imginview.forEach(function (img) {
-            img.src = img.dataset.img;
-            console.log(img.src);
-        });
+        for(i = 0; i <= imginview.length; i++){
+            imginview[i].src = imginview[i].dataset.img;
+        }
     }
 
     var day = new Date().getDate();
