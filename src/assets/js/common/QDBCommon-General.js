@@ -1348,8 +1348,15 @@ window.loadImg = function() {
     var imginview = getAllElementsWithAttribute('data-img');
     if(BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
         for(var i=0; i < imginview.length; i++){
-              imginview[i].src = imginview[i].dataset.img;
-          }
+            imginview[i].src = imginview[i].dataset.img;
+        }
+        var ievitrineimg = document.querySelectorAll(".product .product-image img");
+        for(var i=0; i < ievitrineimg.length; i++){
+            ievitrineimg[i].style.left = 0;
+            ievitrineimg[i].style.position = "relative";
+            ievitrineimg[i].style.transform = "none";
+            document.querySelectorAll(".product p, .product .product-content h2, .product .product-content h3")[i].style.height = "initial";
+        }
     }else{
         imginview.forEach(function (img) {
           if (isInViewport(img)) {
@@ -1514,8 +1521,9 @@ $(document).ready(function(){
     var day = new Date().getDate();
     if (document.querySelector(".counter") || document.querySelector(".topbanner")) {
         switch (day) {
-            case 24:
-                setTopBanner("after", "Jun 24, 2019 00:00:00", "Jun 28, 2019 23:59:59", ['Itens com até 60% de desconto*'], "#B43A38", false, "https://www.quemdisseberenice.com.br/busca/?fq=H:789");
+            case 1:
+                setTopBanner("after", "Jul 1, 2019 00:00:00", "Jul 1, 2019 12:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:139');
+                cronometro("after", "Jul 1, 2019 14:00:00", "Jul 1, 2019 17:59:59", false, "Itens com 70% de desconto*", "#df5d4d", "https://www.quemdisseberenice.com.br/busca/?fq=H:805");
                 break;
             case 25:
                 setTopBanner("after", "Jun 24, 2019 00:00:00", "Jun 28, 2019 23:59:59", ['Itens com até 60% de desconto*'], "#B43A38", false, "https://www.quemdisseberenice.com.br/busca/?fq=H:789");
