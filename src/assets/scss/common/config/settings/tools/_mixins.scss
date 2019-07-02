@@ -2,16 +2,41 @@
  * Media Queries
  * Mobile first
  */
-$l-device: 1199px;
-$m-b-device: 991px;
-$m-device: 767px;
-$s-device: 575px;
-$mobile: 400px;
 
 @mixin d($width, $type: max) {
     @if $type == max {
         @media only screen and (#{$type}-width: $width) {
             @content;
+        }
+        @if $width == l {
+            @media screen and (min-width: #{$l-device}) {
+                @content;
+            }
+        }
+        @else if $width == mb {
+            @media screen and (min-width: #{$m-b-device}) and (max-width: #{$l-device}) {
+              @content;
+            }
+        }
+        @else if $width == m {
+            @media screen and (min-width: #{$m-device}) and (max-width: #{$m-b-device}) {
+              @content;
+            }
+        }
+        @else if $width == s {
+            @media screen and (min-width: #{$s-device}) and (max-width: #{$m-device}) {
+              @content;
+            }
+        }
+        @else if $width == xs {
+            @media screen and (max-width: #{$s-device}) {
+              @content;
+            }
+        }
+        @else if $width == mobile {
+            @media screen and (max-width: #{$mobile}) {
+              @content;
+            }
         }
     }
     @else{
@@ -22,7 +47,30 @@ $mobile: 400px;
 }
 
 /**
- * Font Weight
+ * Animation
+*/
+@mixin animation($nome: false, $duracao: false, $count: false, $timing: false){
+    @if $nome {-webkit-animation-name: $nome;}
+    @if $duracao {-webkit-animation-duration: $duracao;}
+    @if $count {-webkit-animation-iteration-count: $count;}
+    @if $timing {-webkit-animation-timing-function: $timing;}
+    @if $nome {-moz-animation-name: $nome;}
+    @if $duracao {-moz-animation-duration: $duracao;}
+    @if $count {-moz-animation-iteration-count: $count;}
+    @if $timing {-moz-animation-timing-function: $timing;}
+    @if $nome {-ms-animation-name: $nome;}
+    @if $duracao {-ms-animation-duration: $duracao;}
+    @if $count {-ms-animation-iteration-count: $count;}
+    @if $timing {-ms-animation-timing-function: $timing;}
+    
+    animation-name: $nome;
+    animation-duration: $duracao;
+    animation-iteration-count: $count;
+    animation-timing-function: $timing;
+}
+
+/**
+ * Font
  */
 @mixin font-weight($weight) {
     $output: $weight;
@@ -33,19 +81,22 @@ $mobile: 400px;
 
     font-weight: $output;
 }
-
+@mixin sans($size: false, $colour: false, $weight: false,  $lh: false) {
+    // font-family: "Centrale";
+    @if $weight == 400{
+      font-family: "CentraleSans-Regular";
+    }
+    @else if $weight == 900{
+      font-family: "CentraleSans-Bold";
+    }
+    @if $weight { font-weight: $weight; }
+    @if $size { font-size: $size; }
+    @if $colour { color: $colour; }
+    @if $lh { line-height: $lh; }
+}
 /**
  * Common Helpers
  */
-@mixin container($padding-left: 16px, $padding-right: 16px) {
-    margin-left: auto;
-    margin-right: auto;
-    @include rem(padding-left, $padding-left);
-    @include rem(padding-right, $padding-right);
-    width: 100%;
-    max-width: $container-width;
-}
-
 @mixin smooth-shown {
     opacity: 0;
     visibility: hidden;
