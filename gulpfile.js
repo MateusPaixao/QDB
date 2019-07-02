@@ -30,13 +30,8 @@ const paths = {
     srcWatch: 'src/assets/**/*.js',
   },
   htmls: {
-<<<<<<< HEAD
-    src: 'src/views/common/**/*.pug',
-    dest: './dist/views/html_templates',
-=======
     src: 'src/views/common/*/*.pug',
     dest: './dist/views/html',
->>>>>>> 8cc47cd00299985d811a5d73832c126d4470652f
   }
 };
 
