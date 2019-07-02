@@ -20,6 +20,7 @@
     "@babel/polyfill": "^7.4.4",
     "babel-eslint": "^10.0.1",
     "browser-sync": "^2.23.6",
+    "browsersync": "0.0.1-security",
     "del": "^4.1.1",
     "fs": "0.0.1-security",
     "gulp": "^4.0.0",

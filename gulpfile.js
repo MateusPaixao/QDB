@@ -1,12 +1,22 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass');
+//------------------------------ Config ----------------------------------
+const storeName = 'qbbr';
+
+const bases = {
+    src: './src',
+    build: './dist/vtex_speed'
+}
+
+//----------------------------- Modules ---------------------------------
 const autoprefixer = require('gulp-autoprefixer');
 const babel = require('gulp-babel');
-const uglify = require('gulp-uglify');
-// const del = require('del');
-const browserify = require('gulp-browserify');
 const babelify = require('babelify');
+const browserify = require('gulp-browserify');
+const browserSync   = require('browser-sync').create();
+// const del = require('del');
+const gulp = require('gulp');
 const pug = require('gulp-pug');
+const sass = require('gulp-sass');
+const uglify = require('gulp-uglify');
 
 const paths = {
   styles: {
@@ -21,10 +31,11 @@ const paths = {
   },
   htmls: {
     src: 'src/views/common/**/*.pug',
-    dest: './dist/views/html',
+    dest: './dist/views/html_templates',
   }
 };
 
+//---------------------------- Development -------------------------------
 // const clean = () => {
 //   return del(['dist']);
 // }
@@ -41,7 +52,7 @@ const pugtranspile = () => {
     .pipe(gulp.dest(paths.htmls.dest));
 }
 const htmls = () => {
-  return gulp.src('src/views/html_templates/*.html')
+  return gulp.src('src/views/html/*.html')
     .pipe(gulp.dest(paths.htmls.dest));
 }
 const styles = () => {
@@ -51,7 +62,8 @@ const styles = () => {
       browsers: ['last 10 versions'],
       cascade: false,
     }))
-    .pipe(gulp.dest(paths.styles.dest));
+    .pipe(gulp.dest(paths.styles.dest))
+    .pipe(gulp.dest('./dist/vtex_speed'));
 }
 
 const scripts = () => {
@@ -63,7 +75,8 @@ const scripts = () => {
       transform: ['babelify'],
     }))
     .pipe(uglify())
-    .pipe(gulp.dest(paths.scripts.dest));
+    .pipe(gulp.dest(paths.scripts.dest))
+    .pipe(gulp.dest('./dist/vtex_speed'));
 }
 
 const pluginsJs = () => {
@@ -73,14 +86,28 @@ const pluginsJs = () => {
     .pipe(gulp.dest(paths.scripts.dest));
 }
 
-const watch = () => {
-  gulp.watch(paths.styles.srcWatch, styles);
-  gulp.watch(paths.scripts.srcWatch, scripts);
-  gulp.watch('src/views/**/*', htmls, pugtranspile);
+function sync(){
+  browserSync.init({
+      open: true,
+      https: true,
+      host: storeName  + '.vtexlocal.com.br',
+      startPath: '/admin/login/',
+      proxy: 'https://' + storeName  + '.vtexcommercestable.com.br',
+      serveStatic: [{
+          route: '/arquivos',
+          dir: [bases.build]
+      }]
+  })
 }
 
+const watch = () => {
+  gulp.watch(paths.styles.srcWatch, styles).on('change',browserSync.reload);
+  gulp.watch(paths.scripts.srcWatch, scripts).on('change',browserSync.reload);
+  gulp.watch('src/views/**/*', htmls, pugtranspile).on('change',browserSync.reload);
+}
 
-const build = gulp.series(gulp.parallel(styles, scripts, htmls, pugtranspile, watch));
+//------------------------------ Tasks -----------------------------
+const build = gulp.series(gulp.parallel(sync,styles, scripts, htmls, pugtranspile, watch));
 
 // exports.pluginsJs = pluginsJs;
 // exports.clean = clean;
