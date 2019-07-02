@@ -21,17 +21,22 @@ const uglify = require('gulp-uglify');
 const paths = {
   styles: {
     src: 'src/assets/scss/common/*.scss',
-    dest: './dist/assets/css',
+    dest: './dist/assets/css/',
     srcWatch: 'src/assets/scss/**/*.scss',
   },
   scripts: {
     src: 'src/assets/js/common/*.js',
-    dest: './dist/assets/js',
+    dest: './dist/assets/js/',
     srcWatch: 'src/assets/**/*.js',
   },
   htmls: {
+<<<<<<< HEAD
     src: 'src/views/common/**/*.pug',
     dest: './dist/views/html_templates',
+=======
+    src: 'src/views/common/*/*.pug',
+    dest: './dist/views/html',
+>>>>>>> 8cc47cd00299985d811a5d73832c126d4470652f
   }
 };
 
@@ -43,11 +48,11 @@ const paths = {
 const pugtranspile = () => {
   return gulp.src([
     paths.htmls.src,
-    '!src/views/common/_layouts/*.pug',
-    '!src/views/common/_partials/*.pug',
+    'src/views/common/_layouts/*.pug',
+    'src/views/common/_partials/*.pug',
   ])
     .pipe(pug({
-      pretty: false,
+      pretty: true
     }))
     .pipe(gulp.dest(paths.htmls.dest));
 }
@@ -87,7 +92,7 @@ const pluginsJs = () => {
 }
 
 function sync(){
-  browserSync.init({
+  return browserSync.init({
       open: true,
       https: true,
       host: storeName  + '.vtexlocal.com.br',
@@ -103,7 +108,8 @@ function sync(){
 const watch = () => {
   gulp.watch(paths.styles.srcWatch, styles).on('change',browserSync.reload);
   gulp.watch(paths.scripts.srcWatch, scripts).on('change',browserSync.reload);
-  gulp.watch('src/views/**/*', htmls, pugtranspile).on('change',browserSync.reload);
+  gulp.watch('src/views/**/*', pugtranspile).on('change',browserSync.reload);
+  gulp.watch('src/views/html/*', htmls).on('change',browserSync.reload);
 }
 
 //------------------------------ Tasks -----------------------------
@@ -114,6 +120,7 @@ const build = gulp.series(gulp.parallel(sync,styles, scripts, htmls, pugtranspil
 exports.styles = styles;
 exports.scripts = scripts;
 exports.htmls = htmls;
+exports.pugtranspile = pugtranspile;
 exports.watch = watch;
 exports.build = build;
 

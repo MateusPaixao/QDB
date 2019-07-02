@@ -1,4 +1,5 @@
 @import "../../../../../../node_modules/sass-rem/rem";
+
 /*
 ** HELPERS//
 **
@@ -9,10 +10,14 @@
 @import "./helpers/fonts";
 @import "./helpers/typography";
 
-
 /*
 ** TOOLS
 **
 */
 @import "./tools/mixins";
 
+/*
+** UTILS
+**
+*/
+@import "./utils/helpers";
