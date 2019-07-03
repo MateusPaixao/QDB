@@ -5584,7 +5584,9 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     height: calc(100vh - 175px);
     overflow: auto
 }
-
+._prd {
+    height:410px;
+}
 .product {
     position: relative;
     padding: 28px 10px 16px;
@@ -7318,8 +7320,14 @@ body.category .section-products {
     margin-right: 5px
 }
 
-.product .product-tag .hidden div.flag-desconto>p {
+.product .product-tag .hidden div.flag-desconto>p,
+.priceOff span {
     background: #a6a5a5;
+    color:#fff;
+    font-family:"CentraleSans-Bold", sans-serif!important;
+    font-size:12px;
+    padding: 3px 5px;
+    display: block;
 }
 
 .product .product-tag .hidden div.flag-desconto p.flag.descont.flag-active {
@@ -8353,8 +8361,8 @@ body {
     .slick-arrow {
         cursor: pointer
     }
-    .pratileira .slick-arrow {
-        background: url(https://qbbr.vteximg.com.br/arquivos/icons-arrows.png)0 0 no-repeat!important;
+    .slick-arrow {
+        background: url(https://qbbr.vteximg.com.br/arquivos/icons-arrows.png) 0 0 no-repeat!important;
         border: 0;
         text-indent: -9999em;
         width: 19px;
@@ -8363,19 +8371,19 @@ body {
         top: 40%;
         z-index: 2
     }
-    .pratileira .slick-prev {
-        left: -5px!important;
+    .slick-prev {
+        left: -25px!important;
         background-position: -196px 0!important
     }
-    .pratileira .slick-next {
-        right: -5px!important;
+    .slick-next {
+        right: -25px!important;
         background-position: -168px 0!important
     }
-    .pratileira .slick-prev:after {
+    .slick-prev:after {
         content: "\f053";
         left: 0
     }
-    .pratileira .slick-next:after {
+    .slick-next:after {
         content: "\f054";
         right: 0
     }
@@ -8392,13 +8400,19 @@ body {
         margin-top: 80px;
         padding: 20px 0
     }
-    .home .main .section-products .pratileira .product {
+    .home .main .section-products .pratileira .product,
+    ._prd {
         position: relative;
         padding: 28px 10px 16px;
         border: 1px solid #fff;
         text-align: center;
         -webkit-transition: .3s;
         transition: .3s;
+    }
+    .home .main .section-products .pratileira .product:hover,
+    ._prd:hover {
+        border:1px solid #a6a5a5;
+        border-radius:5px;
     }
     .home .section-products .section-content {
         float: right;
