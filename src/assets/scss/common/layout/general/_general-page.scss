@@ -563,6 +563,27 @@ a.vejamais-vtexresearch:hover {
 }
 .__menu-show body,.__cart-show body {overflow: hidden;min-height: initial;height: 100vh;zoom: 1;}
 .__menu-show .wrapper,.__cart-show .wrapper {zoom: 1;}
+
+
+.bannerContent {
+  float: right;
+  margin-top: -25px
+}
+.bannerContent.firstBanner {
+  float: left!important;
+  margin-top: -100px
+}
+.bannerContent h3 {
+  @include sans(2em, $g-primary, 900, initial);
+  text-align: left;
+}
+.bannerContent.firstBanner h3 {
+  text-align: left
+}
+.bannerContent .box-banner img {
+  margin: 0 auto!important;
+  display: block!important
+}
 /** BODY:END */
 
 /** FOOTER */
