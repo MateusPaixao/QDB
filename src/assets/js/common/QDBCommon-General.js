@@ -1522,20 +1522,43 @@ $(document).ready(function(){
     if (document.querySelector(".counter") || document.querySelector(".topbanner")) {
         switch (day) {
             case 1:
-                setTopBanner("after", "Jul 1, 2019 00:00:00", "Jul 1, 2019 12:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:139');
+                setTopBanner("after", "Jul 1, 2019 00:00:00", "Jul 7, 2019 12:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:139');
                 cronometro("after", "Jul 1, 2019 14:00:00", "Jul 1, 2019 17:59:59", false, "Itens com 70% de desconto*", "#df5d4d", "https://www.quemdisseberenice.com.br/busca/?fq=H:805");
                 break;
-            case 25:
-                setTopBanner("after", "Jun 24, 2019 00:00:00", "Jun 28, 2019 23:59:59", ['Itens com até 60% de desconto*'], "#B43A38", false, "https://www.quemdisseberenice.com.br/busca/?fq=H:789");
+            case 2:
+                cronometro("after", "Jul 2, 2019 21:00:00", "Jul 3, 2019 08:59:59", false, "Batons com 40% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
                 break;
-            case 26:
-                setTopBanner("after", "Jun 24, 2019 00:00:00", "Jun 28, 2019 23:59:59", ['Itens com até 60% de desconto*'], "#B43A38", false, "https://www.quemdisseberenice.com.br/busca/?fq=H:789");
+            case 3: 
+                cronometro("after", "Jul 2, 2019 21:00:00", "Jul 3, 2019 08:59:59", false, "Batons com 40% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
+                setTopBanner("after", "Jul 3, 2019 09:00:00", "Jul 7, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", true, 'https://www.quemdisseberenice.com.br/busca/?fq=H:139');
+                CopyText("#topbanner", "BEMVINDO30");
                 break;
-            case 27:
-                setTopBanner("after", "Jun 24, 2019 00:00:00", "Jun 28, 2019 23:59:59", ['Itens com até 60% de desconto*'], "#B43A38", false, "https://www.quemdisseberenice.com.br/busca/?fq=H:789");
+            case 4: 
+                cronometro("after", "Jul 4, 2019 14:00:00", "Jul 4, 2019 17:59:59", false, "Itens com até 70% de desconto*", "#df5d4d", "https://www.quemdisseberenice.com.br/busca/?fq=H:805");
+                setTopBanner("after", "Jul 4, 2019 18:00:00", "Jul 7, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", true, 'https://www.quemdisseberenice.com.br/busca/?fq=H:139');
+                CopyText("#topbanner", "BEMVINDO30");
                 break;
-            case 28:
-                cronometro("after", "Jun 24, 2019 00:00:00", "Jun 28, 2019 23:59:59", false, "Itens com até 60% de desconto*", "#B43A38", "https://www.quemdisseberenice.com.br/busca/?fq=H:789");
+            case 5: 
+                setTopBanner("after", "Jul 4, 2019 18:00:00", "Jul 7, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", true, 'https://www.quemdisseberenice.com.br/busca/?fq=H:139');
+                CopyText("#topbanner", "BEMVINDO30");
+                break;
+            case 6: 
+                setTopBanner("after", "Jul 4, 2019 18:00:00", "Jul 7, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", true, 'https://www.quemdisseberenice.com.br/busca/?fq=H:139');
+                CopyText("#topbanner", "BEMVINDO30");
+                break;
+            case 7: 
+                setTopBanner("after", "Jul 4, 2019 18:00:00", "Jul 7, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", true, 'https://www.quemdisseberenice.com.br/busca/?fq=H:139');
+                CopyText("#topbanner", "BEMVINDO30");
+                break;
+            case 8: 
+                setTopBanner("after", "Jul 4, 2019 18:00:00", "Jul 8, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", true, 'https://www.quemdisseberenice.com.br/busca/?fq=H:139');
+                CopyText("#topbanner", "BEMVINDO30");
+                break;
+            case 9:
+                cronometro("after", "Jul 9, 2019 21:00:00", "Jul 10, 2019 08:59:59", false, "Itens com 50% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
+            break;
+            case 10: 
+                cronometro("after", "Jul 9, 2019 21:00:00", "Jul 10, 2019 08:59:59", false, "Itens com 50% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
                 break;
             default:
         }
