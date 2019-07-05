@@ -5,6 +5,11 @@ var menuData = [{
     "link": "https://www.quemdisseberenice.com.br/account/"
 },
 {
+    "text": "até 70% de desconto",
+    "link": "/busca/?fq=H:739",
+    "class": ["__light-turquoise"]
+},
+{
     "text": "Boca",
     "menu": [
         {
@@ -1243,7 +1248,7 @@ function CopyText(btn, txt){
 }
 // FIM CONTADOR
 //------------------ GET ELEMENT FROM ATRIBUTE
-window.getAllElementsWithAttribute = function(attribute) {
+function getAllElementsWithAttribute(attribute) {
     var matchingElements = [];
     var allElements = document.getElementsByTagName('*');
 
@@ -1257,9 +1262,9 @@ window.getAllElementsWithAttribute = function(attribute) {
     return matchingElements;
 }  
 //------------- VIEWPORT ELEMENT
-window.isInViewport = function(elem) {
-    var bounding = elem.getBoundingClientRect();
-    return bounding.top >= 0 && bounding.left >= 0 && bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) && bounding.right <= (window.innerWidth || document.documentElement.clientWidth);
+var isInViewport = function isInViewport(elem) {
+  var bounding = elem.getBoundingClientRect();
+  return bounding.top >= 0 && bounding.left >= 0 && bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) && bounding.right <= (window.innerWidth || document.documentElement.clientWidth);
 };
 // ------------- DETECT SAFARI
 // var isSafari = /^((?!chrome|android|crios|fxios).)*safari/i.test(navigator.userAgent);
@@ -1286,34 +1291,24 @@ var BrowserVendor = "";
     }
 })();
 // ------------- SET VITRINE IMG
-window.setVitrineDataImg = function(){
-    if(BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
-        for(var i = 0; i < document.querySelectorAll(".imgsrc").length; i++){
-            var imgSource = document.querySelectorAll(".imgsrc")[i].innerHTML;
-            var imgSrc = imgSource.substring(
-                        imgSource.lastIndexOf('src="') + 5, 
-                        imgSource.lastIndexOf('?v=')
-                    );
-            document.querySelectorAll(".imgsrc")[i].nextSibling.nextSibling.setAttribute('data-img', imgSrc);
-        }
-    }else{
-        document.querySelectorAll(".imgsrc").forEach(function(img){
-            if(isInViewport(img)){
-                var imgSource = img.innerHTML;
-                if(BrowserVendor == 'safari/webkit'){
-                    var imgSrc = imgSource.substring(
-                        imgSource.lastIndexOf('src="') + 5, 
-                        imgSource.lastIndexOf('?v=')
-                    );
-                    img.nextSibling.nextSibling.setAttribute('data-img', imgSrc);
-                }else{
-                    var RegexSrc = imgSource.match(/\<img.+src\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/);
-                    img.nextSibling.nextSibling.setAttribute('data-img', RegexSrc[1]);
-                    img.nextSibling.nextSibling.alt = imgSource.match(/\<img.+alt\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/)[1]
-                }
+var setVitrineDataImg = function(){
+    document.querySelectorAll(".imgsrc").forEach(function(img){
+        if(isInViewport(img)){
+            var imgSource = img.innerHTML;
+            if(BrowserVendor == 'safari/webkit'){
+                var imgSrc = imgSource.substring(
+                    imgSource.lastIndexOf('src="') + 5, 
+                    imgSource.lastIndexOf('?v=')
+                );
+                console.log(imgSrc);
+                img.nextSibling.nextSibling.setAttribute('data-img', imgSrc);
+            }else{
+                var RegexSrc = imgSource.match(/\<img.+src\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/);
+                img.nextSibling.nextSibling.setAttribute('data-img', RegexSrc[1]);
+                img.nextSibling.nextSibling.alt = imgSource.match(/\<img.+alt\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/)[1]
             }
-        });
-    }
+        }
+    });
 }
 // -------------- DETECT DOMISREADY
 var domIsReady = (function(domIsReady) {
@@ -1343,36 +1338,22 @@ var domIsReady = (function(domIsReady) {
 })(domIsReady || {});
 
 // ------------- LOAD IMG ON SCROLL
-window.loadImg = function() {
+function loadImg() {
     setVitrineDataImg();
     var imginview = getAllElementsWithAttribute('data-img');
-    if(BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
-        for(var i=0; i < imginview.length; i++){
-            imginview[i].src = imginview[i].dataset.img;
-        }
-        var ievitrineimg = document.querySelectorAll(".product .product-image img");
-        for(var i=0; i < ievitrineimg.length; i++){
-            ievitrineimg[i].style.left = 0;
-            ievitrineimg[i].style.position = "relative";
-            ievitrineimg[i].style.transform = "none";
-            document.querySelectorAll(".product p, .product .product-content h2, .product .product-content h3")[i].style.height = "initial";
-        }
-    }else{
-        imginview.forEach(function (img) {
-          if (isInViewport(img)) {
-            // if(img.src == ""){
-            img.src = img.dataset.img; // }
-          }
-        });
-    }
-};
-
-$(".slick-arrow").on("click", function(){
+    imginview.forEach(function (img) {
+      if (isInViewport(img)) {
+        // if(img.src == ""){
+        img.src = img.dataset.img; // }
+      }
+    });
+  };
+  $(".slick-arrow").on("click", function(){
     loadImg();
-});
-window.onmousemove = function () {
+  });
+  window.onmousemove = function () {
     loadImg();
-};
+  };
 // ----------- HEADER POSITION
 var prevScrollpos = 0;
 function setHeader() {
@@ -1473,7 +1454,7 @@ window.scrollIt = function(destination) {
         }
   
         return;
-      } 
+      }
   
       requestAnimationFrame(scroll);
     }
@@ -1494,36 +1475,26 @@ $('body').on({
     }
 });
 
-window.removeInvalidChars = function(input) {
-    let str = document.querySelectorAll(input);
-    for(i = 0; i < str; i++){
-        str = str.value;
-        console.log(str);
-        str = str.replace(new RegExp(ranges.join('|'), 'g'), '');
-    }
-}
-
-window.GetCookie = function(name){
+var GetCookie = function(name){
     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
     if (match) return match[2];
 }
 $(document).ready(function(){
     loadImg(); // adicionado para carregar no load as imagens iniciais
-    if(BrowserVendor == 'safari/webkit' || BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
+    if(BrowserVendor == 'safari/webkit'){
         setVitrineDataImg();
-        console.log("Set OnLoad IE / Safari");
         var imginview = getAllElementsWithAttribute('data-img');
-        for(i = 0; i <= imginview.length; i++){
-            imginview[i].src = imginview[i].dataset.img;
-        }
+        imginview.forEach(function (img) {
+            img.src = img.dataset.img;
+            console.log(img.src);
+        });
     }
 
     var day = new Date().getDate();
     if (document.querySelector(".counter") || document.querySelector(".topbanner")) {
         switch (day) {
-            case 1:
-                setTopBanner("after", "Jul 1, 2019 00:00:00", "Jul 1, 2019 12:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:139');
-                cronometro("after", "Jul 1, 2019 14:00:00", "Jul 1, 2019 17:59:59", false, "Itens com 70% de desconto*", "#df5d4d", "https://www.quemdisseberenice.com.br/busca/?fq=H:805");
+            case 24:
+                setTopBanner("after", "Jun 24, 2019 00:00:00", "Jun 28, 2019 23:59:59", ['Itens com até 60% de desconto*'], "#B43A38", false, "https://www.quemdisseberenice.com.br/busca/?fq=H:789");
                 break;
             case 25:
                 setTopBanner("after", "Jun 24, 2019 00:00:00", "Jun 28, 2019 23:59:59", ['Itens com até 60% de desconto*'], "#B43A38", false, "https://www.quemdisseberenice.com.br/busca/?fq=H:789");
