@@ -14,12 +14,12 @@ var curday = function(sp){
     return (dd+sp+mm+sp+yyyy);
 };
 // CREATE BACKUP FILES
-if(date.getDay() == 2){
+if(date.getDay() == 5){
     var rule = new schedule.RecurrenceRule();
     var dir = "backup";
 
     console.log("Backup begin " + date.getHours()) + " hours";
-    rule.dayOfWeek = 2;
+    rule.dayOfWeek = 5;
     rule.hour = new schedule.Range(18, 23);
     rule.minute = new schedule.Range(0, 59);
 
