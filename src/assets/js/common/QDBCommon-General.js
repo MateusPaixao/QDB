@@ -1248,7 +1248,7 @@ function CopyText(btn, txt){
 }
 // FIM CONTADOR
 //------------------ GET ELEMENT FROM ATRIBUTE
-function getAllElementsWithAttribute(attribute) {
+window.getAllElementsWithAttribute = function(attribute) {
     var matchingElements = [];
     var allElements = document.getElementsByTagName('*');
 
@@ -1262,7 +1262,7 @@ function getAllElementsWithAttribute(attribute) {
     return matchingElements;
 }  
 //------------- VIEWPORT ELEMENT
-var isInViewport = function isInViewport(elem) {
+window.isInViewport = function(elem) {
   var bounding = elem.getBoundingClientRect();
   return bounding.top >= 0 && bounding.left >= 0 && bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) && bounding.right <= (window.innerWidth || document.documentElement.clientWidth);
 };
@@ -1291,24 +1291,34 @@ var BrowserVendor = "";
     }
 })();
 // ------------- SET VITRINE IMG
-var setVitrineDataImg = function(){
-    document.querySelectorAll(".imgsrc").forEach(function(img){
-        if(isInViewport(img)){
-            var imgSource = img.innerHTML;
-            if(BrowserVendor == 'safari/webkit'){
-                var imgSrc = imgSource.substring(
-                    imgSource.lastIndexOf('src="') + 5, 
-                    imgSource.lastIndexOf('?v=')
-                );
-                console.log(imgSrc);
-                img.nextSibling.nextSibling.setAttribute('data-img', imgSrc);
-            }else{
-                var RegexSrc = imgSource.match(/\<img.+src\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/);
-                img.nextSibling.nextSibling.setAttribute('data-img', RegexSrc[1]);
-                img.nextSibling.nextSibling.alt = imgSource.match(/\<img.+alt\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/)[1]
-            }
+window.setVitrineDataImg = function(){
+    if(BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
+        for(var i = 0; i < document.querySelectorAll(".imgsrc").length; i++){
+            var imgSource = document.querySelectorAll(".imgsrc")[i].innerHTML;
+            var imgSrc = imgSource.substring(
+                        imgSource.lastIndexOf('src="') + 5, 
+                        imgSource.lastIndexOf('?v=')
+                    );
+            document.querySelectorAll(".imgsrc")[i].nextSibling.nextSibling.setAttribute('data-img', imgSrc);
         }
-    });
+    }else{
+        document.querySelectorAll(".imgsrc").forEach(function(img){
+            if(isInViewport(img)){
+                var imgSource = img.innerHTML;
+                if(BrowserVendor == 'safari/webkit'){
+                    var imgSrc = imgSource.substring(
+                        imgSource.lastIndexOf('src="') + 5, 
+                        imgSource.lastIndexOf('?v=')
+                    );
+                    img.nextSibling.nextSibling.setAttribute('data-img', imgSrc);
+                }else{
+                    var RegexSrc = imgSource.match(/\<img.+src\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/);
+                    img.nextSibling.nextSibling.setAttribute('data-img', RegexSrc[1]);
+                    img.nextSibling.nextSibling.alt = imgSource.match(/\<img.+alt\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/)[1]
+                }
+            }
+        });
+    }
 }
 // -------------- DETECT DOMISREADY
 var domIsReady = (function(domIsReady) {
@@ -1338,22 +1348,36 @@ var domIsReady = (function(domIsReady) {
 })(domIsReady || {});
 
 // ------------- LOAD IMG ON SCROLL
-function loadImg() {
+window.loadImg = function() {
     setVitrineDataImg();
     var imginview = getAllElementsWithAttribute('data-img');
-    imginview.forEach(function (img) {
-      if (isInViewport(img)) {
-        // if(img.src == ""){
-        img.src = img.dataset.img; // }
-      }
-    });
-  };
-  $(".slick-arrow").on("click", function(){
+    if(BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
+        for(var i=0; i < imginview.length; i++){
+            imginview[i].src = imginview[i].dataset.img;
+        }
+        var ievitrineimg = document.querySelectorAll(".product .product-image img");
+        for(var i=0; i < ievitrineimg.length; i++){
+            ievitrineimg[i].style.left = 0;
+            ievitrineimg[i].style.position = "relative";
+            ievitrineimg[i].style.transform = "none";
+            document.querySelectorAll(".product p, .product .product-content h2, .product .product-content h3")[i].style.height = "initial";
+        }
+    }else{
+        imginview.forEach(function (img) {
+          if (isInViewport(img)) {
+            // if(img.src == ""){
+            img.src = img.dataset.img; // }
+          }
+        });
+    }
+};
+
+$(".slick-arrow").on("click", function(){
     loadImg();
-  });
-  window.onmousemove = function () {
+});
+window.onmousemove = function () {
     loadImg();
-  };
+};
 // ----------- HEADER POSITION
 var prevScrollpos = 0;
 function setHeader() {
@@ -1454,7 +1478,7 @@ window.scrollIt = function(destination) {
         }
   
         return;
-      }
+      } 
   
       requestAnimationFrame(scroll);
     }
@@ -1475,19 +1499,28 @@ $('body').on({
     }
 });
 
-var GetCookie = function(name){
+window.removeInvalidChars = function(input) {
+    let str = document.querySelectorAll(input);
+    for(i = 0; i < str; i++){
+        str = str.value;
+        console.log(str);
+        str = str.replace(new RegExp(ranges.join('|'), 'g'), '');
+    }
+}
+
+window.GetCookie = function(name){
     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
     if (match) return match[2];
 }
 $(document).ready(function(){
     loadImg(); // adicionado para carregar no load as imagens iniciais
-    if(BrowserVendor == 'safari/webkit'){
+    if(BrowserVendor == 'safari/webkit' || BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
         setVitrineDataImg();
+        console.log("Set OnLoad IE / Safari");
         var imginview = getAllElementsWithAttribute('data-img');
-        imginview.forEach(function (img) {
-            img.src = img.dataset.img;
-            console.log(img.src);
-        });
+        for(i = 0; i <= imginview.length; i++){
+            imginview[i].src = imginview[i].dataset.img;
+        }
     }
 
     var day = new Date().getDate();
@@ -1531,6 +1564,12 @@ $(document).ready(function(){
             break;
             case 10: 
                 cronometro("after", "Jul 9, 2019 21:00:00", "Jul 10, 2019 08:59:59", false, "Itens com 50% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
+                break;
+            case 11:
+                cronometro("after", "Jul 11, 2019 21:00:00", "Jul 12, 2019 08:59:59", false, "Itens com 50% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
+                break;
+            case 12: 
+                cronometro("after", "Jul 11, 2019 21:00:00", "Jul 12, 2019 08:59:59", false, "Itens com 50% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
                 break;
             default:
         }
