@@ -1077,8 +1077,20 @@ function cronometro(countdown, dateini, dateend, fretegratis, text, bgcolor, lin
       //console.log("Cronometro começaa: " + dateinitial);
     } else if(now < datefinal.getTime()) {
     $(".counter").css("display", "flex");
-    fretegratis == true ? $(".counter .frete-gratis").css("display", "initial") : $(".counter .frete-gratis").css("display", "none");
-
+    if(fretegratis == true){
+        $(".counter .frete-gratis").css("display", "initial");
+    
+        $('.counter .frete-gratis').addClass('animate');
+    
+        $('.frete-gratis circle').each(function(){
+            var comprimento = $(this).get(0).getTotalLength();
+            var comprimentoArredondado = Math.round(comprimento);
+            $(this).attr('stroke-dasharray', comprimentoArredondado);
+            $(this).attr('stroke-dashoffset', comprimentoArredondado);
+        });
+    }else{
+        $(".counter .frete-gratis").css("display", "none");
+    }
     $(".counter .text-counter").html(text);
     if(link != null || link != "" || document.querySelector(".counter-link") != null){
         document.querySelector(".counter-link").setAttribute("href", link);
@@ -1567,7 +1579,13 @@ $(document).ready(function(){
                 break;
             case 12: 
                 // setTopBanner("after", "Jul 12, 2019 18:00:00", "Jul 12, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#eb9981", true, 'https://www.quemdisseberenice.com.br/busca/?fq=H:139');
-                cronometro("after", "Jul 12, 2019 17:00:00", "Jul 12, 2019 23:59:59", true, "Frete grátis em compras a partir de R$69,90", "#eb9981", "https://www.quemdisseberenice.com.br/de-70-a-400?PS=22&map=priceFrom&O=OrderByTopSaleDESC");
+                cronometro("after", "Jul 12, 2019 17:00:00", "Jul 12, 2019 23:59:59", true, "Frete grátis em compras a partir de R$69,90", "#eb9981", "https://www.quemdisseberenice.com.br/busca/?fq=H:816");
+                break;
+            case 13:
+                setTopBanner("after", "Jul 13, 2019 00:00:00", "Jul 14, 2019 23:59:59", ['Produtos a partir de R$5,90', 'Só nesse fim de semana!'], "#613255", true, 'https://www.quemdisseberenice.com.br/busca/?fq=H:819');
+                break;
+            case 14:
+                setTopBanner("after", "Jul 13, 2019 00:00:00", "Jul 14, 2019 23:59:59", ['Produtos a partir de R$5,90', 'Só nesse fim de semana!'], "#613255", true, 'https://www.quemdisseberenice.com.br/busca/?fq=H:819');
                 break;
             default:
         }
