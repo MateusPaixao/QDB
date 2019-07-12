@@ -1565,11 +1565,9 @@ $(document).ready(function(){
             case 10: 
                 cronometro("after", "Jul 9, 2019 21:00:00", "Jul 10, 2019 08:59:59", false, "Itens com 50% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
                 break;
-            case 11:
-                cronometro("after", "Jul 11, 2019 21:00:00", "Jul 12, 2019 08:59:59", false, "Itens com 50% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
-                break;
             case 12: 
-                cronometro("after", "Jul 11, 2019 21:00:00", "Jul 12, 2019 08:59:59", false, "Itens com 50% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
+                // setTopBanner("after", "Jul 12, 2019 18:00:00", "Jul 12, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#eb9981", true, 'https://www.quemdisseberenice.com.br/busca/?fq=H:139');
+                cronometro("after", "Jul 12, 2019 17:00:00", "Jul 12, 2019 23:59:59", true, "Frete grátis em compras a partir de R$69,90", "#eb9981", "https://www.quemdisseberenice.com.br/de-70-a-400?PS=22&map=priceFrom&O=OrderByTopSaleDESC");
                 break;
             default:
         }
