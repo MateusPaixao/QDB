@@ -1582,10 +1582,10 @@ $(document).ready(function(){
                 cronometro("after", "Jul 12, 2019 17:00:00", "Jul 12, 2019 23:59:59", true, "Frete grátis em compras a partir de R$69,90", "#eb9981", "https://www.quemdisseberenice.com.br/busca/?fq=H:816");
                 break;
             case 13:
-                setTopBanner("after", "Jul 13, 2019 00:00:00", "Jul 14, 2019 23:59:59", ['Produtos a partir de R$5,90', 'Só nesse fim de semana!'], "#613255", true, 'https://www.quemdisseberenice.com.br/busca/?fq=H:819');
+                setTopBanner("after", "Jul 13, 2019 00:00:00", "Jul 14, 2019 23:59:59", ['Produtos a partir de R$5,90', 'Só nesse fim de semana!'], "#613255", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:819');
                 break;
             case 14:
-                setTopBanner("after", "Jul 13, 2019 00:00:00", "Jul 14, 2019 23:59:59", ['Produtos a partir de R$5,90', 'Só nesse fim de semana!'], "#613255", true, 'https://www.quemdisseberenice.com.br/busca/?fq=H:819');
+                setTopBanner("after", "Jul 13, 2019 00:00:00", "Jul 14, 2019 23:59:59", ['Produtos a partir de R$5,90', 'Só nesse fim de semana!'], "#613255", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:819');
                 break;
             default:
         }
