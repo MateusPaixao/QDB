@@ -1393,6 +1393,7 @@ html._light-off ::selection {
 ._header-main-wrapper {
     background-color: #686162;
     padding: 5px 0;
+    display: flex;
 }
 
 ._header-main {
@@ -1407,8 +1408,7 @@ html._light-off ::selection {
     position: relative;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
-    margin: auto;
-    max-width: 1150px;
+
     /* padding-right: 15px; */
     /* background-color: #FAF6F5; */
     /* background-color: var(--off-white); */
@@ -2915,9 +2915,7 @@ html .feature-secondary {
         -ms-flex-align: normal;
         -ms-grid-row-align: normal;
         align-items: normal;
-        max-width: 1440px;
         padding: 0 8%;
-        margin: auto;
         box-sizing: border-box;
         padding: 0 20px;
         z-index: 10;
@@ -2925,7 +2923,6 @@ html .feature-secondary {
         -webkit-transition: all 0.2s ease;
         transition: all 0.2s ease;
         height: 140px;
-        max-width: 1150px;
         background-color: #686162;
         /* background-color: var(--off-white); */
     }
@@ -3096,6 +3093,7 @@ html .feature-secondary {
 @media (min-width:1440px) {
     ._header-main {
         padding: 0 0px;
+        margin: 0 auto;
     }
 
     .wrapper,
@@ -3110,7 +3108,6 @@ html .feature-secondary {
         align-items: normal;
         max-width: 1440px;
         padding: 0 8%;
-        margin: auto;
         box-sizing: border-box;
         padding: 0 20px;
         z-index: 1;
@@ -3118,7 +3115,6 @@ html .feature-secondary {
         -webkit-transition: all 0.2s ease;
         transition: all 0.2s ease;
         height: 154px;
-        max-width: 1300px;
         background-color: #686162;
         /* background-color: var(--off-white); */
     }
@@ -4579,7 +4575,7 @@ html {
             @include d('1149px', max) {
                 order: 2;
                 width: 170px;
-                height: 20px;
+                height: 40px;
                 margin-right: 20px;
             }
         }
@@ -4644,17 +4640,21 @@ html {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 40px;
-  font-size: 12px;
+  min-height: 40px;
+  font-size: 1.5vw;
+  padding: 5px;
   &:hover{
     -webkit-filter: brightness(110%);
   }
   &--text{
-    font-size: 18px;
+    font-size: 1.625em;
     color: #fff;
+    @include d('425px'){
+        font-size: 2.5em;
+    }
   }
   &--container{
-    font-size: 18px;
+    font-size: 1.625em;
     color: #fff;
   }
   &--cupom{
@@ -4662,12 +4662,29 @@ html {
       border: 1px solid #f8f8f8;
       border-radius: 5px;
       padding: 5px;
+      text-align: center;
+      max-width: 110px;
+      max-height: 40px;
+      font-size: 1;
+      @include d('425px'){
+          max-width: 80px;
+          font-size: 1.5em; 
+      }
     }
     &-copy{
         border: 1px solid #f8f8f8;
-        padding: 8px;
+        display: flex;
+        align-items: center;
+        padding: 5px;
         background: white;
+        border-radius: 5px;
         cursor: copy;
+        font-size: 1em;
+        max-height: 30px;
+        @include d('425px'){
+            font-size: 1.5em;
+        }
+
   }
   &--cupom, &-copy,&--container{
     margin-left: 5px;
