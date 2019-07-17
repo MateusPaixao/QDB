@@ -567,11 +567,23 @@ a.vejamais-vtexresearch:hover {
 
 .bannerContent {
   float: right;
-  margin-top: -25px
-}
-.bannerContent.firstBanner {
-  float: left!important;
-  margin-top: -65px
+  margin-top: -25px;
+  &.firstBanner {
+    float: left;
+    margin-top: -65px;
+    @include d(s){
+      float: none;
+    }
+    @include d(xs){
+      float: none;
+    }
+  }
+  @include d(s){
+    float: none;
+  }
+  @include d(xs){
+    float: none;
+  }
 }
 .bannerContent h3 {
   @include sans(2em, $g-primary, 900, initial);
