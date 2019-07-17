@@ -443,34 +443,6 @@ p {
     font-size: 0.875em;
 }
 
-<<<<<<< HEAD
-@media (min-width:768px) {
-    h1 {
-        font-size: 3em;
-    }
-
-    h2 {}
-
-    h3 {}
-
-    h4,
-    h5,
-    h6 {}
-
-    p {
-        font-size: 1.125em;
-    }
-
-    .small {
-        font-size: 1em;
-    }
-}
-
-img {
-    /* max-width: 100%; */
-    /* display: inline-block; */
-    /* width: 100%; */
-=======
 .bannerContent {
   float: right;
   margin-top: -25px;
@@ -490,7 +462,6 @@ img {
   @include d(xs){
     float: none;
   }
->>>>>>> 2297b17172ddbeaf1ca395afe360a5d80bad3f65
 }
 
 .box-banner a {
