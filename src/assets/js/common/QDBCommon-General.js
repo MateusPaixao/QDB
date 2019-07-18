@@ -1605,3 +1605,71 @@ $(document).ready(function(){
         }
     }
 });
+function homeCountDown(){
+    
+    document.querySelector('.w-counter').style.backgroundColor = document.querySelector('.w-counter--bg').getAttribute('data-color');
+    if(document.querySelector('.w-counter--container') != null){
+        const dateFim = document.querySelector('.w-counter--end').getAttribute('data-final');
+        const end = new Date(dateFim);
+    
+        const _second = 1000;
+        const _minute = _second * 60;
+        const _hour = _minute * 60;
+        const _day = _hour * 24;
+        let clock = 0;
+    
+        function showRemaining() {
+            let now = new Date();
+            let distance = end - now;
+    
+            if (distance <= 0) {
+    
+                clearInterval(clock);
+                document.querySelector('.w-counter--container').classList.add('hidden')
+                document.querySelector('.w-counter--cupom').classList.remove('hidden')
+                document.querySelector('.w-counter-copy').classList.remove('hidden')
+                return;
+            }
+            let days = Math.floor(distance / _day);
+            let hours = Math.floor((distance % _day) / _hour);
+            let minutes = Math.floor((distance % _hour) / _minute);
+            let seconds = Math.floor((distance % _minute) / _second);
+
+            let dayCounter = document.querySelector('.w-counter--day');
+            let hourCounter = document.querySelector('.w-counter--hour');
+            let minuteCounter = document.querySelector('.w-counter--minutes');
+            let secondsCounter = document.querySelector('.w-counter--seconds');
+
+            hourCounter.innerHTML = hours < 10 ? '0' + hours : hours;
+            minuteCounter.innerHTML = minutes < 10 ? '0' + minutes : minutes;
+            secondsCounter.innerHTML = seconds < 10 ? '0' + seconds : seconds;
+
+        }
+    
+        clock = setInterval(showRemaining, 1000);
+    }
+};
+function copiarTopBanner(){
+    const btnCopy = document.querySelector('.w-counter-copy');
+    const cupomToCopy = document.querySelector('.w-counter--cupom');
+    btnCopy.addEventListener('click', function(e){
+        e.preventDefault;
+        cupomToCopy.select()
+        document.execCommand('copy');
+        btnCopy.textContent = "COPIADO";
+        btnCopy.classList.add("btn-success");
+        setTimeout(() => {
+            btnCopy.textContent = "COPIAR";
+            btnCopy.classList.remove("btn-success");
+        }, 3000);
+    })
+}
+
+
+    setTimeout(function() {
+        if(document.querySelector('.w-counter-copy') != null)
+        copiarTopBanner();
+        if(document.querySelector('.w-counter') != null){
+            homeCountDown();
+        }
+    }, 500);

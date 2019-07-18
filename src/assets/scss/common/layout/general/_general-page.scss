@@ -4597,7 +4597,7 @@ html {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .top-banner {
@@ -4651,11 +4651,11 @@ html {
     -webkit-filter: brightness(110%);
   }
   &--text{
-    font-size: 1.625em;
+    // font-size: 1.625em;
     color: #fff;
     margin: 0 !important;
     @include d('425px'){
-        font-size: 2.5em;
+        // font-size: 2.5em;
     }
   }
   &--container{
