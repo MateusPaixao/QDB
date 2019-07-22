@@ -4648,6 +4648,14 @@ html {
   min-height: 40px;
   font-size: 1.5vw;
   padding: 5px;
+  @include d('425px'){
+      padding: 0;
+  }
+  &.topbanner{
+      @include d('425px'){
+          font-size: 2.8vw;
+      }
+  }
   &:hover{
     -webkit-filter: brightness(110%);
   }
@@ -4660,7 +4668,7 @@ html {
     font-size: 1.5em;
     margin: 0 !important;
     @include d('425px'){
-        // font-size: 2.5em;
+        font-size: 1em;
     }
     &.texto{
         width: auto;
@@ -4700,7 +4708,7 @@ html {
       text-transform: uppercase;
       @include d('425px'){
           max-width: 80px;
-          font-size: 1.5em; 
+          font-size: 0.8em; 
       }
     }
     &-copy{
@@ -4714,12 +4722,15 @@ html {
         font-size: 1em;
         max-height: 30px;
         @include d('425px'){
-            font-size: 1.5em;
+            font-size: 0.8em;
         }
 
   }
   &--cupom, &-copy,&--container{
     margin-left: 5px;
+    @include d('425px'){
+        margin-left: 1px;
+    }
   }
 
 }
