@@ -4662,20 +4662,42 @@ html {
     @include d('425px'){
         // font-size: 2.5em;
     }
+    &.texto{
+        width: auto;
+    }
+  }
+  &--slick{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
   }
   &--container{
     font-size: 1.625em;
     color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    &.topbanner{
+        width: auto;
+    }
+    &--counter{
+        &:first-child{
+            display: none;
+        }
+    }
   }
   &--cupom{
       color: #fff;
-      border: 1px solid #f8f8f8;
+      border: 1px dashed #f8f8f8;
       border-radius: 5px;
       padding: 5px;
       text-align: center;
       max-width: 110px;
       max-height: 40px;
       font-size: 1;
+      text-transform: uppercase;
       @include d('425px'){
           max-width: 80px;
           font-size: 1.5em; 
@@ -4686,8 +4708,8 @@ html {
         display: flex;
         align-items: center;
         padding: 5px;
-        background: white;
         border-radius: 5px;
+        text-transform: lowercase;
         cursor: copy;
         font-size: 1em;
         max-height: 30px;

@@ -1635,7 +1635,6 @@ function homeCountDown(){
             let minutes = Math.floor((distance % _hour) / _minute);
             let seconds = Math.floor((distance % _minute) / _second);
 
-            let dayCounter = document.querySelector('.w-counter--day');
             let hourCounter = document.querySelector('.w-counter--hour');
             let minuteCounter = document.querySelector('.w-counter--minutes');
             let secondsCounter = document.querySelector('.w-counter--seconds');
@@ -1671,5 +1670,6 @@ function copiarTopBanner(){
         copiarTopBanner();
         if(document.querySelector('.w-counter') != null){
             homeCountDown();
+            // $('.w-counter--slick').slick();
         }
     }, 500);
