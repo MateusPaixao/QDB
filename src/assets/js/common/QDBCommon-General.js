@@ -1569,28 +1569,33 @@ $(document).ready(function(){
                 setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
                 break;
             case 23:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
+                // setTopBanner("after", "Jul 15, 2019 00:00:00", "Jul 23, 2019 20:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
+                setTopBanner("after", "Jul 23, 2019 09:00:00", "Jul 23, 2019 20:59:59", ['30% de desconto na primeira compra*', 'Use o cupom BEMVINDO30'], "#c27c63", true, '#');
+                CopyText("#topbanner", "BEMVINDO30");
+                cronometro("after", "Jul 23, 2019 21:00:00", "Jul 24, 2019 08:59:59", false, "Batons com 40% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
                 break;
             case 24:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
+                cronometro("after", "Jul 23, 2019 21:00:00", "Jul 24, 2019 08:59:59", false, "Batons com 40% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
+                setTopBanner("after", "Jul 24, 2019 09:00:00", "Jul 24, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom BEMVINDO30'], "#c27c63", true, '#');
+                CopyText("#topbanner", "BEMVINDO30");
                 break;
             case 25:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
+                
                 break;
             case 26:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
+                
                 break;
             case 27:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
+                
                 break;
             case 28:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
+                
                 break;
             case 29:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
+                
                 break;
             case 30:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
+                
                 break;
             case 31:
                 setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
