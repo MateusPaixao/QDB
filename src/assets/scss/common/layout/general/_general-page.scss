@@ -4668,7 +4668,8 @@ html {
     font-size: 1.5em;
     margin: 0 !important;
     @include d('425px'){
-        font-size: 1em;
+        font-size: 1.5em;
+        margin: 2px !important;
     }
     &.texto{
         width: auto;
@@ -4679,6 +4680,7 @@ html {
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
+      padding: 5px;
   }
   &--container{
     font-size: 1.625em;
@@ -4704,11 +4706,11 @@ html {
       text-align: center;
       max-width: 110px;
       max-height: 40px;
-      font-size: 1;
+      font-size: 1.2em;
       text-transform: uppercase;
       @include d('425px'){
           max-width: 80px;
-          font-size: 0.8em; 
+          font-size: 1em; 
       }
     }
     &-copy{
