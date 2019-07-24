@@ -5,6 +5,11 @@ var menuData = [{
     "link": "https://www.quemdisseberenice.com.br/account/"
 },
 {
+    "text": "até 70% de desconto",
+    "link": "/busca/?fq=H:739",
+    "class": ["__light-turquoise"]
+},
+{
     "text": "Boca",
     "menu": [
         {
@@ -284,8 +289,8 @@ var menuData = [{
             "link": "https://www.quemdisseberenice.com.br/acessorios-para-maquiagem/para-os-cilios"
         },
         {
-            "text": "Pincel e aplicadores",
-            "link": "https://www.quemdisseberenice.com.br/acessorios-para-maquiagem/pincel-e-aplicadores/"
+            "text": "Pinceis e Esponjas",
+            "link": "https://www.quemdisseberenice.com.br/acessorios-para-maquiagem/pinceis-e-esponjas"
         },
         {
             "text": "Nécessaire e Organizadores",
@@ -1072,8 +1077,20 @@ function cronometro(countdown, dateini, dateend, fretegratis, text, bgcolor, lin
       //console.log("Cronometro começaa: " + dateinitial);
     } else if(now < datefinal.getTime()) {
     $(".counter").css("display", "flex");
-    fretegratis == true ? $(".counter .frete-gratis").css("display", "initial") : $(".counter .frete-gratis").css("display", "none");
-
+    if(fretegratis == true){
+        $(".counter .frete-gratis").css("display", "initial");
+    
+        $('.counter .frete-gratis').addClass('animate');
+    
+        $('.frete-gratis circle').each(function(){
+            var comprimento = $(this).get(0).getTotalLength();
+            var comprimentoArredondado = Math.round(comprimento);
+            $(this).attr('stroke-dasharray', comprimentoArredondado);
+            $(this).attr('stroke-dashoffset', comprimentoArredondado);
+        });
+    }else{
+        $(".counter .frete-gratis").css("display", "none");
+    }
     $(".counter .text-counter").html(text);
     if(link != null || link != "" || document.querySelector(".counter-link") != null){
         document.querySelector(".counter-link").setAttribute("href", link);
@@ -1258,8 +1275,8 @@ window.getAllElementsWithAttribute = function(attribute) {
 }  
 //------------- VIEWPORT ELEMENT
 window.isInViewport = function(elem) {
-    var bounding = elem.getBoundingClientRect();
-    return bounding.top >= 0 && bounding.left >= 0 && bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) && bounding.right <= (window.innerWidth || document.documentElement.clientWidth);
+  var bounding = elem.getBoundingClientRect();
+  return bounding.top >= 0 && bounding.left >= 0 && bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) && bounding.right <= (window.innerWidth || document.documentElement.clientWidth);
 };
 // ------------- DETECT SAFARI
 // var isSafari = /^((?!chrome|android|crios|fxios).)*safari/i.test(navigator.userAgent);
@@ -1521,46 +1538,143 @@ $(document).ready(function(){
     var day = new Date().getDate();
     if (document.querySelector(".counter") || document.querySelector(".topbanner")) {
         switch (day) {
+            case 15:
+                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
+                break;
+            case 16:
+                setTopBanner("after", "Jul 15, 2019 00:00:00", "Jul 16, 2019 20:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
+                cronometro("after", "Jul 16, 2019 21:00:00", "Jul 17, 2019 08:59:59", false, "Itens com 30% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
+                break;
+            case 17:
+                cronometro("after", "Jul 16, 2019 21:00:00", "Jul 17, 2019 08:59:59", false, "Itens com 30% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
+                setTopBanner("after", "Jul 15, 2019 18:00:00", "Jul 17, 2019 13:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
+                cronometro("after", "Jul 17, 2019 14:00:00", "Jul 17, 2019 17:59:59", false, "Produtos a partir de R$8,90*", "#df5d4d", "https://www.quemdisseberenice.com.br/busca/?fq=H:805");
+                setTopBanner("after", "Jul 17, 2019 18:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
+                break;
+            case 18:
+                setTopBanner("after", "Jul 18, 2019 00:00:00", "Jul 18, 2019 20:59:59", ['Escolha um presente em pedidos acima de R$ 89,90*'], "#fe7764", false, 'https://www.quemdisseberenice.com.br/promocao');
+                cronometro("after", "Jul 18, 2019 21:00:00", "Jul 19, 2019 08:59:59", false, "Itens com 50% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
+                break;
+            case 19:
+                cronometro("after", "Jul 16, 2019 21:00:00", "Jul 17, 2019 08:59:59", false, "Itens com 50% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
+                setTopBanner("after", "Jul 19, 2019 09:00:00", "Jul 21, 2019 23:59:59", ['Escolha um presente em pedidos acima de R$ 89,90*'], "#fe7764", false, 'https://www.quemdisseberenice.com.br/promocao');
+                break;
+            case 20:
+                setTopBanner("after", "Jul 18, 2019 00:00:00", "Jul 21, 2019 23:59:59", ['Escolha um presente em pedidos acima de R$ 89,90*'], "#fe7764", false, 'https://www.quemdisseberenice.com.br/promocao');
+                break;
+            case 21:
+                setTopBanner("after", "Jul 18, 2019 00:00:00", "Jul 21, 2019 23:59:59", ['Escolha um presente em pedidos acima de R$ 89,90*'], "#fe7764", false, 'https://www.quemdisseberenice.com.br/promocao');
+                break;
+            case 22:
+                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
+                break;
+            case 23:
+                // setTopBanner("after", "Jul 15, 2019 00:00:00", "Jul 23, 2019 20:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
+                setTopBanner("after", "Jul 23, 2019 09:00:00", "Jul 23, 2019 20:59:59", ['30% de desconto na primeira compra*', 'Use o cupom BEMVINDO30'], "#c27c63", true, '#');
+                CopyText("#topbanner", "BEMVINDO30");
+                cronometro("after", "Jul 23, 2019 21:00:00", "Jul 24, 2019 08:59:59", false, "Batons com 40% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
+                break;
+            case 24:
+                cronometro("after", "Jul 23, 2019 21:00:00", "Jul 24, 2019 08:59:59", false, "Batons com 40% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
+                setTopBanner("after", "Jul 24, 2019 09:00:00", "Jul 24, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom BEMVINDO30'], "#c27c63", true, '#');
+                CopyText("#topbanner", "BEMVINDO30");
+                break;
+            case 25:
+                
+                break;
+            case 26:
+                
+                break;
+            case 27:
+                
+                break;
+            case 28:
+                
+                break;
+            case 29:
+                
+                break;
+            case 30:
+                
+                break;
+            case 31:
+                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
+                break;
             case 1:
-                setTopBanner("after", "Jul 1, 2019 00:00:00", "Jul 7, 2019 12:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:139');
-                cronometro("after", "Jul 1, 2019 14:00:00", "Jul 1, 2019 17:59:59", false, "Itens com 70% de desconto*", "#df5d4d", "https://www.quemdisseberenice.com.br/busca/?fq=H:805");
+                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
                 break;
             case 2:
-                cronometro("after", "Jul 2, 2019 21:00:00", "Jul 3, 2019 08:59:59", false, "Batons com 40% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
-                break;
-            case 3: 
-                cronometro("after", "Jul 2, 2019 21:00:00", "Jul 3, 2019 08:59:59", false, "Batons com 40% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
-                setTopBanner("after", "Jul 3, 2019 09:00:00", "Jul 7, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", true, 'https://www.quemdisseberenice.com.br/busca/?fq=H:139');
-                CopyText("#topbanner", "BEMVINDO30");
-                break;
-            case 4: 
-                cronometro("after", "Jul 4, 2019 14:00:00", "Jul 4, 2019 17:59:59", false, "Itens com até 70% de desconto*", "#df5d4d", "https://www.quemdisseberenice.com.br/busca/?fq=H:805");
-                setTopBanner("after", "Jul 4, 2019 18:00:00", "Jul 7, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", true, 'https://www.quemdisseberenice.com.br/busca/?fq=H:139');
-                CopyText("#topbanner", "BEMVINDO30");
-                break;
-            case 5: 
-                setTopBanner("after", "Jul 4, 2019 18:00:00", "Jul 7, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", true, 'https://www.quemdisseberenice.com.br/busca/?fq=H:139');
-                CopyText("#topbanner", "BEMVINDO30");
-                break;
-            case 6: 
-                setTopBanner("after", "Jul 4, 2019 18:00:00", "Jul 7, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", true, 'https://www.quemdisseberenice.com.br/busca/?fq=H:139');
-                CopyText("#topbanner", "BEMVINDO30");
-                break;
-            case 7: 
-                setTopBanner("after", "Jul 4, 2019 18:00:00", "Jul 7, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", true, 'https://www.quemdisseberenice.com.br/busca/?fq=H:139');
-                CopyText("#topbanner", "BEMVINDO30");
-                break;
-            case 8: 
-                setTopBanner("after", "Jul 4, 2019 18:00:00", "Jul 8, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom: BEMVINDO30'], "#b04e65", true, 'https://www.quemdisseberenice.com.br/busca/?fq=H:139');
-                CopyText("#topbanner", "BEMVINDO30");
-                break;
-            case 9:
-                cronometro("after", "Jul 9, 2019 21:00:00", "Jul 10, 2019 08:59:59", false, "Itens com 50% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
-            break;
-            case 10: 
-                cronometro("after", "Jul 9, 2019 21:00:00", "Jul 10, 2019 08:59:59", false, "Itens com 50% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
+                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
                 break;
             default:
         }
     }
 });
+function homeCountDown(){
+    
+    document.querySelector('.w-counter').style.backgroundColor = document.querySelector('.w-counter--bg').getAttribute('data-color');
+    if(document.querySelector('.w-counter--container') != null){
+        const dateFim = document.querySelector('.w-counter--end').getAttribute('data-final');
+        const end = new Date(dateFim);
+    
+        const _second = 1000;
+        const _minute = _second * 60;
+        const _hour = _minute * 60;
+        const _day = _hour * 24;
+        let clock = 0;
+    
+        function showRemaining() {
+            let now = new Date();
+            let distance = end - now;
+    
+            if (distance <= 0) {
+    
+                clearInterval(clock);
+                document.querySelector('.w-counter--container').classList.add('hidden')
+                document.querySelector('.w-counter--cupom').classList.remove('hidden')
+                document.querySelector('.w-counter-copy').classList.remove('hidden')
+                return;
+            }
+            let days = Math.floor(distance / _day);
+            let hours = Math.floor((distance % _day) / _hour);
+            let minutes = Math.floor((distance % _hour) / _minute);
+            let seconds = Math.floor((distance % _minute) / _second);
+
+            let hourCounter = document.querySelector('.w-counter--hour');
+            let minuteCounter = document.querySelector('.w-counter--minutes');
+            let secondsCounter = document.querySelector('.w-counter--seconds');
+
+            hourCounter.innerHTML = hours < 10 ? '0' + hours : hours;
+            minuteCounter.innerHTML = minutes < 10 ? '0' + minutes : minutes;
+            secondsCounter.innerHTML = seconds < 10 ? '0' + seconds : seconds;
+
+        }
+    
+        clock = setInterval(showRemaining, 1000);
+    }
+};
+function copiarTopBanner(){
+    const btnCopy = document.querySelector('.w-counter-copy');
+    const cupomToCopy = document.querySelector('.w-counter--cupom');
+    btnCopy.addEventListener('click', function(e){
+        e.preventDefault;
+        cupomToCopy.select()
+        document.execCommand('copy');
+        btnCopy.textContent = "COPIADO";
+        btnCopy.classList.add("btn-success");
+        setTimeout(() => {
+            btnCopy.textContent = "COPIAR";
+            btnCopy.classList.remove("btn-success");
+        }, 3000);
+    })
+}
+
+
+    setTimeout(function() {
+        if(document.querySelector('.w-counter-copy') != null)
+        copiarTopBanner();
+        if(document.querySelector('.w-counter') != null){
+            homeCountDown();
+            // $('.w-counter--slick').slick();
+        }
+    }, 500);

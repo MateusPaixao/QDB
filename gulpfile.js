@@ -23,7 +23,7 @@ const uglify = require('gulp-uglify');
 const paths = {
   styles: {
     src: 'src/assets/scss/common/*.scss',
-    dest: './dist/assets/css/',
+    dest: './dist/assets/css',
     srcWatch: 'src/assets/scss/**/*.scss',
   },
   imgs: {
@@ -38,13 +38,12 @@ const paths = {
   },
   scripts: {
     src: 'src/assets/js/common/*.js',
-    dest: './dist/assets/js/',
+    dest: './dist/assets/js',
     srcWatch: 'src/assets/**/*.js',
   },
-  markup: {
-    pug: 'src/views/common/*/*.pug',
-    html: 'src/views/html/*.html',
-    dest: './dist/views/html',
+  htmls: {
+    src: 'src/views/common/**/*.pug',
+    dest: './dist/views/html_templates',
   }
 };
 
@@ -55,12 +54,12 @@ const paths = {
 
 const pugtranspile = () => {
   return gulp.src([
-    paths.markup.pug,
-    'src/views/common/_layouts/*.pug',
-    'src/views/common/_partials/*.pug',
+    paths.htmls.src,
+    '!src/views/common/_layouts/*.pug',
+    '!src/views/common/_partials/*.pug',
   ])
     .pipe(pug({
-      pretty: true
+      pretty: false,
     }))
     .pipe(gulp.dest(paths.markup.dest));
 }
@@ -99,9 +98,6 @@ const scripts = () => {
     .pipe(babel({
       presets: ["@babel/polyfill", "env"]
     }))
-    .pipe(browserify({
-      transform: ['babelify'],
-    }))
     .pipe(uglify())
     .pipe(gulp.dest(paths.scripts.dest))
     .pipe(gulp.dest('./dist/vtex_speed'));
@@ -115,7 +111,7 @@ const pluginsJs = () => {
 }
 
 function sync(){
-  return browserSync.init({
+  browserSync.init({
       open: true,
       https: true,
       host: storeName  + '.vtexlocal.com.br',
@@ -131,10 +127,7 @@ function sync(){
 const watch = () => {
   gulp.watch(paths.styles.srcWatch, styles).on('change',browserSync.reload);
   gulp.watch(paths.scripts.srcWatch, scripts).on('change',browserSync.reload);
-  gulp.watch('src/views/**/*', pugtranspile).on('change',browserSync.reload);
-  gulp.watch('src/views/html/*', htmls).on('change',browserSync.reload);
-  gulp.watch(paths.imgs.srcWatch, minimg).on('change',browserSync.reload);
-  gulp.watch(paths.svgs.srcWatch, minsvg).on('change',browserSync.reload);
+  gulp.watch('src/views/**/*', htmls, pugtranspile).on('change',browserSync.reload);
 }
 
 //------------------------------ Tasks -----------------------------
@@ -145,9 +138,6 @@ const build = gulp.series(gulp.parallel(sync, minimg, minsvg, styles, scripts, h
 exports.styles = styles;
 exports.scripts = scripts;
 exports.htmls = htmls;
-exports.pugtranspile = pugtranspile;
-exports.minimg = minimg;
-exports.minsvg = minsvg;
 exports.watch = watch;
 exports.build = build;
 
