@@ -1393,10 +1393,10 @@ window.onmousemove = function () {
 // ----------- HEADER POSITION
 var prevScrollpos = 0;
 function setHeader() {
+  if (window.pageYOffset >= document.querySelector("._header").clientHeight) {
     if(window.innerWidth >= "1150"){
         document.querySelector("body").style.marginTop = document.querySelector("._header").clientHeight + "px"; 
     }
-  if (window.pageYOffset >= document.querySelector("._header").clientHeight) {
     document.querySelector("._header").style.position = "fixed";
     var currentScrollPos = window.pageYOffset;
     if(window.innerWidth <= "768"){
@@ -1407,7 +1407,12 @@ function setHeader() {
         }
     }
     prevScrollpos = currentScrollPos;
-  } else{
+  }else{
+    if(document.querySelector("body").style.marginTop != document.querySelector("._header").clientHeight){
+        setTimeout(() => {
+            document.querySelector("body").style.marginTop = document.querySelector("._header").clientHeight + "px"; 
+        }, 100);
+    }
     if(window.innerWidth >= "1150"){
         document.querySelector("._header").style.position = "fixed";
     }else{
@@ -1580,7 +1585,7 @@ $(document).ready(function(){
                 CopyText("#topbanner", "BEMVINDO30");
                 break;
             case 25:
-                
+                cronometro("after", "Jul 25, 2019 00:00:00", "Jul 25, 2019 23:59:59", false, "Base supermate com 30% de desconto*", "#9F0000", "https://www.quemdisseberenice.com.br/base-liquida-supermate_819988-p/p");
                 break;
             case 26:
                 
