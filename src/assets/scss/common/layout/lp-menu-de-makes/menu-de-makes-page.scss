@@ -1,0 +1,151 @@
+$titleSize: 1.5em;
+$textSize: .8em;
+.menu-de-makes{
+    font-size: 1vw;
+    .principal-banner{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background: #555557;
+        height: 35vh;
+        @include d('768px'){
+            flex-direction: column;
+        }
+        &--img{
+            width: 50%;
+        }
+        &--text{
+            position: relative;
+            height: 100%;
+            justify-content: center;
+            width: 50%;
+            text-align: left;
+            flex-direction: column;
+            display: flex;
+            color: #fff;
+            h1{
+                font-weight: bold;
+                font-size: $titleSize;
+            }
+            p{
+                font-size: $textSize;
+                max-width: 50%;
+            }
+            &--svg{
+                position: absolute;
+                bottom: -7px;
+                left: 50%;
+            }
+        }
+    }
+    .beneficios{
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        @include d('768px'){
+            flex-direction: column;
+        }
+        &--itens{
+            margin: 20px;
+            &::nth-child(2){
+                border-left: 1px solid black;
+                border-right: 1px solid black;
+            }
+        }
+    }
+    .makeup--container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        &--title{
+            margin-bottom: 50px;
+        }
+        &__content{
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-bottom: 50px;
+            @include d('768px'){
+                flex-direction: column;
+            }
+            &--img{
+                width: 50%;
+            }
+            &--text{
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                padding: 50px;
+                width: 50%;
+                text-align: left;
+                color: #fff;
+                background-color: #AC0032;
+                &--title{
+                    text-align: left;
+                    font-weight: bold;
+                    font-size: $titleSize;
+                    margin-bottom: 10px;
+                    text-transform: uppercase;
+                }
+                &--text{
+                    font-size: $textSize;
+                    max-width: 50%;
+                }
+                &--price{
+                    display: flex;
+                    flex-direction: column;
+                    font-size: 1em;
+                    font-weight: bold;
+                    &--small{
+                        font-size: .7em;
+                        font-weight: inherit;
+                    }
+                }
+                &--link{
+                    text-decoration: underline;
+                }
+                &--svg{
+                    position: absolute;
+                    bottom: -10px;
+                    left: 50%;
+                }
+
+            }
+            &--slick{
+                margin-top: 20px;
+                width: 100%;
+                display: flex;
+                @include d('768px'){
+                    flex-direction: column;
+                }
+                &--container{
+                    align-items: center;
+                    justify-content: center;
+                    display: flex !important;
+                    flex-direction: column;
+                    &--img{
+
+                    }
+                    &--title{
+
+                    }
+                    &--agendar{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: #9A1634;
+                        width: 30%;
+                        border-radius: 40px;
+                        padding: 10px;
+                        margin: 0 auto;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}

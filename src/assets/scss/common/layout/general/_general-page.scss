@@ -1570,7 +1570,7 @@ html._light-off ::selection {
 }
 
 ._d-top ._header-search-bar input {
-    height: 35px;
+    height: auto;
     /* width: 100%; */
     padding: 0 15px;
     -webkit-box-flex: 1;
@@ -4508,6 +4508,10 @@ html {
                 left: 0;
                 bottom: inherit;
                 color: #fdfdfd;
+                -webkit-appearance: none;
+                &::placeholder{
+                  font-size: 12px;
+                }
 
                 @include d('1149px', max) {
                     background: none;
@@ -4691,11 +4695,6 @@ html {
     justify-content: center;
     &.topbanner{
         width: auto;
-    }
-    &--counter{
-        &:first-child{
-            display: none;
-        }
     }
   }
   &--cupom{
