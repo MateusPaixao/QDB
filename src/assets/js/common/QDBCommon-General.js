@@ -1585,10 +1585,11 @@ $(document).ready(function(){
                 CopyText("#topbanner", "BEMVINDO30");
                 break;
             case 25:
-                cronometro("after", "Jul 25, 2019 00:00:00", "Jul 25, 2019 23:59:59", false, "Base supermate com 30% de desconto*", "#9F0000", "https://www.quemdisseberenice.com.br/base-liquida-supermate_819988-p/p");
+                // cronometro("after", "Jul 25, 2019 00:00:00", "Jul 25, 2019 23:59:59", false, "Base supermate com 30% de desconto*", "#9F0000", "https://www.quemdisseberenice.com.br/base-liquida-supermate_819988-p/p");
+                cronometro("after", "Jul 25, 2019 21:00:00", "Jul 26, 2019 08:59:59", false, "Frete Grátis na compra de 3 ou + itens*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:816");
                 break;
             case 26:
-                
+                cronometro("after", "Jul 25, 2019 21:00:00", "Jul 26, 2019 08:59:59", false, "Frete Grátis na compra de 3 ou + itens*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:816");
                 break;
             case 27:
                 
