@@ -1617,10 +1617,12 @@ $(document).ready(function(){
     }
 });
 function homeCountDown(){
-    const corBg = document.querySelector('.w-counter--bg').textContent;
-    document.querySelector('.w-counter').style.backgroundColor = corBg;
-    if(document.querySelector('.w-counter--container') != null){
-        const dateFim = document.querySelector('.w-counter--end').textContent;
+        const corBg = $('.w-counter--bg').text();
+        document.querySelector('.w-counter').style.backgroundColor = corBg;
+        console.log(corBg);
+        if(document.querySelector('.w-counter--container') != null){
+        let dateFim = $('.w-counter--end').text();
+        console.log(dateFim);
         const end = new Date(dateFim);
     
         const _second = 1000;
@@ -1637,8 +1639,10 @@ function homeCountDown(){
     
                 clearInterval(clock);
                 document.querySelector('.w-counter--container').classList.add('hidden')
-                document.querySelector('.w-counter--cupom').classList.remove('hidden')
-                document.querySelector('.w-counter-copy').classList.remove('hidden')
+                if(document.querySelector('.w-counter--cupom') != null){
+                    document.querySelector('.w-counter--cupom').classList.remove('hidden')
+                    document.querySelector('.w-counter-copy').classList.remove('hidden')
+                }
                 return;
             }
             let days = Math.floor(distance / _day);
@@ -1677,10 +1681,18 @@ function copiarTopBanner(){
 
 
     setTimeout(function() {
-        if(document.querySelector('.w-counter-copy') != null)
-        copiarTopBanner();
+        if(document.querySelector('.w-counter-copy') != null){
+            copiarTopBanner();
+        }
         if(document.querySelector('.w-counter') != null){
-            homeCountDown();
+            if(BrowserVendor == 'safari/webkit'){
+                setTimeout(() => {
+                    homeCountDown();
+                }, 3000);
+            }
+            else{
+                homeCountDown();
+            }
             // $('.w-counter--slick').slick();
         }
     }, 500);

@@ -4446,7 +4446,7 @@ html {
         left: 0 !important;
         font-family: "Museo Sans", sans-serif !important;
         width: 100% !important;
-        top: 50% !important;
+        top: 70% !important;
         max-height: 420px;
         bottom: inherit !important;
         overflow-y: scroll;
@@ -4486,7 +4486,7 @@ html {
         }
 
         @include d('500px', max) {
-            top: 145px !important;
+            top: 95px !important;
         }
     }
 
