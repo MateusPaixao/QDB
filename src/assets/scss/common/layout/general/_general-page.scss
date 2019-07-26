@@ -1559,20 +1559,24 @@ html._light-off ::selection {
     -webkit-box-flex: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
+    padding: 5px;
 }
 
 ._d-top ._header-search-bar form {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    align-items: flex-end;
+    -webkit-appearance: none;
     background-color: #E6E0E0;
     border-bottom: 1px solid #fff;
 }
 
 ._d-top ._header-search-bar input {
-    height: auto;
+    height: 35px;
     /* width: 100%; */
     padding: 0 15px;
+    -webkit-appearance: none;
     -webkit-box-flex: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
@@ -4506,11 +4510,15 @@ html {
                 visibility: visible;
                 width: 80%;
                 left: 0;
+                margin-top: 10px;
+                height: 30px;
                 bottom: inherit;
                 color: #fdfdfd;
                 -webkit-appearance: none;
+                border-radius: 0;
                 &::placeholder{
                   font-size: 12px;
+                  opacity: 0.8;
                 }
 
                 @include d('1149px', max) {
@@ -4652,6 +4660,7 @@ html {
   min-height: 40px;
   font-size: 1.5vw;
   padding: 5px;
+  background: rgb(178, 158, 158);
   @include d('425px'){
       padding: 0;
   }
@@ -4778,6 +4787,7 @@ html {
         }
     }
 }
+
 ._header-logo,.__account-link,.__wishlist-link{
     span{
         display: block !important;
@@ -4787,4 +4797,7 @@ html {
             display: block !important;
         }
     }
+}
+.svg--logo-principal{
+    margin-bottom: 5px;
 }

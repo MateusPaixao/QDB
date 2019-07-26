@@ -1617,10 +1617,10 @@ $(document).ready(function(){
     }
 });
 function homeCountDown(){
-    
-    document.querySelector('.w-counter').style.backgroundColor = document.querySelector('.w-counter--bg').getAttribute('data-color');
+    const corBg = document.querySelector('.w-counter--bg').textContent;
+    document.querySelector('.w-counter').style.backgroundColor = corBg;
     if(document.querySelector('.w-counter--container') != null){
-        const dateFim = document.querySelector('.w-counter--end').getAttribute('data-final');
+        const dateFim = document.querySelector('.w-counter--end').textContent;
         const end = new Date(dateFim);
     
         const _second = 1000;
