@@ -811,9 +811,11 @@ body .summary-coupon p {
 }
 
 .summary-template-holder button:hover {
-    background: #000 !important;
+    background: $safflower !important;
 }
-
+.pkpmodal-details-back-lnk:after, .pkpmodal-details-bottom .pkpmodal-details-confirm-btn:after{
+    display: none;
+}
 @media (min-width:1024px) {
     ._checkout-btns>div {
         display: flex;
@@ -1317,8 +1319,12 @@ html .help-message {
     vertical-align: bottom;
     margin: 0 !important;
     position: initial;
+    height: 30px;
+    width: 30px;
 }
-
+.item-multiplier-label, .item-unit-label{
+    display: none;
+}
 ._cart-qty .quantity a {
     width: 30px;
     height: 30px;
@@ -1441,7 +1447,7 @@ html .help-message {
 }
 
 .cart .item-quantity-change:hover {
-    background-color: #000;
+    background-color: $safflower;
 }
 
 @media (max-width:490px) {
@@ -1574,7 +1580,7 @@ html .help-message {
     ._cart-tbl .icon.icon-plus-sign::before {
         top: auto;
         left: auto;
-        color: #000;
+        color: $safflower;
     }
 
     ._cart-qty .quantity {
@@ -1697,7 +1703,7 @@ html .help-message {
     left: 26px;
     height: 14px;
     width: 14px;
-    border: 2px solid #000;
+    border: 2px solid $safflower;
 }
 
 .available-gift-items .active td:first-child:before {
@@ -1930,8 +1936,12 @@ body .mr-shipping-container {
 /*map popup*/
 .vtex-pickup-points-modal-2-x-modalDetails {
     overflow: auto;
+    .vtex-pickup-points-modal-2-x-modalDetailsBackLnk{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 }
-
 /*hide boleto se pickup*/
 #payment-group-bankInvoicePaymentGroup {
     display: none !important;
@@ -2192,9 +2202,28 @@ body .mr-shipping-container {
     }
 }
 
-.banner-frete-gratis-cart {
+.cart .banner-frete-gratis-cart {
+    width: 100%;
     @include d('768px') {
         width: 100% !important;
         margin-bottom: 10px;
     }
 }
+
+.box-payment-option{
+    height: initial;
+    iframe{
+        min-height: 250px !important;
+        height: initial !important;
+        body{
+            overflow: hidden;
+        }
+    } 
+}
+// .PaymentInstallments select{
+//     width: 290px;
+//     max-width: initial;
+// }
+// .PaymentCardCVV label{
+//     width: 85px;
+// }
