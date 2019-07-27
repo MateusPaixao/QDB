@@ -1592,44 +1592,28 @@ $(document).ready(function(){
                 cronometro("after", "Jul 25, 2019 21:00:00", "Jul 26, 2019 08:59:59", false, "Frete Grátis na compra de 3 ou + itens*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:816");
                 break;
             case 27:
-                
+                setTopBanner("after", "Jul 27, 2019 00:00:00", "Jul 28, 2019 20:59:59", ['Máscaras para cílios com 30% de desconto*'], "#C9322B", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:827');
                 break;
             case 28:
-                
+                setTopBanner("after", "Jul 27, 2019 00:00:00", "Jul 28, 2019 20:59:59", ['Máscaras para cílios com 30% de desconto*'], "#C9322B", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:827');
+                cronometro("after", "Jul 28, 2019 21:00:00", "Jul 30, 2019 08:59:59", false, "Batons com 30% de desconto*", "#C9322B", "https://www.quemdisseberenice.com.br/busca/?fq=H:824");
                 break;
-<<<<<<< HEAD
-            case 13:
-                setTopBanner("after", "Jul 13, 2019 00:00:00", "Jul 14, 2019 23:59:59", ['Produtos a partir de R$5,90', 'Só nesse fim de semana!'], "#613255", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:819');
-                break;
-            case 14:
-                setTopBanner("after", "Jul 13, 2019 00:00:00", "Jul 14, 2019 23:59:59", ['Produtos a partir de R$5,90', 'Só nesse fim de semana!'], "#613255", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:819');
-=======
             case 29:
-                
+                cronometro("after", "Jul 28, 2019 21:00:00", "Jul 30, 2019 08:59:59", false, "Batons com 30% de desconto*", "#C9322B", "https://www.quemdisseberenice.com.br/busca/?fq=H:824");
                 break;
             case 30:
-                
-                break;
-            case 31:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
-                break;
-            case 1:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
-                break;
-            case 2:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
->>>>>>> de4c69bc1e2e0d7322503f754bf30edafcdf8f8b
+                cronometro("after", "Jul 28, 2019 21:00:00", "Jul 30, 2019 08:59:59", false, "Batons com 30% de desconto*", "#C9322B", "https://www.quemdisseberenice.com.br/busca/?fq=H:824");
                 break;
             default:
         }
     }
 });
 function homeCountDown(){
-        const corBg = $('.w-counter--bg').text();
+        const corBg = $('.w-counter--bg').text(); // Deus ta vendo esse JQuery
         document.querySelector('.w-counter').style.backgroundColor = corBg;
         console.log(corBg);
         if(document.querySelector('.w-counter--container') != null){
-        let dateFim = $('.w-counter--end').text();
+        let dateFim = $('.w-counter--end').text();  // esse também 👀
         console.log(dateFim);
         const end = new Date(dateFim);
     
