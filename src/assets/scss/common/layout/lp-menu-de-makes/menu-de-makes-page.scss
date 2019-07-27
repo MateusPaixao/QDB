@@ -1,0 +1,272 @@
+$titleSize: 2em;
+$textSize: 1em;
+$fontPrincipal: 'Museo Sans';
+$primaryColor: #555557;
+$secondaryColor: #AC0032;
+
+.menu-de-makes{
+    font-size: 12px;
+    font-family: $fontPrincipal;
+    .principal-banner{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background: $primaryColor;
+        height: auto;
+        position: relative;
+        @include d('768px'){
+            flex-direction: column-reverse;
+            padding: 30px;
+            padding-bottom: 0;
+        }
+        &--img{
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            
+            img{
+                height: auto;
+            }
+            @include d('768px'){
+                margin-top: 20px;
+                margin-left: -50%;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        &--text{
+            height: 100%;
+            justify-content: center;
+            width: 50%;
+            text-align: left;
+            flex-direction: column;
+            display: flex;
+            color: #fff;
+            @include d('768px'){
+                width: 100%;
+            }
+            h1{
+                font-weight: bold;
+                font-size: $titleSize;
+                margin-bottom: 10px;
+            }
+            p{
+                font-size: $textSize;
+                max-width: 63%;
+                line-height: 1.5;
+            }
+            &--svg{
+                position: absolute;
+                bottom: -7px;
+                left: 50%;
+                // @include d('768px'){
+                //     display: none;
+                // }
+            }
+            &__bold{
+                font-weight: bold;
+            }
+            &__link{
+                text-decoration: underline;
+            }
+        }
+    }
+    .beneficios{
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        color: $primaryColor;
+        @include d('768px'){
+            flex-direction: column;
+        }
+        &--title{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            font-size: $titleSize;
+
+        }
+        &--itens{
+            margin: 20px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            // @include d('768px'){
+            //     width: 100%;
+            // }
+            &:nth-child(3){
+                border-left: 1px solid black;
+                border-right: 1px solid black;
+                @include d('768px'){
+                    border: none;
+                }
+            }
+            &--img{
+                margin-bottom: 15px;
+                max-width: 150px;
+            }
+            &--title{
+                text-transform: uppercase !important;
+                color: $primaryColor;
+                font-weight: bold; 
+            }
+        }
+    }
+    .makeup--container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        &--title{
+            margin-bottom: 50px;
+            font-weight: bold;
+
+            @include d('768px'){
+                display: none;
+            }
+        }
+        &__content{
+            display: flex;
+            flex-wrap: wrap;
+            width: 70%;
+            margin-bottom: 50px;
+            @include d('768px'){
+                flex-direction: column;
+                width: 100%;
+            }
+            &--img{
+                width: 50%;
+                max-height: 400px;
+                height: 400px;
+                display: flex;
+                @include d('768px'){
+                    height: 100%;
+                }
+                img{
+                    
+                    width: 100%;
+                }
+                @include d('768px'){
+                    width: 100%;
+                }
+            }
+            &--text{
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                padding: 50px;
+                width: 50%;
+                text-align: left;
+                color: #fff;
+                max-height: 400px;
+                height: 400px;
+                position: relative;
+                background-color: $secondaryColor;
+                @include d('768px'){
+                    width: 100%;
+                }
+                &--title{
+                    text-align: left;
+                    font-weight: bold;
+                    font-size: $titleSize;
+                    margin-bottom: 10px;
+                    text-transform: uppercase;
+                }
+                &--text{
+                    font-size: $textSize;
+                    max-width: 50%;
+                    @include d('768px'){
+                        max-width: 100%;
+                        line-height: 1.5;
+                    }
+                    &--bold{
+                        font-weight: bold;
+                    }
+                }
+                &--price{
+                    display: flex;
+                    flex-direction: column;
+                    font-size: 2em;
+                    font-weight: bold;
+                    margin-top: 20px;
+                    
+                    &--small{
+                        font-size: .7em;
+                        font-weight: inherit;
+                    }
+                }
+                &--link{
+                    text-decoration: underline;
+                }
+                &--svg{
+                    position: absolute;
+                    bottom: -10px;
+                    left: 40%;
+                }
+                &--time{
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: flex-end;
+                    position: absolute;
+                    bottom: 30px;
+                    right: 30px;
+                    svg{
+                        max-width: 50px;
+                    }
+                }
+
+            }
+            &--slick{
+                margin-top: 20px;
+                width: 100%;
+                display: flex;
+                @include d('768px'){
+                    flex-direction: column;
+                }
+                &--container{
+                    align-items: center;
+                    justify-content: center;
+                    display: flex !important;
+                    flex-direction: column;
+                    margin: 10px;
+                    width: 90% !important;
+                    &--img{
+
+                    }
+                    &--title{
+                        margin: 10px;
+                        font-weight: bold;
+                        color: $primaryColor;
+                        font-size: 1.5em;
+                    }
+                    &--agendar{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: #9A1634;
+                        width: 50%;
+                        border-radius: 10px;
+                        padding: 10px;
+                        margin: 0 auto;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+.slick-arrow{
+    @include d('768px'){
+        display: none !important;
+    }
+}
