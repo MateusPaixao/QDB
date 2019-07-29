@@ -1609,48 +1609,49 @@ $(document).ready(function(){
     }
 });
 function homeCountDown(){
-        const corBg = $('.w-counter--bg').text(); // Deus ta vendo esse JQuery
+        const corBg = document.querySelector('.w-counter--bg').textContent; 
         document.querySelector('.w-counter').style.backgroundColor = corBg;
         console.log(corBg);
         if(document.querySelector('.w-counter--container') != null){
-        let dateFim = $('.w-counter--end').text();  // esse também 👀
-        console.log(dateFim);
-        const end = new Date(dateFim);
-    
-        const _second = 1000;
-        const _minute = _second * 60;
-        const _hour = _minute * 60;
-        const _day = _hour * 24;
-        let clock = 0;
-    
-        function showRemaining() {
-            let now = new Date();
-            let distance = end - now;
-    
-            if (distance <= 0) {
-    
-                clearInterval(clock);
-                document.querySelector('.w-counter--container').classList.add('hidden')
-                if(document.querySelector('.w-counter--cupom') != null){
-                    document.querySelector('.w-counter--cupom').classList.remove('hidden')
-                    document.querySelector('.w-counter-copy').classList.remove('hidden')
+            document.querySelector('.w-counter--container').classList.remove('hide-important');
+            let dateFim = document.querySelector('.w-counter--end').textContent;
+            console.log(dateFim);
+            const end = new Date(dateFim);
+        
+            const _second = 1000;
+            const _minute = _second * 60;
+            const _hour = _minute * 60;
+            const _day = _hour * 24;
+            let clock = 0;
+        
+            function showRemaining() {
+                let now = new Date();
+                let distance = end - now;
+        
+                if (distance <= 0) {
+        
+                    clearInterval(clock);
+                    document.querySelector('.w-counter--container').classList.add('hidden')
+                    if(document.querySelector('.w-counter--cupom') != null){
+                        document.querySelector('.w-counter--cupom').classList.remove('hidden')
+                        document.querySelector('.w-counter-copy').classList.remove('hidden')
+                    }
+                    return;
                 }
-                return;
+                let days = Math.floor(distance / _day);
+                let hours = Math.floor((distance % _day) / _hour);
+                let minutes = Math.floor((distance % _hour) / _minute);
+                let seconds = Math.floor((distance % _minute) / _second);
+
+                let hourCounter = document.querySelector('.w-counter--hour');
+                let minuteCounter = document.querySelector('.w-counter--minutes');
+                let secondsCounter = document.querySelector('.w-counter--seconds');
+
+                hourCounter.innerHTML = hours < 10 ? '0' + hours : hours;
+                minuteCounter.innerHTML = minutes < 10 ? '0' + minutes : minutes;
+                secondsCounter.innerHTML = seconds < 10 ? '0' + seconds : seconds;
+
             }
-            let days = Math.floor(distance / _day);
-            let hours = Math.floor((distance % _day) / _hour);
-            let minutes = Math.floor((distance % _hour) / _minute);
-            let seconds = Math.floor((distance % _minute) / _second);
-
-            let hourCounter = document.querySelector('.w-counter--hour');
-            let minuteCounter = document.querySelector('.w-counter--minutes');
-            let secondsCounter = document.querySelector('.w-counter--seconds');
-
-            hourCounter.innerHTML = hours < 10 ? '0' + hours : hours;
-            minuteCounter.innerHTML = minutes < 10 ? '0' + minutes : minutes;
-            secondsCounter.innerHTML = seconds < 10 ? '0' + seconds : seconds;
-
-        }
     
         clock = setInterval(showRemaining, 1000);
     }

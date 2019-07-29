@@ -4611,6 +4611,9 @@ html {
 .hidden {
     display: none;
 }
+.hide-important{
+    display: none !important;
+}
 
 .top-banner {
     display: flex !important;
