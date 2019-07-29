@@ -1642,11 +1642,16 @@ function homeCountDown(){
                 let hours = Math.floor((distance % _day) / _hour);
                 let minutes = Math.floor((distance % _hour) / _minute);
                 let seconds = Math.floor((distance % _minute) / _second);
-
+                
+                let dayCounter = document.querySelector('.w-counter--day');
                 let hourCounter = document.querySelector('.w-counter--hour');
                 let minuteCounter = document.querySelector('.w-counter--minutes');
                 let secondsCounter = document.querySelector('.w-counter--seconds');
+                const diasText = document.querySelector('.w-counter--info')
+                
 
+                dayCounter.innerHTML = days;
+                diasText.textContent = days == 1 ? 'dia' : 'dias';
                 hourCounter.innerHTML = hours < 10 ? '0' + hours : hours;
                 minuteCounter.innerHTML = minutes < 10 ? '0' + minutes : minutes;
                 secondsCounter.innerHTML = seconds < 10 ? '0' + seconds : seconds;
