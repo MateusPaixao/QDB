@@ -49,7 +49,12 @@
     src: url("/arquivos/CentraleSans-Bold.eot.css?#iefix") format("embedded-opentype"), url("/arquivos/CentraleSans-Bold.woff.css") format("woff"), url("/arquivos/CentraleSans-Bold.ttf.css") format("truetype");
     font-weight: 900;
 }
-
+input, label, select, button, textarea{
+    font-size: .875em;
+    & ~ label{
+        margin-right: 5px;
+    }
+}
 html {
     --bktq: #a89c9e;
     --txt: #686162;
@@ -79,8 +84,6 @@ a {
 span.error {
     font-size: 12px;
     white-space: nowrap;
-    background: red;
-    color: #fff;
     box-sizing: border-box;
     line-height: 21px;
     padding-left: 8px;
@@ -811,7 +814,7 @@ body .summary-coupon p {
 }
 
 .summary-template-holder button:hover {
-    background: $safflower !important;
+    background: #000 !important;
 }
 .pkpmodal-details-back-lnk:after, .pkpmodal-details-bottom .pkpmodal-details-confirm-btn:after{
     display: none;
@@ -1319,8 +1322,6 @@ html .help-message {
     vertical-align: bottom;
     margin: 0 !important;
     position: initial;
-    height: 30px;
-    width: 30px;
 }
 .item-multiplier-label, .item-unit-label{
     display: none;
@@ -1447,7 +1448,7 @@ html .help-message {
 }
 
 .cart .item-quantity-change:hover {
-    background-color: $safflower;
+    background-color: #000;
 }
 
 @media (max-width:490px) {
@@ -1580,7 +1581,7 @@ html .help-message {
     ._cart-tbl .icon.icon-plus-sign::before {
         top: auto;
         left: auto;
-        color: $safflower;
+        color: #000;
     }
 
     ._cart-qty .quantity {
@@ -1703,7 +1704,7 @@ html .help-message {
     left: 26px;
     height: 14px;
     width: 14px;
-    border: 2px solid $safflower;
+    border: 2px solid #000;
 }
 
 .available-gift-items .active td:first-child:before {
@@ -2214,16 +2215,15 @@ body .mr-shipping-container {
     height: initial;
     iframe{
         min-height: 250px !important;
-        height: initial !important;
         body{
             overflow: hidden;
         }
     } 
 }
-// .PaymentInstallments select{
-//     width: 290px;
-//     max-width: initial;
-// }
+.PaymentInstallments select{
+    width: 290px !important;
+    max-width: initial;
+}
 // .PaymentCardCVV label{
 //     width: 85px;
 // }

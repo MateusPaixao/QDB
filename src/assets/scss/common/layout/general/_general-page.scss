@@ -444,24 +444,35 @@ p {
 }
 
 .bannerContent {
-  float: right;
-  margin-top: -25px;
-  &.firstBanner {
-    float: left;
-    margin-top: -65px;
+    float: right;
+    &.firstBanner {
+        margin-top: -3.5em;
+        float: left;
+        @include d(s){
+            margin-top: initial;
+            float: none;
+        }
+        @include d(xs){
+            margin-top: initial;
+            float: none;
+        }
+    }
+    h3{
+        @include sans(2em, $g-primary, 900, initial);
+        text-align: left;
+    }
+
+    img {
+        margin: 0 auto !important;
+        display: block !important
+    }
+
     @include d(s){
-      float: none;
+    float: none;
     }
     @include d(xs){
-      float: none;
+    float: none;
     }
-  }
-  @include d(s){
-    float: none;
-  }
-  @include d(xs){
-    float: none;
-  }
 }
 
 .box-banner a {
@@ -2255,31 +2266,6 @@ a.vejamais-vtexresearch:hover {
 .__menu-show .wrapper,
 .__cart-show .wrapper {
     zoom: 1;
-}
-
-
-.bannerContent {
-    float: right;
-    margin-top: -25px
-}
-
-.bannerContent.firstBanner {
-    float: left !important;
-    margin-top: -65px
-}
-
-.bannerContent h3 {
-    @include sans(2em, $g-primary, 900, initial);
-    text-align: left;
-}
-
-.bannerContent.firstBanner h3 {
-    text-align: left
-}
-
-.bannerContent .box-banner img {
-    margin: 0 auto !important;
-    display: block !important
 }
 
 /** BODY:END */
