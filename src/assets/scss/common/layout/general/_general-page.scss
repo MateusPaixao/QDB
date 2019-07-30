@@ -4475,6 +4475,9 @@ html {
         &.lr-search-visible {
             z-index: 11 !important;
             visibility: visible;
+            position: absolute;
+            height: 500px;
+            top: 70% !important;
         }
 
         @include d('767px', max) {

@@ -130,6 +130,7 @@ $secondaryColor: #AC0032;
         &--title{
             margin-bottom: 50px;
             font-weight: bold;
+            font-size: $titleSize;
 
             @include d('768px'){
                 display: none;
@@ -184,7 +185,8 @@ $secondaryColor: #AC0032;
                 }
                 &--text{
                     font-size: $textSize;
-                    max-width: 50%;
+                    max-width: 80%;
+                    line-height: 1.5;
                     @include d('768px'){
                         max-width: 100%;
                         line-height: 1.5;
