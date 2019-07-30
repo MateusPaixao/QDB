@@ -1611,7 +1611,16 @@ $(document).ready(function(){
 function homeCountDown(){
         const corBg = document.querySelector('.w-counter--bg').textContent; 
         document.querySelector('.w-counter').style.backgroundColor = corBg;
-        console.log(corBg);
+
+        // COUNTERBAR
+        let bar = document.createElement("span");
+        bar.classList.add("w-counter--container--counterbar")
+        let fill = document.createElement("span");
+        fill.classList.add("w-counter--bar");
+        document.querySelector(".w-counter--container").appendChild(bar);
+        document.querySelector(".w-counter--container--counterbar").appendChild(fill);
+        document.querySelector(".w-counter--container--counterbar").style.backgroundColor = corBg;
+        
         if(document.querySelector('.w-counter--container') != null){
             document.querySelector('.w-counter--container').classList.remove('hide-important');
             let dateFim = document.querySelector('.w-counter--end').textContent;
@@ -1623,13 +1632,11 @@ function homeCountDown(){
             const _hour = _minute * 60;
             const _day = _hour * 24;
             let clock = 0;
-        
             function showRemaining() {
                 let now = new Date();
                 let distance = end - now;
         
                 if (distance <= 0) {
-        
                     clearInterval(clock);
                     document.querySelector('.w-counter--container').classList.add('hidden')
                     if(document.querySelector('.w-counter--cupom') != null){
@@ -1639,7 +1646,7 @@ function homeCountDown(){
                     return;
                 }
                 let days = Math.floor(distance / _day);
-                let hours = Math.floor((distance % _day) / _hour);
+                let hours = Math.floor(distance / 36e5);
                 let minutes = Math.floor((distance % _hour) / _minute);
                 let seconds = Math.floor((distance % _minute) / _second);
                 
@@ -1648,14 +1655,15 @@ function homeCountDown(){
                 let minuteCounter = document.querySelector('.w-counter--minutes');
                 let secondsCounter = document.querySelector('.w-counter--seconds');
                 const diasText = document.querySelector('.w-counter--info')
-                
+
+                let width = now.getTime() / end.getTime() * 100;
+                document.querySelector(".w-counter--bar").style.width = width + "%";
 
                 dayCounter.innerHTML = days;
                 diasText.textContent = days == 1 ? 'dia' : 'dias';
                 hourCounter.innerHTML = hours < 10 ? '0' + hours : hours;
                 minuteCounter.innerHTML = minutes < 10 ? '0' + minutes : minutes;
                 secondsCounter.innerHTML = seconds < 10 ? '0' + seconds : seconds;
-
             }
     
         clock = setInterval(showRemaining, 1000);
