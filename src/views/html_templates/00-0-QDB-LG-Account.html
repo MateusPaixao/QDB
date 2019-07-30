@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce"
+    lang="pt-BR" ng-app="Account" class="_d-top">
+
+<head>
+    <title>Minha Conta</title>
+    <vtex:metaTags />
+    <vtex:template id="00-0-QDB-Head" />
+    <link href="https://qbbr.vteximg.com.br/arquivos/login.css?v=10-07-2019" rel="stylesheet"/>
+</head>
+
+<body class="logged">
+    <div class="wrapper bx-hide">
+        <div class="wrapper-inner">
+            <div class="container-group">
+                <vtex:template id="00-0-QDB-Header" />
+            </div>
+            <div class="container">
+                <!-- /.container-group -->
+                <div class="main">
+                    <div class="breadcrumbs">
+                    </div>
+                <a href="/institucional/atendimento"><div class="help">
+                    <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9.5" stroke="#67605F"/><path d="M10.304 5.878c-1.008 0-2.072.406-2.73.882l.84 1.316c.364-.238 1.218-.574 1.848-.574.714 0 1.316.476 1.316 1.092 0 1.372-2.24 1.4-2.24 3.304v.882h1.568v-.742c0-1.4 2.534-1.302 2.534-3.528 0-1.68-1.554-2.632-3.136-2.632zm-.112 8.05c-.644 0-1.148.476-1.148 1.106 0 .63.504 1.092 1.148 1.092.644 0 1.092-.476 1.092-1.092 0-.63-.462-1.106-1.092-1.106z"/></svg>
+                    <p>Ajuda</p>
+                </div></a>
+                <div class="_profile">
+                    <div class="_initial">
+                        <div class="_picture">
+                            <svg class="--edit-avatar" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <filter id="dropshadow" height="150%">
+                                <feGaussianBlur in="SourceAlpha" stdDeviation="2"/> <!-- stdDeviation is how much to blur -->
+                                <feOffset dx="0" dy="0" result="offsetblur"/> <!-- how much to offset -->
+                                <feComponentTransfer>
+                                <feFuncA type="linear" slope="0.35"/> <!-- slope is the opacity of the shadow -->
+                                </feComponentTransfer>
+                                <feMerge> 
+                                <feMergeNode/> <!-- this contains the offset blurred image -->
+                                <feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
+                                </feMerge>
+                                </filter>
+                                <path style="filter:url(#dropshadow)" d="M4.162.359A3.325 3.325 0 0 0 .84 3.68v19.356a3.325 3.325 0 0 0 3.322 3.322h19.356a3.325 3.325 0 0 0 3.322-3.322V3.68A3.325 3.325 0 0 0 23.518.36H4.162zm15.407 5.2c.463 0 .926.176 1.277.527l.244.243a1.814 1.814 0 0 1 0 2.557L10.4 19.575c-.238.238-.543.375-.927.545-.384.169-.831.337-1.26.488-.855.301-1.64.533-1.64.533a.433.433 0 0 1-.531-.56s.919-2.651 1.483-3.704a.433.433 0 0 1 .076-.102l10.69-10.689a1.802 1.802 0 0 1 1.277-.527zm0 .86a.938.938 0 0 0-.666.28L8.271 17.331c-.329.627-.799 1.874-1.104 2.706.29-.092.364-.108.76-.247.415-.146.846-.309 1.196-.463.35-.155.634-.334.665-.365l10.689-10.69a.93.93 0 0 0 0-1.33l-.243-.243a.938.938 0 0 0-.666-.28z" fill="#fff"/>
+                            </svg>
+                            <div class="_photo --skeleton">
+                                <img src="https://qbbr.vteximg.com.br/arquivos/profile-pic.svg.png" alt="Foto de Perfil"/>
+                            </div>
+                        </div>
+                        <div class="_stats">
+                            <p class="_welcome --skeleton">Olá, <b></b>
+                              <a href="/lista-de-desejos"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -3 36 36"><path data-name="Caminho 4622" d="M17.437 29.85a1.47 1.47 0 0 1-1.085-.436L5.716 18.666c-.072-.073-.072-.145-.145-.145l-2.894-2.906A9.146 9.146 0 0 1 0 9.151a9.022 9.022 0 0 1 2.677-6.464 9.059 9.059 0 0 1 12.879 0l1.953 1.961 1.953-1.961a9.124 9.124 0 0 1 12.879 12.928l-13.747 13.8a1.77 1.77 0 0 1-1.157.435zM6.729 17.721l10.636 10.6c.072.073.145.073.145 0l13.747-13.8A7.689 7.689 0 1 0 20.4 3.631l-2.963 2.978-2.967-2.978A7.652 7.652 0 0 0 9.044 1.38 8.012 8.012 0 0 0 3.69 3.7a7.736 7.736 0 0 0 0 10.894z"/></svg></a>
+                            </p>
+                            <div class="_club-member hidden">
+                              <p class="_saldoclube --skeleton">Saldo Clube das Berês: <span class="_price">R$ <b>0,00</b> <i>i</i> <span class="_info">A cada 100 pontos acumulados, você tem direito a R$ 5,00 de crédito no pagamento de qualquer produto ou serviço.</span></span><i class="_less-points hidden"></i>
+                                
+                                </p><span class="_bar --skeleton">
+                                <div class="_points"><svg width="20" height="20" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.943 5.824a1.042 1.042 0 0 0-.899-.69l-3.674-.258L8.466.609A1.022 1.022 0 0 0 7.534 0C7.13 0 6.769.237 6.6.603L4.664 4.876.949 5.14a1.02 1.02 0 0 0-.892.69c-.134.393-.027.827.268 1.105l3.038 2.837-1.174 3.894A1.028 1.028 0 0 0 3.17 15a.98.98 0 0 0 .435-.102l.369-.176c0 .007.007.007.007.014l2.756-1.327a.522.522 0 0 0 .241-.691.512.512 0 0 0-.684-.244l-1.086.521c0-.006 0-.006-.007-.013l-2.045.975 1.361-4.51-3.493-3.278 4.318-.304 2.186-4.836 2.159 4.836 4.291.304-3.5 3.278 1.388 4.51-.134-.068-2.937-1.415a.512.512 0 0 0-.684.244.517.517 0 0 0 .235.684l3.084 1.483a1.03 1.03 0 0 0 1.113-.149c.309-.271.43-.698.309-1.09l-1.2-3.888 3.024-2.837c.295-.27.402-.704.268-1.097z" fill="#F8F8F8"/></svg>
+                                  <p></p>
+                                </div>
+                                <div class="_fill">
+                                  <div class="_highlight"></div>
+                                </div>
+                                </span>
+                                <small class="_sup-club --skeleton"></small>
+                            </div>
+                            <div class="_not-member">
+                              <p class="--skeleton">Cadastre-se no <a href="/clube-das-beres" title="Clube das Berês Fidelidade">Clube das Berês Fidelidade</a> e tenha beneficios em suas compras.</p><span class="pop-cadastro btn-qdb-default bg-tertiary-1 --skeleton">quero participar</span>
+                            </div>
+                            <span class="_favorite"></span>
+                        </div>
+                        <ul class="_last-orders --skeleton"><b>Últimos Pedidos:</b></ul>
+                        <span class="divider"></span>
+                        <div class="_menu-logged">
+                        <a class="_menu_item --club"><span class="_notification">1</span><svg viewbox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.943 5.824a1.042 1.042 0 0 0-.899-.69l-3.674-.258L8.466.609A1.022 1.022 0 0 0 7.534 0C7.13 0 6.769.237 6.6.603L4.664 4.876.949 5.14a1.02 1.02 0 0 0-.892.69c-.134.393-.027.827.268 1.105l3.038 2.837-1.174 3.894A1.028 1.028 0 0 0 3.17 15a.98.98 0 0 0 .435-.102l.369-.176c0 .007.007.007.007.014l2.756-1.327a.522.522 0 0 0 .241-.691.512.512 0 0 0-.684-.244l-1.086.521c0-.006 0-.006-.007-.013l-2.045.975 1.361-4.51-3.493-3.278 4.318-.304 2.186-4.836 2.159 4.836 4.291.304-3.5 3.278 1.388 4.51-.134-.068-2.937-1.415a.512.512 0 0 0-.684.244.517.517 0 0 0 .235.684l3.084 1.483a1.03 1.03 0 0 0 1.113-.149c.309-.271.43-.698.309-1.09l-1.2-3.888 3.024-2.837c.295-.27.402-.704.268-1.097z"/></svg>
+                          <p>Clube das Berês</p></a><a class="_menu_item --orders"><span class="_notification">1</span><svg viewbox="-4 0 37 37" xmlns="http://www.w3.org/2000/svg"><path d="M26.026 9.077a2.192 2.192 0 0 0-2.231-2h-3.461v-.462A6.615 6.615 0 0 0 13.719 0a6.438 6.438 0 0 0-6.462 6.615v.462H3.795a2.177 2.177 0 0 0-2.154 2l-1.615 20a5.257 5.257 0 0 0 1.462 4.154 5.367 5.367 0 0 0 4 1.769h16.615a5.248 5.248 0 0 0 4-1.769 5.867 5.867 0 0 0 1.462-4.154zM8.719 6.615a5.077 5.077 0 1 1 10.154 0v.462H8.719zm16.307 25.539a3.852 3.852 0 0 1-2.923 1.308H5.488a3.954 3.954 0 0 1-3.923-4.308l1.615-20a.628.628 0 0 1 .692-.615h3.462v2.846a.769.769 0 1 0 1.538 0V8.538h10.154v2.846a.769.769 0 1 0 1.538 0V8.538h3.462a.678.678 0 0 1 .692.615l1.615 20a5.105 5.105 0 0 1-1.307 3.001z"/></svg>
+                          <p>Meus Pedidos</p></a><a class="_menu_item --account"><span class="_notification">1</span><svg viewbox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><path data-name="Caminho 4618" d="M14.331 18.143h.229a6.227 6.227 0 0 0 4.879-2.135c2.668-2.973 2.211-8.157 2.211-8.767-.152-3.735-1.906-5.489-3.354-6.327A8.782 8.782 0 0 0 14.485 0h-.152a8.421 8.421 0 0 0-3.735.915c-1.448.839-3.2 2.592-3.43 6.327-.076.61-.457 5.717 2.211 8.767a6.5 6.5 0 0 0 4.952 2.134zM8.766 7.471c.229-5.336 4.04-5.87 5.641-5.87h.078c1.982.076 5.413.839 5.641 5.87 0 .076.534 4.955-1.83 7.623a4.787 4.787 0 0 1-3.811 1.606h-.076a4.787 4.787 0 0 1-3.812-1.6c-2.212-2.6-1.831-7.248-1.831-7.629z"/><path data-name="Caminho 4619" d="M28.892 27.062v-.076c-.076-1.372-.152-4.574-3.126-5.565h-.076a19.164 19.164 0 0 1-5.946-2.744.726.726 0 0 0-.534-.152.772.772 0 0 0-.534.3.806.806 0 0 0 .152 1.067 23.608 23.608 0 0 0 6.4 2.973c1.753.61 1.982 2.516 2.058 4.193v.152a11.164 11.164 0 0 1-.152 2.287v.076l-.076.076a26.184 26.184 0 0 1-12.655 2.973 26.483 26.483 0 0 1-12.65-2.968l-.076-.076v-.076a24.657 24.657 0 0 1-.152-2.363v-.152c.076-1.677.229-3.507 2.058-4.193a23.544 23.544 0 0 0 6.4-2.9.882.882 0 0 0 .381-.534.633.633 0 0 0-.152-.61.693.693 0 0 0-.61-.3 1.084 1.084 0 0 0-.457.152A20.111 20.111 0 0 1 3.2 21.348h-.074C.152 22.336.076 25.538 0 26.91v.229a10.653 10.653 0 0 0 .381 3.126.761.761 0 0 0 .3.381A27.482 27.482 0 0 0 14.481 34a27.449 27.449 0 0 0 13.8-3.354.761.761 0 0 0 .3-.381 10.8 10.8 0 0 0 .3-3.126z"/></svg>
+                          <p>Meus Dados</p></a>
+                        </div>
+                    </div>
+                </div>
+                <section class="clube-das-beres-container hidden"> <!-- inicio clube-das-beres -->
+                    <div class="_promos">
+                      <h2 class="_titulo-login">Promoções Exclusivas</h2>
+                      <div class="_banners">
+                        <vtex:contentPlaceHolder id="PromocoesClube"/>
+                      </div>
+                    </div>
+                    <div class="_benefits">
+                      <h2 class="_titulo-login">Benefícios</h2>
+                      <ul>
+                        <li>
+                          <svg viewbox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.943 5.824a1.042 1.042 0 0 0-.899-.69l-3.674-.258L8.466.609A1.022 1.022 0 0 0 7.534 0C7.13 0 6.769.237 6.6.603L4.664 4.876.949 5.14a1.02 1.02 0 0 0-.892.69c-.134.393-.027.827.268 1.105l3.038 2.837-1.174 3.894A1.028 1.028 0 0 0 3.17 15a.98.98 0 0 0 .435-.102l.369-.176c0 .007.007.007.007.014l2.756-1.327a.522.522 0 0 0 .241-.691.512.512 0 0 0-.684-.244l-1.086.521c0-.006 0-.006-.007-.013l-2.045.975 1.361-4.51-3.493-3.278 4.318-.304 2.186-4.836 2.159 4.836 4.291.304-3.5 3.278 1.388 4.51-.134-.068-2.937-1.415a.512.512 0 0 0-.684.244.517.517 0 0 0 .235.684l3.084 1.483a1.03 1.03 0 0 0 1.113-.149c.309-.271.43-.698.309-1.09l-1.2-3.888 3.024-2.837c.295-.27.402-.704.268-1.097z"/></svg> 
+                          Acesso à promoções exclusivas baseadas nos seus interesses
+                        </li>
+                        <li>
+                          <svg viewbox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.943 5.824a1.042 1.042 0 0 0-.899-.69l-3.674-.258L8.466.609A1.022 1.022 0 0 0 7.534 0C7.13 0 6.769.237 6.6.603L4.664 4.876.949 5.14a1.02 1.02 0 0 0-.892.69c-.134.393-.027.827.268 1.105l3.038 2.837-1.174 3.894A1.028 1.028 0 0 0 3.17 15a.98.98 0 0 0 .435-.102l.369-.176c0 .007.007.007.007.014l2.756-1.327a.522.522 0 0 0 .241-.691.512.512 0 0 0-.684-.244l-1.086.521c0-.006 0-.006-.007-.013l-2.045.975 1.361-4.51-3.493-3.278 4.318-.304 2.186-4.836 2.159 4.836 4.291.304-3.5 3.278 1.388 4.51-.134-.068-2.937-1.415a.512.512 0 0 0-.684.244.517.517 0 0 0 .235.684l3.084 1.483a1.03 1.03 0 0 0 1.113-.149c.309-.271.43-.698.309-1.09l-1.2-3.888 3.024-2.837c.295-.27.402-.704.268-1.097z"/></svg> 
+                          Presente de aniversário
+                        </li>
+                        <li>
+                          <svg viewbox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.943 5.824a1.042 1.042 0 0 0-.899-.69l-3.674-.258L8.466.609A1.022 1.022 0 0 0 7.534 0C7.13 0 6.769.237 6.6.603L4.664 4.876.949 5.14a1.02 1.02 0 0 0-.892.69c-.134.393-.027.827.268 1.105l3.038 2.837-1.174 3.894A1.028 1.028 0 0 0 3.17 15a.98.98 0 0 0 .435-.102l.369-.176c0 .007.007.007.007.014l2.756-1.327a.522.522 0 0 0 .241-.691.512.512 0 0 0-.684-.244l-1.086.521c0-.006 0-.006-.007-.013l-2.045.975 1.361-4.51-3.493-3.278 4.318-.304 2.186-4.836 2.159 4.836 4.291.304-3.5 3.278 1.388 4.51-.134-.068-2.937-1.415a.512.512 0 0 0-.684.244.517.517 0 0 0 .235.684l3.084 1.483a1.03 1.03 0 0 0 1.113-.149c.309-.271.43-.698.309-1.09l-1.2-3.888 3.024-2.837c.295-.27.402-.704.268-1.097z"/></svg> 
+                          Pré-venda dos nossos produtos
+                        </li>
+                        <li>
+                          <svg viewbox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.943 5.824a1.042 1.042 0 0 0-.899-.69l-3.674-.258L8.466.609A1.022 1.022 0 0 0 7.534 0C7.13 0 6.769.237 6.6.603L4.664 4.876.949 5.14a1.02 1.02 0 0 0-.892.69c-.134.393-.027.827.268 1.105l3.038 2.837-1.174 3.894A1.028 1.028 0 0 0 3.17 15a.98.98 0 0 0 .435-.102l.369-.176c0 .007.007.007.007.014l2.756-1.327a.522.522 0 0 0 .241-.691.512.512 0 0 0-.684-.244l-1.086.521c0-.006 0-.006-.007-.013l-2.045.975 1.361-4.51-3.493-3.278 4.318-.304 2.186-4.836 2.159 4.836 4.291.304-3.5 3.278 1.388 4.51-.134-.068-2.937-1.415a.512.512 0 0 0-.684.244.517.517 0 0 0 .235.684l3.084 1.483a1.03 1.03 0 0 0 1.113-.149c.309-.271.43-.698.309-1.09l-1.2-3.888 3.024-2.837c.295-.27.402-.704.268-1.097z"/></svg> 
+                          Acúmulo de pontos
+                        </li>
+                        <li>
+                          <svg viewbox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.943 5.824a1.042 1.042 0 0 0-.899-.69l-3.674-.258L8.466.609A1.022 1.022 0 0 0 7.534 0C7.13 0 6.769.237 6.6.603L4.664 4.876.949 5.14a1.02 1.02 0 0 0-.892.69c-.134.393-.027.827.268 1.105l3.038 2.837-1.174 3.894A1.028 1.028 0 0 0 3.17 15a.98.98 0 0 0 .435-.102l.369-.176c0 .007.007.007.007.014l2.756-1.327a.522.522 0 0 0 .241-.691.512.512 0 0 0-.684-.244l-1.086.521c0-.006 0-.006-.007-.013l-2.045.975 1.361-4.51-3.493-3.278 4.318-.304 2.186-4.836 2.159 4.836 4.291.304-3.5 3.278 1.388 4.51-.134-.068-2.937-1.415a.512.512 0 0 0-.684.244.517.517 0 0 0 .235.684l3.084 1.483a1.03 1.03 0 0 0 1.113-.149c.309-.271.43-.698.309-1.09l-1.2-3.888 3.024-2.837c.295-.27.402-.704.268-1.097z"/></svg> 
+                          Ações com produtos e eventos exclusivos
+                        </li>
+                      </ul>
+                      <div class="box-video"><img src="https://www.quemdisseberenice.com.br/arquivos/cdb-thumb-video.jpg" /></div>
+                    </div>
+                  <div class="_faq">
+                    <h2 class="_titulo-login">Perguntas Frequentes</h2>
+                    <ul>
+                      <li> <span>Como eu acumulo pontos? <svg viewbox="-15 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.415 53.215c-.369.37-.83.554-1.338.554-.508 0-.97-.184-1.339-.554a1.894 1.894 0 0 1 0-2.677L24.277 27 .738 3.46a1.894 1.894 0 0 1 0-2.676 1.894 1.894 0 0 1 2.677 0l24.877 24.877a1.894 1.894 0 0 1 0 2.676L3.415 53.215z"/></svg></span>
+                        <p>A cada R$1 gasto em uma das nossas lojas, você ganha 1 ponto na sua conta do clube das berês fidelidade.</p>
+                      </li>
+                      <li> <span>Como eu troco meus pontos? <svg viewbox="-15 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.415 53.215c-.369.37-.83.554-1.338.554-.508 0-.97-.184-1.339-.554a1.894 1.894 0 0 1 0-2.677L24.277 27 .738 3.46a1.894 1.894 0 0 1 0-2.676 1.894 1.894 0 0 1 2.677 0l24.877 24.877a1.894 1.894 0 0 1 0 2.676L3.415 53.215z"/></svg></span>
+                        <p>A cada 100 pontos acumulados, você tem direito a R$ 5,00 de crédito no pagamento de qualquer produto ou serviço. aí funciona assim: você pode usar os pontos pra ter um desconto na sua compra ou pagar ela inteira! Mas olha, você só pode fazer essa troca quando tiver o saldo mínimo de 100 pontos, ok?</p>
+                      </li>
+                      <li> <span>Como funcionam as promoções exclusivas? <svg viewbox="-15 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.415 53.215c-.369.37-.83.554-1.338.554-.508 0-.97-.184-1.339-.554a1.894 1.894 0 0 1 0-2.677L24.277 27 .738 3.46a1.894 1.894 0 0 1 0-2.676 1.894 1.894 0 0 1 2.677 0l24.877 24.877a1.894 1.894 0 0 1 0 2.676L3.415 53.215z"/></svg></span>
+                        <p>A gente sempre prepara promoções exclusivas pras consumidoras cadastradas no clube das berês, pra saber delas é só ficar de olho nos e-mails que a gente envia, nas publicações na nossa página no Facebook e no nosso site (ah! pra ter acesso às promos na nossa loja virtual, você precisa fazer o login na sua conta, tá?). Se você for comprar em uma das nossas lojas físicas, você precisa levar um print do nosso e-mail ou da nossa publicação no Facebook pra mostrar pra vendedora.</p>
+                      </li>
+                      <li> <span>Tem presente de aniversário? <svg viewbox="-15 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.415 53.215c-.369.37-.83.554-1.338.554-.508 0-.97-.184-1.339-.554a1.894 1.894 0 0 1 0-2.677L24.277 27 .738 3.46a1.894 1.894 0 0 1 0-2.676 1.894 1.894 0 0 1 2.677 0l24.877 24.877a1.894 1.894 0 0 1 0 2.676L3.415 53.215z"/></svg></span>
+                        <p>No mês de aniversário das berês, a gente sempre manda um e-mail com uma surpresa! é só ficar de olho nas nossas mensagens ;) não esquece que pra participar você precisa levar um print do e-mail na loja, combinado?</p>
+                      </li>
+                    </ul>
+                  </div> <!-- FIM FAQ -->
+                </section> <!-- fim clube-das-beres -->
+                <section class="orders hidden">
+                    <ul class="--skeleton hidden"></ul>
+                </section>
+                <div class="logout">
+                  <a href="/no-cache/user/logout"><svg width="23" height="29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.814 20.907a.666.666 0 0 0 .472.202.666.666 0 0 0 .472-.202l5.935-5.935a.652.652 0 0 0 0-.944l-5.935-5.935a.652.652 0 0 0-.944 0 .652.652 0 0 0 0 .944l4.788 4.788H6.407a.676.676 0 0 0-.674.675c0 .37.303.674.674.674h11.195l-4.788 4.789a.652.652 0 0 0 0 .944z"/><path d="M22.256 9.442c.37 0 .674-.304.674-.675V3.81c0-2.09-1.72-3.81-3.81-3.81H3.81C1.72 0 0 1.72 0 3.81v21.38C0 27.28 1.72 29 3.81 29h15.31c2.09 0 3.81-1.72 3.81-3.81v-4.957a.676.676 0 0 0-.674-.675.676.676 0 0 0-.675.675v4.956a2.475 2.475 0 0 1-2.461 2.462H3.81A2.475 2.475 0 0 1 1.35 25.19V3.81A2.475 2.475 0 0 1 3.81 1.35h15.31A2.475 2.475 0 0 1 21.58 3.81v4.957c0 .371.304.675.675.675z"/></svg></a>
+                </div>
+                <form class="hidden" name="formUpload" enctype="multipart/form-data">
+                    <input class="avatar" type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" onchange="submitUploadThumb()" />
+                </form>
+                <div class="popup-steps popup-form popup-video" id="popup-video">
+                    <div class="--close">X</div>
+                    <iframe width="990" height="557" src="https://www.youtube.com/embed/b1zG0aeU6ro" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+                </div>
+                <span class="overlay-clube"></span>
+                    <div class="modal--beres" id="clubSignUp"> <!-- fim modal-beres -->
+                      <div class="modal-top">
+                        <div class="name">Cadastro 1/3</div>
+                        <div class="--close">X</div>
+                      </div><img class="logo-fidelidade" src="https://qbbr.vteximg.com.br/arquivos/cdb-logo-preto.png?v=636474071576730000" alt="Club das Berês Fidelidade"/>
+                      <p class="modal-info">É só se cadastrar e começar a aproveitar</p>
+                      <form action="">
+                        <div class="step step-1">
+                          <div class="form-group group-cpf">
+                            <input class="field beres-cpf" type="text" name="cpf" required="required" id="field-cpf" value="" placeholder="" maxlength="14" autocomplete="off" />
+                            <label class="control-label" for="cpf">CPF</label>
+                            <button class="--next">
+                            <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.16388 1.32897L11.442 4.60709H0.831234C0.615568 4.60709 0.399902 4.82276 0.399902 5.03843C0.399902 5.29723 0.615568 5.46976 0.831234 5.46976H11.442L8.16388 8.79102C7.77568 9.17922 8.37955 9.78308 8.76774 9.39488L12.8223 5.34036C12.9948 5.16783 12.9948 4.90903 12.8223 4.77963L8.76774 0.725106C8.37955 0.336907 7.77568 0.940772 8.16388 1.32897Z" fill="white"/>
+                            </svg>
+                            </button><i class="input-bar"></i><small class="hidden">CPF Obrigatório</small>
+                          </div>
+                        </div>
+                        <div class="step step-2 hidden">
+                          <div class="form-group group-nome">
+                            <input class="field beres-nome" type="text" name="nome" required="required" id="field-nome" value="" placeholder="" autocomplete="off" />
+                            <label class="control-label" for="nome">Nome*</label><i class="input-bar"></i><small class="hidden">Favor fornecer um sobrenome</small>
+                          </div>
+                          <div class="form-group group-email">
+                            <input class="field beres-email" type="text" name="email" required="required" id="field-email" value="" placeholder="" autocomplete="off" />
+                            <label class="control-label" for="email">E-mail*</label><i class="input-bar"></i><small class="hidden"></small>
+                          </div>
+                          <div class="form-group inline group-datenasc">
+                            <input class="field beres-datenasc" type="text" name="datenasc" required="required" id="field-datenasc" value="" placeholder="" autocomplete="off" />
+                            <label class="control-label" for="datenasc">Data de Nasc.*</label><i class="input-bar"></i><small class="hidden"></small>
+                          </div>
+                          <div class="form-group inline group-cel">
+                            <input class="field beres-cel" type="text" name="cel" required="required" id="field-cel" value="" placeholder="" autocomplete="off" />
+                            <label class="control-label" for="cel">Celular*</label><i class="input-bar"></i><small class="hidden"></small>
+                          </div>
+                          <div class="checkbox group-newsletter">
+                            <label>
+                              <input type="checkbox" name="newsletter" /><i class="helper"></i>Quero receber novidades e promoções.
+                            </label>
+                          </div>
+                          <div class="checkbox group-terms">
+                            <label>
+                              <input type="checkbox" name="terms" /><i class="helper"></i>Concordo com os <a href="#">termos de uso</a>, <a href="#">política</a> e <a href="#">privacidade</a>.
+                            </label>
+                          </div>
+                          <div class="button-container">
+                            <input class="--btn-fidelidade" type="submit" value="Cadastrar" />
+                          </div>
+                        </div>
+                        <div class="step step-3 hidden">
+                          <p class="confirm-subscription">Agora você faz parte do <b>clube das berês fidelidade!</b></p>
+                          <p class="benefit"><b>A cada R$ 1 em compras você ganha 1 ponto</b> pra trocar por desconto na compra de outros produtos</p>
+                          <p class="benefit-highlight">R$1 = <svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em" viewBox="0 0 226.8 226.8"><path d="M224.4 89c-2-5.7-7.3-9.7-13.4-10.2L156.2 75l-28.4-63c-2.5-5.5-7.9-9-13.9-9s-11.4 3.5-13.9 8.9L71.1 75l-55.4 3.9c-6 .4-11.3 4.4-13.3 10.2-2 5.8-.4 12.2 4 16.3l45.3 41.9-17.5 57.5c-1.8 5.8 0 12.1 4.6 16 2.8 2.4 6.4 3.7 10 3.7 2.2 0 4.5-.5 6.5-1.5l5.5-2.6c0 .1.1.1.1.2L102 201c3.8-1.8 5.4-6.4 3.6-10.2-1.8-3.8-6.4-5.4-10.2-3.6l-16.2 7.7c0-.1 0-.1-.1-.2l-30.5 14.4 20.3-66.6-52.1-48.4 64.4-4.5 32.6-71.4L146 89.6l64 4.5-52.2 48.4 20.7 66.6-2-1-43.8-20.9c-3.8-1.8-8.4-.2-10.2 3.6-1.8 3.8-.2 8.3 3.5 10.1l46 21.9c2.1 1 4.3 1.5 6.6 1.5 3.6 0 7.2-1.3 10-3.7 4.6-4 6.4-10.3 4.6-16.1l-17.9-57.4 45.1-41.9c4.4-4 6-10.4 4-16.2z" fill="#00A7E1"/></svg> 1 ponto</p>
+                          <p class="benefit"><b>E a cada 100 pontos acumulados , você tem R$ 5 de desconto</b> pra usar numa próxima compra, aproveite!</p>
+                          <button class="--btn-fidelidade-confirm --btn-fidelidade">Ok, entendi!</button>
+                        </div>
+                        <div class="loading-form hidden">
+                          <div class="input-bar"><svg id="loader" width="20" height="20" xmlns="http://www.w3.org/2000/svg" style="animation:ROTOR 2s ease infinite"><style>@keyframes ROTOR{0%,50%{transform:rotate(0deg)}to{transform:rotate(360deg)}}@keyframes DASHLOADER{0%,to{stroke-dasharray:1px,45px;stroke-dashoffset:0}50%{stroke-dasharray:35px,45px;stroke-dashoffset:0}}@keyframes LOADERROTORFULL{0%{transform:rotate(0deg)}to{transform:rotate(360deg)}}</style><g style="width:20px;height:20px;transform-origin:center center;animation:LOADERROTORFULL 1.6s linear infinite"><circle cx="10" cy="10" r="6" fill="none" stroke-width="2" style="animation:DASHLOADER 2s ease infinite" stroke-linecap="square" stroke="white"/></g></svg> 
+                            <svg id="checked" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9.5" fill="transparent" stroke="#fff" stroke-linejoin="round"/><path d="M16.006 6.006a.989.989 0 0 0-.51.201c-2.917 2.228-5.1 4.065-7.885 6.215l-3.169-2.04a.98.98 0 0 0-.299-.126 1.136 1.136 0 0 0-.669.043.879.879 0 0 0-.268.162.644.644 0 0 0-.165.229.518.518 0 0 0 .058.51.737.737 0 0 0 .214.203l3.788 2.441c.168.108.383.163.603.155.22-.007.427-.078.58-.197 3.127-2.386 5.36-4.3 8.45-6.658a.635.635 0 0 0 .253-.363.526.526 0 0 0-.075-.407.792.792 0 0 0-.375-.296 1.114 1.114 0 0 0-.53-.072z" fill="#fff"/></svg> 
+                          </div>
+                          <p class="texto-validacao">Validando Dados</p>
+                        </div>
+                      </form>
+                    </div> <!-- fim modal-beres -->
+                    <!-- /.section-profile -->
+                    <vtex.cmc:accountUserProfile />
+                    <!--<div class="shell">-->
+                    <!--    <vtex.cmc:orderList/>-->
+                    <!--</div>-->
+                    <!--<div class="shell">-->
+                    <!--    <vtex.cmc:accountAddress/>-->
+                    <!--</div>-->
+                </div><!-- /.main -->
+            </div> <!-- /.container -->
+            <div style="display: none; opacity: 0.9;" class="modal-overlay">
+                <div class="modal-aniversario">
+                    <div class="close-modal"><span>+</span></div>
+                    <img src="/arquivos/QDB-1440-MINHACONTA_aniversario-modal-new-qdb.jpg"/>
+                    <img class="selo-interno" src="/arquivos/cdb-selo2-aniversario.png"/>
+                    <ul>
+                        <li>
+                            <i class="ico ico-cdb-dia"></i>
+                            pra retirar seu lápis batom mate nas lojas, leve seu RG e esse e-mail (pode ser em celular ou tablet, tá?)
+                        </li>
+                        <li>
+                            <i class="ico ico-cdb-pessoa"></i>
+                            com esse e-mail, você ganha um lápis batom mate de presente de aniversário. ele é pessoal e intransferível. somente clientes cadastrados no clube das berês fidelidade, que façam aniversário no mês <span class="mesPorExtenso"></span>, podem participar.
+                        </li>
+                        <li>
+                            <i class="ico ico-cdb-calendario"></i>
+                            promoção válida nas lojas físicas da marca até dia <span class="diaDoMes"></span>/0<span class="mes-aniversario"></span>/2019
+                        </li>
+                        <li>
+                            <i class="ico ico-cdb-batom"></i>
+                            produtos participantes: todas lápis batom mate.
+                        </li>
+                    </ul>
+                    <button type="button">ok, entendi</button>
+                    <p>*promoção exclusiva para clientes do clube das berês fidelidade, válida exclusivamente no mês do seu aniversário, somente nas lojas físicas oficiais da marca mediante apresentação deste e-mail marketing e documento pessoal com foto. esta promoção é pessoal e intransferível. lápis batom mate não sujeito a troca e sujeito a disponibilidade de estoque.</p>
+                </div>
+            </div>
+            <footer class="footer">
+                <vtex:template id="00-0-QDB-Footer" />
+                <script type="text/javascript" src="https://qbbr.vteximg.com.br/arquivos/new_qdb_jquery.mask.min.js?v=636065225920100000"></script>
+                <script src="https://qbbr.vteximg.com.br/arquivos/login.js?v=10-07-2019-2"></script>
+            </footer><!-- /.footer -->
+        </div>
+        <!-- /.wrapper-inner -->
+    </div>
+    <!-- /.wrapper -->
+
+</body>
+
+</html>

@@ -1592,69 +1592,71 @@ $(document).ready(function(){
                 cronometro("after", "Jul 25, 2019 21:00:00", "Jul 26, 2019 08:59:59", false, "Frete Grátis na compra de 3 ou + itens*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:816");
                 break;
             case 27:
-                
+                setTopBanner("after", "Jul 27, 2019 00:00:00", "Jul 28, 2019 20:59:59", ['Máscaras para cílios com 30% de desconto*'], "#C9322B", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:827');
                 break;
             case 28:
-                
+                setTopBanner("after", "Jul 27, 2019 00:00:00", "Jul 28, 2019 20:59:59", ['Máscaras para cílios com 30% de desconto*'], "#C9322B", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:827');
+                cronometro("after", "Jul 28, 2019 21:00:00", "Jul 30, 2019 08:59:59", false, "Batons com 30% de desconto*", "#C9322B", "https://www.quemdisseberenice.com.br/busca/?fq=H:824");
                 break;
             case 29:
-                
+                cronometro("after", "Jul 28, 2019 21:00:00", "Jul 30, 2019 08:59:59", false, "Batons com 30% de desconto*", "#C9322B", "https://www.quemdisseberenice.com.br/busca/?fq=H:824");
                 break;
             case 30:
-                
-                break;
-            case 31:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
-                break;
-            case 1:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
-                break;
-            case 2:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
+                cronometro("after", "Jul 28, 2019 21:00:00", "Jul 30, 2019 08:59:59", false, "Batons com 30% de desconto*", "#C9322B", "https://www.quemdisseberenice.com.br/busca/?fq=H:824");
                 break;
             default:
         }
     }
 });
 function homeCountDown(){
-    
-    document.querySelector('.w-counter').style.backgroundColor = document.querySelector('.w-counter--bg').getAttribute('data-color');
-    if(document.querySelector('.w-counter--container') != null){
-        const dateFim = document.querySelector('.w-counter--end').getAttribute('data-final');
-        const end = new Date(dateFim);
-    
-        const _second = 1000;
-        const _minute = _second * 60;
-        const _hour = _minute * 60;
-        const _day = _hour * 24;
-        let clock = 0;
-    
-        function showRemaining() {
-            let now = new Date();
-            let distance = end - now;
-    
-            if (distance <= 0) {
-    
-                clearInterval(clock);
-                document.querySelector('.w-counter--container').classList.add('hidden')
-                document.querySelector('.w-counter--cupom').classList.remove('hidden')
-                document.querySelector('.w-counter-copy').classList.remove('hidden')
-                return;
+        const corBg = document.querySelector('.w-counter--bg').textContent; 
+        document.querySelector('.w-counter').style.backgroundColor = corBg;
+        console.log(corBg);
+        if(document.querySelector('.w-counter--container') != null){
+            document.querySelector('.w-counter--container').classList.remove('hide-important');
+            let dateFim = document.querySelector('.w-counter--end').textContent;
+            console.log(dateFim);
+            const end = new Date(dateFim);
+        
+            const _second = 1000;
+            const _minute = _second * 60;
+            const _hour = _minute * 60;
+            const _day = _hour * 24;
+            let clock = 0;
+        
+            function showRemaining() {
+                let now = new Date();
+                let distance = end - now;
+        
+                if (distance <= 0) {
+        
+                    clearInterval(clock);
+                    document.querySelector('.w-counter--container').classList.add('hidden')
+                    if(document.querySelector('.w-counter--cupom') != null){
+                        document.querySelector('.w-counter--cupom').classList.remove('hidden')
+                        document.querySelector('.w-counter-copy').classList.remove('hidden')
+                    }
+                    return;
+                }
+                let days = Math.floor(distance / _day);
+                let hours = Math.floor((distance % _day) / _hour);
+                let minutes = Math.floor((distance % _hour) / _minute);
+                let seconds = Math.floor((distance % _minute) / _second);
+                
+                let dayCounter = document.querySelector('.w-counter--day');
+                let hourCounter = document.querySelector('.w-counter--hour');
+                let minuteCounter = document.querySelector('.w-counter--minutes');
+                let secondsCounter = document.querySelector('.w-counter--seconds');
+                const diasText = document.querySelector('.w-counter--info')
+                
+
+                dayCounter.innerHTML = days;
+                diasText.textContent = days == 1 ? 'dia' : 'dias';
+                hourCounter.innerHTML = hours < 10 ? '0' + hours : hours;
+                minuteCounter.innerHTML = minutes < 10 ? '0' + minutes : minutes;
+                secondsCounter.innerHTML = seconds < 10 ? '0' + seconds : seconds;
+
             }
-            let days = Math.floor(distance / _day);
-            let hours = Math.floor((distance % _day) / _hour);
-            let minutes = Math.floor((distance % _hour) / _minute);
-            let seconds = Math.floor((distance % _minute) / _second);
-
-            let hourCounter = document.querySelector('.w-counter--hour');
-            let minuteCounter = document.querySelector('.w-counter--minutes');
-            let secondsCounter = document.querySelector('.w-counter--seconds');
-
-            hourCounter.innerHTML = hours < 10 ? '0' + hours : hours;
-            minuteCounter.innerHTML = minutes < 10 ? '0' + minutes : minutes;
-            secondsCounter.innerHTML = seconds < 10 ? '0' + seconds : seconds;
-
-        }
     
         clock = setInterval(showRemaining, 1000);
     }
@@ -1677,10 +1679,18 @@ function copiarTopBanner(){
 
 
     setTimeout(function() {
-        if(document.querySelector('.w-counter-copy') != null)
-        copiarTopBanner();
+        if(document.querySelector('.w-counter-copy') != null){
+            copiarTopBanner();
+        }
         if(document.querySelector('.w-counter') != null){
-            homeCountDown();
+            if(BrowserVendor == 'safari/webkit'){
+                setTimeout(() => {
+                    homeCountDown();
+                }, 3000);
+            }
+            else{
+                homeCountDown();
+            }
             // $('.w-counter--slick').slick();
         }
     }, 500);

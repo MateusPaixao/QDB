@@ -1570,20 +1570,24 @@ html._light-off ::selection {
     -webkit-box-flex: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
+    padding: 5px;
 }
 
 ._d-top ._header-search-bar form {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    align-items: flex-end;
+    -webkit-appearance: none;
     background-color: #E6E0E0;
     border-bottom: 1px solid #fff;
 }
 
 ._d-top ._header-search-bar input {
-    height: auto;
+    height: 35px;
     /* width: 100%; */
     padding: 0 15px;
+    -webkit-appearance: none;
     -webkit-box-flex: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
@@ -4428,7 +4432,7 @@ html {
         left: 0 !important;
         font-family: "Museo Sans", sans-serif !important;
         width: 100% !important;
-        top: 50% !important;
+        top: 70% !important;
         max-height: 420px;
         bottom: inherit !important;
         overflow-y: scroll;
@@ -4457,6 +4461,9 @@ html {
         &.lr-search-visible {
             z-index: 11 !important;
             visibility: visible;
+            position: absolute;
+            height: 500px;
+            top: 70% !important;
         }
 
         @include d('767px', max) {
@@ -4468,7 +4475,7 @@ html {
         }
 
         @include d('500px', max) {
-            top: 145px !important;
+            top: 95px !important;
         }
     }
 
@@ -4492,11 +4499,15 @@ html {
                 visibility: visible;
                 width: 80%;
                 left: 0;
+                margin-top: 10px;
+                height: 30px;
                 bottom: inherit;
                 color: #fdfdfd;
                 -webkit-appearance: none;
+                border-radius: 0;
                 &::placeholder{
                   font-size: 12px;
+                  opacity: 0.8;
                 }
 
                 @include d('1149px', max) {
@@ -4589,6 +4600,9 @@ html {
 .hidden {
     display: none;
 }
+.hide-important{
+    display: none !important;
+}
 
 .top-banner {
     display: flex !important;
@@ -4638,6 +4652,7 @@ html {
   min-height: 40px;
   font-size: 1.5vw;
   padding: 5px;
+  background: rgb(178, 158, 158);
   @include d('425px'){
       padding: 0;
   }
@@ -4649,8 +4664,13 @@ html {
   &:hover{
     -webkit-filter: brightness(110%);
   }
+    &--day,&--hour,&--minutes,&--seconds{
+        font-weight: bold !important;
+    }
   &--info{
     font-size: 0.7em;
+    margin-left: -6px;
+    margin-right: 5px;
   }
   &--text{
     // font-size: 1.625em;
@@ -4682,7 +4702,9 @@ html {
     &.topbanner{
         width: auto;
     }
+
   }
+
   &--cupom{
       color: #fff;
       border: 1px dashed #f8f8f8;
@@ -4764,6 +4786,7 @@ html {
         }
     }
 }
+
 ._header-logo,.__account-link,.__wishlist-link{
     span{
         display: block !important;
@@ -4773,4 +4796,7 @@ html {
             display: block !important;
         }
     }
+}
+.svg--logo-principal{
+    margin-bottom: 5px;
 }
