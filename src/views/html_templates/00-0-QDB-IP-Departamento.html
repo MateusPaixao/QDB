@@ -32,7 +32,18 @@
                                 <vtex.cmc:breadCrumb />
                             </div><!-- /.breadcrumbs -->
                         </div><!-- /.shell -->
-
+                        <section class="category_banner" style="display:none;">
+                            <vtex:contentPlaceHolder id="BannerDepartamentoTopo"/> 
+                            <div class="category_banner_texto">
+                                <h2><vtex:contentPlaceHolder id="TituloDepartamento"/></h2>
+                                <p><vtex:contentPlaceHolder id="DescricaoDepartamento"/></p>
+                              </div>
+                              <style>
+                                .category_banner{
+                                  background: <vtex:contentPlaceHolder id="CorDepartamento"/>;
+                                }
+                              </style>
+                        </section>
                         <nav class="nav-quaternary nav-black">
                             <div class="shell">
                                 <h1 class="nav-title"> </h1>
