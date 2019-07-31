@@ -969,7 +969,7 @@ function selectCor(){
 			
 			
 			window.setTimeout(function(){
-				img_thumb_inicial = $('.product-image .thumbs img[src*=thumb_]').last().attr('src');
+				var img_thumb_inicial = $('.product-image .thumbs img[src*=thumb_]').last().attr('src');
 				$('.big-select-cor-new').append($('.select-cor-new label').first().clone());
 				if(img_thumb_inicial)
 				$('.big-select-cor-new label').css('background','url('+img_thumb_inicial.replace('55-55','200-200')+')');

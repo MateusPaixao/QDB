@@ -1530,12 +1530,12 @@ window.GetCookie = function(name){
     if (match) return match[2];
 }
 $(document).ready(function(){
-    loadImg(); // adicionado para carregar no load as imagens iniciais
+    loadImg(); // adicionado para carregar no load as imagens iniciais(); // adicionado para carregar no load as imagens iniciais
     if(BrowserVendor == 'safari/webkit' || BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
         setVitrineDataImg();
         console.log("Set OnLoad IE / Safari");
         var imginview = getAllElementsWithAttribute('data-img');
-        for(i = 0; i <= imginview.length; i++){
+        for(var i = 0; i <= imginview.length; i++){
             imginview[i].src = imginview[i].dataset.img;
         }
     }
@@ -1624,6 +1624,9 @@ function homeCountDown(){
         if(document.querySelector('.w-counter--container') != null){
             document.querySelector('.w-counter--container').classList.remove('hide-important');
             let dateFim = document.querySelector('.w-counter--end').textContent;
+            dateFim = dateFim.split('/');
+            dateFim[2] = dateFim[2].split(' ');
+            dateFim = `${dateFim[2][0]}/${dateFim[0]}/${dateFim[1]} ${dateFim[2][1]}`;
             console.log(dateFim);
             const end = new Date(dateFim);
         
@@ -1650,7 +1653,7 @@ function homeCountDown(){
                 let minutes = Math.floor((distance % _hour) / _minute);
                 let seconds = Math.floor((distance % _minute) / _second);
                 
-                let dayCounter = document.querySelector('.w-counter--day');
+                // let dayCounter = document.querySelector('.w-counter--day');
                 let hourCounter = document.querySelector('.w-counter--hour');
                 let minuteCounter = document.querySelector('.w-counter--minutes');
                 let secondsCounter = document.querySelector('.w-counter--seconds');
@@ -1659,8 +1662,8 @@ function homeCountDown(){
                 let width = now.getTime() / end.getTime() * 100;
                 document.querySelector(".w-counter--bar").style.width = width + "%";
 
-                dayCounter.innerHTML = days;
-                diasText.textContent = days == 1 ? 'dia' : 'dias';
+                // dayCounter.innerHTML = days;
+                // diasText.textContent = days == 1 ? 'dia' : 'dias';
                 hourCounter.innerHTML = hours < 10 ? '0' + hours : hours;
                 minuteCounter.innerHTML = minutes < 10 ? '0' + minutes : minutes;
                 secondsCounter.innerHTML = seconds < 10 ? '0' + seconds : seconds;
