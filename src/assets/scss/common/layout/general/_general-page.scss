@@ -1975,54 +1975,33 @@ html._light-off ::selection {
 .mr-prod-item .mr-rm:hover {
     text-decoration: none;
 }
-
-.mr-totals {}
-
 .mr-total {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 20px 20px;
-    font-size: 1em;
-    background: #333;
-    color: #fff;
-    font-weight: 700;
+    background: $safflower;
+    @include sans(1em, $w-secundary, 400, normal);
     letter-spacing: 0.035em;
 }
 
 .mr-goto-cart {
-    font-size: 1.3em;
-}
-
-.mr-goto-cart a {
-    /*animation - use visibility instead of display*/
-    -webkit-transition: all 0.2s;
-    transition: all 0.2s;
-    padding: 5px 35px;
-    text-transform: uppercase;
-    color: #fff;
-    display: inline-block;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    width: 100%;
-    box-sizing: border-box;
-    font-size: 0.8em;
-    letter-spacing: .12em;
-    background: #333333;
-    height: 60px;
-    line-height: 51px;
-    color: #fff;
-    font-weight: 600;
-    background-color: #686162;
-}
-
-.mr-goto-cart a:hover {
-    background: #e6e0e0;
-    color: #333;
+    a {
+        transition: all .2s;
+        padding: 20px 35px;
+        text-transform: uppercase;
+        display: inline-block;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        width: 100%;
+        background-color: $success;
+        @include sans(1em, $w-secundary, 900, normal);
+        letter-spacing: .1em;
+        &:hover {
+            letter-spacing: .3em;
+            filter: contrast(140%);
+        }
+    }
 }
 
 .mr-loading,
