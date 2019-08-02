@@ -92,7 +92,13 @@ span.error {
 
 /*hide chaordic*/
 div[chaordic] {
-    display: none;
+    margin-top: 40px;
+    @include d(l){
+        display: none;
+    }
+    @include d(mb){
+        display: none;
+    }
 }
 
 /*header*/
@@ -2196,6 +2202,7 @@ body .mr-shipping-container {
 }
 
 .cart-template.full-cart.span12.active {
+    flex-flow: wrap;
     @include d('768px') {
         display: flex;
         flex-direction: column;
