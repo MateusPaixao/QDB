@@ -1055,10 +1055,19 @@ function menuBuscaNeemu() {
         closeMenu.addClass('lr-search-visible');
     })
     closeMenu.on('click', () => {
-        if(body.hasClass('nm-noscroll')){
-            buscaNeemu.removeClass('lr-search-visible');
-            closeMenu.removeClass('lr-search-visible');
-
+        if(BrowserVendor == 'safari/webkit'){
+            try{
+                buscaNeemu.removeClass('lr-search-visible');
+                closeMenu.removeClass('lr-search-visible');
+                console.log("search off working on ios");
+            }catch(e){
+                console.log(e);
+            }
+        }else{
+            if(body.hasClass('nm-noscroll')){
+                buscaNeemu.removeClass('lr-search-visible');
+                closeMenu.removeClass('lr-search-visible');
+            }
         }
     })
 }
@@ -1407,9 +1416,14 @@ function setHeader() {
         }
     }
     prevScrollpos = currentScrollPos;
-  } else{
+  }else{
     if(window.innerWidth >= "1150"){
         document.querySelector("._header").style.position = "fixed";
+        if(document.querySelector("body").style.marginTop != document.querySelector("._header").clientHeight){
+            setTimeout(() => {
+                document.querySelector("body").style.marginTop = document.querySelector("._header").clientHeight + "px"; 
+            }, 100);
+        }
     }else{
         document.querySelector("._header").style.position = "initial";
     }
@@ -1524,97 +1538,26 @@ window.GetCookie = function(name){
     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
     if (match) return match[2];
 }
-$(document).ready(function(){
-    loadImg(); // adicionado para carregar no load as imagens iniciais
-    if(BrowserVendor == 'safari/webkit' || BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
-        setVitrineDataImg();
-        console.log("Set OnLoad IE / Safari");
-        var imginview = getAllElementsWithAttribute('data-img');
-        for(i = 0; i <= imginview.length; i++){
-            imginview[i].src = imginview[i].dataset.img;
-        }
-    }
-
-    var day = new Date().getDate();
-    if (document.querySelector(".counter") || document.querySelector(".topbanner")) {
-        switch (day) {
-            case 15:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
-                break;
-            case 16:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Jul 16, 2019 20:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
-                cronometro("after", "Jul 16, 2019 21:00:00", "Jul 17, 2019 08:59:59", false, "Itens com 30% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
-                break;
-            case 17:
-                cronometro("after", "Jul 16, 2019 21:00:00", "Jul 17, 2019 08:59:59", false, "Itens com 30% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
-                setTopBanner("after", "Jul 15, 2019 18:00:00", "Jul 17, 2019 13:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
-                cronometro("after", "Jul 17, 2019 14:00:00", "Jul 17, 2019 17:59:59", false, "Produtos a partir de R$8,90*", "#df5d4d", "https://www.quemdisseberenice.com.br/busca/?fq=H:805");
-                setTopBanner("after", "Jul 17, 2019 18:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
-                break;
-            case 18:
-                setTopBanner("after", "Jul 18, 2019 00:00:00", "Jul 18, 2019 20:59:59", ['Escolha um presente em pedidos acima de R$ 89,90*'], "#fe7764", false, 'https://www.quemdisseberenice.com.br/promocao');
-                cronometro("after", "Jul 18, 2019 21:00:00", "Jul 19, 2019 08:59:59", false, "Itens com 50% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
-                break;
-            case 19:
-                cronometro("after", "Jul 16, 2019 21:00:00", "Jul 17, 2019 08:59:59", false, "Itens com 50% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
-                setTopBanner("after", "Jul 19, 2019 09:00:00", "Jul 21, 2019 23:59:59", ['Escolha um presente em pedidos acima de R$ 89,90*'], "#fe7764", false, 'https://www.quemdisseberenice.com.br/promocao');
-                break;
-            case 20:
-                setTopBanner("after", "Jul 18, 2019 00:00:00", "Jul 21, 2019 23:59:59", ['Escolha um presente em pedidos acima de R$ 89,90*'], "#fe7764", false, 'https://www.quemdisseberenice.com.br/promocao');
-                break;
-            case 21:
-                setTopBanner("after", "Jul 18, 2019 00:00:00", "Jul 21, 2019 23:59:59", ['Escolha um presente em pedidos acima de R$ 89,90*'], "#fe7764", false, 'https://www.quemdisseberenice.com.br/promocao');
-                break;
-            case 22:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
-                break;
-            case 23:
-                // setTopBanner("after", "Jul 15, 2019 00:00:00", "Jul 23, 2019 20:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
-                setTopBanner("after", "Jul 23, 2019 09:00:00", "Jul 23, 2019 20:59:59", ['30% de desconto na primeira compra*', 'Use o cupom BEMVINDO30'], "#c27c63", true, '#');
-                CopyText("#topbanner", "BEMVINDO30");
-                cronometro("after", "Jul 23, 2019 21:00:00", "Jul 24, 2019 08:59:59", false, "Batons com 40% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
-                break;
-            case 24:
-                cronometro("after", "Jul 23, 2019 21:00:00", "Jul 24, 2019 08:59:59", false, "Batons com 40% de desconto*", "#b29e9e", "https://www.quemdisseberenice.com.br/busca/?fq=H:768");
-                setTopBanner("after", "Jul 24, 2019 09:00:00", "Jul 24, 2019 23:59:59", ['30% de desconto na primeira compra*', 'Use o cupom BEMVINDO30'], "#c27c63", true, '#');
-                CopyText("#topbanner", "BEMVINDO30");
-                break;
-            case 25:
-                
-                break;
-            case 26:
-                
-                break;
-            case 27:
-                
-                break;
-            case 28:
-                
-                break;
-            case 29:
-                
-                break;
-            case 30:
-                
-                break;
-            case 31:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
-                break;
-            case 1:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
-                break;
-            case 2:
-                setTopBanner("after", "Jul 15, 2019 00:00:00", "Aug 8, 2019 23:59:59", ['Super Liquida até 70% de desconto'], "#B50A06", false, 'https://www.quemdisseberenice.com.br/busca/?fq=H:739');
-                break;
-            default:
-        }
-    }
-});
 function homeCountDown(){
+    const corBg = document.querySelector('.w-counter--bg').textContent; 
+    document.querySelector('.w-counter').style.backgroundColor = corBg;
+
+    // COUNTERBAR
+    let bar = document.createElement("span");
+    bar.classList.add("w-counter--container--counterbar")
+    let fill = document.createElement("span");
+    fill.classList.add("w-counter--bar");
+    document.querySelector(".w-counter--container").appendChild(bar);
+    document.querySelector(".w-counter--container--counterbar").appendChild(fill);
+    document.querySelector(".w-counter--container--counterbar").style.backgroundColor = corBg;
     
-    document.querySelector('.w-counter').style.backgroundColor = document.querySelector('.w-counter--bg').getAttribute('data-color');
     if(document.querySelector('.w-counter--container') != null){
-        const dateFim = document.querySelector('.w-counter--end').getAttribute('data-final');
+        document.querySelector('.w-counter--container').classList.remove('hide-important');
+        let dateFim = document.querySelector('.w-counter--end').textContent;
+        dateFim = dateFim.split('/');
+        dateFim[2] = dateFim[2].split(' ');
+        dateFim = `${dateFim[2][0]}/${dateFim[0]}/${dateFim[1]} ${dateFim[2][1]}`;
+        console.log(dateFim);
         const end = new Date(dateFim);
     
         const _second = 1000;
@@ -1622,59 +1565,86 @@ function homeCountDown(){
         const _hour = _minute * 60;
         const _day = _hour * 24;
         let clock = 0;
-    
         function showRemaining() {
             let now = new Date();
             let distance = end - now;
     
             if (distance <= 0) {
-    
                 clearInterval(clock);
                 document.querySelector('.w-counter--container').classList.add('hidden')
-                document.querySelector('.w-counter--cupom').classList.remove('hidden')
-                document.querySelector('.w-counter-copy').classList.remove('hidden')
+                if(document.querySelector('.w-counter--cupom') != null){
+                    document.querySelector('.w-counter--cupom').classList.remove('hidden')
+                    document.querySelector('.w-counter-copy').classList.remove('hidden')
+                }
                 return;
             }
             let days = Math.floor(distance / _day);
-            let hours = Math.floor((distance % _day) / _hour);
+            let hours = Math.floor(distance / 36e5);
             let minutes = Math.floor((distance % _hour) / _minute);
             let seconds = Math.floor((distance % _minute) / _second);
-
+            
+            // let dayCounter = document.querySelector('.w-counter--day');
             let hourCounter = document.querySelector('.w-counter--hour');
             let minuteCounter = document.querySelector('.w-counter--minutes');
             let secondsCounter = document.querySelector('.w-counter--seconds');
+            const diasText = document.querySelector('.w-counter--info')
 
+            let width = now.getTime() / end.getTime() * 100;
+            document.querySelector(".w-counter--bar").style.width = width + "%";
+
+            // dayCounter.innerHTML = days;
+            // diasText.textContent = days == 1 ? 'dia' : 'dias';
             hourCounter.innerHTML = hours < 10 ? '0' + hours : hours;
             minuteCounter.innerHTML = minutes < 10 ? '0' + minutes : minutes;
             secondsCounter.innerHTML = seconds < 10 ? '0' + seconds : seconds;
-
         }
-    
-        clock = setInterval(showRemaining, 1000);
-    }
+
+    clock = setInterval(showRemaining, 1000);
+}
 };
 function copiarTopBanner(){
-    const btnCopy = document.querySelector('.w-counter-copy');
-    const cupomToCopy = document.querySelector('.w-counter--cupom');
-    btnCopy.addEventListener('click', function(e){
-        e.preventDefault;
-        cupomToCopy.select()
-        document.execCommand('copy');
-        btnCopy.textContent = "COPIADO";
-        btnCopy.classList.add("btn-success");
-        setTimeout(() => {
-            btnCopy.textContent = "COPIAR";
-            btnCopy.classList.remove("btn-success");
-        }, 3000);
-    })
+const btnCopy = document.querySelector('.w-counter-copy');
+const cupomToCopy = document.querySelector('.w-counter--cupom');
+btnCopy.addEventListener('click', function(e){
+    e.preventDefault;
+    cupomToCopy.select()
+    document.execCommand('copy');
+    btnCopy.textContent = "COPIADO";
+    btnCopy.classList.add("btn-success");
+    setTimeout(() => {
+        btnCopy.textContent = "COPIAR";
+        btnCopy.classList.remove("btn-success");
+    }, 3000);
+})
 }
 
 
-    setTimeout(function() {
-        if(document.querySelector('.w-counter-copy') != null)
+setTimeout(function() {
+    if(document.querySelector('.w-counter-copy') != null){
         copiarTopBanner();
-        if(document.querySelector('.w-counter') != null){
-            homeCountDown();
-            // $('.w-counter--slick').slick();
+    }
+    if(document.querySelector('.w-counter') != null){
+        if(BrowserVendor == 'safari/webkit'){
+            setTimeout(() => {
+                homeCountDown();
+            }, 3000);
         }
-    }, 500);
+        else{
+            homeCountDown();
+        }
+        // $('.w-counter--slick').slick();
+    }
+}, 500);
+
+$(document).ready(function(){
+    loadImg(); // adicionado para carregar no load as imagens iniciais(); // adicionado para carregar no load as imagens iniciais
+    if(BrowserVendor == 'safari/webkit' || BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
+        setVitrineDataImg();
+        console.log("Set OnLoad IE / Safari");
+        var imginview = getAllElementsWithAttribute('data-img');
+        for(var i = 0; i <= imginview.length; i++){
+            imginview[i].src = imginview[i].dataset.img;
+        }
+    }
+
+});

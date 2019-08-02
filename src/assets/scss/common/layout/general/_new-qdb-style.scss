@@ -1340,7 +1340,16 @@ body.overflow {
     -webkit-transition: all .4s ease-in;
     transition: all .4s ease-in
 }
-
+.section-chaordic{
+    height: 450px;
+    margin: 40px 0;
+    iframe{
+        height: 460px;
+    }
+    .chaordic{
+        height: initial !important;
+    }
+}
 .visible-xs-block,
 .visible-xs-inline,
 .visible-xs-inline-block,

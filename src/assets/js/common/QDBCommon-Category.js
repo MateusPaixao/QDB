@@ -24,7 +24,7 @@
         });
 
         // #Select ordenaÃ§Ã£o por preÃ§o 
-        $('.breadcrumbs .bread-crumb > ul > li').eq(0).text('pÃ¡gina inicial')
+        $('.breadcrumbs .bread-crumb > ul > li').eq(0).text('página inicial')
  
 
         // #Soma quantidade total de produtos na categoria 

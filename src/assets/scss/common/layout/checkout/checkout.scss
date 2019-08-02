@@ -49,7 +49,12 @@
     src: url("/arquivos/CentraleSans-Bold.eot.css?#iefix") format("embedded-opentype"), url("/arquivos/CentraleSans-Bold.woff.css") format("woff"), url("/arquivos/CentraleSans-Bold.ttf.css") format("truetype");
     font-weight: 900;
 }
-
+input, label, select, button, textarea{
+    font-size: .875em;
+    & ~ label{
+        margin-right: 5px;
+    }
+}
 html {
     --bktq: #a89c9e;
     --txt: #686162;
@@ -79,8 +84,6 @@ a {
 span.error {
     font-size: 12px;
     white-space: nowrap;
-    background: red;
-    color: #fff;
     box-sizing: border-box;
     line-height: 21px;
     padding-left: 8px;
@@ -89,7 +92,9 @@ span.error {
 
 /*hide chaordic*/
 div[chaordic] {
-    display: none;
+    margin-top: 40px;
+    display: block;
+    width: 100%;
 }
 
 /*header*/
@@ -813,7 +818,9 @@ body .summary-coupon p {
 .summary-template-holder button:hover {
     background: #000 !important;
 }
-
+.pkpmodal-details-back-lnk:after, .pkpmodal-details-bottom .pkpmodal-details-confirm-btn:after{
+    display: none;
+}
 @media (min-width:1024px) {
     ._checkout-btns>div {
         display: flex;
@@ -1318,7 +1325,9 @@ html .help-message {
     margin: 0 !important;
     position: initial;
 }
-
+.item-multiplier-label, .item-unit-label{
+    display: none;
+}
 ._cart-qty .quantity a {
     width: 30px;
     height: 30px;
@@ -1930,8 +1939,12 @@ body .mr-shipping-container {
 /*map popup*/
 .vtex-pickup-points-modal-2-x-modalDetails {
     overflow: auto;
+    .vtex-pickup-points-modal-2-x-modalDetailsBackLnk{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 }
-
 /*hide boleto se pickup*/
 #payment-group-bankInvoicePaymentGroup {
     display: none !important;
@@ -2185,6 +2198,7 @@ body .mr-shipping-container {
 }
 
 .cart-template.full-cart.span12.active {
+    flex-flow: wrap;
     @include d('768px') {
         display: flex;
         flex-direction: column;
@@ -2192,9 +2206,27 @@ body .mr-shipping-container {
     }
 }
 
-.banner-frete-gratis-cart {
+.cart .banner-frete-gratis-cart {
+    width: 100%;
     @include d('768px') {
         width: 100% !important;
         margin-bottom: 10px;
     }
 }
+
+.box-payment-option{
+    height: initial;
+    iframe{
+        min-height: 250px !important;
+        body{
+            overflow: hidden;
+        }
+    } 
+}
+.PaymentInstallments select{
+    width: 290px !important;
+    max-width: initial;
+}
+// .PaymentCardCVV label{
+//     width: 85px;
+// }

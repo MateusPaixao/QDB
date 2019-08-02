@@ -1,16 +1,17 @@
 image: node:10.15.0
   
 pipelines:
-  default:
+  test: 
     - step:
-        name: Build and test
+        name: Test
         script:
           - npm install
           - npm test
-  branches:
-    backup:
-      - step:
-          name: Create Backup
-          script:
-            - npm install
-            - node node-tasks.js
+          - npm snyk
+  # branches:
+  #   backup: 
+  #     - step:
+  #         name: Create Backup
+  #         script:
+  #           - npm install
+  #           - node -e "require('./node-tasks').init()"
