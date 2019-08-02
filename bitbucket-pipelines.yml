@@ -7,6 +7,13 @@ pipelines:
         script:
           - npm install
           - npm test
+  test: 
+    - step:
+        name: Test
+        script:
+          - npm install
+          - npm test
+          - npm snyk
   # branches:
   #   backup: 
   #     - step:
