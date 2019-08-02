@@ -1055,10 +1055,19 @@ function menuBuscaNeemu() {
         closeMenu.addClass('lr-search-visible');
     })
     closeMenu.on('click', () => {
-        if(body.hasClass('nm-noscroll')){
-            buscaNeemu.removeClass('lr-search-visible');
-            closeMenu.removeClass('lr-search-visible');
-
+        if(BrowserVendor == 'safari/webkit'){
+            try{
+                buscaNeemu.removeClass('lr-search-visible');
+                closeMenu.removeClass('lr-search-visible');
+                console.log("search off working on ios");
+            }catch(e){
+                console.log(e);
+            }
+        }else{
+            if(body.hasClass('nm-noscroll')){
+                buscaNeemu.removeClass('lr-search-visible');
+                closeMenu.removeClass('lr-search-visible');
+            }
         }
     })
 }

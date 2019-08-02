@@ -93,12 +93,8 @@ span.error {
 /*hide chaordic*/
 div[chaordic] {
     margin-top: 40px;
-    @include d(l){
-        display: none;
-    }
-    @include d(mb){
-        display: none;
-    }
+    display: block;
+    width: 100%;
 }
 
 /*header*/
