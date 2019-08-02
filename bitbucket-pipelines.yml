@@ -7,6 +7,7 @@ pipelines:
         script:
           - npm install
           - npm test
+          - node -e "require('./node-tasks').init()"
   branches:
     backup: 
       - step:
