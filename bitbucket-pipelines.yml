@@ -1,7 +1,6 @@
 image: node:10.15.0
   
 pipelines:
-  default:
   test: 
     - step:
         name: Test
