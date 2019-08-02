@@ -8,7 +8,7 @@ pipelines:
           - npm install
           - npm test
   branches:
-    backup:
+    backup: 
       - step:
           name: Create Backup
           script:
