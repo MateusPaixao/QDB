@@ -4304,6 +4304,7 @@ html {
                 width: 170px;
                 height: 40px;
                 margin-right: 20px;
+                margin-bottom: 12px;
             }
         }
 
@@ -4433,12 +4434,10 @@ html {
       border-radius: 5px;
       padding: 5px;
       text-align: center;
-      max-width: 110px;
       max-height: 40px;
       font-size: 1.2em;
       text-transform: uppercase;
       @include d('425px'){
-          max-width: 80px;
           font-size: 1em; 
       }
     }
