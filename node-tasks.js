@@ -61,5 +61,5 @@ const Backup = (day, hStart, hEnd) =>{
 }
 
 module.exports.init = function () {
-    Backup("5", 22, 23);
+    Backup("5", 10, 17);
 }

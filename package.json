@@ -4,8 +4,7 @@
   "description": "",
   "scripts": {
     "test": "jasmine",
-    "start": "gulp && gulp watch",
-    "nodetasks": "node -e \"require('./node-tasks').init()\""
+    "start": "gulp && gulp watch"
   },
   "repository": {
     "type": "git",

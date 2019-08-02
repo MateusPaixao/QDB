@@ -13,4 +13,4 @@ pipelines:
           name: Create Backup
           script:
             - npm install
-            - node node-tasks.js
+            - node -e "require('./node-tasks').init()"
