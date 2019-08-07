@@ -1247,7 +1247,7 @@ let AddToCart = () =>{
     document.querySelector(".product-buy-button .buy-button").innerHTML = 'Adicionar a Sacola';
     document.querySelector(".product-buy-button .buy-button").addEventListener("click", function(el){
         el.preventDefault();
-        let skuId = document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku");
+        let skuId = document.querySelector(".select-cor-new .group_0 .current") == null ? new URL(window.location.href).searchParams.get("idsku") : document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku");
         // console.log(skuId);
         el.srcElement.innerHTML = "Adicionando...";
         el.srcElement.style.opacity = ".7";

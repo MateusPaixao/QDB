@@ -43,7 +43,7 @@
         return true;        
     };
     
-    var $product = '<div class="_product" :class="`_product-${product.id}`" ' +
+    var $product = '<div class="product" :class="`_product-${product.id}`" ' +
             ':data-prd="product.id" :data-index="index"> ' +
             '<a :data-prd="product.id" :data-index="index" ' +
                 ':data-shelf="showcase.info.shelf" ' +
@@ -60,7 +60,7 @@
                     '<img :data-lazy="getImage(product)" src="https://tbb.vteximg.com.br/arquivos/_img-transparent.gif" :alt="product.name" :title="product.name" />' +
                 '</span>' +
             '</a>' +
-
+            '<like-button :entity-id="product.id" short  class="product-favorite toggle"></like-button>' +
             '<div class="yv-review-quickreview" :value="product.id"></div>' +
 
             '<a :data-prd="product.id" :data-index="index" '+
@@ -102,7 +102,7 @@
                         '</span>' +
                     '</span>' +
                 '</span>' +
-
+                
                 '<a :data-prd="product.id" :data-index="index" ' +
                 ':data-shelf="showcase.info.shelf" ' +
                 ':data-feature="showcase.info.feature" ' +
@@ -142,7 +142,7 @@
             '<div class="_chaordic-refs-container" >' +
                 '<a v-if=!showcase.info.vertical @click="switchProd()" class="__switch-btn"></a>' +
                 '<div class="_chaordic-refs-products">' +
-                    '<div class="_ref-prd _prd" data-showcase="references" v-for="(product, index) in refs" ' +
+                    '<div class="_ref-prd _prd product" data-showcase="references" v-for="(product, index) in refs" ' +
                     ':class="getCatClass(product)" ' +
                     ' >' +
                         $product +
