@@ -5595,11 +5595,11 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 }
 ._prd {
     height:410px;
-}
+} 
 .product {
     position: relative;
-    padding: 28px 10px 16px;
-    border: 1px solid #fff;
+    padding: 10px;
+    // border: 1px solid #fff;
     text-align: center;
     -webkit-transition: .3s;
     transition: .3s;
@@ -8412,7 +8412,7 @@ body {
     .home .main .section-products .pratileira .product,
     ._prd {
         position: relative;
-        padding: 28px 10px 16px;
+        padding: 0;
         border: 1px solid #fff;
         text-align: center;
         -webkit-transition: .3s;
