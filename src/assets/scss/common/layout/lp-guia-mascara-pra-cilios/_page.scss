@@ -443,7 +443,7 @@
 
     .odd .conteudo-texto,
     .odd .mascara-lista {
-        text-align: left;
+        text-align: center;
     }
 
     .mascara-imagem img {
@@ -465,7 +465,7 @@
         margin-top: 60px;
     }
     .hero-text .text h1 {
-        max-width: 80%;
+
         line-height: 1em;
         font-size: 46px;
     }
@@ -730,21 +730,22 @@ body.kajal-page {
 }
 .slick-prev,
 .slick-next {
-    background: url(http://qbbr.vteximg.com.br/arquivos/new_qdb_slider-next-2.png)no-repeat;
+    background: url("/arquivos/big-left-arrow.png")no-repeat;
     background-size: contain;
-    width: 50px;
-    height: 25px;
+    background-position: center center !important;
+    width: 32px;
+    height: 32px;
     border:0;
     text-indent:-9999em;
 
 }
 .slick-next {
-  right:0;
+  right:0 !important;
+  transform: rotate(180deg);
 
 }
 .slick-prev {
-  left:0;
-  transform: rotate(180deg);
+  left:0 !important;
 }
 
 .slick-wrapper > div a img {
@@ -771,4 +772,7 @@ body.kajal-page {
   .section-carousel._chighlight {
     height:850px;
   }
+}
+.section-chaordic{
+  height: inherit;
 }

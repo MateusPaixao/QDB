@@ -398,8 +398,26 @@ var menuData = [{
 }
 ];
 /*accentsTidy*/
-String.prototype.accentsTidy = function () { var a = this.trim(); a = a.replace(/,/g, " "); a = a.replace(/\s+/g, " "); a = a.replace(/(\s|&|\?)/g, "-"); a = a.replace(/\u00e7/g, "c"); a = a.replace(/\u00f1/g, "n"); a = a.replace(/\u00c7/g, "C"); a = a.replace(/\u00d1/g, "N"); a = a.replace(/[\u00c3\u00c2\u00c1\u00c0\u00c4]/g, "A"); a = a.replace(/[\u00c9\u00c8\u00cb]/g, "E"); a = a.replace(/[\u00cd\u00cc\u00cf]/g, "I"); a = a.replace(/[\u00d5\u00d4\u00d3\u00d2\u00d6]/g, "O"); a = a.replace(/[\u00da\u00d9]/g, "U"); a = a.replace(/[\u00e0\u00e1\u00e2\u00e3\u00e4\u00e5]/g, "a"); a = a.replace(/[\u00e8\u00e9\u00ea\u00eb]/g, "e"); a = a.replace(/[\u00ec\u00ed\u00ee\u00ef]/g, "i"); a = a.replace(/[\u00f2\u00f3\u00f4\u00f5\u00f6]/g, "o"); a = a.replace(/[\u00f9\u00fa\u00fb\u00fc]/g, "u"); return a };
-var runOnViewportScroll = (function (Cb,Namespace,Multiplier) {
+String.prototype.accentsTidy = function () { 
+    var a = this.trim(); 
+    a = a.replace(/,/g, " "); 
+    a = a.replace(/\s+/g, " "); 
+    a = a.replace(/(\s|&|\?)/g, "-"); 
+    a = a.replace(/\u00e7/g, "c"); 
+    a = a.replace(/\u00f1/g, "n"); 
+    a = a.replace(/\u00c7/g, "C"); 
+    a = a.replace(/\u00d1/g, "N"); 
+    a = a.replace(/[\u00c3\u00c2\u00c1\u00c0\u00c4]/g, "A"); 
+    a = a.replace(/[\u00c9\u00c8\u00cb]/g, "E"); 
+    a = a.replace(/[\u00cd\u00cc\u00cf]/g, "I"); 
+    a = a.replace(/[\u00d5\u00d4\u00d3\u00d2\u00d6]/g, "O"); 
+    a = a.replace(/[\u00da\u00d9]/g, "U"); 
+    a = a.replace(/[\u00e0\u00e1\u00e2\u00e3\u00e4\u00e5]/g, "a"); 
+    a = a.replace(/[\u00e8\u00e9\u00ea\u00eb]/g, "e"); 
+    a = a.replace(/[\u00ec\u00ed\u00ee\u00ef]/g, "i"); 
+    a = a.replace(/[\u00f2\u00f3\u00f4\u00f5\u00f6]/g, "o"); 
+    a = a.replace(/[\u00f9\u00fa\u00fb\u00fc]/g, "u"); return a };
+    var runOnViewportScroll = (function (Cb,Namespace,Multiplier) {
     'use strict'
     return function (Cb,Namespace,Multiplier) {
         if("function"!==typeof Cb||"undefined"===typeof Namespace){ return false; }
@@ -416,14 +434,118 @@ var runOnViewportScroll = (function (Cb,Namespace,Multiplier) {
         $(window).off(ns).on(ns,f);
     };
 })();
+function discountMiniCart() {    
+    const discounts = document.querySelector('.mr-discounts'); 
+
+    if(vtexjs.checkout.orderForm.totalizers[1].id == "Discounts") {
+        const discountsValue = document.querySelector('.mr-discount-val');
+        
+        const discountActive = vtexjs.checkout.orderForm.totalizers[1].value / 100;
+        const discountFormated = discountActive.toFixed(2);
+
+        let totalMiniCart = document.querySelector('.mr-total-val');
+            totalMiniCart = totalMiniCart.textContent;
+            totalMiniCart = totalMiniCart.replace('R$ ','').replace(',','.');
+            totalMiniCart = parseFloat(totalMiniCart).toFixed(2)
+            totalMiniCart = parseFloat(totalMiniCart) + parseFloat(discountFormated);
+            document.querySelector('.mr-total-val').textContent = `R$${totalMiniCart.toFixed(2).replace('.',',')}`
+    }
+    else {
+        discounts.classList.add('hidden');
+    }
+}
+
 var getSearchQuery = function(){ return document.location.search.replace(/\?/,'').split(/&/).map(function(d){ var dt = d.split(/=/); var obj = {}; obj[dt[0]] = dt[1]; return obj; }); };
 // var getUtmSource = function(){ var q = getSearchQuery(); if(q.length>0){ return q.reduce(function(d){ if(!!d.utm_source) return "" }); } return []; };
 /** 201810290916 */
-var Utls=function(e,h,k,l){return function(){var c=this;c.getSkus=function(a){var b=e.Deferred();if("undefined"===a)return b.reject("Missing product id."),b.promise();if(c.getSkus.data[a])return b.resolve(c.getSkus.data[a]),b.promise();vtexjs.catalog.getProductWithVariations(a).fail(function(d){c.getSkus.data[a]=[];b.reject("Product id not found.")}).done(function(d){c.getSkus.data[a]={id:d.productId,name:d.name,skus:d.skus.slice(),salesChannel:d.salesChannel,available:d.available};b.resolve(c.getSkus.data[a])});
-return b.promise()};c.getSkus.data={};c.getSkuList=function(a){if("undefined"===a||"undefined"!==a&&!(a instanceof Array))return a=new Promise(function(a,c){c("Missing list of product id. eg. [1, 45, 83].")}),Promise.all([a]);var b=[],d={};e.each(a,function(a,f){var g=new Promise(function(a,b){c.getSkuList.data[f]?a(c.getSkuList.data):c.getSkus(f).then(function(b){d[f]=e.extend({},b);c.getSkuList.data=e.extend({},d,c.getSkuList.data);a(c.getSkuList.data)},function(a){b("Product id not found.")})});
-b.push(g)});return Promise.all(b)};c.getSkuList.data={};c.getInfo=function(a){var b=e.Deferred();if("undefined"===a)return b.reject("Missing product id."),b.promise();var d="/api/catalog_system/pub/products/search/?fq=productId:"+a;if(c.getInfo.data[a])return b.resolve(c.getInfo.data[a]),b.promise();e.ajax({url:d,success:function(d){c.getInfo.data[a]=d;b.resolve(c.getInfo.data[a])},error:function(d){c.getInfo.data[a]=[];b.reject("Product id not found.")}});return b.promise()};c.getInfo.data={};c.addProducts=
-function(a){var b=e.Deferred();if("undefined"===a||"undefined"!==a&&!(a instanceof Array))return b.reject("Missing array of objects. eg. [{ id: 1 }, { id: 2, quantity: 2 }]"),b.promise();var c=[];e.each(a,function(a,b){var d=Object.assign({id:0,quantity:1,seller:1},b);c.push(d)});vtexjs.checkout.addToCart(c).fail(function(a){b.reject(a)}).done(function(a){b.resolve(a)});return b.promise()};"undefined"!==typeof console&&"undefined"!==typeof console.log&&(c.__log=console.log);return!0}}(jQuery,window,
-document);
+var Utls = function (e, h, k, l) {
+    return function () {
+        var c = this;
+        c.getSkus = function (a) {
+            var b = e.Deferred();
+            if ("undefined" === a) return b.reject("Missing product id."), b.promise();
+            if (c.getSkus.data[a]) return b.resolve(c.getSkus.data[a]), b.promise();
+            vtexjs.catalog.getProductWithVariations(a).fail(function (d) {
+                c.getSkus.data[a] = [];
+                b.reject("Product id not found.")
+            }).done(function (d) {
+                c.getSkus.data[a] = {
+                    id: d.productId,
+                    name: d.name,
+                    skus: d.skus.slice(),
+                    salesChannel: d.salesChannel,
+                    available: d.available
+                };
+                b.resolve(c.getSkus.data[a])
+            });
+            return b.promise()
+        };
+        c.getSkus.data = {};
+        c.getSkuList = function (a) {
+            if ("undefined" === a || "undefined" !== a && !(a instanceof Array)) return a = new Promise(function (a, c) {
+                c("Missing list of product id. eg. [1, 45, 83].")
+            }), Promise.all([a]);
+            var b = [],
+                d = {};
+            e.each(a, function (a, f) {
+                var g = new Promise(function (a, b) {
+                    c.getSkuList.data[f] ? a(c.getSkuList.data) : c.getSkus(f).then(function (b) {
+                        d[f] = e.extend({}, b);
+                        c.getSkuList.data = e.extend({}, d, c.getSkuList.data);
+                        a(c.getSkuList.data)
+                    }, function (a) {
+                        b("Product id not found.")
+                    })
+                });
+                b.push(g)
+            });
+            return Promise.all(b)
+        };
+        c.getSkuList.data = {};
+        c.getInfo = function (a) {
+            var b = e.Deferred();
+            if ("undefined" === a) return b.reject("Missing product id."), b.promise();
+            var d = "/api/catalog_system/pub/products/search/?fq=productId:" + a;
+            if (c.getInfo.data[a]) return b.resolve(c.getInfo.data[a]), b.promise();
+            e.ajax({
+                url: d,
+                success: function (d) {
+                    c.getInfo.data[a] = d;
+                    b.resolve(c.getInfo.data[a])
+                },
+                error: function (d) {
+                    c.getInfo.data[a] = [];
+                    b.reject("Product id not found.")
+                }
+            });
+            return b.promise()
+        };
+        c.getInfo.data = {};
+        c.addProducts =
+            function (a) {
+                var b = e.Deferred();
+                if ("undefined" === a || "undefined" !== a && !(a instanceof Array)) return b.reject("Missing array of objects. eg. [{ id: 1 }, { id: 2, quantity: 2 }]"), b.promise();
+                var c = [];
+                e.each(a, function (a, b) {
+                    var d = Object.assign({
+                        id: 0,
+                        quantity: 1,
+                        seller: 1
+                    }, b);
+                    c.push(d)
+                });
+                vtexjs.checkout.addToCart(c).fail(function (a) {
+                    b.reject(a)
+                }).done(function (a) {
+                    b.resolve(a)
+                });
+                return b.promise()
+            };
+        "undefined" !== typeof console && "undefined" !== typeof console.log && (c.__log = console.log);
+        return !0
+    }
+}(jQuery, window,
+    document);
 /** insert scripts that should run in all pages */
 var CreateMenu = (function ($, window, document, undefined) {
     "use strict";
@@ -465,6 +587,7 @@ var CreateMenu = (function ($, window, document, undefined) {
         promo: "<div class=\"mr-shipping\"><div class=\"mr-shipping-lbl-container\"><span class=\"mr-shipping-lbl\">{%PROMOMSG%}</span></div><div class=\"mr-shipping-pb-container\" {%PROMOBAR%}><span class=\"mr-progress-bar\"><small {%PROMOSTYLE%}></small></span></div> </div>",
         footer: "<div class='mr-footer'>{%FOOTER%}</div>",
         totals: "<div class='mr-totals'>" +
+            `<div class='mr-total mr-discounts'><span class='mr-lbl'>Descontos:</span><span class='mr-discount-val'>{%DISCOUNT%}</span></div>` +
             "<div class='mr-total'><span class='mr-lbl'>Total:</span><span class='mr-total-val'>{%TOTAL%}</span></div>" +
             "<div class='mr-goto-cart'><a href='/checkout/#/cart'>Fechar pedido</a></div>" +
             "</div>",
@@ -487,6 +610,7 @@ var CreateMenu = (function ($, window, document, undefined) {
         var mProdsOpt = $({}, options);
         var _mProdsList = {
             qtyProds: 0,
+            discounts: 0,
             totalPrice: 0,
             items: [],
             on_off_class: 'cart-show',
@@ -503,6 +627,7 @@ var CreateMenu = (function ($, window, document, undefined) {
             init: function () {
                 if (_mProdsList.get.vtexjs()) {
                     _mProdsList.get.items();
+                    
                 }
                 return true;
             },
@@ -540,6 +665,7 @@ var CreateMenu = (function ($, window, document, undefined) {
                     vtexjs.checkout.getOrderForm().then(function (orderForm) {
                         window.order = orderForm;
                         _mProdsList.items = orderForm.items;
+                        _mProdsList.discounts = _orderForm.totalizers && _orderForm.totalizers.length>0 && _orderForm.totalizers[1].id == "Discounts" && _orderForm.totalizers[1].value != 0?orderForm.totalizers[1].value:0;
                         _mProdsList.totalPrice = orderForm.totalizers&&orderForm.totalizers.length>0&&orderForm.totalizers[0].value?orderForm.totalizers[0].value:0;
                         _mProdsListContainer.data('total', 1 * (_mProdsList.totalPrice / 100));
                         _mProdsList.mount();
@@ -563,6 +689,7 @@ var CreateMenu = (function ($, window, document, undefined) {
                         if(!isFinite(val)) {return false;}
                         var percentage = Math.round(_mProdsList.totalPrice / val * 100);
                         var res = val >= _mProdsList.totalPrice?(val - _mProdsList.totalPrice)/100:0;
+                        console.log('res',res)
                         if(res>0){
                             msg = msg.replace(/{%VALOR%}/,_mProdsList.get.money(res));
                         }
@@ -618,8 +745,9 @@ var CreateMenu = (function ($, window, document, undefined) {
                             footerContent = footerContent.replace('{%PROMOBAR%}', "style=\"display:none;\"");
                         }
                     }
-                    footerContent += _mProdsTemplate.totals
-                        .replace('{%TOTAL%}', _mProdsList.get.money(_mProdsList.totalPrice / 100));
+                    var hasDiscounts = 'R$'+((_mProdsList.totalPrice / 100) + (_mProdsList.discounts / 100)).toFixed(2).replace('.',',');
+
+                    footerContent += _mProdsTemplate.totals.replace('{%TOTAL%}', hasDiscounts).replace('{%DISCOUNT%}', "-R$"+(_mProdsList.discounts / 100).toFixed(2).replace('.',',').replace('-',''));
                     cart += _mProdsTemplate.footer.replace('{%FOOTER%}', footerContent);
                     _mProdsListContainer.removeClass('__cart-empty __cart-loading');
                 } else {
@@ -684,6 +812,7 @@ var CreateMenu = (function ($, window, document, undefined) {
     $.fn.mMinicart = function (options) {
         var _elem = $(this);
         var mMinicartOpts = $.extend({
+            'descontos': '.mr-discount-val',
             'items': '.amount-items-em',
             'total': '.total-cart-em'
         }, options);
@@ -694,8 +823,10 @@ var CreateMenu = (function ($, window, document, undefined) {
             },
             refresh: function () {
                 mProdsList.refresh();
+                mMinicartOpts.descontos.textContent
                 $(mMinicartOpts.items).text(mProdsList.items());
                 $(mMinicartOpts.total).text(mProdsList.total());
+
                 return true;
             }
         };
@@ -827,8 +958,16 @@ var SuperMenu = (function ($, window, document, undefined) {
                 $('.__cart-link a span').text(qty);
             }
         });
+        
         return true;
     };
+    function showCouponActive() {
+        const title = document.querySelector('.__cartTitle')
+        const couponActive = vtexjs.checkout.orderForm.marketingData.coupon;
+        if(couponActive != null){
+            title.textContent = `Cupom ativo: ${couponActive}`
+        }
+    }
     var isLogged = function () {
         var logged = false;
         $(dataLayer).each(function(ndx,item){
@@ -891,9 +1030,11 @@ var SuperMenu = (function ($, window, document, undefined) {
     var miniCartEvents = function () {
         $('html').off('open.MiniCart').on('open.MiniCart',function (e) {
             e.preventDefault();
+            
             if ("function" === typeof $.fn.mMinicart) {
                 $('._minicartBody').mMinicart();
                 $('html').addClass('__cart-show');
+                
             }
         });
         $('html').off('close.MiniCart').on('close.MiniCart',function (e) {
@@ -902,6 +1043,8 @@ var SuperMenu = (function ($, window, document, undefined) {
         $('.__cart-link').off('click.Cart').on('click.Cart', function (e) {
             e.preventDefault();
             $('html').trigger('open.MiniCart');
+            showCouponActive();
+            
         });
         $('.__close-cart').off('click.Cart').on('click.Cart', function (e) {
             e.preventDefault();
@@ -1533,16 +1676,17 @@ function homeCountDown(){
     const corBg = document.querySelector('.w-counter--bg').textContent; 
     document.querySelector('.w-counter').style.backgroundColor = corBg;
 
-    // COUNTERBAR
-    let bar = document.createElement("span");
-    bar.classList.add("w-counter--container--counterbar")
-    let fill = document.createElement("span");
-    fill.classList.add("w-counter--bar");
-    document.querySelector(".w-counter--container").appendChild(bar);
-    document.querySelector(".w-counter--container--counterbar").appendChild(fill);
-    document.querySelector(".w-counter--container--counterbar").style.backgroundColor = corBg;
     
     if(document.querySelector('.w-counter--container') != null){
+        // COUNTERBAR
+        let bar = document.createElement("span");
+        bar.classList.add("w-counter--container--counterbar")
+        let fill = document.createElement("span");
+        fill.classList.add("w-counter--bar");
+        document.querySelector(".w-counter--container").appendChild(bar);
+        document.querySelector(".w-counter--container--counterbar").appendChild(fill);
+        document.querySelector(".w-counter--container--counterbar").style.backgroundColor = corBg;
+
         document.querySelector('.w-counter--container').classList.remove('hide-important');
         let dateFim = document.querySelector('.w-counter--end').textContent;
         dateFim = dateFim.split('/');

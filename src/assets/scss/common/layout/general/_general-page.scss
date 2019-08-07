@@ -1708,8 +1708,27 @@ html._light-off ::selection {
     font-style: normal;
 }
 
-.Minicart ::-webkit-scrollbar {
-    display: none;
+.Minicart {
+    ::-webkit-scrollbar {
+        width: 5px;
+
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #686162;
+    }
 }
 
 .Minicart {
@@ -1771,13 +1790,14 @@ html._light-off ::selection {
 }
 
 .__cartTitle {
-    font-size: 20px;
+    font-size: 1.2em;
     font-weight: 100;
-    margin-top: 9px;
+    margin-top: 15px;
     margin-left: 27px;
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
+    text-transform: uppercase;
 }
 
 /*minicart*/
@@ -1978,7 +1998,7 @@ html._light-off ::selection {
 .mr-total {
     display: flex;
     justify-content: space-between;
-    padding: 20px 20px;
+    padding: 10px 20px;
     background: $safflower;
     @include sans(1em, $w-secundary, 400, normal);
     letter-spacing: 0.035em;
@@ -4429,6 +4449,7 @@ html {
   }
 
   &--cupom{
+      -webkit-appearance: none;
       color: #fff;
       border: 1px dashed #f8f8f8;
       border-radius: 5px;

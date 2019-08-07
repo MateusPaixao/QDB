@@ -1254,7 +1254,7 @@ let AddToCart = () =>{
         el.srcElement.style.pointerEvents = "none";
         let quantity;
         vtexjs.checkout.getOrderForm().then(function(orderForm){
-            console.log(orderForm);
+            // console.log(orderForm);
             if(!!orderForm.items.length){
                 orderForm.items.map((e, i) => {
                     if(e.id == skuId){
@@ -1284,7 +1284,7 @@ let AddToCart = () =>{
             }
         })
         .done(function(orderForm) {
-            console.log(orderForm);
+            // console.log(orderForm);
             vtexjs.checkout.getOrderForm().then(function (orderForm) {
                 window._orderForm = orderForm;
                 var qty = 0;
