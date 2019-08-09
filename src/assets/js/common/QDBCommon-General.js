@@ -434,26 +434,6 @@ String.prototype.accentsTidy = function () {
         $(window).off(ns).on(ns,f);
     };
 })();
-function discountMiniCart() {    
-    const discounts = document.querySelector('.mr-discounts'); 
-
-    if(vtexjs.checkout.orderForm.totalizers[1].id == "Discounts") {
-        const discountsValue = document.querySelector('.mr-discount-val');
-        
-        const discountActive = vtexjs.checkout.orderForm.totalizers[1].value / 100;
-        const discountFormated = discountActive.toFixed(2);
-
-        let totalMiniCart = document.querySelector('.mr-total-val');
-            totalMiniCart = totalMiniCart.textContent;
-            totalMiniCart = totalMiniCart.replace('R$ ','').replace(',','.');
-            totalMiniCart = parseFloat(totalMiniCart).toFixed(2)
-            totalMiniCart = parseFloat(totalMiniCart) + parseFloat(discountFormated);
-            document.querySelector('.mr-total-val').textContent = `R$${totalMiniCart.toFixed(2).replace('.',',')}`
-    }
-    else {
-        discounts.classList.add('hidden');
-    }
-}
 
 var getSearchQuery = function(){ return document.location.search.replace(/\?/,'').split(/&/).map(function(d){ var dt = d.split(/=/); var obj = {}; obj[dt[0]] = dt[1]; return obj; }); };
 // var getUtmSource = function(){ var q = getSearchQuery(); if(q.length>0){ return q.reduce(function(d){ if(!!d.utm_source) return "" }); } return []; };
@@ -587,7 +567,7 @@ var CreateMenu = (function ($, window, document, undefined) {
         promo: "<div class=\"mr-shipping\"><div class=\"mr-shipping-lbl-container\"><span class=\"mr-shipping-lbl\">{%PROMOMSG%}</span></div><div class=\"mr-shipping-pb-container\" {%PROMOBAR%}><span class=\"mr-progress-bar\"><small {%PROMOSTYLE%}></small></span></div> </div>",
         footer: "<div class='mr-footer'>{%FOOTER%}</div>",
         totals: "<div class='mr-totals'>" +
-            `<div class='mr-total mr-discounts'><span class='mr-lbl'>Descontos:</span><span class='mr-discount-val'>{%DISCOUNT%}</span></div>` +
+            "<div class='mr-total mr-discounts'><span class='mr-lbl'>Descontos:</span><span class='mr-discount-val'>{%DISCOUNT%}</span></div>" +
             "<div class='mr-total'><span class='mr-lbl'>Total:</span><span class='mr-total-val'>{%TOTAL%}</span></div>" +
             "<div class='mr-goto-cart'><a href='/checkout/#/cart'>Fechar pedido</a></div>" +
             "</div>",
@@ -665,7 +645,8 @@ var CreateMenu = (function ($, window, document, undefined) {
                     vtexjs.checkout.getOrderForm().then(function (orderForm) {
                         window.order = orderForm;
                         _mProdsList.items = orderForm.items;
-                        _mProdsList.discounts = _orderForm.totalizers && _orderForm.totalizers.length>0 && _orderForm.totalizers[1].id == "Discounts" && _orderForm.totalizers[1].value != 0?orderForm.totalizers[1].value:0;
+                        _mProdsList.discounts = orderForm.totalizers && orderForm.totalizers.length>0 && orderForm.totalizers[1] != undefined && orderForm.totalizers[1].hasOwnProperty("id") & orderForm.totalizers[1].id == "Discounts" && _orderForm.totalizers[1].value != 0?orderForm.totalizers[1].value:0;
+                        // console.log(_mProdsList.discounts)
                         _mProdsList.totalPrice = orderForm.totalizers&&orderForm.totalizers.length>0&&orderForm.totalizers[0].value?orderForm.totalizers[0].value:0;
                         _mProdsListContainer.data('total', 1 * (_mProdsList.totalPrice / 100));
                         _mProdsList.mount();
@@ -689,7 +670,7 @@ var CreateMenu = (function ($, window, document, undefined) {
                         if(!isFinite(val)) {return false;}
                         var percentage = Math.round(_mProdsList.totalPrice / val * 100);
                         var res = val >= _mProdsList.totalPrice?(val - _mProdsList.totalPrice)/100:0;
-                        console.log('res',res)
+                        // console.log('res',res)
                         if(res>0){
                             msg = msg.replace(/{%VALOR%}/,_mProdsList.get.money(res));
                         }
@@ -745,9 +726,12 @@ var CreateMenu = (function ($, window, document, undefined) {
                             footerContent = footerContent.replace('{%PROMOBAR%}', "style=\"display:none;\"");
                         }
                     }
-                    var hasDiscounts = 'R$'+((_mProdsList.totalPrice / 100) + (_mProdsList.discounts / 100)).toFixed(2).replace('.',',');
+                    var totalValue = 'R$'+((_mProdsList.totalPrice / 100) + (_mProdsList.discounts / 100)).toFixed(2).replace('.',',');
+                    var discountValue = "-R$"+(_mProdsList.discounts / 100).toFixed(2).replace('.',',').replace('-','')
 
-                    footerContent += _mProdsTemplate.totals.replace('{%TOTAL%}', hasDiscounts).replace('{%DISCOUNT%}', "-R$"+(_mProdsList.discounts / 100).toFixed(2).replace('.',',').replace('-',''));
+                    footerContent += _mProdsTemplate.totals
+                        .replace('{%TOTAL%}', totalValue)
+                        .replace('{%DISCOUNT%}', discountValue);
                     cart += _mProdsTemplate.footer.replace('{%FOOTER%}', footerContent);
                     _mProdsListContainer.removeClass('__cart-empty __cart-loading');
                 } else {
@@ -780,7 +764,7 @@ var CreateMenu = (function ($, window, document, undefined) {
                 return true;
             },
             gift: function (ndx) {
-                console.log('Brinde não pode ser removido.');
+                // console.log('Brinde não pode ser removido.');
                 return true;
             },
             refresh: function () {
@@ -823,7 +807,7 @@ var CreateMenu = (function ($, window, document, undefined) {
             },
             refresh: function () {
                 mProdsList.refresh();
-                mMinicartOpts.descontos.textContent
+                $(mMinicartOpts.descontos).text(mProdsList.discounts())
                 $(mMinicartOpts.items).text(mProdsList.items());
                 $(mMinicartOpts.total).text(mProdsList.total());
 
@@ -1043,7 +1027,7 @@ var SuperMenu = (function ($, window, document, undefined) {
         $('.__cart-link').off('click.Cart').on('click.Cart', function (e) {
             e.preventDefault();
             $('html').trigger('open.MiniCart');
-            showCouponActive();
+            // showCouponActive();
             
         });
         $('.__close-cart').off('click.Cart').on('click.Cart', function (e) {
@@ -1701,7 +1685,7 @@ function homeCountDown(){
         dateFim = dateFim.split('/');
         dateFim[2] = dateFim[2].split(' ');
         dateFim = `${dateFim[2][0]}/${dateFim[0]}/${dateFim[1]} ${dateFim[2][1]}`;
-        console.log(dateFim);
+        // console.log(dateFim);
         const end = new Date(dateFim);
     
         const _second = 1000;
@@ -1746,20 +1730,20 @@ function homeCountDown(){
     clock = setInterval(showRemaining, 1000);
 }
 };
-function copiarTopBanner(){
-const btnCopy = document.querySelector('.w-counter-copy');
-const cupomToCopy = document.querySelector('.w-counter--cupom');
-btnCopy.addEventListener('click', function(e){
-    e.preventDefault;
-    cupomToCopy.select()
-    document.execCommand('copy');
-    btnCopy.textContent = "COPIADO";
-    btnCopy.classList.add("btn-success");
-    setTimeout(() => {
-        btnCopy.textContent = "COPIAR";
-        btnCopy.classList.remove("btn-success");
-    }, 3000);
-})
+function copiarTopBanner() {
+    const btnCopy = document.querySelector('.w-counter-copy');
+    const cupomToCopy = document.querySelector('.w-counter--cupom');
+    btnCopy.addEventListener('click', function (e) {
+        e.preventDefault;
+        cupomToCopy.select()
+        document.execCommand('copy');
+        btnCopy.textContent = "COPIADO";
+        btnCopy.classList.add("btn-success");
+        setTimeout(() => {
+            btnCopy.textContent = "COPIAR";
+            btnCopy.classList.remove("btn-success");
+        }, 3000);
+    })
 }
 
 

@@ -1075,8 +1075,8 @@ function selectCor(){
     #Produto indisponivel
 \* ====================================================================== */
 function aviseme($this){
-    $('.notifyme-title-div .notifymetitle.notifyme-title').html("<div class='rw-indisponivel'><h3>Produto indisponível :( </h3><h4 class='rw-indisponivel--price'> R$"+parseFloat(dataLayer[0].productListPriceFrom).toFixed(2).replace('.',',')+"</h4></div>");
-    if(dataLayer[0].productListPriceFrom == 0){
+    $('.notifyme-title-div .notifymetitle.notifyme-title').html("<div class='rw-indisponivel'><h3>Produto indisponível :( </h3><h4 class='rw-indisponivel--price'> R$"+parseFloat(dataLayer[0].productListPriceTo).toFixed(2).replace('.',',')+"</h4></div>");
+    if(dataLayer[0].productListPriceTo == 0){
         $('.rw-indisponivel--price').addClass('hidden');
     }
     setTimeout(function(){
