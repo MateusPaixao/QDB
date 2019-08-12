@@ -5,8 +5,8 @@ var menuData = [{
     "link": "https://www.quemdisseberenice.com.br/account/"
 },
 {
-    "text": "até 70% de desconto",
-    "link": "/busca/?fq=H:739",
+    "text": "Ofertas de Aniversário",
+    "link": "https://www.quemdisseberenice.com.br/busca/?fq=H:627",
     "class": ["__light-turquoise"]
 },
 {
