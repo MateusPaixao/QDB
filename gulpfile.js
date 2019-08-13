@@ -68,9 +68,8 @@ const styles = () => {
 
 const scripts = () => {
   return gulp.src(paths.scripts.src)
-    .pipe(babel({
-      presets: ["@babel/polyfill", "env"]
-    }))
+    .pipe(babel())
+    .pipe(browserify())
     .pipe(uglify())
     .pipe(gulp.dest(paths.scripts.dest))
     .pipe(gulp.dest('./dist/vtex_speed'));
