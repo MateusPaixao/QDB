@@ -64,8 +64,6 @@ const Methods = {
         let oldPrice = document.querySelector('w-product--old-price');
         let newPrice = document.querySelector('w-product--wrapper--new-price');
         let buyButton = document.querySelector('w-product--wrapper--buy-button')
-        let bgElem = [];
-        let colorElem = []
         
     }
 }

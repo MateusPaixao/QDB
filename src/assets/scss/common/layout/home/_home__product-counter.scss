@@ -6,14 +6,25 @@ $focusColor: orange;
         width: 100%;
         align-items: center;
         justify-content: center;
-        height: 70vh;
+        min-height: 70vh;
     }
     &--title{
         font-size: 2em;
         margin: 0;
     }
+    &--text{
+        font-size: 1.2em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &:after{
+            content: '♥';
+            font-size: 2em;
+            transform: rotate(90deg);
+            margin-top: 10px;
+        }
+    }
     &--counter{
-        background-color: lightgray;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -22,8 +33,6 @@ $focusColor: orange;
         width: 50%;
     }
     &--infos{
-        border: 1px solid;
-        border-left: none;
         height: 100%;
         width: 50%;
     }
@@ -35,30 +44,124 @@ $focusColor: orange;
         span{
             padding: 8px;
         }
-        &--minutes{
+        &--timer{
             display: flex;
+            flex-direction: column;
             align-items: center;
-            padding-left: 10px;
-            padding-right: 10px;
-            &:before{
-                content: '';
-                border-left: 1px solid lighten($color: #000000, $amount: 70);
-                display: block;
-                height: 0.5em;
-                padding-right: 10px;
+            &--small{
+                font-size: 0.3em;
             }
-            &:after{
-                content: '';
-                border-right: 1px solid lighten($color: #000000, $amount: 70);
-                display: block;
-                height: 0.5em;
+        }
+        &--time{
+            &.--hours{
+
+            }
+            &.--minutes{
+                display: flex;
+                align-items: center;
                 padding-left: 10px;
+                padding-right: 10px;
+                &:before{
+                    content: '';
+                    border-left: 1px solid lighten($color: #000000, $amount: 70);
+                    display: block;
+                    height: 0.8em;
+                    padding-right: 10px;
+                    margin: 0 20px;
+                    @include d('1024px'){
+                        margin: 20px 0;
+                        border-left: none;
+                        border-top: 1px solid lighten($color: #000000, $amount: 70);
+
+                    }
+                }
+                &:after{
+                    content: '';
+                    border-right: 1px solid lighten($color: #000000, $amount: 70);
+                    display: block;
+                    height: 0.8em;
+                    padding-left: 10px;
+                    margin: 0 20px;
+                    @include d('1024px'){
+                        margin: 20px 0;
+                        border-right: none;
+                        border-bottom: 1px solid lighten($color: #000000, $amount: 70);
+
+                    }
+                }
+
             }
+            &.--seconds{
+
+            }
+        }
+        @include d('1024px'){
+            flex-direction: column;
         }
     }
     &--wrapper{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        &--infos{
+            display: flex;
+            flex-direction: column;
+            @include d('1024px'){
+                align-items: center;
+                justify-content: center;
+            }
+            &--title{
+                
+            }
+            &--old-price{
+                text-decoration: line-through;
+                margin: 0;
+                font-size: 1.1em;
+                text-decoration: line-through;
+                margin: 0;
+                font-weight: 500;
+            }
+            &--new-price{
+                font-size: 1.8em;
+                margin: 0;
+                font-weight: 500;
+            }
+            &--parcelamento{
+
+            }
+            &--buy-button{
+                color: #fff;
+                padding: 10px;
+                border-radius: 10px;
+                width: 150px;
+                text-transform: uppercase;
+            }
+        }
         &--img{
             max-width: 300px;
+            width: 100%;
+            height: 100%;
+            max-height: 300px;
+            background-color: lighten($color: grey, $amount: 50);
+            border-radius: 20px;
+            border: none;
+        }
+        &--relative{
+            position: relative;
+        }
+        &--flag{
+            position: absolute;
+            color: #fff;
+            top: 10px;
+            right: 10px;
+            width: 55px;
+            padding: 5px;
+            text-align: center;
+        }
+        @include d('1024px'){
+            flex-direction: column;
         }
     }
 }

@@ -36,21 +36,35 @@ const Methods = {
             <p class="w-product--title">${Attributes.titulo}</p>
             <p class="w-product--text">${Attributes.texto}</p>
             <div class="w-product--contador">
-                <span class="w-product--contador--hours">0</span>
-                <span class="w-product--contador--minutes">0</span>
-                <span class="w-product--counter--seconds">0</span>
+                <div class="w-product--contador--timer">
+                    <span class="w-product--contador--timer--time --hours">0</span>
+                    <small class="w-product--contador--timer--small">horas</small>
+                </div>
+                <div class="w-product--contador--timer">
+                    <span class="w-product--contador--time --minutes">0</span>
+                    <small class="w-product--contador--timer--small">minutos</small>
+                </div>
+                <div class="w-product--contador--timer">
+                    <span class="w-product--contador--time --segundos">0</span>
+                    <small class="w-product--contador--timer--small">segundos</small>
+                </div>
             </div>
         </article>
         <article class="w-product--infos">
-            <div class="w-product--wrapper">
+        <div class="w-product--wrapper">
+            <div class="w-product--wrapper--relative">
+                <span class="w-product--wrapper--flag">-0%</span>
                 <img src="" class="w-product--wrapper--img">
-                <p class="w-product--wrapper--title"></p>
-                <p class="w-product--old-price"></p>
-                <p class="w-product--wrapper--new-price"></p>
-                <p class="w-product--wrapper--parcelamento"></p>
-                <button class="w-product--wrapper--buy-button">Comprar</button>
             </div>
-        </article>
+            <div class="w-product-wrapper-infos">
+                <p class="w-product--wrapper--infos--title"></p>
+                <p class="w-product--wrapper--infos--old-price"></p>
+                <p class="w-product--wrapper--infos--new-price"></p>
+                <p class="w-product--wrapper--infos--parcelamento"></p>
+                <button class="w-product--wrapper--infos--buy-button">Comprar</button>
+            </div>
+        </div>
+    </article>
     </div>`
             outputText.textContent = `${htmlGenerate}`
     },
@@ -73,6 +87,9 @@ const Methods = {
                     }
                 }
             })
-    }
+    },
+    
+
+
 }
 Methods.init();
