@@ -1,0 +1,64 @@
+$focusColor: orange;
+
+.w-product{
+    &--container{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        height: 70vh;
+    }
+    &--title{
+        font-size: 2em;
+        margin: 0;
+    }
+    &--counter{
+        background-color: lightgray;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+    }
+    &--infos{
+        border: 1px solid;
+        border-left: none;
+        height: 100%;
+        width: 50%;
+    }
+    &--contador{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5em;
+        span{
+            padding: 8px;
+        }
+        &--minutes{
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            padding-right: 10px;
+            &:before{
+                content: '';
+                border-left: 1px solid lighten($color: #000000, $amount: 70);
+                display: block;
+                height: 0.5em;
+                padding-right: 10px;
+            }
+            &:after{
+                content: '';
+                border-right: 1px solid lighten($color: #000000, $amount: 70);
+                display: block;
+                height: 0.5em;
+                padding-left: 10px;
+            }
+        }
+    }
+    &--wrapper{
+        &--img{
+            max-width: 300px;
+        }
+    }
+}

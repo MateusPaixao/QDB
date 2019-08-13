@@ -1,10 +1,12 @@
 const searchSku = document.querySelector('.w-gerador--fetch');
+const btnGerador = document.querySelector('.w-gerador--generate');
 const Methods = {
     init() {
         Methods.copyOutput();
         searchSku.addEventListener('click', Methods.getProductInfos);
+        btnGerador.addEventListener('click', Methods.generateAttributes)
     },
-    copyOutput() {
+    copyOutput: () => {
         const btn = document.querySelector('.w-gerador--copy');
         btn.addEventListener('click', function () {
             const output = document.querySelector('.w-gerador--output')
@@ -17,15 +19,17 @@ const Methods = {
             }, 2000);
         })
     },
-    generateAttributes(imgSku,nomeSku,precoSkuDe,precoSkuPor) {
+    generateAttributes: () => {
         const Attributes = {
+            idProduto: document.querySelector('.w-gerador--text.idproduto').value,
+            idSku: document.querySelector('.w-gerador--text.idsku').value,
             titulo: document.querySelector('.w-gerador--text.title').value,
             texto: document.querySelector('.w-gerador--text.text').value,
             dataInicial: document.querySelector('.w-gerador--text.time-inicial').value,
             dataFinal: document.querySelector('.w-gerador--text.time-final').value
         }
         const outputText = document.querySelector('.w-gerador--output');
-        const attributesReturn = `<span data-inicio="${Attributes.dataInicial}" data-fim="${Attributes.dataFinal}">`
+        const attributesReturn = `<input type="hidden" class="w-gerador--datas" data-inicio="${Attributes.dataInicial}" data-fim="${Attributes.dataFinal}" data-product="${Attributes.idProduto}" data-sku="${Attributes.idSku}"/>`
         const htmlGenerate = `<div class="w-product--container">
         ${attributesReturn}
         <article class="w-product--counter">
@@ -39,10 +43,10 @@ const Methods = {
         </article>
         <article class="w-product--infos">
             <div class="w-product--wrapper">
-                <img src="${imgSku}" class="w-product--wrapper--img">
-                <p class="w-product--wrapper--title">${nomeSku}</p>
-                <p class="w-product--old-price">${precoSkuDe}</p>
-                <p class="w-product--wrapper--new-price">${precoSkuPor}</p>
+                <img src="" class="w-product--wrapper--img">
+                <p class="w-product--wrapper--title"></p>
+                <p class="w-product--old-price"></p>
+                <p class="w-product--wrapper--new-price"></p>
                 <p class="w-product--wrapper--parcelamento"></p>
                 <button class="w-product--wrapper--buy-button">Comprar</button>
             </div>
@@ -50,7 +54,7 @@ const Methods = {
     </div>`
             outputText.textContent = `${htmlGenerate}`
     },
-    getProductInfos() {
+    getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--text.idproduto').value;
         const url = 'http://qbbr.vtexcommercestable.com.br/api/catalog_system/pub/products/search/?fq=productId:' + idProduto;
         fetch(url)
@@ -66,17 +70,6 @@ const Methods = {
                         option.value = sku.itemId;
                         option.textContent = sku.itemId;
                         selectionSku.append(option);
-                        document.querySelector('.w-gerador--generate').addEventListener('click', () => {
-                            if (sku.itemId == selectionSku.value) {
-                                const qtdSku = sku.sellers[0].commertialOffer.AvailableQuantity;
-                                const imgSku = sku.images[0].imageUrl;
-                                const nomeSku = sku.name;
-                                const precoSkuDe = sku.sellers[0].commertialOffer.PriceWithoutDiscount;
-                                const precoSkuPor = sku.sellers[0].commertialOffer.Price;
-                                
-                                Methods.generateAttributes(imgSku,nomeSku,precoSkuDe,precoSkuPor)
-                            }
-                        })
                     }
                 }
             })
