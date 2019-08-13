@@ -1,4 +1,3 @@
-
 const Methods = {
     init(){
         Methods.login();
@@ -907,23 +906,23 @@ const Methods = {
             });
         };
         
-        function _getAddressAll(userId) {
-            let addressAll = new Promise((resolve, reject) => {
-                let request = new XMLHttpRequest();
-                let url = "https://botiwall.corebiz.com.br/md?table=AD&filter=userId="+ userId +"&param=id,number,addressName,addressType,city,complement,country,neighborhood,postalCode,receiverName,reference,state,street";
-                request.open('GET', url);
-                request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;');
-                request.onreadystatechange = () => {
-                    if (request.readyState === 4) {
-                        resolve(JSON.parse(request.response));
-                    }
-                }
-                request.send();
-           });
-           addressAll.then((address) => {
-               console.log(address);
-            });
-        };
+        // function _getAddressAll(userId) {
+        //     let addressAll = new Promise((resolve, reject) => {
+        //         let request = new XMLHttpRequest();
+        //         let url = "https://botiwall.corebiz.com.br/md?table=AD&filter=userId="+ userId +"&param=id,number,addressName,addressType,city,complement,country,neighborhood,postalCode,receiverName,reference,state,street";
+        //         request.open('GET', url);
+        //         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;');
+        //         request.onreadystatechange = () => {
+        //             if (request.readyState === 4) {
+        //                 resolve(JSON.parse(request.response));
+        //             }
+        //         }
+        //         request.send();
+        //    });
+        //    addressAll.then((address) => {
+        //        console.log(address);
+        //     });
+        // };
         // FIRE EVENT
         function eventFire(el, etype){
             if (el.fireEvent) {
@@ -935,23 +934,23 @@ const Methods = {
             }
         }
         
-        function _getAddress(addressId) {
-            let Adress = new Promise((resolve, reject) => {
-                let request = new XMLHttpRequest();
-                let url = "https://botiwall.corebiz.com.br/md?table=AD&filter=id="+ addressId +"&param=id,number,addressName,addressType,city,complement,country,neighborhood,postalCode,receiverName,reference,state,street";
-                request.open('GET', url);
-                request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;');
-                request.onreadystatechange = () => {
-                    if (request.readyState === 4) {
-                        resolve(JSON.parse(request.response));
-                    }
-                }
-                request.send();
-           });
-            Adress.then((address) => {
-               console.log(address);
-            });
-        };
+        // function _getAddress(addressId) {
+        //     let Adress = new Promise((resolve, reject) => {
+        //         let request = new XMLHttpRequest();
+        //         let url = "https://botiwall.corebiz.com.br/md?table=AD&filter=id="+ addressId +"&param=id,number,addressName,addressType,city,complement,country,neighborhood,postalCode,receiverName,reference,state,street";
+        //         request.open('GET', url);
+        //         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;');
+        //         request.onreadystatechange = () => {
+        //             if (request.readyState === 4) {
+        //                 resolve(JSON.parse(request.response));
+        //             }
+        //         }
+        //         request.send();
+        //    });
+        //     Adress.then((address) => {
+        //        console.log(address);
+        //     });
+        // };
         
         document.querySelector(".--edit-avatar").addEventListener("click", function(){
             eventFire(document.querySelector(".vtex-account__user-image button"), 'click');
