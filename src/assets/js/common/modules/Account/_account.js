@@ -1,5 +1,8 @@
 
 const Methods = {
+    init(){
+        Methods.login();
+    },
     login(){
         var domIsReady = (function(domIsReady) {
             var isBrowserIeOrNot = function() {
