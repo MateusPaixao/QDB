@@ -1,6 +1,6 @@
 const Methods = {
     init(){
-        Methods.login()
+        Methods.login();
     },
     login(){
         var domIsReady = (function(domIsReady) {
