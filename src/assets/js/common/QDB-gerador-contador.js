@@ -38,15 +38,15 @@ const Methods = {
             <div class="w-product--contador">
                 <div class="w-product--contador--timer">
                     <span class="w-product--contador--timer--time --hours">0</span>
-                    <small class="w-product--contador--timer--small">horas</small>
+                    <small class="w-product--contador--timer--small hora">horas</small>
                 </div>
                 <div class="w-product--contador--timer">
                     <span class="w-product--contador--time --minutes">0</span>
-                    <small class="w-product--contador--timer--small">minutos</small>
+                    <small class="w-product--contador--timer--small min">minutos</small>
                 </div>
                 <div class="w-product--contador--timer">
                     <span class="w-product--contador--time --segundos">0</span>
-                    <small class="w-product--contador--timer--small">segundos</small>
+                    <small class="w-product--contador--timer--small seg">segundos</small>
                 </div>
             </div>
         </article>
@@ -56,13 +56,16 @@ const Methods = {
                 <span class="w-product--wrapper--flag">-0%</span>
                 <img src="" class="w-product--wrapper--img">
             </div>
-            <div class="w-product-wrapper-infos">
+            <div class="w-product--wrapper--infos">
+                <p class="w-product--wrapper--infos--rate"></p>
                 <p class="w-product--wrapper--infos--title"></p>
                 <p class="w-product--wrapper--infos--old-price"></p>
                 <p class="w-product--wrapper--infos--new-price"></p>
                 <p class="w-product--wrapper--infos--parcelamento"></p>
-                <button class="w-product--wrapper--infos--buy-button">Comprar</button>
-            </div>
+                <a class="w-product--wrapper--infos--buy-button" href="">
+                    <button>Comprar</button>
+                </a>
+                </div>
         </div>
     </article>
     </div>`

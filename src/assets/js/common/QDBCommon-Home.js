@@ -7,7 +7,7 @@ const Methods = {
         Methods.homeCountDown();
         Methods.getProductInfos();
         Methods.getTopBannerColor()
-        Methods.getReviews(document.querySelector('.w-gerador--datas').getAttribute('data-product'));
+        Methods.getReviews(document.querySelector('.w-product--wrapper--infos--rate'), document.querySelector('.w-gerador--datas').getAttribute('data-product'));
     },
     getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
@@ -22,14 +22,12 @@ const Methods = {
                 for (const i in skuList) {
                     if (skuList.hasOwnProperty(i)) {
                         const sku = skuList[i];
-                        if(sku.itemId == idSku){
+                        if (sku.itemId == idSku) {
                             var listPrice = sku.sellers[0].commertialOffer.ListPrice;
                             var bestPrice = sku.sellers[0].commertialOffer.Price;
                             var percent = parseInt(100 - ((bestPrice / listPrice) * 100));
 
-
-                            console.log("porcentagem de desconto: ", percent)
-                            let skuImg, skuTitle, oldPrice, newPrice, parcelamento, desconto;
+                            let skuImg, skuTitle, oldPrice, newPrice, parcelamento, desconto, buyButton;
 
                             skuImg = document.querySelector('.w-product--wrapper--img');
                             skuImg.src = sku.images[0].imageUrl;
@@ -45,6 +43,13 @@ const Methods = {
 
                             desconto = document.querySelector('.w-product--wrapper--flag');
                             desconto.textContent = `-${percent}%`
+
+                            buyButton = document.querySelector('a.w-product--wrapper--infos--buy-button');
+                            buyButton.href = sku.sellers[0].addToCartLink;
+
+                            if(sku.sellers[0].commertialOffer.AvailableQuantity <= 0){
+                                Methods.disableProduct();
+                            }
                         }
                     }
                 }
@@ -67,6 +72,7 @@ const Methods = {
             let distance = end - now;
 
             if (distance <= 0) {
+                Methods.disableProduct();
                 clearInterval(clock);
                 return;
             }
@@ -89,31 +95,38 @@ const Methods = {
 
         clock = setInterval(showRemaining, 1000);
     },
+    disableProduct: () => {
+        let buyButton = document.querySelector('.w-product--wrapper--infos--buy-button');
+        let buyButtonTxt = document.querySelector('.w-product--wrapper--infos--buy-button button');
+        buyButtonTxt.textContent = "Indisponível :("
+        buyButton.style = "pointer-events: none;";
+        buyButton.href = '';
+    },
     getTopBannerColor: () => {
         const hasTopBanner = document.querySelector('.w-counter--bg') != null;
-
-        if(hasTopBanner){
-            let topBannerColor = document.querySelector('.w-counter--bg').getAttribute('data-color');
-            
-            let cronometro = document.querySelector('.w-product--contador');
-            cronometro.style = `color:${topBannerColor};`
-            
-            // let discountFlag = document.querySelector('.w-product--wrapper--flag');
-            // discountFlag.style = `background-color:${topBannerColor}`;
-    
-            let oldPrice = document.querySelector('.w-product--wrapper--infos--old-price');
-            oldPrice.style = `color:${topBannerColor}`;
-    
-            let newPrice = document.querySelector('.w-product--wrapper--infos--new-price');
-            newPrice.style = `color:${topBannerColor}`;
-    
-            let buyButton = document.querySelector('.w-product--wrapper--infos--buy-button');
-            buyButton.style = `background-color:${topBannerColor}`;
-
-            let desconto = document.querySelector('.w-product--wrapper--flag');
-            desconto.style = `background-color: ${topBannerColor}`;
+        let topBannerColor;
+        if (hasTopBanner) {
+            topBannerColor = document.querySelector('.w-counter--bg').getAttribute('data-color');
+        }
+        else{
+            topBannerColor = "red";
         }
         
+        let cronometro = document.querySelector('.w-product--contador');
+        cronometro.style = `color:${topBannerColor};`
+
+        let discountFlag = document.querySelector('.w-product--wrapper--flag');
+        discountFlag.style = `background-color:${topBannerColor}`;
+
+        let oldPrice = document.querySelector('.w-product--wrapper--infos--old-price');
+        oldPrice.style = `color:${topBannerColor}`;
+
+        let newPrice = document.querySelector('.w-product--wrapper--infos--new-price');
+        newPrice.style = `color:${topBannerColor}`;
+
+        let buyButton = document.querySelector('.w-product--wrapper--infos--buy-button');
+        buyButton.style = `background-color:${topBannerColor}`;
+
     },
     getReviews: (el, idProduct) => {
 
@@ -135,7 +148,7 @@ const Methods = {
 
                 if (request.readyState === 4) {
 
-                    resolve(request.response);
+                    resolve(JSON.parse(request.response));
 
                 }
 
@@ -143,45 +156,37 @@ const Methods = {
 
             request.send();
 
-        }).then((request) => {
+        }).then((res) => {
 
             let html;
 
-            console.log(request);
+            res.Element.map((review, index) => {
 
-            request.Element.map((review, index) =>{
+                function countRating() {
 
-                function countRating(){
+                    let stars = '';
 
-                    let stars='';
-
-                    for(let i = 1; i <= review.Rating; i++){
+                    for (let i = 1; i <= review.Rating; i++) {
 
                         stars += `<svg viewBox="0 0 18 21" width="18" height="21" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.605 14.394L0 10.48s2.528-2.836 3.605-3.913l5.014-5.013a5.326 5.326 0 0 1 7.523 0 5.321 5.321 0 0 1 0 7.521l-1.406 1.405 1.406 1.405a5.321 5.321 0 0 1 0 7.521 5.327 5.327 0 0 1-7.523 0l-5.014-5.013z" fill="#67605F"/></svg>`
 
                     }
-
                     return stars;
 
                 }
 
                 html +=
 
-                `<li class="review">
-
+                    `<li class="review">
                     <span class="_rate">
-
                     ${countRating()}
-
                     </span>
-
-                    <p class="_comment">“` + review.Review + `” -` + review.User.Name.split(" ")[0] + `</p>
-
                 </li>`
+                // console.log(html)
 
             });
 
-            el.innerHTML = html.replace("undefined", "");
+            el.innerHTML = html.replace('undefined', '');
 
         });
 
