@@ -316,38 +316,42 @@ const Methods = {
                    console.log(orders);
                 });
            }
-           document.querySelector("._menu_item.--club").addEventListener('click', function(){
-               document.querySelector("._profile ._initial").classList.add("--top");
-               document.querySelector(".clube-das-beres-container").classList.remove("hidden");
-               document.querySelector(".clube-das-beres-container").style.display = "flex";
-               document.querySelector(".render-route-my-account-portal").style.display = "none";
-               document.querySelectorAll("._menu_item").forEach((item)=>{
-                item.classList.remove("--active");
+            let clubMenuEl = document.querySelectorAll("._menu_item.--club")[0];
+            let ordersMenuEl = document.querySelectorAll("._menu_item.--orders")[0];
+            let accountMenuEl = document.querySelectorAll("._menu_item.--account")[0];
+
+            clubMenuEl.addEventListener("click", () => {
+                document.querySelector("._profile ._initial").classList.add("--top");
+                document.querySelector(".clube-das-beres-container").classList.remove("hidden");
+                document.querySelector(".clube-das-beres-container").style.display = "flex";
+                document.querySelector(".render-route-my-account-portal").style.display = "none";
+                document.querySelectorAll("._menu_item").forEach((item)=>{
+                    item.classList.remove("--active");
+                });
+                this.classList.add("--active");
             });
-            this.classList.add("--active");
-           });
-           document.querySelector("._menu_item.--orders").addEventListener('click', function(){
-               document.querySelector("._profile ._initial").classList.add("--top");
-               document.querySelector(".clube-das-beres-container").classList.add("hidden");
-               document.querySelector(".clube-das-beres-container").style.display = "none";
-               document.querySelector(".render-route-my-account-portal").style.display = "initial";
-               window.location.href = "#/orders";
-               document.querySelectorAll("._menu_item").forEach((item)=>{
-                   item.classList.remove("--active");
-               });
-               this.classList.add("--active");
-           });
-           document.querySelector("._menu_item.--account").addEventListener('click', function(){
-               document.querySelector("._profile ._initial").classList.add("--top");
-               document.querySelector(".clube-das-beres-container").classList.add("hidden");
-               document.querySelector(".clube-das-beres-container").style.display = "none";
-               document.querySelector(".render-route-my-account-portal").style.display = "initial";
-               window.location.href = "#/profile";
-               document.querySelectorAll("._menu_item").forEach((item)=>{
-                item.classList.remove("--active");
+            ordersMenuEl.addEventListener("click", () => {
+                document.querySelector("._profile ._initial").classList.add("--top");
+                document.querySelector(".clube-das-beres-container").classList.add("hidden");
+                document.querySelector(".clube-das-beres-container").style.display = "none";
+                document.querySelector(".render-route-my-account-portal").style.display = "initial";
+                window.location.href = "#/orders";
+                document.querySelectorAll("._menu_item").forEach((item)=>{
+                    item.classList.remove("--active");
+                });
+                this.classList.add("--active");
             });
-            this.classList.add("--active");
-           });
+            accountMenuEl.addEventListener("click", () => {
+                document.querySelector("._profile ._initial").classList.add("--top");
+                document.querySelector(".clube-das-beres-container").classList.add("hidden");
+                document.querySelector(".clube-das-beres-container").style.display = "none";
+                document.querySelector(".render-route-my-account-portal").style.display = "initial";
+                window.location.href = "#/profile";
+                document.querySelectorAll("._menu_item").forEach((item)=>{
+                    item.classList.remove("--active");
+                });
+                this.classList.add("--active");
+            });
             function validateCPF(cpf){
                 var numeros, digitos, soma, i, resultado, digitos_iguais;
                 
@@ -799,7 +803,7 @@ const Methods = {
             function setDataClub(_saldo){
                 document.querySelector("._price b").innerHTML = ((_saldo / 100) * 5).toFixed(2).replace(",", ".").replace(".", ",");
                 document.querySelector("._points p").innerHTML = _saldo.substr(-2) + " pontos";
-                document.querySelector("._sup-club").innerHTML = "Faltam " + (_saldo.toString().substr(-2) == 00 ? 100 : Math.round(100 - parseInt(_saldo.toString().substr(-2))).toString().substr(-2)) + " pontos para ganhar R$5,00 em desconto na próxima compra.";
+                document.querySelector("._sup-club").innerHTML = "Faltam " + (_saldo.toString().substr(-2) == "00" ? 100 : Math.round(100 - parseInt(_saldo.toString().substr(-2))).toString().substr(-2)) + " pontos para ganhar R$5,00 em desconto na próxima compra.";
                 document.querySelector("._fill").style.width = (Math.round(_saldo / 100) * 100 - _saldo) + "%";
                 if(_saldo < 100){
                     document.querySelector("._less-points").innerHTML = "(" + _saldo + " pontos, a partir de 100 pontos você poderá usar seu saldo.)";
