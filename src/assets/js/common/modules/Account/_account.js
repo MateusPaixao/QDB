@@ -316,9 +316,9 @@ const Methods = {
                    console.log(orders);
                 });
            }
-            let clubMenuEl = document.querySelectorAll("._menu_item.--club")[0];
-            let ordersMenuEl = document.querySelectorAll("._menu_item.--orders")[0];
-            let accountMenuEl = document.querySelectorAll("._menu_item.--account")[0];
+            let clubMenuEl = document.querySelector("._menu_item.--club");
+            let ordersMenuEl = document.querySelector("._menu_item.--orders");
+            let accountMenuEl = document.querySelector("._menu_item.--account");
 
             clubMenuEl.addEventListener("click", () => {
                 document.querySelector("._profile ._initial").classList.add("--top");
