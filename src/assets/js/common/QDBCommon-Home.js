@@ -192,4 +192,5 @@ const Methods = {
 
     }
 }
+console.log('Teste')
 Methods.init();
