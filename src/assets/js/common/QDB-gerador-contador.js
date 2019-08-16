@@ -25,6 +25,8 @@ const Methods = {
             idSku: document.querySelector('.w-gerador--text.idsku').value,
             titulo: document.querySelector('.w-gerador--text.title').value,
             texto: document.querySelector('.w-gerador--text.text').value,
+            tituloSad: document.querySelector('.w-gerador--text.title-sad').value,
+            textoSad: document.querySelector('.w-gerador--text.text-sad').value,
             dataInicial: document.querySelector('.w-gerador--text.time-inicial').value,
             dataFinal: document.querySelector('.w-gerador--text.time-final').value
         }
@@ -33,8 +35,14 @@ const Methods = {
         const htmlGenerate = `<div class="w-product--container">
         ${attributesReturn}
         <article class="w-product--counter">
-            <p class="w-product--title">${Attributes.titulo}</p>
-            <p class="w-product--text">${Attributes.texto}</p>
+            <div class="w-promo-text">
+                <p class="w-product--title">${Attributes.titulo}</p>
+                <p class="w-product--text">${Attributes.texto}</p>
+            </div>
+            <div class="w-promo-text-sad hidden">
+                <p class="w-product--title">${Attributes.tituloSad}</p>
+                <p class="w-product--text">${Attributes.textoSad}</p>
+            </div>
             <div class="w-product--contador">
                 <div class="w-product--contador--timer">
                     <span class="w-product--contador--timer--time --hours">0</span>

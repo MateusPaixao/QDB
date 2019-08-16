@@ -4,10 +4,11 @@
 
 const Methods = {
     init() {
-        Methods.homeCountDown();
+        Methods.counterInit();
         Methods.getProductInfos();
         Methods.getTopBannerColor()
-        Methods.getReviews(document.querySelector('.w-product--wrapper--infos--rate'), document.querySelector('.w-gerador--datas').getAttribute('data-product'));
+        Methods.fetchReviews();
+        // Methods.getReviews();
     },
     getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
@@ -17,7 +18,7 @@ const Methods = {
             .then(res => res.json())
             .then((product) => {
                 const skuList = product[0].items;
-                console.log(skuList)
+                // console.log(skuList)
 
                 for (const i in skuList) {
                     if (skuList.hasOwnProperty(i)) {
@@ -47,15 +48,21 @@ const Methods = {
                             buyButton = document.querySelector('a.w-product--wrapper--infos--buy-button');
                             buyButton.href = sku.sellers[0].addToCartLink;
 
-                            if(sku.sellers[0].commertialOffer.AvailableQuantity <= 0){
+                            if (sku.sellers[0].commertialOffer.AvailableQuantity <= 0) {
                                 Methods.disableProduct();
                             }
                         }
+                        document.querySelector(".w-product--wrapper--infos--parcelamento").innerHTML = "até " + Math.max.apply(Math, sku.sellers[0].commertialOffer.Installments.map(function (o) {
+                            return o.NumberOfInstallments;
+                        })) + "x de R$" + Math.min.apply(Math, sku.sellers[0].commertialOffer.Installments.map(function (o) {
+                            return o.Value;
+                        })).toFixed(2).toString().replace(".", ",") + " sem juros";
                     }
                 }
             })
     },
-    homeCountDown: () => {
+
+    counterInit: () => {
 
         let dateInicio = document.querySelector('.w-gerador--datas').getAttribute('data-inicio')
         let dateFim = document.querySelector('.w-gerador--datas').getAttribute('data-fim');
@@ -95,23 +102,27 @@ const Methods = {
 
         clock = setInterval(showRemaining, 1000);
     },
+
     disableProduct: () => {
         let buyButton = document.querySelector('.w-product--wrapper--infos--buy-button');
         let buyButtonTxt = document.querySelector('.w-product--wrapper--infos--buy-button button');
         buyButtonTxt.textContent = "Indisponível :("
         buyButton.style = "pointer-events: none;";
         buyButton.href = '';
+
+        document.querySelector('.w-promo-text').classList.add('hidden');
+        document.querySelector('.w-promo-text-sad').classList.remove('hidden');
     },
+
     getTopBannerColor: () => {
         const hasTopBanner = document.querySelector('.w-counter--bg') != null;
         let topBannerColor;
         if (hasTopBanner) {
             topBannerColor = document.querySelector('.w-counter--bg').getAttribute('data-color');
-        }
-        else{
+        } else {
             topBannerColor = "red";
         }
-        
+
         let cronometro = document.querySelector('.w-product--contador');
         cronometro.style = `color:${topBannerColor};`
 
@@ -128,18 +139,69 @@ const Methods = {
         buyButton.style = `background-color:${topBannerColor}`;
 
     },
-    getReviews: (el, idProduct) => {
+    
+    fetchReviews: () => {
+        const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
+        const storeKey = "388ef2d0-c3b8-4fd6-af13-446b698d544a"
+        const url = "https://service.yourviews.com.br/api/" + storeKey + "/review/reviewshelf?productIds=" + idProduto;
+
+        fetch(url, {
+            method: 'GET',
+            mode: 'cors',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': 'Basic Mzg4ZWYyZDAtYzNiOC00ZmQ2LWFmMTMtNDQ2YjY5OGQ1NDRhOjU2N2Q0MjVmLTA1MGQtNGY1NC05MWUxLTMzODgwZmFjZmRkMw==',
+                'Access-Control-Allow-Origin': '*'
+            })
+        })
+            .then(res => res.json())
+            .then((res) => {
+                console.log('data',res);
+                let html;
+
+                res.Element.map((review, index) => {
+
+                function countRating() {
+
+                    let stars = '';
+
+                    for (let i = 1; i <= review.Rating; i++) {
+
+                        stars += `<svg viewBox="0 0 18 21" width="18" height="21" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.605 14.394L0 10.48s2.528-2.836 3.605-3.913l5.014-5.013a5.326 5.326 0 0 1 7.523 0 5.321 5.321 0 0 1 0 7.521l-1.406 1.405 1.406 1.405a5.321 5.321 0 0 1 0 7.521 5.327 5.327 0 0 1-7.523 0l-5.014-5.013z" fill="#67605F"/></svg>`
+
+                    }
+                    return stars;
+
+                }
+
+                html +=
+
+                    `<li class="review">
+                        <span class="_rate">
+                            ${countRating()}
+                        </span>
+                    </li>`
+                // console.log(html)
+
+            });
+            const el = document.querySelector('.w-product--wrapper--infos--rate');
+            el.innerHTML = html.replace('undefined', '');
+            })
+    },
+
+    getReviews: () => {
 
         new Promise((resolve, reject) => {
 
             let request = new XMLHttpRequest();
-
-            let url = "https://service.yourviews.com.br/api/388ef2d0-c3b8-4fd6-af13-446b698d544a/review/?productId=" + idProduct + "&orderBy=3&count=1";
+            const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
+            const storeKey = "388ef2d0-c3b8-4fd6-af13-446b698d544a"
+            let url = "https://service.yourviews.com.br/api/" + storeKey + "/review/reviewshelf?productIds=" + idProduto;
 
             request.open('GET', url);
 
             request.setRequestHeader('Content-Type', 'application/json');
-
+            request.setRequestHeader('mode', 'cors');
             request.setRequestHeader('Authorization', 'Basic Mzg4ZWYyZDAtYzNiOC00ZmQ2LWFmMTMtNDQ2YjY5OGQ1NDRhOjU2N2Q0MjVmLTA1MGQtNGY1NC05MWUxLTMzODgwZmFjZmRkMw==');
 
             request.setRequestHeader('Access-Control-Allow-Origin', '*');
@@ -148,16 +210,18 @@ const Methods = {
 
                 if (request.readyState === 4) {
 
-                    resolve(JSON.parse(request.response));
+                    resolve(JSON.parse('oieeeee', request.response));
 
                 }
 
             }
 
+            console.log('request', request)
+
             request.send();
 
         }).then((res) => {
-
+            console.log(res)
             let html;
 
             res.Element.map((review, index) => {
@@ -178,19 +242,17 @@ const Methods = {
                 html +=
 
                     `<li class="review">
-                    <span class="_rate">
-                    ${countRating()}
-                    </span>
-                </li>`
+                        <span class="_rate">
+                            ${countRating()}
+                        </span>
+                    </li>`
                 // console.log(html)
 
             });
-
+            const el = document.querySelector('.w-product--wrapper--infos--rate');
             el.innerHTML = html.replace('undefined', '');
 
         });
-
     }
 }
-console.log('Teste')
 Methods.init();
