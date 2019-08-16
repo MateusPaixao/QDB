@@ -30,8 +30,13 @@ const Methods = {
             dataInicial: document.querySelector('.w-gerador--text.time-inicial').value,
             dataFinal: document.querySelector('.w-gerador--text.time-final').value
         }
+        Attributes.dataFinal = Attributes.dataFinal.split('T');
+        let diaMesAno = Attributes.dataFinal[0].split('-')
+        diaMesAno = `${diaMesAno[1]}/${diaMesAno[2]}/${diaMesAno[0]}`
+        let dataHora = `${diaMesAno} ${Attributes.dataFinal[1]}:00`
+
         const outputText = document.querySelector('.w-gerador--output');
-        const attributesReturn = `<input type="hidden" class="w-gerador--datas" data-inicio="${Attributes.dataInicial}" data-fim="${Attributes.dataFinal}" data-product="${Attributes.idProduto}" data-sku="${Attributes.idSku}"/>`
+        const attributesReturn = `<input type="hidden" class="w-gerador--datas" data-inicio="${Attributes.dataInicial}" data-fim="${dataHora}" data-product="${Attributes.idProduto}" data-sku="${Attributes.idSku}"/>`
         const htmlGenerate = `<div class="w-product--container">
         ${attributesReturn}
         <article class="w-product--counter">
@@ -62,11 +67,15 @@ const Methods = {
         <div class="w-product--wrapper">
             <div class="w-product--wrapper--relative">
                 <span class="w-product--wrapper--flag">-0%</span>
-                <img src="" class="w-product--wrapper--img">
+                <a class="w-product--link" href="">
+                    <img src="" class="w-product--wrapper--img">
+                </a>
             </div>
             <div class="w-product--wrapper--infos">
                 <p class="w-product--wrapper--infos--rate"></p>
-                <p class="w-product--wrapper--infos--title"></p>
+                <a class="w-product--link" href="">
+                    <p class="w-product--wrapper--infos--title"></p>
+                </a>
                 <p class="w-product--wrapper--infos--old-price"></p>
                 <p class="w-product--wrapper--infos--new-price"></p>
                 <p class="w-product--wrapper--infos--parcelamento"></p>

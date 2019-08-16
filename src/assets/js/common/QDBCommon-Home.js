@@ -4,21 +4,23 @@
 
 const Methods = {
     init() {
-        Methods.counterInit();
+        // Methods.counterInit();
         Methods.getProductInfos();
         Methods.getTopBannerColor()
-        Methods.fetchReviews();
+        // Methods.fetchReviews();
         // Methods.getReviews();
     },
     getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
         const idSku = document.querySelector('.w-gerador--datas').getAttribute('data-sku');
         const url = 'http://qbbr.vtexcommercestable.com.br/api/catalog_system/pub/products/search/?fq=productId:' + idProduto;
+        
         fetch(url)
             .then(res => res.json())
             .then((product) => {
                 const skuList = product[0].items;
-                // console.log(skuList)
+                console.log('produto',product[0])
+                console.log('Link:',product[0].linkText)
 
                 for (const i in skuList) {
                     if (skuList.hasOwnProperty(i)) {
@@ -28,7 +30,11 @@ const Methods = {
                             var bestPrice = sku.sellers[0].commertialOffer.Price;
                             var percent = parseInt(100 - ((bestPrice / listPrice) * 100));
 
-                            let skuImg, skuTitle, oldPrice, newPrice, parcelamento, desconto, buyButton;
+                            let skuImg, skuTitle, oldPrice, newPrice, desconto, buyButton, productLink;
+
+                            productLink = document.querySelectorAll('.w-product--link');
+                            productLink[0].href = `/${product[0].linkText}/p`; 
+                            productLink[1].href = `/${product[0].linkText}/p`;
 
                             skuImg = document.querySelector('.w-product--wrapper--img');
                             skuImg.src = sku.images[0].imageUrl;
@@ -51,12 +57,15 @@ const Methods = {
                             if (sku.sellers[0].commertialOffer.AvailableQuantity <= 0) {
                                 Methods.disableProduct();
                             }
+                            else{
+                                Methods.counterInit()
+                                document.querySelector(".w-product--wrapper--infos--parcelamento").innerHTML = "até " + Math.max.apply(Math, sku.sellers[0].commertialOffer.Installments.map(function (o) {
+                                    return o.NumberOfInstallments;
+                                })) + "x de R$" + Math.min.apply(Math, sku.sellers[0].commertialOffer.Installments.map(function (o) {
+                                    return o.Value;
+                                })).toFixed(2).toString().replace(".", ",") + " sem juros";
+                            }
                         }
-                        document.querySelector(".w-product--wrapper--infos--parcelamento").innerHTML = "até " + Math.max.apply(Math, sku.sellers[0].commertialOffer.Installments.map(function (o) {
-                            return o.NumberOfInstallments;
-                        })) + "x de R$" + Math.min.apply(Math, sku.sellers[0].commertialOffer.Installments.map(function (o) {
-                            return o.Value;
-                        })).toFixed(2).toString().replace(".", ",") + " sem juros";
                     }
                 }
             })
@@ -106,10 +115,13 @@ const Methods = {
     disableProduct: () => {
         let buyButton = document.querySelector('.w-product--wrapper--infos--buy-button');
         let buyButtonTxt = document.querySelector('.w-product--wrapper--infos--buy-button button');
-        buyButtonTxt.textContent = "Indisponível :("
+        buyButtonTxt.textContent = "Indisponível"
         buyButton.style = "pointer-events: none;";
         buyButton.href = '';
 
+        document.querySelector('.w-product--wrapper--infos--old-price').classList.add('hidden');
+        document.querySelector('.w-product--wrapper--infos--new-price').classList.add('hidden');
+        document.querySelector('.w-product--wrapper--flag').classList.add('hidden');
         document.querySelector('.w-promo-text').classList.add('hidden');
         document.querySelector('.w-promo-text-sad').classList.remove('hidden');
     },

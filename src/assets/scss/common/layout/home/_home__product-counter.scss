@@ -1,4 +1,9 @@
 .w-product{
+    &--link{
+        @include d('768px'){
+            text-align: center;
+        }
+    }
     &--container{
         display: flex;
         width: 100%;
@@ -155,6 +160,7 @@
                 @include d('768px'){
                     text-align: center;
                     font-size: 1em;
+                    width: 100%;
                 }
             }
             &--old-price{
