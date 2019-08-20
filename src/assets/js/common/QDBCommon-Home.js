@@ -7,8 +7,21 @@ const Methods = {
         // Methods.counterInit();
         Methods.getProductInfos();
         Methods.getTopBannerColor()
+        Methods.slickPrincipalBanner();
         // Methods.fetchReviews();
         // Methods.getReviews();
+    },
+    slickPrincipalBanner: () => {
+        const bannerContainer = $('.w-lazy-banner--desktop');
+        bannerContainer.slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            dots: true,
+            autoplay: true,
+            autoplayspeed: 10000
+
+        })
     },
     getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
@@ -267,4 +280,5 @@ const Methods = {
         });
     }
 }
+
 Methods.init();
