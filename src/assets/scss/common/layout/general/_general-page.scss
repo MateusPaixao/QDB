@@ -3659,11 +3659,11 @@ html .feature-secondary {
     padding: 10px 20px;
     margin: 10px auto;
     font-size: 1em;
-    color: #5CA795;
+    color: $safflower;
     line-height: normal;
     border-radius: 5px;
     background: transparent;
-    border: solid 1px #5CA795;
+    border: solid 1px $safflower;
     overflow: hidden;
     position: relative;
     max-width: 150px;
@@ -3693,7 +3693,7 @@ html .feature-secondary {
 
 .btn_comprar:hover {
     color: #fff;
-    background: #5CA795;
+    background: $safflower;
 }
 
 .btn_comprar:hover svg.heart {
