@@ -1,0 +1,11 @@
+//main color
+$main-color: #df6e1a;
+$main-color-darker: darken($main-color, 5%);
+$main-color-lighter: lighten($main-color, 5%);
+
+//gray scale
+$gray-1: #d3d3d3;
+$gray-2: darken($gray-1, 5%);
+$gray-3: darken($gray-1, 10%);
+$gray-4: darken($gray-1, 15%);
+$gray-5: darken($gray-1, 50%);
