@@ -2,6 +2,10 @@
     width: 100%;
     margin: 30px auto;
     font-family: "CentraleSans-Regular", sans-serif;
+    opacity: 1 !important;
+}
+.section-products{
+    opacity: 1 !important;
 }
 
 ._chaordic-title {
@@ -19,6 +23,7 @@
     text-align: center;
     position:relative;
     padding: 20px 0;
+    height: 360px !important;
 }
 ._flags-wrapper {
     position:absolute;
