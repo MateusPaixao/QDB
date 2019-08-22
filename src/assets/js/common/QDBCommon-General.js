@@ -4,11 +4,11 @@ var menuData = [{
     "text": "Entre ou cadastre-se",
     "link": "https://www.quemdisseberenice.com.br/account/"
 },
-{
-    "text": "Ofertas de Aniversário",
-    "link": "https://www.quemdisseberenice.com.br/busca/?fq=H:627",
-    "class": ["__light-turquoise"]
-},
+// {
+//     "text": "Ofertas de Aniversário",
+//     "link": "https://www.quemdisseberenice.com.br/clube-das-beres",
+//     "class": ["__light-turquoise"]
+// },
 {
     "text": "Boca",
     "menu": [
