@@ -1,8 +1,10 @@
-import HomeProdCounter from './__home__product-counter';
+import HomeContadorProduto from './__home__product-counter';
+import HomeBannerPrincipal from './__home__banner-principal';
 
 const Methods = {
     init() {
-        HomeProdCounter.init();
+        HomeContadorProduto.init();
+        HomeBannerPrincipal.init();
     }
 }
 
