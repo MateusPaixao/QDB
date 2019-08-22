@@ -1,0 +1,308 @@
+html {
+    font-size: 8px;
+}
+@media (min-width: 768px) {
+    html {
+        font-size: 10px;
+    }
+}
+body {
+    font-size: 1.3rem;
+}
+
+//title 
+.title {
+    color: #000;
+}
+
+
+//buttons
+.button {
+    display: inline-block;
+    text-align: center;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    &.set-width {
+        min-width: 200px;
+    }
+}
+.button.button-primary {
+    background-color: $main-color;
+    color: #fff;
+    &:hover {
+        background-color: $main-color-darker;
+    }
+}
+.button.resizable {
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    .icon {
+        display: inline-block;
+        font-size: 22px;
+    }
+    .text {
+        display: none;
+    }
+    @media(min-width: 768px) {
+        width: 200px;
+        height: 36px;
+        .icon {
+            display: none;
+        }
+        .text {
+            display: inline-block;
+            font-size: 14px;
+            line-height: 36px;
+        }
+    }
+}
+
+//heading
+.heading {
+    padding: 15px;
+    max-width: 75%;
+    margin: auto;
+    text-align: center;
+    &.over {
+        position: relative;
+        margin-top: -80px;
+        background-color: #fff;
+        left: 0;
+        right: 0;
+    }
+    .title {
+        font-size: 3.0rem;
+        font-weight: 700;
+        text-transform: lowercase;
+    
+    }
+    article {
+        margin: 20px 0;
+        font-size: 13px;
+    }
+    @media (min-width: 992px) {
+        max-width: 950px;
+        padding: 30px 125px 42px;
+    }
+}
+
+//banners
+.section-media {
+    position: relative;
+}
+
+//slick-products-list
+.slick-products-list {
+    .inner {
+        border: solid 1px #fff;
+        padding: 8px;
+        margin: 3px;
+        &:hover {
+            border-color: $gray-1;
+            .button {
+                display: block;
+            }
+        }
+    }
+    .caption {
+        height: 145px;
+        position: relative;
+    }
+    .title {
+        font-size: 14px;
+        text-transform: capitalize;
+        height: 32px;
+        margin: 10px 0;
+        overflow: hidden;
+        text-align: inherit;
+    }
+    .installment,
+    .old-price,
+    .price,
+    .buy-button {
+        @extend .d-block;
+        margin: 10px 0;
+    }
+    .installment,
+    .old-price {
+        font-size: 11px;
+        height: 12px;
+    }
+    .price {
+        font-size: 1.6rem;
+    }
+    .button {
+        display: none;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    @media(min-width: 768px) {
+        .caption {
+            text-align: center;
+        }
+        .button {
+            left: 0;
+            margin: auto;
+        }
+    }
+}
+
+//slick carousel
+.slick-products-list {
+    .slick-arrow {
+        height: 35px;
+        width: 25px;
+        filter: invert(1);
+        &:before,
+        &:after {
+            content: '';
+        }
+    }
+    .slick-dots {
+        bottom: -50px;
+        button::before {
+            border: solid 1px #000;
+            height: 5px;
+            content: "";
+            width: 25px;
+            border-radius: 5px;
+        }
+        .slick-active button {
+            margin: 0;
+            &:before {
+                background-color: #000;
+            }
+        }
+    }
+}
+
+//panels
+.panel-rating {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 20px 0;
+    .aside {
+        width: 55%;
+        padding: 1% 15% 0 5%;
+    }
+    .image {
+        width: 45%;
+    }
+    .rating img {
+        width: 3.0rem;
+    }
+    article > * {
+        margin: 15px 0;
+    }
+    .title {
+        font-weight: 400;
+        font-size: 15px;
+    }
+    .text {
+        font-size: 2.5rem;
+    }
+    @media (max-width: 992px) {
+        .aside {
+            padding: 0 10px 0 10px;
+            .button {
+                position: absolute;
+                right: 15px;
+                bottom: 15px;
+            }
+        }
+        .image {
+            overflow: hidden;
+            img {
+                max-width: initial;
+                margin-left: 50%;
+                transform: translateX(-50%);
+                height: 400px;
+            }
+        }
+    }
+}
+.panel-product {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 20px;
+    .aside {
+        width: 51%;
+        position: relative;
+    }
+    .image {
+        width: 49%;
+    }
+    .discount {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: $gray-5;
+        color: #fff;
+        padding: 3px 12px;
+        font-size: 15px;
+    }
+    .title {
+        font-weight: 400;
+        font-size: 2.5rem;
+        margin: 30px 0;
+        max-width: 300px;
+    }
+    .desc {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    .installment,
+    .price {
+        margin: 10px 0;
+    }
+    del {
+        font-size: 2rem;
+    }
+    .price {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+    @media (max-width: 991px) {
+        .aside {
+            padding: 0 10px 0 10px;
+        }
+        .image {
+            overflow: hidden;
+            img {
+                max-width: initial;
+                margin-left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+    @media (max-width: 767px) {
+        .desc {
+            left: 5%;
+            display: none;
+        }
+        .button {
+            float: right;
+            margin-right: 15px;
+        }
+        .image img {
+            max-height: 400px;
+        }
+    }
+    @media(min-width: 768px) {
+        .aside {
+            padding: 1% 15% 0 5%;
+        }
+        .discount {
+            left: 10%;
+        }
+    }
+}
