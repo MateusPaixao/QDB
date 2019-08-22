@@ -114,11 +114,10 @@ var menuData = [{
             "text": "Paleta",
             "link": "https://www.quemdisseberenice.com.br/maquiagem/sobrancelhas/paleta"
         },
-        // Inativado do Cadastro
-        // {
-        //     "text": "Máscara",
-        //     "link": "https://www.quemdisseberenice.com.br/maquiagem/sobrancelhas/mascara"
-        // },
+        {
+            "text": "Máscara",
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/sobrancelhas/mascara"
+        },
         {
             "text": "Lápis e caneta",
             "link": "https://www.quemdisseberenice.com.br/maquiagem/sobrancelhas/caneta"
