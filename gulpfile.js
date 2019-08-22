@@ -14,10 +14,8 @@ const browserify = require('gulp-browserify');
 const browserSync   = require('browser-sync').create();
 // const del = require('del');
 const gulp = require('gulp');
-const imagemin = require('gulp-imagemin');
 const pug = require('gulp-pug');
 const sass = require('gulp-sass');
-const svgmin = require('gulp-svgmin');
 const uglify = require('gulp-uglify');
 
 const paths = {
@@ -25,16 +23,6 @@ const paths = {
     src: 'src/assets/scss/common/*.scss',
     dest: './dist/assets/css',
     srcWatch: 'src/assets/scss/**/*.scss',
-  },
-  imgs: {
-    src: 'src/assets/img/*.{png,gif,jpg}',
-    dest: './dist/assets/img/',
-    srcWatch: 'src/assets/img/*'
-  },
-  svgs: {
-    src: 'src/assets/img/icon/*.svg',
-    dest: './dist/assets/img/icon/',
-    srcWatch: 'src/assets/img/icon/*'
   },
   scripts: {
     src: 'src/assets/js/common/*.js',
@@ -61,27 +49,12 @@ const pugtranspile = () => {
     .pipe(pug({
       pretty: false,
     }))
-    .pipe(gulp.dest(paths.markup.dest));
+    .pipe(gulp.dest(paths.htmls.dest));
 }
 const htmls = () => {
-  return gulp.src(paths.markup.html)
-    .pipe(gulp.dest(paths.markup.dest));
+  return gulp.src('src/views/html/*.html')
+    .pipe(gulp.dest(paths.htmls.dest));
 }
-
-const minimg = () => {
-  return gulp.src(paths.imgs.src)
-      .pipe(imagemin())
-      .pipe(gulp.dest(paths.imgs.dest))
-      .pipe(gulp.dest('./dist/vtex_speed'));
-};
-
-const minsvg = () => {
-  return gulp.src(paths.svgs.src)
-      .pipe(svgmin())
-      .pipe(gulp.dest(paths.svgs.dest))
-      .pipe(gulp.dest('./dist/vtex_speed'));
-};
-
 const styles = () => {
   return gulp.src(paths.styles.src)
     .pipe(sass({outputStyle: 'compressed'}))
@@ -131,7 +104,7 @@ const watch = () => {
 }
 
 //------------------------------ Tasks -----------------------------
-const build = gulp.series(gulp.parallel(sync, minimg, minsvg, styles, scripts, htmls, pugtranspile, watch));
+const build = gulp.series(gulp.parallel(sync,styles, scripts, htmls, pugtranspile, watch));
 
 // exports.pluginsJs = pluginsJs;
 // exports.clean = clean;
