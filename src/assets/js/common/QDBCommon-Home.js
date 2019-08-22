@@ -4,9 +4,11 @@
 
 const Methods = {
     init() {
-        Methods.getProductInfos();
-        Methods.getTopBannerColor()
         Methods.principalBannerSlick();
+        if(document.querySelector(".w-gerador--datas") != null){
+            Methods.getProductInfos();
+            Methods.getTopBannerColor()
+        }
     },
     principalBannerSlick: () => {
         const options = {
