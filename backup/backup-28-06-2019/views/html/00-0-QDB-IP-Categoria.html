@@ -5,21 +5,15 @@
         <title><vtex.cmc:searchTitle /></title>
         <vtex:metaTags />
         <vtex:template id="00-0-QDB-Head"/>
-        <link rel="stylesheet" href="/arquivos/new_qdb_style_department.css"/>
-        <!--<link rel="stylesheet" href="/arquivos/new_qdb_style_category.css"/>-->
-        <!--<script type="text/javascript" src="/arquivos/new_qdb_category.js"></script>-->
-        <link rel="stylesheet" href="/arquivos/QDBCommon-category.css"/>
-        <script type="text/javascript" src="/arquivos/QDBCommon-Category.js"></script>
+        <link rel="stylesheet" href="/arquivos/new_qdb_style_category.css"/>
+        
+        <script type="text/javascript" src="/arquivos/new_qdb_category.js"></script>
         <script type="text/javascript" src="/arquivos/new_qdb_vtex-smartResearch.js"></script>
     </head>
- 
+
     <body>
         <div class="wrapper">
-            <!-- <div class="cart cart-login" id="cart3" data-item="login">
-                <vtex:template id="new-qdb-login"/>
-            </div> -->
-            <!-- /#products1.products -->
-            
+             
             <div class="wrapper-inner">
                 <div class="container">
                     <div class="container-group">
@@ -27,50 +21,41 @@
                     </div><!-- /.container-group -->
 
                     <div class="main">
+                        <section class="category_banner">
+                            <vtex:contentPlaceHolder id="BannerCategoriaTopo"/> 
+                          <div class="category_banner_texto">
+                            <h2><vtex:contentPlaceHolder id="TituloCategoria"/></h2>
+                            <p><vtex:contentPlaceHolder id="DescricaoCategoria"/></p>
+                          </div>
+                          <style>
+                            .category_banner{
+                              background: <vtex:contentPlaceHolder id="CorCategoria"/>;
+                            }
+                          </style>
+                        </section>
                         <div class="shell">
                             <div class="breadcrumbs">
                                 <vtex.cmc:breadCrumb />
                             </div><!-- /.breadcrumbs -->
                         </div><!-- /.shell -->
-                        <section class="category_banner" style="display:none;">
-                            <vtex:contentPlaceHolder id="BannerDepartamentoTopo"/> 
-                            <div class="category_banner_texto">
-                                <h2><vtex:contentPlaceHolder id="TituloDepartamento"/></h2>
-                                <p><vtex:contentPlaceHolder id="DescricaoDepartamento"/></p>
-                              </div>
-                              <style>
-                                .category_banner{
-                                  background: <vtex:contentPlaceHolder id="CorDepartamento"/>;
-                                }
-                              </style>
-                        </section>
-                        <nav class="nav-quaternary nav-black">
+                        <nav class="nav-quaternary nav-quinary">
                             <div class="shell">
                                 <h1 class="nav-title"> </h1>
-                                <ul></ul>
+                                <ul> </ul>
                             </div><!-- /.shell -->
                         </nav><!-- /.nav-qutaernary -->
                         
                         <section class="shell">
                             <vtex:contentPlaceHolder id="descricao-da-pagina"/> 
                         </section><!-- /.Description -->
+                        
+                        <vtex.cmc:filtrosblackfriday />
 
-                        <section class="section-products category-colletion-produtos-top">
+                         <section class="section-contact category-chaordic-top">
                             <div class="shell">
-                                <div class="section-content">
-                                    <h3><vtex:contentPlaceHolder id="departamento-titulo-1"/></h3>
-                                    <div class="slider-products">
-                                        <div class="slider-clip">
-                                            <vtex:contentPlaceHolder id="departamento-vitrine-1"/>
-                                        </div><!-- /.slider-clip -->
-                                        <div class="slider-actions">
-                                            <a href="#" class="slider-prev"></a>
-                                            <a href="#" class="slider-next"></a>
-                                        </div><!-- /.slider-actions -->
-                                    </div><!-- /.slider-products -->
-                                </div><!-- /.section-content -->
+                                <div chaordic="top"></div>
                             </div><!-- /.shell -->
-                        </section><!-- /.section-products -->    
+                        </section><!-- /.section-contact -->
                         
                         
                         <div class="filters">
@@ -148,35 +133,12 @@
                             </div><!-- /.shell -->
                         </div><!-- /.filters -->
                         
-                        
-                        <!-- Chaordic Top -->
-                        <div chaordic="top"></div> 
-                        <vtex:contentPlaceHolder id="mosaico-departamento-1"/>  
-
-                        <section class="section-products category-colletion-mais-vendidos">
+                        <section class="section-contact category-chaordic-bottom">
                             <div class="shell">
-                                <div class="section-content">
-                                    <h3><vtex:contentPlaceHolder id="departamento-titulo-2"/></h3>
-                                    <div class="slider-products">
-                                        <div class="slider-clip">
-                                           <vtex:contentPlaceHolder id="departamento-vitrine-2"/>
-                                        </div><!-- /.slider-clip -->
-                                        <div class="slider-actions">
-                                            <a href="#" class="slider-prev"></a>
-                                            <a href="#" class="slider-next"></a>
-                                        </div><!-- /.slider-actions -->
-                                    </div><!-- /.slider-products -->
-                                </div><!-- /.section-content -->
+                                <div chaordic="bottom"></div> 
                             </div><!-- /.shell -->
-                        </section><!-- /.section-products -->  
-                        
-                        <!-- Chaordic Middle -->
-                        <div chaordic="middle"></div>
-                        
-                        <vtex:contentPlaceHolder id="mosaico-departamento-2"/>      
-
-                        <!-- Chaordic Bottom -->
-                        <div chaordic="bottom"></div>
+                        </section><!-- /.section-contact -->
+    
                     </div><!-- /.main -->
 
                     <footer class="footer">
@@ -185,10 +147,22 @@
                 </div><!-- /.container -->
             </div><!-- /.wrapper-inner -->
         </div><!-- /.wrapper -->
-        
-        <div class="hidden">
+
+        <div class="hidden categori-hidden-tesporario">
+            <div class="banner-category-01">
+                <vtex:contentPlaceHolder id="banner-category-01"/>
+            </div>
+            <div class="banner-category-02">
+                <vtex:contentPlaceHolder id="banner-category-02"/>
+            </div>
+            <div class="banner-category-03">
+                <vtex:contentPlaceHolder id="banner-category-03"/>
+            </div>
+             <div class="banner-category-04">
+                <vtex:contentPlaceHolder id="banner-category-03"/>
+            </div>
             <vtex.cmc:searchNavigator/>
         </div>
-        
+        <!-- <vtex:contentPlaceHolder id="QuickTeste"/>  -->
     </body>
 </html>

@@ -1,62 +1,87 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-BR" class="_d-top">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-BR">
 
     <head>
-        <title><vtex.cmc:searchTitle /></title>
+        <title></title>
         <vtex:metaTags />
         <vtex:template id="00-0-QDB-Head"/>
-        <link rel="stylesheet" href="/arquivos/QDBCommon-category.css"/>
+        <link rel="stylesheet" href="/arquivos/new_qdb_style_category.css"/>
         
-        <script type="text/javascript" src="/arquivos/QDBCommon-Category.js"></script>
+        <script type="text/javascript" src="/arquivos/new_qdb_category.js"></script>
         <script type="text/javascript" src="/arquivos/new_qdb_vtex-smartResearch.js"></script>
+        
+        <style>
+        .pratileira ul li {
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            width: 25%;
+            margin-bottom: 100px;
+        }
+        @media(max-width: 767px){
+            .pratileira ul li{
+                width: 50% !important;
+            }
+        }
+        .form-filters { display: none; }
+        </style>
     </head>
 
     <body>
+    <div class="titulo-pagina" style="display:none;"><vtex:contentPlaceHolder id="Titulo da pagina"/></div>
+    <div class="descricao-pagina" style="display:none;"><vtex:contentPlaceHolder id="Descricao da pagina"/></div>
         <div class="wrapper">
-             
+            
             <div class="wrapper-inner">
                 <div class="container">
-                    <div class="container-group">
+                    <div class="container-group header-follder-page">
                         <vtex:template id="00-0-QDB-Header" />
                     </div><!-- /.container-group -->
 
                     <div class="main">
-                        <section class="category_banner">
-                            <vtex:contentPlaceHolder id="BannerCategoriaTopo"/> 
-                          <div class="category_banner_texto">
-                            <h2><vtex:contentPlaceHolder id="TituloCategoria"/></h2>
-                            <p><vtex:contentPlaceHolder id="DescricaoCategoria"/></p>
-                          </div>
-                          <style>
-                            .category_banner{
-                              background: <vtex:contentPlaceHolder id="CorCategoria"/>;
-                            }
-                          </style>
-                        </section>
                         <div class="shell">
                             <div class="breadcrumbs">
                                 <vtex.cmc:breadCrumb />
                             </div><!-- /.breadcrumbs -->
                         </div><!-- /.shell -->
-                        <nav class="nav-quaternary nav-quinary">
-                            <div class="shell">
-                                <h1 class="nav-title"> </h1>
-                                <ul> </ul>
-                            </div><!-- /.shell -->
-                        </nav><!-- /.nav-qutaernary -->
-                        
-                        <section class="shell">
-                            <vtex:contentPlaceHolder id="descricao-da-pagina"/> 
-                        </section><!-- /.Description -->
-                        
-                        <vtex.cmc:filtrosblackfriday />
 
-                         <section class="section-contact category-chaordic-top">
-                            <div class="shell">
-                                <div chaordic="top"></div>
-                            </div><!-- /.shell -->
-                        </section><!-- /.section-contact -->
+                        <!--<nav class="nav-quaternary nav-quinary">-->
+                        <!--    <div class="shell">-->
+                        <!--        <h3 class="nav-title"> </h3>-->
+                        <!--        <ul> </ul>-->
+                        <!--    </div>-->
+                        <!--</nav>-->
                         
+                        <!-- vtex.cmc:filtrosblackfriday / -->
+                        
+                        <div class="header-liquida" style="display:none;">
+                            <div class="shell">
+                                <h2>explore as ofertas do seu jeito!</h2>
+                                <img src="/arquivos/estrela-header-liquida.png" class="estrela" alt="" />
+                                <img src="/arquivos/boca-liquida-natal.png" class="boca" alt="" />
+            
+                                <ul class="filtro filtro-desconto">
+                                    <h4>compre pela <span>faixa de desconto</span></h4>
+                                    <li><a href="/liquida-bere/com-20-desconto">com <span>20%</span> de desconto</a></li>
+                                    <li><a href="/liquida-bere/com-50-desconto">com <span>50%</span> de desconto</a></li>
+                                </ul>
+            
+                                <ul class="filtro filtro-categoria">
+                                    <h4>compre pela <span>categoria</span></h4>
+                                    <li><a href="/liquida-bere/maquiagem">maquiagem</a></li>
+                                    <li><a href="/liquida-bere/acessorios">acessórios</a></li>
+                                    <li><a href="/liquida-bere/fragrancias">perfumaria</a></li>
+                                    <li><a href="/liquida-bere/unhas">unhas</a></li>
+                                </ul>
+                            </div>
+                        </div><!-- /.header-liquida -->
+                        
+                        <div class="filters">
+                            <div class="shell">
+                                <!-- Chaordic Top -->
+                                <div chaordic="top"></div>
+                            </div>
+                        </div>
                         
                         <div class="filters">
                             <div class="shell">
@@ -81,7 +106,7 @@
 
                                                 <div class="col form-toggles form-col-size1" id="filters">
                                                     <div class="cols">
-                                                        <div class="col col-1of3" id="slector-preco">
+                                                        <div class="col col-1of3">
                                                             <label for="field-preco" class="form-label hidden">preco</label>
                                                             
                                                             <div class="form-controls custom-select slector-preco">
@@ -89,7 +114,7 @@
                                                             </div><!-- /.form-controls -->
                                                         </div><!-- /.col col-1of3 -->
                                                         
-                                                        <div class="col col-1of3" id="slector-cor">
+                                                        <div class="col col-1of3">
                                                             <label for="field-cor" class="form-label hidden">cor</label>
                                                             
                                                             <div class="form-controls custom-select slector-cor">
@@ -97,25 +122,11 @@
                                                             </div><!-- /.form-controls -->
                                                         </div><!-- /.col col-1of3 -->
                                                         
-                                                        <div class="col col-1of3" id="slector-hoje-quero">
+                                                        <div class="col col-1of3">
                                                             <label for="field-hoje" class="form-label hidden">hoje</label>
                                                             
                                                             <div class="form-controls custom-select slector-hoje-quero">
                                                                 <p class="custom-select-text">hoje eu quero</p><!-- /.custom-select-text -->
-                                                            </div><!-- /.form-controls -->
-                                                        </div><!-- /.col col-1of3 -->
-
-                                                        <div class="col col-1of3" id="slector-marca" style="display: none;">
-                                                            <label for="field-marca" class="form-label hidden">marca</label>
-                                                            <div class="form-controls custom-select">
-                                                                <p class="custom-select-text">marca</p><!-- /.custom-select-text -->
-                                                            </div><!-- /.form-controls -->
-                                                        </div><!-- /.col col-1of3 -->
-
-                                                        <div class="col col-1of3" id="slector-familia-olfativa" style="display: none;">
-                                                            <label for="field-marca" class="form-label hidden"> família olfativa </label>
-                                                            <div class="form-controls custom-select">
-                                                                <p class="custom-select-text"> família olfativa </p><!-- /.custom-select-text -->
                                                             </div><!-- /.form-controls -->
                                                         </div><!-- /.col col-1of3 -->
                                                     </div><!-- /.cols -->
@@ -127,18 +138,24 @@
                             
                                 <div class="filters-body">
                                     <div class="cols">
-                                      <vtex.cmc:searchResult layout="bf22fec3-3edb-47e2-86f4-468d221fa8bd" itemCount="24" columnCount="24"/>
+                                        <!-- Coleção -->
+                                        <vtex:contentPlaceHolder id="Colecao" />
+                                        <!-- /Coleção -->
+                                        <!--<vtex . cmc : searchResult layout="bf22fec3-3edb-47e2-86f4-468d221fa8bd" itemCount="24" columnCount="24"/>-->
                                     </div><!-- /.slides -->
                                 </div><!-- /.filters-body -->   
                             </div><!-- /.shell -->
                         </div><!-- /.filters -->
                         
-                        <section class="section-contact category-chaordic-bottom">
+                        <div class="filters">
                             <div class="shell">
+                                <!-- Chaordic Bottom -->
                                 <div chaordic="bottom"></div> 
-                            </div><!-- /.shell -->
-                        </section><!-- /.section-contact -->
-    
+                            </div>
+                        </div>
+                        
+                       
+
                     </div><!-- /.main -->
 
                     <footer class="footer">
@@ -148,21 +165,25 @@
             </div><!-- /.wrapper-inner -->
         </div><!-- /.wrapper -->
 
-        <div class="hidden categori-hidden-tesporario">
-            <div class="banner-category-01">
-                <vtex:contentPlaceHolder id="banner-category-01"/>
-            </div>
-            <div class="banner-category-02">
-                <vtex:contentPlaceHolder id="banner-category-02"/>
-            </div>
-            <div class="banner-category-03">
-                <vtex:contentPlaceHolder id="banner-category-03"/>
-            </div>
-             <div class="banner-category-04">
-                <vtex:contentPlaceHolder id="banner-category-03"/>
-            </div>
+        <div class="hidden">
             <vtex.cmc:searchNavigator/>
         </div>
-        <!-- <vtex:contentPlaceHolder id="QuickTeste"/>  -->
+        
+        <script type="text/javascript" src="/arquivos/new-qdb-liquida-bere.js"></script>
+        
+        <script>
+        $(document).ready(function(){
+            setTimeout(function(){
+                // Titulo
+                var a = $('.titulo-pagina').html();
+                $('title').html(a);
+                
+                // Descricao
+                var b = $('.descricao-pagina').html();
+                $('meta[name=description]').attr('content',b);
+            },300);
+        });
+        </script>
+        
     </body>
 </html>

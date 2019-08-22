@@ -5,21 +5,17 @@
         <title><vtex.cmc:searchTitle /></title>
         <vtex:metaTags />
         <vtex:template id="00-0-QDB-Head"/>
-        <link rel="stylesheet" href="/arquivos/new_qdb_style_department.css"/>
-        <!--<link rel="stylesheet" href="/arquivos/new_qdb_style_category.css"/>-->
-        <!--<script type="text/javascript" src="/arquivos/new_qdb_category.js"></script>-->
-        <link rel="stylesheet" href="/arquivos/QDBCommon-category.css"/>
-        <script type="text/javascript" src="/arquivos/QDBCommon-Category.js"></script>
+        <link rel="stylesheet" href="/arquivos/new_qdb_style_category.css"/>
+        
+        <script type="text/javascript" src="/arquivos/new_qdb_category.js"></script>
         <script type="text/javascript" src="/arquivos/new_qdb_vtex-smartResearch.js"></script>
+        
+        <vtex:contentPlaceHolder id="Flag" /> 
     </head>
- 
+
     <body>
         <div class="wrapper">
-            <!-- <div class="cart cart-login" id="cart3" data-item="login">
-                <vtex:template id="new-qdb-login"/>
-            </div> -->
-            <!-- /#products1.products -->
-            
+           
             <div class="wrapper-inner">
                 <div class="container">
                     <div class="container-group">
@@ -32,45 +28,43 @@
                                 <vtex.cmc:breadCrumb />
                             </div><!-- /.breadcrumbs -->
                         </div><!-- /.shell -->
-                        <section class="category_banner" style="display:none;">
-                            <vtex:contentPlaceHolder id="BannerDepartamentoTopo"/> 
-                            <div class="category_banner_texto">
-                                <h2><vtex:contentPlaceHolder id="TituloDepartamento"/></h2>
-                                <p><vtex:contentPlaceHolder id="DescricaoDepartamento"/></p>
-                              </div>
-                              <style>
-                                .category_banner{
-                                  background: <vtex:contentPlaceHolder id="CorDepartamento"/>;
-                                }
-                              </style>
-                        </section>
-                        <nav class="nav-quaternary nav-black">
+
+                        <nav class="nav-quaternary nav-quinary" style="display:none;">
                             <div class="shell">
-                                <h1 class="nav-title"> </h1>
-                                <ul></ul>
+                                <h3 class="nav-title"> </h3>
+                                <ul> </ul>
                             </div><!-- /.shell -->
                         </nav><!-- /.nav-qutaernary -->
                         
-                        <section class="shell">
-                            <vtex:contentPlaceHolder id="descricao-da-pagina"/> 
-                        </section><!-- /.Description -->
-
-                        <section class="section-products category-colletion-produtos-top">
+                        <!-- vtex.cmc:filtrosblackfriday / -->
+                        
+                        <div class="header-liquida" style="display:none;">
                             <div class="shell">
-                                <div class="section-content">
-                                    <h3><vtex:contentPlaceHolder id="departamento-titulo-1"/></h3>
-                                    <div class="slider-products">
-                                        <div class="slider-clip">
-                                            <vtex:contentPlaceHolder id="departamento-vitrine-1"/>
-                                        </div><!-- /.slider-clip -->
-                                        <div class="slider-actions">
-                                            <a href="#" class="slider-prev"></a>
-                                            <a href="#" class="slider-next"></a>
-                                        </div><!-- /.slider-actions -->
-                                    </div><!-- /.slider-products -->
-                                </div><!-- /.section-content -->
-                            </div><!-- /.shell -->
-                        </section><!-- /.section-products -->    
+                                <h2>explore as ofertas do seu jeito!</h2>
+                                <img src="/arquivos/estrela-header-liquida.png" class="estrela" alt="" />
+                                <img src="/arquivos/boca-liquida-natal.png" class="boca" alt="" />
+            
+                                <ul class="filtro filtro-desconto">
+                                    <h4>compre pela <span>faixa de desconto</span></h4>
+                                    <li><a href="/liquida-bere/com-20-desconto">com <span>20%</span> de desconto</a></li>
+                                    <li><a href="/liquida-bere/com-50-desconto">com <span>50%</span> de desconto</a></li>
+                                </ul>
+            
+                                <ul class="filtro filtro-categoria">
+                                    <h4>compre pela <span>categoria</span></h4>
+                                    <li><a href="/liquida-bere/maquiagem">maquiagem</a></li>
+                                    <li><a href="/liquida-bere/acessorios">acessórios</a></li>
+                                    <li><a href="/liquida-bere/fragrancias">perfumaria</a></li>
+                                    <li><a href="/liquida-bere/unhas">unhas</a></li>
+                                </ul>
+                            </div>
+                        </div><!-- /.header-liquida -->
+                        
+                        
+                        <div class="shell">
+                            <!-- Chaordic Top -->
+                            <div chaordic="top"></div>
+                        </div>
                         
                         
                         <div class="filters">
@@ -96,7 +90,7 @@
 
                                                 <div class="col form-toggles form-col-size1" id="filters">
                                                     <div class="cols">
-                                                        <div class="col col-1of3" id="slector-preco">
+                                                        <div class="col col-1of3">
                                                             <label for="field-preco" class="form-label hidden">preco</label>
                                                             
                                                             <div class="form-controls custom-select slector-preco">
@@ -104,7 +98,7 @@
                                                             </div><!-- /.form-controls -->
                                                         </div><!-- /.col col-1of3 -->
                                                         
-                                                        <div class="col col-1of3" id="slector-cor">
+                                                        <div class="col col-1of3">
                                                             <label for="field-cor" class="form-label hidden">cor</label>
                                                             
                                                             <div class="form-controls custom-select slector-cor">
@@ -112,25 +106,11 @@
                                                             </div><!-- /.form-controls -->
                                                         </div><!-- /.col col-1of3 -->
                                                         
-                                                        <div class="col col-1of3" id="slector-hoje-quero">
+                                                        <div class="col col-1of3">
                                                             <label for="field-hoje" class="form-label hidden">hoje</label>
                                                             
                                                             <div class="form-controls custom-select slector-hoje-quero">
                                                                 <p class="custom-select-text">hoje eu quero</p><!-- /.custom-select-text -->
-                                                            </div><!-- /.form-controls -->
-                                                        </div><!-- /.col col-1of3 -->
-
-                                                        <div class="col col-1of3" id="slector-marca" style="display: none;">
-                                                            <label for="field-marca" class="form-label hidden">marca</label>
-                                                            <div class="form-controls custom-select">
-                                                                <p class="custom-select-text">marca</p><!-- /.custom-select-text -->
-                                                            </div><!-- /.form-controls -->
-                                                        </div><!-- /.col col-1of3 -->
-
-                                                        <div class="col col-1of3" id="slector-familia-olfativa" style="display: none;">
-                                                            <label for="field-marca" class="form-label hidden"> família olfativa </label>
-                                                            <div class="form-controls custom-select">
-                                                                <p class="custom-select-text"> família olfativa </p><!-- /.custom-select-text -->
                                                             </div><!-- /.form-controls -->
                                                         </div><!-- /.col col-1of3 -->
                                                     </div><!-- /.cols -->
@@ -147,36 +127,13 @@
                                 </div><!-- /.filters-body -->   
                             </div><!-- /.shell -->
                         </div><!-- /.filters -->
+                       
+                        <div class="shell">
+                            <!-- Chaordic Bottom -->
+                            <div chaordic="bottom"></div> 
+                        </div>
+                       
                         
-                        
-                        <!-- Chaordic Top -->
-                        <div chaordic="top"></div> 
-                        <vtex:contentPlaceHolder id="mosaico-departamento-1"/>  
-
-                        <section class="section-products category-colletion-mais-vendidos">
-                            <div class="shell">
-                                <div class="section-content">
-                                    <h3><vtex:contentPlaceHolder id="departamento-titulo-2"/></h3>
-                                    <div class="slider-products">
-                                        <div class="slider-clip">
-                                           <vtex:contentPlaceHolder id="departamento-vitrine-2"/>
-                                        </div><!-- /.slider-clip -->
-                                        <div class="slider-actions">
-                                            <a href="#" class="slider-prev"></a>
-                                            <a href="#" class="slider-next"></a>
-                                        </div><!-- /.slider-actions -->
-                                    </div><!-- /.slider-products -->
-                                </div><!-- /.section-content -->
-                            </div><!-- /.shell -->
-                        </section><!-- /.section-products -->  
-                        
-                        <!-- Chaordic Middle -->
-                        <div chaordic="middle"></div>
-                        
-                        <vtex:contentPlaceHolder id="mosaico-departamento-2"/>      
-
-                        <!-- Chaordic Bottom -->
-                        <div chaordic="bottom"></div>
                     </div><!-- /.main -->
 
                     <footer class="footer">
@@ -185,7 +142,7 @@
                 </div><!-- /.container -->
             </div><!-- /.wrapper-inner -->
         </div><!-- /.wrapper -->
-        
+
         <div class="hidden">
             <vtex.cmc:searchNavigator/>
         </div>

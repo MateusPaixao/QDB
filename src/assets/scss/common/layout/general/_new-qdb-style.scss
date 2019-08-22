@@ -1343,8 +1343,20 @@ body.overflow {
 .section-chaordic{
     height: 450px;
     margin: 40px 0;
+    @include d(s){
+        height: 410px;
+    }
+    @include d(xs){
+        height: 410px;
+    }
     iframe{
         height: 460px;
+        @include d(s){
+            height: 410px;
+        }
+        @include d(xs){
+            height: 410px;
+        }
     }
     .chaordic{
         height: initial !important;

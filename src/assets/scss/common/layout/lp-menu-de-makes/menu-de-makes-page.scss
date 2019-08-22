@@ -1,7 +1,6 @@
 $titleSize: 2em;
 $textSize: 1em;
-$fontPrincipal: 'CentraleSans-Regular';
-$fontBold: 'CentraleSans-Bold';
+$fontPrincipal: 'Museo Sans';
 $primaryColor: #555557;
 $secondaryColor: #AC0032;
 
@@ -61,10 +60,9 @@ $secondaryColor: #AC0032;
                 width: 100%;
             }
             h1{
-            
+                font-weight: 500;
                 font-size: $titleSize;
                 margin-bottom: 10px;
-                font-family: $fontBold;
             }
             p{
                 font-size: $textSize;
@@ -105,7 +103,6 @@ $secondaryColor: #AC0032;
             justify-content: center;
             font-weight: 500;
             font-size: $titleSize;
-            font-family: $fontBold;
 
         }
         &--itens{
@@ -132,7 +129,7 @@ $secondaryColor: #AC0032;
             &--title{
                 text-transform: uppercase !important;
                 color: $primaryColor;
-                font-family: $fontBold;
+                font-weight: bold; 
             }
         }
     }
@@ -143,9 +140,12 @@ $secondaryColor: #AC0032;
         flex-direction: column;
         &--title{
             margin-bottom: 50px;
-            font-family: $fontBold;
+            font-weight: bold;
             font-size: $titleSize;
-            text-align: center;
+
+            @include d('768px'){
+                display: none;
+            }
         }
         &__content{
             display: flex;
@@ -191,7 +191,7 @@ $secondaryColor: #AC0032;
                 }
                 &--title{
                     text-align: left;
-                    font-family: $fontBold;
+                    font-weight: bold;
                     font-size: $titleSize;
                     margin-bottom: 10px;
                     text-transform: uppercase;
@@ -260,7 +260,7 @@ $secondaryColor: #AC0032;
                     }
                     &--title{
                         margin: 10px;
-                        font-family: $fontBold;
+                        font-weight: 500;
                         color: $primaryColor;
                         font-size: 1.5em;
                     }

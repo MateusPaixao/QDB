@@ -1,18 +1,19 @@
-<!-- 12-11 -->
+<!--TESTE-->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-BR" class="_d-top">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-BR">
 
     <head>
         <title><vtex.cmc:productPageTitle /></title>
+        <vtex:metaTags />
         <vtex:template id="00-0-QDB-Head"/>
         
-        <link rel="stylesheet" href="/arquivos/QDBCommon-product.css"/>
+        <link rel="stylesheet" href="/arquivos/new_qdb_style_product.css?v=446"/>
         <link rel="stylesheet" href="/arquivos/qdb-magnific-popup.css" />
-        <link rel="stylesheet" href="/arquivos/qdb-product.zoom.css" />
+        <link rel="stylesheet" href="/arquivos/qdb-product.zoom.css?v=7777" />
         
         <link rel="stylesheet" href="/arquivos/qdb-slick.css?v=1" />
         
-        <script type="text/javascript" src="/arquivos/QDBCommon-Product.js"></script> 
+        <script type="text/javascript" src="/arquivos/new_qdb_product.js?dd=1005"></script> 
         <script type="text/javascript" src="/arquivos/qdb-jquery.magnific-popup.min.js"></script> 
         <script type="text/javascript" src="/arquivos/qdb-product.zoom.js"></script> 
         
@@ -27,26 +28,9 @@
             
             @media (max-width: 768px) {
                 .produto .section-product {
-                    padding-top: 0px!important;
-                }
-                .video-description iframe {
-                    width: 480px;
-                    height: 320px;
+                    padding-top: 105px!important;
                 }
             }
-            @media (max-width: 468px) {
-                .video-description iframe {
-                    width: 100%;
-                    height: 320px;
-                }
-            }
-            @media (max-width: 414px) {
-                .video-description iframe {
-                    width: 100%;
-                    height: 230px;
-                }
-            }
-            
         </style>
         
         <vtex:contentPlaceHolder id="Flag mate"/>
@@ -71,11 +55,6 @@
         <!-- ./ modal de validade -->
         
         <div class="wrapper">
-            <div class="cart" id="cart1" data-item="wish">
-               <!-- <vtex:template id="new-qdb-wishlist"/> -->
-            </div><!-- /#products1.products -->
-
-            
             <div class="wrapper-inner">
                 <div class="container">
                     <div class="container-group header-follder-page">
@@ -94,7 +73,7 @@
                                         <header class="product-head">
                                             <h1> <vtex.cmc:productName/> </h1>
                                             <small>
-                                                Cód. do item: <vtex.cmc:skuReference/>
+                                                cód. do item: <vtex.cmc:skuReference/>
                                             </small>
                                             
                                             <div class="product-rating">
@@ -133,13 +112,18 @@
                                             </div><!-- /.slider-colors -->
                                             
                                             <div class="product-info">
+                                            <div class="hideOldPrice">
                                                 <del class="product-preco-de">  </del>
                                                 <strong class="product-preco-por">  </strong>
                                                 <small class="product-parcelamento">  </small>
-
                                                 <span class="product-tag"> <i class="ico-star-blue-small"></i> 
                                                     ou <span class="product-clube-pontos"> </span>
                                                 </span>
+                                            </div>
+                                                <div class="plugin-preco">
+                                                    <vtex.cmc:skuPrice/>
+                                                </div>
+                                                
                                     
                                                <div class="product-buy-button">
                                                    <vtex.cmc:BuyButton/>
@@ -153,12 +137,12 @@
                                             <div class="product-actions">
                                                 <a href="#" class="btn-black ajax-popup" id="product-cal-frete">
                                                     <i class="ico-truck-white-small"></i>
-                                                    Calcular frete e prazo
+                                                    calcular frete e prazo
                                                 </a><!-- /.btn-black ajax-popups -->
                                                 
                                                 <a href="/nossas-lojas" class="btn-black" id="product-entra-loja">
                                                     <i class="ico-pointer-down"></i>
-                                                    Encontrar na loja
+                                                    encontrar na loja
                                                 </a><!-- /.btn-blac -->
                                             </div><!-- /.product-actions -->
 
@@ -167,20 +151,20 @@
                                             </div>
 
                                             <div class="product-content">
-                                                <strong>Se joga nesse produto!</strong>
+                                                <strong>se joga nesse produto!</strong>
                                     
                                                 <ul class="list-bullets">
                                                     
                                                 </ul><!-- /.list-bullets -->
                                     
                                                 <a href=".section-tabs" class="scroll">
-                                                    Ver todas as características
+                                                    ver todas as características
                                                     <i class="ico-arrow-down"></i>
                                                 </a>
                                             </div><!-- /.product-content -->
 
                                             <div class="socials-secondary">
-                                                <p>Compartilhe este produto</p>
+                                                <p>compartilhe este produto</p>
                                                 <ul>
                                                     <li>
                                                         <a href="#" class="facebook">
@@ -210,77 +194,20 @@
                                         </div><!-- /.product-body -->
                                     </div><!-- /.product-details -->
                                 </section><!-- /.section-product -->
+
                                 
-                                <section class="section-tabs">
-                                    <div class="tabs">
-                                        <div class="tabs-head">
-                                            <nav class="tabs-nav">
-                                                <ul>
-                                                    <li class="current">
-                                                        <a href="tab1" class="toggle"> Descrição </a>
-                                                    </li>
-                                                    
-                                                    <li>
-                                                        <a href="tab2" class="toggle"> #ficadica </a>
-                                                    </li>
-                                                    
-                                                    <li>
-                                                        <a href="tab3" class="toggle"> Ficha técnica </a>
-                                                    </li>
-                                                    
-                                                    <li>
-                                                        <a href="tab4" class="toggle"> Precauções de uso </a>
-                                                    </li>
-                                                    
-                                                    <li>
-                                                        <a href="tab5" class="toggle avaliacoes"> Avaliações </a>
-                                                    </li>
-                                                </ul>
-                                            </nav><!-- /.tabs-nav -->
-                                        </div><!-- /.tabs-head -->
-                                        
-                                        <div class="tabs-body">
-                                            <div class="tab active" id="tab1">
-                                                <div class="tab-image">
-                                                    
-                                                </div><!-- /.tab-image -->
 
-                                                <div class="tab-content">
-                                                    <h3>Descrição</h3>
-                                                    <vtex.cmc:ProductDescription/>
+                                <section class="section-chaordic-top">
+                                    <div class="shell">
+                                        <div chaordic="top"></div>
+                                    </div><!-- /.shell -->
+                                </section><!-- /.section-chaordic -->
 
-                                                    <h3>Modo de usar</h3>
-
-                                                    <div class="specification-modo-usar">
-                                                        <p> </p>
-                                                    </div><!-- /.modo-usar-specification -->
-                                                </div><!-- /.tab-content -->
-                                            </div><!-- /.tab -->
-
-                                            <div class="tab" id="tab2">
-                                                <p>  </p>
-                                            </div><!-- /.tab -->
-
-                                            <div class="tab" id="tab3">
-                                                
-                                            </div><!-- /.tab -->
-
-                                            <div class="tab" id="tab4">
-                                                <p> </p>                                                     
-                                            </div><!-- /.tab -->
-                                        </div><!-- /.tabs-body -->
-                                    </div><!-- /.tabs -->
-                                </section><!-- /.section-tabs -->    
-                                
-                                <!--VIDEO DESCRIPTION-->
-                                <section class="video-description" style="display:none;text-align:center;">
-                                </section>
-                                
                                 <section class="section-info">
                                     <div class="cols">
                                         <div class="col col-1of2">
                                             <div class="section-entry">
-                                                <h3>Por que a gente ama <img src="http://qbbr.vteximg.com.br/arquivos/favicon.ico"/></h3>
+                                                <h3>por que a gente ama</h3>
                                     
                                                 <ul class="list-hearts">
                                                    
@@ -289,7 +216,7 @@
                                         </div><!-- /.col col-1of2 -->
                                         
                                         <div class="col col-1of2">
-                                            <h3 class="section-title">O que as berês acham</h3>
+                                            <h3 class="section-title">o que as berês acham</h3>
                                     
                                             <div class="slider-entrys">
                                                 <div class="slider-clip">
@@ -307,13 +234,7 @@
                                         </div><!-- /.col col-1of2 -->
                                     </div><!-- /.cols -->
                                 </section><!-- /.section-info -->
-                                
-                                <section class="section-chaordic-top">
-                                    <div class="shell">
-                                        <div chaordic="top"></div>
-                                    </div><!-- /.shell -->
-                                </section><!-- /.section-chaordic -->
-                                
+
                                 <section class="section-chaordic-middle">
                                     <div class="shell">
                                         <div chaordic="middle"></div>
@@ -327,7 +248,7 @@
                                 </section><!-- /.section-chaordic -->
                                 
                                 <section class="section-rating">
-                                    <h2>Avaliações</h2>
+                                    <h2>avaliações</h2>
                                     
                                     <div class="section-body">
                                         <div id="yv-reviews"></div>
@@ -338,7 +259,66 @@
                                     </div>
                                 </section><!-- /.section-rating -->
 
-                                
+                                <section class="section-tabs">
+                                    <div class="tabs">
+                                        <div class="tabs-head">
+                                            <nav class="tabs-nav">
+                                                <ul>
+                                                    <li class="current">
+                                                        <a href="tab1" class="toggle"> descrição </a>
+                                                    </li>
+                                                    
+                                                    <li>
+                                                        <a href="tab2" class="toggle"> #ficadica </a>
+                                                    </li>
+                                                    
+                                                    <li>
+                                                        <a href="tab3" class="toggle"> ficha técnica </a>
+                                                    </li>
+                                                    
+                                                    <li>
+                                                        <a href="tab4" class="toggle"> precauções de uso </a>
+                                                    </li>
+                                                    
+                                                    <li>
+                                                        <a href="tab5" class="toggle avaliacoes"> avaliações </a>
+                                                    </li>
+                                                </ul>
+                                            </nav><!-- /.tabs-nav -->
+                                        </div><!-- /.tabs-head -->
+                                        
+                                        <div class="tabs-body">
+                                            <div class="tab active" id="tab1">
+                                                <div class="tab-image">
+                                                    
+                                                </div><!-- /.tab-image -->
+
+                                                <div class="tab-content">
+                                                    <h3>descrição</h3>
+                                                    <vtex.cmc:ProductDescription/>
+
+                                                    <h3>modo de usar</h3>
+
+                                                    <div class="specification-modo-usar">
+                                                        <p> </p>
+                                                    </div><!-- /.modo-usar-specification -->
+                                                </div><!-- /.tab-content -->
+                                            </div><!-- /.tab -->
+
+                                            <div class="tab" id="tab2">
+                                                <p>  </p>
+                                            </div><!-- /.tab -->
+
+                                            <div class="tab" id="tab3">
+                                              
+                                            </div><!-- /.tab -->
+
+                                            <div class="tab" id="tab4">
+                                                <p> </p>                                                     
+                                            </div><!-- /.tab -->
+                                        </div><!-- /.tabs-body -->
+                                    </div><!-- /.tabs -->
+                                </section><!-- /.section-tabs -->
                                 
                             </div><!-- /.shell -->
                         </div><!-- /.main-inner -->
@@ -347,6 +327,7 @@
                             <!-- Chaordic Bottom -->
                             <div chaordic="bottom"></div> 
                         </div>
+                        
                         
                     </div><!-- /.main -->
 
@@ -366,16 +347,16 @@
                 <form action="?" method="post">
                     <div class="form-step current">
                         <i class="ico-close-calc-cep"></i>
-                        <div class="form-head">
+                        <header class="form-head">
                             <i class="ico-truck-secondary"></i>
             
-                            <h3>Calcular frete e prazo</h3>
-                        </div><!-- /.form-head -->
+                            <h3>calcular frete e prazo</h3>
+                        </header><!-- /.form-head -->
             
                         <div class="form-body">
                             <div class="form-inner">
                                 <div class="form-row">
-                                    <label for="field-cep" class="form-label">Informe o seu cep</label>
+                                    <label for="field-cep" class="form-label">informe o seu cep</label>
                                     
                                     <div class="form-controls">
                                         <input type="text" class="field" name="field-cep" id="field-cep" value="" placeholder="digite aqui seu cep"/>
@@ -384,7 +365,7 @@
                                     </div><!-- /.form-controls -->
                             
                                     <a href=".form-inner-secondary" class="toggle">
-                                        <span>N</span>ão sei meu cep
+                                        <span>n</span>ão sei meu cep
                                     </a>
                                 </div><!-- /.form-row -->
                             </div><!-- /.popup-inner -->
@@ -410,7 +391,7 @@
                                 <i class="ico-close-busca-cep"></i>
                                 <div class="form-group">
                                     <i class="ico-question-black"></i>
-                                    <h3>Não sei meu cep</h3>
+                                    <h3>não sei meu cep</h3>
                                     <div class="form-row">
                                         <label for="field-endereco" class="form-label">endereço</label>
                                         <div class="form-controls">
@@ -494,9 +475,5 @@
         
         <script type="text/javascript" src="/arquivos/qdb-jquery.cookie.js"></script> 
         <script type="text/javascript" src="/arquivos/qdb-gtx.js"></script> 
-        
-        <style>
-            .breadcrumbs {padding-top: 20px !important;}
-        </style>
     </body>
 </html>
