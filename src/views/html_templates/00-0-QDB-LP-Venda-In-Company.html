@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common"
+    xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-BR" class="_d-top">
+
+<head>
+    <script>
+        $(function () {
+            document.title = '<vtex:contentPlaceHolder id="Título da página" />';
+        });
+    </script>
+    <vtex:contentPlaceHolder id="Metatags" />
+    <vtex:template id="00-0-QDB-Head" />
+
+    <link rel="stylesheet" href="/arquivos/QDB-LP-Venda-in-company.css" />
+
+</head>
+
+<body>
+    <div class="container-group">
+        <vtex:template id="00-0-QDB-Header" />
+    </div>
+    <section class="lp-vc">
+        <div class="_container-vc">
+            <vtex:contentPlaceHolder id="H1 + Texto" />
+            <h1>quem disse, berenice? perto de você</h1>
+            <p>
+                Temos um portfólio completo de produtos de <strong>maquiagem, perfumaria, loções e acessórios</strong>
+                para que cada pessoa possa expressar a sua individualidade livremente e mostrar seu universo único. Leve
+                dicas de automaquiagem para seu time e adquira produtos para presentear seus funcionários em datas
+                importantes.
+            </p>
+            <p>
+                <strong>Vamos nos encontrar?</strong> <br />
+                Clique para descobrir como receber a gente na sua empresa.
+            </p>
+            <p>
+                <a class="_cadastro-open">Faça seu cadastro</a>
+            </p>
+        </div>
+        <section class="_form-modal">
+            <span class="_after"></span>
+            <form class="_form-container" action="javascript:void(0);">
+                <span>
+                    <label for="nomeEmp">Nome empresa:</label>
+                    <input type="text" name="nomeEmp" required="required" />
+                </span>
+                <span>
+                    <label for="nomeContato">Nome de contato na empresa:</label>
+                    <input type="text" name="nomeContato" required="required" />
+                </span>
+                <span>
+                    <label for="nomeContato">E-mail corporativo:</label>
+                    <input type="email" name="email" required="required" />
+                </span>
+                <span>
+                    <label for="nomeContato">Telefone corporativo:</label>
+                    <input type="tel" name="telEmp" required="required" />
+                </span>
+                <span>
+                    <label for="nomeContato">CEP</label>
+                    <input type="text" id="cep" name="cepEmp" required="required" />
+                </span>
+                <span>
+                    <label for="nomeContato">Endereço completo da empresa:</label>
+                    <input type="text" name="enderecoEmp" required="required" />
+                </span>
+                <span>
+                    <label for="nomeContato">Número</label>
+                    <input type="text" name="numEmp" required="required" placeHolder="número/complemento" />
+                </span>
+                <span>
+                    <label for="nomeContato">Cidade</label>
+                    <input type="text" name="cidadeEmp" required="required" />
+                </span>
+                <span>
+                    <label for="nomeContato">UF</label>
+                    <input type="text" name="ufEmp" required="required" />
+                </span>
+                <span>
+                    <input type="checkbox" id="_termos" name="_termos" valor="_termos" />
+                    <label for="_termos"> Concordo com os </label> de uso e  <a href="/politica">política de privacidade</a>
+                </span>
+
+                <button>
+                    Enviar
+                </button>
+            </form>
+        </section>
+    </section>
+
+
+
+    <footer class="footer">
+        <vtex:template id="00-0-QDB-Footer" />
+    </footer>
+    <script type="text/javascript" src="/arquivos/QDB-LP-Venda-In-Company.js"></script>
+</body>
+
+</html>
