@@ -3,7 +3,10 @@ const btnGerador = document.querySelector('.w-gerador--generate');
 const Methods = {
     init() {
         Methods.copyOutput();
-        searchSku.addEventListener('click', Methods.getProductInfos);
+        searchSku.addEventListener('click', () => {
+            document.querySelector('.w-gerador--load').classList.remove('hidden')
+            Methods.getProductInfos();
+        });
         btnGerador.addEventListener('click', Methods.generateAttributes)
     },
     copyOutput: () => {
@@ -86,7 +89,7 @@ const Methods = {
         </div>
     </article>
     </div>`
-            outputText.textContent = `${htmlGenerate}`
+        outputText.textContent = `${htmlGenerate}`
     },
     getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--text.idproduto').value;
@@ -95,21 +98,30 @@ const Methods = {
             .then(res => res.json())
             .then((product) => {
                 const skuList = product[0].items;
+                console.log(skuList)
                 const selectionSku = document.querySelector('.w-gerador--text.idsku');
+                document.querySelector('.w-gerador--load').classList.add("hidden")
                 document.querySelectorAll('.w-gerador--label')[1].classList.remove('hidden');
+                selectionSku.innerHTML = "";
                 for (const i in skuList) {
                     if (skuList.hasOwnProperty(i)) {
                         const sku = skuList[i];
                         let option = document.createElement('option');
                         option.value = sku.itemId;
-                        option.textContent = sku.itemId;
+                        option.style.color = "#fff";
+                        option.style.padding = '5px';
+                        option.textContent = `[${sku.itemId}] ${sku.name}`;
                         selectionSku.append(option);
+                        if(sku.sellers[0].commertialOffer.AvailableQuantity){
+                            option.style.backgroundColor = 'green';
+                        }
+                        else{
+                            option.style.backgroundColor = 'red';
+                        }
                     }
                 }
             })
     },
-    
-
-
 }
+
 Methods.init();
