@@ -128,6 +128,8 @@ const Methods = {
             hourCounter.innerHTML = hours < 10 ? '0' + hours : hours;
             minuteCounter.innerHTML = minutes < 10 ? '0' + minutes : minutes;
             secondsCounter.innerHTML = seconds < 10 ? '0' + seconds : seconds;
+
+
         }
 
         clock = setInterval(showRemaining, 1000);
@@ -136,9 +138,18 @@ const Methods = {
     disableProduct: () => {
         let buyButton = document.querySelector('.w-product--wrapper--infos--buy-button');
         let buyButtonTxt = document.querySelector('.w-product--wrapper--infos--buy-button button');
+        document.querySelector('.w-product--container').classList.add('inactive');
         buyButtonTxt.textContent = "Indisponível"
         buyButton.style = "pointer-events: none;";
         buyButton.href = '';
+
+        let hourCounter = document.querySelector('.w-product--contador--timer--time.--hours');
+        let minuteCounter = document.querySelector('.w-product--contador--time.--minutes');
+        let secondsCounter = document.querySelector('.w-product--contador--time.--segundos');
+
+        hourCounter.innerHTML = '00';
+        minuteCounter.innerHTML = '00';
+        secondsCounter.innerHTML = '00';
 
         document.querySelector('.w-product--wrapper--infos--old-price').classList.add('hidden');
         document.querySelector('.w-product--wrapper--infos--new-price').classList.add('hidden');

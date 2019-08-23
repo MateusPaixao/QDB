@@ -3,7 +3,7 @@ const Methods = {
         Methods.principalBannerSlick();
     },
     principalBannerSlick: () => {
-        options = {
+        const options = {
             dots: true,
             arrows: false,
             lazyLoad: 'ondemand',
@@ -21,9 +21,9 @@ const Methods = {
         }
         else if(window.innerWidth >= 601 && bannersDesktopLength > 1){
             slickDesktop.slick(options);
-            slickDesktop.addClass('is--active')
+            slickDesktop.addClass('is--active');
         }
-    }
+    },
 }
 
 export default {

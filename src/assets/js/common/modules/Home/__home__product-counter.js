@@ -1,8 +1,9 @@
 const Methods = {
     init() {
-        Methods.getProductInfos();
-        Methods.getTopBannerColor()
-        Methods.slickPrincipalBanner();
+        if(document.querySelector(".w-gerador--datas") != null){
+            Methods.getProductInfos();
+            Methods.getTopBannerColor()
+        }
     },
     getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
