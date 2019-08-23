@@ -23,11 +23,15 @@
 	color: #484848;	
 }
 #boxLight{
-    position: fixed;
+	position: fixed;
+	display: none;
 }
 ul.more-info__data.more-info__data--open.pl0.ma0.transition-opacity-06s.transition-max-height-06s.list.gray.overflow-y-hidden{
 	display: none;
 }
 section.more-info.mt2 {
     display: none;
+}
+#dark{
+	display: none;
 }
