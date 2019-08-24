@@ -6,6 +6,7 @@
     "unit-test": "jasmine",
     "package-test": "snyk test",
     "start": "gulp && gulp watch",
+    "swgen": "workbox injectManifest workbox-config.js",
     "e2e-setup": "selenium-standalone install",
     "e2e-test": "npx nightwatch"
   },
@@ -38,7 +39,8 @@
     "promise-polyfill": "8.1.0",
     "sass-rem": "^2.0.1",
     "vtex-lazyload": "0.0.3",
-    "whatwg-fetch": "^3.0.0"
+    "whatwg-fetch": "^3.0.0",
+    "workbox-cli": "^4.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
