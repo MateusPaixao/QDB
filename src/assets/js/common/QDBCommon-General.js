@@ -1142,7 +1142,8 @@ var SuperMenu = (function ($, window, document, undefined) {
         
         return true;
     };
-    $(window).on('load',startHomeScripts);
+    
+    startHomeScripts();
     
     return {
         closeAllFloats: function (e) {
