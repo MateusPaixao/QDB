@@ -17,6 +17,10 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        label{
+            display: flex;
+            flex-direction: column;
+        }
     }
     &--text{
         border-radius: 5px;

@@ -5,6 +5,9 @@ const Methods = {
         Methods.copyOutput();
         searchSku.addEventListener('click', () => {
             document.querySelector('.w-gerador--load').classList.remove('hidden')
+            if(document.querySelector('.w-error') != null){
+                document.querySelector('.w-error').remove();
+            }
             Methods.getProductInfos();
         });
         btnGerador.addEventListener('click', Methods.generateAttributes)
@@ -30,6 +33,8 @@ const Methods = {
             texto: document.querySelector('.w-gerador--text.text').value,
             tituloSad: document.querySelector('.w-gerador--text.title-sad').value,
             textoSad: document.querySelector('.w-gerador--text.text-sad').value,
+            tituloOut: document.querySelector('.w-gerador--text.title-out').value,
+            textoOut: document.querySelector('.w-gerador--text.text-out').value,
             dataInicial: document.querySelector('.w-gerador--text.time-inicial').value,
             dataFinal: document.querySelector('.w-gerador--text.time-final').value
         }
@@ -50,6 +55,10 @@ const Methods = {
             <div class="w-promo-text-sad hidden">
                 <p class="w-product--title">${Attributes.tituloSad}</p>
                 <p class="w-product--text">${Attributes.textoSad}</p>
+            </div>
+            <div class="w-promo-text-out hidden">
+                <p class="w-product--title">${Attributes.tituloOut}</p>
+                <p class="w-product--text">${Attributes.textoOut}</p>
             </div>
             <div class="w-product--contador">
                 <div class="w-product--contador--timer">
@@ -82,9 +91,7 @@ const Methods = {
                 <p class="w-product--wrapper--infos--old-price"></p>
                 <p class="w-product--wrapper--infos--new-price"></p>
                 <p class="w-product--wrapper--infos--parcelamento"></p>
-                <a class="w-product--wrapper--infos--buy-button" href="">
-                    <button>Comprar</button>
-                </a>
+                <button class="w-product--wrapper--infos--buy-button">Adicionar a Sacola</button>
                 </div>
         </div>
     </article>
@@ -120,6 +127,17 @@ const Methods = {
                         }
                     }
                 }
+            })
+            .catch((err) => {
+                const selectionSku = document.querySelector('.w-gerador--text.idsku');
+                selectionSku.innerHTML = "";
+                console.error('Erro:' , err)
+                const errorText = document.createElement('p');
+                document.querySelector('.w-gerador--load').classList.add("hidden")
+                errorText.textContent = "Product ID Inválido, tente novamente."
+                errorText.style.color = "red";
+                errorText.classList.add('w-error');
+                document.querySelector('.w-gerador--butons').appendChild(errorText)
             })
     },
 }
