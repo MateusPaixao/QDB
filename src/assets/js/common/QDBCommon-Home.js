@@ -1,6 +1,4 @@
 import Home from "./modules/Home/home-index"
-
-Home.init();
 // import HomeIndex from './modules/Home/home-index';
 
 // document.addEventListener('DOMContentLoaded', HomeIndex.init);
