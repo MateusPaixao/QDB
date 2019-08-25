@@ -11,7 +11,7 @@
         if ("function" !== typeof $.fn.slick) {
             return false;
         }
-        // return true;
+        // return true; 
         var _elem = p_elem || '._vitrines ._-carousel-_';
         var opts = p_opts || {};
         // var navClass = '.slick-nav'+(""+Math.random()).replace(/.*\./,'_');
@@ -33,7 +33,7 @@
             arrows: true,
             prevArrow: '<span class="_prev slick-prev"></span>',
             nextArrow: '<span class="_next slick-next"></span>',
-            dots: true
+            dots: false
         }, opts_responsive, opts);
         $(_elem).slick(opts);
         if (!opts.vertical) {
@@ -504,7 +504,7 @@
                                 slidesToShow: slides-1,
                                 slidesToScroll: slides-1,
                                 arrows: true,
-                                dots: true
+                                dots: false
                             }
                         },
                         {
@@ -513,7 +513,7 @@
                                 slidesToShow: 2, 
                                 slidesToScroll: 2,
                                 arrows: true,
-                                dots: true
+                                dots: false
                             }
                         }
                     ]

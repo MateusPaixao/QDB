@@ -1336,8 +1336,6 @@ body.overflow {
 .section-chaordic,
 .section-products {
     opacity: 1;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    -webkit-transition: all .4s ease-in;
     transition: all .4s ease-in
 }
 .section-chaordic{

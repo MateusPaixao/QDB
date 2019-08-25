@@ -1,51 +1,21 @@
-import Home from "./modules/Home/home-index"
-
-Home.init();
-// import HomeIndex from './modules/Home/home-index';
-
-// document.addEventListener('DOMContentLoaded', HomeIndex.init);
-
 const Methods = {
     init() {
-        Methods.principalBannerSlick();
         if(document.querySelector(".w-gerador--datas") != null){
             Methods.getProductInfos();
             Methods.getTopBannerColor()
-        }
-    },
-    principalBannerSlick: () => {
-        const options = {
-            dots: true,
-            arrows: false,
-            lazyLoad: 'ondemand',
-            slidesToShow: 1,
-            autoplay: true,
-            autoplaySpeed: 10000
-        }
-        const slickDesktop = $('.w-lazy-banner--desktop');
-        const bannersDesktopLength = $('.w-lazy-banner--desktop .box-banner').length; 
-        const slickMobile = $('.w-lazy-banner--mobile');
-        const bannersmobileLength = $('.w-lazy-banner--mobile .box-banner').length; 
-        if(window.innerWidth <= 600 && bannersmobileLength > 1){
-            slickMobile.slick(options);
-            slickMobile.addClass('is--active');
-        }
-        else if(window.innerWidth >= 601 && bannersDesktopLength > 1){
-            slickDesktop.slick(options);
-            slickDesktop.addClass('is--active');
         }
     },
     getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
         const idSku = document.querySelector('.w-gerador--datas').getAttribute('data-sku');
         const url = 'http://qbbr.vtexcommercestable.com.br/api/catalog_system/pub/products/search/?fq=productId:' + idProduto;
-
+        
         fetch(url)
             .then(res => res.json())
             .then((product) => {
                 const skuList = product[0].items;
-                console.log('produto', product[0])
-                console.log('Link:', product[0].linkText)
+                console.log('produto',product[0])
+                console.log('Link:',product[0].linkText)
 
                 for (const i in skuList) {
                     if (skuList.hasOwnProperty(i)) {
@@ -58,7 +28,7 @@ const Methods = {
                             let skuImg, skuTitle, oldPrice, newPrice, desconto, buyButton, productLink;
 
                             productLink = document.querySelectorAll('.w-product--link');
-                            productLink[0].href = `/${product[0].linkText}/p`;
+                            productLink[0].href = `/${product[0].linkText}/p`; 
                             productLink[1].href = `/${product[0].linkText}/p`;
 
                             skuImg = document.querySelector('.w-product--wrapper--img');
@@ -81,7 +51,8 @@ const Methods = {
 
                             if (sku.sellers[0].commertialOffer.AvailableQuantity <= 0) {
                                 Methods.disableProduct();
-                            } else {
+                            }
+                            else{
                                 Methods.counterInit()
                                 document.querySelector(".w-product--wrapper--infos--parcelamento").innerHTML = "até " + Math.max.apply(Math, sku.sellers[0].commertialOffer.Installments.map(function (o) {
                                     return o.NumberOfInstallments;
@@ -131,8 +102,6 @@ const Methods = {
             hourCounter.innerHTML = hours < 10 ? '0' + hours : hours;
             minuteCounter.innerHTML = minutes < 10 ? '0' + minutes : minutes;
             secondsCounter.innerHTML = seconds < 10 ? '0' + seconds : seconds;
-
-
         }
 
         clock = setInterval(showRemaining, 1000);
@@ -141,18 +110,9 @@ const Methods = {
     disableProduct: () => {
         let buyButton = document.querySelector('.w-product--wrapper--infos--buy-button');
         let buyButtonTxt = document.querySelector('.w-product--wrapper--infos--buy-button button');
-        document.querySelector('.w-product--container').classList.add('inactive');
         buyButtonTxt.textContent = "Indisponível"
         buyButton.style = "pointer-events: none;";
         buyButton.href = '';
-
-        let hourCounter = document.querySelector('.w-product--contador--timer--time.--hours');
-        let minuteCounter = document.querySelector('.w-product--contador--time.--minutes');
-        let secondsCounter = document.querySelector('.w-product--contador--time.--segundos');
-
-        hourCounter.innerHTML = '00';
-        minuteCounter.innerHTML = '00';
-        secondsCounter.innerHTML = '00';
 
         document.querySelector('.w-product--wrapper--infos--old-price').classList.add('hidden');
         document.querySelector('.w-product--wrapper--infos--new-price').classList.add('hidden');
@@ -186,53 +146,53 @@ const Methods = {
         buyButton.style = `background-color:${topBannerColor}`;
 
     },
-
+    
     fetchReviews: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
         const storeKey = "388ef2d0-c3b8-4fd6-af13-446b698d544a"
         const url = "https://service.yourviews.com.br/api/" + storeKey + "/review/reviewshelf?productIds=" + idProduto;
 
         fetch(url, {
-                method: 'GET',
-                mode: 'cors',
-                headers: new Headers({
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Basic Mzg4ZWYyZDAtYzNiOC00ZmQ2LWFmMTMtNDQ2YjY5OGQ1NDRhOjU2N2Q0MjVmLTA1MGQtNGY1NC05MWUxLTMzODgwZmFjZmRkMw==',
-                    'Access-Control-Allow-Origin': '*'
-                })
+            method: 'GET',
+            mode: 'cors',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': 'Basic Mzg4ZWYyZDAtYzNiOC00ZmQ2LWFmMTMtNDQ2YjY5OGQ1NDRhOjU2N2Q0MjVmLTA1MGQtNGY1NC05MWUxLTMzODgwZmFjZmRkMw==',
+                'Access-Control-Allow-Origin': '*'
             })
+        })
             .then(res => res.json())
             .then((res) => {
-                console.log('data', res);
+                console.log('data',res);
                 let html;
 
                 res.Element.map((review, index) => {
 
-                    function countRating() {
+                function countRating() {
 
-                        let stars = '';
+                    let stars = '';
 
-                        for (let i = 1; i <= review.Rating; i++) {
+                    for (let i = 1; i <= review.Rating; i++) {
 
-                            stars += `<svg viewBox="0 0 18 21" width="18" height="21" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.605 14.394L0 10.48s2.528-2.836 3.605-3.913l5.014-5.013a5.326 5.326 0 0 1 7.523 0 5.321 5.321 0 0 1 0 7.521l-1.406 1.405 1.406 1.405a5.321 5.321 0 0 1 0 7.521 5.327 5.327 0 0 1-7.523 0l-5.014-5.013z" fill="#67605F"/></svg>`
-
-                        }
-                        return stars;
+                        stars += `<svg viewBox="0 0 18 21" width="18" height="21" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.605 14.394L0 10.48s2.528-2.836 3.605-3.913l5.014-5.013a5.326 5.326 0 0 1 7.523 0 5.321 5.321 0 0 1 0 7.521l-1.406 1.405 1.406 1.405a5.321 5.321 0 0 1 0 7.521 5.327 5.327 0 0 1-7.523 0l-5.014-5.013z" fill="#67605F"/></svg>`
 
                     }
+                    return stars;
 
-                    html +=
+                }
 
-                        `<li class="review">
+                html +=
+
+                    `<li class="review">
                         <span class="_rate">
                             ${countRating()}
                         </span>
                     </li>`
-                    // console.log(html)
+                // console.log(html)
 
-                });
-                const el = document.querySelector('.w-product--wrapper--infos--rate');
-                el.innerHTML = html.replace('undefined', '');
+            });
+            const el = document.querySelector('.w-product--wrapper--infos--rate');
+            el.innerHTML = html.replace('undefined', '');
             })
     },
 
@@ -302,5 +262,6 @@ const Methods = {
         });
     }
 }
-
-Methods.init();
+export default {
+    init: Methods.init
+}

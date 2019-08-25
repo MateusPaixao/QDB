@@ -138,60 +138,60 @@ var menuData = [{
     ]
 },
 {
-    "text": "Pele",
+    "text": "Rosto",
     "menu": [
         {
-            "text": "Pele",
+            "text": "Rosto",
             "class": ["__arrow-left","__close-submenu"]
         },
         {
             "text": "Ver tudo",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele",
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto",
             "class": ["__bold"]
         },
         {
             "text": "Hidratante Facial",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/hidratante-facial"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/hidratante-facial"
         },
         {
             "text": "Base",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/base/"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/base/"
         },
         {
             "text": "Pó facial",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/po-facial/"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/po-facial/"
         },
         {
             "text": "Blush",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/blush/"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/blush/"
         },
         {
             "text": "Corretivo",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/corretivo/"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/corretivo/"
         },
         {
             "text": "Iluminador",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/iluminador/"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/iluminador/"
         },
         {
             "text": "Bronze",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/bronze/"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/bronze/"
         },
         {
             "text": "Primer",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/primer/"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/primer/"
         },
         {
             "text": "BB e CC Creme",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/bb-e-cc-creme"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/bb-e-cc-creme"
         },
         {
             "text": "Contorno",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/contorno-facial"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/contorno-facial"
         },
         {
             "text": "Demaquilante",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/demaquilante/"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/demaquilante/"
          }
         // {
         //     "text": "Cuidados p/ pele",
@@ -1142,7 +1142,8 @@ var SuperMenu = (function ($, window, document, undefined) {
         
         return true;
     };
-    $(window).on('load',startHomeScripts);
+    
+    startHomeScripts();
     
     return {
         closeAllFloats: function (e) {

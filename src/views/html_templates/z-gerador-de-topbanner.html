@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <title>Gerador TopBanner QDB</title>
+    <link rel="stylesheet" href="/arquivos/gerador-banner.css"/>
+</head>
+
+    <body>
+        <div class="x-container">
+                <h1 class="title">Gerador de Top Banner <span class="qdb">Quem disse, berenice?</span></h1>
+        <form>
+            <label for="contador">Tem contador? <input type="checkbox" id="contador" class="contador" checked="checked"/>  </label>
+            <label for="cupom">É cupom? <input type="checkbox" id="cupom" class="cupom" checked="checked"/>  </label>
+
+            <div class="container-contador">
+                <label for="dataFim">Data Final</label>
+                <input type="datetime-local" class="dataFim" id="dataFim" />
+            </div>
+            
+            <div class="container-cupom">
+                <label for="cupomText">Cupom</label>
+                <input type="text" class="cupomText" id="cupomText" />
+            </div>
+
+            <label for="url">Link banner</label>
+            <input class="url" type="text" id="url" />
+            
+            <label for="texto">Texto</label>
+            <input class="texto" type="text" id="url" />
+            
+            
+
+            <label for="cor">Cor background</label>
+            <input type="color" class="cor"/>
+            
+            <div class="buttons-container">
+                <input class="submit" type="button" value="Gerar Banner" />
+                <input class="copy" type="button" value="copiar" />
+            </div>
+        
+            <textarea class="generate"></textarea>
+        </form>
+    </div>
+    </body>
+    <script src="/arquivos/gerador-banner.js"></script>
+</html>
