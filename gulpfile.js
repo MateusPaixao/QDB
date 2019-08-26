@@ -25,9 +25,9 @@ const paths = {
     srcWatch: 'src/assets/scss/**/*.scss',
   },
   scripts: {
-    src: 'src/assets/js/common/*.js',
+    src: ['src/assets/js/common/*.js', 'src/assets/js/common/*.jsx'],
     dest: './dist/assets/js',
-    srcWatch: 'src/assets/**/*.js',
+    srcWatch: ['src/assets/**/*.js', 'src/assets/**/*.jsx'],
   },
   htmls: {
     src: 'src/views/common/**/*.pug',

@@ -1,5 +1,5 @@
 
-import Input from "./components/Input.jsx";
+import Input from "./components/_Input.jsx";
 
 const Methods = {
   init(){
