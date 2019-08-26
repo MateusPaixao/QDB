@@ -2099,12 +2099,32 @@ body .mr-shipping-container {
 
 ._p-selectors {
     display: flex;
-    justify-content: center;
-    /* overflow-y: scroll; */
+    justify-content: inherit;
     height: 30px;
     overflow: hidden;
-    width: 120px;
+    max-width: 120px;
     margin: 0 auto;
+    overflow-x: scroll;
+    margin-bottom: 5px;
+    &::-webkit-scrollbar {
+        height: 7px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: #686162;
+    }
 }
 
 ._p-selectors .__btn-highlight {
