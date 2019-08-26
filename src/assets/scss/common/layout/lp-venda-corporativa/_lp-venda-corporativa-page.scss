@@ -108,6 +108,10 @@ footer {
 }
 ._form-modal .link-termos {
     text-decoration: underline;
+    margin-left: 3px;
+}
+._form-container input[type="checkbox"] {
+    margin: 0 5px 0 0;
 }
 ._form-container input::-webkit-input-placeholder {
     color: #adadad;
