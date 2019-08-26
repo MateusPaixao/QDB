@@ -69,7 +69,7 @@ function postDados() {
                 var _msgDone = document.createElement('span');
                 _msgContainer.setAttribute('class', '_msg');
                 _msgDone.setAttribute('class', '_msgDone');
-                _msgDone.innerText = 'Dados enviados com sucesso! Em breve entraremos em contato.';
+                _msgDone.innerText = 'Dados enviados com sucesso! Em breve entraremos em contato com você.';
                 _msgContainer.appendChild(_msgDone);
                 var _formContainer = document.querySelector('._form-modal');
                 _formContainer.appendChild(_msgContainer);
@@ -85,11 +85,8 @@ function postDados() {
     }
     else {
         if($('._msgError').length <= 0){
-            $('label[for="_termos"]').append( "<div class='_msgError' style='font-size:10px;color:red;'>Você precisa concordar com os termos de uso.</small>" );
-            // console.log('não checkou');
+            $('label[for="_termos"]').append( "<div class='_msgError' style='font-size:10px;color:red;'>VocÃª precisa concordar com os termos de uso.</small>" );
+            // console.log('nÃ£o checkou');
         }
     }
-    
 }
-
-

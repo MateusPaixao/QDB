@@ -108,7 +108,7 @@ footer {
 }
 ._form-modal .link-termos {
     text-decoration: underline;
-    margin-left: 3px;
+    margin: 0 3px;
 }
 ._form-container input[type="checkbox"] {
     margin: 0 5px 0 0;
@@ -187,9 +187,6 @@ section._form-modal {
 ._container-vc p {
     padding-right: 40%;
     font-size: 16px;
-}
-.link-termos {
-    text-decoration: underline;
 }
 ._form-container {
     display: -webkit-box;
