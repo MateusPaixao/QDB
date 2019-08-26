@@ -238,7 +238,6 @@ const Methods = {
             })
     },
     AddToCart: () => {
-        console.log('hehe')
         document.querySelector(".w-product--wrapper--infos--buy-button").addEventListener("click", () => {
             let skuId = document.querySelector(".w-gerador--datas").getAttribute("data-sku");
             console.log(skuId)
@@ -293,5 +292,6 @@ const Methods = {
         });
     }
 }
-
-Methods.init();
+document.addEventListener('DOMContentLoaded', () => {
+    Methods.init();
+})

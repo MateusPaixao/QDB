@@ -10,10 +10,10 @@
         align-items: center;
         justify-content: center;
         min-height: 65vh;
-        height: 75vh;
+        height: 100%;
         &.inactive{
             min-height: 45vh;
-            height: 45vh;
+            height: 100%;
         }
         @include d('768px'){
             align-items: flex-end;
