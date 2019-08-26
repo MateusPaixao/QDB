@@ -14,24 +14,37 @@ const browserify = require('gulp-browserify');
 const browserSync   = require('browser-sync').create();
 // const del = require('del');
 const gulp = require('gulp');
+const imagemin = require('gulp-imagemin');
 const pug = require('gulp-pug');
 const sass = require('gulp-sass');
+const svgmin = require('gulp-svgmin');
 const uglify = require('gulp-uglify');
 
 const paths = {
   styles: {
     src: 'src/assets/scss/common/*.scss',
-    dest: './dist/assets/css',
+    dest: './dist/assets/css/',
     srcWatch: 'src/assets/scss/**/*.scss',
+  },
+  imgs: {
+    src: 'src/assets/img/*.{png,gif,jpg}',
+    dest: './dist/assets/img/',
+    srcWatch: 'src/assets/img/*'
+  },
+  svgs: {
+    src: 'src/assets/img/icon/*.svg',
+    dest: './dist/assets/img/icon/',
+    srcWatch: 'src/assets/img/icon/*'
   },
   scripts: {
     src: ['src/assets/js/common/*.js', 'src/assets/js/common/*.jsx'],
-    dest: './dist/assets/js',
-    srcWatch: ['src/assets/**/*.js', 'src/assets/**/*.jsx'],
+    dest: './dist/assets/js/',
+    srcWatch: ['src/assets/**/*.js','src/assets/**/*.jsx'],
   },
-  htmls: {
-    src: 'src/views/common/**/*.pug',
-    dest: './dist/views/html_templates',
+  markup: {
+    pug: 'src/views/common/*/*.pug',
+    html: 'src/views/html/*.html',
+    dest: './dist/views/html',
   }
 };
 
@@ -42,19 +55,34 @@ const paths = {
 
 const pugtranspile = () => {
   return gulp.src([
-    paths.htmls.src,
-    '!src/views/common/_layouts/*.pug',
-    '!src/views/common/_partials/*.pug',
+    paths.markup.pug,
+    'src/views/common/_layouts/*.pug',
+    'src/views/common/_partials/*.pug',
   ])
     .pipe(pug({
-      pretty: false,
+      pretty: true
     }))
-    .pipe(gulp.dest(paths.htmls.dest));
+    .pipe(gulp.dest(paths.markup.dest));
 }
 const htmls = () => {
-  return gulp.src('src/views/html/*.html')
-    .pipe(gulp.dest(paths.htmls.dest));
+  return gulp.src(paths.markup.html)
+    .pipe(gulp.dest(paths.markup.dest));
 }
+
+const minimg = () => {
+  return gulp.src(paths.imgs.src)
+      .pipe(imagemin())
+      .pipe(gulp.dest(paths.imgs.dest))
+      .pipe(gulp.dest('./dist/vtex_speed'));
+};
+
+const minsvg = () => {
+  return gulp.src(paths.svgs.src)
+      .pipe(svgmin())
+      .pipe(gulp.dest(paths.svgs.dest))
+      .pipe(gulp.dest('./dist/vtex_speed'));
+};
+
 const styles = () => {
   return gulp.src(paths.styles.src)
     .pipe(sass({outputStyle: 'compressed'}))
@@ -68,12 +96,8 @@ const styles = () => {
 
 const scripts = () => {
   return gulp.src(paths.scripts.src)
-    .pipe(babel({
-      presets: ["@babel/polyfill", "env"]
-    }))
-/*     .pipe(browserify({
-          transform: ['babelify'],
-      })) */
+    .pipe(babel())
+    .pipe(browserify())
     .pipe(uglify())
     .pipe(gulp.dest(paths.scripts.dest))
     .pipe(gulp.dest('./dist/vtex_speed'));
@@ -87,7 +111,7 @@ const pluginsJs = () => {
 }
 
 function sync(){
-  browserSync.init({
+  return browserSync.init({
       open: true,
       https: true,
       host: storeName  + '.vtexlocal.com.br',
@@ -103,17 +127,23 @@ function sync(){
 const watch = () => {
   gulp.watch(paths.styles.srcWatch, styles).on('change',browserSync.reload);
   gulp.watch(paths.scripts.srcWatch, scripts).on('change',browserSync.reload);
-  gulp.watch('src/views/**/*', htmls, pugtranspile).on('change',browserSync.reload);
+  gulp.watch('src/views/**/*', pugtranspile).on('change',browserSync.reload);
+  gulp.watch('src/views/html/*', htmls).on('change',browserSync.reload);
+  gulp.watch(paths.imgs.srcWatch, minimg).on('change',browserSync.reload);
+  gulp.watch(paths.svgs.srcWatch, minsvg).on('change',browserSync.reload);
 }
 
 //------------------------------ Tasks -----------------------------
-const build = gulp.series(gulp.parallel(sync,styles, scripts, htmls, pugtranspile, watch));
+const build = gulp.series(gulp.parallel(sync, minimg, minsvg, styles, scripts, htmls, pugtranspile, watch));
 
 // exports.pluginsJs = pluginsJs;
 // exports.clean = clean;
 exports.styles = styles;
 exports.scripts = scripts;
 exports.htmls = htmls;
+exports.pugtranspile = pugtranspile;
+exports.minimg = minimg;
+exports.minsvg = minsvg;
 exports.watch = watch;
 exports.build = build;
 

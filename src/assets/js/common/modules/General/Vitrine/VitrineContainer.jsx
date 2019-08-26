@@ -1,4 +1,5 @@
-
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import Card from "./components/_Card.jsx"
 
 const Methods = {
@@ -7,11 +8,11 @@ const Methods = {
     Methods.BuildCard();
   },
   BuildCard(){
-    class CardContainer extends React.Component {
+    class CardContainer extends Component {
       constructor() {
-        super(props);
+        super();
         this.state = {
-          ids: [10, 55, 25]
+          ids: [270]
         };
       }
       Product(id, sku) {
@@ -19,15 +20,17 @@ const Methods = {
         this.setState({ idSku: sku });
       }
       render() {
-        const { idSku } = this.state.idSku,
-        { ProductId } = this.state.ProductId;
+        // this.Product("270", "1450");
+        // const { idSku } = "270",
+        // { ProductId } = "1450";
         let ids = this.state.ids,
         cards = [];
         for (let i = 0; i < ids.length; i++){
           cards.push(
           <Card
-            ProductId={ProductId}
-            idSku={idSku}
+            ProductId={this.state.ids[0]}
+            idSku="1450"
+            key={ids[i].toString()}
             // handleChange={this.handleChange}
           />);
         }
@@ -39,7 +42,7 @@ const Methods = {
     
     ReactDOM.render(
       <CardContainer />,
-      document.getElementById('app')
+      document.getElementById('app-1251')
     );
   }
 }

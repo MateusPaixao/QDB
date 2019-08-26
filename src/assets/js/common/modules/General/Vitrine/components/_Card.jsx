@@ -1,9 +1,9 @@
-// import React from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
-const Card = props => {
+const Card = ({ProductId, idSku}) => {
   return (
-    <div className="cardProduct" data-prod={props.ProductId} data-sku={props.idSku}>
+    <div className="cardProduct" data-prod={ProductId} data-sku={idSku}>
       <span className="cardProduct__discount"></span>
       <span className="cardProduct--change"></span>
       <div className="cardProduct__pictureContainer">
@@ -29,7 +29,7 @@ const Card = props => {
 
 Card.propTypes = {
   ProductId: PropTypes.string.isRequired,
-  SkuId: PropTypes.string.isRequired,
+  idSku: PropTypes.string.isRequired,
   // text: PropTypes.string.isRequired,
   // type: PropTypes.string.isRequired,
   // id: PropTypes.string.isRequired,
