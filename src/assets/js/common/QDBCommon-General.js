@@ -1,3 +1,6 @@
+import General from "./modules/General/general-index"
+
+General.init();
 
 // FID/**201812112311*/
 var menuData = [{
