@@ -3,7 +3,13 @@ const btnGerador = document.querySelector('.w-gerador--generate');
 const Methods = {
     init() {
         Methods.copyOutput();
-        searchSku.addEventListener('click', Methods.getProductInfos);
+        searchSku.addEventListener('click', () => {
+            document.querySelector('.w-gerador--load').classList.remove('hidden')
+            if(document.querySelector('.w-error') != null){
+                document.querySelector('.w-error').remove();
+            }
+            Methods.getProductInfos();
+        });
         btnGerador.addEventListener('click', Methods.generateAttributes)
     },
     copyOutput: () => {
@@ -27,6 +33,8 @@ const Methods = {
             texto: document.querySelector('.w-gerador--text.text').value,
             tituloSad: document.querySelector('.w-gerador--text.title-sad').value,
             textoSad: document.querySelector('.w-gerador--text.text-sad').value,
+            tituloOut: document.querySelector('.w-gerador--text.title-out').value,
+            textoOut: document.querySelector('.w-gerador--text.text-out').value,
             dataInicial: document.querySelector('.w-gerador--text.time-inicial').value,
             dataFinal: document.querySelector('.w-gerador--text.time-final').value
         }
@@ -47,6 +55,10 @@ const Methods = {
             <div class="w-promo-text-sad hidden">
                 <p class="w-product--title">${Attributes.tituloSad}</p>
                 <p class="w-product--text">${Attributes.textoSad}</p>
+            </div>
+            <div class="w-promo-text-out hidden">
+                <p class="w-product--title">${Attributes.tituloOut}</p>
+                <p class="w-product--text">${Attributes.textoOut}</p>
             </div>
             <div class="w-product--contador">
                 <div class="w-product--contador--timer">
@@ -79,14 +91,12 @@ const Methods = {
                 <p class="w-product--wrapper--infos--old-price"></p>
                 <p class="w-product--wrapper--infos--new-price"></p>
                 <p class="w-product--wrapper--infos--parcelamento"></p>
-                <a class="w-product--wrapper--infos--buy-button" href="">
-                    <button>Comprar</button>
-                </a>
+                <button class="w-product--wrapper--infos--buy-button">Adicionar a Sacola</button>
                 </div>
         </div>
     </article>
     </div>`
-            outputText.textContent = `${htmlGenerate}`
+        outputText.textContent = `${htmlGenerate}`
     },
     getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--text.idproduto').value;
@@ -95,21 +105,41 @@ const Methods = {
             .then(res => res.json())
             .then((product) => {
                 const skuList = product[0].items;
+                console.log(skuList)
                 const selectionSku = document.querySelector('.w-gerador--text.idsku');
+                document.querySelector('.w-gerador--load').classList.add("hidden")
                 document.querySelectorAll('.w-gerador--label')[1].classList.remove('hidden');
+                selectionSku.innerHTML = "";
                 for (const i in skuList) {
                     if (skuList.hasOwnProperty(i)) {
                         const sku = skuList[i];
                         let option = document.createElement('option');
                         option.value = sku.itemId;
-                        option.textContent = sku.itemId;
+                        option.style.color = "#fff";
+                        option.style.padding = '5px';
+                        option.textContent = `[${sku.itemId}] ${sku.name}`;
                         selectionSku.append(option);
+                        if(sku.sellers[0].commertialOffer.AvailableQuantity){
+                            option.style.backgroundColor = 'green';
+                        }
+                        else{
+                            option.style.backgroundColor = 'red';
+                        }
                     }
                 }
             })
+            .catch((err) => {
+                const selectionSku = document.querySelector('.w-gerador--text.idsku');
+                selectionSku.innerHTML = "";
+                console.error('Erro:' , err)
+                const errorText = document.createElement('p');
+                document.querySelector('.w-gerador--load').classList.add("hidden")
+                errorText.textContent = "Product ID Inválido, tente novamente."
+                errorText.style.color = "red";
+                errorText.classList.add('w-error');
+                document.querySelector('.w-gerador--butons').appendChild(errorText)
+            })
     },
-    
-
-
 }
+
 Methods.init();
