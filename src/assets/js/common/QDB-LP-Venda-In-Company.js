@@ -21,6 +21,10 @@ jQuery(function ($) {
             });
     });
 });
+$("input[name='cepEmp']").on("input", function() {
+    this.value = this.value.replace(/[^0-9.]/g, ''); 
+    this.value = this.value.replace(/(\..*)\./g, '$1');
+});
 $('._cadastro-open').click(function () {
     $('._form-modal').show();
     $('._container-vc').hide();
