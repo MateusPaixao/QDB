@@ -53,9 +53,10 @@ function postDados() {
     _client.numEmp = $("input[name='numEmp']")[0].value;
     _client.cidadeEmp = $("input[name='cidadeEmp']")[0].value;
     _client.ufEmp = $("input[name='ufEmp']")[0].value;
+    _client.validation = $("input[name='validation-field']")[0].value;
     
     var _checkbox = $('#_termos').attr('checked');
-    if(_checkbox == 'checked'){
+    if(_checkbox == 'checked' && _client.validation.length == 0){
         $.ajax({
             url: "https://botiwall.corebiz.com.br/md/update",
             data: {
@@ -65,12 +66,14 @@ function postDados() {
             type: "GET",
             dataType: "json",
             success: function (data) {
+                ValidaCel(_client.telEmp);
                 var _msgContainer = document.createElement('div');
                 var _msgDone = document.createElement('span');
                 _msgContainer.setAttribute('class', '_msg');
                 _msgDone.setAttribute('class', '_msgDone');
                 _msgDone.innerText = 'Dados enviados com sucesso! Em breve entraremos em contato com você.';
                 _msgContainer.appendChild(_msgDone);
+                $('._form-container').trigger("reset");
                 var _formContainer = document.querySelector('._form-modal');
                 _formContainer.appendChild(_msgContainer);
                 $('._form-container').css({
@@ -90,3 +93,30 @@ function postDados() {
         }
     }
 }
+
+// VALIDAÇÃO CELULAR
+function ValidaCel(_celular){
+    // #Valida data celular
+    if(_celular == '' || _celular == null){
+        $('#lp-vc .group-tel-emp').addClass('has-warning');
+        $('#lp-vc .group-tel-emp small').text('*Obrigatório.');
+        $('#lp-vc .group-tel-emp small').removeClass('hidden');
+    }else if (_celular == undefined || _celular.length < 14) {
+        $('#lp-vc .group-tel-emp').addClass('has-error');
+        $('#lp-vc .group-tel-emp small').text('Verifique se o número está correto.');
+        $('#lp-vc .group-tel-emp small').removeClass('hidden');
+    } else {
+        $('#lp-vc input[name="telEmp"]').removeClass('has-error has-warning');
+    }
+}
+$('#lp-vc input[name="telEmp"]').focus(function () {
+    $('#lp-vc .group-tel-emp input[name="telEmp"]').attr('placeholder', '(00) 00000-0000');
+    $('#lp-vc .group-tel-emp').removeClass('has-error has-warning');
+    $('#lp-vc .group-tel-emp small').addClass('hidden');
+});
+$('#lp-vc input[name="telEmp"]').focusout(function () {
+    setTimeout(() => {
+        ValidaCel($('#lp-vc input[name="telEmp"]').val());
+    }, 1000);
+    $('#lp-vc .group-tel-emp input[name="telEmp"]').attr('placeholder', '');
+});
