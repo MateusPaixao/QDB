@@ -33,6 +33,11 @@ $('._form-modal ._after').click(function () {
     $('body').removeClass('activeModal');
     $('.__overlay').css('visibility', 'hidden');
     $('._container-vc').show();
+    $('._msg').remove();
+    $('._form-container').css({
+        "height": "initial",
+        "overflow": "initial"
+    });
 });
 $('._form-container').attr('onsubmit','return postDados()');
 $('#_termos').change(function() {
@@ -66,7 +71,6 @@ function postDados() {
             type: "GET",
             dataType: "json",
             success: function (data) {
-                ValidaCel(_client.telEmp);
                 var _msgContainer = document.createElement('div');
                 var _msgDone = document.createElement('span');
                 _msgContainer.setAttribute('class', '_msg');
@@ -88,7 +92,7 @@ function postDados() {
     }
     else {
         if($('._msgError').length <= 0){
-            $('label[for="_termos"]').append( "<div class='_msgError' style='font-size:10px;color:red;'>VocÃª precisa concordar com os termos de uso.</small>" );
+            $('label[for="_termos"]').append( "<div class='_msgError' style='font-size:10px;color:red;'>É necessário concordar com os termos de uso e política de privacidade.</small>" );
             // console.log('nÃ£o checkou');
         }
     }
@@ -101,7 +105,7 @@ function ValidaCel(_celular){
         $('#lp-vc .group-tel-emp').addClass('has-warning');
         $('#lp-vc .group-tel-emp small').text('*Obrigatório.');
         $('#lp-vc .group-tel-emp small').removeClass('hidden');
-    }else if (_celular == undefined || _celular.length < 14) {
+    }else if (_celular == undefined || _celular.length < 11) {
         $('#lp-vc .group-tel-emp').addClass('has-error');
         $('#lp-vc .group-tel-emp small').text('Verifique se o número está correto.');
         $('#lp-vc .group-tel-emp small').removeClass('hidden');
@@ -110,7 +114,7 @@ function ValidaCel(_celular){
     }
 }
 $('#lp-vc input[name="telEmp"]').focus(function () {
-    $('#lp-vc .group-tel-emp input[name="telEmp"]').attr('placeholder', '(00) 00000-0000');
+    $('#lp-vc .group-tel-emp input[name="telEmp"]').attr('placeholder', '00 00000-0000');
     $('#lp-vc .group-tel-emp').removeClass('has-error has-warning');
     $('#lp-vc .group-tel-emp small').addClass('hidden');
 });
@@ -119,4 +123,33 @@ $('#lp-vc input[name="telEmp"]').focusout(function () {
         ValidaCel($('#lp-vc input[name="telEmp"]').val());
     }, 1000);
     $('#lp-vc .group-tel-emp input[name="telEmp"]').attr('placeholder', '');
+});
+
+// VALIDAÇÃO DO EMAIL
+function ValidaEmail(_email){
+    // #Valida email
+    var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    if (_email == '' ||  _email == null) {
+        $('#lp-vc .group-email small').text('*Obrigatório.');
+        $('#lp-vc .group-email').addClass('has-warning');
+        $('#lp-vc .group-email small').removeClass('hidden');
+    }else if(_email == undefined || !filtro.test(_email)){
+        $('#lp-vc .group-email small').text('Verifique se você digitou corretamente o e-mail.');
+        $('#lp-vc .group-email').addClass('has-error');
+        $('#lp-vc .group-email small').removeClass('hidden');
+    } else {
+        $('#lp-vc .group-email').removeClass('has-error has-warning');
+        $('#lp-vc .group-email small').addClass('hidden');
+    }
+}
+$('#lp-vc input[name="email"]').focus(function () {
+    $('#lp-vc .group-email input[name="email"]').attr('placeholder', 'ex: seuemail@exemplo.com');
+    $('#lp-vc .group-email').removeClass('has-error has-warning');
+    $('#lp-vc .group-email small').addClass('hidden');
+});
+$('#lp-vc input[name="email"]').focusout(function () {
+    setTimeout(() => {
+        ValidaEmail($('#lp-vc input[name="email"]').val());
+    }, 1000);
+    $('#lp-vc .group-email input[name="email"]').attr('placeholder', '');
 });
