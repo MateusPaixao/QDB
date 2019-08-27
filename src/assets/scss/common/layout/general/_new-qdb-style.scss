@@ -5939,8 +5939,13 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     .product-secondary .product-image {
         height: 130px
     }
+    // .product .product-image img {
+    //     display: none!important
+    // }
+    
     .product .product-image img {
-        display: none!important
+        display: block !important;
+        top:0;
     }
 }
 
