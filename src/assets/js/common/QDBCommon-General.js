@@ -1,6 +1,8 @@
 import General from "./modules/General/general-index"
 
-General.init();
+// document.querySelectorAll(".appVitrine").forEach(function(el){
+    General.vitrine(el.dataset.collection);
+// });
 
 // FID/**201812112311*/
 var menuData = [{
