@@ -40,11 +40,12 @@ const Methods = {
         if (this.state.Products) {
           console.log(this.state.Products);
           let cards = [];
-          this.state.Products.map((Product) => {
+          this.state.Products.map((Product, index) => {
+            console.log(collection + Product.productId + index);
             cards.push(
               <Card 
-                idProduct = {Product.idProduct}
-                key={collection+Product} 
+                {...Product}
+                key={collection + Product.productId + index} 
               />
             );
           })
