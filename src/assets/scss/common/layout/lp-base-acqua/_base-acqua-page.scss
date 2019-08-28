@@ -1,0 +1,28 @@
+.lp-ba img {
+    max-width: 100%;
+    margin: auto;
+}
+
+//MAIN
+.ba-main {
+    position: relative;
+    display: inline-block;
+    h1 {
+        position: absolute;
+        top: 32vw;
+        right: 0;
+        width: 190px;
+        font-size: 4.8vw;
+        color: #686162;
+        span {
+            display: block;
+            &:nth-child(2) {
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 6vw;
+                letter-spacing: 1.5px;
+                line-height: 6.5vw;
+            }
+        }
+    }
+}
