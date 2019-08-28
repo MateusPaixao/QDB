@@ -1,3 +1,18 @@
+//AUXILIAR CLASSES
+.clearfix {
+    &:before,
+    &:after {
+        content: ' ';
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+.ba-container {
+    padding: 0 20px;
+}
+  
 .lp-ba img {
     max-width: 100%;
     margin: auto;
@@ -63,4 +78,53 @@
 .ba-features {
     background-color: #dcebf0;
     padding: 50px 0;
+    .info {
+        float: left;
+        padding: 10px 0;
+        a {
+            display: inline-block;
+            background-color:#4fb5db;
+            color:#fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+    }
+    .price {
+        font-size: 32px;
+        font-weight: 500;
+        span {
+            font-size: 15px;
+        }
+    }
+    img.vegan {
+        width: 80px;
+        float: right;
+    } 
+    p {
+        margin: 20px 0;
+        strong {
+            font-weight: 700;
+        }
+    }
+}
+.ba-swatch-colors {
+    margin-bottom: 20px;
+}
+
+//VISIBILITY
+.ba-mobile {
+    display: block;
+}
+.ba-desktop {
+    display: none;
+}
+@media (min-width: 376px) {
+    .ba-mobile {
+        display: none;
+    }
+    .ba-desktop {
+        display: block;
+    }
 }
