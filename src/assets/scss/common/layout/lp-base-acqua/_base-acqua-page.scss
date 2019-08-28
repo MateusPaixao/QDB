@@ -9,7 +9,7 @@
     display: inline-block;
     h1 {
         position: absolute;
-        top: 32vw;
+        top: 35vw;
         right: 0;
         width: 190px;
         font-size: 4.8vw;
@@ -24,5 +24,33 @@
                 line-height: 6.5vw;
             }
         }
+    }
+}
+.ba-advantages {
+    background-color: #4fb5db;
+    .item {
+        text-align: center;
+        padding: 20px 0;
+        &:first-child {
+            position: relative;
+            margin-top: -75px;
+        }
+    }
+    img {
+        display: block;
+    }
+    h2 {
+        background-color: #fff;
+        color: #4fb5db;
+        padding: 8px 25px;
+        display: inline-block;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 15px;
+        margin: 10px 0;
+    }
+    p {
+        color: #fff;
+        font-size: 16px;
     }
 }
