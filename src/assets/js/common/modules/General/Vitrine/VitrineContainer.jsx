@@ -41,7 +41,6 @@ const Methods = {
           console.log(this.state.Products);
           let cards = [];
           this.state.Products.map((Product, index) => {
-            console.log(collection + Product.productId + index);
             cards.push(
               <Card 
                 {...Product}
@@ -49,9 +48,8 @@ const Methods = {
               />
             );
           })
-          console.log(cards);
           return ( 
-            <div>
+            <div className="cardProductContainer">
               {cards}
             </div>
           )

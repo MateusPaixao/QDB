@@ -1,0 +1,43 @@
+.cardProductContainer{
+    display: flex;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    .cardProduct{
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        min-width: calc(100%/4);
+        border: solid 1px $qdb-grey-l;
+        margin: 0  5px;
+        text-align: center;
+        @include sans(.875rem, $g-primary, 400, initial);
+        .cardProduct__link{
+            display: flex;
+            flex-flow: column;
+        }
+        .cardProduct__info{
+            display: flex;
+            justify-content: center;
+            .cardProduct__info__name{
+                display: flex;
+                @include sans(1em, $g-primary, 400, initial);
+                padding: 0 10px;
+                text-align: center;
+                width: 80%;
+                -webkit-line-clamp: 2;
+            }
+            .cardProduct__info--favorite{
+                position: absolute;
+                right: 0;
+            }
+        }
+        .cardProduct__price{
+            .cardProduct__price__before{
+                &._before-false{
+                    display: none;
+                }
+            }
+        }
+    }
+}
