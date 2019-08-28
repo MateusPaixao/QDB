@@ -5910,8 +5910,8 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
         background-repeat: no-repeat
     }
     .product .product-image img {
-        display: none!important;
-        top: 50%;
+        // display: none!important;
+        top: 0;
         -webkit-transform: initial;
         transform: initial;
         -webkit-transform-origin: 0 0 0;
