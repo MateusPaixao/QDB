@@ -12,11 +12,10 @@ const Methods = {
       constructor(props) {
         super(props);
         this.state = {
-          // Products: ""
+          Products: []
         };
-        this.Collection = this.Collection.bind(this);
       }
-      Collection(){
+      componentDidMount(){
         return new Promise((resolve, reject) => {
             let request = new XMLHttpRequest();
             request.open('GET', "/api/catalog_system/pub/products/search/?fq=H:" + collection);
@@ -35,36 +34,41 @@ const Methods = {
           })
         });
       }
+
       render() {
-        this.Collection();
-        if (this.state.Products) {
+        const Slider = () => {
+          return (
+            <React.Fragment>
+              <button role="button" aria-label="Previous" className="glider-prev">«</button>
+              <button role="button" aria-label="Next" className="glider-next">»</button>
+            </React.Fragment>
+          )
+        }
+        const Cards = () => {
           console.log(this.state.Products);
           let cards = [];
           this.state.Products.map((Product, index) => {
             cards.push(
-              <Card 
-                {...Product}
-                key={collection + Product.productId + index} 
-              />
+              <Card {...Product} key={collection + Product.productId + index} />
             );
           })
-          return ( 
-            <div className="cardProductContainer">
-              {cards}
-            </div>
+          return (
+            <React.Fragment>
+              <div className="cardProductContainer glider">
+                {cards}
+              </div>
+              <Slider />
+            </React.Fragment>
           )
         }
-        return (
-          <div>
-            Carregando...
-          </div>
-        )
+
+        return <Cards />
       }
     }
     
     ReactDOM.render(
       <CardContainer />,
-      document.getElementById('app-' + collection)
+      document.getElementById('collection-' + collection)
     );
   }
 }

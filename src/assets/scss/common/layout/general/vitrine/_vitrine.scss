@@ -6,11 +6,13 @@
     .cardProduct{
         display: flex;
         flex-flow: column;
-        justify-content: flex-start;
-        min-width: calc(100%/4);
+        justify-content: center;
+        min-width: 300px;
+        min-height: 380px;
         border: solid 1px $qdb-grey-l;
         margin: 0  5px;
         text-align: center;
+        position: relative;
         @include sans(.875rem, $g-primary, 400, initial);
         .cardProduct__link{
             display: flex;
@@ -21,10 +23,13 @@
             justify-content: center;
             .cardProduct__info__name{
                 display: flex;
+                align-items: center;
+                justify-content: center;
                 @include sans(1em, $g-primary, 400, initial);
                 padding: 0 10px;
                 text-align: center;
                 width: 80%;
+                height: 2rem;
                 -webkit-line-clamp: 2;
             }
             .cardProduct__info--favorite{
@@ -34,9 +39,42 @@
         }
         .cardProduct__price{
             .cardProduct__price__before{
+                @include sans(.875em, $g-primary, 400, normal);
+                text-decoration: line-through;
+                margin: 0;
                 &._before-false{
                     display: none;
                 }
+            }
+            .cardProduct__price__actual{
+                @include sans(1.5em, $g-primary, 900, normal);
+                margin-bottom: 5px;
+            }
+            .cardProduct__price__parcel{
+                @include sans(.75em, $g-primary, 400, normal);
+            }
+        }
+        .cardProduct--addToCart{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            position: absolute;
+            bottom: -100%;
+            padding: 10px;
+            @include sans(1em, $w-secundary, 400, normal);
+            text-align: center;
+            cursor: pointer;
+            background: $safflower;
+            transition: all .2s;
+            &:hover{
+                filter: brightness(140%);
+            }
+        }
+
+        &:hover{
+            .cardProduct--addToCart{
+                bottom: 0;
             }
         }
     }
