@@ -8,17 +8,33 @@ const Methods = {
     },
     build(collection){
         Vitrine.build(collection);
-        window.addEventListener('load', function(){
-            new Glider(document.querySelector('.glider'), {
-                slidesToScroll: 1,
-                slidesToShow: 4.5,
-                draggable: true,
-                arrows: {
-                    prev: '.glider-prev',
-                    next: '.glider-next'
+        new Glider(document.querySelector('.glider'), {
+            slidesToScroll: 1,
+            slidesToShow: 1,
+            draggable: true,
+            arrows: {
+                prev: '.glider-prev',
+                next: '.glider-next'
+            },
+            responsive: [
+                {
+                    // screens greater than >= 775px
+                    breakpoint: 768,
+                    settings: {
+                    slidesToShow: 'auto',
+                    slidesToScroll: 'auto',
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    draggable: false,
+                    settings: {
+                    slidesToShow: 4.5,
+                    slidesToScroll: 1,
+                    }
                 }
-            })
-        });
+            ]
+        })
     }
 }
 

@@ -39,8 +39,8 @@ const Methods = {
         const Slider = () => {
           return (
             <React.Fragment>
-              <button role="button" aria-label="Previous" className="glider-prev">«</button>
-              <button role="button" aria-label="Next" className="glider-next">»</button>
+              <button role="button" aria-label="Previous" className="glider-prev">⯇</button>
+              <button role="button" aria-label="Next" className="glider-next">⯈</button>
             </React.Fragment>
           )
         }

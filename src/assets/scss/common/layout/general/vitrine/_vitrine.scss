@@ -1,8 +1,39 @@
+.render-collection{
+    position: relative;
+    &::before, &::after{
+        content: '';
+        height: 100%;
+        width: 3em;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+    }
+    &::before{
+        left: 0;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&1+0,0+100;White+to+Transparent */
+        background: -moz-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 *
+    }
+    &::after{
+        right: 0;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0+0,1+99 */
+        background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 99%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 99%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 99%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+}
+.glider-prev, .glider-next{
+    top: 40%;
+    padding: 10px;
+}
 .cardProductContainer{
     display: flex;
     max-width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
+    padding: 0 3em;
     .cardProduct{
         display: flex;
         flex-flow: column;
@@ -18,23 +49,36 @@
             display: flex;
             flex-flow: column;
         }
+        .cardProduct__pictureContainer{
+            position: relative;
+            .cardProduct__pictureContainer__rating{
+                position: absolute;
+                bottom: 0;
+                left: 3em;
+            }
+        }
         .cardProduct__info{
             display: flex;
             justify-content: center;
             .cardProduct__info__name{
                 display: flex;
-                align-items: center;
+                align-items: flex-start;
                 justify-content: center;
                 @include sans(1em, $g-primary, 400, initial);
                 padding: 0 10px;
                 text-align: center;
                 width: 80%;
                 height: 2rem;
-                -webkit-line-clamp: 2;
-            }
-            .cardProduct__info--favorite{
-                position: absolute;
-                right: 0;
+                position: relative;
+                margin-bottom: 10px;
+                .cardProduct__info--favorite{
+                    position: absolute;
+                    right: -10px;
+                    top: 0;
+                    path{
+                        stroke: $g-primary;
+                    }
+                }
             }
         }
         .cardProduct__price{
@@ -67,12 +111,32 @@
             cursor: pointer;
             background: $safflower;
             transition: all .2s;
+            .cardProduct--addToCart__bag{
+                margin-right: 5px;
+                path{
+                    fill: $w-secundary;
+                }
+            }
             &:hover{
                 filter: brightness(140%);
             }
         }
 
         &:hover{
+            .cardProduct--addToCart{
+                bottom: 0;
+            }
+        }
+    }
+    @include d(s){
+        .cardProduct.active.center{
+            .cardProduct--addToCart{
+                bottom: 0;
+            }
+        }
+    }
+    @include d(xs){
+        .cardProduct.active.center{
             .cardProduct--addToCart{
                 bottom: 0;
             }
