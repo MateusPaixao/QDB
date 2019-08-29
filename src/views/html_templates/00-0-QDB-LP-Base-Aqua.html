@@ -12,7 +12,13 @@
     <vtex:template id="00-0-QDB-Head" />
 
     <link rel="stylesheet" href="/arquivos/QDB-LP-Base-Aqua.css" />
-
+    <script>
+            window.chaordic_meta = {
+                page: {
+                    name: "home"
+                }
+            };
+    </script>       
 </head>
 
 <body>
@@ -55,7 +61,7 @@
                         alt="Base Aqua - Efeito Natural"
                     />
                     <h2>Efeito Natural</h2>
-                    <p>Não marca poros <br /> linhas de expressão.</p>
+                    <p>Não marca poros <br /> e linhas de expressão.</p>
                 </div>
                 <div class="item">
                     <img 
@@ -126,11 +132,19 @@
         <section class="ba-product-list">
             <h3><vtex:contentPlaceHolder id="Título lista de produtos" /></h3>
             <!-- Section Chaordic - Bottom -->
-            <section class="section-chaordic">
-                <div class="shell">
-                    <div chaordic="bottom"></div>
+            <div class="section--chaordic-bottom">
+                    <div class="shell">
+                        <div class="section-body">
+                            <section class="section-chaordic">
+                                <div class="shell">
+                                    <div chaordic="bottom"></div>
+                                </div>
+                                <!-- /.shell -->
+                            </section>
+                            <!-- /.section-chaordic -->
+                        </div>
+                    </div>
                 </div>
-            </section>
             <!-- Section Chaordic - Bottom:end -->
         </section>
     </main>
