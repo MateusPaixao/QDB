@@ -1,0 +1,58 @@
+.modalRegional{
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+    .modalRegional__overlay{
+        height: 100%;
+        width: 100%;
+        background: $safflower;
+        opacity: .8;
+        display: flex;
+        position: fixed;
+    }
+    .modalRegional__container{
+        background: $w-secundary;
+        padding: 3rem;
+        display: flex;
+        flex-flow: column;
+        z-index: 1;
+        border-radius: 10px;
+        max-width: 400px;
+        @include d(s){
+            max-width: 90%;
+            padding: 0 10px;
+        }
+        @include d(s){
+            max-width: 90%;
+            padding: 0 10px;
+        }
+        .modalRegional__container__title{
+            @include sans(1.25rem, $g-primary, 900, initial);
+            margin: 0 0 20px;
+        }
+        .modalRegional__selection{
+            padding: 10px 0;
+            border: solid 1px $qdb-grey-l;
+            @include sans(1rem, $g-primary, 400, initial);
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .modalRegional__button{
+            background: $safflower;
+            display: flex;
+            justify-content: center;
+            @include sans(.875rem, $w-secundary, 900, initial);
+            padding: 15px 10px;
+            text-align: center;
+            border-radius: 5px;
+            &:hover{
+                filter: brightness(140%);
+            }
+        }
+    }
+}

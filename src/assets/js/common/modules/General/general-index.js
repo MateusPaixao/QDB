@@ -6,7 +6,7 @@ import Region from "./Regional/PriceContainer.jsx"
 const Methods = {
     init(){
         // Vitrine.init
-        Region.init
+        Region.init();
     },
     build(collection){
         Vitrine.build(collection);
