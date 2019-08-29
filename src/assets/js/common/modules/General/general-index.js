@@ -8,33 +8,35 @@ const Methods = {
     },
     build(collection){
         Vitrine.build(collection);
-        new Glider(document.querySelector('.glider'), {
-            slidesToScroll: 1,
-            slidesToShow: 1,
-            draggable: true,
-            arrows: {
-                prev: '.glider-prev',
-                next: '.glider-next'
-            },
-            responsive: [
-                {
-                    // screens greater than >= 775px
-                    breakpoint: 768,
-                    settings: {
-                    slidesToShow: 'auto',
-                    slidesToScroll: 'auto',
+        window.onload = function(){
+            new Glider(document.querySelector('.glider'), {
+                slidesToScroll: 1,
+                slidesToShow: 1,
+                draggable: true,
+                responsive: [
+                    {
+                        // screens greater than >= 775px
+                        breakpoint: 768,
+                        settings: {
+                        slidesToShow: 'auto',
+                        slidesToScroll: 'auto',
+                        }
+                    },
+                    {
+                        breakpoint: 992,
+                        draggable: false,
+                        arrows: {
+                            prev: '.glider-prev',
+                            next: '.glider-next'
+                        },
+                        settings: {
+                        slidesToShow: 4.5,
+                        slidesToScroll: 1,
+                        }
                     }
-                },
-                {
-                    breakpoint: 992,
-                    draggable: false,
-                    settings: {
-                    slidesToShow: 4.5,
-                    slidesToScroll: 1,
-                    }
-                }
-            ]
-        })
+                ]
+            })
+        }
     }
 }
 
