@@ -1,5 +1,7 @@
 import General from "./modules/General/general-index"
 
+General.init();
+
 document.querySelectorAll(".render-collection").forEach(function(el){
     General.vitrine(el.dataset.collection);
 });
