@@ -11,7 +11,7 @@
     <vtex:contentPlaceHolder id="Metatags" />
     <vtex:template id="00-0-QDB-Head" />
 
-    <link rel="stylesheet" href="/arquivos/QDB-LP-Base-Acqua.css" />
+    <link rel="stylesheet" href="/arquivos/QDB-LP-Base-Aqua.css" />
 
 </head>
 
@@ -41,7 +41,7 @@
         </section>
         <section class="ba-advantages">
             <div class="shell">
-                    <div class="item">
+                <div class="item">
                     <img 
                         src="https://qbbr.vteximg.com.br/arquivos/lp-ba-icone-hidratacao.png" 
                         alt="Base Aqua - Hidratação"
@@ -72,12 +72,13 @@
         </section>
         <section class="ba-features clearfix">
             <div class="shell">
-                <img 
-                    src="https://qbbr.vteximg.com.br/arquivos/imagem-nova-base-acqua-hidrantante-quem-disse-berenice.png" 
-                    alt="imagem nova base aqua hidratante quem disse, Berenice?"
-                    title="nova base hidratante quem disse, Berenice?"
-                    class="img-bases"
-                />
+                <div class="img-bases">
+                    <img 
+                        src="https://qbbr.vteximg.com.br/arquivos/imagem-nova-base-acqua-hidrantante-quem-disse-berenice.png" 
+                        alt="imagem nova base aqua hidratante quem disse, Berenice?"
+                        title="nova base hidratante quem disse, Berenice?"
+                    />
+                </div>
                 <div class="ba-container">
                     <p>Com FPS 50, são <strong>20 tons</strong> que garantem uma <strong>cobertura média</strong> 
                         com acabamento natural e confortável. É a base perfeita para ser usada todos os dias! 
@@ -124,12 +125,18 @@
         </section>
         <section class="ba-product-list">
             <h3><vtex:contentPlaceHolder id="Título lista de produtos" /></h3>
+            <!-- Section Chaordic - Bottom -->
+            <section class="section-chaordic">
+                <div class="shell">
+                    <div chaordic="bottom"></div>
+                </div>
+            </section>
+            <!-- Section Chaordic - Bottom:end -->
         </section>
     </main>
     <footer class="footer">
         <vtex:template id="00-0-QDB-Footer" />
     </footer>
-    <script type="text/javascript" src="/arquivos/QDB-LP-Base-Acqua.js"></script>
 </body>
 
 </html>
