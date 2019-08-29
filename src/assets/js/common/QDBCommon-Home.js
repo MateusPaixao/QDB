@@ -5,6 +5,7 @@
 const Methods = {
     init() {
         Methods.principalBannerSlick();
+        Methods.fetchReviews();
         if (document.querySelector(".w-gerador--datas") != null) {
             Methods.getProductInfos();
             Methods.getTopBannerColor();
@@ -157,7 +158,7 @@ const Methods = {
         hourCounter.innerHTML = '00';
         minuteCounter.innerHTML = '00';
         secondsCounter.innerHTML = '00';
-
+        document.querySelector('.w-product--wrapper--infos--parcelamento').classList.add('hidden');
         document.querySelector('.w-product--wrapper--infos--old-price').classList.add('hidden');
         document.querySelector('.w-product--wrapper--infos--new-price').classList.add('hidden');
         document.querySelector('.w-promo-text').classList.add('hidden');
@@ -194,47 +195,16 @@ const Methods = {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
         const storeKey = "388ef2d0-c3b8-4fd6-af13-446b698d544a"
         const url = "https://service.yourviews.com.br/api/" + storeKey + "/review/reviewshelf?productIds=" + idProduto;
-
-        fetch(url, {
-                method: 'GET',
-                mode: 'cors',
-                headers: new Headers({
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Basic Mzg4ZWYyZDAtYzNiOC00ZmQ2LWFmMTMtNDQ2YjY5OGQ1NDRhOjU2N2Q0MjVmLTA1MGQtNGY1NC05MWUxLTMzODgwZmFjZmRkMw==',
-                    'Access-Control-Allow-Origin': '*'
-                })
-            })
+        const url2 = "https://service.yourviews.com.br/api/v2/pub/review/Summary?productid=457&page=1&count=10";
+        const headers = {
+            type: 'GET',
+            dataType: 'json',
+            'YVStoreKey':'388ef2d0-c3b8-4fd6-af13-446b698d544a'
+        }
+        fetch(url2, headers)
             .then(res => res.json())
-            .then((res) => {
-                let html;
-
-                res.Element.map((review, index) => {
-
-                    function countRating() {
-
-                        let stars = '';
-
-                        for (let i = 1; i <= review.Rating; i++) {
-
-                            stars += `<svg viewBox="0 0 18 21" width="18" height="21" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.605 14.394L0 10.48s2.528-2.836 3.605-3.913l5.014-5.013a5.326 5.326 0 0 1 7.523 0 5.321 5.321 0 0 1 0 7.521l-1.406 1.405 1.406 1.405a5.321 5.321 0 0 1 0 7.521 5.327 5.327 0 0 1-7.523 0l-5.014-5.013z" fill="#67605F"/></svg>`
-
-                        }
-                        return stars;
-
-                    }
-
-                    html +=
-
-                        `<li class="review">
-                        <span class="_rate">
-                            ${countRating()}
-                        </span>
-                    </li>`
-                    // console.log(html)
-
-                });
-                const el = document.querySelector('.w-product--wrapper--infos--rate');
-                el.innerHTML = html.replace('undefined', '');
+            .then((reviews) => {
+                console.log(reviews);
             })
     },
     AddToCart: () => {

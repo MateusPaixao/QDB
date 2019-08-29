@@ -37,12 +37,6 @@
         @include d('768px'){
             font-size: 1em;
         }
-        &:after{
-            content: '♥';
-            font-size: 2em;
-            transform: rotate(90deg);
-            margin-top: 10px;
-        }
     }
     &--counter{
         height: 100%;
