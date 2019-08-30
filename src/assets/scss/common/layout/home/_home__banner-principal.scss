@@ -1,0 +1,48 @@
+.w-lazy-banner{
+
+    &--desktop{
+        display: block !important;
+        max-width: 1920px;
+        max-height: 100%;
+        @include d('600px'){
+            display: none !important;
+        }
+    }
+    &--mobile{
+        display: none !important;
+        margin: 0 auto;
+        max-width: 400px;
+        max-height: 448px;
+        @include d('600px'){
+            display: block !important;
+        }
+
+    }
+    &--desktop, &--mobile{
+        overflow: hidden;
+        opacity: 0;
+        transition: .5s ease-in-out;
+        &.is--active{
+            opacity: 1;
+        }
+
+        .slick-arrow{
+            display: none !important;
+        }
+        .slick-dots{
+            padding: 10px;
+            li{
+                border: 1px solid #686162;
+                background: transparent;
+                margin: 0 2px;
+                button{
+                    background: transparent;
+                }
+                &.slick-active{
+                    height: 100%;
+                    background-color: #686162;
+                }
+            }
+        } 
+    }
+}

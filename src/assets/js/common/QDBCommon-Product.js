@@ -1075,8 +1075,8 @@ function selectCor(){
     #Produto indisponivel
 \* ====================================================================== */
 function aviseme($this){
-    $('.notifyme-title-div .notifymetitle.notifyme-title').html("<div class='rw-indisponivel'><h3>Produto indisponível :( </h3><h4 class='rw-indisponivel--price'> R$"+parseFloat(dataLayer[0].productListPriceFrom).toFixed(2).replace('.',',')+"</h4></div>");
-    if(dataLayer[0].productListPriceFrom == 0){
+    $('.notifyme-title-div .notifymetitle.notifyme-title').html("<div class='rw-indisponivel'><h3>Produto indisponível :( </h3><h4 class='rw-indisponivel--price'> R$"+parseFloat(dataLayer[0].productListPriceTo).toFixed(2).replace('.',',')+"</h4></div>");
+    if(dataLayer[0].productListPriceTo == 0){
         $('.rw-indisponivel--price').addClass('hidden');
     }
     setTimeout(function(){
@@ -1241,4 +1241,80 @@ var trustVoxReviews = {
             }
         })
     }
+<<<<<<< HEAD
 }
+=======
+}
+
+let AddToCart = () =>{
+    document.querySelector(".product-buy-button .buy-button").innerHTML = 'Adicionar a Sacola';
+    document.querySelector(".product-buy-button .buy-button").addEventListener("click", function(el){
+        el.preventDefault();
+        let skuId = "";
+        new URL(window.location.href).searchParams.get("idsku") != null ? skuId = new URL(window.location.href).searchParams.get("idsku") : skuId = document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku");
+        // console.log(skuId);
+        el.srcElement.innerHTML = "Adicionando...";
+        el.srcElement.style.opacity = ".7";
+        el.srcElement.style.pointerEvents = "none";
+        let quantity;
+        vtexjs.checkout.getOrderForm().then(function(orderForm){
+            // console.log(orderForm);
+            if(!!orderForm.items.length){
+                orderForm.items.map((e, i) => {
+                    if(e.id == skuId){
+                        quantity = e.quantity;
+                        quantity++
+                        let updateItem = {
+                            index: i,
+                            quantity: quantity
+                        };
+                        return vtexjs.checkout.updateItems([updateItem]);
+                    }else{
+                        let newitem = {
+                            id: skuId,
+                            quantity: 1,
+                            seller: '1'
+                        };
+                        return vtexjs.checkout.addToCart([newitem]);
+                    }
+                })
+            }else{
+                let newitem = {
+                    id: skuId,
+                    quantity: 1,
+                    seller: '1'
+                };
+                return vtexjs.checkout.addToCart([newitem]);
+            }
+        })
+        .done(function(orderForm) {
+            // console.log(orderForm);
+            vtexjs.checkout.getOrderForm().then(function (orderForm) {
+                window._orderForm = orderForm;
+                var qty = 0;
+                $(orderForm.items).each(function (ndx, item) {
+                    if (!item.isGift) {
+                        qty += item.quantity;
+                    }
+                });
+                if (isFinite(qty)) {
+                    $('.__cart-link a span').text(qty);
+                }
+            }).done(function(){
+                el.srcElement.innerHTML = 'Adicionar a Sacola';
+                el.srcElement.style.opacity = '1';
+                el.srcElement.style.pointerEvents = "auto";
+                $('html').trigger('open.MiniCart'); // Função em Jquery devido ao evento do Minicart em General.
+                // setTimeout(() => {
+                //     $('html').trigger('close.MiniCart'); // Função em Jquery devido ao evento do Minicart em General.
+                // }, 10000);
+            });
+        });
+    });
+}
+$(function(){
+    if(document.querySelector(".select-cor-new .group_0")){
+        AddToCart();
+    }
+});
+>>>>>>> develop

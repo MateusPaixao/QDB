@@ -190,9 +190,9 @@
 		display: block;
 	}
 
-	.product .product-image img {
-		display: none !important;
-	}
+	// .product .product-image img {
+	// 	display: none !important;
+	// }
 	.slider-products{
 		margin: 20px 0 0 0;
 	}
@@ -1649,4 +1649,7 @@ body.home .liquida-bere-home .shell .filtro li a { display: block; color: #fff; 
 		left: 55px !important;
    	 	top: 80px !important;
 	}
+}
+.section-products.impar{
+	margin-top: 50px !important;
 }

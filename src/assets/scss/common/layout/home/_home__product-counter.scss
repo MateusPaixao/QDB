@@ -1,0 +1,238 @@
+.w-product{
+    &--link{
+        @include d('768px'){
+            text-align: center;
+        }
+    }
+    &--container{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        min-height: 65vh;
+        height: 100%;
+        &.inactive{
+            min-height: 45vh;
+            height: 100%;
+        }
+        @include d('768px'){
+            align-items: flex-end;
+        }
+    }
+    &--title{
+        font-size: 2em;
+        font-weight: 400;
+        text-align: center;
+        margin: 0;
+        @include d('768px'){
+            font-size: 1em;
+        }
+    }
+    &--text{
+        text-align: center;
+        font-size: 1.2em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include d('768px'){
+            font-size: 1em;
+        }
+    }
+    &--counter{
+        height: 100%;
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        background-color: #F8F7F7;
+        @include d('768px'){
+            justify-content: space-evenly;
+        }
+    }
+    &--infos{
+        height: 100%;
+        min-height: 70vh;
+        width: 50%;
+        display: flex;
+        align-items: center;
+    }
+    &--contador{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5em;
+        span{
+            padding: 8px;
+            @include d('768px'){
+                padding: 0;
+            }
+        }
+        &--timer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            &--small{
+                font-size: 0.3em;
+                font-weight: 400;
+                color: #000;
+                &.min{
+                    @include d('768px'){
+                        border-bottom: 1px solid lighten($color: #000000, $amount: 70);
+                        padding-bottom: 10px;
+                        margin-bottom: 5px;
+                        margin-top: 5px;
+                    }
+                }
+            }
+        }
+        &--time{
+            &.--minutes{
+                display: flex;
+                align-items: center;
+                padding-left: 10px;
+                padding-right: 10px;
+                &:before{
+                    content: '';
+                    border-left: 1px solid lighten($color: #000000, $amount: 70);
+                    display: block;
+                    height: 0.8em;
+                    padding-right: 10px;
+                    margin: 0 20px;
+                    @include d('768px'){
+                        margin: 10px 0;
+                        border-left: none;
+                        border-top: 1px solid lighten($color: #000000, $amount: 70);
+                        height: 0;
+                        width: 1.2em
+
+                    }
+                }
+                &:after{
+                    content: '';
+                    border-right: 1px solid lighten($color: #000000, $amount: 70);
+                    display: block;
+                    height: 0.8em;
+                    padding-left: 10px;
+                    margin: 0 20px;
+                    @include d('768px'){
+                        margin: 0;
+                        border-right: none;
+                        height: 0;
+                        width: 0.8em
+                    }
+                }
+
+            }
+            @include d('768px'){
+                flex-direction: column
+            }
+        }
+        @include d('768px'){
+            flex-direction: column;
+            font-size: 3.5em;
+        }
+    }
+    &--wrapper{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        &--infos{
+            display: flex;
+            flex-direction: column;
+            @include d('768px'){
+                align-items: center;
+                justify-content: center;
+            }
+            &--rate{
+                list-style: none;
+            }
+            &--title{
+                font-size: 2em;
+                width: 70%;
+                font-weight: 400;
+                @include d('768px'){
+                    text-align: center;
+                    font-size: 1em;
+                    width: 100%;
+                }
+            }
+            &--old-price{
+                text-decoration: line-through;
+                margin: 0;
+                font-size: 1.5em;
+                text-decoration: line-through;
+                margin: 0;
+                font-weight: 500;
+                @include d('768px'){
+                    font-size:1em;
+                }
+            }
+            &--new-price{
+                font-size: 2.5em;
+                margin: 0;
+                font-weight: 500;
+                @include d('768px'){
+                    font-size: 1.5em;
+                }
+            }
+            &--parcelamento{
+                margin-top: 10px;
+                margin-bottom: 10px;
+                font-weight: 500;
+                @include d('768px'){
+                    text-align: center;
+                }
+            }
+            &--buy-button{
+                color: #fff;
+                padding: 10px;
+                border-radius: 10px;
+                width: 150px;
+                text-align: center;
+                background-color: #686162;
+                button{
+                    text-transform: uppercase;
+                    cursor: pointer;
+                }
+            }
+        }
+        &--img{
+            min-width: 150px;
+            min-height: 150px;
+            max-width: 300px;
+            width: 100%;
+            height: 100%;
+            max-height: 300px;
+            background-color: lighten($color: grey, $amount: 50);
+            border-radius: 20px;
+            border: none;
+        }
+        &--relative{
+            position: relative;
+        }
+        &--flag{
+            position: absolute;
+            color: #fff;
+            top: 10px;
+            right: 10px;
+            width: 55px;
+            padding: 5px;
+            text-align: center;
+            @include d('768px'){
+                right: inherit;
+                left: 10px;
+            }
+        }
+        @include d('768px'){
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+}
+.super-hide{
+    display: none !important;
+}

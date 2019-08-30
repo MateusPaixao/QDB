@@ -11,7 +11,7 @@
         if ("function" !== typeof $.fn.slick) {
             return false;
         }
-        // return true;
+        // return true; 
         var _elem = p_elem || '._vitrines ._-carousel-_';
         var opts = p_opts || {};
         // var navClass = '.slick-nav'+(""+Math.random()).replace(/.*\./,'_');
@@ -24,7 +24,7 @@
             arrows: false,
             dots: false,
             infinite: false,
-            slidesToShow: 1
+            slidesToShow: 2
         };
         opts = $.extend({
             lazyLoad: 'ondemand',
@@ -33,7 +33,7 @@
             arrows: true,
             prevArrow: '<span class="_prev slick-prev"></span>',
             nextArrow: '<span class="_next slick-next"></span>',
-            dots: true
+            dots: false
         }, opts_responsive, opts);
         $(_elem).slick(opts);
         if (!opts.vertical) {
@@ -43,7 +43,7 @@
         return true;        
     };
     
-    var $product = '<div class="_product" :class="`_product-${product.id}`" ' +
+    var $product = '<div class="product" :class="`_product-${product.id}`" ' +
             ':data-prd="product.id" :data-index="index"> ' +
             '<a :data-prd="product.id" :data-index="index" ' +
                 ':data-shelf="showcase.info.shelf" ' +
@@ -60,7 +60,7 @@
                     '<img :data-lazy="getImage(product)" src="https://tbb.vteximg.com.br/arquivos/_img-transparent.gif" :alt="product.name" :title="product.name" />' +
                 '</span>' +
             '</a>' +
-
+            '<like-button :entity-id="product.id" short  class="product-favorite toggle"></like-button>' +
             '<div class="yv-review-quickreview" :value="product.id"></div>' +
 
             '<a :data-prd="product.id" :data-index="index" '+
@@ -102,7 +102,7 @@
                         '</span>' +
                     '</span>' +
                 '</span>' +
-
+                
                 '<a :data-prd="product.id" :data-index="index" ' +
                 ':data-shelf="showcase.info.shelf" ' +
                 ':data-feature="showcase.info.feature" ' +
@@ -113,7 +113,7 @@
                 ':data-tracking-url="product.trackingUrl" '+
                 'class="__lnk-buy-btn"' +
                 '>' +
-                    '<a class="btn_comprar" href="$uri?idsku=$product.productVariantId"> COMPRAR' +
+                    '<a class="btn_comprar" :href="product.url.fixURL()"> COMPRAR' +
                         '<svg class="heart" width="14" height="16" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg">' +
                             '<path d="M6.90286 4.80886L6.54931 5.16242L6.90286 5.51597L7.59493 6.20804C8.42246 7.03557 8.42092 8.37962 7.59514 9.2054C6.76794 10.0326 5.42268 10.0301 4.59778 9.2052L2.13594 6.74336L0.675534 5.15783C0.785307 5.03582 0.917379 4.88951 1.05875 4.7339C1.43757 4.31692 1.87337 3.84404 2.12868 3.58874L4.59778 1.11964C5.42268 0.294739 6.76794 0.292239 7.59514 1.11943C8.42092 1.94521 8.42246 3.28926 7.59493 4.11679L6.90286 4.80886Z" stroke="#686162"/>' +
                         '</svg>' +
@@ -142,7 +142,7 @@
             '<div class="_chaordic-refs-container" >' +
                 '<a v-if=!showcase.info.vertical @click="switchProd()" class="__switch-btn"></a>' +
                 '<div class="_chaordic-refs-products">' +
-                    '<div class="_ref-prd _prd" data-showcase="references" v-for="(product, index) in refs" ' +
+                    '<div class="_ref-prd _prd product" data-showcase="references" v-for="(product, index) in refs" ' +
                     ':class="getCatClass(product)" ' +
                     ' >' +
                         $product +
@@ -504,7 +504,7 @@
                                 slidesToShow: slides-1,
                                 slidesToScroll: slides-1,
                                 arrows: true,
-                                dots: true
+                                dots: false
                             }
                         },
                         {
@@ -513,7 +513,7 @@
                                 slidesToShow: 2, 
                                 slidesToScroll: 2,
                                 arrows: true,
-                                dots: true
+                                dots: false
                             }
                         }
                     ]

@@ -4,11 +4,11 @@ var menuData = [{
     "text": "Entre ou cadastre-se",
     "link": "https://www.quemdisseberenice.com.br/account/"
 },
-{
-    "text": "até 70% de desconto",
-    "link": "/busca/?fq=H:739",
-    "class": ["__light-turquoise"]
-},
+// {
+//     "text": "Ofertas de Aniversário",
+//     "link": "https://www.quemdisseberenice.com.br/clube-das-beres",
+//     "class": ["__light-turquoise"]
+// },
 {
     "text": "Boca",
     "menu": [
@@ -114,10 +114,11 @@ var menuData = [{
             "text": "Paleta",
             "link": "https://www.quemdisseberenice.com.br/maquiagem/sobrancelhas/paleta"
         },
-        {
-            "text": "Máscara",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/sobrancelhas/mascara"
-        },
+        // Inativado do Cadastro
+        // {
+        //     "text": "Máscara",
+        //     "link": "https://www.quemdisseberenice.com.br/maquiagem/sobrancelhas/mascara"
+        // },
         {
             "text": "Lápis e caneta",
             "link": "https://www.quemdisseberenice.com.br/maquiagem/sobrancelhas/caneta"
@@ -137,60 +138,60 @@ var menuData = [{
     ]
 },
 {
-    "text": "Pele",
+    "text": "Rosto",
     "menu": [
         {
-            "text": "Pele",
+            "text": "Rosto",
             "class": ["__arrow-left","__close-submenu"]
         },
         {
             "text": "Ver tudo",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele",
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto",
             "class": ["__bold"]
         },
         {
             "text": "Hidratante Facial",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/hidratante-facial"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/hidratante-facial"
         },
         {
             "text": "Base",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/base/"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/base/"
         },
         {
             "text": "Pó facial",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/po-facial/"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/po-facial/"
         },
         {
             "text": "Blush",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/blush/"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/blush/"
         },
         {
             "text": "Corretivo",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/corretivo/"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/corretivo/"
         },
         {
             "text": "Iluminador",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/iluminador/"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/iluminador/"
         },
         {
             "text": "Bronze",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/bronze/"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/bronze/"
         },
         {
             "text": "Primer",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/primer/"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/primer/"
         },
         {
             "text": "BB e CC Creme",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/bb-e-cc-creme"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/bb-e-cc-creme"
         },
         {
             "text": "Contorno",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/contorno-facial"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/contorno-facial"
         },
         {
             "text": "Demaquilante",
-            "link": "https://www.quemdisseberenice.com.br/maquiagem/pele/demaquilante/"
+            "link": "https://www.quemdisseberenice.com.br/maquiagem/rosto/demaquilante/"
          }
         // {
         //     "text": "Cuidados p/ pele",
@@ -398,8 +399,26 @@ var menuData = [{
 }
 ];
 /*accentsTidy*/
-String.prototype.accentsTidy = function () { var a = this.trim(); a = a.replace(/,/g, " "); a = a.replace(/\s+/g, " "); a = a.replace(/(\s|&|\?)/g, "-"); a = a.replace(/\u00e7/g, "c"); a = a.replace(/\u00f1/g, "n"); a = a.replace(/\u00c7/g, "C"); a = a.replace(/\u00d1/g, "N"); a = a.replace(/[\u00c3\u00c2\u00c1\u00c0\u00c4]/g, "A"); a = a.replace(/[\u00c9\u00c8\u00cb]/g, "E"); a = a.replace(/[\u00cd\u00cc\u00cf]/g, "I"); a = a.replace(/[\u00d5\u00d4\u00d3\u00d2\u00d6]/g, "O"); a = a.replace(/[\u00da\u00d9]/g, "U"); a = a.replace(/[\u00e0\u00e1\u00e2\u00e3\u00e4\u00e5]/g, "a"); a = a.replace(/[\u00e8\u00e9\u00ea\u00eb]/g, "e"); a = a.replace(/[\u00ec\u00ed\u00ee\u00ef]/g, "i"); a = a.replace(/[\u00f2\u00f3\u00f4\u00f5\u00f6]/g, "o"); a = a.replace(/[\u00f9\u00fa\u00fb\u00fc]/g, "u"); return a };
-var runOnViewportScroll = (function (Cb,Namespace,Multiplier) {
+String.prototype.accentsTidy = function () { 
+    var a = this.trim(); 
+    a = a.replace(/,/g, " "); 
+    a = a.replace(/\s+/g, " "); 
+    a = a.replace(/(\s|&|\?)/g, "-"); 
+    a = a.replace(/\u00e7/g, "c"); 
+    a = a.replace(/\u00f1/g, "n"); 
+    a = a.replace(/\u00c7/g, "C"); 
+    a = a.replace(/\u00d1/g, "N"); 
+    a = a.replace(/[\u00c3\u00c2\u00c1\u00c0\u00c4]/g, "A"); 
+    a = a.replace(/[\u00c9\u00c8\u00cb]/g, "E"); 
+    a = a.replace(/[\u00cd\u00cc\u00cf]/g, "I"); 
+    a = a.replace(/[\u00d5\u00d4\u00d3\u00d2\u00d6]/g, "O"); 
+    a = a.replace(/[\u00da\u00d9]/g, "U"); 
+    a = a.replace(/[\u00e0\u00e1\u00e2\u00e3\u00e4\u00e5]/g, "a"); 
+    a = a.replace(/[\u00e8\u00e9\u00ea\u00eb]/g, "e"); 
+    a = a.replace(/[\u00ec\u00ed\u00ee\u00ef]/g, "i"); 
+    a = a.replace(/[\u00f2\u00f3\u00f4\u00f5\u00f6]/g, "o"); 
+    a = a.replace(/[\u00f9\u00fa\u00fb\u00fc]/g, "u"); return a };
+    var runOnViewportScroll = (function (Cb,Namespace,Multiplier) {
     'use strict'
     return function (Cb,Namespace,Multiplier) {
         if("function"!==typeof Cb||"undefined"===typeof Namespace){ return false; }
@@ -416,14 +435,98 @@ var runOnViewportScroll = (function (Cb,Namespace,Multiplier) {
         $(window).off(ns).on(ns,f);
     };
 })();
+
 var getSearchQuery = function(){ return document.location.search.replace(/\?/,'').split(/&/).map(function(d){ var dt = d.split(/=/); var obj = {}; obj[dt[0]] = dt[1]; return obj; }); };
 // var getUtmSource = function(){ var q = getSearchQuery(); if(q.length>0){ return q.reduce(function(d){ if(!!d.utm_source) return "" }); } return []; };
 /** 201810290916 */
-var Utls=function(e,h,k,l){return function(){var c=this;c.getSkus=function(a){var b=e.Deferred();if("undefined"===a)return b.reject("Missing product id."),b.promise();if(c.getSkus.data[a])return b.resolve(c.getSkus.data[a]),b.promise();vtexjs.catalog.getProductWithVariations(a).fail(function(d){c.getSkus.data[a]=[];b.reject("Product id not found.")}).done(function(d){c.getSkus.data[a]={id:d.productId,name:d.name,skus:d.skus.slice(),salesChannel:d.salesChannel,available:d.available};b.resolve(c.getSkus.data[a])});
-return b.promise()};c.getSkus.data={};c.getSkuList=function(a){if("undefined"===a||"undefined"!==a&&!(a instanceof Array))return a=new Promise(function(a,c){c("Missing list of product id. eg. [1, 45, 83].")}),Promise.all([a]);var b=[],d={};e.each(a,function(a,f){var g=new Promise(function(a,b){c.getSkuList.data[f]?a(c.getSkuList.data):c.getSkus(f).then(function(b){d[f]=e.extend({},b);c.getSkuList.data=e.extend({},d,c.getSkuList.data);a(c.getSkuList.data)},function(a){b("Product id not found.")})});
-b.push(g)});return Promise.all(b)};c.getSkuList.data={};c.getInfo=function(a){var b=e.Deferred();if("undefined"===a)return b.reject("Missing product id."),b.promise();var d="/api/catalog_system/pub/products/search/?fq=productId:"+a;if(c.getInfo.data[a])return b.resolve(c.getInfo.data[a]),b.promise();e.ajax({url:d,success:function(d){c.getInfo.data[a]=d;b.resolve(c.getInfo.data[a])},error:function(d){c.getInfo.data[a]=[];b.reject("Product id not found.")}});return b.promise()};c.getInfo.data={};c.addProducts=
-function(a){var b=e.Deferred();if("undefined"===a||"undefined"!==a&&!(a instanceof Array))return b.reject("Missing array of objects. eg. [{ id: 1 }, { id: 2, quantity: 2 }]"),b.promise();var c=[];e.each(a,function(a,b){var d=Object.assign({id:0,quantity:1,seller:1},b);c.push(d)});vtexjs.checkout.addToCart(c).fail(function(a){b.reject(a)}).done(function(a){b.resolve(a)});return b.promise()};"undefined"!==typeof console&&"undefined"!==typeof console.log&&(c.__log=console.log);return!0}}(jQuery,window,
-document);
+var Utls = function (e, h, k, l) {
+    return function () {
+        var c = this;
+        c.getSkus = function (a) {
+            var b = e.Deferred();
+            if ("undefined" === a) return b.reject("Missing product id."), b.promise();
+            if (c.getSkus.data[a]) return b.resolve(c.getSkus.data[a]), b.promise();
+            vtexjs.catalog.getProductWithVariations(a).fail(function (d) {
+                c.getSkus.data[a] = [];
+                b.reject("Product id not found.")
+            }).done(function (d) {
+                c.getSkus.data[a] = {
+                    id: d.productId,
+                    name: d.name,
+                    skus: d.skus.slice(),
+                    salesChannel: d.salesChannel,
+                    available: d.available
+                };
+                b.resolve(c.getSkus.data[a])
+            });
+            return b.promise()
+        };
+        c.getSkus.data = {};
+        c.getSkuList = function (a) {
+            if ("undefined" === a || "undefined" !== a && !(a instanceof Array)) return a = new Promise(function (a, c) {
+                c("Missing list of product id. eg. [1, 45, 83].")
+            }), Promise.all([a]);
+            var b = [],
+                d = {};
+            e.each(a, function (a, f) {
+                var g = new Promise(function (a, b) {
+                    c.getSkuList.data[f] ? a(c.getSkuList.data) : c.getSkus(f).then(function (b) {
+                        d[f] = e.extend({}, b);
+                        c.getSkuList.data = e.extend({}, d, c.getSkuList.data);
+                        a(c.getSkuList.data)
+                    }, function (a) {
+                        b("Product id not found.")
+                    })
+                });
+                b.push(g)
+            });
+            return Promise.all(b)
+        };
+        c.getSkuList.data = {};
+        c.getInfo = function (a) {
+            var b = e.Deferred();
+            if ("undefined" === a) return b.reject("Missing product id."), b.promise();
+            var d = "/api/catalog_system/pub/products/search/?fq=productId:" + a;
+            if (c.getInfo.data[a]) return b.resolve(c.getInfo.data[a]), b.promise();
+            e.ajax({
+                url: d,
+                success: function (d) {
+                    c.getInfo.data[a] = d;
+                    b.resolve(c.getInfo.data[a])
+                },
+                error: function (d) {
+                    c.getInfo.data[a] = [];
+                    b.reject("Product id not found.")
+                }
+            });
+            return b.promise()
+        };
+        c.getInfo.data = {};
+        c.addProducts =
+            function (a) {
+                var b = e.Deferred();
+                if ("undefined" === a || "undefined" !== a && !(a instanceof Array)) return b.reject("Missing array of objects. eg. [{ id: 1 }, { id: 2, quantity: 2 }]"), b.promise();
+                var c = [];
+                e.each(a, function (a, b) {
+                    var d = Object.assign({
+                        id: 0,
+                        quantity: 1,
+                        seller: 1
+                    }, b);
+                    c.push(d)
+                });
+                vtexjs.checkout.addToCart(c).fail(function (a) {
+                    b.reject(a)
+                }).done(function (a) {
+                    b.resolve(a)
+                });
+                return b.promise()
+            };
+        "undefined" !== typeof console && "undefined" !== typeof console.log && (c.__log = console.log);
+        return !0
+    }
+}(jQuery, window,
+    document);
 /** insert scripts that should run in all pages */
 var CreateMenu = (function ($, window, document, undefined) {
     "use strict";
@@ -465,6 +568,7 @@ var CreateMenu = (function ($, window, document, undefined) {
         promo: "<div class=\"mr-shipping\"><div class=\"mr-shipping-lbl-container\"><span class=\"mr-shipping-lbl\">{%PROMOMSG%}</span></div><div class=\"mr-shipping-pb-container\" {%PROMOBAR%}><span class=\"mr-progress-bar\"><small {%PROMOSTYLE%}></small></span></div> </div>",
         footer: "<div class='mr-footer'>{%FOOTER%}</div>",
         totals: "<div class='mr-totals'>" +
+            "<div class='mr-total mr-discounts'><span class='mr-lbl'>Descontos:</span><span class='mr-discount-val'>{%DISCOUNT%}</span></div>" +
             "<div class='mr-total'><span class='mr-lbl'>Total:</span><span class='mr-total-val'>{%TOTAL%}</span></div>" +
             "<div class='mr-goto-cart'><a href='/checkout/#/cart'>Fechar pedido</a></div>" +
             "</div>",
@@ -487,6 +591,7 @@ var CreateMenu = (function ($, window, document, undefined) {
         var mProdsOpt = $({}, options);
         var _mProdsList = {
             qtyProds: 0,
+            discounts: 0,
             totalPrice: 0,
             items: [],
             on_off_class: 'cart-show',
@@ -503,6 +608,7 @@ var CreateMenu = (function ($, window, document, undefined) {
             init: function () {
                 if (_mProdsList.get.vtexjs()) {
                     _mProdsList.get.items();
+                    
                 }
                 return true;
             },
@@ -540,6 +646,8 @@ var CreateMenu = (function ($, window, document, undefined) {
                     vtexjs.checkout.getOrderForm().then(function (orderForm) {
                         window.order = orderForm;
                         _mProdsList.items = orderForm.items;
+                        _mProdsList.discounts = orderForm.totalizers && orderForm.totalizers.length>0 && orderForm.totalizers[1] != undefined && orderForm.totalizers[1].hasOwnProperty("id") & orderForm.totalizers[1].id == "Discounts" && _orderForm.totalizers[1].value != 0?orderForm.totalizers[1].value:0;
+                        // console.log(_mProdsList.discounts)
                         _mProdsList.totalPrice = orderForm.totalizers&&orderForm.totalizers.length>0&&orderForm.totalizers[0].value?orderForm.totalizers[0].value:0;
                         _mProdsListContainer.data('total', 1 * (_mProdsList.totalPrice / 100));
                         _mProdsList.mount();
@@ -563,6 +671,7 @@ var CreateMenu = (function ($, window, document, undefined) {
                         if(!isFinite(val)) {return false;}
                         var percentage = Math.round(_mProdsList.totalPrice / val * 100);
                         var res = val >= _mProdsList.totalPrice?(val - _mProdsList.totalPrice)/100:0;
+                        // console.log('res',res)
                         if(res>0){
                             msg = msg.replace(/{%VALOR%}/,_mProdsList.get.money(res));
                         }
@@ -618,8 +727,12 @@ var CreateMenu = (function ($, window, document, undefined) {
                             footerContent = footerContent.replace('{%PROMOBAR%}', "style=\"display:none;\"");
                         }
                     }
+                    var totalValue = 'R$'+((_mProdsList.totalPrice / 100) + (_mProdsList.discounts / 100)).toFixed(2).replace('.',',');
+                    var discountValue = "-R$"+(_mProdsList.discounts / 100).toFixed(2).replace('.',',').replace('-','')
+
                     footerContent += _mProdsTemplate.totals
-                        .replace('{%TOTAL%}', _mProdsList.get.money(_mProdsList.totalPrice / 100));
+                        .replace('{%TOTAL%}', totalValue)
+                        .replace('{%DISCOUNT%}', discountValue);
                     cart += _mProdsTemplate.footer.replace('{%FOOTER%}', footerContent);
                     _mProdsListContainer.removeClass('__cart-empty __cart-loading');
                 } else {
@@ -652,7 +765,7 @@ var CreateMenu = (function ($, window, document, undefined) {
                 return true;
             },
             gift: function (ndx) {
-                console.log('Brinde não pode ser removido.');
+                // console.log('Brinde não pode ser removido.');
                 return true;
             },
             refresh: function () {
@@ -684,6 +797,7 @@ var CreateMenu = (function ($, window, document, undefined) {
     $.fn.mMinicart = function (options) {
         var _elem = $(this);
         var mMinicartOpts = $.extend({
+            'descontos': '.mr-discount-val',
             'items': '.amount-items-em',
             'total': '.total-cart-em'
         }, options);
@@ -694,8 +808,10 @@ var CreateMenu = (function ($, window, document, undefined) {
             },
             refresh: function () {
                 mProdsList.refresh();
+                $(mMinicartOpts.descontos).text(mProdsList.discounts())
                 $(mMinicartOpts.items).text(mProdsList.items());
                 $(mMinicartOpts.total).text(mProdsList.total());
+
                 return true;
             }
         };
@@ -827,8 +943,16 @@ var SuperMenu = (function ($, window, document, undefined) {
                 $('.__cart-link a span').text(qty);
             }
         });
+        
         return true;
     };
+    function showCouponActive() {
+        const title = document.querySelector('.__cartTitle')
+        const couponActive = vtexjs.checkout.orderForm.marketingData.coupon;
+        if(couponActive != null){
+            title.textContent = `Cupom ativo: ${couponActive}`
+        }
+    }
     var isLogged = function () {
         var logged = false;
         $(dataLayer).each(function(ndx,item){
@@ -891,9 +1015,11 @@ var SuperMenu = (function ($, window, document, undefined) {
     var miniCartEvents = function () {
         $('html').off('open.MiniCart').on('open.MiniCart',function (e) {
             e.preventDefault();
+            
             if ("function" === typeof $.fn.mMinicart) {
                 $('._minicartBody').mMinicart();
                 $('html').addClass('__cart-show');
+                
             }
         });
         $('html').off('close.MiniCart').on('close.MiniCart',function (e) {
@@ -902,6 +1028,8 @@ var SuperMenu = (function ($, window, document, undefined) {
         $('.__cart-link').off('click.Cart').on('click.Cart', function (e) {
             e.preventDefault();
             $('html').trigger('open.MiniCart');
+            // showCouponActive();
+            
         });
         $('.__close-cart').off('click.Cart').on('click.Cart', function (e) {
             e.preventDefault();
@@ -1014,7 +1142,8 @@ var SuperMenu = (function ($, window, document, undefined) {
         
         return true;
     };
-    $(window).on('load',startHomeScripts);
+    
+    startHomeScripts();
     
     return {
         closeAllFloats: function (e) {
@@ -1529,6 +1658,108 @@ window.GetCookie = function(name){
     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
     if (match) return match[2];
 }
+<<<<<<< HEAD
+=======
+function homeCountDown(){
+    const corBg = document.querySelector('.w-counter--bg').textContent; 
+    document.querySelector('.w-counter').style.backgroundColor = corBg;
+
+    
+    if(document.querySelector('.w-counter--container') != null){
+        // COUNTERBAR
+        let bar = document.createElement("span");
+        bar.classList.add("w-counter--container--counterbar")
+        let fill = document.createElement("span");
+        fill.classList.add("w-counter--bar");
+        document.querySelector(".w-counter--container").appendChild(bar);
+        document.querySelector(".w-counter--container--counterbar").appendChild(fill);
+        document.querySelector(".w-counter--container--counterbar").style.backgroundColor = corBg;
+
+        document.querySelector('.w-counter--container').classList.remove('hide-important');
+        let dateFim = document.querySelector('.w-counter--end').textContent;
+        dateFim = dateFim.split('/');
+        dateFim[2] = dateFim[2].split(' ');
+        dateFim = `${dateFim[2][0]}/${dateFim[0]}/${dateFim[1]} ${dateFim[2][1]}`;
+        // console.log(dateFim);
+        const end = new Date(dateFim);
+    
+        const _second = 1000;
+        const _minute = _second * 60;
+        const _hour = _minute * 60;
+        const _day = _hour * 24;
+        let clock = 0;
+        function showRemaining() {
+            let now = new Date();
+            let distance = end - now;
+    
+            if (distance <= 0) {
+                clearInterval(clock);
+                document.querySelector('.w-counter--container').classList.add('hidden')
+                if(document.querySelector('.w-counter--cupom') != null){
+                    document.querySelector('.w-counter--cupom').classList.remove('hidden')
+                    document.querySelector('.w-counter-copy').classList.remove('hidden')
+                }
+                return;
+            }
+            let days = Math.floor(distance / _day);
+            let hours = Math.floor(distance / 36e5);
+            let minutes = Math.floor((distance % _hour) / _minute);
+            let seconds = Math.floor((distance % _minute) / _second);
+            
+            // let dayCounter = document.querySelector('.w-counter--day');
+            let hourCounter = document.querySelector('.w-counter--hour');
+            let minuteCounter = document.querySelector('.w-counter--minutes');
+            let secondsCounter = document.querySelector('.w-counter--seconds');
+            const diasText = document.querySelector('.w-counter--info')
+
+            let width = now.getTime() / end.getTime() * 100;
+            document.querySelector(".w-counter--bar").style.width = width + "%";
+
+            // dayCounter.innerHTML = days;
+            // diasText.textContent = days == 1 ? 'dia' : 'dias';
+            hourCounter.innerHTML = hours < 10 ? '0' + hours : hours;
+            minuteCounter.innerHTML = minutes < 10 ? '0' + minutes : minutes;
+            secondsCounter.innerHTML = seconds < 10 ? '0' + seconds : seconds;
+        }
+
+    clock = setInterval(showRemaining, 1000);
+}
+};
+function copiarTopBanner() {
+    const btnCopy = document.querySelector('.w-counter-copy');
+    const cupomToCopy = document.querySelector('.w-counter--cupom');
+    btnCopy.addEventListener('click', function (e) {
+        e.preventDefault;
+        cupomToCopy.select()
+        document.execCommand('copy');
+        btnCopy.textContent = "COPIADO";
+        btnCopy.classList.add("btn-success");
+        setTimeout(() => {
+            btnCopy.textContent = "COPIAR";
+            btnCopy.classList.remove("btn-success");
+        }, 3000);
+    })
+}
+
+
+setTimeout(function() {
+    if(document.querySelector('.w-counter-copy') != null){
+        copiarTopBanner();
+    }
+    if(document.querySelector('.w-counter') != null){
+        if(BrowserVendor == 'safari/webkit'){
+            setTimeout(() => {
+                homeCountDown();
+            }, 3000);
+        }
+        else{
+            homeCountDown();
+        }
+        // $('.w-counter--slick').slick();
+    }
+}, 500);
+
+>>>>>>> develop
 $(document).ready(function(){
     loadImg(); // adicionado para carregar no load as imagens iniciais(); // adicionado para carregar no load as imagens iniciais
     if(BrowserVendor == 'safari/webkit' || BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
@@ -1540,6 +1771,7 @@ $(document).ready(function(){
         }
     }
 
+<<<<<<< HEAD
     var day = new Date().getDate();
     if (document.querySelector(".counter") || document.querySelector(".topbanner")) {
         switch (day) {
@@ -1705,3 +1937,6 @@ function copiarTopBanner(){
             // $('.w-counter--slick').slick();
         }
     }, 500);
+=======
+});
+>>>>>>> develop

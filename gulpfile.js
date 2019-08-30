@@ -17,21 +17,25 @@ const gulp = require('gulp');
 const pug = require('gulp-pug');
 const sass = require('gulp-sass');
 const uglify = require('gulp-uglify');
+const rename = require("gulp-rename");
 
 const paths = {
   styles: {
     src: 'src/assets/scss/common/*.scss',
-    dest: './dist/assets/css',
+    dest: './dist/assets/css/',
+    qa: './qa/assets/css/',
     srcWatch: 'src/assets/scss/**/*.scss',
   },
   scripts: {
-    src: 'src/assets/js/common/*.js',
-    dest: './dist/assets/js',
-    srcWatch: 'src/assets/**/*.js',
+    src: ['src/assets/js/common/*.js', 'src/assets/js/common/*.jsx'],
+    dest: './dist/assets/js/',
+    qa: './qa/assets/js/',
+    srcWatch: ['src/assets/**/*.js','src/assets/**/*.jsx'],
   },
-  htmls: {
-    src: 'src/views/common/**/*.pug',
-    dest: './dist/views/html_templates',
+  markup: {
+    pug: 'src/views/common/*/*.pug',
+    html: 'src/views/html/*.html',
+    dest: './dist/views/html',
   }
 };
 
@@ -42,12 +46,12 @@ const paths = {
 
 const pugtranspile = () => {
   return gulp.src([
-    paths.htmls.src,
-    '!src/views/common/_layouts/*.pug',
-    '!src/views/common/_partials/*.pug',
+    paths.markup.pug,
+    'src/views/common/_layouts/*.pug',
+    'src/views/common/_partials/*.pug',
   ])
     .pipe(pug({
-      pretty: false,
+      pretty: true
     }))
     .pipe(gulp.dest(paths.htmls.dest));
 }
@@ -63,17 +67,24 @@ const styles = () => {
       cascade: false,
     }))
     .pipe(gulp.dest(paths.styles.dest))
-    .pipe(gulp.dest('./dist/vtex_speed'));
+    .pipe(gulp.dest('./dist/vtex_speed'))
+    .pipe(rename(function (path) {
+      path.basename = "QA-" + path.basename
+    }))
+    .pipe(gulp.dest(paths.styles.qa));
 }
 
 const scripts = () => {
   return gulp.src(paths.scripts.src)
-    .pipe(babel({
-      presets: ["@babel/polyfill", "env"]
-    }))
+    .pipe(babel())
+    .pipe(browserify())
     .pipe(uglify())
     .pipe(gulp.dest(paths.scripts.dest))
-    .pipe(gulp.dest('./dist/vtex_speed'));
+    .pipe(gulp.dest('./dist/vtex_speed'))
+    .pipe(rename(function (path) {
+      path.basename = "QA-" + path.basename
+    }))
+    .pipe(gulp.dest(paths.scripts.qa));
 }
 
 const pluginsJs = () => {
@@ -84,7 +95,7 @@ const pluginsJs = () => {
 }
 
 function sync(){
-  browserSync.init({
+  return browserSync.init({
       open: true,
       https: true,
       host: storeName  + '.vtexlocal.com.br',
@@ -100,7 +111,10 @@ function sync(){
 const watch = () => {
   gulp.watch(paths.styles.srcWatch, styles).on('change',browserSync.reload);
   gulp.watch(paths.scripts.srcWatch, scripts).on('change',browserSync.reload);
-  gulp.watch('src/views/**/*', htmls, pugtranspile).on('change',browserSync.reload);
+  gulp.watch('src/views/**/*', pugtranspile).on('change',browserSync.reload);
+  gulp.watch('src/views/html/*', htmls).on('change',browserSync.reload);
+  gulp.watch(paths.imgs.srcWatch, minimg).on('change',browserSync.reload);
+  gulp.watch(paths.svgs.srcWatch, minsvg).on('change',browserSync.reload);
 }
 
 //------------------------------ Tasks -----------------------------
@@ -111,6 +125,9 @@ const build = gulp.series(gulp.parallel(sync,styles, scripts, htmls, pugtranspil
 exports.styles = styles;
 exports.scripts = scripts;
 exports.htmls = htmls;
+exports.pugtranspile = pugtranspile;
+exports.minimg = minimg;
+exports.minsvg = minsvg;
 exports.watch = watch;
 exports.build = build;
 
