@@ -29,8 +29,9 @@ class PriceModal extends React.Component {
         })
       )
     }
-
-    this.setPosition(this.state.Region, this.state.LatLng);
+    
+    document.querySelector(".modalRegional").classList.remove("hidden");
+    // this.setPosition(this.state.Region, this.state.LatLng);
   }
 
   setPosition(Region, LatLong){
@@ -84,7 +85,7 @@ class PriceModal extends React.Component {
       <React.Fragment>
         <div className="modalRegional__overlay"></div>
         <div className="modalRegional__container">
-          <h3 className="modalRegional__container__title">Por favor, selecione sua região</h3>
+          <h3 className="modalRegional__container__title">Qual região você está?</h3>
           <select className="modalRegional__selection" onChange={e => this.handleChange(e.target.value)} >
              { this.state.Regions.map(R => <option value={R} key={R.split(",")[1]} selected={R.split(",")[0] == this.state.Region ? "selected" : ""} > {R.split(",")[0]} </option>) }
           </select>

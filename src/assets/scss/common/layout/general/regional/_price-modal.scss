@@ -36,7 +36,7 @@
             margin: 0 0 20px;
         }
         .modalRegional__selection{
-            padding: 10px 0;
+            padding: 10px;
             border: solid 1px $qdb-grey-l;
             @include sans(1rem, $g-primary, 400, initial);
             border-radius: 5px;
@@ -46,7 +46,7 @@
             background: $safflower;
             display: flex;
             justify-content: center;
-            @include sans(.875rem, $w-secundary, 900, initial);
+            @include sans(.875rem, $w-secundary, 400, initial);
             padding: 15px 10px;
             text-align: center;
             border-radius: 5px;

@@ -19,11 +19,13 @@ const pug = require('gulp-pug');
 const sass = require('gulp-sass');
 const svgmin = require('gulp-svgmin');
 const uglify = require('gulp-uglify');
+const rename = require("gulp-rename");
 
 const paths = {
   styles: {
     src: 'src/assets/scss/common/*.scss',
     dest: './dist/assets/css/',
+    qa: './qa/assets/css/',
     srcWatch: 'src/assets/scss/**/*.scss',
   },
   imgs: {
@@ -39,6 +41,7 @@ const paths = {
   scripts: {
     src: ['src/assets/js/common/*.js', 'src/assets/js/common/*.jsx'],
     dest: './dist/assets/js/',
+    qa: './qa/assets/js/',
     srcWatch: ['src/assets/**/*.js','src/assets/**/*.jsx'],
   },
   markup: {
@@ -91,7 +94,11 @@ const styles = () => {
       cascade: false,
     }))
     .pipe(gulp.dest(paths.styles.dest))
-    .pipe(gulp.dest('./dist/vtex_speed'));
+    .pipe(gulp.dest('./dist/vtex_speed'))
+    .pipe(rename(function (path) {
+      path.basename = "QA-" + path.basename
+    }))
+    .pipe(gulp.dest(paths.styles.qa));
 }
 
 const scripts = () => {
@@ -100,7 +107,11 @@ const scripts = () => {
     .pipe(browserify())
     .pipe(uglify())
     .pipe(gulp.dest(paths.scripts.dest))
-    .pipe(gulp.dest('./dist/vtex_speed'));
+    .pipe(gulp.dest('./dist/vtex_speed'))
+    .pipe(rename(function (path) {
+      path.basename = "QA-" + path.basename
+    }))
+    .pipe(gulp.dest(paths.scripts.qa));
 }
 
 const pluginsJs = () => {
