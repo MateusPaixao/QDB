@@ -1,5 +1,5 @@
-import HomeContadorProduto from './__home__product-counter';
-import HomeBannerPrincipal from './__home__banner-principal';
+import HomeContadorProduto from './_home__product-counter';
+import HomeBannerPrincipal from './_home__banner-principal';
 
 const Methods = {
     init() {
