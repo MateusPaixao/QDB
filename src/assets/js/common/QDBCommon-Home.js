@@ -11,6 +11,7 @@ const Methods = {
         // Methods.principalBannerSlick();
         Methods.buildHome();
         Methods.buildVitrines();
+        Methods.buildBanners();
         Methods.getInfoVitrines();
         if(document.querySelector(".w-gerador--datas") != null){
             Methods.getProductInfos();
@@ -36,7 +37,7 @@ const Methods = {
             General.vitrine(vitrine.dataset.collection);
 
             window.onload = function(){
-                document.querySelectorAll(".glider").forEach((glider)=>{
+                document.querySelectorAll(".--gliderVitrine").forEach((glider)=>{
                     new Glider(glider, {
                         slidesToScroll: 1,
                         slidesToShow: 1,
@@ -94,6 +95,37 @@ const Methods = {
             // }
             }
         });
+    },
+
+    buildBanners: () => {
+        window.onload = function(){
+            new Glider(document.querySelector(".--gliderBanners"), {
+                slidesToScroll: 1,
+                slidesToShow: 1,
+                draggable: true,
+                responsive: [
+                    {
+                        // screens greater than >= 775px
+                        breakpoint: 768,
+                        settings: {
+                        slidesToShow: 'auto',
+                        slidesToScroll: 'auto',
+                        }
+                    },
+                    {
+                        breakpoint: 992,
+                        settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                            arrows: {
+                                prev: ".glider-prev",
+                                next: ".glider-next"
+                            },
+                        }
+                    }
+                ]
+            })
+        }
     },
     getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');

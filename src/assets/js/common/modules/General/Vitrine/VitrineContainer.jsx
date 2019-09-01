@@ -54,7 +54,7 @@ const Methods = {
           })
           return (
             <React.Fragment>
-              <div className="cardProductContainer glider">
+              <div className="cardProductContainer --gliderVitrine">
                 {cards}
               </div>
               <Slider />
