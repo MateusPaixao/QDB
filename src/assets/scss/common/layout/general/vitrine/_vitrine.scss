@@ -1,4 +1,5 @@
-.render-collection{
+.render-collection, .bannerCollection__render-collection{
+    max-width: 55%;
     position: relative;
     &::before, &::after{
         content: '';

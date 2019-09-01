@@ -98,7 +98,8 @@ const styles = () => {
     .pipe(rename(function (path) {
       path.basename = "QA-" + path.basename
     }))
-    .pipe(gulp.dest(paths.styles.qa));
+    .pipe(gulp.dest(paths.styles.qa))
+    .pipe(gulp.dest('./dist/vtex_speed'));
 }
 
 const scripts = () => {
@@ -111,7 +112,8 @@ const scripts = () => {
     .pipe(rename(function (path) {
       path.basename = "QA-" + path.basename
     }))
-    .pipe(gulp.dest(paths.scripts.qa));
+    .pipe(gulp.dest(paths.scripts.qa))
+    .pipe(gulp.dest('./dist/vtex_speed'));
 }
 
 const pluginsJs = () => {

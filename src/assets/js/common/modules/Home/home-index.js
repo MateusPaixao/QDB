@@ -1,10 +1,10 @@
 import HomeContadorProduto from './__home__product-counter';
-import HomeBannerPrincipal from './__home__banner-principal';
+import BuildBanners from './Components/BannerPrincipal.jsx';
 
 const Methods = {
     init() {
+        BuildBanners.init();
         HomeContadorProduto.init();
-        HomeBannerPrincipal.init();
     }
 }
 

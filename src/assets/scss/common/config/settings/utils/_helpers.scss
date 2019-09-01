@@ -36,8 +36,15 @@ body{
             left: 125%;
         }
     }
-  }
+}
 
 .hidden{
     display: none !important;
+}
+
+.shell {
+    max-width: 1190px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: auto
 }

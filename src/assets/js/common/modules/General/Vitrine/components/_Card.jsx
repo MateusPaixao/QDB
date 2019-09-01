@@ -163,7 +163,7 @@ class Card extends React.Component{
           </span>
           <div className="cardProduct__pictureContainer">
             <ul className="cardProduct__pictureContainer__rating"></ul>
-            <img className="cardProduct__pictureContainer__picture" src={this.state.Sku.images[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "150", "#height#": "150" , "~": ""})}></img>
+            <img className="cardProduct__pictureContainer__picture" src={this.state.Sku.images[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "150", "#height#": "150" , "~": ""})} loading="lazy"></img>
           </div>
           <div className="cardProduct__info">
             <p className="cardProduct__info__name">

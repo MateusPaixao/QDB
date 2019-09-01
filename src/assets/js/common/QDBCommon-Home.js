@@ -1,37 +1,99 @@
 import Home from "./modules/Home/home-index"
+import Glider from "./global/vendor/glider-slider/glider.min.js"
+import General from "./modules/General/general-index"
+
 // import HomeIndex from './modules/Home/home-index';
 
 // document.addEventListener('DOMContentLoaded', HomeIndex.init);
 
 const Methods = {
     init() {
-        Methods.principalBannerSlick();
+        // Methods.principalBannerSlick();
+        Methods.buildHome();
+        Methods.buildVitrines();
+        Methods.getInfoVitrines();
         if(document.querySelector(".w-gerador--datas") != null){
             Methods.getProductInfos();
-            Methods.getTopBannerColor()
+            Methods.getTopBannerColor();
         }
     },
-    principalBannerSlick: () => {
-        const options = {
-            dots: true,
-            arrows: false,
-            lazyLoad: 'ondemand',
-            slidesToShow: 1,
-            autoplay: true,
-            autoplaySpeed: 10000
+    buildHome: () => {
+        Home.init();
+    },
+    getInfoVitrines: () =>{
+        for(let i = 0; i < document.querySelectorAll(".bannerVitrine").length; i++){
+            document.querySelectorAll(".bannerCollection__info__title")[i].textContent = document.querySelectorAll(".bannerVitrine")[i].textContent.match(/(?<=banTitleInit\s+).([^\s]+).*?(?=\s+banTitleEnd)/)[0];
+            document.querySelectorAll(".bannerCollection__info__banner_url")[i].href = document.querySelectorAll(".bannerVitrine")[i].textContent.match(/href\s*=\s*"(.+?)"/)[1];
+            document.querySelectorAll(".bannerCollection__info__banner_img")[i].src = document.querySelectorAll(".bannerVitrine")[i].textContent.match(/src\s*=\s*"(.+?)"/)[1];
         }
-        const slickDesktop = $('.w-lazy-banner--desktop');
-        const bannersDesktopLength = $('.w-lazy-banner--desktop .box-banner').length; 
-        const slickMobile = $('.w-lazy-banner--mobile');
-        const bannersmobileLength = $('.w-lazy-banner--mobile .box-banner').length; 
-        if(window.innerWidth <= 600 && bannersmobileLength > 1){
-            slickMobile.slick(options);
-            slickMobile.addClass('is--active');
-        }
-        else if(window.innerWidth >= 601 && bannersDesktopLength > 1){
-            slickDesktop.slick(options);
-            slickDesktop.addClass('is--active');
-        }
+    },
+    buildVitrines: () => {
+        document.querySelectorAll(".bannerCollection__Placeholder").forEach((collection)=>{
+            let vitrine = collection.nextSibling;
+            vitrine.setAttribute("id", "collection-" + collection.textContent)
+            vitrine.setAttribute("data-collection", collection.textContent)
+
+            General.vitrine(vitrine.dataset.collection);
+
+            window.onload = function(){
+                document.querySelectorAll(".glider").forEach((glider)=>{
+                    new Glider(glider, {
+                        slidesToScroll: 1,
+                        slidesToShow: 1,
+                        draggable: true,
+                        responsive: [
+                            {
+                                // screens greater than >= 775px
+                                breakpoint: 768,
+                                settings: {
+                                slidesToShow: 'auto',
+                                slidesToScroll: 'auto',
+                                }
+                            },
+                            {
+                                breakpoint: 992,
+                                settings: {
+                                slidesToShow: 2.5,
+                                slidesToScroll: 1,
+                                    arrows: {
+                                        prev: ".glider-prev",
+                                        next: ".glider-next"
+                                    },
+                                }
+                            }
+                        ]
+                    })
+                });
+            // for(let i = 0; i <= document.querySelectorAll(".glider").length; i++){
+            //     new Glider(document.querySelectorAll('.glider')[i], {
+            //         slidesToScroll: 1,
+            //         slidesToShow: 1,
+            //         draggable: true,
+            //         responsive: [
+            //             {
+            //                 // screens greater than >= 775px
+            //                 breakpoint: 768,
+            //                 settings: {
+            //                 slidesToShow: 'auto',
+            //                 slidesToScroll: 'auto',
+            //                 }
+            //             },
+            //             {
+            //                 breakpoint: 992,
+            //                 settings: {
+            //                 slidesToShow: 4.5,
+            //                 slidesToScroll: 1,
+            //                     arrows: {
+            //                         prev: '.glider-prev',
+            //                         next: '.glider-next'
+            //                     },
+            //                 }
+            //             }
+            //         ]
+                // })
+            // }
+            }
+        });
     },
     getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
