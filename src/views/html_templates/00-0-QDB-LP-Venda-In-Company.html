@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common"
+    xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-BR" class="_d-top">
+
+<head>
+    <script>
+        $(function () {
+            document.title = '<vtex:contentPlaceHolder id="Título da página" />';
+        });
+    </script>
+    <vtex:contentPlaceHolder id="Metatags" />
+    <vtex:template id="00-0-QDB-Head" />
+
+    <link rel="stylesheet" href="/arquivos/QDB-LP-Venda-in-company.css" />
+
+</head>
+
+<body>
+    <div class="container-group">
+        <vtex:template id="00-0-QDB-Header" />
+    </div>
+    <section class="lp-vc">
+        <div class="_container-vc">
+            <vtex:contentPlaceHolder id="H1 + Texto" />
+            <h1>quem disse, berenice? perto de você</h1>
+            <p>
+                Temos um portfólio completo de produtos de <strong>maquiagem, perfumaria, loções e acessórios</strong>
+                para que cada pessoa possa expressar a sua individualidade livremente e mostrar seu universo único. Leve
+                dicas de automaquiagem para seu time e adquira produtos para presentear seus funcionários em datas
+                importantes.
+            </p>
+            <p>
+                <strong>Vamos nos encontrar?</strong> <br />
+                Clique para descobrir como receber a gente na sua empresa.
+            </p>
+            <p>
+                <a class="_cadastro-open">Faça seu cadastro</a>
+            </p>
+        </div>
+        <section class="_form-modal" id="lp-vc">
+            <span class="_after"></span>
+            <form class="_form-container" action="javascript:void(0);">
+                <span class="form-group group-nome-emp">
+                    <label for="nomeEmp">Nome empresa:</label>
+                    <input type="text" name="nomeEmp" required="required" />
+                    <small class="hidden"></small>
+                </span>
+                <span class="form-group group-nome-contato">
+                    <label for="nomeContato">Nome de contato na empresa:</label>
+                    <input type="text" name="nomeContato" required="required" />
+                </span>
+                <span class="form-group group-email">
+                    <label for="email">E-mail corporativo:</label>
+                    <input type="email" name="email" required="required" />
+                    <small class="hidden"></small>
+                </span>
+                <span class="form-group group-tel-emp">
+                    <label for="telEmp">Telefone corporativo:</label>
+                    <input type="tel" name="telEmp" maxlength="11" required="required" />
+                    <small class="hidden"></small>
+                </span>
+                <span class="form-group group-cep">
+                    <label for="cepEmp">CEP</label>
+                    <input type="text" id="cep" name="cepEmp" maxlength="8" required="required" />
+                </span>
+                <span class="form-group group-endereco-emp">
+                    <label for="enderecoEmp">Endereço corporativo:</label>
+                    <input type="text" name="enderecoEmp" required="required" />
+                </span>
+                <span class="form-group group-num-emp">
+                    <label for="numEmp">Número</label>
+                    <input type="text" name="numEmp" required="required" placeHolder="número/complemento" />
+                </span>
+                <span class="form-group group-cidade-emp">
+                    <label for="cidadeEmp">Cidade</label>
+                    <input type="text" name="cidadeEmp" required="required" />
+                </span>
+                <span class="form-group group-uf-emp">
+                    <label for="ufEmp">UF</label>
+                    <input type="text" name="ufEmp" required="required" />
+                </span>
+                <span class="form-group group-termos">
+                    <input type="checkbox" id="_termos" name="_termos" valor="_termos" />
+                    <label for="_termos"> Concordo com os  
+                        <a class="link-termos" target="_blank" href="https://www.quemdisseberenice.com.br/venda-corporativa/termos">termos de uso </a> e 
+                        <a class="link-termos" target="_blank" href="https://www.quemdisseberenice.com.br/venda-corporativa/politica">  política de privacidade</a>
+                    </label>
+                </span>
+                <input type="text" name="validation-field" class="hidden" />
+                <button>
+                    Enviar
+                </button>
+            </form>
+        </section>
+    </section>
+
+
+
+    <footer class="footer">
+        <vtex:template id="00-0-QDB-Footer" />
+    </footer>
+    <script type="text/javascript" src="/arquivos/QDB-LP-Venda-In-Company.js"></script>
+</body>
+
+</html>
