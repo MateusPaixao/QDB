@@ -1,0 +1,17 @@
+[data-main-option] {
+  background-color: #1d94767a;
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+  float: left;
+}
+
+[data-option-tone] {
+  background-color: #1b666b;
+  height: 80px;
+  width: 80px;
+  margin: 10px;
+  float: left;
+}
+
+/*# sourceMappingURL=main.css.map */
