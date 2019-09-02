@@ -24,8 +24,12 @@ const Methods = {
             getBanners(){
                 let bannerViewport = document.querySelector(".banners" + this.state.Viewport);
                 for(let i = 1; i < bannerViewport.textContent.split('<div class="box-banner">').length; i++){
-                    this.state.BannersImgs.push(bannerViewport.textContent.split('<div class="box-banner">')[i].match(/src\s*=\s*"(.+?)"/)[1])
-                    this.state.BannersUrls.push(bannerViewport.textContent.split('<div class="box-banner">')[i].match(/href\s*=\s*"(.+?)"/)[1])
+                    this.state.BannersImgs.push(bannerViewport.textContent.split('<div class="box-banner">')[i].match(/src\s*=\s*"(.+?)"/)[1]);
+                    console.log(bannerViewport.textContent.split('<div class="box-banner">')[i].match(/src\s*=\s*"(.+?)"/)[1]);
+                    this.state.BannersUrls.push(bannerViewport.textContent.split('<div class="box-banner">')[i].match(/href\s*=\s*"(.+?)"/)[1]);
+                    
+                    // let idImg = string.match(/\d+/);;
+                    // string.replace(idImg[0], idImg[0] + "#{width}-#{height}")
                 }
             }
             

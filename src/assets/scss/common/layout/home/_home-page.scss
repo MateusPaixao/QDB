@@ -1654,6 +1654,13 @@
 // 	margin-top: 50px !important;
 // }
 
+.bannerHero{
+	.bannerHero__banners{
+		display: flex;
+		overflow: auto;
+	}
+}
+
 .bannerCollection{
 	margin-bottom: 20px;
 	&:nth-child(2){
