@@ -36,14 +36,14 @@ const Methods = {
       }
 
       render() {
-        const Slider = () => {
-          return (
-            <React.Fragment>
-              <button id={"gliderPrev" + collection} role="button" aria-label="Previous" className={"glider-prev gliderPrev" + collection} >⯇</button>
-              <button id={"gliderNext" + collection} role="button" aria-label="Next" className={"glider-next gliderNext" + collection}>⯈</button>
-            </React.Fragment>
-          )
-        }
+        // const Slider = () => {
+        //   return (
+        //     <React.Fragment>
+        //       <button id={"gliderPrev" + collection} role="button" aria-label="Previous" className={"glider-prev gliderPrev" + collection} >⯇</button>
+        //       <button id={"gliderNext" + collection} role="button" aria-label="Next" className={"glider-next gliderNext" + collection}>⯈</button>
+        //     </React.Fragment>
+        //   )
+        // }
         const Cards = () => {
           console.log(this.state.Products);
           let cards = [];
@@ -57,7 +57,7 @@ const Methods = {
               <div className="cardProductContainer --gliderVitrine">
                 {cards}
               </div>
-              <Slider />
+              {/* <Slider /> */}
             </React.Fragment>
           )
         }

@@ -1,6 +1,6 @@
 import Home from "./modules/Home/home-index"
-import Glider from "./global/vendor/glider-slider/glider.min.js"
 import General from "./modules/General/general-index"
+import Siema from "./global/vendor/siema-slider/siema.min.js"
 
 // import HomeIndex from './modules/Home/home-index';
 
@@ -35,36 +35,40 @@ const Methods = {
             vitrine.setAttribute("data-collection", collection.textContent)
 
             General.vitrine(vitrine.dataset.collection);
+            
+            // window.onload = function(){
+            //     let setSliderVitrine;
 
-            window.onload = function(){
-                document.querySelectorAll(".--gliderVitrine").forEach((glider)=>{
-                    new Glider(glider, {
-                        slidesToScroll: 1,
-                        slidesToShow: 1,
-                        draggable: true,
-                        responsive: [
-                            {
-                                // screens greater than >= 775px
-                                breakpoint: 768,
-                                settings: {
-                                slidesToShow: 'auto',
-                                slidesToScroll: 'auto',
-                                }
-                            },
-                            {
-                                breakpoint: 992,
-                                settings: {
-                                slidesToShow: 2.5,
-                                slidesToScroll: 1,
-                                    arrows: {
-                                        prev: ".glider-prev",
-                                        next: ".glider-next"
-                                    },
-                                }
-                            }
-                        ]
-                    })
-                });
+            //     document.querySelectorAll(".--gliderVitrine").forEach((glider)=>{
+            //         setSliderVitrine = new Siema(glider, {
+            //             slidesToScroll: 1,
+            //             slidesToShow: 1,
+            //             draggable: true,
+            //             responsive: [
+            //                 {
+            //                     // screens greater than >= 775px
+            //                     breakpoint: 768,
+            //                     settings: {
+            //                     slidesToShow: 'auto',
+            //                     slidesToScroll: 'auto',
+            //                     }
+            //                 },
+            //                 {
+            //                     breakpoint: 992,
+            //                     settings: {
+            //                     slidesToShow: 2.5,
+            //                     slidesToScroll: 1,
+            //                         arrows: {
+            //                             prev: ".glider-prev",
+            //                             next: ".glider-next"
+            //                         },
+            //                     }
+            //                 }
+            //             ]
+            //         })
+
+            //         return setSliderVitrine;
+            //     });
             // for(let i = 0; i <= document.querySelectorAll(".glider").length; i++){
             //     new Glider(document.querySelectorAll('.glider')[i], {
             //         slidesToScroll: 1,
@@ -93,39 +97,25 @@ const Methods = {
             //         ]
                 // })
             // }
-            }
+            // }
         });
     },
 
     buildBanners: () => {
-        window.onload = function(){
-            new Glider(document.querySelector(".--gliderBanners"), {
-                slidesToScroll: 1,
-                slidesToShow: 1,
-                draggable: true,
-                responsive: [
-                    {
-                        // screens greater than >= 775px
-                        breakpoint: 768,
-                        settings: {
-                        slidesToShow: 'auto',
-                        slidesToScroll: 'auto',
-                        }
-                    },
-                    {
-                        breakpoint: 992,
-                        settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                            arrows: {
-                                prev: ".glider-prev",
-                                next: ".glider-next"
-                            },
-                        }
-                    }
-                ]
-            })
-        }
+        new Siema({
+            selector: ".bannerHero__banners",
+            duration: 200,
+            easing: 'ease-out',
+            perPage: 1,
+            startIndex: 0,
+            draggable: true,
+            multipleDrag: true,
+            threshold: 20,
+            loop: false,
+            rtl: false,
+            onInit: () => {},
+            onChange: () => {}
+        });
     },
     getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');

@@ -33,17 +33,17 @@ const Methods = {
                 }
             }
             
-            componentDidMount(){
-                this.setViewport(window.innerWidth);
-                this.getBanners();
-            }
-        
             // handleChange(e){
             //   this.setState({
 
             //   })
             // }
         
+            componentDidMount(){
+                this.setViewport(window.innerWidth);
+                this.getBanners();
+            }
+            
             render(){
                 let banners = [];
                 const Banners = () => {
@@ -58,8 +58,13 @@ const Methods = {
                     return banners;
                 }
 
-                return <Banners />
+                return (
+                    <React.Fragment>
+                        <Banners />
+                    </React.Fragment>
+                )
             }
+        
         }
         
         ReactDOM.render(
