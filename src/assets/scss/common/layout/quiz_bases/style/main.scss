@@ -1,3 +1,10 @@
+body {
+    font-size: 14px;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
 .show {
     display: block;
 }
@@ -14,20 +21,26 @@
         clear: both;
     }
 }
-[data-main-group], [data-tone-group] {
+[data-main-group], [data-subtone-group] {
     @extend .clearfix;
 }
 [data-main-option] {
     background-color: #1d94767a;
-    height: 100px;
-    width: 100px;
     margin: 10px;
+    padding: 20px 10px;
+    font-size: 22px;
+    font-weight: 700;
     float: left;
 }
-[data-tone-option] {
-    background-color: #1b666b;
-    height: 80px;
-    width: 80px;
+[data-subtone-option] {
+    background-color:#1b666b;
     margin: 10px;
     float: left;
+    padding: 10px;
+}
+#result .item {
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    background-color: #926f86;
 }
