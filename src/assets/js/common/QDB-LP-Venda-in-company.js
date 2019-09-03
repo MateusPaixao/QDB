@@ -10,7 +10,7 @@ jQuery(function ($) {
             function (result) {
                 if (result.status != 1) {
                     alert(result.message || "Houve um erro desconhecido");
-                    return;    
+                    return;
                 }
                 $("input[name='cepEmp']").val(result.code);
                 $("input[name='ufEmp']").val(result.state);
