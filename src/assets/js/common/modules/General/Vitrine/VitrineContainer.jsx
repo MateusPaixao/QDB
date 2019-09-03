@@ -34,7 +34,7 @@ const Methods = {
           })
         });
       }
-
+      
       render() {
         // const Slider = () => {
         //   return (

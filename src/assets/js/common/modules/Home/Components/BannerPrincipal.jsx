@@ -2,14 +2,14 @@ const Methods = {
     BuildBanners(){
         class BannerPrincipal extends React.Component {
             constructor(props){
-            super(props);
-            this.state = {
-                BannersImgs: [],
-                BannersUrls: [],
-                Viewport: "Desktop"
-            }
-            this.getBanners = this.getBanners.bind(this);
-            this.setViewport = this.setViewport.bind(this);
+                super(props);
+                this.state = {
+                    BannersImgs: [],
+                    BannersUrls: [],
+                    Viewport: "Desktop"
+                }
+                this.getBanners = this.getBanners.bind(this);
+                this.setViewport = this.setViewport.bind(this);
             }
 
             setViewport(size){

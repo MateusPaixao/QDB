@@ -1,45 +1,21 @@
-.render-collection, .bannerCollection__render-collection{
-    max-width: 55%;
+.render-collection{
     position: relative;
-    &::before, &::after{
-        content: '';
-        height: 100%;
-        width: 3em;
-        position: absolute;
-        z-index: 1;
-        top: 0;
-    }
-    &::before{
-        left: 0;
-        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&1+0,0+100;White+to+Transparent */
-        background: -moz-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 *
-    }
-    &::after{
-        right: 0;
-        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0+0,1+99 */
-        background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 99%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 99%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 99%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    }
 }
 .glider-prev, .glider-next{
     top: 40%;
     padding: 10px;
 }
 .cardProductContainer{
-    display: flex;
-    max-width: 100%;
-    overflow-x: auto;
+    // display: flex;
+    // max-width: 100%;
+    // overflow-x: auto;
     overflow-y: hidden;
-    padding: 0 3em;
+    // padding: 0 3em;
     .cardProduct{
         display: flex;
         flex-flow: column;
         justify-content: center;
-        min-width: 300px;
+        // min-width: 350px;
         min-height: 380px;
         border: solid 1px $qdb-grey-l;
         margin: 0  5px;

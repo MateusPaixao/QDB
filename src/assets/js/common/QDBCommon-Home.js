@@ -35,74 +35,31 @@ const Methods = {
             vitrine.setAttribute("data-collection", collection.textContent)
 
             General.vitrine(vitrine.dataset.collection);
-            
-            // window.onload = function(){
-            //     let setSliderVitrine;
-
-            //     document.querySelectorAll(".--gliderVitrine").forEach((glider)=>{
-            //         setSliderVitrine = new Siema(glider, {
-            //             slidesToScroll: 1,
-            //             slidesToShow: 1,
-            //             draggable: true,
-            //             responsive: [
-            //                 {
-            //                     // screens greater than >= 775px
-            //                     breakpoint: 768,
-            //                     settings: {
-            //                     slidesToShow: 'auto',
-            //                     slidesToScroll: 'auto',
-            //                     }
-            //                 },
-            //                 {
-            //                     breakpoint: 992,
-            //                     settings: {
-            //                     slidesToShow: 2.5,
-            //                     slidesToScroll: 1,
-            //                         arrows: {
-            //                             prev: ".glider-prev",
-            //                             next: ".glider-next"
-            //                         },
-            //                     }
-            //                 }
-            //             ]
-            //         })
-
-            //         return setSliderVitrine;
-            //     });
-            // for(let i = 0; i <= document.querySelectorAll(".glider").length; i++){
-            //     new Glider(document.querySelectorAll('.glider')[i], {
-            //         slidesToScroll: 1,
-            //         slidesToShow: 1,
-            //         draggable: true,
-            //         responsive: [
-            //             {
-            //                 // screens greater than >= 775px
-            //                 breakpoint: 768,
-            //                 settings: {
-            //                 slidesToShow: 'auto',
-            //                 slidesToScroll: 'auto',
-            //                 }
-            //             },
-            //             {
-            //                 breakpoint: 992,
-            //                 settings: {
-            //                 slidesToShow: 4.5,
-            //                 slidesToScroll: 1,
-            //                     arrows: {
-            //                         prev: '.glider-prev',
-            //                         next: '.glider-next'
-            //                     },
-            //                 }
-            //             }
-            //         ]
-                // })
-            // }
-            // }
         });
+
+        window.onload = () =>{
+            const vitrines = document.querySelectorAll('.--gliderVitrine');
+    
+            for(const vitrine of vitrines) {
+                console.log(vitrine);
+                new Siema({
+                  selector: vitrine,
+                  duration: 200,
+                  easing: 'ease-out',
+                  perPage: 2,
+                  startIndex: 0,
+                  draggable: true,
+                  multipleDrag: true,
+                  threshold: 20,
+                  loop: false,
+                  rtl: false
+                })
+            }
+        }
     },
 
     buildBanners: () => {
-        new Siema({
+        const slideBanners = new Siema({
             selector: ".bannerHero__banners",
             duration: 200,
             easing: 'ease-out',
@@ -116,6 +73,20 @@ const Methods = {
             onInit: () => {},
             onChange: () => {}
         });
+
+        console.log(slideBanners);
+        console.log(slideBanners.prototype.isPrototypeOf());
+
+        Siema.prototype.addPagination = function() {
+            for (let i = 0; i < this.innerElements.length; i++) {
+              const btn = document.createElement('button');
+              btn.textContent = i;
+              btn.addEventListener('click', () => this.goTo(i));
+              this.selector.appendChild(btn);
+            }
+        }
+        // Trigger pagination creator
+        slideBanners.addPagination();
     },
     getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
