@@ -1,3 +1,22 @@
+.show {
+    display: block;
+}
+.hide {
+    display: none;
+}
+.clearfix {
+    &:before,
+    &:after {
+        content: ' ';
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+[data-main-group], [data-tone-group] {
+    @extend .clearfix;
+}
 [data-main-option] {
     background-color: #1d94767a;
     height: 100px;
@@ -5,7 +24,7 @@
     margin: 10px;
     float: left;
 }
-[data-option-tone] {
+[data-tone-option] {
     background-color: #1b666b;
     height: 80px;
     width: 80px;

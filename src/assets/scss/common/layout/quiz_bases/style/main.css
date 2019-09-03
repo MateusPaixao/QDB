@@ -1,3 +1,19 @@
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.clearfix:before, [data-main-group]:before, [data-tone-group]:before, .clearfix:after, [data-main-group]:after, [data-tone-group]:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after, [data-main-group]:after, [data-tone-group]:after {
+  clear: both;
+}
+
 [data-main-option] {
   background-color: #1d94767a;
   height: 100px;
@@ -6,7 +22,7 @@
   float: left;
 }
 
-[data-option-tone] {
+[data-tone-option] {
   background-color: #1b666b;
   height: 80px;
   width: 80px;

@@ -1,29 +1,23 @@
 class ClaroStrategy {
     getResult() {
         var obj = {
+            "id": "claro",
+            "offset": "0",
             "name" : "Claro",
             "imageURL" : "https://via.placeholder.com/150",
             "text" : "Texto explicativo para pessoas de tom de pele claro",
-            "tones" : [
-                {
-                    "name" : "Tom 1",
-                    "imageURL" : "https://via.placeholder.com/150",
-                    "text" : "Texto explicativo para pessoas de tom de pele 1"
-                },
-                {
-                    "name" : "Tom 2",
-                    "imageURL" : "https://via.placeholder.com/150",
-                    "text" : "Texto explicativo para pessoas de tom de pele 2"
-                },
-                {
-                    "name" : "Tom 3",
-                    "imageURL" : "https://via.placeholder.com/150",
-                    "text" : "Texto explicativo para pessoas de tom de pele 3"
-                }
-            ]
+            "tones" : { 
+                    "tone0" : {
+                        "name" : "Tom 0",
+                        "imageURL" : "https://via.placeholder.com/150",
+                        "text" : "Texto explicativo para pessoas de tom de pele 0"
+                    }, "tone1" : {
+                        "name" : "Tom 1",
+                        "imageURL" : "https://via.placeholder.com/150",
+                        "text" : "Texto explicativo para pessoas de tom de pele 1"
+                    }
+            }
         };
-        
-        console.log("Claro escolhido");
         return obj;
     }
 }
