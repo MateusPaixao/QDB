@@ -26,6 +26,7 @@ function createSecondLevelStructure(option) {
     var currentStructure = document.querySelector(`[data-subtone-group=${obj.id}]`);
     var innerElements = currentStructure.querySelectorAll('[data-subtone-option]');
     
+    clearSecondStep();
     innerElements.forEach(element => {
         var subtoneName = element.getAttribute(['data-subtone-option']);
         var subtone = obj.subtones[`${subtoneName}`];
@@ -56,4 +57,21 @@ function createThirdLevelStructure(subtone) {
                                 `
     });
     currentStructure.classList.remove('hide');
+}
+
+function clearSecondStep(){
+    var subtoneGroup = document.querySelectorAll('[data-subtone-group]');
+    var innerElements = document.querySelectorAll('[data-subtone-option]');
+
+    innerElements.forEach(element => {
+        element.innerHTML = "";
+    });
+    subtoneGroup.forEach(element => {
+        element.classList.add("hide");
+    });
+}
+
+function clearThirdStep(){
+    var resultGroup = document.querySelector('#result');
+    resultGroup.innerHTML = "";
 }
