@@ -61,7 +61,7 @@ const Methods = {
     buildBanners: () => {
         const slideBanners = new Siema({
             selector: ".bannerHero__banners",
-            duration: 200,
+            duration: 150,
             easing: 'ease-out',
             perPage: 1,
             startIndex: 0,
@@ -70,23 +70,95 @@ const Methods = {
             threshold: 20,
             loop: false,
             rtl: false,
-            onInit: () => {},
-            onChange: () => {}
+            onChange: printSlideIndex
         });
+        // console.log(Siema.prototype);
 
-        console.log(slideBanners);
-        console.log(slideBanners.prototype.isPrototypeOf());
+        function printSlideIndex() {
+            this.innerElements.forEach((slide, i) => {
+                const addOrRemove = i === this.currentSlide ? 'add' : 'remove';
+                document.querySelectorAll(".bannerHero__controls--dots .--changePosition")[i].classList[addOrRemove]('--active');
+            })
 
-        Siema.prototype.addPagination = function() {
-            for (let i = 0; i < this.innerElements.length; i++) {
-              const btn = document.createElement('button');
-              btn.textContent = i;
-              btn.addEventListener('click', () => this.goTo(i));
-              this.selector.appendChild(btn);
+            if(this.currentSlide == 0){
+                document.querySelector(".bannerHero__controls--arrows .--prev").classList.add("off");
+            }else if(this.currentSlide == (this.innerElements.length - 1) ){
+                document.querySelector(".bannerHero__controls--arrows .--next").classList.add("off");
+            }else{
+                document.querySelector(".bannerHero__controls--arrows .--prev").classList.remove("off");
+                document.querySelector(".bannerHero__controls--arrows .--next").classList.remove("off");
             }
         }
+
+        // let controls = document.createElement("div");
+        // controls.classList.add("bannerHero__controls");
+
+        Siema.prototype.addPagination = function() {
+            let dotControl = document.createElement("span");
+            dotControl.classList.add("bannerHero__controls--dots");
+            // controls.appendChild(dotControl);
+            this.selector.appendChild(dotControl);
+
+            for (let i = 0; i < this.innerElements.length; i++) {
+              const btn = document.createElement('button');
+              btn.classList.add("--changePosition")
+              btn.addEventListener('click', () => this.goTo(i));
+              dotControl.appendChild(btn);
+            }
+            document.querySelector(".bannerHero__controls--dots").childNodes[0].classList.add("--active");
+        }
+
+        // Style the arrows with CSS or JS — up to you mate
+        Siema.prototype.addArrows = function () {
+            var _this = this;
+        
+            // make buttons & append them inside Siema's container
+            this.prevArrow = document.createElement('button');
+            this.prevArrow.classList.add("--prev");
+            this.nextArrow = document.createElement('button');
+            this.nextArrow.classList.add("--next");
+            this.prevArrow.textContent = '⯇';
+            this.nextArrow.textContent = '⯈';
+            
+            let arrowsControl = document.createElement("span");
+            arrowsControl.classList.add("bannerHero__controls--arrows");
+            this.selector.appendChild(arrowsControl);
+        
+            arrowsControl.appendChild(this.prevArrow);
+            arrowsControl.appendChild(this.nextArrow);
+
+            // event handlers on buttons
+            this.prevArrow.addEventListener('click', function () {
+                return _this.prev();
+            });
+            this.nextArrow.addEventListener('click', function () {
+                return _this.next();
+            });
+        };
+
         // Trigger pagination creator
         slideBanners.addPagination();
+        slideBanners.addArrows();
+
+        window.addEventListener('resize', () => {
+            // let controls = document.createElement("div");
+            // controls.classList.add("bannerHero__controls");
+            // document.querySelector(".bannerHero__banners").appendChild(controls);
+
+            slideBanners.addPagination();
+            slideBanners.addArrows();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            // if it's left arrow key
+            if (e.keyCode === 37) {
+              slideBanners.prev()
+            }
+            // if it's right arrow key
+            else if (e.keyCode === 39) {
+                slideBanners.next()
+            }
+        })
     },
     getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
