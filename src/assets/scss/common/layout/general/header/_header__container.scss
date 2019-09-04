@@ -1,8 +1,3 @@
-$principalColor: #FDFDFD;
-$secondaryColor: #67605F;
-$leftWidth: 10%;
-$middleWidth: 65%;
-$rightWidth: 10%;
 
 svg {
     path {
@@ -15,6 +10,7 @@ body {
 }
 
 .header {
+   
     background-color: $principalColor;
     width: 100%;
 
@@ -27,9 +23,11 @@ body {
         position: relative;
         padding: 15px;
 
-        &--acess {
+        &--access {
             display: flex;
-            align-self: flex-start;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
         }
 
         &--first {
@@ -48,9 +46,17 @@ body {
         }
     }
 
+    &__accessibility {
+        background: url(https://qbbr.vteximg.com.br/arquivos/access-black.png) center center no-repeat;
+        width: 25px;
+        height: 25px;
+        margin: 0 30px;
+    }
+
     &__logo {
         width: $leftWidth;
-        .svg--logo-principal{
+
+        .svg--logo-principal {
             width: 100%;
         }
     }
@@ -79,17 +85,20 @@ body {
         display: flex;
         justify-content: space-around;
         align-items: center;
-        &--item{
+
+        &--item {
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            svg{
+
+            svg {
                 width: 80%;
             }
         }
     }
-    &__menu-hamburguer-container{
+
+    &__menu-hamburguer-container {
         width: $leftWidth;
         display: flex;
         align-items: center;
@@ -97,12 +106,14 @@ body {
         cursor: pointer;
         height: 30px;
     }
+
     &__menu-hamburguer {
-        &--text{
+        &--text {
             font-size: 0.9em;
             margin-left: 15px;
         }
-        transition: .2s ease-in-out;
+
+        transition: .3s ease-in-out;
         display: block;
         width: 15px;
         background: $secondaryColor;
@@ -129,14 +140,17 @@ body {
             position: absolute;
             top: 6px;
         }
-        &.is--active{
+
+        &.is--active {
             transform: rotate(45deg);
             width: 25px;
-            &::after{
+
+            &::after {
                 top: 0;
                 transform: rotate(-90deg);
             }
-            &::before{
+
+            &::before {
                 width: 0;
             }
 
@@ -160,6 +174,7 @@ body {
             display: flex;
             align-items: center;
             justify-content: center;
+
             &:hover {
                 .header__nav--menu {
                     display: flex;
@@ -194,6 +209,7 @@ body {
             min-width: 100px;
             width: 100%;
             padding: 2px;
+
             &:hover {
                 text-decoration: underline;
             }
@@ -211,8 +227,5 @@ body {
             justify-content: center;
             align-content: center;
         }
-    }
-
-    .js--menu-close {
     }
 }
