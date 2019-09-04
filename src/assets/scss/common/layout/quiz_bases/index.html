@@ -8,45 +8,62 @@
     <link rel="stylesheet" href="./style/main.css">
 </head>
 <body>
-    <aside>
-        <div onclick="clearSecondStep()">Voltar</div>
-        <div onclick="clearThirdStep()">Voltar</div>    
-    </aside>
-    <section data-main-group>
-        <div data-main-option="claro">
-            CLARO
-        </div>
-        <div data-main-option="claro-medio">
-            CLARO MEDIO
-        </div>
-    </section>
-    <section class="hide" data-subtone-group="claro">
-        <div data-subtone-option="quente">
-            
-        </div>
-        <div data-subtone-option="neutro">
-            
-        </div>
-        <div data-subtone-option="frio">
-            
-        </div>
-    </section>
-    <section class="hide" data-subtone-group="claro-medio">
-        <div data-subtone-option="quente">
-            
-        </div>
-        <div data-subtone-option="neutro">
-            
-        </div>
-        <div data-subtone-option="frio">
-            
-        </div>
-    </section>
-    <section class="hide" id="result">
-    </section>
+    <!--atenção: A ESTRUTURA HTML DEVE FAZER CORRESPONDENCIA AOS OBJETOS JSON NELA INSERIDOS-->
+    <div class="slideshow-container" steps-control="">
+        <aside>  
+            <div>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div> 
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        </aside>
 
-    <script src="./js/FirstLevel/ClaroStrategy.js"></script>
-    <script src="./js/FirstLevel/ClaroMedioStrategy.js"></script>
+        <div class="slide-quiz fade">
+            <section data-main-group>
+                <div data-main-option="claro">
+                    CLARO
+                </div>
+                <div data-main-option="claro-medio">
+                    CLARO MEDIO
+                </div>
+            </section>
+        </div>
+      
+        <div class="slide-quiz fade">
+            <section data-subtone-group="claro">
+                <div data-subtone-option="quente">
+                    
+                </div>
+                <div data-subtone-option="neutro">
+                    
+                </div>
+                <div data-subtone-option="frio">
+                    
+                </div>
+            </section>
+            <section data-subtone-group="claro-medio">
+                <div data-subtone-option="quente">
+                    
+                </div>
+                <div data-subtone-option="neutro">
+                    
+                </div>
+                <div data-subtone-option="frio">
+                    
+                </div>
+            </section>
+        </div>
+      
+        <div class="slide-quiz fade">
+            <section id="result">
+            </section>
+        </div>       
+    </div>    
+
+    <script src="./js/strategies/ClaroStrategy.js"></script>
+    <script src="./js/strategies/ClaroMedioStrategy.js"></script>
+    <script src="./js/slide.js"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>
