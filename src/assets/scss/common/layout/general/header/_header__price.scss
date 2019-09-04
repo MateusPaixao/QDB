@@ -4,13 +4,6 @@
         border: solid 1px $g-primary;
         border-radius: 2rem;
         padding: 2px;
-        // .header__region__selection--option{
-        //     @include sans(.75rem, $g-primary, 400, initial);
-        // }
-        .header__region__selection--option::selection {
-            background-color: $safflower;
-            color: $w-secundary;
-        }
     }
     position: relative;
     &.--active, &:hover{
