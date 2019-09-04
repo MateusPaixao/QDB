@@ -19,7 +19,26 @@
 				transition: all .2s;
 				&.--active{
 					width: 3em;
-					background-color: $safflower;
+					position: relative;
+					&::before{
+						content: '';
+						width: 0px;
+						height: 100%;
+						display: flex;
+						position: absolute;
+						left: 0;
+						top: 0;
+						background: $safflower;
+						@include animation(slideBar, 5s, initial, linear);
+					}
+				}
+				@keyframes slideBar {
+					0%{
+						width: 0%;
+					};
+					100%{
+						width: 100%;
+					}
 				}
 			}
 		}

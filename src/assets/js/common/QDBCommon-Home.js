@@ -68,11 +68,11 @@ const Methods = {
             draggable: true,
             multipleDrag: true,
             threshold: 20,
-            loop: false,
+            loop: true,
             rtl: false,
             onChange: printSlideIndex
         });
-        // console.log(Siema.prototype);
+        let Autoplay = setInterval(() => slideBanners.next(), 5000);
 
         function printSlideIndex() {
             this.innerElements.forEach((slide, i) => {
@@ -100,10 +100,14 @@ const Methods = {
             this.selector.appendChild(dotControl);
 
             for (let i = 0; i < this.innerElements.length; i++) {
-              const btn = document.createElement('button');
-              btn.classList.add("--changePosition")
-              btn.addEventListener('click', () => this.goTo(i));
-              dotControl.appendChild(btn);
+                const btn = document.createElement('button');
+                btn.classList.add("--changePosition")
+                btn.addEventListener('click', () => {
+                    clearInterval(Autoplay);
+                    Autoplay = setInterval(() => slideBanners.next(), 5000);
+                    this.goTo(i)
+                });
+                dotControl.appendChild(btn);
             }
             document.querySelector(".bannerHero__controls--dots").childNodes[0].classList.add("--active");
         }
@@ -129,36 +133,39 @@ const Methods = {
 
             // event handlers on buttons
             this.prevArrow.addEventListener('click', function () {
+                clearInterval(Autoplay);
+                Autoplay = setInterval(() => slideBanners.next(), 5000);
                 return _this.prev();
             });
             this.nextArrow.addEventListener('click', function () {
+                clearInterval(Autoplay);
+                Autoplay = setInterval(() => slideBanners.next(), 5000);
                 return _this.next();
             });
         };
 
-        // Trigger pagination creator
+        document.addEventListener('keydown', (e) => {
+            // if it's left arrow key
+            if (e.keyCode === 37) {
+                clearInterval(Autoplay);
+                Autoplay = setInterval(() => slideBanners.next(), 5000);
+                slideBanners.prev()
+            }
+            // if it's right arrow key
+            else if (e.keyCode === 39) {
+                clearInterval(Autoplay);
+                Autoplay = setInterval(() => slideBanners.next(), 5000);
+                slideBanners.next()
+            }
+        });
+        
         slideBanners.addPagination();
         slideBanners.addArrows();
 
         window.addEventListener('resize', () => {
-            // let controls = document.createElement("div");
-            // controls.classList.add("bannerHero__controls");
-            // document.querySelector(".bannerHero__banners").appendChild(controls);
-
             slideBanners.addPagination();
             slideBanners.addArrows();
         });
-
-        document.addEventListener('keydown', (e) => {
-            // if it's left arrow key
-            if (e.keyCode === 37) {
-              slideBanners.prev()
-            }
-            // if it's right arrow key
-            else if (e.keyCode === 39) {
-                slideBanners.next()
-            }
-        })
     },
     getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
