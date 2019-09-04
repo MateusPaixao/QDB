@@ -1,13 +1,17 @@
 $principalColor: #FDFDFD;
 $secondaryColor: #67605F;
+$leftWidth: 10%;
+$middleWidth: 65%;
+$rightWidth: 10%;
 
 svg {
     path {
         fill: $secondaryColor
     }
 }
-body{
-    background: $secondaryColor;
+
+body {
+    background: darken(#fdfdfd, 10%);
 }
 
 .header {
@@ -20,7 +24,8 @@ body{
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 20px;
+        position: relative;
+        padding: 15px;
 
         &--acess {
             display: flex;
@@ -44,19 +49,28 @@ body{
     }
 
     &__logo {
-        width: 20%;
+        width: $leftWidth;
+        .svg--logo-principal{
+            width: 100%;
+        }
     }
 
     &__search {
-        width: 40%;
+        width: $middleWidth;
         display: flex;
         align-items: center;
         border-bottom: 1px solid $secondaryColor;
-        &--input{
-            width:90%;
+
+        &--input {
+            width: 90%;
+            padding: 2px;
         }
-        &--btn{
-            background:  url("/arquivos/Search.svg.png") center center no-repeat ;
+
+        &--btn {
+            background: url(/arquivos/Search.svg.png) center center no-repeat;
+            background-color: $secondaryColor;
+            padding: 5px;
+            width: 10%;
         }
     }
 
@@ -65,11 +79,32 @@ body{
         display: flex;
         justify-content: space-around;
         align-items: center;
+        &--item{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            svg{
+                width: 80%;
+            }
+        }
     }
-
+    &__menu-hamburguer-container{
+        width: $leftWidth;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        height: 30px;
+    }
     &__menu-hamburguer {
+        &--text{
+            font-size: 0.9em;
+            margin-left: 15px;
+        }
+        transition: .2s ease-in-out;
         display: block;
-        width: 20px;
+        width: 15px;
         background: $secondaryColor;
         height: 2px;
         position: relative;
@@ -94,57 +129,90 @@ body{
             position: absolute;
             top: 6px;
         }
+        &.is--active{
+            transform: rotate(45deg);
+            width: 25px;
+            &::after{
+                top: 0;
+                transform: rotate(-90deg);
+            }
+            &::before{
+                width: 0;
+            }
+
+        }
     }
 
     &__nav {
         display: flex;
         justify-content: space-around;
         align-items: center;
+        width: $middleWidth;
         cursor: pointer;
 
         &--list {
             position: relative;
-            margin: 0 10px;
+            margin: 0 5px;
+            padding: 5px;
+            width: calc(100% / 6);
+            text-align: center;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             &:hover {
                 .header__nav--menu {
                     display: flex;
                 }
             }
         }
-        
+
         &--menu {
             display: none;
             background: $principalColor;
             padding: 5px 20px 5px 5px;
             position: absolute;
-            top: 25px;
+            top: 95%;
             left: 0;
+            text-align: left;
             box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
         }
-        &--department{
+
+        &--department {
             margin: 0 15px;
         }
-        &--department-item{
+
+        &--department-item {
             font-weight: 900;
         }
-        &--categories{
+
+        &--categories {
             font-weight: 100;
         }
-        &--category{
+
+        &--category {
             min-width: 100px;
             width: 100%;
+            padding: 2px;
+            &:hover {
+                text-decoration: underline;
+            }
+
+
         }
-        &--especial{
+
+        &--especial {
             padding: 2px 4px;
             border: 1px solid $secondaryColor;
             cursor: pointer;
             border-radius: 5px;
+            width: $rightWidth;
+            display: flex;
+            justify-content: center;
+            align-content: center;
         }
     }
 
     .js--menu-close {
-        li {
-            display: none;
-        }
     }
 }

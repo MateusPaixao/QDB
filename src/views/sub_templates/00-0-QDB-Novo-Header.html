@@ -1,8 +1,8 @@
 <header class="header">
     <div class="header__container">
-        <div class="header__container--acess">
-            <span class="header__acessibility"></span>
-            <div id="regiao" class="header__region"></div>
+        <div class="header__container--access">
+            <span class="header__accessibility"></span>
+            <span id="regiao" class="header__region"></span>
         </div>
         <div class="header__container--first">
             <span class="header__logo">
@@ -25,94 +25,105 @@
                     <vtex.cmc:SVGHeaderSacola />
                 </span>
             </div>
-
         </div>
 
         <nav class="header__container--nav">
-            <ul class="header__menu-hamburguer js--menu-close">
-                <li class="header__clube">
-                    <div class="header__clube--container">
-                        <div class="header__clube--infos">
-                            <img class="header__clube--img" />
-                            <div class="header__clube--text">
-                                <p class="header__clube--name">Olá, ${Berenice}</p>
-                                <p class="header__clube--msg-saldo">Saldo Clube das Berês</p>
-                                <p class="header__clube--saldo">R$ ${0,00}</p>
-                            </div>
-                        </div>
-                        <div class="header__clube--acessiblity">
-                            <span class="header__clube--close js--close-menu">X</span>
-                            <span class="header__clube--acessibility">AC</span>
-                        </div>
-                    </div>
-                    <div class="header__clube--options">
-                        <div class="header__clube--menu">
-                            <a href="#">Meus Pedidos</a>
-                        </div>
-                        <div class="header__clube--menu">
-                            <a href="#">Meus Dados</a>
-                        </div>
-                    </div>
-                    <img class="header__clube--banner" />
-                </li>
-                <li class="header__menu">
-                    Maquiagem
-                    <ul class="header__menu--items">
-                        <li class="header__menu--department">
-                            Boca
-                            <ul class="header__menu--categories">
-                                <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
-                                <li class="header__menu--category"><a href="#"> Pincel </a></li>
-                                <li class="header__menu--category"><a href="#"> Batom Liquido </a></li>
-                                <li class="header__menu--category"><a href="#"> Batom </a></li>
-                                <li class="header__menu--category"><a href="#"> Gloss </a></li>
-                                <li class="header__menu--category"><a href="#"> Lápis Boca </a></li>
-                                <li class="header__menu--category"><a href="#"> Cuidados p/ os lábios </a></li>
-                            </ul>
-                        </li>
-                        <li class="header__menu--department">Olhos
-                            <ul class="header__menu--categories">
-                                <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
-                                <li class="header__menu--category"><a href="#"> Paleta </a></li>
-                                <li class="header__menu--category"><a href="#"> Cuidados p/ a área dos olhos </a></li>
-                                <li class="header__menu--category"><a href="#"> Máscara para cílios </a></li>
-                                <li class="header__menu--category"><a href="#"> Delineador </a></li>
-                                <li class="header__menu--category"><a href="#"> Lápis </a></li>
-                                <li class="header__menu--category"><a href="#"> Sombra </a></li>
-                                <li class="header__menu--category"><a href="#"> Primer </a></li>
-                                <li class="header__menu--category"><a href="#"> Pigmento e Glitter </a></li>
-                            </ul>
-                        </li>
-                        <li class="header__menu--department">Sobrancelhas
-                            <ul class="header__menu--categories">
-                                <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
-                                <li class="header__menu--category"><a href="#"> Paleta </a></li>
-                                <li class="header__menu--category"><a href="#"> Máscara </a></li>
-                                <li class="header__menu--category"><a href="#"> Lápis e caneta </a></li>
-                                <li class="header__menu--category"><a href="#"> Gel </a></li>
-                                <li class="header__menu--category"><a href="#"> Pinça </a></li>
-                                <li class="header__menu--category"><a href="#"> Pincel </a></li>
-                            </ul>
-                        </li>
-                        <li class="header__menu--department">Pele
-                            <ul class="header__menu--categories">
-                                <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
-                                <li class="header__menu--category"><a href="#"> Hidratante Facial </a></li>
-                                <li class="header__menu--category"><a href="#"> Base </a></li>
-                                <li class="header__menu--category"><a href="#"> Pó Facial </a></li>
-                                <li class="header__menu--category"><a href="#"> Blush </a></li>
-                                <li class="header__menu--category"><a href="#"> Corretivo </a></li>
-                                <li class="header__menu--category"><a href="#"> Iluminador </a></li>
-                                <li class="header__menu--category"><a href="#"> Bronze </a></li>
-                                <li class="header__menu--category"><a href="#"> Primer </a></li>
-                                <li class="header__menu--category"><a href="#"> BB e CC Creme </a></li>
-                                <li class="header__menu--category"><a href="#"> Contorno </a></li>
-                                <li class="header__menu--category"><a href="#"> Demaquilante </a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <div class="header__menu-hamburguer-container">
+                <span class="header__menu-hamburguer"></span>
+                <p class="header__menu-hamburguer--text">Categorias</p>
+                <ul class="header__menu-container js--menu-close">
+                    <li class="header__menu-wrapper">
+                        <ul class="header__menu-wrapper--itens">
+                            <li class="header__clube">
+                                <div class="header__clube--container">
+                                    <div class="header__clube--infos">
+                                        <img class="header__clube--img" />
+                                        <div class="header__clube--text">
+                                            <p class="header__clube--name">Olá, ${Berenice}</p>
+                                            <p class="header__clube--msg-saldo">Saldo Clube das Berês</p>
+                                            <p class="header__clube--saldo">R$ ${0,00}</p>
+                                        </div>
+                                    </div>
+                                    <div class="header__clube--acessiblity">
+                                        <span class="header__clube--close js--close-menu">X</span>
+                                        <span class="header__clube--acessibility">AC</span>
+                                    </div>
+                                </div>
+                                <div class="header__clube--options">
+                                    <div class="header__clube--menu">
+                                        <a href="#">Meus Pedidos</a>
+                                    </div>
+                                    <div class="header__clube--menu">
+                                        <a href="#">Meus Dados</a>
+                                    </div>
+                                </div>
+                                <img class="header__clube--banner" />
+                            </li>
+                            <li class="header__menu">
+                                Maquiagem
+                                <ul class="header__menu--items">
+                                    <li class="header__menu--department">
+                                        Boca
+                                        <ul class="header__menu--categories">
+                                            <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
+                                            <li class="header__menu--category"><a href="#"> Pincel </a></li>
+                                            <li class="header__menu--category"><a href="#"> Batom Liquido </a></li>
+                                            <li class="header__menu--category"><a href="#"> Batom </a></li>
+                                            <li class="header__menu--category"><a href="#"> Gloss </a></li>
+                                            <li class="header__menu--category"><a href="#"> Lápis Boca </a></li>
+                                            <li class="header__menu--category"><a href="#"> Cuidados p/ os lábios </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="header__menu--department">Olhos
+                                        <ul class="header__menu--categories">
+                                            <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
+                                            <li class="header__menu--category"><a href="#"> Paleta </a></li>
+                                            <li class="header__menu--category"><a href="#"> Cuidados p/ a área dos olhos
+                                                </a></li>
+                                            <li class="header__menu--category"><a href="#"> Máscara para cílios </a>
+                                            </li>
+                                            <li class="header__menu--category"><a href="#"> Delineador </a></li>
+                                            <li class="header__menu--category"><a href="#"> Lápis </a></li>
+                                            <li class="header__menu--category"><a href="#"> Sombra </a></li>
+                                            <li class="header__menu--category"><a href="#"> Primer </a></li>
+                                            <li class="header__menu--category"><a href="#"> Pigmento e Glitter </a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="header__menu--department">Sobrancelhas
+                                        <ul class="header__menu--categories">
+                                            <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
+                                            <li class="header__menu--category"><a href="#"> Paleta </a></li>
+                                            <li class="header__menu--category"><a href="#"> Máscara </a></li>
+                                            <li class="header__menu--category"><a href="#"> Lápis e caneta </a></li>
+                                            <li class="header__menu--category"><a href="#"> Gel </a></li>
+                                            <li class="header__menu--category"><a href="#"> Pinça </a></li>
+                                            <li class="header__menu--category"><a href="#"> Pincel </a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="header__menu--department">Pele
+                                        <ul class="header__menu--categories">
+                                            <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
+                                            <li class="header__menu--category"><a href="#"> Hidratante Facial </a></li>
+                                            <li class="header__menu--category"><a href="#"> Base </a></li>
+                                            <li class="header__menu--category"><a href="#"> Pó Facial </a></li>
+                                            <li class="header__menu--category"><a href="#"> Blush </a></li>
+                                            <li class="header__menu--category"><a href="#"> Corretivo </a></li>
+                                            <li class="header__menu--category"><a href="#"> Iluminador </a></li>
+                                            <li class="header__menu--category"><a href="#"> Bronze </a></li>
+                                            <li class="header__menu--category"><a href="#"> Primer </a></li>
+                                            <li class="header__menu--category"><a href="#"> BB e CC Creme </a></li>
+                                            <li class="header__menu--category"><a href="#"> Contorno </a></li>
+                                            <li class="header__menu--category"><a href="#"> Demaquilante </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
             <ul class="header__nav">
                 <li class="header__nav--list">
                     maquiagem
@@ -214,7 +225,7 @@
                     <div class="header__nav--menu"></div>
                 </li>
             </ul>
-            <span class="header__nav--especial">clube das berês fidelidade</span>
+            <span class="header__nav--especial">clube das berês</span>
         </nav>
     </div>
 </header>
