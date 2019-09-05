@@ -19,9 +19,17 @@ const Methods = {
         })
     },
     openCloseList() {
-        CacheSelector.header.menuItem.addEventListener('click', (el) => {
-            el.target.classList.toggle('is--active');
-            CacheSelector.header.menuItem.classList.remove('is--active');
+        CacheSelector.header.menuAccordion.forEach((menu) => {
+            menu.addEventListener('click', (el) => {
+                el.stopPropagation;
+                if(el.target.getAttribute('data-accordion') == 'false'){
+                    el.target.setAttribute('data-accordion','true');
+                }
+                else{
+                    
+                    menu.setAttribute('data-accordion','false');
+                }
+            })
         })
     }
 }
