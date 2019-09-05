@@ -22,6 +22,7 @@
         text-align: center;
         position: relative;
         @include sans(.875rem, $g-primary, 400, initial);
+        background: #fff;
         .cardProduct__link{
             display: flex;
             flex-flow: column;

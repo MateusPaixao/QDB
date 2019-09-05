@@ -33,7 +33,7 @@ const Methods = {
             let vitrine = collection.nextSibling;
             vitrine.setAttribute("id", "collection-" + collection.textContent)
             vitrine.setAttribute("data-collection", collection.textContent)
-
+            console.log("HUMMMMM");
             General.vitrine(vitrine.dataset.collection);
         });
 

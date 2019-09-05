@@ -3,7 +3,7 @@ import BuildBanners from './BannerContainer.jsx';
 
 const Methods = {
     init() {
-        BuildBanners.init();
+        // BuildBanners.init();
         HomeContadorProduto.init();
     }
 }
