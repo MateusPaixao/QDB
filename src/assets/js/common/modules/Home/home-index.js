@@ -1,9 +1,9 @@
 import HomeContadorProduto from './__home__product-counter';
-import BuildBanners from './BannerContainer.jsx';
+import BuildBanners from './Components/Hero/BannerContainer.jsx';
 
 const Methods = {
     init() {
-        // BuildBanners.init();
+        BuildBanners.init();
         HomeContadorProduto.init();
     }
 }
