@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common"
+    xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-BR" class="_d-top">
+
+<head>
+    <script>
+        $(function () {
+            document.title = '<vtex:contentPlaceHolder id="Título da página" />';
+        });
+    </script>
+    <vtex:contentPlaceHolder id="Metatags" />
+    <vtex:template id="00-0-QDB-Head" />
+    <link rel="stylesheet" href="/arquivos/QDB-LP-Quiz-de-Bases.css" />
+</head>
+<body class="lp-quiz">
+    <div class="container-group">
+        <vtex:template id="00-0-QDB-Header" />
+    </div>
+    <!--atenção: A ESTRUTURA HTML DEVE FAZER CORRESPONDENCIA AOS OBJETOS JSON NELA INSERIDOS-->
+    <div id="modal-quiz" class="modal">
+        <div class="modal-content">
+            <span class="close">&#xD7;</span>
+            <p>Stare at the wall, play with food and get confused by 
+                dust touch my tail, i shred your hand purrrr being gorgeous 
+                with belly side up, but refuse to come home when humans 
+                are going to bed; stay out all night then yowl like i am 
+                dying at 4am claws in the eye of the beholder. Flop over 
+                purrr purr littel cat, little cat purr purr inspect anything 
+                brought into the house. Cereal boxes make for five star 
+                accommodation jump around on couch, meow constantly 
+                until given food, play time, or meow to be let in sniff other 
+                cat's butt and hang jaw half open thereafter so hell is other 
+                people so cat is love, cat is life.</p>
+        </div>
+    </div>
+    <main class="slideshow-container" steps-control="">
+        <aside>  
+            <div>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div> 
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a id="modal-quiz-btn" href="#">Encontre seu subtom</a>
+        </aside>
+
+        <div class="slide-quiz fade">
+            <section class="initial-page">
+                <div class="quiz-mobile">
+                    <img src="https://qbbr.vteximg.com.br/arquivos/m-abre-encontre-seu-tom.png" alt="Encontre seu tom de base"/>
+                </div>
+                <div class="quiz-desktop">
+                    <img src="https://qbbr.vteximg.com.br/arquivos/abre-encontre-seu-tom.png" alt="Encontre seu tom de base"/>
+                </div>
+                <article>
+                    <h1>Encontre sua cor ideal</h1>
+                    <p>Em três passos simples, te ajudamos a encontrar 
+                        a sua cor de base e te mostramos os produtos que mais 
+                        combinam com seu tipo de pele.</p>
+                    <div onclick="currentSlide(2)">quero descobrir a minha</div>
+                </article>
+            </section>
+        </div>
+
+        <div class="slide-quiz fade">
+            <section data-main-group="">
+                <div data-main-option="claro">
+                    CLARO
+                </div>
+            </section>
+        </div>
+      
+        <div class="slide-quiz fade">
+            <section data-subtone-group="claro">
+                <div data-subtone-option="quente">
+                    
+                </div>
+                <div data-subtone-option="neutro">
+                    
+                </div>
+                <div data-subtone-option="frio">
+                    
+                </div>
+            </section>
+        </div>
+      
+        <div class="slide-quiz fade">
+            <section id="result">
+            </section>
+        </div>       
+    </main>    
+    <script src="./arquivos/QuizClaroStrategy.js"></script>
+    <script src="./arquivos/quiz-modal.js"></script>
+    <script src="./arquivos/quiz-slide.js"></script>
+
+    <script src="./arquivos/QDB-LP-Quiz-de-Bases.js"></script>
+</body>
+</html>

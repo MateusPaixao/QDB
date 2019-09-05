@@ -1,0 +1,146 @@
+//variables
+$color : #937363;
+
+//initial
+body.lp-quiz {
+    margin: 0;
+    font-size: 14px;
+    * {
+        box-sizing:border-box
+    }
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+    //auxiliar classes
+    .show {
+        display: block; //js
+    }
+    .hide {
+        display: none; //js
+    }
+    .clearfix {
+        &:before,
+        &:after {
+            content: ' ';
+            display: table;
+        }
+        &:after {
+            clear: both;
+        }
+    }
+    .container {
+        padding: 0 20px;
+    }
+    img {
+        max-width: 100%;
+        margin: auto;
+    }
+    .quiz-mobile {
+        display: none;
+    }
+    .quiz-desktop {
+        display: block;
+    }
+    @media(max-width: 414px) {
+        .quiz-mobile {
+            display: block;
+        }
+        .quiz-desktop {
+            display: none;
+        }
+    }
+}
+//JS classes
+body.lp-quiz {
+    //slide
+    .slideshow-container {
+        max-width: 1920px;
+        position: relative;
+        margin: auto;
+    }
+    .slide-quiz {
+        display: none;
+    }
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+        pointer-events: none;
+    }
+    .active, .dot:hover {
+        background-color: #717171;
+    }
+    // Fading animation 
+    .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+    @keyframes fade {
+        from {opacity: .4}
+        to {opacity: 1}
+    }
+    //modal
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto; 
+        background-color: #000;
+        background-color: #00000066;
+    }
+    .modal-content {
+        border-top: 2px solid $color;
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        width: 400px;
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    } 
+}
+//provisory
+[data-main-group], [data-subtone-group] {
+    @extend .clearfix;
+}
+[data-main-option] {
+    background-color: #1d94767a;
+    margin: 10px;
+    padding: 20px 10px;
+    font-size: 22px;
+    font-weight: 700;
+    float: left;
+}
+[data-subtone-option] {
+    background-color:#1b666b;
+    margin: 10px;
+    float: left;
+    padding: 10px;
+}
+#result .item {
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    background-color: #926f86;
+}
