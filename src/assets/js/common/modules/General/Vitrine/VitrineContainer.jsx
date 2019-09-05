@@ -23,7 +23,7 @@ const Methods = {
             request.onreadystatechange = () => {
                 if (request.readyState === 4) {
                     resolve(JSON.parse(request.response));
-                    console.log(JSON.parse(request.response));
+                    // console.log(JSON.parse(request.response));
                 }
             };
 
@@ -45,7 +45,7 @@ const Methods = {
         //   )
         // }
         const Cards = () => {
-          console.log(this.state.Products);
+          // console.log(this.state.Products);
           let cards = [];
           this.state.Products.map((Product, index) => {
             cards.push(

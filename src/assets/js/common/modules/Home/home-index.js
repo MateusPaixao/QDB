@@ -1,5 +1,5 @@
 import HomeContadorProduto from './__home__product-counter';
-import BuildBanners from './Components/BannerPrincipal.jsx';
+import BuildBanners from './BannerContainer.jsx';
 
 const Methods = {
     init() {

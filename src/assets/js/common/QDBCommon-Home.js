@@ -11,7 +11,7 @@ const Methods = {
         // Methods.principalBannerSlick();
         Methods.buildHome();
         Methods.buildVitrines();
-        Methods.buildBanners();
+        // Methods.buildBanners();
         Methods.getInfoVitrines();
         if(document.querySelector(".w-gerador--datas") != null){
             Methods.getProductInfos();
@@ -41,7 +41,7 @@ const Methods = {
             const vitrines = document.querySelectorAll('.--gliderVitrine');
     
             for(const vitrine of vitrines) {
-                console.log(vitrine);
+                // console.log(vitrine);
                 new Siema({
                   selector: vitrine,
                   duration: 200,
@@ -57,116 +57,6 @@ const Methods = {
             }
         }
     },
-
-    buildBanners: () => {
-        const slideBanners = new Siema({
-            selector: ".bannerHero__banners",
-            duration: 150,
-            easing: 'ease-out',
-            perPage: 1,
-            startIndex: 0,
-            draggable: true,
-            multipleDrag: true,
-            threshold: 20,
-            loop: true,
-            rtl: false,
-            onChange: printSlideIndex
-        });
-        let Autoplay = setInterval(() => slideBanners.next(), 5000);
-
-        function printSlideIndex() {
-            this.innerElements.forEach((slide, i) => {
-                const addOrRemove = i === this.currentSlide ? 'add' : 'remove';
-                document.querySelectorAll(".bannerHero__controls--dots .--changePosition")[i].classList[addOrRemove]('--active');
-            })
-
-            if(this.currentSlide == 0){
-                document.querySelector(".bannerHero__controls--arrows .--prev").classList.add("off");
-            }else if(this.currentSlide == (this.innerElements.length - 1) ){
-                document.querySelector(".bannerHero__controls--arrows .--next").classList.add("off");
-            }else{
-                document.querySelector(".bannerHero__controls--arrows .--prev").classList.remove("off");
-                document.querySelector(".bannerHero__controls--arrows .--next").classList.remove("off");
-            }
-        }
-
-        // let controls = document.createElement("div");
-        // controls.classList.add("bannerHero__controls");
-
-        Siema.prototype.addPagination = function() {
-            let dotControl = document.createElement("span");
-            dotControl.classList.add("bannerHero__controls--dots");
-            // controls.appendChild(dotControl);
-            this.selector.appendChild(dotControl);
-
-            for (let i = 0; i < this.innerElements.length; i++) {
-                const btn = document.createElement('button');
-                btn.classList.add("--changePosition")
-                btn.addEventListener('click', () => {
-                    clearInterval(Autoplay);
-                    Autoplay = setInterval(() => slideBanners.next(), 5000);
-                    this.goTo(i)
-                });
-                dotControl.appendChild(btn);
-            }
-            document.querySelector(".bannerHero__controls--dots").childNodes[0].classList.add("--active");
-        }
-
-        // Style the arrows with CSS or JS — up to you mate
-        Siema.prototype.addArrows = function () {
-            var _this = this;
-        
-            // make buttons & append them inside Siema's container
-            this.prevArrow = document.createElement('button');
-            this.prevArrow.classList.add("--prev");
-            this.nextArrow = document.createElement('button');
-            this.nextArrow.classList.add("--next");
-            this.prevArrow.textContent = '⯇';
-            this.nextArrow.textContent = '⯈';
-            
-            let arrowsControl = document.createElement("span");
-            arrowsControl.classList.add("bannerHero__controls--arrows");
-            this.selector.appendChild(arrowsControl);
-        
-            arrowsControl.appendChild(this.prevArrow);
-            arrowsControl.appendChild(this.nextArrow);
-
-            // event handlers on buttons
-            this.prevArrow.addEventListener('click', function () {
-                clearInterval(Autoplay);
-                Autoplay = setInterval(() => slideBanners.next(), 5000);
-                return _this.prev();
-            });
-            this.nextArrow.addEventListener('click', function () {
-                clearInterval(Autoplay);
-                Autoplay = setInterval(() => slideBanners.next(), 5000);
-                return _this.next();
-            });
-        };
-
-        document.addEventListener('keydown', (e) => {
-            // if it's left arrow key
-            if (e.keyCode === 37) {
-                clearInterval(Autoplay);
-                Autoplay = setInterval(() => slideBanners.next(), 5000);
-                slideBanners.prev()
-            }
-            // if it's right arrow key
-            else if (e.keyCode === 39) {
-                clearInterval(Autoplay);
-                Autoplay = setInterval(() => slideBanners.next(), 5000);
-                slideBanners.next()
-            }
-        });
-        
-        slideBanners.addPagination();
-        slideBanners.addArrows();
-
-        window.addEventListener('resize', () => {
-            slideBanners.addPagination();
-            slideBanners.addArrows();
-        });
-    },
     getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
         const idSku = document.querySelector('.w-gerador--datas').getAttribute('data-sku');
@@ -176,8 +66,8 @@ const Methods = {
             .then(res => res.json())
             .then((product) => {
                 const skuList = product[0].items;
-                console.log('produto', product[0])
-                console.log('Link:', product[0].linkText)
+                // console.log('produto', product[0])
+                // console.log('Link:', product[0].linkText)
 
                 for (const i in skuList) {
                     if (skuList.hasOwnProperty(i)) {
@@ -335,7 +225,7 @@ const Methods = {
             })
             .then(res => res.json())
             .then((res) => {
-                console.log('data', res);
+                // console.log('data', res);
                 let html;
 
                 res.Element.map((review, index) => {
@@ -395,12 +285,12 @@ const Methods = {
 
             }
 
-            console.log('request', request)
+            // console.log('request', request)
 
             request.send();
 
         }).then((res) => {
-            console.log(res)
+            // console.log(res)
             let html;
 
             res.Element.map((review, index) => {
