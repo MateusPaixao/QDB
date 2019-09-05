@@ -1,13 +1,32 @@
+.w-contador-produto{
+    font-family: 'Courier New', Courier, monospace;
+    h1{
+        margin: 0 auto;
+        font-size: 25px;
+        display: flex;
+        justify-content: center;
+    }
+}
 .w-gerador{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 60%;
+    width: 100%;
+    &--wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        label{
+            display: flex;
+            flex-direction: column;
+        }
+    }
     &--text{
         border-radius: 5px;
         outline: none;
         padding: 3px;
+        margin: 3px;
     }
     &--output{
         border: 1px solid;
@@ -17,4 +36,19 @@
         display: flex;
         border-radius: 5px;
     }
+    &--fetch, &--butons{
+        align-self: flex-start;
+    }
+    &--fetch, &--butons input{
+        background: #ff0066;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        border: none;
+        margin: 5px;
+    }
+}
+#ajaxBusy{
+    display: none !important;
 }

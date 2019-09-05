@@ -98,12 +98,14 @@ const Methods = {
                             desconto = document.querySelector('.w-product--wrapper--flag');
                             desconto.textContent = `-${percent}%`
 
-                            buyButton = document.querySelector('a.w-product--wrapper--infos--buy-button');
-                            buyButton.href = sku.sellers[0].addToCartLink;
+                            buyButton = document.querySelector('.w-product--wrapper--infos--buy-button');
+
 
                             if (sku.sellers[0].commertialOffer.AvailableQuantity <= 0) {
+                                document.querySelector('.w-gerador--datas').setAttribute('data-available', 'false');
                                 Methods.disableProduct();
                             } else {
+                                document.querySelector('.w-gerador--datas').setAttribute('data-available', 'true');
                                 Methods.counterInit()
                                 document.querySelector(".w-product--wrapper--infos--parcelamento").innerHTML = "até " + Math.max.apply(Math, sku.sellers[0].commertialOffer.Installments.map(function (o) {
                                     return o.NumberOfInstallments;
@@ -162,15 +164,22 @@ const Methods = {
 
     disableProduct: () => {
         let buyButton = document.querySelector('.w-product--wrapper--infos--buy-button');
-        let buyButtonTxt = document.querySelector('.w-product--wrapper--infos--buy-button button');
+        let buyButtonTxt = document.querySelector('.w-product--wrapper--infos--buy-button');
         document.querySelector('.w-product--container').classList.add('inactive');
-        buyButtonTxt.textContent = "Indisponível"
+        const checkAvailable = document.querySelector('.w-gerador--datas').getAttribute('data-available')
+        if (checkAvailable == 'true') {
+            buyButtonTxt.textContent = "PROMOÇÃO ENCERRADA "
+            document.querySelector('.w-promo-text-sad').classList.remove('hidden');
+        } else if (checkAvailable == 'false') {
+            buyButtonTxt.textContent = "Indisponível";
+            document.querySelector('.w-promo-text-out').classList.remove('hidden');
+        }
         buyButton.style = "pointer-events: none;";
         buyButton.href = '';
 
-        let hourCounter = document.querySelector('.w-product--contador--timer--time.--hours');
-        let minuteCounter = document.querySelector('.w-product--contador--time.--minutes');
-        let secondsCounter = document.querySelector('.w-product--contador--time.--segundos');
+        const hourCounter = document.querySelector('.w-product--contador--timer--time.--hours');
+        const minuteCounter = document.querySelector('.w-product--contador--time.--minutes');
+        const secondsCounter = document.querySelector('.w-product--contador--time.--segundos');
 
         hourCounter.innerHTML = '00';
         minuteCounter.innerHTML = '00';
@@ -178,9 +187,8 @@ const Methods = {
 
         document.querySelector('.w-product--wrapper--infos--old-price').classList.add('hidden');
         document.querySelector('.w-product--wrapper--infos--new-price').classList.add('hidden');
-        document.querySelector('.w-product--wrapper--flag').classList.add('hidden');
         document.querySelector('.w-promo-text').classList.add('hidden');
-        document.querySelector('.w-promo-text-sad').classList.remove('hidden');
+        document.querySelector('.w-product--wrapper--flag').classList.add('hidden');
     },
 
     getTopBannerColor: () => {
@@ -304,25 +312,27 @@ const Methods = {
                         stars += `<svg viewBox="0 0 18 21" width="18" height="21" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.605 14.394L0 10.48s2.528-2.836 3.605-3.913l5.014-5.013a5.326 5.326 0 0 1 7.523 0 5.321 5.321 0 0 1 0 7.521l-1.406 1.405 1.406 1.405a5.321 5.321 0 0 1 0 7.521 5.327 5.327 0 0 1-7.523 0l-5.014-5.013z" fill="#67605F"/></svg>`
 
                     }
-                    return stars;
-
                 }
-
-                html +=
-
-                    `<li class="review">
-                        <span class="_rate">
-                            ${countRating()}
-                        </span>
-                    </li>`
-                // console.log(html)
-
-            });
-            const el = document.querySelector('.w-product--wrapper--infos--rate');
-            el.innerHTML = html.replace('undefined', '');
-
+            }).done(function (orderForm) {
+                    // console.log(orderForm);
+                    vtexjs.checkout.getOrderForm().then(function (orderForm) {
+                        window._orderForm = orderForm;
+                        var qty = 0;
+                        $(orderForm.items).each(function (ndx, item) {
+                            if (!item.isGift) {
+                                qty += item.quantity;
+                            }
+                        });
+                        if (isFinite(qty)) {
+                            $('.__cart-link a span').text(qty);
+                        }
+                    }).done(function () {
+                        $('html').trigger('open.MiniCart'); // Função em Jquery devido ao evento do Minicart em General.
+                    });
+                });
         });
     }
 }
-
-Methods.init();
+document.addEventListener('DOMContentLoaded', () => {
+    Methods.init();
+})
