@@ -1,12 +1,165 @@
-// import modal from './QDB-LP-Quiz-de-Bases/modal';
-// import slide from './QDB-LP-Quiz-de-Bases/slide';
+class ClaroStrategy {
+    
+    getResult() {
+        var obj = {
+            "id": "claro",
+            "name" : "Claro", //Como aparece no site
+            "imageURL" : "/arquivos/quiz-claro.png",
+            "subtones" : { //objetos do segundo nível
+                    "quente" : {
+                        "name" : "Quente",
+                        "imageURL" : "/arquivos/01Q.png",
+                        "colors" : [
+                            {
+                                "name" : "00N",
+                                "imageURL" : "/arquivos/00N.png",                                
+                                "url" : "/claro-quente-00N",
+                                "products" : 
+                                    {
+                                        "super-mate" : "00N",
+                                        "alta-cobertura" : "00N",
+                                        "corretivo-aqua" : "1",
+                                        "super-fuida" : "01F",
+                                        "aqua" : "01F",
+                                        "bb-creme" : "01F"
+                                    }
+                            },
+                            {
+                                "name" : "01Q",
+                                "imageURL" : "/arquivos/01Q.png",                                
+                                "url" : "/claro-quente-01Q",
+                                "products" : 
+                                    {
+                                        "super-mate" : "00Q",
+                                        "alta-cobertura" : "00Q",
+                                        "corretivo-aqua" : "2",
+                                        "super-fuida" : "02Q",
+                                        "aqua" : "01Q",
+                                        "bb-creme" : "01F"
+                                    }
+                            }
+                        ]
+                    },
+                    "neutro" : {
+                        "name" : "Neutro",
+                        "imageURL" : "/arquivos/00N.png",
+                        "colors" : [
+                             {
+                                "name" : "00N",
+                                "imageURL" : "/arquivos/00N.png",
+                                "url" : "/claro-neutro-00N",
+                                "products" : 
+                                    {
+                                        "super-mate" : "00N",
+                                        "alta-cobertura" : "00N",
+                                        "corretivo-aqua" : "1",
+                                        "super-fuida" : "01F",
+                                        "aqua" : "01F",
+                                        "bb-creme" : "01F"
+                                    }
+                            },
+                            {
+                                "name" : "01N",
+                                "imageURL" : "/arquivos/01N.png",
+                                "url" : "/claro-neutro-01N",
+                                "products" : 
+                                    {
+                                        "super-mate" : "01N",
+                                        "alta-cobertura" : "01N",
+                                        "corretivo-aqua" : "2",
+                                        "super-fuida" : "01F",
+                                        "aqua" : "01N",
+                                        "bb-creme" : "01F"
+                                    }
+                            }
+                        ]
+                    }, 
+                    "frio" : {
+                        "name" : "Frio",
+                        "imageURL" : "/arquivos/01F.png",
+                        "colors" : [
+                            {
+                                "name" : "01F",
+                                "imageURL" : "/arquivos/01F.png",
+                                "url" : "/claro-frio-01F",
+                                "products" : 
+                                    {
+                                        "super-mate" : "01F",
+                                        "alta-cobertura" : "01F",
+                                        "corretivo-aqua" : "1",
+                                        "super-fuida" : "01F",
+                                        "aqua" : "01F",
+                                        "bb-creme" : "01F"
+                                    }
+                            },
+                            {
+                                "name" : "00N",
+                                "imageURL" : "/arquivos/00N.png",
+                                "url" : "/claro-frio-00N",
+                                "products" : 
+                                    {
+                                        "super-mate" : "01N",
+                                        "alta-cobertura" : "01N",
+                                        "corretivo-aqua" : "1",
+                                        "super-fuida" : "01F",
+                                        "aqua" : "01F",
+                                        "bb-creme" : "01F"
+                                    }
+                            }
+                        ]
+                    }, 
+            }
+        };
+        return obj;
+    }
+}
 
-// import Claro from './QDB-LP-Quiz-de-Bases/strategies/ClaroStrategy';
-// import ClaroMedio from './QDB-LP-Quiz-de-Bases/strategies/ClaroMedioStrategy';
-// //modal
-// modal();
-// //slide
-// slide();
+//modal
+var modal = document.getElementById("modal-quiz");
+var btn = document.getElementById("modal-quiz-btn");
+
+var span = document.getElementsByClassName("close")[0];
+btn.onclick = function() {
+modal.style.display = "block";
+}
+span.onclick = function() {
+modal.style.display = "none";
+}
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+//slide
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// controla botão "anterior"
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+//controla passagem de steps
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("slide-quiz");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+}
 
 //mapa de classes
 var jsonMap = {
