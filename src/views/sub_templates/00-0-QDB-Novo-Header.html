@@ -1,33 +1,16 @@
 <header class="header">
     <div class="header__container">
-        <div class="header__container--access">
-            <span class="header__accessibility"></span>
-            <span id="regiao" class="header__region"></span>
-        </div>
-        <div class="header__container--first">
-            <span class="header__logo">
-                <vtex.cmc:SVGHeaderLogoPrincipal />
-            </span>
-            <form action="//busca.quemdisseberenice.com.br/busca" method="get" class="header__search">
-                <input type="search" name="q" id="q" value="" placeholder="O que procura hoje?"
-                    class="header__search--input search-field" />
-                <input type="submit" value="" class="header__search--btn search-btn" />
-            </form>
-
-            <div class="header__options">
-                <span class="header__options--item account">
-                    <vtex.cmc:SVGHeaderUsuario />
-                </span>
-                <span class="header__options--item favorite">
-                    <vtex.cmc:SVGHeaderFavoritos />
-                </span>
-                <span class="header__options--item mini-cart">
-                    <vtex.cmc:SVGHeaderSacola />
-                </span>
+        <div class="header__first-column">
+            <div class="header__container--access">
+                <span class="header__accessibility"></span>
+                <span id="regiao" class="header__region"></span>
             </div>
-        </div>
+            <span class="header__logo">
+                <a href="/">
+                    <vtex.cmc:SVGHeaderLogoPrincipal />
+                </a>
+            </span>
 
-        <nav class="header__container--nav">
             <div class="header__menu-hamburguer-container">
                 <span class="header__menu-hamburguer"></span>
                 <p class="header__menu-hamburguer--text">Categorias</p>
@@ -57,7 +40,10 @@
                                         <a href="#">Meus Dados</a>
                                     </div>
                                 </div>
-                                <img class="header__clube--banner" />
+                                <div class="header__clube--banner">
+                                    <img src="/arquivos/backgroundMenu.png">
+                                    <p class="header__clube--banner-txt">Até 70% de desconto</p>
+                                </div>
                             </li>
                             <li class="header__menu" data-accordion="false">
                                 Maquiagem
@@ -79,8 +65,10 @@
                                         <ul class="header__menu--categories">
                                             <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
                                             <li class="header__menu--category"><a href="#"> Paleta </a></li>
-                                            <li class="header__menu--category"><a href="#"> Cuidados p/ a área dos olhos </a></li>
-                                            <li class="header__menu--category"><a href="#"> Máscara para cílios </a></li>
+                                            <li class="header__menu--category"><a href="#"> Cuidados p/ a área dos olhos
+                                                </a></li>
+                                            <li class="header__menu--category"><a href="#"> Máscara para cílios </a>
+                                            </li>
                                             <li class="header__menu--category"><a href="#"> Delineador </a></li>
                                             <li class="header__menu--category"><a href="#"> Lápis </a></li>
                                             <li class="header__menu--category"><a href="#"> Sombra </a></li>
@@ -122,110 +110,279 @@
                 </ul>
 
             </div>
-            <ul class="header__nav">
-                <li class="header__nav--list">
-                    maquiagem
-                    <div class="header__nav--menu">
-                        <ul class="header__nav--department">
-                            <li class="header__nav--department-item">
-                                Boca
-                                <ul class="header__nav--categories">
-                                    <li class="header__nav--category"><a href="#">Pincel</a></li>
-                                    <li class="header__nav--category"><a href="#">Batom líquido</a></li>
-                                    <li class="header__nav--category"><a href="#">Batom</a></li>
-                                    <li class="header__nav--category"><a href="#">Gloss</a></li>
-                                    <li class="header__nav--category"><a href="#">Lápis boca</a></li>
-                                    <li class="header__nav--category"><a href="#">Cuidados p/ os lábios</a></li>
-                                    <li class="header__nav--category"><a
-                                            href="https://www.quemdisseberenice.com.br/maquiagem/boca">Ver tudo +</a>
-                                    </li>
+        </div>
+        <div class="header__second-column">
+            <form action="//busca.quemdisseberenice.com.br/busca" method="get" class="header__search">
+                <input type="search" name="q" id="q" value="" placeholder="O que procura hoje?"
+                    class="header__search--input search-field" />
+                <input type="submit" value="" class="header__search--btn search-btn" />
+            </form>
 
-                                </ul>
+            <nav class="header__container--nav">
+                <ul class="header__nav">
+                    <li class="header__nav--list">
+                        <a href="/maquiagem">
+                            maquiagem
+                        </a>
+                        <div class="header__nav--menu">
+                            <ul class="header__nav--department">
+                                <li class="header__nav--department-item">
+                                    <a href="/maquiagem/boca">
+                                        Boca
+                                    </a>
+                                    <ul class="header__nav--categories">
+                                        <li class="header__nav--category"><a href="/maquiagem/boca/batom-liquido">Batom
+                                                líquido</a></li>
+                                        <li class="header__nav--category"><a href="/maquiagem/boca/batom">Batom</a></li>
+                                        <li class="header__nav--category"><a href="/maquiagem/boca/gloss">Gloss</a></li>
+                                        <li class="header__nav--category"><a href="/maquiagem/boca/lapis-boca">Lápis
+                                                boca</a></li>
+                                        <li class="header__nav--category"><a
+                                                href="/maquiagem/boca/cuidados-para-os-labios">Cuidados p/ os lábios</a>
+                                        </li>
+                                        <li class="header__nav--category"><a
+                                                href="https://www.quemdisseberenice.com.br/maquiagem/boca">Ver tudo </a>
+                                        </li>
+                                    </ul>
 
-                            </li>
-                        </ul>
-                        <ul class="header__nav--department">
-                            <li class="header__nav--department-item">
-                                Olhos
-                                <ul class="header__nav--categories">
-                                    <li class="header__nav--category"><a href="#">Paleta</a></li>
-                                    <li class="header__nav--category"><a href="#">Cuidados p/ a área dos olhos</a></li>
-                                    <li class="header__nav--category"><a href="#">Máscara para cílios</a></li>
-                                    <li class="header__nav--category"><a href="#">Delineador</a></li>
-                                    <li class="header__nav--category"><a href="#">Lápis</a></li>
-                                    <li class="header__nav--category"><a href="#">Sombra</a></li>
-                                    <li class="header__nav--category"><a href="#">Primer</a></li>
-                                    <li class="header__nav--category"><a href="#">Pigmento e Glitter</a></li>
-                                    <li class="header__nav--category"><a href="#">Ver tudo +</a></li>
+                                </li>
+                            </ul>
+                            <ul class="header__nav--department">
+                                <li class="header__nav--department-item">
+                                    <a href="/maquiagem/olhos">
+                                        Olhos
+                                    </a>
+                                    <ul class="header__nav--categories">
+                                        <li class="header__nav--category"><a href="/maquiagem/olhos/paleta">Paleta</a>
+                                        </li>
+                                        <li class="header__nav--category"><a
+                                                href="/maquiagem/olhos/creme-para-area-dos-olhos">Creme p/ a área dos
+                                                olhos</a></li>
+                                        <li class="header__nav--category"><a href="/maquiagem/olhos/mascara">Máscara
+                                                para cílios</a></li>
+                                        <li class="header__nav--category"><a
+                                                href="/maquiagem/olhos/delineador">Delineador</a></li>
+                                        <li class="header__nav--category"><a href="/maquiagem/olhos/lapis">Lápis</a>
+                                        </li>
+                                        <li class="header__nav--category"><a href="/maquiagem/olhos/primer">Primer</a>
+                                        </li>
+                                        <li class="header__nav--category"><a
+                                                href="/maquiagem/olhos/glitter-e-pigmentos">Pigmento e Glitter</a></li>
+                                        <li class="header__nav--category"><a
+                                                href="/maquiagem/olhos/acessorios">Acessórios</a></li>
+                                        <li class="header__nav--category"><a href="/maquiagem/olhos">Ver tudo +</a></li>
 
-                                </ul>
+                                    </ul>
 
-                            </li>
-                        </ul>
-                        <ul class="header__nav--department">
-                            <li class="header__nav--department-item">
-                                Sobrancelhas
-                                <ul class="header__nav--categories">
-                                    <li class="header__nav--category"><a href="#">Paleta</a></li>
-                                    <li class="header__nav--category"><a href="#">Máscara</a></li>
-                                    <li class="header__nav--category"><a href="#">Lápis e caneta</a></li>
-                                    <li class="header__nav--category"><a href="#">Gel</a></li>
-                                    <li class="header__nav--category"><a href="#">Pinça</a></li>
-                                    <li class="header__nav--category"><a href="#">Pincel</a></li>
-                                    <li class="header__nav--category"><a href="#">Ver tudo +</a></li>
+                                </li>
+                            </ul>
+                            <ul class="header__nav--department">
+                                <li class="header__nav--department-item">
+                                    <a href="/maquiagem/sobrancelhas">
+                                        Sobrancelhas
+                                    </a>
+                                    <ul class="header__nav--categories">
+                                        <li class="header__nav--category"><a
+                                                href="/maquiagem/sobrancelhas/paleta">Paleta</a></li>
+                                        <li class="header__nav--category"><a href="/maquiagem/sobrancelhas/caneta">Lápis
+                                                e caneta</a></li>
+                                        <li class="header__nav--category"><a href="/maquiagem/sobrancelhas/gel">Gel</a>
+                                        </li>
+                                        <li class="header__nav--category"><a
+                                                href="/maquiagem/sobrancelhas/caneta">Caneta</a></li>
+                                        <li class="header__nav--category"><a
+                                                href="/maquiagem/sobrancelhas/pincel">Pincel</a></li>
+                                        <li class="header__nav--category"><a href="/maquiagem/sobrancelhas">Ver tudo
+                                                +</a></li>
 
-                                </ul>
+                                    </ul>
 
-                            </li>
-                        </ul>
-                        <ul class="header__nav--department">
-                            <li class="header__nav--department-item">
-                                Pele
-                                <ul class="header__nav--categories">
-                                    <li class="header__nav--category"><a href="#"> Ver tudo </a></li>
-                                    <li class="header__nav--category"><a href="#"> Hidratante Facial </a></li>
-                                    <li class="header__nav--category"><a href="#"> Base </a></li>
-                                    <li class="header__nav--category"><a href="#"> Pó Facial </a></li>
-                                    <li class="header__nav--category"><a href="#"> Blush </a></li>
-                                    <li class="header__nav--category"><a href="#"> Corretivo </a></li>
-                                    <li class="header__nav--category"><a href="#"> Iluminador </a></li>
-                                    <li class="header__nav--category"><a href="#"> Bronze </a></li>
-                                    <li class="header__nav--category"><a href="#"> Primer </a></li>
-                                    <li class="header__nav--category"><a href="#"> BB e CC Creme </a></li>
-                                    <li class="header__nav--category"><a href="#"> Contorno </a></li>
-                                    <li class="header__nav--category"><a href="#"> Demaquilante </a></li>
-                                </ul>
+                                </li>
+                            </ul>
+                            <ul class="header__nav--department">
+                                <li class="header__nav--department-item">
+                                    <a href="/maquiagem/pele">
+                                        Pele
+                                    </a>
+                                    <ul class="header__nav--categories">
+                                        <li class="header__nav--category"><a href="#"> Ver tudo </a></li>
+                                        <li class="header__nav--category"><a href="#"> Hidratante Facial </a></li>
+                                        <li class="header__nav--category"><a href="#"> Base </a></li>
+                                        <li class="header__nav--category"><a href="#"> Pó Facial </a></li>
+                                        <li class="header__nav--category"><a href="#"> Blush </a></li>
+                                        <li class="header__nav--category"><a href="#"> Corretivo </a></li>
+                                        <li class="header__nav--category"><a href="#"> Iluminador </a></li>
+                                        <li class="header__nav--category"><a href="#"> Bronze </a></li>
+                                        <li class="header__nav--category"><a href="#"> Primer </a></li>
+                                        <li class="header__nav--category"><a href="#"> BB e CC Creme </a></li>
+                                        <li class="header__nav--category"><a href="#"> Contorno </a></li>
+                                        <li class="header__nav--category"><a href="#"> Demaquilante </a></li>
+                                    </ul>
 
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="header__nav--list">
-                    perfumaria
-                    <div class="header__nav--menu"></div>
-                </li>
-                <li class="header__nav--list">
-                    cabelo
-                    <div class="header__nav--menu"></div>
-                </li>
-                <li class="header__nav--list">
-                    corpo e banho
-                    <div class="header__nav--menu"></div>
-                </li>
-                <li class="header__nav--list">
-                    acessórios
-                    <div class="header__nav--menu"></div>
-                </li>
-                <li class="header__nav--list">
-                    kit e presentes
-                    <div class="header__nav--menu"></div>
-                </li>
-                <li class="header__nav--list">
-                    promoções
-                    <div class="header__nav--menu"></div>
-                </li>
-            </ul>
-            <span class="header__nav--especial">clube das berês</span>
-        </nav>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav--list">
+                        <a href="/perfumaria">
+                            perfumaria
+                        </a>
+                        <div class="header__nav--menu">
+                            <ul class="header__nav--department">
+                                <li class="header__nav--department-item">
+                                    <ul class="header__nav--categories">
+                                        <li class="header__nav--category"><a href="/perfumaria/eau-de-parfum">Eau de
+                                                parfum</a></li>
+                                        <li class="header__nav--category"><a
+                                                href="/perfumaria/desodorante-colonia">Desodorante colonia</a></li>
+                                        <li class="header__nav--category"><a href="/maquiagem/sobrancelhas">Ver tudo
+                                                +</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav--list">
+                        <a href="/cabelos/">
+                            cabelo
+                        </a>
+                        <div class="header__nav--menu">
+                            <ul class="header__nav--department">
+                                <li class="header__nav--department-item">
+                                    <ul class="header__nav--categories">
+                                        <li class="header__nav--category"><a href="/cabelos/acessorios">Acessórios</a>
+                                        </li>
+                                        <li class="header__nav--category"><a href="/cabelos/pra-colorir">Pra colorir</a>
+                                        </li>
+                                        <li class="header__nav--category"><a href="/cabelos/pra-estilizar">Pra
+                                                estilizar</a></li>
+                                        <li class="header__nav--category"><a href="/cabelos/pra-estilizar">Pra por e
+                                                tirar</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav--list">
+                        <a href="/corpo-e-banho"> corpo e banho </a>
+                        <div class="header__nav--menu">
+                            <ul class="header__nav--department">
+                                <li class="header__nav--department-item">
+                                    <a href="/corpo-e-banho/hidratante-desodorante">
+                                        Hidratante desodorante
+                                    </a>
+                                    <ul class="header__nav--categories">
+                                        <li class="header__nav--category"><a
+                                                href="/corpo-e-banho/hidratante-desodorante/creme-hidratante-pra-maos">Batom
+                                                líquido</a></li>
+                                        <li class="header__nav--category"><a
+                                                href="/corpo-e-banho/hidratante-desodorante/hidratante-desodorante-corporal">Batom</a>
+                                        </li>
+                                        <li class="header__nav--category"><a
+                                                href="/corpo-e-banho/hidratante-desodorante">Ver tudo +</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="header__nav--department">
+                                <li class="header__nav--department-item">
+                                    <a href="/corpo-e-banho/sabonetes">
+                                        Sabonetes
+                                    </a>
+                                    <ul class="header__nav--categories">
+                                        <li class="header__nav--category"><a
+                                                href="/corpo-e-banho/sabonetes/sabonete-demaquilante">Sabonete
+                                                demaquilante</a></li>
+                                        <li class="header__nav--category"><a
+                                                href="/corpo-e-banho/sabonetes/sabonete-em-barra">Sabonete em barra</a>
+                                        </li>
+                                        <li class="header__nav--category"><a href="/corpo-e-banho/sabonetes">Ver tudo
+                                                +</a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav--list">
+                        <a href="/acessorios-para-maquiagem/">
+                            acessórios
+                        </a>
+                        <div class="header__nav--menu">
+                            <ul class="header__nav--department">
+                                <li class="header__nav--department-item">
+                                    <ul class="header__nav--categories">
+                                        <li class="header__nav--category"><a
+                                                href="/acessorios-para-maquiagem/apontador">Apontador</a></li>
+                                        <li class="header__nav--category"><a
+                                                href="/acessorios-para-maquiagem/espelhos">Espelhos</a></li>
+                                        <li class="header__nav--category"><a
+                                                href="/acessorios-para-maquiagem/limpa-pinceis">Limpa pinceis</a></li>
+                                        <li class="header__nav--category"><a
+                                                href="/acessorios-para-maquiagem/necessaire-e-organizadores">Necessaire
+                                                e organizadores</a></li>
+                                        <li class="header__nav--category"><a
+                                                href="/acessorios-para-maquiagem/pinca">Pinça</a></li>
+                                        <li class="header__nav--category"><a
+                                                href="/acessorios-para-maquiagem/pinceis-e-esponjas">Pinceis e
+                                                esponjas</a></li>
+                                        <li class="header__nav--category"><a href="/acessorios-para-maquiagem/">Ver tudo
+                                                +</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav--list">
+                        <a href="/kits-e-presentes">
+                            kit e presentes
+                        </a>
+                        <div class="header__nav--menu">
+                            <ul class="header__nav--categories">
+                                <li class="header__nav--category"><a
+                                        href="/kits-e-presentes/embalagens-pra-presente">Embalagens pra
+                                        presente</a></li>
+                                <li class="header__nav--category"><a href="/kits-e-presentes/kits/">Kits</a></li>
+                                <li class="header__nav--category"><a href="/kits-e-presentes">Ver tudo +</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav--list">
+                        <a href="/promocao">
+                            promoções
+                        </a>
+                        <div class="header__nav--menu">
+                            <ul class="header__nav--categories">
+                                <li class="header__nav--category"><a href="/promocao">Ver tudo +</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header__third-column">
+            <div class="header__options">
+                <span class="header__options--item account">
+                    <a href="/account/">
+                        <vtex.cmc:SVGHeaderUsuario />
+                    </a>
+                </span>
+                <span class="header__options--item favorite">
+                    <a href="/lista-de-desejos">
+                        <vtex.cmc:SVGHeaderFavoritos />
+                    </a>
+                </span>
+                <span class="header__options--item mini-cart __cart-link">
+                    <vtex.cmc:SVGHeaderSacola />
+                </span>
+            </div>
+            <span class="header__nav--especial">
+                <a href="/clube-das-beres">
+                    clube das berês
+                </a>
+            </span>
+        </div>
+
     </div>
 </header>

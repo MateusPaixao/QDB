@@ -5,6 +5,7 @@ const Methods = {
     init() {
         Methods.openCloseMenu();
         Methods.openCloseList();
+        // Methods.heroBannerMarginTop();
     },
     openCloseMenu() {
         CacheSelector.header.menuHamContainer.addEventListener('click', (el) => {
@@ -31,6 +32,9 @@ const Methods = {
                 }
             })
         })
+    },
+    heroBannerMarginTop(){
+        CacheSelector.home.bannerHero.style.marginTop = CacheSelector.header.header.offsetHeight;
     }
 }
 

@@ -1,4 +1,3 @@
-
 svg {
     path {
         fill: $secondaryColor
@@ -10,25 +9,80 @@ body {
 }
 
 .header {
-   
+    position: fixed;
+    top: 0;
     background-color: $principalColor;
     width: 100%;
+    height: 175px;
+    padding: $headerPadding;
+    min-height: 150px;
+    @include d('768px'){
+        min-height: auto;
+        height: auto;
+    }
+
+    &__first-column {
+        display: flex;
+        flex-direction: column;
+        width: $leftWidth;
+        height: $principalHeight;
+        justify-content: space-between;
+        @include d('768px'){
+            flex-direction: row-reverse;
+            order: 1;
+            width: 70%;
+            align-items: center;
+        }
+    }
+
+    &__second-column {
+        display: flex;
+        flex-direction: column;
+        height: $principalHeight;
+        justify-content: space-between;
+        width: $middleWidth;
+        @include d('768px'){
+            width: 100%;
+            order: 3;
+        }
+    }
+
+    &__third-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: $rightWidth;
+        height: $principalHeight;
+        @include d('768px'){
+            order: 2;
+            width: 20%;
+        }
+    }
 
     &__container {
         width: 100%;
+        height: 160px;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
         position: relative;
-        padding: 15px;
+        @include d('768px'){
+            height: auto;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
 
         &--access {
             display: flex;
             align-items: center;
             justify-content: flex-start;
             width: 100%;
-            @include d('768px'){
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            @include d('768px') {
                 display: none;
             }
         }
@@ -36,27 +90,27 @@ body {
         &--first {
             display: flex;
             justify-content: space-around;
-            width: 100%;
             align-items: center;
             padding: 10px 0;
-            @include d('768px'){
+
+            @include d('768px') {
                 flex-wrap: wrap;
             }
         }
 
         &--nav {
-            width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-around;
-            @include d('768px'){
+
+            @include d('768px') {
                 justify-content: flex-start;
                 width: 30px;
             }
         }
-        @include d('768px'){
-            justify-content: flex-start;
-            flex-direction: column-reverse;
+
+        @include d('768px') {
+            
         }
     }
 
@@ -64,23 +118,27 @@ body {
         background: url(https://qbbr.vteximg.com.br/arquivos/access-black.png) center center no-repeat;
         width: 25px;
         height: 25px;
-        margin: 0 30px;
+        margin-right: 5px;
     }
 
     &__logo {
-        width: $leftWidth;
+        width: 100%;
+        margin: auto 0;
+        @include d('768px'){
+            margin: initial;
+            width: 60%;
+        }
 
         .svg--logo-principal {
             width: 100%;
         }
-        @include d('768px'){
-            width: 30%;
-        }
+
     }
 
     &__search {
-        width: $middleWidth;
+        width: 100%;
         display: flex;
+        margin: auto 0;
         align-items: center;
         border-bottom: 1px solid $secondaryColor;
 
@@ -96,24 +154,28 @@ body {
             width: 10%;
         }
         @include d('768px'){
-            width: 100%;
-            order: 3;
+            margin: initial;
         }
     }
 
     &__options {
-        width: 10%;
+        width: 100%;
         display: flex;
         justify-content: space-around;
         align-items: center;
+        margin: auto 0;
+        @include d('768px'){
+            margin: initial;
+        }
 
         &--item {
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            &.favorite{
-                @include d('768px'){
+
+            &.favorite {
+                @include d('768px') {
                     display: none;
                 }
             }
@@ -122,22 +184,24 @@ body {
                 width: 80%;
             }
         }
-        @include d('768px'){
-            width: 30%;
-        }
+
     }
 
     &__menu-hamburguer-container {
-        width: $leftWidth;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
         height: 30px;
+        margin-bottom: $marginBottom;
+        @include d('768px'){
+            width: 20%;
+        }
     }
-    
+
     &__menu-hamburguer {
         pointer-events: none;
+
         &--text {
             font-size: 0.9em;
             margin-left: 15px;
@@ -150,6 +214,7 @@ body {
         display: block;
         width: 15px;
         background: $secondaryColor;
+
         height: 2px;
         position: relative;
         cursor: pointer;
@@ -194,17 +259,14 @@ body {
         display: flex;
         justify-content: space-around;
         align-items: center;
-        width: $middleWidth;
+        width: 100%;
         cursor: pointer;
-        @include d('768px'){
-            display: none;
-        }
 
         &--list {
             position: relative;
             margin: 0 5px;
+            margin-bottom: $marginBottom;
             padding: 5px;
-            width: calc(100% / 6);
             text-align: center;
             height: 30px;
             display: flex;
@@ -213,6 +275,7 @@ body {
 
             &:hover {
                 font-weight: bold;
+
                 .header__nav--menu {
                     display: flex;
                 }
@@ -259,13 +322,17 @@ body {
             border: 1px solid $secondaryColor;
             cursor: pointer;
             border-radius: 5px;
-            width: $rightWidth;
+            width: 100%;
             display: flex;
             justify-content: center;
             align-content: center;
+            margin-bottom: $marginBottom + 5px;
             @include d('768px'){
                 display: none;
             }
+        }
+        @include d('768px'){
+            display: none;
         }
     }
 }

@@ -3,7 +3,7 @@
         transition: .3s ease-in-out;
         position: absolute;
         top: 100%;
-        left: 0;
+        left: 0 - 15px; //$headerPadding (segundo parametro)
         background: #fdfdfd;
         width: 30vw;
         box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
@@ -28,8 +28,8 @@
         padding: 10px;
         display: flex;
         align-items: center;
-
-        font-weight: &::before {
+        
+        &::before {
             transition: .3s ease-in-out;
             content: '>';
             font-size: 1.5em;
@@ -112,7 +112,7 @@
 
         &--infos {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             width: 100%;
             align-items: center;
         }
@@ -122,6 +122,7 @@
             width: 50px;
             height: 50px;
             border-radius: 30px;
+            margin-right: 20px;
         }
 
         &--acessiblity {
@@ -165,14 +166,29 @@
         }
 
         &--banner {
-            background: blue;
             width: 100%;
-            height: 50px;
+            height: 70px;
+            position: relative;
             border: none;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 100%;
+                z-index: 1;
+                position: absolute;
+            }
+        }
+        &--banner-txt{
+            position: inherit;
+            z-index: 2;
+            color: #fff;
+            font-size: 1.5em;
         }
     }
 
     .js--menu-close {
-        left: -100%;
+        left: calc(-100% - 15px);
     }
 }

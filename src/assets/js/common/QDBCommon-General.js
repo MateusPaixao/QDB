@@ -2,6 +2,8 @@
 import General from "./modules/General/general-index"
 
 document.addEventListener('DOMContentLoaded', General.init);
+
+
 // FID/**201812112311*/
 // var menuData = [{
 //     "text": "Entre ou cadastre-se",
