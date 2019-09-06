@@ -23,7 +23,6 @@ const Methods = {
 
             setViewport(size){
                 let actualViewport = size <= 768 ? "Mobile" : "Desktop";
-                console.log(size);
                 return(
                     this.setState({
                         Viewport: actualViewport,
@@ -56,8 +55,6 @@ const Methods = {
                 
                 this.setState({
                     Banners: Banners
-                }, () => {
-                    console.log(this.state.Banners);
                 });
             }
 
@@ -195,8 +192,6 @@ const Methods = {
                 const Banners = () => {
                     let banners = [];
                     this.state.Banners.map((Ban, index) => {
-                        console.log(Ban.Url);
-                        console.log(Ban.Src);
                         banners.push(
                             <Banner Url={Ban.Url} Src={Ban.Src} key={index} />
                         );

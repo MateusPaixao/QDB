@@ -43,6 +43,7 @@
     "promise-polyfill": "8.1.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-html-parser": "^2.0.2",
     "sass-rem": "^2.0.1",
     "vtex-lazyload": "0.0.3",
     "webpack-dev-server": "^3.8.0",
