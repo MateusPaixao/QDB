@@ -161,6 +161,16 @@ function showSlides(n) {
     dots[slideIndex-1].className += " active";
 }
 
+var goToSlide2 = document.querySelector('.go-to-slide-2');
+goToSlide2.addEventListener('click', function() {
+    currentSlide(2);
+});
+
+var goToPrevStep = document.querySelector('#prev-step-btn');
+goToPrevStep.addEventListener('click', function() {
+    plusSlides(-1);
+});
+
 //mapa de classes
 var jsonMap = {
     "claro": new ClaroStrategy()

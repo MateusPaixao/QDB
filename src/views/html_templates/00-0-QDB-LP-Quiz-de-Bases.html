@@ -42,7 +42,7 @@
                 <span class="dot"></span>
                 <span class="dot"></span>
             </div> 
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a id="prev-step-btn">&#10094;</a>
             <a id="modal-quiz-btn" href="#">Encontre seu subtom</a>
         </aside>
 
@@ -54,13 +54,18 @@
                 <div class="quiz-desktop">
                     <img src="https://qbbr.vteximg.com.br/arquivos/abre-encontre-seu-tom.png" alt="Encontre seu tom de base"/>
                 </div>
-                <article>
-                    <h1>Encontre sua cor ideal</h1>
-                    <p>Em três passos simples, te ajudamos a encontrar 
-                        a sua cor de base e te mostramos os produtos que mais 
-                        combinam com seu tipo de pele.</p>
-                    <div onclick="currentSlide(2)">quero descobrir a minha</div>
-                </article>
+                <div class="shell">
+                    <article>
+                        <h1>Encontre <br/>sua cor ideal</h1>
+                        <p class="default-text">Em três passos simples, te ajudamos a encontrar 
+                            a sua <br/>cor de base e te mostramos os produtos que mais <br/>
+                            combinam com seu tipo de pele.</p>
+                        <div class="go-to-slide-2 quiz-btn">quero descobrir <span class="quiz-desktop">a minha</span></div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="126.797" height="46.076" viewBox="0 0 126.797 46.076">
+                            <path id="Caminho_5142" data-name="Caminho 5142" d="M627.579,792.7c-12.044-14.291-27.456-21.177-45.9-21.7-6.735-.19,158.344,0,121.124-.005a67.571,67.571,0,0,0-23.481,4.023c-17.673,6.541-29.786,19.535-36.465,38.865-.395,1.142-.6,3.108-1.734,3.108-1.194,0-1.595-1.792-1.957-2.958A60.329,60.329,0,0,0,627.579,792.7" transform="translate(708.277 816.993) rotate(180)" fill="#937363"/>
+                        </svg>                      
+                    </article>
+                </div>
             </section>
         </div>
 
@@ -90,7 +95,10 @@
             <section id="result">
             </section>
         </div>       
-    </main>    
+    </main>
     <script src="./arquivos/QDB-LP-Quiz-de-Bases.js"></script>
+    <footer class="footer">
+        <vtex:template id="00-0-QDB-Footer" />
+    </footer>    
 </body>
 </html>

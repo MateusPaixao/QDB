@@ -1,12 +1,31 @@
 //variables
-$color : #937363;
+$color: #937363;
+$btn-color: #333;
+$btn-color-darken: darken($btn-color, 20);
 
-//initial
+//btn 
+.quiz-btn {
+    padding: 10px 20px;
+    background-color:$btn-color;
+    font-weight: 500;
+    border-radius: 8px;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    &:hover {
+        background-color: $btn-color-darken;
+    }
+}
+
+//initialize
 body.lp-quiz {
     margin: 0;
     font-size: 14px;
     * {
         box-sizing:border-box
+    }
+    .default-text {
+        font-size: 15px;
     }
     a {
         text-decoration: none;
@@ -42,12 +61,26 @@ body.lp-quiz {
     .quiz-desktop {
         display: block;
     }
+    .quiz-middle-none {
+        display: block;
+    }
     @media(max-width: 414px) {
         .quiz-mobile {
             display: block;
         }
         .quiz-desktop {
             display: none;
+        }
+        .default-text {
+            font-size: 15px;
+        }
+    }
+    @media(min-width: 415px) and (max-width: 992px) {
+        .quiz-middle-none {
+            display: none;
+        }
+        .default-text {
+            font-size: 2vw;
         }
     }
 }
@@ -120,6 +153,66 @@ body.lp-quiz {
         cursor: pointer;
     } 
 }
+//initial page
+.initial-page {
+    position: relative;
+    .shell {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    article {
+        position: absolute;
+        display: flex;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        max-width: 40vw;
+        flex-direction: column;
+        justify-content: center;
+        color: #fff;
+        padding: 0 10px;
+    }
+    h1 {
+        font-size: 18px;
+        font-weight: 700;
+        @extend .quiz-middle-none;
+    }
+    svg {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: none;
+    }
+    @media (min-width: 992px) {
+        h1 {
+            font-size: 2.5vw;
+        }
+        .quiz-btn {
+            width: 215px;
+        }
+        svg {
+            display: block;
+        }
+    }
+    @media (max-width: 415px) {
+        article {
+            max-width: initial;
+            bottom: initial;
+            margin: 15px 0;
+        }
+    }
+}
+body.lp-quiz aside {
+    display: none;
+}
+//footer 
+body.lp-quiz .footer {
+    padding: 0;
+}
+
 //provisory
 [data-main-group], [data-subtone-group] {
     @extend .clearfix;
