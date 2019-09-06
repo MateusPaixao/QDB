@@ -1,14 +1,15 @@
-svg {
-    path {
-        fill: $secondaryColor
-    }
-}
+
 
 body {
     background: darken(#fdfdfd, 10%);
 }
 
 .header {
+    svg {
+        path {
+            fill: $secondaryColor
+        }
+    }
     position: fixed;
     top: 0;
     background-color: $principalColor;

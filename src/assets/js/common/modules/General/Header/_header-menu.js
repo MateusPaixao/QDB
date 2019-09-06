@@ -4,8 +4,8 @@ import CacheSelector from '../cache-selector';
 const Methods = {
     init() {
         Methods.openCloseMenu();
-        Methods.openCloseList();
-        // Methods.heroBannerMarginTop();
+        Methods.menuAccordion();
+        Methods.heroBannerMarginTop();
     },
     openCloseMenu() {
         CacheSelector.header.menuHamContainer.addEventListener('click', (el) => {
@@ -19,7 +19,7 @@ const Methods = {
             }
         })
     },
-    openCloseList() {
+    menuAccordion() {
         CacheSelector.header.menuAccordion.forEach((menu) => {
             menu.addEventListener('click', (el) => {
                 el.stopPropagation;
@@ -27,14 +27,13 @@ const Methods = {
                     el.target.setAttribute('data-accordion','true');
                 }
                 else{
-                    
-                    menu.setAttribute('data-accordion','false');
+                    el.target.setAttribute('data-accordion','false');
                 }
             })
         })
     },
     heroBannerMarginTop(){
-        CacheSelector.home.bannerHero.style.marginTop = CacheSelector.header.header.offsetHeight;
+        CacheSelector.home.bannerHero.style.marginTop = `${CacheSelector.header.header.offsetHeight}px`;
     }
 }
 
