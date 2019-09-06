@@ -1,4 +1,5 @@
 .header__region{
+    width: 50%;
     .header__region__selection{
         @include sans(.75rem, $g-primary, 400, initial);
         border: solid 1px $g-primary;
@@ -7,13 +8,6 @@
     }
     position: relative;
     &.--active, &:hover{
-        &::before{
-            content: '';
-            @include triangle("left", 6px, $safflower);
-            position: absolute;
-            right: -1rem;
-            top: 50%;
-        }
         &::after{
             content: 'Escolha a sua região';
             display: flex;
