@@ -80,14 +80,14 @@ const Methods = {
                         document.querySelectorAll(".bannerHero__controls--dots .--changePosition")[i].classList[addOrRemove]('--active');
                     })
 
-                    if(this.currentSlide == 0){
-                        document.querySelector(".bannerHero__controls--arrows .--prev").classList.add("off");
-                    }else if(this.currentSlide == (this.innerElements.length - 1) ){
-                        document.querySelector(".bannerHero__controls--arrows .--next").classList.add("off");
-                    }else{
-                        document.querySelector(".bannerHero__controls--arrows .--prev").classList.remove("off");
-                        document.querySelector(".bannerHero__controls--arrows .--next").classList.remove("off");
-                    }
+                    // if(this.currentSlide == 0){
+                    //     document.querySelector(".bannerHero__controls--arrows .--prev").classList.add("off");
+                    // }else if(this.currentSlide == (this.innerElements.length - 1) ){
+                    //     document.querySelector(".bannerHero__controls--arrows .--next").classList.add("off");
+                    // }else{
+                    //     document.querySelector(".bannerHero__controls--arrows .--prev").classList.remove("off");
+                    //     document.querySelector(".bannerHero__controls--arrows .--next").classList.remove("off");
+                    // }
                 }
 
                 // let controls = document.createElement("div");

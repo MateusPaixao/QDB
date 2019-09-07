@@ -13,6 +13,7 @@ const Methods = {
         Methods.buildVitrines();
         // Methods.buildBanners();
         Methods.getInfoVitrines();
+        Methods.isInViewport();
         if(document.querySelector(".w-gerador--datas") != null){
             Methods.getProductInfos();
             Methods.getTopBannerColor();
@@ -21,11 +22,53 @@ const Methods = {
     buildHome: () => {
         Home.init();
     },
+    
+    isInViewport: () => {
+        let images = document.querySelectorAll('source, img');
+
+        if ('IntersectionObserver' in window) {
+            // IntersectionObserver Supported
+            let config = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.5
+                };
+            
+            let observer = new IntersectionObserver(onChange, config);
+            images.forEach(img => observer.observe(img));
+        
+            function onChange(changes, observer) {
+                changes.forEach(change => {
+                if (change.intersectionRatio > 0) {
+                    // Stop watching and load the image
+                    loadImage(change.target);
+                    observer.unobserve(change.target);
+                }
+                });
+            }
+        
+        } else {
+            // IntersectionObserver NOT Supported
+            images.forEach(image => loadImage(image));
+        }
+        
+        function loadImage(image) {
+            image.classList.add('fade-in');
+            if(image.dataset && image.dataset.src) {
+                image.src = image.dataset.src;
+            }
+            
+            if(image.dataset && image.dataset.srcset) {
+                image.srcset = image.dataset.srcset;
+            }
+        }
+    },
+
     getInfoVitrines: () => {
         for(let i = 0; i < document.querySelectorAll(".bannerVitrine").length; i++){
             document.querySelectorAll(".bannerCollection__info__title")[i].textContent = document.querySelectorAll(".bannerVitrine")[i].textContent.match(/(?<=banTitleInit\s+).([^\s]+).*?(?=\s+banTitleEnd)/)[0];
             document.querySelectorAll(".bannerCollection__info__banner_url")[i].href = document.querySelectorAll(".bannerVitrine")[i].textContent.match(/href\s*=\s*"(.+?)"/)[1];
-            document.querySelectorAll(".bannerCollection__info__banner_img")[i].src = document.querySelectorAll(".bannerVitrine")[i].textContent.match(/src\s*=\s*"(.+?)"/)[1];
+            document.querySelectorAll(".bannerCollection__info__banner_img")[i].dataset.src = document.querySelectorAll(".bannerVitrine")[i].textContent.match(/src\s*=\s*"(.+?)"/)[1];
         }
     },
     buildVitrines: () => {
@@ -33,7 +76,6 @@ const Methods = {
             let vitrine = collection.nextSibling;
             vitrine.setAttribute("id", "collection-" + collection.textContent)
             vitrine.setAttribute("data-collection", collection.textContent)
-            console.log("HUMMMMM");
             General.vitrine(vitrine.dataset.collection);
         });
 

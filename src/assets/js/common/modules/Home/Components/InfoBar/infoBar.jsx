@@ -17,7 +17,7 @@ const Methods = {
                         },
                         {
                             Content: 'troque pontos por produtos no <br> <a href="/clube-das-beres"> clube das berês fidelidade </a>',
-                            Icon: '<svg class="star" fill="none" viewBox="0 0 55 52" xmlns="http://www.w3.org/2000/svg"><path d="M53.84 19.66a3.2 3.2 0 0 0-2.72-2.21l-15-1.63-6.18-13.76a3.22 3.22 0 0 0-5.88 0l-6.18 13.76-15 1.63a3.23 3.23 0 0 0-1.82 5.6l11.17 10.13-3.08 14.76a3.23 3.23 0 0 0 4.76 3.46L27 43.9l13.09 7.5a3.23 3.23 0 0 0 4.76-3.46l-3.08-14.76 11.17-10.13a3.199 3.199 0 0 0 .9-3.39zm-2.25 1.9L40 32.08a1 1 0 0 0-.31 1l3.2 15.32a1.23 1.23 0 0 1-1.81 1.32L27.5 41.88a1 1 0 0 0-1 0l-13.58 7.79a1.23 1.23 0 0 1-1.81-1.32L14.31 33a.999.999 0 0 0-.31-1L2.41 21.56a1.19 1.19 0 0 1-.35-1.28 1.2 1.2 0 0 1 1-.84l15.56-1.69a1 1 0 0 0 .8-.59l6.46-14.28a1.23 1.23 0 0 1 2.24 0l6.42 14.28a1 1 0 0 0 .8.59l15.56 1.69a1.2 1.2 0 0 1 1 .84 1.19 1.19 0 0 1-.31 1.28z" fill="#000"/></svg>',
+                            Icon: '<svg class="star" viewBox="0 0 52 55" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M53.84 19.66a3.2 3.2 0 0 0-2.72-2.21l-15-1.63-6.18-13.76a3.22 3.22 0 0 0-5.88 0l-6.18 13.76-15 1.63a3.23 3.23 0 0 0-1.82 5.6l11.17 10.13-3.08 14.76a3.23 3.23 0 0 0 4.76 3.46L27 43.9l13.09 7.5a3.23 3.23 0 0 0 4.76-3.46l-3.08-14.76 11.17-10.13a3.199 3.199 0 0 0 .9-3.39zm-2.25 1.9L40 32.08a1 1 0 0 0-.31 1l3.2 15.32a1.23 1.23 0 0 1-1.81 1.32L27.5 41.88a1 1 0 0 0-1 0l-13.58 7.79a1.23 1.23 0 0 1-1.81-1.32L14.31 33a.999.999 0 0 0-.31-1L2.41 21.56a1.19 1.19 0 0 1-.35-1.28 1.2 1.2 0 0 1 1-.84l15.56-1.69a1 1 0 0 0 .8-.59l6.46-14.28a1.23 1.23 0 0 1 2.24 0l6.42 14.28a1 1 0 0 0 .8.59l15.56 1.69a1.2 1.2 0 0 1 1 .84 1.19 1.19 0 0 1-.31 1.28z" fill="#000"/></svg>',
                         },
                         {
                             Content: 'vem nos visitar em <br> <a href="/nossas-lojas"> nossas lojas </a>',
@@ -27,24 +27,32 @@ const Methods = {
                 }
 
                 this.getShippingInfo = this.getShippingInfo.bind(this);
-                this.setViewbox = this.setViewbox.bind(this);
+                this.setInfos = this.setInfos.bind(this);
             }
 
             componentDidMount(){
-                this.getShippingInfo()
-                this.setViewbox();
-            }
-
-            setViewbox(){
-                document.querySelector(".infoBar__render .star").setAttribute("viewBox", "0 0 52 55");
+                this.getShippingInfo();
+                this.setInfos();
             }
 
             getShippingInfo(){
                 let StateInfos = this.state.Infos;
-                StateInfos[0].Content = document.querySelector(".infoBar").textContent.match(/(?<=shippingTextInit\s+).([^\s]+).*?(?=\s+shippingTextEnd)/)[0];
+                StateInfos[0].Content = document.querySelector(".infoBar").textContent.match(/(?<=shippingTextInit)(.*)(?=shippingTextEnd)/)[0];
+                console.log(document.querySelector(".infoBar").textContent.match(/(?<=shippingTextInit)(.*)(?=shippingTextEnd)/));
                 this.setState({
                     Infos: StateInfos
                 })
+            }
+
+            setInfos(){
+                setTimeout(() => {
+                    for( let i = 0; i < document.querySelectorAll(".infoBar__render .__container").length; i++){
+                        console.log(document.querySelectorAll(".infoBar__render .__container .__icon")[i])
+                        console.log(this.state.Infos[i]);
+                        document.querySelectorAll(".infoBar__render .__container .__icon")[i].innerHTML = this.state.Infos[i].Icon;
+                        document.querySelectorAll(".infoBar__render .__container .__content")[i].innerHTML = this.state.Infos[i].Content;
+                    }
+                }, 500);
             }
 
             render(){

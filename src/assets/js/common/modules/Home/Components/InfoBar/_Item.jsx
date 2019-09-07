@@ -1,13 +1,13 @@
 
 // import React from "react";
 // import PropTypes from "prop-types";
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+// import ReactHtmlParser from 'react-html-parser';
 
-const Info = (props) => {
+const Info = () => {
     return (
         <div className="__container">
-            <span className="__icon" >{ ReactHtmlParser(props.Icon) }</span>
-            <p className="__content">{ ReactHtmlParser(props.Text) }</p>
+            <span className="__icon" ></span>
+            <p className="__content"></p>
         </div>
     );
 }

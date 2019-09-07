@@ -62,21 +62,6 @@
 	}
 }
 
-.bannerCollection{
-	margin-bottom: 20px;
-	&:nth-child(2){
-		margin-bottom: 40px;
-	}
-    .shell{
-        display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-	.bannerCollection__info__title{
-		@include sans(1.875rem, $g-primary, 900, initial);
-		margin-bottom: 10px;
-	}
-}
 // .w-lazy-banner{
 
 //     &--desktop{
