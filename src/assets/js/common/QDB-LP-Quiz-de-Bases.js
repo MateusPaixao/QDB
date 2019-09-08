@@ -610,8 +610,10 @@ function createThirdLevelStructure(obj) {
         //obtem objeto do subtom
         var subtone = obj.subtones[`${subtoneName}`];
         //adiciona conteúdo html respectivo da opção
-        element.innerHTML = `<h3>${subtone.name}</h3>
-                            <img src="${subtone.imageURL}" />`;
+        element.innerHTML = `
+                                <img src="${subtone.imageURL}" />
+                                <h4>${subtone.name}</h4>
+                            `;
         element.classList.remove('hide');
         element.addEventListener('click', function() {
             //pede criação do quarto nível passando obj subtom escolhido
@@ -630,9 +632,9 @@ function createFourthLevelStructure(subtone) {
     subtone.colors.forEach(element => {
         currentStructure.innerHTML += `
                                 <a class="result-item" href="${element.url}">
-                                <h3>URL: ${element.url}</h3>
-                                <p>Nome: ${element.name}</p>
-                                <img src="${element.imageURL}" />
+                                    <img src="${element.imageURL}" />
+                                    <h4>${element.name}</h4>
+                                </a>
                                 `
     });
     currentStructure.classList.remove('hide');
