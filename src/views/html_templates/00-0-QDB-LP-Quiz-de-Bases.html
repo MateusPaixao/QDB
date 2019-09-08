@@ -35,66 +35,104 @@
         </div>
     </div>
     <main class="slideshow-container" steps-control="">
-        <aside>  
-            <div>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div> 
-            <a id="prev-step-btn">&#10094;</a>
-            <a id="modal-quiz-btn" href="#">Encontre seu subtom</a>
-        </aside>
-
-        <div class="slide-quiz fade">
-            <section class="initial-page">
-                <div class="quiz-mobile">
-                    <img src="https://qbbr.vteximg.com.br/arquivos/m-abre-encontre-seu-tom.png" alt="Encontre seu tom de base"/>
+        <div class="shell clearfix">
+            <aside>  
+                <div class="v-step-2">
+                    <h3 class="quiz-title">Selecione o tom que mais parece com o seu</h3>
+                    <p class="quiz-text">Clique na imagem que você acha mais próxima ao seu tom de pele</p>
                 </div>
-                <div class="quiz-desktop">
-                    <img src="https://qbbr.vteximg.com.br/arquivos/abre-encontre-seu-tom.png" alt="Encontre seu tom de base"/>
+                <div class="v-step-3">
+                    <h3 class="quiz-title">Agora combine com seu subtom</h3>
+                    <p class="quiz-text">Como saber qual é o meu subtom? A gente te ajuda.</p>
+                    <a id="modal-quiz-btn" href="#">Clique aqui!</a>
                 </div>
-                <div class="shell">
-                    <article>
-                        <h1>Encontre <br/>sua cor ideal</h1>
-                        <p class="default-text">Em três passos simples, te ajudamos a encontrar 
-                            a sua <br/>cor de base e te mostramos os produtos que mais <br/>
-                            combinam com seu tipo de pele.</p>
-                        <div class="go-to-slide-2 quiz-btn">quero descobrir <span class="quiz-desktop">a minha</span></div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="126.797" height="46.076" viewBox="0 0 126.797 46.076">
-                            <path id="Caminho_5142" data-name="Caminho 5142" d="M627.579,792.7c-12.044-14.291-27.456-21.177-45.9-21.7-6.735-.19,158.344,0,121.124-.005a67.571,67.571,0,0,0-23.481,4.023c-17.673,6.541-29.786,19.535-36.465,38.865-.395,1.142-.6,3.108-1.734,3.108-1.194,0-1.595-1.792-1.957-2.958A60.329,60.329,0,0,0,627.579,792.7" transform="translate(708.277 816.993) rotate(180)" fill="#937363"/>
-                        </svg>                      
-                    </article>
+                <div class="v-step-4">
+                    <h3 class="quiz-title">Identifique qual a sua cor de base</h3>
+                    <p class="quiz-text">Selecione a modelo que tem a tonalidade de pele mais parecida com a sua</p>
                 </div>
-            </section>
+                <div class="dots">
+                    <span class="dot hide"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div> 
+                <a class="v-step-3 v-step-4" id="prev-step-btn">&#10094;</a>
+            </aside>
+            <div class="slide-quiz fade">
+                <section class="initial-page">
+                    <div class="quiz-mobile">
+                        <img src="https://qbbr.vteximg.com.br/arquivos/m-abre-encontre-seu-tom.png" alt="Encontre seu tom de base"/>
+                    </div>
+                    <div class="quiz-desktop">
+                        <img src="https://qbbr.vteximg.com.br/arquivos/abre-encontre-seu-tom.png" alt="Encontre seu tom de base"/>
+                    </div>
+                    <div class="shell">
+                        <article>
+                            <h1>Encontre <br/>sua cor ideal</h1>
+                            <p class="default-text">Em três passos simples, te ajudamos a encontrar 
+                                a sua <br/>cor de base e te mostramos os produtos que mais <br/>
+                                combinam com seu tipo de pele.</p>
+                            <div class="go-to-slide-2 quiz-btn">quero descobrir a minha</div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="126.797" height="46.076" viewBox="0 0 126.797 46.076">
+                                <path id="Caminho_5142" data-name="Caminho 5142" d="M627.579,792.7c-12.044-14.291-27.456-21.177-45.9-21.7-6.735-.19,158.344,0,121.124-.005a67.571,67.571,0,0,0-23.481,4.023c-17.673,6.541-29.786,19.535-36.465,38.865-.395,1.142-.6,3.108-1.734,3.108-1.194,0-1.595-1.792-1.957-2.958A60.329,60.329,0,0,0,627.579,792.7" transform="translate(708.277 816.993) rotate(180)" fill="#937363"/>
+                            </svg>                      
+                        </article>
+                    </div>
+                </section>
+            </div>
+            <div class="slide-quiz fade">
+                <section data-main-group="">
+                    <div data-main-option="claro">
+                        <img src="./arquivos/00N.png" alt="Claro"/>
+                        <h4>Claro</h4>
+                    </div>
+                    <div data-main-option="claro-medio">
+                        <img src="./arquivos/02Q.png" alt="Médio Claro"/>
+                       <h4>Médio Claro</h4>
+                    </div>
+                    <div data-main-option="medio">
+                        <img src="./arquivos/06N.png" alt="Médio"/>
+                        <h4>Médio</h4>
+                    </div>
+                    <div data-main-option="medio-escuro">
+                        <img src="./arquivos/11N.png" alt="Médio Escuro"/>
+                        <h4>Médio Escuro</h4>
+                    </div>
+                    <div data-main-option="escuro">
+                        <img src="./arquivos/15Q.png" alt="Escuro"/>
+                        <h4>Escuro</h4>             
+                    </div>
+                </section>
+            </div>
+            <div class="slide-quiz fade">
+                <section data-subtone-group="claro">
+                    <div data-subtone-option="quente"></div>
+                    <div data-subtone-option="neutro"></div>
+                    <div data-subtone-option="frio"></div>
+                </section>
+                <section data-subtone-group="claro-medio">
+                    <div data-subtone-option="quente"></div>
+                    <div data-subtone-option="frio"></div>
+                </section>
+                <section data-subtone-group="medio">
+                    <div data-subtone-option="quente"></div>
+                    <div data-subtone-option="neutro"></div>
+                    <div data-subtone-option="frio"></div>
+                </section>
+                <section data-subtone-group="medio-escuro">
+                    <div data-subtone-option="quente"></div>
+                    <div data-subtone-option="neutro"></div>
+                </section>
+                <section data-subtone-group="escuro">
+                    <div data-subtone-option="quente"></div>
+                    <div data-subtone-option="neutro"></div>
+                </section>
+            </div>       
+            <div class="slide-quiz fade">
+                <section id="result">
+                </section>
+            </div>       
         </div>
-
-        <div class="slide-quiz fade">
-            <section data-main-group="">
-                <div data-main-option="claro">
-                    CLARO
-                </div>
-            </section>
-        </div>
-      
-        <div class="slide-quiz fade">
-            <section data-subtone-group="claro">
-                <div data-subtone-option="quente">
-                    
-                </div>
-                <div data-subtone-option="neutro">
-                    
-                </div>
-                <div data-subtone-option="frio">
-                    
-                </div>
-            </section>
-        </div>
-      
-        <div class="slide-quiz fade">
-            <section id="result">
-            </section>
-        </div>       
     </main>
     <script src="./arquivos/QDB-LP-Quiz-de-Bases.js"></script>
     <footer class="footer">

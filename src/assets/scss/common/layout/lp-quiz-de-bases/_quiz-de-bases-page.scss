@@ -31,12 +31,16 @@ body.lp-quiz {
         text-decoration: none;
         color: #000;
     }
+    main.slideshow-container {
+        background-color: #937363;
+        @extend .clearfix;
+    }
     //auxiliar classes
     .show {
-        display: block; //js
+        display: block !important; //js
     }
     .hide {
-        display: none; //js
+        display: none !important; //js
     }
     .clearfix {
         &:before,
@@ -96,18 +100,19 @@ body.lp-quiz {
         display: none;
     }
     .dot {
-        cursor: pointer;
         height: 15px;
         width: 15px;
-        margin: 0 2px;
-        background-color: #bbb;
+        margin: 0 7px;
+        background-color: #fff;
         border-radius: 50%;
         display: inline-block;
-        transition: background-color 0.6s ease;
+        transition: all 0.6s ease;
         pointer-events: none;
     }
     .active, .dot:hover {
-        background-color: #717171;
+        background-color:#654a3c;
+        width: 42px;
+        border-radius: 7px;
     }
     // Fading animation 
     .fade {
@@ -205,35 +210,118 @@ body.lp-quiz {
         }
     }
 }
-body.lp-quiz aside {
-    display: none;
+//quiz-container
+body.lp-quiz {
+    //first step
+    [steps-control="1"] > .shell {
+        max-width: initial;
+        padding-left: initial;
+        padding-right: initial;
+        margin: initial;
+    }
+    //other steps
+    [steps-control="2"],
+    [steps-control="3"],
+    [steps-control="4"] {
+        .shell {
+            position: relative;
+        }
+        .slide-quiz {
+            width: 85%;
+            float: right;
+            & > * {
+                display: flex;
+                & > * {
+                    flex: 1 1 0;
+                }
+            }
+        }
+    }
 }
+//quiz answer items
+.slide-quiz {
+    [data-main-option],
+    [data-subtone-option],
+    .result-item {
+        position: relative;
+        cursor: pointer;
+        h4 {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color:#fff;
+            font-weight: 100;
+            text-transform: uppercase;
+        }
+    }
+    @media (max-width: 600px) {
+        .shell {
+            &:nth-child(3),
+            &:nth-child(4)
+            &:nth-child(5) {
+                max-width: 600px;
+                overflow: scroll;
+                float: initial !important;
+                width: 100%;
+                position: relative;
+            }
+        }
+        & > * {
+            width: 1115px;
+        }
+    }
+}
+
+//aside
+body.lp-quiz {
+    [steps-control="1"] aside {
+        display: none;
+    }
+    aside {
+        width: 20%;
+        float: left;
+        color:#fff;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: 0;
+        bottom: 0;
+        justify-content: center;
+        z-index: 10;
+        .quiz-title {
+            color:#fff;
+            text-align: left;   
+            font-size: 1.6vw;
+        }
+        .quiz-text {
+            width: 60%;
+        }
+        [class^="v-step-"] > * {
+            margin-bottom: 15px;
+        }
+    }
+    .v-step-2,
+    .v-step-3,
+    .v-step-4 {
+        display: none;
+    }
+    [steps-control="2"] .v-step-2,
+    [steps-control="3"] .v-step-3,
+    [steps-control="4"] .v-step-4 {
+        display: block;
+    }
+}
+
 //footer 
 body.lp-quiz .footer {
     padding: 0;
 }
 
-//provisory
-[data-main-group], [data-subtone-group] {
-    @extend .clearfix;
-}
-[data-main-option] {
-    background-color: #1d94767a;
-    margin: 10px;
-    padding: 20px 10px;
-    font-size: 22px;
-    font-weight: 700;
-    float: left;
-}
-[data-subtone-option] {
-    background-color:#1b666b;
-    margin: 10px;
-    float: left;
-    padding: 10px;
-}
-#result .item {
-    display: inline-block;
-    padding: 10px;
-    margin: 10px;
-    background-color: #926f86;
-}
+
+// coisas que mudaram:
+// mobile
+// - posicionamento do texto e botão na página inicial
+
+
+// desktop
