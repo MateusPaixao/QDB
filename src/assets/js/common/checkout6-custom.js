@@ -4,6 +4,6 @@ const Methods = {
     init(){
         Checkout.init();
     }
-}
-
-Methods.init();
+} 
+ 
+Methods.init(); 
