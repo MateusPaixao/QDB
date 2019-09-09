@@ -100,11 +100,11 @@
             }
         }
 
-        &:hover{
-            .cardProduct--addToCart{
-                bottom: 0;
-            }
-        }
+        // &:hover{
+        //     .cardProduct--addToCart{
+        //         bottom: 0;
+        //     }
+        // }
     }
     @include d(s){
         .cardProduct.active.center{
