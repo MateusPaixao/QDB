@@ -7,6 +7,9 @@
         display: flex;
 		justify-content: space-between;
 		align-items: center;
+        @include d("768px"){
+            flex-flow: column;
+        }
 	}
 	.bannerCollection__info__title{
 		@include sans(1.875rem, $g-primary, 900, initial);
@@ -15,6 +18,9 @@
     .bannerCollection__render-collection{
         width: 55%;
         position: relative;
+        @include d("768px"){
+            width: 100%;
+        }
         // &::before, &::after{
         //     content: '';
         //     height: 100%;

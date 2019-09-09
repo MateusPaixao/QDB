@@ -3,10 +3,19 @@
     justify-content: center;
     align-items: center;
     margin: 20px 0 40px;
+    @include d("768px"){
+        display: flex;
+        overflow-y: hidden;
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
     .__container{
         display: flex;
         align-items: center;
         margin-right: 10px;
+        @include d("768px"){
+            min-width: 260px;
+        }
         &:nth-last-child(1){
             margin-right: 0;
         }

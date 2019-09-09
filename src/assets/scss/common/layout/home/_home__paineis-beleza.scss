@@ -3,6 +3,19 @@
         .shell{
             display: flex;
             justify-content: space-between;
+            @include d("768px"){
+                overflow-y: hidden;
+                overflow-x: auto;
+                justify-content: flex-start;
+            }
+            .paineisBeleza__link{
+                margin-right: 10px;
+                .paineisBeleza__img{
+                    @include d("768px"){
+                        min-width: 260px;
+                    }
+                }
+            }
         }
     }
 }

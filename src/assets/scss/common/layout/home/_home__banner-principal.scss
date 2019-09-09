@@ -58,6 +58,9 @@
 			.--next{
 				right: 2%;
 			}
+			@include d("768px"){
+				display: none;
+			}
 		}
 	}
 }
