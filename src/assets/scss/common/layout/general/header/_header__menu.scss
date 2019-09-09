@@ -2,10 +2,11 @@
     &__menu-container {
         transition: .3s ease-in-out;
         position: absolute;
-        top: 100%;
-        left: 0 - 15px; //$headerPadding (segundo parametro)
+        top: -15px;;
+        left:-15px; //$headerPadding (segundo parametro)
         background: #fdfdfd;
         width: 30vw;
+        height: 100vh;
         box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
 
         &--items {
@@ -126,7 +127,7 @@
         }
 
         &--acessiblity {
-            display: none;
+            display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: flex-end;
