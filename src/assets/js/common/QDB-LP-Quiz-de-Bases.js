@@ -15,12 +15,12 @@ class ClaroStrategy {
                                 "url" : "/claro-quente-01Q",
                                 "products" : 
                                     {
-                                        "super-mate" : "01Q",
-                                        "alta-cobertura" : "01Q",
-                                        "corretivo-aqua" : "2",
-                                        "super-fuida" : "02Q",
+                                        "supermate" : "01Q",
+                                        "altacobertura" : "01Q",
+                                        "corretivoaqua" : "2",
+                                        "superfuida" : "02Q",
                                         "aqua" : "01Q",
-                                        "bb-creme" : "01F"
+                                        "bbcreme" : "01F"
                                     }
                             }
                         ]
@@ -35,12 +35,12 @@ class ClaroStrategy {
                                 "url" : "/claro-neutro-00N",
                                 "products" : 
                                     {
-                                        "super-mate" : "00N",
-                                        "alta-cobertura" : "00N",
-                                        "corretivo-aqua" : "1",
-                                        "super-fuida" : "01F",
+                                        "supermate" : "00N",
+                                        "altacobertura" : "00N",
+                                        "corretivoaqua" : "1",
+                                        "superfuida" : "01F",
                                         "aqua" : "01F",
-                                        "bb-creme" : "01F"
+                                        "bbcreme" : "01F"
                                     }
                             },
                             {
@@ -49,12 +49,12 @@ class ClaroStrategy {
                                 "url" : "/claro-neutro-01N",
                                 "products" : 
                                     {
-                                        "super-mate" : "01N",
-                                        "alta-cobertura" : "01N",
-                                        "corretivo-aqua" : "2",
-                                        "super-fuida" : "01F",
+                                        "supermate" : "01N",
+                                        "altacobertura" : "01N",
+                                        "corretivoaqua" : "2",
+                                        "superfuida" : "01F",
                                         "aqua" : "01N",
-                                        "bb-creme" : "01F"
+                                        "bbcreme" : "01F"
                                     }
                             }
                         ]
@@ -69,12 +69,12 @@ class ClaroStrategy {
                                 "url" : "/claro-frio-01F",
                                 "products" : 
                                     {
-                                        "super-mate" : "01F",
-                                        "alta-cobertura" : "01F",
-                                        "corretivo-aqua" : "1",
-                                        "super-fuida" : "01F",
+                                        "supermate" : "01F",
+                                        "altacobertura" : "01F",
+                                        "corretivoaqua" : "1",
+                                        "superfuida" : "01F",
                                         "aqua" : "01F",
-                                        "bb-creme" : "01F"
+                                        "bbcreme" : "01F"
                                     }
                             }
                         ]
@@ -101,12 +101,12 @@ class ClaroMedioStrategy {
                                 "url" : "/claro-medio-quente-02Q",
                                 "products" : 
                                     {
-                                        "super-mate" : "02Q",
-                                        "alta-cobertura" : "02Q",
-                                        "corretivo-aqua" : "2",
-                                        "super-fuida" : "02Q",
+                                        "supermate" : "02Q",
+                                        "altacobertura" : "02Q",
+                                        "corretivoaqua" : "2",
+                                        "superfuida" : "02Q",
                                         "aqua" : "02Q",
-                                        "bb-creme" : "02Q"
+                                        "bbcreme" : "02Q"
                                     }
                             },
                             {
@@ -115,12 +115,12 @@ class ClaroMedioStrategy {
                                 "url" : "/claro-medio-quente-03Q",
                                 "products" : 
                                     {
-                                        "super-mate" : "03Q",
-                                        "alta-cobertura" : "03Q",
-                                        "corretivo-aqua" : "2",
-                                        "super-fuida" : "03Q",
+                                        "supermate" : "03Q",
+                                        "altacobertura" : "03Q",
+                                        "corretivoaqua" : "2",
+                                        "superfuida" : "03Q",
                                         "aqua" : "03Q",
-                                        "bb-creme" : "02Q"
+                                        "bbcreme" : "02Q"
                                     }
                             }
                         ]
@@ -135,12 +135,12 @@ class ClaroMedioStrategy {
                                 "url" : "claro-medio-frio-02F",
                                 "products" : 
                                     {
-                                        "super-mate" : "02F",
-                                        "alta-cobertura" : "02F",
-                                        "corretivo-aqua" : "2",
-                                        "super-fuida" : "02Q",
+                                        "supermate" : "02F",
+                                        "altacobertura" : "02F",
+                                        "corretivoaqua" : "2",
+                                        "superfuida" : "02Q",
                                         "aqua" : "02Q",
-                                        "bb-creme" : "02Q"
+                                        "bbcreme" : "02Q"
                                     }
                             },
                             {
@@ -149,12 +149,12 @@ class ClaroMedioStrategy {
                                 "url" : "/claro-medio-frio-03F",
                                 "products" : 
                                     {
-                                        "super-mate" : "03F",
-                                        "alta-cobertura" : "03F",
-                                        "corretivo-aqua" : "2",
-                                        "super-fuida" : "03F",
+                                        "supermate" : "03F",
+                                        "altacobertura" : "03F",
+                                        "corretivoaqua" : "2",
+                                        "superfuida" : "03F",
                                         "aqua" : "03F",
-                                        "bb-creme" : "02Q"
+                                        "bbcreme" : "02Q"
                                     }
                             }
                         ]
@@ -181,12 +181,12 @@ class MedioStrategy {
                                 "url" : "/medio-quente-04Q",
                                 "products" : 
                                     {
-                                        "super-mate" : "04Q",
-                                        "alta-cobertura" : "04Q",
-                                        "corretivo-aqua" : "5",
-                                        "super-fuida" : "04Q",
+                                        "supermate" : "04Q",
+                                        "altacobertura" : "04Q",
+                                        "corretivoaqua" : "5",
+                                        "superfuida" : "04Q",
                                         "aqua" : "04Q",
-                                        "bb-creme" : "03Q"
+                                        "bbcreme" : "03Q"
                                     }
                             },
                             {
@@ -195,12 +195,12 @@ class MedioStrategy {
                                 "url" : "/medio-quente-05Q",
                                 "products" : 
                                     {
-                                        "super-mate" : "05Q",
-                                        "alta-cobertura" : "05Q",
-                                        "corretivo-aqua" : "4",
-                                        "super-fuida" : "04Q",
+                                        "supermate" : "05Q",
+                                        "altacobertura" : "05Q",
+                                        "corretivoaqua" : "4",
+                                        "superfuida" : "04Q",
                                         "aqua" : "04N",
-                                        "bb-creme" : "03Q"
+                                        "bbcreme" : "03Q"
                                     }
                             },
                             {
@@ -209,12 +209,12 @@ class MedioStrategy {
                                 "url" : "/medio-quente-06Q",
                                 "products" : 
                                     {
-                                        "super-mate" : "06Q",
-                                        "alta-cobertura" : "06Q",
-                                        "corretivo-aqua" : "7",
-                                        "super-fuida" : "07N",
+                                        "supermate" : "06Q",
+                                        "altacobertura" : "06Q",
+                                        "corretivoaqua" : "7",
+                                        "superfuida" : "07N",
                                         "aqua" : "06Q",
-                                        "bb-creme" : "10N"
+                                        "bbcreme" : "10N"
                                     }
                             },
                             {
@@ -223,12 +223,12 @@ class MedioStrategy {
                                 "url" : "/medio-quente-07Q",
                                 "products" : 
                                     {
-                                        "super-mate" : "07Q",
-                                        "alta-cobertura" : "07Q",
-                                        "corretivo-aqua" : "9",
-                                        "super-fuida" : "09Q",
+                                        "supermate" : "07Q",
+                                        "altacobertura" : "07Q",
+                                        "corretivoaqua" : "9",
+                                        "superfuida" : "09Q",
                                         "aqua" : "07Q",
-                                        "bb-creme" : "09Q"
+                                        "bbcreme" : "09Q"
                                     }
                             }
                         ]
@@ -243,12 +243,12 @@ class MedioStrategy {
                                 "url" : "/medio-neutro-04N",
                                 "products" : 
                                     {
-                                        "super-mate" : "04N",
-                                        "alta-cobertura" : "04N",
-                                        "corretivo-aqua" : "5",
-                                        "super-fuida" : "04Q",
+                                        "supermate" : "04N",
+                                        "altacobertura" : "04N",
+                                        "corretivoaqua" : "5",
+                                        "superfuida" : "04Q",
                                         "aqua" : "04N",
-                                        "bb-creme" : "09Q"
+                                        "bbcreme" : "09Q"
                                     }
                             },
                             {
@@ -257,12 +257,12 @@ class MedioStrategy {
                                 "url" : "/medio-neutro-06N",
                                 "products" : 
                                     {
-                                        "super-mate" : "06N",
-                                        "alta-cobertura" : "06N",
-                                        "corretivo-aqua" : "7",
-                                        "super-fuida" : "07N",
+                                        "supermate" : "06N",
+                                        "altacobertura" : "06N",
+                                        "corretivoaqua" : "7",
+                                        "superfuida" : "07N",
                                         "aqua" : "06N",
-                                        "bb-creme" : "09Q"
+                                        "bbcreme" : "09Q"
                                     }
                             },
                             {
@@ -271,12 +271,12 @@ class MedioStrategy {
                                 "url" : "/medio-neutro-07N",
                                 "products" : 
                                     {
-                                        "super-mate" : "07N",
-                                        "alta-cobertura" : "07N",
-                                        "corretivo-aqua" : "8",
-                                        "super-fuida" : "07N",
+                                        "supermate" : "07N",
+                                        "altacobertura" : "07N",
+                                        "corretivoaqua" : "8",
+                                        "superfuida" : "07N",
                                         "aqua" : "07N",
-                                        "bb-creme" : "09Q"
+                                        "bbcreme" : "09Q"
                                     }
                             }
                         ]
@@ -291,12 +291,12 @@ class MedioStrategy {
                                 "url" : "/medio-frio-04F",
                                 "products" : 
                                     {
-                                        "super-mate" : "04F",
-                                        "alta-cobertura" : "04F",
-                                        "corretivo-aqua" : "5",
-                                        "super-fuida" : "04Q",
+                                        "supermate" : "04F",
+                                        "altacobertura" : "04F",
+                                        "corretivoaqua" : "5",
+                                        "superfuida" : "04Q",
                                         "aqua" : "04F",
-                                        "bb-creme" : "03Q"
+                                        "bbcreme" : "03Q"
                                     }
                             }
                         ]
@@ -323,12 +323,12 @@ class MedioEscuroStrategy {
                                 "url" : "/medio-escuro-quente-09Q",
                                 "products" : 
                                     {
-                                        "super-mate" : "09Q",
-                                        "alta-cobertura" : "09Q",
-                                        "corretivo-aqua" : "9",
-                                        "super-fuida" : "09Q",
+                                        "supermate" : "09Q",
+                                        "altacobertura" : "09Q",
+                                        "corretivoaqua" : "9",
+                                        "superfuida" : "09Q",
                                         "aqua" : "09Q",
-                                        "bb-creme" : "09Q"
+                                        "bbcreme" : "09Q"
                                     }
                             },
                             {
@@ -337,12 +337,12 @@ class MedioEscuroStrategy {
                                 "url" : "/medio-escuro-quente-10Q",
                                 "products" : 
                                     {
-                                        "super-mate" : "1OQ",
-                                        "alta-cobertura" : "10Q",
-                                        "corretivo-aqua" : "9",
-                                        "super-fuida" : "10N",
+                                        "supermate" : "1OQ",
+                                        "altacobertura" : "10Q",
+                                        "corretivoaqua" : "9",
+                                        "superfuida" : "10N",
                                         "aqua" : "10Q",
-                                        "bb-creme" : "09Q"
+                                        "bbcreme" : "09Q"
                                     }
                             },
                             {
@@ -351,12 +351,12 @@ class MedioEscuroStrategy {
                                 "url" : "/medio-escuro-quente-12Q",
                                 "products" : 
                                     {
-                                        "super-mate" : "12Q",
-                                        "alta-cobertura" : "12Q",
-                                        "corretivo-aqua" : "11",
-                                        "super-fuida" : "12Q",
+                                        "supermate" : "12Q",
+                                        "altacobertura" : "12Q",
+                                        "corretivoaqua" : "11",
+                                        "superfuida" : "12Q",
                                         "aqua" : "12Q",
-                                        "bb-creme" : "13Q"
+                                        "bbcreme" : "13Q"
                                     }
                             }
                         ]
@@ -371,12 +371,12 @@ class MedioEscuroStrategy {
                                 "url" : "/medio-escuro-neutro-08N",
                                 "products" : 
                                     {
-                                        "super-mate" : "08N",
-                                        "alta-cobertura" : "08N",
-                                        "corretivo-aqua" : "6",
-                                        "super-fuida" : "07N",
+                                        "supermate" : "08N",
+                                        "altacobertura" : "08N",
+                                        "corretivoaqua" : "6",
+                                        "superfuida" : "07N",
                                         "aqua" : "08N",
-                                        "bb-creme" : "09Q"
+                                        "bbcreme" : "09Q"
                                     }
                             },
                             {
@@ -385,12 +385,12 @@ class MedioEscuroStrategy {
                                 "url" : "/medio-escuro-neutro-10N",
                                 "products" : 
                                     {
-                                        "super-mate" : "10N",
-                                        "alta-cobertura" : "10N",
-                                        "corretivo-aqua" : "9",
-                                        "super-fuida" : "10N",
+                                        "supermate" : "10N",
+                                        "altacobertura" : "10N",
+                                        "corretivoaqua" : "9",
+                                        "superfuida" : "10N",
                                         "aqua" : "10Q",
-                                        "bb-creme" : "10N"
+                                        "bbcreme" : "10N"
                                     }
                             },
                             {
@@ -399,12 +399,12 @@ class MedioEscuroStrategy {
                                 "url" : "/medio-escuro-neutro-11N",
                                 "products" : 
                                     {
-                                        "super-mate" : "11N",
-                                        "alta-cobertura" : "11N",
-                                        "corretivo-aqua" : "9",
-                                        "super-fuida" : "09Q",
+                                        "supermate" : "11N",
+                                        "altacobertura" : "11N",
+                                        "corretivoaqua" : "9",
+                                        "superfuida" : "09Q",
                                         "aqua" : "10Q",
-                                        "bb-creme" : "09Q"
+                                        "bbcreme" : "09Q"
                                     }
                             }
                         ]
@@ -431,12 +431,12 @@ class EscuroStrategy {
                                 "url" : "escuro-quente-13Q",
                                 "products" : 
                                     {
-                                        "super-mate" : "13Q",
-                                        "alta-cobertura" : "13Q",
-                                        "corretivo-aqua" : "11",
-                                        "super-fuida" : "15Q",
+                                        "supermate" : "13Q",
+                                        "altacobertura" : "13Q",
+                                        "corretivoaqua" : "11",
+                                        "superfuida" : "15Q",
                                         "aqua" : "13Q",
-                                        "bb-creme" : "13Q"
+                                        "bbcreme" : "13Q"
                                     }
                             },
                             {
@@ -445,12 +445,12 @@ class EscuroStrategy {
                                 "url" : "/escuro-quente-14Q",
                                 "products" : 
                                     {
-                                        "super-mate" : "14Q",
-                                        "alta-cobertura" : "14Q",
-                                        "corretivo-aqua" : "11",
-                                        "super-fuida" : "15Q",
+                                        "supermate" : "14Q",
+                                        "altacobertura" : "14Q",
+                                        "corretivoaqua" : "11",
+                                        "superfuida" : "15Q",
                                         "aqua" : "14Q",
-                                        "bb-creme" : "13Q"
+                                        "bbcreme" : "13Q"
                                     }
                             },
                             {
@@ -459,12 +459,12 @@ class EscuroStrategy {
                                 "url" : "/escuro-quente-15Q",
                                 "products" : 
                                     {
-                                        "super-mate" : "15Q",
-                                        "alta-cobertura" : "15Q",
-                                        "corretivo-aqua" : "12",
-                                        "super-fuida" : "15Q",
+                                        "supermate" : "15Q",
+                                        "altacobertura" : "15Q",
+                                        "corretivoaqua" : "12",
+                                        "superfuida" : "15Q",
                                         "aqua" : "15Q",
-                                        "bb-creme" : "15Q"
+                                        "bbcreme" : "15Q"
                                     }
                             },
                             {
@@ -473,12 +473,12 @@ class EscuroStrategy {
                                 "url" : "/escuro-quente-16Q",
                                 "products" : 
                                     {
-                                        "super-mate" : "16Q",
-                                        "alta-cobertura" : "16Q",
-                                        "corretivo-aqua" : "12",
-                                        "super-fuida" : "15Q",
+                                        "supermate" : "16Q",
+                                        "altacobertura" : "16Q",
+                                        "corretivoaqua" : "12",
+                                        "superfuida" : "15Q",
                                         "aqua" : "15Q",
-                                        "bb-creme" : "15Q"
+                                        "bbcreme" : "15Q"
                                     }
                             }
                         ]
@@ -493,12 +493,12 @@ class EscuroStrategy {
                                 "url" : "/escuro-neutro-14N",
                                 "products" : 
                                     {
-                                        "super-mate" : "14N",
-                                        "alta-cobertura" : "14N",
-                                        "corretivo-aqua" : "11",
-                                        "super-fuida" : "14N",
+                                        "supermate" : "14N",
+                                        "altacobertura" : "14N",
+                                        "corretivoaqua" : "11",
+                                        "superfuida" : "14N",
                                         "aqua" : "14N",
-                                        "bb-creme" : "13Q"
+                                        "bbcreme" : "13Q"
                                     }
                             }
                         ]
@@ -630,12 +630,17 @@ function createFourthLevelStructure(subtone) {
     currentStructure.innerHTML = "";
     //percorre cores sugeridas para o subtom
     subtone.colors.forEach(element => {
-        currentStructure.innerHTML += `
-                                <a class="result-item" href="${element.url}">
-                                    <img src="${element.imageURL}" />
-                                    <h4>${element.name}</h4>
-                                </a>
-                                `
+        //var url = `encontre-sua-cor-ideal/resultado-quiz/?option=${element.name}&supermate=${element.products.aqua}&altacobertura=${element.products.altacobertura}&corretivoaqua=${element.products.corretivoaqua}`;
+        var url = `?lid=e82f0af1-2e44-4364-af5f-75be00f7ab80&option=${element.name}&supermate=${element.products.aqua}&altacobertura=${element.products.altacobertura}&corretivoaqua=${element.products.corretivoaqua}&superfluida=${element.products.superfuida}&aqua=${element.products.aqua}&bbcreme=${element.products.bbcreme}`;
+        var domItem = document.createElement('a');
+
+        domItem.innerHTML += `
+                            <img src="${element.imageURL}" />
+                            <h4>${element.name}</h4>
+                            `;    
+        domItem.classList.add('result-item');   
+        domItem.setAttribute('href', `${url}`);
+        currentStructure.appendChild(domItem);
     });
     currentStructure.classList.remove('hide');
     currentSlide(4);

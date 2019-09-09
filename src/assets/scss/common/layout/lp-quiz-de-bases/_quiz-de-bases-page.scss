@@ -305,7 +305,7 @@ body.lp-quiz {
             bottom: 10px;
         }
         [class^="v-step-"] > * {
-            margin-bottom: 15px;
+            margin: 15px 0;
         }
     }
     @media (min-width: 768px) {
@@ -321,6 +321,7 @@ body.lp-quiz {
             z-index: 10;
             .quiz-title {
                 font-size: 1.6vw;
+                width: 120%;
             }
         }
     }
