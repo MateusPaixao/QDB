@@ -1,0 +1,110 @@
+.modalRegional{
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+    .modalRegional__overlay{
+        height: 100%;
+        width: 100%;
+        background: $safflower;
+        opacity: .8;
+        display: flex;
+        position: fixed;
+    }
+    .modalRegional__container{
+        background: $w-secundary;
+        padding: 3rem;
+        display: flex;
+        flex-flow: column;
+        z-index: 1;
+        border-radius: 10px;
+        max-width: 400px;
+        @include d(s){
+            max-width: 90%;
+            padding: 0 10px;
+        }
+        @include d(s){
+            max-width: 90%;
+            padding: 0 10px;
+        }
+        .modalRegional__container__title{
+            @include sans(1.25rem, $g-primary, 900, initial);
+            margin: 0 0 20px;
+        }
+        .modalRegional__selection{
+            padding: 10px;
+            border: solid 1px $qdb-grey-l;
+            @include sans(1rem, $g-primary, 400, initial);
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .modalRegional__button{
+            background: $safflower;
+            display: flex;
+            justify-content: center;
+            @include sans(.875rem, $w-secundary, 400, initial);
+            padding: 15px 10px;
+            text-align: center;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+            transition: all .2s;
+            &:hover{
+                filter: brightness(140%);
+            }
+            &::before{
+                display: flex;
+                height: 100%;
+                width: 0%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                justify-content: center;
+                align-items: center;
+                transition: all .2s;
+                @include sans(.875rem, $w-secundary, 400, initial);
+            }
+            &._loading{
+                cursor: not-allowed;
+                pointer-events: none;
+                &::before{
+                    content: 'Aguarde...';
+                    width: 100%;
+                    background: $qdb-grey-m;
+                }
+                &:hover{
+                    filter: none;
+                }
+            }
+            &._success{
+                pointer-events: none;
+                &::before{
+                    content: 'Região Alterada';
+                    width: 100%;
+                    background: $success;
+                }
+                &:hover{
+                    filter: none;
+                }
+            }
+        }
+    }
+}
+.__regiao{
+    height: 40px;
+    display: flex !important;
+    align-items: center;
+    // margin-right: 10px;
+    .regiao__marker{
+        width: 30px;
+        height: 35px;
+        cursor: pointer;
+        path{
+            fill: $w-secundary;
+        }
+    }
+}

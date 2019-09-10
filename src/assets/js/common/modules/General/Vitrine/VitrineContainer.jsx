@@ -102,8 +102,7 @@ const Methods = {
             let url = "https://service.yourviews.com.br/api/v2/pub/review/ReviewShelf?productids=" + ids.join(",");
             request.open('GET', url);
             request.setRequestHeader('YVStoreKey','388ef2d0-c3b8-4fd6-af13-446b698d544a'); 
-            request.setRequestHeader('Content-Type', 'application/json');
-            request.setRequestHeader('Access-Control-Allow-Origin', '*');
+            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
             request.onreadystatechange = () => {
                 if (request.readyState === 4) {
                     resolve(JSON.parse(request.response));
