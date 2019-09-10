@@ -333,7 +333,7 @@ class MedioEscuroStrategy {
                             },
                             {
                                 "name" : "10Q",
-                                "imageURL" : "/arquivos/10.png",                                
+                                "imageURL" : "/arquivos/10Q.png",                                
                                 "url" : "/medio-escuro-quente-10Q",
                                 "products" : 
                                     {

@@ -258,7 +258,7 @@ body.lp-quiz {
                 position: relative;
             }
             .slide-quiz {
-                width: 85%;
+                width: 78%;
                 float: right;
             }
         }
@@ -310,7 +310,7 @@ body.lp-quiz {
     }
     @media (min-width: 768px) {
         aside {
-            width: 20%;
+            width: 22%;
             float: left;
             position: absolute;
             display: flex;
@@ -321,7 +321,7 @@ body.lp-quiz {
             z-index: 10;
             .quiz-title {
                 font-size: 1.6vw;
-                width: 120%;
+                margin: 0 5px;
             }
         }
     }
@@ -337,7 +337,7 @@ body.lp-quiz {
             //display: table-cell;
             h4 {
                 position: absolute;
-                bottom: 7%;
+                bottom: 8%;
                 width: 100%;
                 text-align: center;
                 color:#fff;
@@ -356,7 +356,7 @@ body.lp-quiz {
             display: inline-block;
             content: url('https://qbbr.vteximg.com.br/arquivos/quiz-belisco.png');
             position: absolute;
-            bottom: 14%;
+            bottom: 13.5%;
             left: 0;
             right: 0;
             margin: auto;
