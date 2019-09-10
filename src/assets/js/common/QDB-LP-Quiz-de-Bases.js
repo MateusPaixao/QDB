@@ -633,12 +633,14 @@ function createFourthLevelStructure(subtone) {
         //var url = `encontre-sua-cor-ideal/resultado-quiz/?option=${element.name}&supermate=${element.products.aqua}&altacobertura=${element.products.altacobertura}&corretivoaqua=${element.products.corretivoaqua}`;
         var url = `?lid=e82f0af1-2e44-4364-af5f-75be00f7ab80&option=${element.name}&supermate=${element.products.aqua}&altacobertura=${element.products.altacobertura}&corretivoaqua=${element.products.corretivoaqua}&superfluida=${element.products.superfuida}&aqua=${element.products.aqua}&bbcreme=${element.products.bbcreme}`;
         var domItem = document.createElement('a');
+        
 
         domItem.innerHTML += `
                             <img src="${element.imageURL}" />
                             <h4>${element.name}</h4>
                             `;    
-        domItem.classList.add('result-item');   
+        domItem.classList.add('result-item');
+        domItem.classList.add('quiz-option-item'); 
         domItem.setAttribute('href', `${url}`);
         currentStructure.appendChild(domItem);
     });

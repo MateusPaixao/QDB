@@ -330,9 +330,7 @@ body.lp-quiz {
 //quiz answer items
 body.lp-quiz {
     .slide-quiz {
-        [data-main-option],
-        [data-subtone-option],
-        .result-item {
+        .quiz-option-item {
             position: relative;
             cursor: pointer;
             max-width: 260px;
@@ -351,7 +349,18 @@ body.lp-quiz {
         [data-subtone-option],
         .result-item {
             width: 25%;
-            min-height: 30vw;
+        }
+    }
+    @media (min-width: 768px) {
+        .quiz-option-item:hover::before {
+            display: inline-block;
+            content: url('https://qbbr.vteximg.com.br/arquivos/belisco.png');
+            position: absolute;
+            bottom: 14%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 138px;
         }
     }
     @media (max-width: 600px) {
