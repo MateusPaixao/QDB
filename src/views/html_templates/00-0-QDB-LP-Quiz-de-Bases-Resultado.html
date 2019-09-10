@@ -13,17 +13,15 @@
     <link rel="stylesheet" href="/arquivos/QDB-LP-Quiz-de-Bases-Resultado.css" />
 </head>
 <body>
-    <span class="teste1"></span>
     <div class="container-group">
         <vtex:template id="00-0-QDB-Header" />
     </div>
     <main class="lp-quiz-result">
-        <div class="header">
+        <div class="quiz-header">
             <h1>Sua cor ideal é 
                 <span id="color-name"></span>
             </h1>
             <div id="quiz-image">
-                
             </div>
             <p class="info">
                     Essa é a nossa sugestão de cor, mas o importante é 
@@ -34,16 +32,18 @@
                     tonalidade de pele dentro dos nossos produtos. Confira>>>
             </p>
         </div>
-        <section class="result__container" style="display: none;">
-            <div class="result__wrapper">
+        <section class="result__container">
+            <div class="result__wrapper shell">
                 <div class="product__container">
                     <div class="product__img-container">
-                        <img src="/arquivos/" alt="" class="product__img" />
+                        <img src="./arquivos/quiz-aqua.png" alt="" class="product__img" />
                     </div>
                     <div class="product__text-wrapper">
-                        <span class="product__text--type">Base</span>
-                        <h3 class="product__text--title">Aqua Hidratante</h3>
-                        <h2 id="quiz-aqua" class="product__text--change"></h2>
+                        <div>
+                            <span class="product__text--type">Base</span>
+                            <h3 class="product__text--title">Aqua Hidratante</h3>
+                            <h2 id="quiz-aqua" class="product__text--change"></h2>
+                        </div>
                         <p class="product__text--text">Com uma fórmula rica em água, ela garante hidratação profunda com acabamento natural e confortável. Sem fragrância e com FPS 15 UVA+++, é ideal para peles sensíveis e é a base perfeita para ser usada todos os dias.</p>
                         <button class="product__text--button"><a href="">comprar</a></button>
                     </div>
@@ -51,60 +51,70 @@
                 </div>
                 <div class="product__container">
                     <div class="product__img-container">
-                        <img src="/arquivos/" alt="" class="product__img" />
+                        <img src="./arquivos/quiz-corretivoaqua.png" alt="" class="product__img" />
                     </div>
                     <div class="product__text-wrapper">
-                        <span class="product__text--type">Corretivo</span>
-                        <h3 class="product__text--title">Aqua Hidratante</h3>
-                        <h2 id="quiz-corretivoaqua" class="product__text--change"></h2>
+                        <div>
+                            <span class="product__text--type">Corretivo</span>
+                            <h3 class="product__text--title">Aqua Hidratante</h3>
+                            <h2 id="quiz-corretivoaqua" class="product__text--change"></h2>
+                        </div>
                         <p class="product__text--text">Assim como a base Aqua, sua fórmula rica em água garante hidratação profunda. Com textura confortável, ele cobre imperfeições com efeito natural.</p>
                         <button class="product__text--button"><a href="">comprar</a></button>
                     </div>
                 </div>
                 <div class="product__container">
                     <div class="product__img-container">
-                        <img src="/arquivos/" alt="" class="product__img" />
+                        <img src="./arquivos/quiz-supermate.png" alt="" class="product__img" />
                     </div>
                     <div class="product__text-wrapper">
-                        <span class="product__text--type">Base</span>
-                        <h3 class="product__text--title">Supermate</h3>
-                        <h2 id="quiz-supermate" class="product__text--change"></h2>
+                        <div>
+                            <span class="product__text--type">Base</span>
+                            <h3 class="product__text--title">Supermate</h3>
+                            <h2 id="quiz-supermate" class="product__text--change"></h2>
+                        </div>
                         <p class="product__text--text">Ela é livre de óleo, deixando a pele sequinha, aveludada e uniforme, sem craquelar. Além disso, é fácil de aplicar e tem secagem rápida. Sua fórmula é resistente à água e ao suor.</p>
                         <button class="product__text--button"><a href="">comprar</a></button>
                     </div>
                 </div>
                 <div class="product__container">
                     <div class="product__img-container">
-                        <img src="/arquivos/" alt="" class="product__img" />
+                        <img src="./arquivos/quiz-superfluida.png" alt="" class="product__img" />
                     </div>
                     <div class="product__text-wrapper">
-                        <span class="product__text--type">Base natural</span>
-                        <h3 class="product__text--title">Superfluída</h3>
-                        <h2 id="quiz-superfluida" class="product__text--change"></h2>
+                        <div>
+                            <span class="product__text--type">Base natural</span>
+                            <h3 class="product__text--title">Superfluída</h3>
+                            <h2 id="quiz-superfluida" class="product__text--change"></h2>
+                        </div>
                         <p class="product__text--text">Com FPS 50 UVA ++, ela deixa a pele sequinha, com efeito natural e aquela sensação de não estar usando nada no rosto. Resistente à agua e ao suor, sua cobertura média dura até 8 horas.</p>
                         <button class="product__text--button"><a href="">comprar</a></button>
                     </div>
                 </div>
                 <div class="product__container">
                     <div class="product__img-container">
-                        <img src="/arquivos/" alt="" class="product__img" />
+                        <img src="./arquivos/quiz-altacobertura.png" alt="" class="product__img" />
                     </div>
                     <div class="product__text-wrapper">
-                        <span class="product__text--type">Corretivo</span>
-                        <h3 class="product__text--title">Alta Cobertura</h3>
-                        <h2 id="quiz-altacobertura" class="product__text--change"></h2>
+                        <div>
+                            <span class="product__text--type">Base</span>
+                            <h3 class="product__text--title">Alta Cobertura</h3>
+                            <h2 id="quiz-altacobertura" class="product__text--change"></h2>
+                        </div>
                         <p class="product__text--text">Uma base que uniformiza a pele e cobre todas as imperfeições, deixando um efeito mate e sem brilho. Com FPS 15 UVA ++, ela não transfere e sua cobertura alta dura até 8 horas.</p>
                         <button class="product__text--button"><a href="">comprar</a></button>
                     </div>
                 </div>
                 <div class="product__container">
                     <div class="product__img-container">
-                        <img src="/arquivos/" alt="" class="product__img" />
+                        <img src="./arquivos/quiz-bbcreme.png" alt="" class="product__img" />
                     </div>
                     <div class="product__text-wrapper">
-                        <span class="product__text--type">Base</span>
-                        <h3 class="product__text--title">BB Creme</h3>
-                        <h2 id="quiz-bbcreme" class="product__text--change"></h2>
+                        <div>
+                            <span class="product__text--type">Base</span>
+                            <h3 class="product__text--title">BB Creme</h3>
+                            <h2 id="quiz-bbcreme" class="product__text--change"></h2>
+                        </div>
                         <p class="product__text--text">Ideal pra quem quer praticidade e multibenefícios, o BB Creme deixa a pele hidratada e reduz os sinais do envelhecimento, além de ter toque seco, 35 UVA ++, textura leve, cobertura natural e longa duração.</p>
                         <button class="product__text--button"><a href="">comprar</a></button>
                     </div>

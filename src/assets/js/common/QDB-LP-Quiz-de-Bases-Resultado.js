@@ -17,8 +17,26 @@ console.log(`superfluida ${superfluida}`);
 console.log(`aqua ${aqua}`);
 console.log(`bb creme ${bbcreme}`);
 
-var colorName = document.querySelector('#color-name');
-colorName.innerHTML = option;
+var nameDOM = document.querySelector('#color-name');
+nameDOM.innerHTML = option;
 
-var resultImage = document.querySelector('#quiz-image');
-resultImage.innerHTML = `<img src='/arquivo/${option}'/>`;
+var imageDOM = document.querySelector('#quiz-image');
+imageDOM.innerHTML = `<img src='/arquivos/quizresultado${option}.png'/>`;
+
+var supermateDOM = document.querySelector('#quiz-supermate');
+supermateDOM.innerHTML = `${supermate}`;
+
+var altacoberturaDOM = document.querySelector('#quiz-altacobertura');
+altacoberturaDOM.innerHTML = `${altacobertura}`;
+
+var corretivoaquaDOM = document.querySelector('#quiz-corretivoaqua');
+corretivoaquaDOM.innerHTML = `${corretivoaqua}`;
+
+var superfluidaDOM = document.querySelector('#quiz-superfluida');
+superfluidaDOM.innerHTML = `${superfluida}`;
+
+var aquaDOM = document.querySelector('#quiz-aqua');
+aquaDOM.innerHTML = `${aqua}`;
+
+var bbcremeDOM = document.querySelector('#quiz-bbcreme');
+bbcremeDOM.innerHTML = `${bbcreme}`;
