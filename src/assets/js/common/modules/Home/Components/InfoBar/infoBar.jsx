@@ -9,7 +9,7 @@ const Methods = {
                     Infos: [
                         {
                             Content: '',
-                            Icon: '<svg class="truck" width="50" height="39" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.5 1h-9L9 24h27.5l1-23h-14" stroke="#67605F"/><path d="M24 1h13.5L37 13h5.5c4.458.533 5.965 2.013 7 6.5V32h-4" stroke="#67605F"/><path fill="#67605F" d="M0 6.5h20v1H0z"/><path d="M11.5 32h-3l2-31H19m3.5 31h12" stroke="#67605F"/><path fill="#67605F" d="M5 17.5h11v1H5zM3 12.5h4v1H3z"/><circle cx="17" cy="32.5" r="5.5" stroke="#67605F"/><circle cx="40" cy="32.5" r="5.5" stroke="#67605F"/></svg>',
+                            Icon: '<svg class="truck" xmlns="http://www.w3.org/2000/svg" width="51.146" height="37.4"><g data-name="caminhao frete"><path fill="#67605F" d="M50.007 32.146l.01-.01.03-.06.03-.06c0-.01 0-.01.01-.02s.01-.03.02-.05.01-.02.01-.03.01-.02.01-.04a1654.149 1654.149 0 0 0 .02-.06c.03-.25.619-4.965.879-8V23.8c.08-.879.12-1.618.12-2.068a9.746 9.746 0 0 0-9.74-9.74h-3.217L39.158.839v-.07a.757.757 0 0 0-.45-.689H38.7c-.02-.01-.03-.01-.05-.02s-.01 0-.02-.01-.03-.01-.04-.01-.02-.01-.03-.01a.06.06 0 0 1-.04-.01.076.076 0 0 1-.04-.01h-15.4a.755.755 0 0 0-.749.749.755.755 0 0 0 .749.749h14.51L36.1 18.63l-.38 4.315H9.69l.44-4.5h4.955a.75.75 0 1 0 0-1.5h-4.816l.919-9.49h7.892a.75.75 0 0 0 0-1.5h-7.742l.43-4.465h8.311a.755.755 0 0 0 .749-.749.755.755 0 0 0-.749-.741h-8.99a.749.749 0 0 0-.729.589V.6c0 .02-.01.04-.01.06v.02l-.51 5.284H.749A.8.8 0 0 0 0 6.743a.748.748 0 0 0 .749.749H9.69l-.919 9.49H6.094a.75.75 0 0 0 0 1.5h2.527l-.5 5.164-.769 7.991V31.787c0 .02.01.04.01.06v.02c0 .01.01.03.01.04a.037.037 0 0 0 .01.03v.01a.788.788 0 0 0 .18.29c.01.01.02.02.03.02a.656.656 0 0 0 .17.12c.01.01.03.01.04.02h.01c.02.01.04.01.06.02h.01a.637.637 0 0 0 .07.02h.01c.02 0 .04.01.07.01h3.406a5.7 5.7 0 0 0 11.308 0h12.017a5.7 5.7 0 0 0 11.308 0h3.416a.127.127 0 0 0 .06-.01c.01 0 .02 0 .02-.01s.03-.01.04-.01.02-.01.03-.01.02-.01.04-.01.02-.01.03-.01.02-.01.03-.02.02-.01.03-.02.02-.01.03-.02.02-.01.03-.02.02-.01.03-.02.02-.01.02-.02l.03-.03.02-.02.03-.03.02-.02c.01.009.023-.011.03-.021zM37.66 17.981l.39-4.5zm-1.249 6.493h.09c.02 0 .04-.01.06-.01s.02 0 .02-.01.03-.01.04-.01.02-.01.03-.01.03-.01.04-.01.02-.01.03-.01.02-.01.03-.02.02-.01.03-.02.02-.01.03-.02.02-.01.03-.02.02-.01.03-.02.02-.01.03-.02l.03-.03c.01-.01.02-.01.02-.02l.03-.03c.01-.01.01-.02.02-.02s.02-.02.02-.03.01-.02.02-.02.01-.02.02-.03a.037.037 0 0 0 .01-.03c.01-.01.01-.02.02-.04s.01-.02.01-.03.01-.02.01-.04.01-.02.01-.03.01-.02.01-.04.01-.02.01-.04a458.37 458.37 0 0 1 .02-.08v-.01l.9-10.3s5.095-.849 8.491 1.8c4.925 3.1 2.338 14.395 2.188 15.683h-2.679a5.7 5.7 0 0 0-11.308 0H22.736a5.7 5.7 0 0 0-11.308 0H8.92l.629-6.493 26.861.01zM17.082 35.922a4.206 4.206 0 1 1 4.206-4.206 4.212 4.212 0 0 1-4.206 4.206zm23.325 0a4.206 4.206 0 1 1 4.206-4.206 4.212 4.212 0 0 1-4.206 4.206z"/><path fill="#67605F" d="M7.841 12.137a.755.755 0 0 0-.749-.749H3.426a.75.75 0 0 0 0 1.5h3.666a.755.755 0 0 0 .749-.751z"/></g></svg>',
                         },
                         {
                             Content: 'tudo em até 10x sem juros <br> e parcela mínima de R$ 15',
@@ -38,7 +38,7 @@ const Methods = {
             getShippingInfo(){
                 let StateInfos = this.state.Infos;
                 StateInfos[0].Content = document.querySelector(".infoBar").textContent.match(/(?<=shippingTextInit)(.*)(?=shippingTextEnd)/)[0];
-                console.log(document.querySelector(".infoBar").textContent.match(/(?<=shippingTextInit)(.*)(?=shippingTextEnd)/));
+                // console.log(document.querySelector(".infoBar").textContent.match(/(?<=shippingTextInit)(.*)(?=shippingTextEnd)/));
                 this.setState({
                     Infos: StateInfos
                 })
@@ -47,8 +47,8 @@ const Methods = {
             setInfos(){
                 setTimeout(() => {
                     for( let i = 0; i < document.querySelectorAll(".infoBar__render .__container").length; i++){
-                        console.log(document.querySelectorAll(".infoBar__render .__container .__icon")[i])
-                        console.log(this.state.Infos[i]);
+                        // console.log(document.querySelectorAll(".infoBar__render .__container .__icon")[i])
+                        // console.log(this.state.Infos[i]);
                         document.querySelectorAll(".infoBar__render .__container .__icon")[i].innerHTML = this.state.Infos[i].Icon;
                         document.querySelectorAll(".infoBar__render .__container .__content")[i].innerHTML = this.state.Infos[i].Content;
                     }

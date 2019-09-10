@@ -3,6 +3,9 @@
 		position: relative;
 		.bannerHero__link{
 			// min-width: 100%;
+			.bannerHero__img{
+				width: 100%;
+			}
 		}
 		.bannerHero__controls--dots{
 			display: flex;

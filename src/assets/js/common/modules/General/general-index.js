@@ -7,8 +7,8 @@ const Methods = {
         // Vitrine.init
         // Region.init();
     },
-    build(collection){
-        Vitrine.build(collection);
+    build(collection, slider){
+        Vitrine.build(collection, slider);
     }
 }
 

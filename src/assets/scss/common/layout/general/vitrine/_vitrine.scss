@@ -1,10 +1,6 @@
 .render-collection{
     position: relative;
 }
-.glider-prev, .glider-next{
-    top: 40%;
-    padding: 10px;
-}
 .cardProductContainer{
     // display: flex;
     // max-width: 100%;
@@ -21,6 +17,7 @@
         margin: 0  5px;
         text-align: center;
         position: relative;
+        overflow: hidden;
         @include sans(.875rem, $g-primary, 400, initial);
         background: #fff;
         .cardProduct__link{
@@ -38,6 +35,8 @@
         .cardProduct__info{
             display: flex;
             justify-content: center;
+            position: relative;
+            margin-bottom: 10px;
             .cardProduct__info__name{
                 display: flex;
                 align-items: flex-start;
@@ -47,15 +46,15 @@
                 text-align: center;
                 width: 80%;
                 height: 2rem;
-                position: relative;
-                margin-bottom: 10px;
-                .cardProduct__info--favorite{
-                    position: absolute;
-                    right: -10px;
-                    top: 0;
-                    path{
-                        stroke: $g-primary;
-                    }
+                overflow: hidden;
+                -webkit-line-clamp: 2;
+            }
+            .cardProduct__info--favorite{
+                position: absolute;
+                right: 10px;
+                top: 0;
+                path{
+                    stroke: $g-primary;
                 }
             }
         }
@@ -98,13 +97,42 @@
             &:hover{
                 filter: brightness(140%);
             }
+            &.--adding{
+                bottom: 0;
+                opacity: .7;
+                pointer-events: none;
+            }
         }
 
-        // &:hover{
-        //     .cardProduct--addToCart{
-        //         bottom: 0;
-        //     }
-        // }
+        &:hover{
+            .cardProduct--addToCart{
+                bottom: 0;
+            }
+        }
+    }
+    .vitrine__controls--arrows{
+        .--prev, .--next{
+            position: absolute;
+            top: 50%;
+            @include sans(2.5em, $g-primary, 400, 0);
+            transition: all .2s;
+            &.off{
+                opacity: 0;
+                pointer-events: none;
+            }
+            &:hover{
+                color: $safflower;
+            }
+        }
+        .--prev{
+            left: -5%;
+        }
+        .--next{
+            right: -5%;
+        }
+        @include d("768px"){
+            display: none;
+        }
     }
     @include d(s){
         .cardProduct.active.center{

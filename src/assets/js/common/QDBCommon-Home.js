@@ -1,6 +1,5 @@
 import Home from "./modules/Home/home-index"
 import General from "./modules/General/general-index"
-import Siema from "./global/vendor/siema-slider/siema.min.js"
 
 // import HomeIndex from './modules/Home/home-index';
 
@@ -76,28 +75,11 @@ const Methods = {
             let vitrine = collection.nextSibling;
             vitrine.setAttribute("id", "collection-" + collection.textContent)
             vitrine.setAttribute("data-collection", collection.textContent)
-            General.vitrine(vitrine.dataset.collection);
+            General.vitrine(vitrine.dataset.collection, true);
         });
-
-        window.onload = () =>{
-            const vitrines = document.querySelectorAll('.--gliderVitrine');
-    
-            for(const vitrine of vitrines) {
-                // console.log(vitrine);
-                new Siema({
-                  selector: vitrine,
-                  duration: 200,
-                  easing: 'ease-out',
-                  perPage: 2,
-                  startIndex: 0,
-                  draggable: true,
-                  multipleDrag: true,
-                  threshold: 20,
-                  loop: false,
-                  rtl: false
-                })
-            }
-        }
+        // window.onload = () =>{
+        //     const vitrines = document.querySelectorAll('.--gliderVitrine');
+        // }
     },
     getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
