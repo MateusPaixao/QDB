@@ -1,8 +1,27 @@
 .bannerCollection{
 	margin-bottom: 20px;
-	&:nth-child(2){
-		margin-bottom: 40px;
-	}
+    &.__left{
+        .bannerCollection__info{
+            padding: 0 5% 0 0;
+        }
+        @include d("768px"){
+            padding: 0;
+        }
+    }
+    &.__right{
+        margin-bottom: 40px;
+        .bannerCollection__info{
+            padding: 0 0 0 5%;
+        }
+        @include d("768px"){
+            .shell{
+                flex-flow: column-reverse;
+                .bannerCollection__info{
+                    padding: 0;
+                }
+            }
+        }
+    }
     .shell{
         display: flex;
 		justify-content: space-between;
@@ -15,12 +34,6 @@
         .bannerCollection__info__title{
             @include sans(1.875rem, $g-primary, 900, initial);
             margin-bottom: 10px;
-        }
-        &.__left{
-            padding: 0 5% 0 0;
-        }
-        &.__right{
-            padding: 0 0 0 5%;
         }
     }
     .bannerCollection__render-collection{

@@ -137,6 +137,7 @@ const Methods = {
               Product.review = uniqueReviews[i];
               ProductsFull.push(Product);
             }
+            console.log(ProductsFull);
 
             this.setState({
               Products: ProductsFull

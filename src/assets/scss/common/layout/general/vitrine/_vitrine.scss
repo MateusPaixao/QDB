@@ -26,10 +26,25 @@
         }
         .cardProduct__pictureContainer{
             position: relative;
-            .cardProduct__pictureContainer__rating{
+            .cardProduct__pictureContainer__review{
                 position: absolute;
-                bottom: 0;
-                left: 3em;
+                bottom: 1em;
+                left: 1em;
+                display: flex;
+                flex-flow: column;
+                align-items: flex-start;
+                .cardProduct__pictureContainer__review__rating{
+                    .cardProduct__review__rating__ratingHeart{
+                        width: 1em;
+                        height: 1em;
+                    }
+                }
+                .cardProduct__pictureContainer__review__qtd{
+                    max-width: 100px;
+                    display: flex;
+                    font-size: .875em;
+                    text-align: left;
+                }
             }
         }
         .cardProduct__info{
@@ -94,9 +109,9 @@
                     fill: $w-secundary;
                 }
             }
-            &:hover{
-                filter: brightness(140%);
-            }
+            // &:hover{
+            //     filter: brightness(140%);
+            // }
             &.--adding{
                 bottom: 0;
                 opacity: .7;
