@@ -354,7 +354,7 @@ body.lp-quiz {
     @media (min-width: 768px) {
         .quiz-option-item:hover::before {
             display: inline-block;
-            content: url('https://qbbr.vteximg.com.br/arquivos/belisco.png');
+            content: url('https://qbbr.vteximg.com.br/arquivos/quiz-belisco.png');
             position: absolute;
             bottom: 14%;
             left: 0;
@@ -385,11 +385,3 @@ body.lp-quiz {
 body.lp-quiz .footer {
     padding: 0;
 }
-
-
-// coisas que mudaram:
-// mobile
-// - posicionamento do texto e botão na página inicial
-
-
-// desktop

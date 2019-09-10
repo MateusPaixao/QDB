@@ -18,21 +18,27 @@
     </div>
     <main class="lp-quiz-result">
         <div class="quiz-header">
-            <h1>Sua cor ideal é 
-                <span id="color-name"></span>
-            </h1>
-            <div id="quiz-image">
+            <div class="shell">
+                <div class="quiz-title">
+                    <a class="link" href="#"> <span class="icon">&#8249;</span> refazer o teste</a>
+                    <h1>Sua cor ideal é 
+                        <span id="color-name"></span>
+                    </h1>
+                </div>
+                <div id="quiz-image">
+                </div>
+                <p class="info">
+                        Essa é a nossa sugestão de cor, mas o importante é 
+                        você se sentir bem com ela. Se você está bronzeada 
+                        ou não toma sol no rosto, fique à vontade para testar 
+                        uma cor acima ou abaixo da sua ideal. <br/>
+                        Para te ajudar, já identificamos as melhores combinações para sua 
+                        tonalidade de pele dentro dos nossos produtos. Confira>>>
+                </p>
             </div>
-            <p class="info">
-                    Essa é a nossa sugestão de cor, mas o importante é 
-                    você se sentir bem com ela. Se você está bronzeada 
-                    ou não toma sol no rosto, fique à vontade para testar 
-                    uma cor acima ou abaixo da sua ideal. Para te ajudar, 
-                    já identificamos as melhores combinações para sua 
-                    tonalidade de pele dentro dos nossos produtos. Confira>>>
-            </p>
         </div>
         <section class="result__container">
+            <h2 class="result__title">Escolha o produto de acordo com as necessidades da sua pele</h2>
             <div class="result__wrapper shell">
                 <div class="product__container">
                     <div class="product__img-container">
@@ -121,6 +127,12 @@
                 </div>
             </div>
         </section>
+        <div class="share">
+            <button class="share__button guarde"> Guarde seu resultado </button>
+            <textarea class="share__text guarde-text"></textarea>
+            <button class="share__button indique"> Indique este teste </button>
+            <textarea class="share__text indique-text"></textarea>
+        </div>
         
     </main>
     <script src="./arquivos/QDB-LP-Quiz-de-Bases-Resultado.js"></script>
