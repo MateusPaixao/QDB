@@ -44,10 +44,10 @@ const Methods = {
     
     FillTextContents() {
         const guarde = document.querySelector('.guarde-text');
-        guarde.innerText = `Esse foi meu resultado de tom de base no quiz da quem disse, Berenice? ${window.location.href}`; 
+        guarde.innerText = `Esse foi meu resultado de tom de base no quiz da Quem disse, Berenice? ${window.location.href}`; 
     
         const indique = document.querySelector('.indique-text');
-        indique.innerText = `Faça o teste para saber seu tom de base na quem disse, Berenice? http://quemdisseberenice.com.br/encontre-sua-cor-ideal`; 
+        indique.innerText = `Faça o teste para saber seu tom de base na Quem disse, Berenice? https://www.quemdisseberenice.com.br/como-descobrir-o-seu-tom-de-base/`; 
     },
     copyToClip() {
         const guardeBtn = document.querySelector('.guarde');
