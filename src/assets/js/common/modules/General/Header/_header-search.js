@@ -5,7 +5,8 @@ const Methods = {
         Methods.appendSugestoes();
     },
     appendSugestoes() {
-        CacheSelector.header.formBusca.appendChild(CacheSelector.neemu.acContainer);
+        CacheSelector.header.formBusca.append(CacheSelector.neemu.acContainer);
+        console.log('foi')
     }
 }
 
