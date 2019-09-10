@@ -94,8 +94,37 @@
         }
     }
 }
-
-.quiz-header {
+.share{
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+    align-items: center;
+    color: #fff;
+    margin: 0 auto;
+    &__button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #413F3E;
+        border: none;
+        border-radius: 10px;
+        width: 160px;
+        height: 45px;
+        padding: 0;
+    }
+    &__text{
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+        left: 200%;
+        pointer-events: none;
+    }
+}
+.quiz-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px 0 20px 20px;
     background-color: #937363;
     color: #fff;
     padding: 20px;
