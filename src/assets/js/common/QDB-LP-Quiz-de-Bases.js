@@ -11,8 +11,7 @@ class ClaroStrategy {
                         "colors" : [
                             {
                                 "name" : "01Q",
-                                "imageURL" : "/arquivos/01Q.png",                                
-                                "url" : "/claro-quente-01Q",
+                                "imageURL" : "/arquivos/01Q.png",
                                 "products" : 
                                     {
                                         "supermate" : "01Q",
@@ -32,7 +31,6 @@ class ClaroStrategy {
                              {
                                 "name" : "00N",
                                 "imageURL" : "/arquivos/00N.png",
-                                "url" : "/claro-neutro-00N",
                                 "products" : 
                                     {
                                         "supermate" : "00N",
@@ -46,7 +44,6 @@ class ClaroStrategy {
                             {
                                 "name" : "01N",
                                 "imageURL" : "/arquivos/01N.png",
-                                "url" : "/claro-neutro-01N",
                                 "products" : 
                                     {
                                         "supermate" : "01N",
@@ -66,7 +63,6 @@ class ClaroStrategy {
                             {
                                 "name" : "01F",
                                 "imageURL" : "/arquivos/01F.png",
-                                "url" : "/claro-frio-01F",
                                 "products" : 
                                     {
                                         "supermate" : "01F",
@@ -97,8 +93,7 @@ class ClaroMedioStrategy {
                         "colors" : [
                             {
                                 "name" : "02Q",
-                                "imageURL" : "/arquivos/02Q.png",                                
-                                "url" : "/claro-medio-quente-02Q",
+                                "imageURL" : "/arquivos/02Q.png",
                                 "products" : 
                                     {
                                         "supermate" : "02Q",
@@ -111,8 +106,7 @@ class ClaroMedioStrategy {
                             },
                             {
                                 "name" : "03Q",
-                                "imageURL" : "/arquivos/03Q.png",                                
-                                "url" : "/claro-medio-quente-03Q",
+                                "imageURL" : "/arquivos/03Q.png",
                                 "products" : 
                                     {
                                         "supermate" : "03Q",
@@ -131,8 +125,7 @@ class ClaroMedioStrategy {
                         "colors" : [
                             {
                                 "name" : "02F",
-                                "imageURL" : "/arquivos/02F.png",                                
-                                "url" : "claro-medio-frio-02F",
+                                "imageURL" : "/arquivos/02F.png",
                                 "products" : 
                                     {
                                         "supermate" : "02F",
@@ -145,8 +138,7 @@ class ClaroMedioStrategy {
                             },
                             {
                                 "name" : "03F",
-                                "imageURL" : "/arquivos/03F.png",                                
-                                "url" : "/claro-medio-frio-03F",
+                                "imageURL" : "/arquivos/03F.png",
                                 "products" : 
                                     {
                                         "supermate" : "03F",
@@ -177,8 +169,7 @@ class MedioStrategy {
                         "colors" : [
                             {
                                 "name" : "04Q",
-                                "imageURL" : "/arquivos/04Q.png",                                
-                                "url" : "/medio-quente-04Q",
+                                "imageURL" : "/arquivos/04Q.png",
                                 "products" : 
                                     {
                                         "supermate" : "04Q",
@@ -191,8 +182,7 @@ class MedioStrategy {
                             },
                             {
                                 "name" : "05Q",
-                                "imageURL" : "/arquivos/05Q.png",                                
-                                "url" : "/medio-quente-05Q",
+                                "imageURL" : "/arquivos/05Q.png",
                                 "products" : 
                                     {
                                         "supermate" : "05Q",
@@ -205,13 +195,12 @@ class MedioStrategy {
                             },
                             {
                                 "name" : "06Q",
-                                "imageURL" : "/arquivos/06Q.png",                                
-                                "url" : "/medio-quente-06Q",
+                                "imageURL" : "/arquivos/06Q.png",
                                 "products" : 
                                     {
                                         "supermate" : "06Q",
                                         "altacobertura" : "06Q",
-                                        "corretivoaqua" : "7",
+                                        "corretivoaqua" : "6",
                                         "superfuida" : "07N",
                                         "aqua" : "06Q",
                                         "bbcreme" : "10N"
@@ -219,8 +208,7 @@ class MedioStrategy {
                             },
                             {
                                 "name" : "07Q",
-                                "imageURL" : "/arquivos/07Q.png",                                
-                                "url" : "/medio-quente-07Q",
+                                "imageURL" : "/arquivos/07Q.png",
                                 "products" : 
                                     {
                                         "supermate" : "07Q",
@@ -239,8 +227,7 @@ class MedioStrategy {
                         "colors" : [
                             {
                                 "name" : "04N",
-                                "imageURL" : "/arquivos/04N.png",                                
-                                "url" : "/medio-neutro-04N",
+                                "imageURL" : "/arquivos/04N.png",
                                 "products" : 
                                     {
                                         "supermate" : "04N",
@@ -253,8 +240,7 @@ class MedioStrategy {
                             },
                             {
                                 "name" : "06N",
-                                "imageURL" : "/arquivos/06N.png",                                
-                                "url" : "/medio-neutro-06N",
+                                "imageURL" : "/arquivos/06N.png",
                                 "products" : 
                                     {
                                         "supermate" : "06N",
@@ -267,8 +253,7 @@ class MedioStrategy {
                             },
                             {
                                 "name" : "07N",
-                                "imageURL" : "/arquivos/07N.png",                                
-                                "url" : "/medio-neutro-07N",
+                                "imageURL" : "/arquivos/07N.png",
                                 "products" : 
                                     {
                                         "supermate" : "07N",
@@ -287,8 +272,7 @@ class MedioStrategy {
                         "colors" : [
                             {
                                 "name" : "04F",
-                                "imageURL" : "/arquivos/04F.png",                                
-                                "url" : "/medio-frio-04F",
+                                "imageURL" : "/arquivos/04F.png",
                                 "products" : 
                                     {
                                         "supermate" : "04F",
@@ -319,8 +303,7 @@ class MedioEscuroStrategy {
                         "colors" : [
                             {
                                 "name" : "09Q",
-                                "imageURL" : "/arquivos/09Q.png",                                
-                                "url" : "/medio-escuro-quente-09Q",
+                                "imageURL" : "/arquivos/09Q.png",
                                 "products" : 
                                     {
                                         "supermate" : "09Q",
@@ -333,8 +316,7 @@ class MedioEscuroStrategy {
                             },
                             {
                                 "name" : "10Q",
-                                "imageURL" : "/arquivos/10Q.png",                                
-                                "url" : "/medio-escuro-quente-10Q",
+                                "imageURL" : "/arquivos/10Q.png",
                                 "products" : 
                                     {
                                         "supermate" : "1OQ",
@@ -347,8 +329,7 @@ class MedioEscuroStrategy {
                             },
                             {
                                 "name" : "12Q",
-                                "imageURL" : "/arquivos/12Q.png",                                
-                                "url" : "/medio-escuro-quente-12Q",
+                                "imageURL" : "/arquivos/12Q.png",
                                 "products" : 
                                     {
                                         "supermate" : "12Q",
@@ -367,22 +348,20 @@ class MedioEscuroStrategy {
                         "colors" : [
                             {
                                 "name" : "08N",
-                                "imageURL" : "/arquivos/08N.png",                                
-                                "url" : "/medio-escuro-neutro-08N",
+                                "imageURL" : "/arquivos/08N.png",
                                 "products" : 
                                     {
                                         "supermate" : "08N",
                                         "altacobertura" : "08N",
                                         "corretivoaqua" : "6",
                                         "superfuida" : "07N",
-                                        "aqua" : "08N",
+                                        "aqua" : "07N",
                                         "bbcreme" : "09Q"
                                     }
                             },
                             {
                                 "name" : "10N",
-                                "imageURL" : "/arquivos/10N.png",                                
-                                "url" : "/medio-escuro-neutro-10N",
+                                "imageURL" : "/arquivos/10N.png",
                                 "products" : 
                                     {
                                         "supermate" : "10N",
@@ -395,8 +374,7 @@ class MedioEscuroStrategy {
                             },
                             {
                                 "name" : "11N",
-                                "imageURL" : "/arquivos/11N.png",                                
-                                "url" : "/medio-escuro-neutro-11N",
+                                "imageURL" : "/arquivos/11N.png",
                                 "products" : 
                                     {
                                         "supermate" : "11N",
@@ -427,8 +405,7 @@ class EscuroStrategy {
                         "colors" : [
                             {
                                 "name" : "13Q",
-                                "imageURL" : "/arquivos/13Q.png",                                
-                                "url" : "escuro-quente-13Q",
+                                "imageURL" : "/arquivos/13Q.png",
                                 "products" : 
                                     {
                                         "supermate" : "13Q",
@@ -441,8 +418,7 @@ class EscuroStrategy {
                             },
                             {
                                 "name" : "14Q",
-                                "imageURL" : "/arquivos/14Q.png",                                
-                                "url" : "/escuro-quente-14Q",
+                                "imageURL" : "/arquivos/14Q.png",
                                 "products" : 
                                     {
                                         "supermate" : "14Q",
@@ -455,8 +431,7 @@ class EscuroStrategy {
                             },
                             {
                                 "name" : "15Q",
-                                "imageURL" : "/arquivos/15Q.png",                                
-                                "url" : "/escuro-quente-15Q",
+                                "imageURL" : "/arquivos/15Q.png",
                                 "products" : 
                                     {
                                         "supermate" : "15Q",
@@ -469,14 +444,13 @@ class EscuroStrategy {
                             },
                             {
                                 "name" : "16Q",
-                                "imageURL" : "/arquivos/16Q.png",                                
-                                "url" : "/escuro-quente-16Q",
+                                "imageURL" : "/arquivos/16Q.png",
                                 "products" : 
                                     {
                                         "supermate" : "16Q",
                                         "altacobertura" : "16Q",
                                         "corretivoaqua" : "12",
-                                        "superfuida" : "15Q",
+                                        "superfuida" : "16Q",
                                         "aqua" : "15Q",
                                         "bbcreme" : "15Q"
                                     }
@@ -489,8 +463,7 @@ class EscuroStrategy {
                         "colors" : [
                             {
                                 "name" : "14N",
-                                "imageURL" : "/arquivos/14N.png",                                
-                                "url" : "/escuro-neutro-14N",
+                                "imageURL" : "/arquivos/14N.png",
                                 "products" : 
                                     {
                                         "supermate" : "14N",
