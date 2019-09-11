@@ -124,6 +124,13 @@
                 bottom: 0;
             }
         }
+        &.--active{
+            @include d("768px"){
+                .cardProduct--addToCart{
+                    bottom: 0;
+                }
+            }
+        }
     }
     .--controls__arrows{
         .--prev, .--next{

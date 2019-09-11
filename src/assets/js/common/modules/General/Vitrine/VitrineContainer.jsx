@@ -44,16 +44,26 @@ const Methods = {
           selector: "." + vitrine,
           duration: 200,
           easing: 'ease-out',
-          perPage: 2,
-          startIndex: 0,
-          draggable: true,
-          multipleDrag: true,
-          threshold: 20,
-          loop: true,
-          rtl: false
+          perPage: {
+            300: 1.5,
+            992: 2.1
+          },
+          onInit: printSlideIndex,
+          onChange: printSlideIndex
+          // startIndex: 0,
+          // draggable: true,
+          // threshold: 20,
+          // loop: true,
+          // rtl: false
         })
 
-        
+        function printSlideIndex() {
+          this.innerElements.forEach((slide, i) => {
+            const addOrRemove = i === this.currentSlide ? 'add' : 'remove';
+            this.innerElements[i].classList[addOrRemove]('--active');
+          })
+        }
+
         Siema.prototype.addArrows = function () {
           var _this = this;
       
@@ -107,10 +117,7 @@ const Methods = {
             request.send();
         }).then((Reviews) => {
             let ProductsFull = [];
-            // for (let i = 0; i < reviews.Element.length; i++) {
-            //   tempData.push( reviews.Element[i] );
-            // }
-            // reviews = tempData;
+
             const sortReviewInNest = (a, b) => {
               return a.ProductId - b.ProductId;
             }
@@ -136,26 +143,9 @@ const Methods = {
 
             this.setState({
               Products: ProductsFull
+            }, ()=>{
+              this.slider(this.state.Vitrine);
             })
-            // r.Element.map((review, index) =>{
-            //     function countRating(){
-            //         let stars='';
-            //         for(let i = 1; i <= review.Rating; i++){
-            //             stars += `<svg viewBox="0 0 18 21" width="18" height="21" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.605 14.394L0 10.48s2.528-2.836 3.605-3.913l5.014-5.013a5.326 5.326 0 0 1 7.523 0 5.321 5.321 0 0 1 0 7.521l-1.406 1.405 1.406 1.405a5.321 5.321 0 0 1 0 7.521 5.327 5.327 0 0 1-7.523 0l-5.014-5.013z" fill="#67605F"/></svg>`
-            //         }
-            //         return stars;
-            //     }
-            //     html += 
-            //     `<li class="review">
-            //         <span class="_rate">
-            //         ${countRating()}
-            //         </span>
-            //         <p class="_comment">“` + review.Review + `” -` + review.User.Name.split(" ")[0] + `</p>
-            //     </li>`
-            // });
-            // el.innerHTML = html.replace("undefined", "");
-        }).then(()=>{
-            this.slider(this.state.Vitrine);
         })
       }
       render() {

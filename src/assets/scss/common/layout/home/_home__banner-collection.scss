@@ -3,9 +3,10 @@
     &.__left{
         .bannerCollection__info{
             padding: 0 5% 0 0;
-        }
-        @include d("768px"){
-            padding: 0;
+            @include d("768px"){
+                padding: 0 15px;
+                margin-bottom: 10px;
+            }
         }
     }
     &.__right{
@@ -17,7 +18,8 @@
             .shell{
                 flex-flow: column-reverse;
                 .bannerCollection__info{
-                    padding: 0;
+                    padding: 0 15px;
+                    margin-bottom: 10px;
                 }
             }
         }
@@ -28,6 +30,7 @@
 		align-items: center;
         @include d("768px"){
             flex-flow: column;
+            padding: 0;
         }
     }
     .bannerCollection__info{

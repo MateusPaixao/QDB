@@ -3,7 +3,7 @@ class PriceModal extends React.Component {
     super(props);
     this.state = {
       LatLng: "04551000",
-      Region: "Sudeste",
+      Region: "Sudeste,04551000",
       Regions: [
         "Norte,66000000",
         "Nordeste,41000000",
@@ -30,12 +30,15 @@ class PriceModal extends React.Component {
         })
       )
     }else{
-      document.querySelector(".modalRegional").classList.remove("hidden");
+      setTimeout(() => {
+        document.querySelector(".modalRegional").classList.remove("hidden");
+      }, 5000);
     }
     // this.setPosition(this.state.Region, this.state.LatLng);
   }
 
   setPosition(Region, LatLong){
+    document.querySelector(".modalRegional .modalRegional__button").classList.add("_loading");
     return new Promise((resolve, reject) => {
       let request = new XMLHttpRequest(),
       data = {
@@ -54,7 +57,6 @@ class PriceModal extends React.Component {
       request.onreadystatechange = () => {
           if (request.readyState === 4) {
               resolve(JSON.parse(request.response));
-              document.querySelector(".modalRegional .modalRegional__button").classList.add("_loading");
               setTimeout(() => {
                 document.querySelector(".modalRegional .modalRegional__button").classList.remove("_loading");
                 document.querySelector(".modalRegional .modalRegional__button").classList.add("_success");
@@ -70,10 +72,10 @@ class PriceModal extends React.Component {
 
       request.send(JSON.stringify(data));
     }).then(() => {
-        document.cookie = "vtexRegion=" + Region + "," + LatLong;
+        document.cookie = "vtexRegion=" + Region;
     }).catch(()=>{
         this.setState({
-            Region: "Sudeste",
+            Region: "Sudeste,04551000",
             LatLng: "04551000"
         })
         document.cookie = "vtexRegion=Sudeste,04551000";
@@ -98,7 +100,7 @@ class PriceModal extends React.Component {
         <div className="modalRegional__container">
           <h3 className="modalRegional__container__title">Qual região você está?</h3>
           <select className="modalRegional__selection" onChange={e => this.handleChange(e.target.value)} >
-             { this.state.Regions.map(R => <option value={R} key={R.split(",")[1]} selected={R.split(",")[0] == this.state.Region ? "selected" : ""} > {R.split(",")[0]} </option>) }
+             { this.state.Regions.map(R => <option value={R} key={R.split(",")[1]} selected={R == this.state.Region ? "selected" : ""} > {R.split(",")[0]} </option>) }
           </select>
           <button className="modalRegional__button" onClick={() => this.setPosition(this.state.Region, this.state.LatLng)}>Estou na Região {this.state.Region.split(",")[0]}</button>
         </div>
