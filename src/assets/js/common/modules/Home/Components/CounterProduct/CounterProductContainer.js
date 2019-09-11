@@ -1,14 +1,16 @@
 const Methods = {
     init() {
-        if(document.querySelector(".w-gerador--datas") != null){
+        if (document.querySelector(".w-gerador--datas") != null) {
+            Methods.fetchReviews();
             Methods.getProductInfos();
-            Methods.getTopBannerColor()
+            Methods.getTopBannerColor();
+            Methods.AddToCart();
         }
     },
     getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
         const idSku = document.querySelector('.w-gerador--datas').getAttribute('data-sku');
-        const url = 'http://qbbr.vtexcommercestable.com.br/api/catalog_system/pub/products/search/?fq=productId:' + idProduto;
+        const url = '/api/catalog_system/pub/products/search/?fq=productId:' + idProduto;
 
         fetch(url)
             .then(res => res.json())

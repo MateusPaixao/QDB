@@ -31,7 +31,7 @@ const Methods = {
             request.onreadystatechange = () => {
                 if (request.readyState === 4) {
                     resolve(JSON.parse(request.response));
-                    // console.log(JSON.parse(request.response));
+                    console.log(JSON.parse(request.response));
                 }
             };
 
