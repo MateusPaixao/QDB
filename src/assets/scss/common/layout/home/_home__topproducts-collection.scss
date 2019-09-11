@@ -1,0 +1,11 @@
+.topProducts{
+    margin: 40px 0 60px;
+    .topProducts__title{
+        @include sans(1.875rem, $g-primary, 900, initial);
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .topProducts__render-collection{
+        position: relative;
+    }
+}

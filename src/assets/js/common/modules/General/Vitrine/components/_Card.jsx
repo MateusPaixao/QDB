@@ -6,14 +6,17 @@ class Card extends React.Component{
     super(props);
     this.state = {
       Sku: this.props.info.items[0],
-      Avaliable: true
+      Avaliable: true,
+      Hover: false
     };
     
     this.setAvaliable = this.setAvaliable.bind(this);
     this.setDiscount = this.setDiscount.bind(this);
     this.setBeforePrice = this.setBeforePrice.bind(this);
+    this.toggleHover = this.toggleHover.bind(this);
     this.addToCart = this.addToCart.bind(this);
   }
+
   setAvaliable(){
     let avaliable = true;
     if(this.state.Sku.sellers[0].commertialOffer.AvailableQuantity == 0 || this.state.Sku.sellers[0].commertialOffer.Price == 0 || this.state.Sku.sellers[0].commertialOffer.ListPrice == 0){
@@ -22,9 +25,12 @@ class Card extends React.Component{
     return (
       this.setState({
         Avaliable: avaliable
+      }, ()=>{
+        console.log(this.state.Avaliable);
       })
     )
   }
+
   setDiscount(){
     let discount;
     if(this.state.Avaliable == true){
@@ -39,12 +45,18 @@ class Card extends React.Component{
       })
     )
   }
+
   setBeforePrice(){
     let haveBefore = true;
     if(this.state.Sku.sellers[0].commertialOffer.ListPrice == this.state.Sku.sellers[0].commertialOffer.Price || this.state.Sku.sellers[0].commertialOffer.AvailableQuantity == 0){
       return haveBefore = false;
     }
   }
+
+  toggleHover() {
+    this.setState({Hover: !this.state.Hover})
+  }
+
   addToCart(e){
     // e.target.preventDefault();
     e.innerHTML = "Adicionando...";
@@ -109,6 +121,12 @@ class Card extends React.Component{
         });
     });
   }
+
+  componentDidMount(){
+    this.setDiscount();
+    // this.setAvaliable();
+  }
+
   render(){
     String.prototype.allReplace = function(obj) {
       var retStr = this;
@@ -127,11 +145,15 @@ class Card extends React.Component{
     }
 
     return (
-      <div className={"cardProduct avaliable-" + this.state.Avaliable} data-prod={this.props.info.productId}>
+      <div className={"cardProduct avaliable-" + this.state.Avaliable} data-prod={this.props.info.productId} /*onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}*/>
         <span className="cardProduct--change"></span>
         <a href={"/" + this.props.info.linkText + "/p"} className="cardProduct__link">
           <span className="cardProduct__discount">
-            {this.state.Discount != 0 ? this.state.Discount : ""}
+            {this.state.Discount != 0 &&
+              <p className="cardProduct__discount__content">
+                {this.state.Discount + "%"}
+              </p>
+            }
           </span>
           <div className="cardProduct__pictureContainer">
             <div className="cardProduct__pictureContainer__review">
@@ -142,7 +164,7 @@ class Card extends React.Component{
                 Baseado em  <br/>{this.props.review.TotalRatings} avaliações
               </span>
             </div>
-            <img className="cardProduct__pictureContainer__picture" src={this.state.Sku.images[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "150", "#height#": "150" , "~": ""})} loading="lazy"></img>
+            <img className="cardProduct__pictureContainer__picture" src={this.state.Hover == false ? this.state.Sku.images[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "150", "#height#": "150" , "~": ""}) : this.state.Sku.images[1].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "150", "#height#": "150" , "~": ""})} loading="lazy"></img>
           </div>
           <div className="cardProduct__info">
             <p className="cardProduct__info__name">
@@ -157,11 +179,13 @@ class Card extends React.Component{
           </div>
         </a>
         {/* <span className="cardProduct--addToCart" onClick={e => this.addToCart(e.currentTarget)}> */}
-        <span className="cardProduct--addToCart">
-          {/* <svg className="cardProduct--addToCart__bag" width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.8779 6.22321C18.8046 5.43449 18.0966 4.83464 17.259 4.85168H14.7489V4.53631C14.7492 2.03134 12.6006 0.000399137 9.94984 3.99499e-05C9.94963 3.99499e-05 9.94941 3.99499e-05 9.9492 3.99499e-05C7.36904 -0.0102225 5.26862 1.95802 5.25779 4.39623C5.25758 4.44293 5.25817 4.48962 5.2595 4.53631V4.85291H2.74878C1.93116 4.85876 1.25334 5.45317 1.18619 6.22321L0.0167767 19.9383C-0.0877588 20.9886 0.299876 22.0295 1.07749 22.7865C1.81873 23.5618 2.8738 24.0029 3.97953 23.9997H16.0327C17.1408 24.0136 18.2003 23.5707 18.9347 22.7865C19.6662 22.0032 20.0466 20.9818 19.9954 19.9383L18.8779 6.22321ZM6.32086 4.53631C6.29403 2.61379 7.92153 1.03475 9.95597 1.00941C11.9904 0.984058 13.6614 2.52205 13.6882 4.44457C13.6886 4.47515 13.6886 4.50573 13.6882 4.53631V4.85291H6.32086V4.53631ZM18.1541 22.0475C17.6184 22.6231 16.8445 22.9502 16.0334 22.9441H3.97697C2.39256 22.9385 1.11301 21.7201 1.11904 20.2229C1.11936 20.1452 1.1232 20.0677 1.13056 19.9903L2.30248 6.27519C2.30573 6.03731 2.51246 5.84694 2.76419 5.85001C2.77785 5.85017 2.79145 5.85094 2.805 5.85222H5.31641V7.80374C5.31641 8.09504 5.56628 8.33118 5.87455 8.33118C6.18283 8.33118 6.4327 8.09504 6.4327 7.80374V5.85463H13.8V7.80615C13.8 8.09745 14.0499 8.33359 14.3581 8.33359C14.6664 8.33359 14.9163 8.09745 14.9163 7.80615V5.85463H17.4277C17.687 5.84853 17.9068 6.03351 17.9302 6.27755L19.1021 19.9926C19.0331 20.7573 18.6999 21.4793 18.1541 22.0475Z" /></svg> */}
-          {/* <p className="cardProduct--addToCart__cta">Adicionar a Sacola</p> */}
-          <p className="cardProduct--addToCart__cta">COMPRAR</p>
-        </span>
+        <a href={"/" + this.props.info.linkText + "/p"} >
+          <span className="cardProduct--addToCart">
+            {/* <svg className="cardProduct--addToCart__bag" width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.8779 6.22321C18.8046 5.43449 18.0966 4.83464 17.259 4.85168H14.7489V4.53631C14.7492 2.03134 12.6006 0.000399137 9.94984 3.99499e-05C9.94963 3.99499e-05 9.94941 3.99499e-05 9.9492 3.99499e-05C7.36904 -0.0102225 5.26862 1.95802 5.25779 4.39623C5.25758 4.44293 5.25817 4.48962 5.2595 4.53631V4.85291H2.74878C1.93116 4.85876 1.25334 5.45317 1.18619 6.22321L0.0167767 19.9383C-0.0877588 20.9886 0.299876 22.0295 1.07749 22.7865C1.81873 23.5618 2.8738 24.0029 3.97953 23.9997H16.0327C17.1408 24.0136 18.2003 23.5707 18.9347 22.7865C19.6662 22.0032 20.0466 20.9818 19.9954 19.9383L18.8779 6.22321ZM6.32086 4.53631C6.29403 2.61379 7.92153 1.03475 9.95597 1.00941C11.9904 0.984058 13.6614 2.52205 13.6882 4.44457C13.6886 4.47515 13.6886 4.50573 13.6882 4.53631V4.85291H6.32086V4.53631ZM18.1541 22.0475C17.6184 22.6231 16.8445 22.9502 16.0334 22.9441H3.97697C2.39256 22.9385 1.11301 21.7201 1.11904 20.2229C1.11936 20.1452 1.1232 20.0677 1.13056 19.9903L2.30248 6.27519C2.30573 6.03731 2.51246 5.84694 2.76419 5.85001C2.77785 5.85017 2.79145 5.85094 2.805 5.85222H5.31641V7.80374C5.31641 8.09504 5.56628 8.33118 5.87455 8.33118C6.18283 8.33118 6.4327 8.09504 6.4327 7.80374V5.85463H13.8V7.80615C13.8 8.09745 14.0499 8.33359 14.3581 8.33359C14.6664 8.33359 14.9163 8.09745 14.9163 7.80615V5.85463H17.4277C17.687 5.84853 17.9068 6.03351 17.9302 6.27755L19.1021 19.9926C19.0331 20.7573 18.6999 21.4793 18.1541 22.0475Z" /></svg> */}
+            {/* <p className="cardProduct--addToCart__cta">Adicionar a Sacola</p> */}
+            <p className="cardProduct--addToCart__cta">COMPRAR</p>
+          </span>
+        </a>
       </div>
     );
   }

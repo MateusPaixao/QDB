@@ -8,7 +8,7 @@ const Methods = {
     getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
         const idSku = document.querySelector('.w-gerador--datas').getAttribute('data-sku');
-        const url = 'http://qbbr.vtexcommercestable.com.br/api/catalog_system/pub/products/search/?fq=productId:' + idProduto;
+        const url = '/api/catalog_system/pub/products/search/?fq=productId:' + idProduto;
         
         fetch(url)
             .then(res => res.json())

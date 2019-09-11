@@ -24,6 +24,18 @@
             display: flex;
             flex-flow: column;
         }
+        .cardProduct__discount{
+            .cardProduct__discount__content{
+                position: absolute;
+                left: 10px;
+                top: 10px;
+                background: $danger;
+                border-radius: 5px;
+                display: flex;
+                color: $w-secundary;
+                padding: 2.5px 5px;
+            }
+        }
         .cardProduct__pictureContainer{
             position: relative;
             .cardProduct__pictureContainer__review{
@@ -35,8 +47,8 @@
                 align-items: flex-start;
                 .cardProduct__pictureContainer__review__rating{
                     .cardProduct__review__rating__ratingHeart{
-                        width: 1em;
-                        height: 1em;
+                        width: 1.25em;
+                        height: 1.25em;
                     }
                 }
                 .cardProduct__pictureContainer__review__qtd{
@@ -129,6 +141,12 @@
                 .cardProduct--addToCart{
                     bottom: 0;
                 }
+            }
+        }
+        &.avaliable-false{
+            opacity: .5;
+            .cardProduct--addToCart{
+                bottom: -100%;
             }
         }
     }

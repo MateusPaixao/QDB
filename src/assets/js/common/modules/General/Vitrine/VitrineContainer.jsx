@@ -8,13 +8,15 @@ const Methods = {
     // Methods.Form();
     // Methods.BuildCard(idProduct, idSku);
   },
-  BuildVitrine(collection, slider){
+  BuildVitrine(collection, slider, itemsPP){
     class CardContainer extends React.Component {
       constructor(props) {
         super(props);
         this.state = {
           Products: [],
-          Vitrine: "--sliderVitrine-" + collection
+          Vitrine: "--sliderVitrine-" + collection,
+          HasSlider: slider,
+          PerPage: itemsPP
         };
 
         this.mountProducts = this.mountProducts.bind(this);
@@ -39,14 +41,15 @@ const Methods = {
         })
       }
 
-      slider(vitrine){
+      slider(vitrine, iPerPage){
         const slideVitrines = new Siema({
           selector: "." + vitrine,
           duration: 200,
           easing: 'ease-out',
           perPage: {
             300: 1.5,
-            992: 2.1
+            768: 2.5,
+            992: iPerPage
           },
           onInit: printSlideIndex,
           onChange: printSlideIndex
@@ -144,21 +147,14 @@ const Methods = {
             this.setState({
               Products: ProductsFull
             }, ()=>{
-              this.slider(this.state.Vitrine);
+              if(this.state.HasSlider == true){
+                this.slider(this.state.Vitrine, this.state.PerPage);
+              }
             })
         })
       }
       render() {
-        // const Slider = () => {
-        //   return (
-        //     <React.Fragment>
-        //       <button id={"gliderPrev" + collection} role="button" aria-label="Previous" className={"glider-prev gliderPrev" + collection} >⯇</button>
-        //       <button id={"gliderNext" + collection} role="button" aria-label="Next" className={"glider-next gliderNext" + collection}>⯈</button>
-        //     </React.Fragment>
-        //   )
-        // }
         const Cards = () => {
-          // console.log(this.state.Products);
           let cards = [];
           this.state.Products.map((Product, index) => {
             cards.push(
@@ -170,7 +166,6 @@ const Methods = {
               <div className={"cardProductContainer " + this.state.Vitrine}>
                 {cards}
               </div>
-              {/* <Slider /> */}
             </React.Fragment>
           )
         }
