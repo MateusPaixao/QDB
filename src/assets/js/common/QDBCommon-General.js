@@ -1644,10 +1644,10 @@ function setHeader() {
 //     scroll();
 //   }
 // // ---------- EVENTOS
-// window.onscroll = function (){
-//   setHeader();
+window.onscroll = function (){
+  setHeader();
 //   loadImg();
-// }
+}
 // $(document).on("scrollstop",function(){
 //     loadImg();
 // });
