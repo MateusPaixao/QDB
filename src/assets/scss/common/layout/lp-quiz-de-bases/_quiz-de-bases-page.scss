@@ -256,10 +256,10 @@ body.lp-quiz {
         [steps-control="4"] {
             & > .shell {
                 position: relative;
+                display: flex;
             }
             .slide-quiz {
                 width: 78%;
-                float: right;
             }
         }
     }
@@ -310,18 +310,12 @@ body.lp-quiz {
     }
     @media (min-width: 768px) {
         aside {
-            width: 22%;
-            float: left;
-            position: absolute;
             display: flex;
             flex-direction: column;
-            top: 0;
-            bottom: 0;
             justify-content: center;
-            z-index: 10;
+            flex: 1 1 22%;
             .quiz-title {
                 font-size: 1.6vw;
-                margin: 0 5px;
             }
         }
     }
@@ -345,10 +339,6 @@ body.lp-quiz {
                 text-transform: uppercase;
                 white-space: nowrap;
             }
-        }
-        [data-subtone-option],
-        .result-item {
-            width: 25%;
         }
     }
     @media (min-width: 768px) {
