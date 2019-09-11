@@ -1248,7 +1248,7 @@ let AddToCart = () =>{
     document.querySelector(".product-buy-button .buy-button").addEventListener("click", function(el){
         el.preventDefault();
         let skuId = "";
-        new URL(window.location.href).searchParams.get("idsku") != null ? skuId = document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku") : skuId = new URL(window.location.href).searchParams.get("idsku");
+        new URL(window.location.href).searchParams.get("idsku") == null ? skuId = document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku") : skuId = new URL(window.location.href).searchParams.get("idsku");
         // console.log(skuId);
         el.srcElement.innerHTML = "Adicionando...";
         el.srcElement.style.opacity = ".7";
