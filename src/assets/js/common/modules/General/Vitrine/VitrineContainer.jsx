@@ -36,10 +36,6 @@ const Methods = {
             request.send();
         }).then((col) => {
           this.mountProducts(col);
-        }).then(() => {
-          setTimeout(() => {
-            this.slider(this.state.Vitrine);
-          }, 1000);
         })
       }
 
@@ -62,25 +58,25 @@ const Methods = {
           var _this = this;
       
           // make buttons & append them inside Siema's container
-          this.prevArrow = document.createElement('button');
-          this.prevArrow.classList.add("--prev");
-          this.nextArrow = document.createElement('button');
-          this.nextArrow.classList.add("--next");
-          this.prevArrow.textContent = '⯇';
-          this.nextArrow.textContent = '⯈';
+          _this.prevArrow = document.createElement('button');
+          _this.prevArrow.classList.add("--prev");
+          _this.nextArrow = document.createElement('button');
+          _this.nextArrow.classList.add("--next");
+          _this.prevArrow.textContent = '⯇';
+          _this.nextArrow.textContent = '⯈';
           
           let arrowsControl = document.createElement("span");
-          arrowsControl.classList.add("vitrine__controls--arrows");
-          this.selector.appendChild(arrowsControl);
+          arrowsControl.classList.add("--controls__arrows");
+          _this.selector.appendChild(arrowsControl);
       
-          arrowsControl.appendChild(this.prevArrow);
-          arrowsControl.appendChild(this.nextArrow);
+          arrowsControl.appendChild(_this.prevArrow);
+          arrowsControl.appendChild(_this.nextArrow);
 
           // event handlers on buttons
-          this.prevArrow.addEventListener('click', function () {
+          _this.prevArrow.addEventListener('click', function () {
               return _this.prev();
           });
-          this.nextArrow.addEventListener('click', function () {
+          _this.nextArrow.addEventListener('click', function () {
               return _this.next();
           });
         };
@@ -158,7 +154,9 @@ const Methods = {
             //     </li>`
             // });
             // el.innerHTML = html.replace("undefined", "");
-        });
+        }).then(()=>{
+            this.slider(this.state.Vitrine);
+        })
       }
       render() {
         // const Slider = () => {

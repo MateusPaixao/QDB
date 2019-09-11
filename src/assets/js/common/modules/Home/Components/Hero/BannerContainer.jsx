@@ -55,6 +55,8 @@ const Methods = {
                 
                 this.setState({
                     Banners: Banners
+                }, () => {
+                    this.buildSlider();
                 });
             }
 
@@ -75,9 +77,11 @@ const Methods = {
                 let Autoplay = setInterval(() => slideBanners.next(), 5000);
 
                 function printSlideIndex() {
+                    clearInterval(Autoplay);
+                    Autoplay = setInterval(() => slideBanners.next(), 5000);
                     this.innerElements.forEach((slide, i) => {
                         const addOrRemove = i === this.currentSlide ? 'add' : 'remove';
-                        document.querySelectorAll(".bannerHero__controls--dots .--changePosition")[i].classList[addOrRemove]('--active');
+                        document.querySelectorAll(".--controls__dots .--changePosition")[i].classList[addOrRemove]('--active');
                     })
 
                     // if(this.currentSlide == 0){
@@ -95,7 +99,7 @@ const Methods = {
 
                 Siema.prototype.addPagination = function() {
                     let dotControl = document.createElement("span");
-                    dotControl.classList.add("bannerHero__controls--dots");
+                    dotControl.classList.add("--controls__dots");
                     // controls.appendChild(dotControl);
                     this.selector.appendChild(dotControl);
 
@@ -109,37 +113,33 @@ const Methods = {
                         });
                         dotControl.appendChild(btn);
                     }
-                    document.querySelector(".bannerHero__controls--dots").childNodes[0].classList.add("--active");
+                    document.querySelector(".--controls__dots").childNodes[0].classList.add("--active");
                 }
 
                 // Style the arrows with CSS or JS — up to you mate
                 Siema.prototype.addArrows = function () {
-                    var _this = this;
-                
+                    let _this = this;
+      
                     // make buttons & append them inside Siema's container
-                    this.prevArrow = document.createElement('button');
-                    this.prevArrow.classList.add("--prev");
-                    this.nextArrow = document.createElement('button');
-                    this.nextArrow.classList.add("--next");
-                    this.prevArrow.textContent = '⯇';
-                    this.nextArrow.textContent = '⯈';
+                    _this.prevArrow = document.createElement('button');
+                    _this.prevArrow.classList.add("--prev");
+                    _this.nextArrow = document.createElement('button');
+                    _this.nextArrow.classList.add("--next");
+                    _this.prevArrow.textContent = '⯇';
+                    _this.nextArrow.textContent = '⯈';
                     
                     let arrowsControl = document.createElement("span");
-                    arrowsControl.classList.add("bannerHero__controls--arrows");
-                    this.selector.appendChild(arrowsControl);
+                    arrowsControl.classList.add("--controls__arrows");
+                    _this.selector.appendChild(arrowsControl);
                 
-                    arrowsControl.appendChild(this.prevArrow);
-                    arrowsControl.appendChild(this.nextArrow);
+                    arrowsControl.appendChild(_this.prevArrow);
+                    arrowsControl.appendChild(_this.nextArrow);
 
                     // event handlers on buttons
-                    this.prevArrow.addEventListener('click', function () {
-                        clearInterval(Autoplay);
-                        Autoplay = setInterval(() => slideBanners.next(), 5000);
+                    _this.prevArrow.addEventListener('click', function () {
                         return _this.prev();
                     });
-                    this.nextArrow.addEventListener('click', function () {
-                        clearInterval(Autoplay);
-                        Autoplay = setInterval(() => slideBanners.next(), 5000);
+                    _this.nextArrow.addEventListener('click', function () {
                         return _this.next();
                     });
                 };
@@ -169,7 +169,6 @@ const Methods = {
             }
 
             Resize(){
-                console.log(window.innerWidth);
                 this.setViewport(window.innerWidth);
             }
             // handleChange(e){
@@ -180,11 +179,10 @@ const Methods = {
 
             componentDidMount(){
                 this.setViewport(window.innerWidth);
-                setTimeout(() => {
-                    this.buildSlider();
-                }, 1000);
                 window.addEventListener("resize", ()=>{
-                    this.Resize();
+                    if(window.innerWidth < 768){
+                        this.Resize();
+                    }
                 });
             }
             

@@ -52,7 +52,7 @@ const Methods = {
         }
         
         function loadImage(image) {
-            image.classList.add('fade-in');
+            // image.classList.add('fade-in');
             if(image.dataset && image.dataset.src) {
                 image.src = image.dataset.src;
             }
