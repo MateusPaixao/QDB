@@ -4,6 +4,9 @@
         font-size: 2em;
         font-weight: 700;
         margin: 36px !important;
+        &--small{
+            font-size: 1.1em;
+        }
     }
 
     &__container {
@@ -97,11 +100,10 @@
 }
 .share{
     display: flex;
-    width: 50%;
     justify-content: space-around;
     align-items: center;
     color: #fff;
-    margin: 0 auto;
+    margin: 10px auto;
     &__button{
         display: flex;
         align-items: center;
@@ -119,6 +121,9 @@
         z-index: -1;
         left: 200%;
         pointer-events: none;
+    }
+    @media(min-width: 768px) {
+        width: 50%;
     }
 }
 .quiz-header{
