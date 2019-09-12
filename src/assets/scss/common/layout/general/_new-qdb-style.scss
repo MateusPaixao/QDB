@@ -815,7 +815,7 @@ body {
 }
 
 p {
-    text-transform: unset!important
+    text-transform: unset;
 }
 
 img,
@@ -8150,14 +8150,12 @@ li.widget-primary.widget-order.teste-slider-dots.active {
 }
 
 body {
-    zoom: 85%;
     -moz-transform: scale(90%);
     -moz-transform-origin: 90% 90%
 }
 
 #sm-push,
 .section-chaordic .chaordic {
-    zoom: 100%;
     -moz-transform: scale(100%);
     -moz-transform-origin: 100% 100%
 }

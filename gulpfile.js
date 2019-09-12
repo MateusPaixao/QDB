@@ -37,6 +37,19 @@ const paths = {
     dest: './dist/assets/css/',
     qa: './qa/assets/css/',
     srcWatch: ['src/assets/scss/**/*.scss', '!src/assets/scss/**/checkout6-custom.scss'],
+<<<<<<< HEAD
+=======
+  },
+  imgs: {
+    src: 'src/assets/img/*.{png,gif,jpg}',
+    dest: './dist/assets/img/',
+    srcWatch: 'src/assets/img/*'
+  },
+  svgs: {
+    src: 'src/assets/img/icon/*.svg',
+    dest: './dist/assets/img/icon/',
+    srcWatch: 'src/assets/img/icon/*'
+>>>>>>> feature/melhorias_home
   },
   scripts: {
     src: ['src/assets/js/common/*.js', 'src/assets/js/common/*.jsx', '!src/assets/js/common/checkout6-custom.js'],
@@ -98,7 +111,12 @@ const styles = () => {
     .pipe(rename(function (path) {
       path.basename = "QA-" + path.basename
     }))
+<<<<<<< HEAD
     .pipe(gulp.dest(paths.styles.qa));
+=======
+    .pipe(gulp.dest(paths.styles.qa))
+    .pipe(gulp.dest('./dist/vtex_speed/arquivos/'));
+>>>>>>> feature/melhorias_home
 }
 
 const scripts = () => {
@@ -110,6 +128,7 @@ const scripts = () => {
     .pipe(gulp.dest('./dist/vtex_speed/arquivos/'))
     .pipe(rename(function (path) {
       path.basename = "QA-" + path.basename
+<<<<<<< HEAD
     }))
     .pipe(gulp.dest(paths.scripts.qa));
 }
@@ -121,6 +140,20 @@ const checkoutStyles = () => {
       browsers: ['last 10 versions'],
       cascade: false,
     }))
+=======
+    }))
+    .pipe(gulp.dest(paths.scripts.qa))
+    .pipe(gulp.dest('./dist/vtex_speed/arquivos/'));
+}
+
+const checkoutStyles = () => {
+  return gulp.src("src/assets/scss/common/checkout6-custom.scss")
+    .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(autoprefixer({
+      browsers: ['last 10 versions'],
+      cascade: false,
+    }))
+>>>>>>> feature/melhorias_home
     .pipe(gulp.dest(paths.styles.dest))
     .pipe(gulp.dest('./dist/vtex_speed/files/'))
 }

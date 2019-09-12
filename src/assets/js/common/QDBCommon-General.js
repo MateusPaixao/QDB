@@ -1,5 +1,8 @@
+import General from "./modules/General/general-index"
 
-// FID/**201812112311*/
+General.init();
+
+/**201812112311*/
 var menuData = [{
     "text": "Entre ou cadastre-se",
     "link": "https://www.quemdisseberenice.com.br/account/"
@@ -1201,202 +1204,202 @@ function menuBuscaNeemu() {
     })
 }
 $(window).on('load', menuBuscaNeemu);
-// INICIO CONTADOR
-function cronometro(countdown, dateini, dateend, fretegratis, text, bgcolor, link) {
-    var countDownDate,
-        dateinitial = new Date(dateini),
-        datefinal = new Date(dateend);
-    var now = new Date().getTime(); // Set the date we're counting down to
+// // INICIO CONTADOR
+// function cronometro(countdown, dateini, dateend, fretegratis, text, bgcolor, link) {
+//     var countDownDate,
+//         dateinitial = new Date(dateini),
+//         datefinal = new Date(dateend);
+//     var now = new Date().getTime(); // Set the date we're counting down to
   
-    // function getQueryStringValue (key) {  
-    //     return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
-    // }  
-    if (now < dateinitial.getTime()) {
-      //console.log("Cronometro começaa: " + dateinitial);
-    } else if(now < datefinal.getTime()) {
-    $(".counter").css("display", "flex");
-    if(fretegratis == true){
-        $(".counter .frete-gratis").css("display", "initial");
+//     // function getQueryStringValue (key) {  
+//     //     return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
+//     // }  
+//     if (now < dateinitial.getTime()) {
+//       //console.log("Cronometro começaa: " + dateinitial);
+//     } else if(now < datefinal.getTime()) {
+//     $(".counter").css("display", "flex");
+//     if(fretegratis == true){
+//         $(".counter .frete-gratis").css("display", "initial");
     
-        $('.counter .frete-gratis').addClass('animate');
+//         $('.counter .frete-gratis').addClass('animate');
     
-        $('.frete-gratis circle').each(function(){
-            var comprimento = $(this).get(0).getTotalLength();
-            var comprimentoArredondado = Math.round(comprimento);
-            $(this).attr('stroke-dasharray', comprimentoArredondado);
-            $(this).attr('stroke-dashoffset', comprimentoArredondado);
-        });
-    }else{
-        $(".counter .frete-gratis").css("display", "none");
-    }
-    $(".counter .text-counter").html(text);
-    if(link != null || link != "" || document.querySelector(".counter-link") != null){
-        document.querySelector(".counter-link").setAttribute("href", link);
-    }
-    $(document).ready(function(){
-        if (countdown == "before") {
-            countDownDate = new Date(dateend).getTime();
-        } else {
-            countDownDate = new Date(dateend).getTime();
-        } // Update the count down every 1 second
-    
-    
-        var timerwindow;
-    
-        //   if (window.innerWidth <= 720) {
-        //     timerwindow = "timermobile";
-        //     $(".mobile-card .banner-home:first a").append($(".mobile-card .counter"));
-        //   } else {
-            timerwindow = "timerdesk";
-        //   }
-    
-        var x = setInterval(function () {
-            // Get todays date and time
-            now = new Date().getTime(); // Find the distance between now and the count down date
-    
-            var distance = countDownDate - now;
-            var distanceinitial = countDownDate - dateinitial.getTime(); // Time calculations for days, hours, minutes and seconds
-    
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
-            var minutes = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60));
-            var seconds = Math.floor(distance % (1000 * 60) / 1000); // SET WIDTH OF BAR
-    
-            var hoursdiff = Math.floor(distance / 36e5);
-            var width = distance / 36e5 / (distanceinitial / 36e5) * 100;
-            document.querySelector(".counterbar_active").style.width = width + "%"; // Display the result in the element with id="demo"
-            document.querySelector(".counterbar").style.backgroundColor = bgcolor;
-            // document.getElementById("timer").innerHTML = '<span>' + days + '<p>dia</p></span><span>:</span><span>' + hours + '<p>horas</p></span><span>:</span><span>'
-    
-            if (countdown == "before") {
-            document.getElementById(timerwindow).innerHTML = '<span>' + hoursdiff + '<p>h</p></span><span>:</span><span>' + minutes + "<p>m</p></span>";
-            } else {
-            document.getElementById(timerwindow).innerHTML = '<span>' + hoursdiff + '<p>h</p></span><span>:</span><span>' + minutes + '<p>m</p></span><span>:</span><span>' + seconds + "<p>s</p></span>";
-            } // If the count down is finished, write some text 
+//         $('.frete-gratis circle').each(function(){
+//             var comprimento = $(this).get(0).getTotalLength();
+//             var comprimentoArredondado = Math.round(comprimento);
+//             $(this).attr('stroke-dasharray', comprimentoArredondado);
+//             $(this).attr('stroke-dashoffset', comprimentoArredondado);
+//         });
+//     }else{
+//         $(".counter .frete-gratis").css("display", "none");
+//     }
+//     $(".counter .text-counter").html(text);
+//     if(link != null || link != "" || document.querySelector(".counter-link") != null){
+//         document.querySelector(".counter-link").setAttribute("href", link);
+//     }
+//     $(document).ready(function(){
+//         if (countdown == "before") {
+//             countDownDate = new Date(dateend).getTime();
+//         } else {
+//             countDownDate = new Date(dateend).getTime();
+//         } // Update the count down every 1 second
     
     
-            if (distance < 0) {
-            clearInterval(x);
-            document.getElementById(timerwindow).innerHTML = "00:00:00";
-            $(".counter").css("display", "none");
-            } else if (distance > 0 && minutes == 0 && seconds < 2) {
-            location.reload();
-            }
-        }, 1000);
-    });
-    $("span.counter").css("background-color", bgcolor);
-  }
-}
-function setTopBanner(countdown, dateini, dateend, texts, bgcolor, cta, link){
-    var Contenttexts = [];
-    Contenttexts = texts;
+//         var timerwindow;
+    
+//         //   if (window.innerWidth <= 720) {
+//         //     timerwindow = "timermobile";
+//         //     $(".mobile-card .banner-home:first a").append($(".mobile-card .counter"));
+//         //   } else {
+//             timerwindow = "timerdesk";
+//         //   }
+    
+//         var x = setInterval(function () {
+//             // Get todays date and time
+//             now = new Date().getTime(); // Find the distance between now and the count down date
+    
+//             var distance = countDownDate - now;
+//             var distanceinitial = countDownDate - dateinitial.getTime(); // Time calculations for days, hours, minutes and seconds
+    
+//             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+//             var hours = Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+//             var minutes = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60));
+//             var seconds = Math.floor(distance % (1000 * 60) / 1000); // SET WIDTH OF BAR
+    
+//             var hoursdiff = Math.floor(distance / 36e5);
+//             var width = distance / 36e5 / (distanceinitial / 36e5) * 100;
+//             document.querySelector(".counterbar_active").style.width = width + "%"; // Display the result in the element with id="demo"
+//             document.querySelector(".counterbar").style.backgroundColor = bgcolor;
+//             // document.getElementById("timer").innerHTML = '<span>' + days + '<p>dia</p></span><span>:</span><span>' + hours + '<p>horas</p></span><span>:</span><span>'
+    
+//             if (countdown == "before") {
+//             document.getElementById(timerwindow).innerHTML = '<span>' + hoursdiff + '<p>h</p></span><span>:</span><span>' + minutes + "<p>m</p></span>";
+//             } else {
+//             document.getElementById(timerwindow).innerHTML = '<span>' + hoursdiff + '<p>h</p></span><span>:</span><span>' + minutes + '<p>m</p></span><span>:</span><span>' + seconds + "<p>s</p></span>";
+//             } // If the count down is finished, write some text 
+    
+    
+//             if (distance < 0) {
+//             clearInterval(x);
+//             document.getElementById(timerwindow).innerHTML = "00:00:00";
+//             $(".counter").css("display", "none");
+//             } else if (distance > 0 && minutes == 0 && seconds < 2) {
+//             location.reload();
+//             }
+//         }, 1000);
+//     });
+//     $("span.counter").css("background-color", bgcolor);
+//   }
+// }
+// function setTopBanner(countdown, dateini, dateend, texts, bgcolor, cta, link){
+//     var Contenttexts = [];
+//     Contenttexts = texts;
 
-    var countDownDate,
-        datefinal = new Date(dateend),
-        dateinitial = new Date(dateini);
-    var now = new Date().getTime(); // Set the date we're counting down to
+//     var countDownDate,
+//         datefinal = new Date(dateend),
+//         dateinitial = new Date(dateini);
+//     var now = new Date().getTime(); // Set the date we're counting down to
   
-    // function getQueryStringValue (key) {  
-    //     return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
-    // }  
-    if (now < dateinitial.getTime()) {
-    //console.log("Top Banner come�a: " + dateinitial);
-    } else if(now < datefinal.getTime() && !$("body").hasClass("login")) {
-        $(".topbanner").css("display", "flex");
+//     // function getQueryStringValue (key) {  
+//     //     return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
+//     // }  
+//     if (now < dateinitial.getTime()) {
+//     //console.log("Top Banner come�a: " + dateinitial);
+//     } else if(now < datefinal.getTime() && !$("body").hasClass("login")) {
+//         $(".topbanner").css("display", "flex");
 
-        cta == false ? document.getElementById("btnTopbanner").style.display = "none" : "";
+//         cta == false ? document.getElementById("btnTopbanner").style.display = "none" : "";
 
-        var titleMain  = $(".topbanner .toslide");
-        // var titleSubs  = titleMain.find("slick-active");
+//         var titleMain  = $(".topbanner .toslide");
+//         // var titleSubs  = titleMain.find("slick-active");
     
-        if(link != null || link != "" || document.querySelector(".topbanner-link") != null){
-            document.querySelector(".topbanner-link").setAttribute("href", link);
-        }
+//         if(link != null || link != "" || document.querySelector(".topbanner-link") != null){
+//             document.querySelector(".topbanner-link").setAttribute("href", link);
+//         }
 
-        if (titleMain.length) {
-        Contenttexts.forEach(text => {
-            $(titleMain).append('<span class="texto">' + text + '</span>');
-        });
+//         if (titleMain.length) {
+//         Contenttexts.forEach(text => {
+//             $(titleMain).append('<span class="texto">' + text + '</span>');
+//         });
         
-        titleMain.slick({
-            autoplay: false,
-            arrows: false,
-            dots: false,
-            slidesToShow: 1,
-            // centerPadding: "10px",
-            draggable: false,
-            infinite: true,
-            pauseOnHover: false,
-            swipe: false,
-            touchMove: false,
-            vertical: true,
-            speed: 1000,
-            autoplaySpeed: 2000,
-            useTransform: true,
-            cssEase: 'cubic-bezier(0.645, 0.045, 0.355, 1.000)',
-            adaptiveHeight: true
-        });
+//         titleMain.slick({
+//             autoplay: false,
+//             arrows: false,
+//             dots: false,
+//             slidesToShow: 1,
+//             // centerPadding: "10px",
+//             draggable: false,
+//             infinite: true,
+//             pauseOnHover: false,
+//             swipe: false,
+//             touchMove: false,
+//             vertical: true,
+//             speed: 1000,
+//             autoplaySpeed: 2000,
+//             useTransform: true,
+//             cssEase: 'cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+//             adaptiveHeight: true
+//         });
     
-        // On init
-        // $(Contenttexts).each(function(index, el) {
-        //   $(".topbanner .toslide").slick('slickAdd', "<div>" + el.innerHTML + "</div>");
-        // });
+//         // On init
+//         // $(Contenttexts).each(function(index, el) {
+//         //   $(".topbanner .toslide").slick('slickAdd', "<div>" + el.innerHTML + "</div>");
+//         // });
     
-        // Manually refresh positioning of slick
-        titleMain.slick('slickPlay');
-        };
-        $("span.topbanner").css("background-color", bgcolor);
-    }
-}
-function CopyText(btn, txt){
-    // Add click event
-    document.querySelector(btn).addEventListener('click', function(e){
-    e.preventDefault();
-    // Select the text
-    var TextToCopy;
+//         // Manually refresh positioning of slick
+//         titleMain.slick('slickPlay');
+//         };
+//         $("span.topbanner").css("background-color", bgcolor);
+//     }
+// }
+// function CopyText(btn, txt){
+//     // Add click event
+//     document.querySelector(btn).addEventListener('click', function(e){
+//     e.preventDefault();
+//     // Select the text
+//     var TextToCopy;
 
-    if(!document.getElementById("TextToCopy")){
-        TextToCopy = document.createElement("input");
-        document.body.appendChild(TextToCopy);
-        TextToCopy.style.opacity = 0;
-        TextToCopy.style.position = "absolute";
-        TextToCopy.style.top = 0;
-        TextToCopy.setAttribute("id", "TextToCopy");
-        document.getElementById("TextToCopy").value = txt;
-    }else{
-        document.getElementById("TextToCopy").value = txt;
-    }
+//     if(!document.getElementById("TextToCopy")){
+//         TextToCopy = document.createElement("input");
+//         document.body.appendChild(TextToCopy);
+//         TextToCopy.style.opacity = 0;
+//         TextToCopy.style.position = "absolute";
+//         TextToCopy.style.top = 0;
+//         TextToCopy.setAttribute("id", "TextToCopy");
+//         document.getElementById("TextToCopy").value = txt;
+//     }else{
+//         document.getElementById("TextToCopy").value = txt;
+//     }
     
-    document.getElementById("TextToCopy").select();
+//     document.getElementById("TextToCopy").select();
 
-    var copied;
+//     var copied;
 
-    try
-    {
-        // Copy the text
-        document.execCommand('copy');
-        copied = document.execCommand('copy');
-    } 
-    catch (ex)
-    {
-        copied = false;  
-    }
+//     try
+//     {
+//         // Copy the text
+//         document.execCommand('copy');
+//         copied = document.execCommand('copy');
+//     } 
+//     catch (ex)
+//     {
+//         copied = false;  
+//     }
 
-    if(copied)
-    {
-        // Display the copied text message
-        document.querySelector(btn + " .btncopy").innerHTML = "COPIADO";
-        document.querySelector(btn + " .btncopy").classList.add("btn-success");
-        document.getElementById("TextToCopy").remove();
-        setTimeout(() => {
-            document.querySelector(btn + " .btncopy").innerHTML = "COPIAR";
-            document.querySelector(btn + " .btncopy").classList.remove("btn-success");
-        }, 3000);
-    }
+//     if(copied)
+//     {
+//         // Display the copied text message
+//         document.querySelector(btn + " .btncopy").innerHTML = "COPIADO";
+//         document.querySelector(btn + " .btncopy").classList.add("btn-success");
+//         document.getElementById("TextToCopy").remove();
+//         setTimeout(() => {
+//             document.querySelector(btn + " .btncopy").innerHTML = "COPIAR";
+//             document.querySelector(btn + " .btncopy").classList.remove("btn-success");
+//         }, 3000);
+//     }
  
-    });
-}
-// FIM CONTADOR
+//     });
+// }
+// // FIM CONTADOR
 //------------------ GET ELEMENT FROM ATRIBUTE
 window.getAllElementsWithAttribute = function(attribute) {
     var matchingElements = [];
@@ -1440,94 +1443,94 @@ var BrowserVendor = "";
         BrowserVendor = navigator.userAgent + "\n" + navigator.vendor;
     }
 })();
-// ------------- SET VITRINE IMG
-window.setVitrineDataImg = function(){
-    if(BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
-        for(var i = 0; i < document.querySelectorAll(".imgsrc").length; i++){
-            var imgSource = document.querySelectorAll(".imgsrc")[i].innerHTML;
-            var imgSrc = imgSource.substring(
-                        imgSource.lastIndexOf('src="') + 5, 
-                        imgSource.lastIndexOf('?v=')
-                    );
-            document.querySelectorAll(".imgsrc")[i].nextSibling.nextSibling.setAttribute('data-img', imgSrc);
-        }
-    }else{
-        document.querySelectorAll(".imgsrc").forEach(function(img){
-            if(isInViewport(img)){
-                var imgSource = img.innerHTML;
-                if(BrowserVendor == 'safari/webkit'){
-                    var imgSrc = imgSource.substring(
-                        imgSource.lastIndexOf('src="') + 5, 
-                        imgSource.lastIndexOf('?v=')
-                    );
-                    img.nextSibling.nextSibling.setAttribute('data-img', imgSrc);
-                }else{
-                    var RegexSrc = imgSource.match(/\<img.+src\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/);
-                    img.nextSibling.nextSibling.setAttribute('data-img', RegexSrc[1]);
-                    img.nextSibling.nextSibling.alt = imgSource.match(/\<img.+alt\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/)[1]
-                }
-            }
-        });
-    }
-}
-// -------------- DETECT DOMISREADY
-var domIsReady = (function(domIsReady) {
-    var isBrowserIeOrNot = function() {
-       return (!document.attachEvent || typeof document.attachEvent === "undefined" ? 'not-ie' : 'ie');
-    }
+// // ------------- SET VITRINE IMG
+// window.setVitrineDataImg = function(){
+//     if(BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
+//         for(var i = 0; i < document.querySelectorAll(".imgsrc").length; i++){
+//             var imgSource = document.querySelectorAll(".imgsrc")[i].innerHTML;
+//             var imgSrc = imgSource.substring(
+//                         imgSource.lastIndexOf('src="') + 5, 
+//                         imgSource.lastIndexOf('?v=')
+//                     );
+//             document.querySelectorAll(".imgsrc")[i].nextSibling.nextSibling.setAttribute('data-img', imgSrc);
+//         }
+//     }else{
+//         document.querySelectorAll(".imgsrc").forEach(function(img){
+//             if(isInViewport(img)){
+//                 var imgSource = img.innerHTML;
+//                 if(BrowserVendor == 'safari/webkit'){
+//                     var imgSrc = imgSource.substring(
+//                         imgSource.lastIndexOf('src="') + 5, 
+//                         imgSource.lastIndexOf('?v=')
+//                     );
+//                     img.nextSibling.nextSibling.setAttribute('data-img', imgSrc);
+//                 }else{
+//                     var RegexSrc = imgSource.match(/\<img.+src\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/);
+//                     img.nextSibling.nextSibling.setAttribute('data-img', RegexSrc[1]);
+//                     img.nextSibling.nextSibling.alt = imgSource.match(/\<img.+alt\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/)[1]
+//                 }
+//             }
+//         });
+//     }
+// }
+// // -------------- DETECT DOMISREADY
+// var domIsReady = (function(domIsReady) {
+//     var isBrowserIeOrNot = function() {
+//        return (!document.attachEvent || typeof document.attachEvent === "undefined" ? 'not-ie' : 'ie');
+//     }
  
-    domIsReady = function(callback) {
-       if(callback && typeof callback === 'function'){
-          if(isBrowserIeOrNot() !== 'ie') {
-             document.addEventListener("DOMContentLoaded", function() {
-                return callback();
-             });
-          } else {
-             document.attachEvent("onreadystatechange", function() {
-                if(document.readyState === "complete") {
-                   return callback();
-                }
-             });
-          }
-       } else {
-          console.error('The callback is not a function!');
-       }
-    }
+//     domIsReady = function(callback) {
+//        if(callback && typeof callback === 'function'){
+//           if(isBrowserIeOrNot() !== 'ie') {
+//              document.addEventListener("DOMContentLoaded", function() {
+//                 return callback();
+//              });
+//           } else {
+//              document.attachEvent("onreadystatechange", function() {
+//                 if(document.readyState === "complete") {
+//                    return callback();
+//                 }
+//              });
+//           }
+//        } else {
+//           console.error('The callback is not a function!');
+//        }
+//     }
     
-    return domIsReady;
-})(domIsReady || {});
+//     return domIsReady;
+// })(domIsReady || {});
 
-// ------------- LOAD IMG ON SCROLL
-window.loadImg = function() {
-    setVitrineDataImg();
-    var imginview = getAllElementsWithAttribute('data-img');
-    if(BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
-        for(var i=0; i < imginview.length; i++){
-            imginview[i].src = imginview[i].dataset.img;
-        }
-        var ievitrineimg = document.querySelectorAll(".product .product-image img");
-        for(var i=0; i < ievitrineimg.length; i++){
-            ievitrineimg[i].style.left = 0;
-            ievitrineimg[i].style.position = "relative";
-            ievitrineimg[i].style.transform = "none";
-            document.querySelectorAll(".product p, .product .product-content h2, .product .product-content h3")[i].style.height = "initial";
-        }
-    }else{
-        imginview.forEach(function (img) {
-          if (isInViewport(img)) {
-            // if(img.src == ""){
-            img.src = img.dataset.img; // }
-          }
-        });
-    }
-};
+// // ------------- LOAD IMG ON SCROLL
+// window.loadImg = function() {
+//     setVitrineDataImg();
+//     var imginview = getAllElementsWithAttribute('data-img');
+//     if(BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
+//         for(var i=0; i < imginview.length; i++){
+//             imginview[i].src = imginview[i].dataset.img;
+//         }
+//         var ievitrineimg = document.querySelectorAll(".product .product-image img");
+//         for(var i=0; i < ievitrineimg.length; i++){
+//             ievitrineimg[i].style.left = 0;
+//             ievitrineimg[i].style.position = "relative";
+//             ievitrineimg[i].style.transform = "none";
+//             document.querySelectorAll(".product p, .product .product-content h2, .product .product-content h3")[i].style.height = "initial";
+//         }
+//     }else{
+//         imginview.forEach(function (img) {
+//           if (isInViewport(img)) {
+//             // if(img.src == ""){
+//             img.src = img.dataset.img; // }
+//           }
+//         });
+//     }
+// };
 
-$(".slick-arrow").on("click", function(){
-    loadImg();
-});
-window.onmousemove = function () {
-    loadImg();
-};
+// $(".slick-arrow").on("click", function(){
+//     loadImg();
+// });
+// window.onmousemove = function () {
+//     loadImg();
+// };
 // ----------- HEADER POSITION
 var prevScrollpos = 0;
 function setHeader() {
@@ -1558,115 +1561,115 @@ function setHeader() {
     }
   }
 }
-// ---------- SCROLL TO POSITION
-window.scrollIt = function(destination) {
-    var duration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 200;
-    var easing = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'linear';
-    var callback = arguments.length > 3 ? arguments[3] : undefined;
-    var easings = {
-      linear: function linear(time) {
-        return time;
-      },
-      easeInQuad: function easeInQuad(time) {
-        return time * time;
-      },
-      easeOutQuad: function easeOutQuad(time) {
-        return time * (2 - time);
-      },
-      easeInOutQuad: function easeInOutQuad(time) {
-        return time < 0.5 ? 2 * time * time : -1 + (4 - 2 * time) * time;
-      },
-      easeInCubic: function easeInCubic(time) {
-        return time * time * time;
-      },
-      easeOutCubic: function easeOutCubic(time) {
-        return --time * time * time + 1;
-      },
-      easeInOutCubic: function easeInOutCubic(time) {
-        return time < 0.5 ? 4 * time * time * time : (time - 1) * (2 * time - 2) * (2 * time - 2) + 1;
-      },
-      easeInQuart: function easeInQuart(time) {
-        return time * time * time * time;
-      },
-      easeOutQuart: function easeOutQuart(time) {
-        return 1 - --time * time * time * time;
-      },
-      easeInOutQuart: function easeInOutQuart(time) {
-        return time < 0.5 ? 8 * time * time * time * time : 1 - 8 * --time * time * time * time;
-      },
-      easeInQuint: function easeInQuint(time) {
-        return time * time * time * time * time;
-      },
-      easeOutQuint: function easeOutQuint(time) {
-        return 1 + --time * time * time * time * time;
-      },
-      easeInOutQuint: function easeInOutQuint(time) {
-        return time < 0.5 ? 16 * time * time * time * time * time : 1 + 16 * --time * time * time * time * time;
-      }
-    };
-    var start = window.pageYOffset;
-    var startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
-    var documentHeight = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
-    var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
-    var destinationOffset = typeof destination === 'number' ? destination : destination.offsetTop - 80;
-    var destinationOffsetToScroll = Math.round(documentHeight - destinationOffset < windowHeight ? documentHeight - windowHeight : destinationOffset);
+// // ---------- SCROLL TO POSITION
+// window.scrollIt = function(destination) {
+//     var duration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 200;
+//     var easing = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'linear';
+//     var callback = arguments.length > 3 ? arguments[3] : undefined;
+//     var easings = {
+//       linear: function linear(time) {
+//         return time;
+//       },
+//       easeInQuad: function easeInQuad(time) {
+//         return time * time;
+//       },
+//       easeOutQuad: function easeOutQuad(time) {
+//         return time * (2 - time);
+//       },
+//       easeInOutQuad: function easeInOutQuad(time) {
+//         return time < 0.5 ? 2 * time * time : -1 + (4 - 2 * time) * time;
+//       },
+//       easeInCubic: function easeInCubic(time) {
+//         return time * time * time;
+//       },
+//       easeOutCubic: function easeOutCubic(time) {
+//         return --time * time * time + 1;
+//       },
+//       easeInOutCubic: function easeInOutCubic(time) {
+//         return time < 0.5 ? 4 * time * time * time : (time - 1) * (2 * time - 2) * (2 * time - 2) + 1;
+//       },
+//       easeInQuart: function easeInQuart(time) {
+//         return time * time * time * time;
+//       },
+//       easeOutQuart: function easeOutQuart(time) {
+//         return 1 - --time * time * time * time;
+//       },
+//       easeInOutQuart: function easeInOutQuart(time) {
+//         return time < 0.5 ? 8 * time * time * time * time : 1 - 8 * --time * time * time * time;
+//       },
+//       easeInQuint: function easeInQuint(time) {
+//         return time * time * time * time * time;
+//       },
+//       easeOutQuint: function easeOutQuint(time) {
+//         return 1 + --time * time * time * time * time;
+//       },
+//       easeInOutQuint: function easeInOutQuint(time) {
+//         return time < 0.5 ? 16 * time * time * time * time * time : 1 + 16 * --time * time * time * time * time;
+//       }
+//     };
+//     var start = window.pageYOffset;
+//     var startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+//     var documentHeight = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
+//     var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+//     var destinationOffset = typeof destination === 'number' ? destination : destination.offsetTop - 80;
+//     var destinationOffsetToScroll = Math.round(documentHeight - destinationOffset < windowHeight ? documentHeight - windowHeight : destinationOffset);
   
-    if ('requestAnimationFrame' in window === false) {
-      window.scroll(0, destinationOffsetToScroll);
+//     if ('requestAnimationFrame' in window === false) {
+//       window.scroll(0, destinationOffsetToScroll);
   
-      if (callback) {
-        callback();
-      }
+//       if (callback) {
+//         callback();
+//       }
   
-      return;
-    }
+//       return;
+//     }
   
-    function scroll() {
-      var now = 'now' in window.performance ? performance.now() : new Date().getTime();
-      var time = Math.min(1, (now - startTime) / duration);
-      var timeFunction = easings[easing](time);
-      window.scroll(0, Math.ceil(timeFunction * (destinationOffsetToScroll - start) + start));
+//     function scroll() {
+//       var now = 'now' in window.performance ? performance.now() : new Date().getTime();
+//       var time = Math.min(1, (now - startTime) / duration);
+//       var timeFunction = easings[easing](time);
+//       window.scroll(0, Math.ceil(timeFunction * (destinationOffsetToScroll - start) + start));
   
-      if (window.pageYOffset === destinationOffsetToScroll) {
-        if (callback) {
-          callback();
-        }
+//       if (window.pageYOffset === destinationOffsetToScroll) {
+//         if (callback) {
+//           callback();
+//         }
   
-        return;
-      } 
+//         return;
+//       } 
   
-      requestAnimationFrame(scroll);
-    }
+//       requestAnimationFrame(scroll);
+//     }
   
-    scroll();
-  }
-// ---------- EVENTOS
+//     scroll();
+//   }
+// // ---------- EVENTOS
 window.onscroll = function (){
   setHeader();
-  loadImg();
+//   loadImg();
 }
-$(document).on("scrollstop",function(){
-    loadImg();
-});
-$('body').on({
-    'touchmove': function() { 
-        loadImg();
-    }
-});
+// $(document).on("scrollstop",function(){
+//     loadImg();
+// });
+// $('body').on({
+//     'touchmove': function() { 
+//         loadImg();
+//     }
+// });
 
-window.removeInvalidChars = function(input) {
-    let str = document.querySelectorAll(input);
-    for(i = 0; i < str; i++){
-        str = str.value;
-        console.log(str);
-        str = str.replace(new RegExp(ranges.join('|'), 'g'), '');
-    }
-}
+// window.removeInvalidChars = function(input) {
+//     let str = document.querySelectorAll(input);
+//     for(i = 0; i < str; i++){
+//         str = str.value;
+//         console.log(str);
+//         str = str.replace(new RegExp(ranges.join('|'), 'g'), '');
+//     }
+// }
 
-window.GetCookie = function(name){
-    var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-    if (match) return match[2];
-}
+// window.GetCookie = function(name){
+//     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+//     if (match) return match[2];
+// }
 function homeCountDown(){
     const corBg = document.querySelector('.w-counter--bg').textContent; 
     document.querySelector('.w-counter').style.backgroundColor = corBg;
@@ -1765,16 +1768,113 @@ setTimeout(function() {
         // $('.w-counter--slick').slick();
     }
 }, 500);
+function homeCountDown(){
+    const corBg = document.querySelector('.w-counter--bg').textContent; 
+    document.querySelector('.w-counter').style.backgroundColor = corBg;
 
-$(document).ready(function(){
-    loadImg(); // adicionado para carregar no load as imagens iniciais(); // adicionado para carregar no load as imagens iniciais
-    if(BrowserVendor == 'safari/webkit' || BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
-        setVitrineDataImg();
-        console.log("Set OnLoad IE / Safari");
-        var imginview = getAllElementsWithAttribute('data-img');
-        for(var i = 0; i <= imginview.length; i++){
-            imginview[i].src = imginview[i].dataset.img;
+    
+    if(document.querySelector('.w-counter--container') != null){
+        // COUNTERBAR
+        let bar = document.createElement("span");
+        bar.classList.add("w-counter--container--counterbar")
+        let fill = document.createElement("span");
+        fill.classList.add("w-counter--bar");
+        document.querySelector(".w-counter--container").appendChild(bar);
+        document.querySelector(".w-counter--container--counterbar").appendChild(fill);
+        document.querySelector(".w-counter--container--counterbar").style.backgroundColor = corBg;
+
+        document.querySelector('.w-counter--container').classList.remove('hide-important');
+        let dateFim = document.querySelector('.w-counter--end').textContent;
+        dateFim = dateFim.split('/');
+        dateFim[2] = dateFim[2].split(' ');
+        dateFim = `${dateFim[2][0]}/${dateFim[0]}/${dateFim[1]} ${dateFim[2][1]}`;
+        // console.log(dateFim);
+        const end = new Date(dateFim);
+    
+        const _second = 1000;
+        const _minute = _second * 60;
+        const _hour = _minute * 60;
+        const _day = _hour * 24;
+        let clock = 0;
+        function showRemaining() {
+            let now = new Date();
+            let distance = end - now;
+    
+            if (distance <= 0) {
+                clearInterval(clock);
+                document.querySelector('.w-counter--container').classList.add('hidden')
+                if(document.querySelector('.w-counter--cupom') != null){
+                    document.querySelector('.w-counter--cupom').classList.remove('hidden')
+                    document.querySelector('.w-counter-copy').classList.remove('hidden')
+                }
+                return;
+            }
+            let days = Math.floor(distance / _day);
+            let hours = Math.floor(distance / 36e5);
+            let minutes = Math.floor((distance % _hour) / _minute);
+            let seconds = Math.floor((distance % _minute) / _second);
+            
+            // let dayCounter = document.querySelector('.w-counter--day');
+            let hourCounter = document.querySelector('.w-counter--hour');
+            let minuteCounter = document.querySelector('.w-counter--minutes');
+            let secondsCounter = document.querySelector('.w-counter--seconds');
+            const diasText = document.querySelector('.w-counter--info')
+
+            let width = now.getTime() / end.getTime() * 100;
+            document.querySelector(".w-counter--bar").style.width = width + "%";
+
+            // dayCounter.innerHTML = days;
+            // diasText.textContent = days == 1 ? 'dia' : 'dias';
+            hourCounter.innerHTML = hours < 10 ? '0' + hours : hours;
+            minuteCounter.innerHTML = minutes < 10 ? '0' + minutes : minutes;
+            secondsCounter.innerHTML = seconds < 10 ? '0' + seconds : seconds;
         }
-    }
 
-});
+    clock = setInterval(showRemaining, 1000);
+}
+};
+function copiarTopBanner() {
+    const btnCopy = document.querySelector('.w-counter-copy');
+    const cupomToCopy = document.querySelector('.w-counter--cupom');
+    btnCopy.addEventListener('click', function (e) {
+        e.preventDefault;
+        cupomToCopy.select()
+        document.execCommand('copy');
+        btnCopy.textContent = "COPIADO";
+        btnCopy.classList.add("btn-success");
+        setTimeout(() => {
+            btnCopy.textContent = "COPIAR";
+            btnCopy.classList.remove("btn-success");
+        }, 3000);
+    })
+}
+
+
+setTimeout(function() {
+    if(document.querySelector('.w-counter-copy') != null){
+        copiarTopBanner();
+    }
+    if(document.querySelector('.w-counter') != null){
+        if(BrowserVendor == 'safari/webkit'){
+            setTimeout(() => {
+                homeCountDown();
+            }, 3000);
+        }
+        else{
+            homeCountDown();
+        }
+        // $('.w-counter--slick').slick();
+    }
+}, 500);
+// $(document).ready(function(){
+//     loadImg(); // adicionado para carregar no load as imagens iniciais(); // adicionado para carregar no load as imagens iniciais
+//     if(BrowserVendor == 'safari/webkit' || BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
+//         setVitrineDataImg();
+//         console.log("Set OnLoad IE / Safari");
+//         var imginview = getAllElementsWithAttribute('data-img');
+//         for(var i = 0; i <= imginview.length; i++){
+//             imginview[i].src = imginview[i].dataset.img;
+//         }
+//     }
+
+// });
