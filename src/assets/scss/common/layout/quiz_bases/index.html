@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/main.css">
+</head>
+<body>
+    <!--atenção: A ESTRUTURA HTML DEVE FAZER CORRESPONDENCIA AOS OBJETOS JSON NELA INSERIDOS-->
+    <div class="slideshow-container" steps-control="">
+        <aside>  
+            <div>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div> 
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        </aside>
+
+        <div class="slide-quiz fade">
+            <section data-main-group>
+                <div data-main-option="claro">
+                    CLARO
+                </div>
+                <div data-main-option="claro-medio">
+                    CLARO MEDIO
+                </div>
+            </section>
+        </div>
+      
+        <div class="slide-quiz fade">
+            <section data-subtone-group="claro">
+                <div data-subtone-option="quente">
+                    
+                </div>
+                <div data-subtone-option="neutro">
+                    
+                </div>
+                <div data-subtone-option="frio">
+                    
+                </div>
+            </section>
+            <section data-subtone-group="claro-medio">
+                <div data-subtone-option="quente">
+                    
+                </div>
+                <div data-subtone-option="neutro">
+                    
+                </div>
+                <div data-subtone-option="frio">
+                    
+                </div>
+            </section>
+        </div>
+      
+        <div class="slide-quiz fade">
+            <section id="result">
+            </section>
+        </div>       
+    </div>    
+
+    <script src="./js/strategies/ClaroStrategy.js"></script>
+    <script src="./js/strategies/ClaroMedioStrategy.js"></script>
+    <script src="./js/slide.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
