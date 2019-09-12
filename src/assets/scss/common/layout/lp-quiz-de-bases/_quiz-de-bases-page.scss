@@ -150,6 +150,13 @@ body.lp-quiz {
         overflow: auto; 
         background-color: #000;
         background-color: #00000066;
+        ul {
+            list-style: initial;
+            padding: 10px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
     }
     .modal-content {
         border-top: 2px solid $color;
@@ -157,6 +164,7 @@ body.lp-quiz {
         margin: 15% auto;
         padding: 20px;
         width: 400px;
+        max-width: 100%;
     }
     .close {
         color: #aaa;
@@ -175,20 +183,13 @@ body.lp-quiz {
 .initial-page {
     position: relative;
     display: block !important;
-    .shell {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
     article {
         position: absolute;
         display: flex;
         top: 0;
-        bottom: 0;
-        right: 0;
-        max-width: 40vw;
+        bottom: 8vw;
+        right: 8vw;
+        max-width: 38vw;
         flex-direction: column;
         justify-content: center;
         color: #fff;
@@ -205,12 +206,19 @@ body.lp-quiz {
         left: 0;
         display: none;
     }
+    .quiz-btn {
+        color: #744833;
+        background-color: #fff;
+    }
     .quiz-mobile {
-        background-image: url(https://qbbr.vteximg.com.br/arquivos/m-abre-encontre-seu-tom.png?v=637035685605900000);
+        background-image: url(https://qbbr.vteximg.com.br/arquivos/m2-abre-encontre-seu-tom.png);
         height: 670px;
         background-position: center;
         background-size: 768px;
         background-repeat: no-repeat;
+    }
+    .quiz-mobile-2 {
+        display: none;
     }
     @media (min-width: 992px) {
         h1 {
@@ -225,11 +233,29 @@ body.lp-quiz {
     }
     @media (max-width: 767px) {
         article {
-            max-width: 400px;
+            max-width: 55vw;
             bottom: initial;
             margin: 15px auto;
             left: 0;
-            right: 0;
+            right: initial;
+            top: 105px;
+        }
+    }
+    @media(max-width: 375px) {
+        .quiz-mobile {
+            display: none !important;
+        }
+        .quiz-mobile-2 {
+            display: block;
+            background-image: url(https://qbbr.vteximg.com.br/arquivos/m-abre-encontre-seu-tom.png);
+            height: 670px;
+            background-position: center;
+            background-size: 375px;
+            background-repeat: no-repeat;
+        }
+        article {
+            top: 100px;
+            max-width: 100%;
         }
     }
 }
@@ -363,7 +389,7 @@ body.lp-quiz {
                 width: 100%;
                 position: relative;
                 & > * {
-                    width: 1115px;
+                    min-width: 180%;
                     padding-bottom: 15px;
                 }
             }
