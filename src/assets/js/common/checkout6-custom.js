@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import Checkout from "./modules/Checkout/checkout-index"
-
-const Methods = {
-    init(){
-        Checkout.init();
-=======
 /**UTLS*/
 var Utls = function(e, h, k, l) {
     return function() {
@@ -108,7 +101,6 @@ var Utls = function(e, h, k, l) {
         ;
         "undefined" !== typeof console && "undefined" !== typeof console.log && (c.__log = console.log);
         return !0
->>>>>>> feature/melhorias_home
     }
 } 
  

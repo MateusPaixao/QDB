@@ -98,11 +98,6 @@ const Methods = {
           },
           onInit: printSlideIndex,
           onChange: printSlideIndex
-          // startIndex: 0,
-          // draggable: true,
-          // threshold: 20,
-          // loop: true,
-          // rtl: false
         })
 
         function printSlideIndex() {

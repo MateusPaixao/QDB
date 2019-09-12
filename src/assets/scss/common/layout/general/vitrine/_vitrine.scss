@@ -109,7 +109,8 @@
             align-items: center;
             width: 100%;
             position: absolute;
-            bottom: -100%;
+            transform: translateY(100%);
+            bottom: 0;
             padding: 10px;
             @include sans(1em, $w-secundary, 400, normal);
             text-align: center;
@@ -122,11 +123,11 @@
                     fill: $w-secundary;
                 }
             }
-            // &:hover{
-            //     filter: brightness(140%);
-            // }
+            &:hover{
+                filter: brightness(140%);
+            }
             &.--adding{
-                bottom: 0;
+                transform: translateY(0%);
                 opacity: .7;
                 pointer-events: none;
             }
@@ -134,20 +135,20 @@
 
         &:hover{
             .cardProduct--addToCart{
-                bottom: 0;
+                transform: translateY(0%);
             }
         }
         &.--active{
             @include d("768px"){
                 .cardProduct--addToCart{
-                    bottom: 0;
+                    transform: translateY(0%);
                 }
             }
         }
         &.avaliable-false{
             opacity: .5;
             .cardProduct--addToCart{
-                bottom: -100%;
+                transform: translateY(100%);
             }
         }
     }

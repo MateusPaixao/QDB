@@ -31,30 +31,21 @@
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-concat": "^2.6.1",
-<<<<<<< HEAD
-=======
     "gulp-group-css-media-queries": "^1.2.2",
->>>>>>> feature/melhorias_home
     "gulp-pug": "^4.0.1",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^3.2.1",
     "gulp-svgmin": "^2.2.0",
     "gulp-uglify": "^3.0.0",
     "hexsorter": "^1.5.0",
-<<<<<<< HEAD
-=======
     "lozad": "^1.9.0",
->>>>>>> feature/melhorias_home
     "ncp": "^2.0.0",
     "node-schedule": "^1.3.2",
     "node-vibrant": "^3.1.3",
     "promise-polyfill": "8.1.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-<<<<<<< HEAD
-=======
     "react-html-parser": "^2.0.2",
->>>>>>> feature/melhorias_home
     "sass-rem": "^2.0.1",
     "vtex-lazyload": "0.0.3",
     "webpack-dev-server": "^3.8.0",
