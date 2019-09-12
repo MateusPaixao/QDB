@@ -15,11 +15,26 @@ const Methods = {
     },
 
     buildVitrines(){
-        document.querySelectorAll(".bannerCollection .--collectionPlaceholder").forEach((collection)=>{
-            let vitrine = collection.nextSibling;
-            vitrine.setAttribute("id", "collection-" + collection.textContent);
-            vitrine.setAttribute("data-collection", collection.textContent);
-            General.vitrine(vitrine.dataset.collection, true, "2.2");
+        let Placeholders = document.querySelectorAll(".bannerCollection .--collectionPlaceholder");
+
+        Placeholders.forEach((Placeholder) => {
+            let idCollection = Math.floor(Math.random() * 5000), 
+            Collection = [], 
+            Item = {};
+            
+            Placeholder.querySelectorAll(".vitrine-content").forEach((content)=>{
+                Item.Product = content.dataset.productid;
+                Item.SkuHighlight = content.dataset.sku;
+                Collection.push(Item);
+                Item = {};
+                // let vitrine = collection.nextSibling;
+                // vitrine.setAttribute("id", "collection-" + collection.textContent);
+                // vitrine.setAttribute("data-collection", product);
+                // General.vitrine(vitrine.dataset.collection, true, "4.2");
+            });
+            Placeholder.innerHTML = "";
+            Placeholder.nextSibling.setAttribute("id", "collection-" + idCollection);
+            General.vitrine(idCollection, Collection, true, "2.2");
         });
     }
 }

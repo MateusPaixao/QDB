@@ -4,19 +4,18 @@ import Region from "./Regional/PriceContainer.jsx"
 
 const Methods = {
     init(){
-        // Vitrine.init
         Methods.Region();
-        Methods.ServiceWorker();
         Methods.isInViewport();
+        Methods.ServiceWorker();
     },
 
-    Vitrine(collection, slider, itemsPerPage){
-        Vitrine.build(collection, slider, itemsPerPage);
+    Vitrine(idCollection, collection, slider, itemsPerPage){
+        Vitrine.build(idCollection, collection, slider, itemsPerPage);
     },
 
     isInViewport: () => {
         let images = document.querySelectorAll('source, img');
-
+        
         if ('IntersectionObserver' in window) {
             // IntersectionObserver Supported
             let config = {

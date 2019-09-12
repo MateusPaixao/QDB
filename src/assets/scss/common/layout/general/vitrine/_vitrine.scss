@@ -29,7 +29,7 @@
                 position: absolute;
                 left: 10px;
                 top: 10px;
-                background: $danger;
+                background: $safflower;
                 border-radius: 5px;
                 display: flex;
                 color: $w-secundary;
@@ -90,6 +90,7 @@
                 @include sans(.875em, $g-primary, 400, normal);
                 text-decoration: line-through;
                 margin: 0;
+                height: .875em;
                 &._before-false{
                     display: none;
                 }

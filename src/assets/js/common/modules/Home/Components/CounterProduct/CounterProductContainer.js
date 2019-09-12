@@ -1,7 +1,7 @@
 const Methods = {
     init() {
         if (document.querySelector(".w-gerador--datas") != null) {
-            Methods.fetchReviews();
+            // Methods.fetchReviews();
             Methods.getProductInfos();
             Methods.getTopBannerColor();
             Methods.AddToCart();
@@ -168,18 +168,19 @@ const Methods = {
     fetchReviews: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
         const storeKey = "388ef2d0-c3b8-4fd6-af13-446b698d544a"
-        const url = "https://service.yourviews.com.br/api/" + storeKey + "/review/reviewshelf?productIds=" + idProduto;
-        const url2 = "https://service.yourviews.com.br/api/v2/pub/review/Summary?productid=457&page=1&count=10";
-        const headers = {
-            type: 'GET',
-            dataType: 'json',
-            'YVStoreKey':'388ef2d0-c3b8-4fd6-af13-446b698d544a'
-        }
-        fetch(url2, headers)
-            .then(res => res.json())
-            .then((reviews) => {
-                console.log(reviews);
-            })
+        const url = "https://service.yourviews.com.br/api/v2/pub/review/ReviewShelf?productids=" + idProduto;
+
+        fetch(url,{
+            method: "GET",
+            headers: {
+                'YVStoreKey': '388ef2d0-c3b8-4fd6-af13-446b698d544a',
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            }
+        })
+        .then(res => res.json())
+        .then((reviews) => {
+            console.log(reviews);
+        })
     },
     AddToCart: () => {
         document.querySelector(".w-product--wrapper--infos--buy-button").addEventListener("click", () => {

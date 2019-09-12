@@ -8,30 +8,35 @@ const Methods = {
     // Methods.Form();
     // Methods.BuildCard(idProduct, idSku);
   },
-  BuildVitrine(collection, slider, itemsPP){
+  BuildVitrine(idCollection, collection, slider, itemsPP){
     class CardContainer extends React.Component {
       constructor(props) {
         super(props);
         this.state = {
           Products: [],
-          Vitrine: "--sliderVitrine-" + collection,
+          Vitrine: "--sliderVitrine-" + idCollection,
           HasSlider: slider,
           PerPage: itemsPP
         };
 
         this.mountProducts = this.mountProducts.bind(this);
         this.slider = this.slider.bind(this);
+        this.isInViewport = this.isInViewport.bind(this);
       }
 
       componentDidMount(){
+        let queryString = "?";
+        for(let i = 0; i < collection.length; i++){
+          queryString += "&fq=productId:" + collection[i].Product
+        }
         return new Promise((resolve, reject) => {
             let request = new XMLHttpRequest();
-            request.open('GET', "/api/catalog_system/pub/products/search/?fq=H:" + collection);
+            request.open('GET', "/api/catalog_system/pub/products/search/" + queryString);
             request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;');
             request.onreadystatechange = () => {
                 if (request.readyState === 4) {
                     resolve(JSON.parse(request.response));
-                    console.log(JSON.parse(request.response));
+                    // console.log(JSON.parse(request.response));
                 }
             };
 
@@ -40,15 +45,55 @@ const Methods = {
           this.mountProducts(col);
         })
       }
-
+  
+      isInViewport(){
+        let images = document.querySelectorAll('.cardProduct__pictureContainer__picture');
+        
+        if ('IntersectionObserver' in window) {
+            // IntersectionObserver Supported
+            let config = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.5
+                };
+            
+            let observer = new IntersectionObserver(onChange, config);
+            images.forEach(img => observer.observe(img));
+        
+            function onChange(changes, observer) {
+                changes.forEach(change => {
+                if (change.intersectionRatio > 0) {
+                    // Stop watching and load the image
+                    loadImage(change.target);
+                    observer.unobserve(change.target);
+                }
+                });
+            }
+        
+        } else {
+            // IntersectionObserver NOT Supported
+            images.forEach(image => loadImage(image));
+        }
+        
+        function loadImage(image) {
+            // image.classList.add('fade-in');
+            if(image.dataset && image.dataset.src) {
+                image.src = image.dataset.src;
+            }
+            
+            if(image.dataset && image.dataset.srcset) {
+                image.srcset = image.dataset.srcset;
+            }
+        }
+      }
       slider(vitrine, iPerPage){
         const slideVitrines = new Siema({
           selector: "." + vitrine,
           duration: 200,
           easing: 'ease-out',
           perPage: {
-            300: 1.5,
-            768: 2.5,
+            300: 1.2,
+            768: 2.2,
             992: iPerPage
           },
           onInit: printSlideIndex,
@@ -127,6 +172,7 @@ const Methods = {
             const sortProductInNest = (a, b) => {
               return a.productId - b.productId;
             }
+            
             let sortedReviews = Reviews.Element.sort(sortReviewInNest),
             sortedProducts = Products.sort(sortProductInNest);
 
@@ -140,16 +186,18 @@ const Methods = {
               let Product = {};
               Product.info = sortedProducts[i];
               Product.review = uniqueReviews[i];
+
+              Product.skuHighlight = collection.find(o => o.Product == sortedProducts[i].productId).SkuHighlight;
               ProductsFull.push(Product);
             }
-            console.log(ProductsFull);
-
+            
             this.setState({
               Products: ProductsFull
             }, ()=>{
               if(this.state.HasSlider == true){
                 this.slider(this.state.Vitrine, this.state.PerPage);
               }
+              this.isInViewport();
             })
         })
       }
@@ -176,7 +224,7 @@ const Methods = {
     
     ReactDOM.render(
       <CardContainer />,
-      document.getElementById('collection-' + collection)
+      document.getElementById('collection-' + idCollection)
     );
   }
 }
