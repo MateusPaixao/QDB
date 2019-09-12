@@ -8,11 +8,11 @@ export default {
         menuHamContainer: document.querySelector('.header__menu-hamburguer-container'),
         menuList: document.querySelector('.header__menu-container'),
         menuHamText: document.querySelector('.header__menu-hamburguer--text'),
-        menuAccordion: document.querySelectorAll('[data-accordion]')
+        menuAccordion: document.querySelectorAll('[data-accordion]'),
+        menuClose: document.querySelector('.js--close-menu'),
+        formBusca: document.querySelector('.header__search'),
     },
-    home: {
-        bannerHero: document.querySelector('.bannerHero'),
-
+    neemu: {
+        acContainer: document.querySelector('.ac-container'),
     }
-    
 }
