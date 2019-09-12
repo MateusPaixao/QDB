@@ -13,18 +13,20 @@
 
             <div class="header__menu-hamburguer-container">
                 <span class="header__menu-hamburguer"></span>
-                <p class="header__menu-hamburguer--text">Categorias</p>
+                <p class="header__menu-hamburguer--text">Todas as categorias</p>
                 <ul class="header__menu-container js--menu-close">
                     <li class="header__menu-wrapper">
                         <ul class="header__menu-wrapper--itens">
                             <li class="header__clube">
                                 <div class="header__clube--container">
                                     <div class="header__clube--infos">
-                                        <img class="header__clube--img" />
+                                        <div class="header__clube--img">
+                                            <vtex.cmc:SVGHeaderCoracaoMenu />
+                                        </div>
                                         <div class="header__clube--text">
-                                            <p class="header__clube--name">Olá, ${Berenice}</p>
+                                            <p class="header__clube--name">Olá, Berenice</p>
                                             <p class="header__clube--msg-saldo">Saldo Clube das Berês</p>
-                                            <p class="header__clube--saldo">R$ ${0,00}</p>
+                                            <p class="header__clube--saldo">R$ 0,00</p>
                                         </div>
                                     </div>
                                     <div class="header__clube--acessiblity">
@@ -41,15 +43,18 @@
                                     </div>
                                 </div>
                                 <div class="header__clube--banner">
-                                    <img src="/arquivos/backgroundMenu.png">
+                                    <img src="/arquivos/backgroundMenu.png" />
                                     <p class="header__clube--banner-txt">Até 70% de desconto</p>
                                 </div>
                             </li>
-                            <li class="header__menu" data-accordion="false">
+                            <li class="header__menu"><a href="/">Início</a></li>
+                            <li class="header__menu">
                                 Maquiagem
+                                <input type="checkbox" class="accordion-checkbox" />
                                 <ul class="header__menu--items">
-                                    <li class="header__menu--department" data-accordion="false">
+                                    <li class="header__menu--department">
                                         Boca
+                                        <input type="checkbox" class="accordion-checkbox" />
                                         <ul class="header__menu--categories">
                                             <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
                                             <li class="header__menu--category"><a href="#"> Pincel </a></li>
@@ -61,7 +66,9 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="header__menu--department" data-accordion="false">Olhos
+                                    <li class="header__menu--department">
+                                        Olhos
+                                        <input type="checkbox" class="accordion-checkbox" />
                                         <ul class="header__menu--categories">
                                             <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
                                             <li class="header__menu--category"><a href="#"> Paleta </a></li>
@@ -76,7 +83,9 @@
                                             <li class="header__menu--category"><a href="#"> Pigmento e Glitter </a></li>
                                         </ul>
                                     </li>
-                                    <li class="header__menu--department" data-accordion="false">Sobrancelhas
+                                    <li class="header__menu--department">
+                                        Sobrancelhas
+                                        <input type="checkbox" class="accordion-checkbox" />
                                         <ul class="header__menu--categories">
                                             <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
                                             <li class="header__menu--category"><a href="#"> Paleta </a></li>
@@ -87,7 +96,9 @@
                                             <li class="header__menu--category"><a href="#"> Pincel </a></li>
                                         </ul>
                                     </li>
-                                    <li class="header__menu--department" data-accordion="false">Pele
+                                    <li class="header__menu--department">
+                                        Pele
+                                        <input type="checkbox" class="accordion-checkbox" />
                                         <ul class="header__menu--categories">
                                             <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
                                             <li class="header__menu--category"><a href="#"> Hidratante Facial </a></li>
@@ -105,6 +116,164 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="header__menu">
+                                Perfumaria
+                                <input type="checkbox" class="accordion-checkbox" />
+                                <ul class="header__menu--items">
+                                    <li class="header__menu--department">
+                                        Boca
+                                        <input type="checkbox" class="accordion-checkbox" />
+                                        <ul class="header__menu--categories">
+                                            <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
+                                            <li class="header__menu--category"><a href="#"> Pincel </a></li>
+                                            <li class="header__menu--category"><a href="#"> Batom Liquido </a></li>
+                                            <li class="header__menu--category"><a href="#"> Batom </a></li>
+                                            <li class="header__menu--category"><a href="#"> Gloss </a></li>
+                                            <li class="header__menu--category"><a href="#"> Lápis Boca </a></li>
+                                            <li class="header__menu--category"><a href="#"> Cuidados p/ os lábios </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="header__menu--department">
+                                        Olhos
+                                        <input type="checkbox" class="accordion-checkbox" />
+                                        <ul class="header__menu--categories">
+                                            <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
+                                            <li class="header__menu--category"><a href="#"> Paleta </a></li>
+                                            <li class="header__menu--category"><a href="#"> Cuidados p/ a área dos olhos
+                                                </a></li>
+                                            <li class="header__menu--category"><a href="#"> Máscara para cílios </a>
+                                            </li>
+                                            <li class="header__menu--category"><a href="#"> Delineador </a></li>
+                                            <li class="header__menu--category"><a href="#"> Lápis </a></li>
+                                            <li class="header__menu--category"><a href="#"> Sombra </a></li>
+                                            <li class="header__menu--category"><a href="#"> Primer </a></li>
+                                            <li class="header__menu--category"><a href="#"> Pigmento e Glitter </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="header__menu">
+                                Cabelo
+                                <input type="checkbox" class="accordion-checkbox" />
+                                <ul class="header__menu--items">
+                                    <li class="header__menu--department">
+                                        Boca
+                                        <input type="checkbox" class="accordion-checkbox" />
+                                        <ul class="header__menu--categories">
+                                            <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
+                                            <li class="header__menu--category"><a href="#"> Pincel </a></li>
+                                            <li class="header__menu--category"><a href="#"> Batom Liquido </a></li>
+                                            <li class="header__menu--category"><a href="#"> Batom </a></li>
+                                            <li class="header__menu--category"><a href="#"> Gloss </a></li>
+                                            <li class="header__menu--category"><a href="#"> Lápis Boca </a></li>
+                                            <li class="header__menu--category"><a href="#"> Cuidados p/ os lábios </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="header__menu--department">
+                                        Olhos
+                                        <input type="checkbox" class="accordion-checkbox" />
+                                        <ul class="header__menu--categories">
+                                            <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
+                                            <li class="header__menu--category"><a href="#"> Paleta </a></li>
+                                            <li class="header__menu--category"><a href="#"> Cuidados p/ a área dos olhos
+                                                </a></li>
+                                            <li class="header__menu--category"><a href="#"> Máscara para cílios </a>
+                                            </li>
+                                            <li class="header__menu--category"><a href="#"> Delineador </a></li>
+                                            <li class="header__menu--category"><a href="#"> Lápis </a></li>
+                                            <li class="header__menu--category"><a href="#"> Sombra </a></li>
+                                            <li class="header__menu--category"><a href="#"> Primer </a></li>
+                                            <li class="header__menu--category"><a href="#"> Pigmento e Glitter </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="header__menu">
+                                Corpo e Banho
+                                <input type="checkbox" class="accordion-checkbox" />
+                                <ul class="header__menu--items">
+                                    <li class="header__menu--department">
+                                        Boca
+                                        <input type="checkbox" class="accordion-checkbox" />
+                                        <ul class="header__menu--categories">
+                                            <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
+                                            <li class="header__menu--category"><a href="#"> Pincel </a></li>
+                                            <li class="header__menu--category"><a href="#"> Batom Liquido </a></li>
+                                            <li class="header__menu--category"><a href="#"> Batom </a></li>
+                                            <li class="header__menu--category"><a href="#"> Gloss </a></li>
+                                            <li class="header__menu--category"><a href="#"> Lápis Boca </a></li>
+                                            <li class="header__menu--category"><a href="#"> Cuidados p/ os lábios </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="header__menu">
+                                Acessórios
+                                <input type="checkbox" class="accordion-checkbox" />
+                                <ul class="header__menu--items">
+                                    <li class="header__menu--department">
+                                        Boca
+                                        <input type="checkbox" class="accordion-checkbox" />
+                                        <ul class="header__menu--categories">
+                                            <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
+                                            <li class="header__menu--category"><a href="#"> Pincel </a></li>
+                                            <li class="header__menu--category"><a href="#"> Batom Liquido </a></li>
+                                            <li class="header__menu--category"><a href="#"> Batom </a></li>
+                                            <li class="header__menu--category"><a href="#"> Gloss </a></li>
+                                            <li class="header__menu--category"><a href="#"> Lápis Boca </a></li>
+                                            <li class="header__menu--category"><a href="#"> Cuidados p/ os lábios </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="header__menu">
+                                Kits e Presentes
+                                <input type="checkbox" class="accordion-checkbox" />
+                                <ul class="header__menu--items">
+                                    <li class="header__menu--department">
+                                        Boca
+                                        <input type="checkbox" class="accordion-checkbox" />
+                                        <ul class="header__menu--categories">
+                                            <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
+                                            <li class="header__menu--category"><a href="#"> Pincel </a></li>
+                                            <li class="header__menu--category"><a href="#"> Batom Liquido </a></li>
+                                            <li class="header__menu--category"><a href="#"> Batom </a></li>
+                                            <li class="header__menu--category"><a href="#"> Gloss </a></li>
+                                            <li class="header__menu--category"><a href="#"> Lápis Boca </a></li>
+                                            <li class="header__menu--category"><a href="#"> Cuidados p/ os lábios </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="header__menu">
+                                Dicas
+                                <input type="checkbox" class="accordion-checkbox" />
+                                <ul class="header__menu--items">
+                                    <li class="header__menu--department">
+                                        Boca
+                                        <input type="checkbox" class="accordion-checkbox" />
+                                        <ul class="header__menu--categories">
+                                            <li class="header__menu--category"><a href="#"> Ver tudo </a></li>
+                                            <li class="header__menu--category"><a href="#"> Pincel </a></li>
+                                            <li class="header__menu--category"><a href="#"> Batom Liquido </a></li>
+                                            <li class="header__menu--category"><a href="#"> Batom </a></li>
+                                            <li class="header__menu--category"><a href="#"> Gloss </a></li>
+                                            <li class="header__menu--category"><a href="#"> Lápis Boca </a></li>
+                                            <li class="header__menu--category"><a href="#"> Cuidados p/ os lábios </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="header__menu especial"><a href="#"></a>Promoções</li>
+                            <li class="header__menu especial"><a href="#"></a>Clube das Berês</li>
+                            <li class="header__menu especial"><a href="#"></a>Retorna Berê</li>
+                            <li class="header__menu ajuda"><a href="#">Ajuda</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -115,7 +284,10 @@
             <form action="//busca.quemdisseberenice.com.br/busca" method="get" class="header__search">
                 <input type="search" name="q" id="q" value="" placeholder="O que procura hoje?"
                     class="header__search--input search-field" />
-                <input type="submit" value="" class="header__search--btn search-btn" />
+                <label for="search-btn" class="header__search--label">
+                    <vtex.cmc:SVGHeaderSearchBtn />
+                    <input type="submit" id="search-btn" value="" class="header__search--btn search-btn" />
+                </label>
             </form>
 
             <nav class="header__container--nav">
@@ -365,7 +537,7 @@
             <div class="header__options">
                 <span class="header__options--item account">
                     <a href="/account/">
-                        <vtex.cmc:SVGHeaderUsuario />
+                        <vtex.cmc:SVGHeaderAccountNew />
                     </a>
                 </span>
                 <span class="header__options--item favorite">

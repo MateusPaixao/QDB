@@ -147,12 +147,15 @@ body {
             width: 90%;
             padding: 2px;
         }
-
-        &--btn {
-            background: url(/arquivos/Search.svg.png) center center no-repeat;
-            background-color: $secondaryColor;
-            padding: 5px;
+        &--label{
             width: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px;
+        }
+        &--btn {
+            display: none;
         }
         @include d('768px'){
             margin: initial;
@@ -310,6 +313,7 @@ body {
             min-width: 100px;
             width: 100%;
             padding: 2px;
+            margin: 5px 0;
 
             &:hover {
                 text-decoration: underline;
