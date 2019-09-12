@@ -10,7 +10,7 @@
 //              var mydate = [new Date().getDate(),(new Date().getMonth() + 1),new Date().getFullYear()].join('-')
 //             $('#s_dt_cadastro').val(mydate);
 //         },1000);
-        
+
 
 // 		if( $('.countdown-prebw').length ) {
 //             var endDate = $('.countdown-prebw').attr('data-end');
@@ -39,7 +39,7 @@
 // 		    });
 // 		}
 
-        
+
 //         // SUBMIT FUN
 //         $('body.pre-black-week').append("<div class='lightBox_submit'><p><span>X</span>Para que a gente posso te avisar sobre as promoÃ§Ãµes da Black Week, vocÃª precisa aceitar receber nossas comunicaÃ§Ãµes.</p></div>");
 //         $('.lightBox_submit p span').click(function () {
@@ -75,7 +75,7 @@
 //             $(".form .group-form").remove();
 //             $(".form .form-success").show();
 //         }
-        
+
 
 // 	});
 
@@ -83,67 +83,47 @@
 
 //form
 
-function getBFData() {
-    var jsonData = JSON.stringify({
-        'origem': document.querySelector('#bf_origem').value,
-        'campanha': document.querySelector('#bf_campanha').value,
-        'datacadastro': document.querySelector('#bf_data_cadastro').value,
-        'nome': document.querySelector('#bf_nome').value,
-        'email': document.querySelector('#bf_email').value,
-        'autoriza': document.querySelector('#bf_autoriza').checked
-    });
-    console.log(jsonData);
-    sendBFData(jsonData);
-}
-
-function sendBFData(data) {
+function sendBFData() {
+    //Form BlackFriday
     var btn = document.querySelector('#bf_form .btnSubmit');
 
-    var XHR = new XMLHttpRequest();
-    var urlEncodedData = "";
-    var urlEncodedDataPairs = [];
-    var name;
+    //date - 2019-07-07 11:00:05
+    var date = new Date();
+    var fullDate = `${date.getFullYear()}-${(date.getMonth()<10?'0':'') + date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${(date.getMinutes()<10?'0':'') + date.getMinutes()}:${date.getSeconds()}`;
 
-    for(name in data) {
-        urlEncodedDataPairs.push(encodeURIComponent(name) + '=' + encodeURIComponent(data[name]));
-    }
-    urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
-  
-    // Define what happens on successful data submission
-    XHR.addEventListener('load', function(event) {
-        if (localStorage.getItem('confirmation')) {
-            localStorage.setItem('values', localStorage.getItem('values') + ' ' + registerId);
-        } else {
-            localStorage.setItem('confirmation', true);
-            localStorage.setItem('values', registerId);
-        }
-        alert('Dados confirmados com sucesso!');
-        btn.text('Confirmado!').attr('disabled', true);
-    });
-  
-    // Define what happens in case of error
-    XHR.addEventListener('error', function(event) {
-        alert('Houve um erro, por favor tente novamente.');
-    });
-  
-    // Set up our request
-    XHR.open('POST', '//api.vtexcrm.com.br/'+jsnomeLoja+'/dataentities/CB/documents');
-  
-    // Add the required HTTP header for form data POST requests
-    XHR.setRequestHeader('accept', 'application/json');
-    XHR.setRequestHeader('content-type', 'application/json');
-    
-    // Finally, send our data.
-    XHR.send(urlEncodedData);
-}
-
-function getBFEvent() {
-    var btn = document.querySelector('#bf_form .btnSubmit');
     btn.addEventListener("click", function(e) {
         e.preventDefault();
-        console.log("get!!");
-        getBFData();
+        var jsonData = JSON.stringify({
+            'origin': document.querySelector('#bf_origem').value,
+            'campaign': document.querySelector('#bf_campanha').value,
+            'date': fullDate,
+            'name': document.querySelector('#bf_nome').value,
+            'email': document.querySelector('#bf_email').value,
+            'acceptEmail': document.querySelector('#bf_autoriza').checked
+        });
+
+        var XHR = new XMLHttpRequest();
+        // XHR.open('POST', '//api.vtexcrm.com.br/' + jsnomeLoja + '/dataentities/PS/documents');
+        XHR.open('POST', '/api/dataentities/PS/documents', true);
+    
+        // Add the required HTTP header
+        XHR.setRequestHeader('accept', 'application/vnd.vtex.ds.v10+json');
+        XHR.setRequestHeader('content-type', 'application/json');
+        XHR.send(jsonData);
+    
+        //successful
+        XHR.addEventListener('load', function (event) {
+            // window.location.href = "http://qbbr.vtexcommercestable.com.br/pre-black-week?success=1";
+            window.location.href = window.location.href;
+            alert('Dados confirmados com sucesso!');
+            btn.text('Confirmado!').attr('disabled', true);
+        });
+    
+        //error
+        XHR.addEventListener('error', function (event) {
+            alert('Houve um erro, por favor tente novamente.');
+        });
+
     });
 }
-
-getBFEvent();
+sendBFData();
