@@ -302,6 +302,7 @@ const Methods = {
                     title.textContent = `Cupom ativo: ${couponActive}`
                 }
             }
+            
             var isLogged = function () {
                 var logged = false;
                 $(dataLayer).each(function (ndx, item) {
@@ -390,40 +391,8 @@ const Methods = {
                 });
                 return true;
             };
-            var superMenuStart = {
-                _menuContainer: '.SuperMenu ._super-menu',
-                init: function () {
-                    if (superMenuStart.menu.mount()) {
-                        superMenuStart.set.events();
-                    }
-                    return true;
-                },
-                set: {
-                    events: function () {
-                        superMenuStart.set.menu.open();
-                        superMenuStart.set.menu.close();
-                        return true;
-                    },
-                    menu: {
-                        open: function () {
-                            $('._menu-cat').off('click.Menu').on('click.Menu', function (e) {
-                                e.preventDefault();
-                                $('html').trigger('open.SuperMenu');
-                            });
-                            return true;
-                        },
-                        close: function () {
-                            $('._super-menu-close').off('click.Menu').on('click.Menu', function () {
-                                $('html').trigger('close.SuperMenu');
-                            });
-                            return true;
-                        }
-                    }
-                },
-            };
             var addListenerToAllFloats = function () {
                 $('html').off('close.AllFloats').on('close.AllFloats', function (e) {
-                    $('html').trigger('close.SuperMenu');
                     $('html').trigger('close.MiniCart');
                     $('._top-bar .__on').removeClass('__on');
                 });

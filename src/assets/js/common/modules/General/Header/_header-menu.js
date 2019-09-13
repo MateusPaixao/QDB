@@ -5,7 +5,8 @@ const Methods = {
     init() {
         Methods.openCloseMenu();
         Methods.closeMenu();
-        // Methods.observeScroll();
+        Methods.observeScroll();
+        Methods.setActiveAccordion();
     },
     openCloseMenu() {
         CacheSelector.header.menuHamContainer.addEventListener('click', (el) => {
@@ -27,10 +28,18 @@ const Methods = {
     observeScroll() {
         window.addEventListener('scroll', (e) => {
             const body = document.querySelector('body');
-            e.oldScroll > e.scrollY ? body.classList.remove('scrollDown') : body.classList.add('scrollDown');
-            e.oldScroll = e.scrollY;
-            console.log(this.scrollY);
-
+            this.oldScroll > this.scrollY ? body.classList.remove('scrollDown') : body.classList.add('scrollDown');
+            this.oldScroll = this.scrollY;
+            
+            return this.scrollY
+        })
+    },
+    setActiveAccordion() {
+        const checkbox = document.querySelectorAll('.accordion-checkbox');
+        checkbox.forEach((checkbox) => {
+            checkbox.addEventListener('click', () => {
+                checkbox.checked ? checkbox.parentElement.classList.add('is--open') : checkbox.parentElement.classList.remove('is--open')
+            })
         })
     }
 }

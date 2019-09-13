@@ -58,6 +58,15 @@
         font-weight: 800;
         border-bottom: 1px solid lighten($secondaryColor, 20);
 
+
+        &:first-child{
+            
+            &:before{
+                content: '';
+                opacity: 0;
+            }
+        }
+
         &::before {
             transition: .3s ease-in-out;
             content: '>';
@@ -154,7 +163,7 @@
 
         &--infos {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             width: 100%;
             align-items: center;
         }
