@@ -74,6 +74,9 @@ class Card extends React.Component{
   }
 
   mountConfig(){
+    let skuImg;
+    
+    
     return(
       <div className="cardProduct__config">
         <div className="cardProduct__config__type">
@@ -84,8 +87,9 @@ class Card extends React.Component{
         {
           this.props.info.items.map(sku => 
             <li className="cardProduct__config__list__item" data-name={sku["Escolha a Cor"]} data-sku={sku.itemId}>
-              {console.log(sku.images.filter(o => {  if(o.imageLabel === "thumb" || o.imageLabel === "Thumb" && o != undefined){ return o }}))}
-              <img data-src={sku.images.filter(o => {  if(o.imageLabel === "thumb" || o.imageLabel === "Thumb" || o != undefined){ return o } })[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "50", "#height#": "50" , "~": ""})} alt={sku["Escolha a Cor"]} />
+              {console.log(sku.images.filter(o => { if(o.imageLabel === "thumb" || o.imageLabel === "Thumb" && o != undefined){ return o }})[0])}
+              {/* {console.log(sku.images.filter(o => { if(o.imageLabel === "thumb" || o.imageLabel === "Thumb"){ return o }}))[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "50", "#height#": "50" , "~": ""})} */}
+              <img data-src={sku.images.filter(o => {  if(o != undefined) { if(o.imageLabel === "thumb" || o.imageLabel === "Thumb"){ return o }} })[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "50", "#height#": "50" , "~": ""})} alt={sku["Escolha a Cor"]} />
             </li>
           )
         }
