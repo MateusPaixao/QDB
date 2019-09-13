@@ -365,7 +365,6 @@ function activeValidadeWhenReady(){
         thisSku = thisSku.split('&',1);
         thisSku = thisSku[0];
         var thisDivSku = document.querySelector('.flag-'+thisSku)
-        // console.log(thisDivSku, ' e ', thisSku)
         if(thisDivSku != undefined){
             $('.ultima-chance').removeClass('item-active');
             $(thisDivSku).addClass('item-active');
@@ -373,13 +372,11 @@ function activeValidadeWhenReady(){
         }
     }, 1000);
 }
-// $(window).on('load', function(){
-//     activeValidadeWhenReady()
-// })
+$(window).on('load', function(){
+    window.location.href.indexOf('idsku') > 0 ? activeValidadeWhenReady() : null;
+})
 
 var mainFunction = function(sku){
-    // console.log("-------------", sku);
-    // console.log("validade", window.validade);
     try{
         $('.ultima-chance').removeClass('item-active');
         $('.flag-' + sku).addClass('item-active');
