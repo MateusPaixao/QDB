@@ -603,7 +603,7 @@ function createFourthLevelStructure(subtone) {
     currentStructure.innerHTML = "";
     //percorre cores sugeridas para o subtom
     subtone.colors.forEach(element => {
-        var url = `/como-descobrir-seu-tom-de-base/resultado-quiz/?option=${element.name}&supermate=${element.products.supermate}&altacobertura=${element.products.altacobertura}&corretivoaqua=${element.products.corretivoaqua}&superfluida=${element.products.superfuida}&aqua=${element.products.aqua}&bbcreme=${element.products.bbcreme}`;
+        var url = `/como-descobrir-o-seu-tom-de-base/resultado-quiz/?option=${element.name}&supermate=${element.products.supermate}&altacobertura=${element.products.altacobertura}&corretivoaqua=${element.products.corretivoaqua}&superfluida=${element.products.superfuida}&aqua=${element.products.aqua}&bbcreme=${element.products.bbcreme}`;
         var domItem = document.createElement('a');
         domItem.innerHTML += `
                             <img src="${element.imageURL}" />
