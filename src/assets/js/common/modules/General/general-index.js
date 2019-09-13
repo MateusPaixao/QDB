@@ -1,12 +1,11 @@
 // import Region from "./Regional/PriceContainer.jsx";
 import Header from "./Header/_header-index";
-// import { Builder } from "node-vibrant";
+import Minicart from './Minicart/_minicart-index';
 
 const Methods = {
     init(){
-        // Vitrine.init
         Header.init();
-        // Region.init();
+        Minicart.init();
     },
 }
 

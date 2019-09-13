@@ -5,7 +5,10 @@ const Methods = {
         Methods.appendSugestoes();
     },
     appendSugestoes() {
-        CacheSelector.header.formBusca.appendChild(CacheSelector.neemu.acContainer);
+        CacheSelector.header.formBuscaInput.on('focus', () => {
+            CacheSelector.neemu.acContainer.parents(CacheSelector.header.formBuscaInput)?console.log('heheh'):CacheSelector.header.formBusca.append(CacheSelector.neemu.acContainer)
+            
+        })
     }
 }
 

@@ -2,6 +2,7 @@
 
 body {
     background: darken(#fdfdfd, 10%);
+    height: 200vh;
 }
 
 .header {
@@ -177,6 +178,7 @@ body {
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
 
             &.favorite {
                 @include d('768px') {
@@ -185,7 +187,7 @@ body {
             }
 
             svg {
-                width: 80%;
+                width: 40px;
             }
         }
 
@@ -299,6 +301,7 @@ body {
 
         &--department {
             margin: 0 15px;
+            
         }
 
         &--department-item {
@@ -314,6 +317,7 @@ body {
             width: 100%;
             padding: 2px;
             margin: 5px 0;
+            white-space: nowrap;
 
             &:hover {
                 text-decoration: underline;
@@ -341,3 +345,36 @@ body {
         }
     }
 }
+.scrollDown {
+    .header{
+        min-height: inherit;
+        height: 100px;
+    }
+    .header__container{
+        height: 100%;
+    }
+    .header__container--nav{
+        display: none;
+    }
+    .header__nav--especial{
+        display: none;
+    }
+    .header__menu-hamburguer-container{
+        display: none;
+    }
+    @include d('768px'){
+        .header__first-column {
+            display: none;
+        }
+        .header__second-column{
+            width: 80%;
+        }
+        .header__third-column {
+            order: 3;
+        }
+        .header__options--item.account{
+            display: none;
+        }
+    }
+
+} 

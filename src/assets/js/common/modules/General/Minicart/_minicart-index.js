@@ -1,4 +1,4 @@
-import CheckoutFull from './_minicart-all';
+import CheckoutFull from './_minicart-main';
 
 const Methods = {
     init(){

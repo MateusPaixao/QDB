@@ -2,6 +2,9 @@
  Ganha pontos no google e melhora performance :D */
 
 export default {
+    $globals: {
+        body: document.querySelector('body')
+    },
     header: {
         header: document.querySelector('.header'),
         menuHam: document.querySelector('.header__menu-hamburguer'),
@@ -11,8 +14,9 @@ export default {
         menuAccordion: document.querySelectorAll('[data-accordion]'),
         menuClose: document.querySelector('.js--close-menu'),
         formBusca: document.querySelector('.header__search'),
+        formBuscaInput: $('.header__search--input')
     },
     neemu: {
-        acContainer: document.querySelector('.ac-container'),
+        acContainer: $('.ac-container'),
     }
 }
