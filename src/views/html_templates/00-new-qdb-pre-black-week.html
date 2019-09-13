@@ -15,9 +15,9 @@
 <body>
    <div class="wrapper">
     
-        <!-- templateHeader -->
-        <vtex:template id="new-qdb-header" />
-        <!-- / templateHeader -->
+        <div class="container-group">
+            <vtex:template id="00-0-QDB-Header" />
+        </div>
         
         <div class="main">
             <div class="shell except-this">
@@ -58,8 +58,8 @@
                         
                         <input type="checkbox" name="bf_autoriza" id="bf_autoriza" checked="checked" />
                         <span>aceito receber comunicação por e-mail das<br />marcas participantes</span>
-    
-                        <input type="submit" class="btnSubmit" value="quero me cadastrar" />
+                        <input type="text" name="validation-field" class="hidden" style="display: none;"/>  
+                        <input type="submit" class="btnSubmit" value="quero me cadastrar" />               
                     </div>
                     <div class="form-success">
                         <p>MENSAGEM ENVIADA COM SUCESSO!</p>
@@ -199,11 +199,9 @@
     
     </div><!-- /.wrapper -->
 
-<!-- templateFooter -->
     <footer class="footer">
-        <vtex:template id="new-qdb-footer" />
-    </footer><!-- /.footer -->
-<!-- / templateFooter -->    
+        <vtex:template id="00-0-QDB-Footer" />
+    </footer>  
 <script src="/arquivos/new-qdb-jquery.countdown.min.js"></script>
 <script src="/arquivos/new-qdb-preblackweek.js"></script>
 
