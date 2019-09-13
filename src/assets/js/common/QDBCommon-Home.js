@@ -5,7 +5,7 @@
 const Methods = {
     init() {
         Methods.principalBannerSlick();
-        Methods.fetchReviews();
+        // Methods.fetchReviews();
         if (document.querySelector(".w-gerador--datas") != null) {
             Methods.getProductInfos();
             Methods.getTopBannerColor();
