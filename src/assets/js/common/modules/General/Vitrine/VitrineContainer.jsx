@@ -47,7 +47,7 @@ const Methods = {
       }
   
       isInViewport(){
-        let images = document.querySelectorAll('.cardProduct__pictureContainer__picture');
+        let images = document.querySelectorAll('.cardProduct__pictureContainer__picture, .cardProduct__config__list__item img');
         
         if ('IntersectionObserver' in window) {
             // IntersectionObserver Supported

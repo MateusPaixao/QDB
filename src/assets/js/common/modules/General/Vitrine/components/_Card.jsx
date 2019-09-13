@@ -74,17 +74,22 @@ class Card extends React.Component{
   }
 
   mountConfig(){
-    let skuConfig = [];
-    this.props.info.items.map(item => {
-      skuConfig.push(item);
-    })
-    console.log(skuConfig);
     return(
       <div className="cardProduct__config">
         <div className="cardProduct__config__type">
           <span className="cardProduct__config__type__colors"></span>
           <p className="cardProduct__config__type__title">Cores Disponíveis</p>
         </div>
+        <ul className="cardProduct__config__list">
+        {
+          this.props.info.items.map(sku => 
+            <li className="cardProduct__config__list__item" data-name={sku["Escolha a Cor"]} data-sku={sku.itemId}>
+              {console.log(sku.images.filter(o => {  if(o.imageLabel === "thumb" || o.imageLabel === "Thumb" && o != undefined){ return o }}))}
+              <img data-src={sku.images.filter(o => {  if(o.imageLabel === "thumb" || o.imageLabel === "Thumb" || o != undefined){ return o } })[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "50", "#height#": "50" , "~": ""})} alt={sku["Escolha a Cor"]} />
+            </li>
+          )
+        }
+        </ul>
       </div>
     )
   }
