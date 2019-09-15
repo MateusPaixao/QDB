@@ -1,5 +1,5 @@
 import Painel from "./_Painel.jsx"
-import General from "../../../General/general-index"
+// import General from "../../../General/general-index"
 
 const Methods = {
     BuildPaineisBeleza(){
@@ -25,7 +25,7 @@ const Methods = {
                 for(let i = 1; i < bannersPaineis.textContent.split('<div class="box-banner">').length; i++){
                     let Banner = {};
                     let Content =  bannersPaineis.textContent.split('<div class="box-banner">')[i];
-                    if(General.getBrowserVendor() == 'safari/webkit'){
+                    // if(General.getBrowserVendor() == 'safari/webkit'){
                         let banUrl = Content.substring(
                             Content.lastIndexOf('href="') + 6, 
                             Content.lastIndexOf('">')
@@ -36,10 +36,10 @@ const Methods = {
                         );
                         Banner["Url"] = banUrl;
                         Banner["Src"] = banImg;
-                    }else{
-                        Banner["Url"] = Content.match(/href\s*=\s*"(.+?)"/)[1];
-                        Banner["Src"] = Content.match(/src\s*=\s*"(.+?)"/)[1];       
-                    }
+                    // }else{
+                    //     Banner["Url"] = Content.match(/href\s*=\s*"(.+?)"/)[1];
+                    //     Banner["Src"] = Content.match(/src\s*=\s*"(.+?)"/)[1];       
+                    // }
                     Banners.push(Banner);
                     // this.state.Banners.push(
                     //     <a className="bannerHero__link" href={bannerViewport.textContent.split('<div class="box-banner">')[i].match(/href\s*=\s*"(.+?)"/)[1]} key={i}>

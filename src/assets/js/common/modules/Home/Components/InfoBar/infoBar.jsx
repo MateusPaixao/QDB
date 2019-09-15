@@ -38,14 +38,14 @@ const Methods = {
 
             getShippingInfo(){
                 let StateInfos = this.state.Infos, Content = document.querySelector(".infoBar").textContent;
-                if(General.getBrowserVendor() == 'safari/webkit'){
+                // if(General.getBrowserVendor() == 'safari/webkit'){
                     StateInfos[0].Content = Content.substring(
                         Content.lastIndexOf('shippingTextInit') + 16, 
                         Content.lastIndexOf('shippingTextEnd')
                     )
-                }else{
-                    StateInfos[0].Content = Content.match(/(?<=shippingTextInit)(.*)(?=shippingTextEnd)/)[0];
-                }
+                // }else{
+                //     StateInfos[0].Content = Content.match(/(?<=shippingTextInit)(.*)(?=shippingTextEnd)/)[0];
+                // }
                 // console.log(document.querySelector(".infoBar").textContent.match(/(?<=shippingTextInit)(.*)(?=shippingTextEnd)/));
                 this.setState({
                     Infos: StateInfos

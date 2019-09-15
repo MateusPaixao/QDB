@@ -1,6 +1,6 @@
 import Siema from "../../../../global/vendor/siema-slider/siema.min.js"
 import Banner from "./_BannerPrincipal.jsx"
-import General from "../../../General/general-index"
+// import General from "../../../General/general-index"
 
 const Methods = {
     BuildBanners(){
@@ -43,7 +43,7 @@ const Methods = {
                     let Banner = {};
                     // console.log(bannerViewport.textContent.split('<div class="box-banner">')[i]);
                     let Content =  bannerViewport.textContent.split('<div class="box-banner">')[i];
-                    if(General.getBrowserVendor() == 'safari/webkit'){
+                    // if(General.getBrowserVendor() == 'safari/webkit'){
                         let banUrl = Content.substring(
                             Content.lastIndexOf('href="') + 6, 
                             Content.lastIndexOf('">')
@@ -54,10 +54,10 @@ const Methods = {
                         );
                         Banner["Url"] = banUrl;
                         Banner["Src"] = banImg;
-                    }else{
-                        Banner["Url"] = bannerViewport.textContent.split('<div class="box-banner">')[i].match(/href\s*=\s*"(.+?)"/)[1];
-                        Banner["Src"] = bannerViewport.textContent.split('<div class="box-banner">')[i].match(/src\s*=\s*"(.+?)"/)[1];       
-                    }
+                    // }else{
+                    //     Banner["Url"] = bannerViewport.textContent.split('<div class="box-banner">')[i].match(/href\s*=\s*"(.+?)"/)[1];
+                    //     Banner["Src"] = bannerViewport.textContent.split('<div class="box-banner">')[i].match(/src\s*=\s*"(.+?)"/)[1];       
+                    // }
                     Banners.push(Banner);
 
                     // this.state.Banners.push(

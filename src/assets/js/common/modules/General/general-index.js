@@ -1,5 +1,5 @@
 import Vitrine from "./Vitrine/VitrineContainer.jsx"
-import Region from "./Regional/PriceContainer.jsx"
+// import Region from "./Regional/PriceContainer.jsx"
 // import { Builder } from "node-vibrant";
 
 const Methods = {

@@ -9,7 +9,7 @@ const Methods = {
     getInfoVitrines: () => {
         for(let i = 0; i < document.querySelectorAll(".bannerVitrine").length; i++){
             let Content =  document.querySelectorAll(".bannerVitrine")[i].textContent;
-            if(General.getBrowserVendor() == 'safari/webkit'){
+            // if(General.getBrowserVendor() == 'safari/webkit'){
                 let banTitle = Content.substring(
                     Content.lastIndexOf('banTitleInit') + 12, 
                     Content.lastIndexOf('banTitleEnd')
@@ -25,11 +25,11 @@ const Methods = {
                 document.querySelectorAll(".bannerCollection__info__title")[i].textContent = banTitle;
                 document.querySelectorAll(".bannerCollection__info__banner_url")[i].href = banUrl;
                 document.querySelectorAll(".bannerCollection__info__banner_img")[i].dataset.src = banImg;
-            } else{
-                document.querySelectorAll(".bannerCollection__info__title")[i].textContent = document.querySelectorAll(".bannerVitrine")[i].textContent.match(/(?<=banTitleInit\s+).([^\s]+).*?(?=\s+banTitleEnd)/)[0];
-                document.querySelectorAll(".bannerCollection__info__banner_url")[i].href = document.querySelectorAll(".bannerVitrine")[i].textContent.match(/href\s*=\s*"(.+?)"/)[1];
-                document.querySelectorAll(".bannerCollection__info__banner_img")[i].dataset.src = document.querySelectorAll(".bannerVitrine")[i].textContent.match(/src\s*=\s*"(.+?)"/)[1];       
-            }
+            // } else{
+            //     document.querySelectorAll(".bannerCollection__info__title")[i].textContent = document.querySelectorAll(".bannerVitrine")[i].textContent.match(/(?<=banTitleInit\s+).([^\s]+).*?(?=\s+banTitleEnd)/)[0];
+            //     document.querySelectorAll(".bannerCollection__info__banner_url")[i].href = document.querySelectorAll(".bannerVitrine")[i].textContent.match(/href\s*=\s*"(.+?)"/)[1];
+            //     document.querySelectorAll(".bannerCollection__info__banner_img")[i].dataset.src = document.querySelectorAll(".bannerVitrine")[i].textContent.match(/src\s*=\s*"(.+?)"/)[1];       
+            // }
         }
     },
 
