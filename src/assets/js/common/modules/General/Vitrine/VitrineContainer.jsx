@@ -29,21 +29,33 @@ const Methods = {
         for(let i = 0; i < collection.length; i++){
           queryString += "&fq=productId:" + collection[i].Product
         }
-        return new Promise((resolve, reject) => {
-            let request = new XMLHttpRequest();
-            request.open('GET', "/api/catalog_system/pub/products/search/" + queryString);
-            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;');
-            request.onreadystatechange = () => {
-                if (request.readyState === 4) {
-                    resolve(JSON.parse(request.response));
-                    // console.log(JSON.parse(request.response));
-                }
-            };
+        fetch("/api/catalog_system/pub/products/search/" + queryString, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
 
-            request.send();
-        }).then((col) => {
+        }).then(response => {
+          return response.json();
+        })
+        .then((col) => {
           this.mountProducts(col);
         })
+        // return new Promise((resolve, reject) => {
+        //     let request = new XMLHttpRequest();
+        //     request.open('GET', "/api/catalog_system/pub/products/search/" + queryString);
+        //     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;');
+        //     request.onreadystatechange = () => {
+        //         if (request.readyState === 4) {
+        //             resolve(JSON.parse(request.response));
+        //             // console.log(JSON.parse(request.response));
+        //         }
+        //     };
+
+        //     request.send();
+        // }).then((col) => {
+        //   this.mountProducts(col);
+        // })
       }
   
       isInViewport(){

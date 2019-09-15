@@ -4,7 +4,7 @@ import Region from "./Regional/PriceContainer.jsx"
 
 const Methods = {
     init(){
-        Methods.Region();
+        // Methods.Region();
         Methods.isInViewport();
         Methods.ServiceWorker();
     },
@@ -13,7 +13,31 @@ const Methods = {
         Vitrine.build(idCollection, collection, slider, itemsPerPage);
     },
 
-    isInViewport: () => {
+    getBrowserVendor(){
+        var BrowserVendor = "";
+        if(navigator.vendor.match(/google/i)) {
+            BrowserVendor = 'chrome/blink';
+        }
+        else if(navigator.vendor.match(/apple/i)) {
+            BrowserVendor = 'safari/webkit';
+        }
+        else if(navigator.userAgent.match(/firefox\//i)) {
+            BrowserVendor = 'firefox/gecko';
+        }
+        else if(navigator.userAgent.match(/edge\//i)) {
+            BrowserVendor = 'edge/edgehtml';
+        }
+        else if(navigator.userAgent.match(/trident\//i)) {
+            BrowserVendor = 'ie/trident';
+        }
+        else
+        {
+            BrowserVendor = navigator.userAgent + "\n" + navigator.vendor;
+        }
+        return BrowserVendor;
+    },
+
+    isInViewport(){
         let images = document.querySelectorAll('source, img');
         
         if ('IntersectionObserver' in window) {
@@ -64,16 +88,15 @@ const Methods = {
             document.querySelector(".modalRegional").classList.add("hidden");
         });
     },
-
     ServiceWorker(){
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/files/service-worker.js').then(function(registration) {
+                navigator.serviceWorker.register('/files/service-worker.js', { scope: '/' }).then(function(registration) {
                 // Registration was successful
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                console.log('%cServiceWorker registration successful with scope:' + registration.scope + ' 💯', 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#5FCC47; color: #FDFDFD;');
                 }, function(err) {
                 // registration failed :(
-                console.log('ServiceWorker registration failed: ', err);
+                console.log('%cServiceWorker registration failed: ' + err + " 🥺🥺", 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#FC2626; color: #FDFDFD;');
                 });
             });
         }
@@ -82,5 +105,6 @@ const Methods = {
 
 export default {
     init: Methods.init,
-    vitrine: Methods.Vitrine
+    vitrine: Methods.Vitrine,
+    getBrowserVendor: Methods.getBrowserVendor
 }

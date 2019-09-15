@@ -1,4 +1,5 @@
 import Info from "./_Item.jsx"
+import General from "../../../General/general-index"
 
 const Methods = {
     InfoBar(){
@@ -36,8 +37,15 @@ const Methods = {
             }
 
             getShippingInfo(){
-                let StateInfos = this.state.Infos;
-                StateInfos[0].Content = document.querySelector(".infoBar").textContent.match(/(?<=shippingTextInit)(.*)(?=shippingTextEnd)/)[0];
+                let StateInfos = this.state.Infos, Content = document.querySelector(".infoBar").textContent;
+                if(General.getBrowserVendor() == 'safari/webkit'){
+                    StateInfos[0].Content = Content.substring(
+                        Content.lastIndexOf('shippingTextInit') + 16, 
+                        Content.lastIndexOf('shippingTextEnd')
+                    )
+                }else{
+                    StateInfos[0].Content = Content.match(/(?<=shippingTextInit)(.*)(?=shippingTextEnd)/)[0];
+                }
                 // console.log(document.querySelector(".infoBar").textContent.match(/(?<=shippingTextInit)(.*)(?=shippingTextEnd)/));
                 this.setState({
                     Infos: StateInfos
