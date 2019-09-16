@@ -3,7 +3,7 @@ import Region from "./Regional/PriceContainer.jsx"
 const Methods = {
     init(){
         // Methods.Region();
-        Methods.ServiceWorker();
+        // Methods.ServiceWorker();
     },
 
     Region(){
