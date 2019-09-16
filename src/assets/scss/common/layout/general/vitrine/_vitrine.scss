@@ -20,9 +20,59 @@
         overflow: hidden;
         @include sans(.875rem, $g-primary, 400, initial);
         background: #fff;
+        cursor: pointer;
 
         .cardProduct--change{
             position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 50;
+            cursor: pointer;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 0 10px;
+            &.--closed{
+                .cardProduct--change__engine{
+                    position: absolute;
+                    top: -.5em;
+                    right: -2em;
+                    display: flex;
+                    background: $safflower;
+                    width: 80px;
+                    height: 35px;
+                    padding: 10px 0 0;
+                    transform: rotate(45deg) translate(0px, -3em);
+                    transition: all .2s;
+                }
+                .cardProduct--change__title, .cardProduct--change__close{
+                    display: none;
+                }
+            }
+        }
+        .cardProduct__config{
+            position: absolute;
+            background: $w-secundary;
+            top: 0;
+            z-index: 50;
+            height: 100%;
+            width: 100%;
+            overflow-y: auto;
+            padding: .875em;
+            .cardProduct__config__type{
+                text-align: left;
+            }
+            .cardProduct__config__list{
+                display: flex;
+                flex-flow: wrap;
+                // justify-content: center;
+                .cardProduct__config__list__item{
+                    margin: .2em;
+                    border-radius: .2em;
+                    overflow: hidden;
+                    display: flex;
+                }
+            }
         }
         .cardProduct__link{
             display: flex;
@@ -140,6 +190,13 @@
         &:hover{
             .cardProduct--addToCart{
                 transform: translateY(0%);
+            }
+            .cardProduct--change{
+                &.--closed{
+                    .cardProduct--change__engine{
+                        transform: rotate(45deg);
+                    }
+                }
             }
         }
         &.--active{
