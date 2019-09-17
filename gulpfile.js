@@ -113,12 +113,10 @@ const styles = () => {
 }
 
 const scripts = () => {
-  process.env.NODE_ENV = 'production';
-  process.stdout.write(process.env.NODE_ENV);
   return gulp.src(paths.scripts.src)
     .pipe(babel())
     .pipe(browserify())
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest(paths.scripts.dest))
     .pipe(gulp.dest('./dist/vtex_speed/arquivos/'))
     .pipe(rename(function (path) {
@@ -127,7 +125,15 @@ const scripts = () => {
     .pipe(gulp.dest(paths.scripts.qa))
     .pipe(gulp.dest('./dist/vtex_speed/arquivos/'));
 }
-
+const concatVendor = () =>{
+  gulp.src([
+    './src/assets/js/common/global/vendor/**/*.js',
+    './dist/assets/js/QDBCommon-General.js'
+  ])
+  .pipe(concat('QDBCommon-General.js'))
+  .pipe(gulp.dest(paths.scripts.qa))
+  .pipe(gulp.dest('./dist/vtex_speed/arquivos/'));
+}
 const checkoutStyles = () => {
   return gulp.src("src/assets/scss/common/checkout6-custom.scss")
     .pipe(sass({outputStyle: 'compressed'}))

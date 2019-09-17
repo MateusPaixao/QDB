@@ -1,6 +1,6 @@
 // import "../../global/vendor/react/react.production.min.js";
 // import "../../global/vendor/react/react-dom.production.min.js";
-import Vitrine from "./Vitrine/VitrineContainer.jsx"
+// import Vitrine from "./Vitrine/VitrineContainer.jsx"
 // import Region from "./Regional/PriceContainer.jsx"
 // import { Builder } from "node-vibrant";
 
@@ -12,9 +12,9 @@ const Methods = {
         Methods.General();
     },
 
-    Vitrine(idCollection, collection, slider, itemsPerPage){
-        Vitrine.build(idCollection, collection, slider, itemsPerPage);
-    },
+    // Vitrine(idCollection, collection, slider, itemsPerPage){
+    //     Vitrine.build(idCollection, collection, slider, itemsPerPage);
+    // },
 
     getBrowserVendor(){
         var BrowserVendor = "";

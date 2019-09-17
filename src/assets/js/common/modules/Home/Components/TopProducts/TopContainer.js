@@ -1,4 +1,5 @@
-import General from "../../../General/general-index"
+// import General from "../../../General/general-index"
+import Vitrine from "../../../General/Vitrine/VitrineContainer.jsx"
 
 const Methods = {
     init(){
@@ -21,7 +22,8 @@ const Methods = {
         let Col = "collection" + idCollection
         console.log("collection" + idCollection)
         Placeholder.nextSibling.setAttribute("id", Col);
-        General.vitrine(idCollection, Collection, true, "4.2");
+        
+        Vitrine.build(idCollection, Collection, true, "4.2");
         // document.querySelector(".topProducts .--collectionPlaceholder").innerHTML = Collection;
         // console.log(Collection);
     }

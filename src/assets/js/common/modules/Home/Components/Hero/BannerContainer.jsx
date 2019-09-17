@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import Siema from "../../../../global/vendor/siema-slider/siema.min.js"
+// import React, {Component} from 'react';
+// import ReactDOM from 'react-dom';
+// import Siema from "../../../../global/vendor/siema-slider/siema.min.js"
 import Banner from "./_BannerPrincipal.jsx"
 // import General from "../../../General/general-index"
 

@@ -1,4 +1,4 @@
-import General from "../../../General/general-index"
+import Vitrine from "../../../General/Vitrine/VitrineContainer.jsx"
 
 const Methods = {
     init(){
@@ -53,7 +53,7 @@ const Methods = {
             });
             Placeholder.innerHTML = "";
             Placeholder.nextSibling.setAttribute("id", "collection-" + idCollection);
-            General.vitrine(idCollection, Collection, true, "2.2");
+            Vitrine(idCollection, Collection, true, "2.2");
         });
     }
 }
