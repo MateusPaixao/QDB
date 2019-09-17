@@ -1779,39 +1779,31 @@ $(document).ready(function(){
 
 });
 
-function sendBFForm() {
+function sendNLForm() {
     //Form newsleter
-    var btn = document.querySelector('#nl_form #submit_button');
-    var lightBox = document.createElement('div');
-    lightBox.classList.add('lightBox_submit');
-    lightBox.innerHTML = '<p><span>X</span>Para que a gente possa te avisar sobre as promoções da Black Week, você precisa preencher todos os dados aceitar receber nossas comunicações.</p>';
-    document.querySelector('#nl_form').appendChild(lightBox);
-    document.querySelector('.lightBox_submit p span').addEventListener('click', function () {
-        document.querySelector('.lightBox_submit').style.display = 'none';
-    });
-    
+    console.log("newsletter form here");
+    var btn = document.querySelector('#nl_form #submit_button');    
     btn.addEventListener("click", function(e) {
         e.preventDefault();
         //get data
         var date = new Date();
         var fullDate = `${date.getFullYear()}-${(date.getMonth()<=10?'0':'')}` + `${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${(date.getMinutes()<10?'0':'') + date.getMinutes()}:${date.getSeconds()}`;
         var jsonData = JSON.stringify({
-            'origin': document.querySelector('#nl_origem').value,
-            'campaign': document.querySelector('#nl_campanha').value,
+            'origin': 'ECOMM',
+            'campaign': 'NEWSLETTER',
             'date': fullDate,
-            'name': document.querySelector('#nl_nome').value,
+            'name': null,
             'email': document.querySelector('#nl_email').value,
-            'acceptEmail': document.querySelector('#nl_autoriza').checked
+            'acceptEmail': true
         });
-
+        
         //set form validation
         var filtroEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
         var validUser = document.querySelector("input[name='validation-field']").value == 0;
-        var validTerms = document.querySelector('#nl_autoriza').checked == true;
-        var validName = document.querySelector('#nl_nome').value != "";
         var validEmail =  filtroEmail.test(document.querySelector('#nl_email').value);
 
-        if (validEmail && validName && validTerms && validUser) {
+        if (validEmail && validUser) {
+            console.log('valid');
             var XHR = new XMLHttpRequest();
             // XHR.open('POST', '//api.vtexcrm.com.br/' + jsnomeLoja + '/dataentities/PS/documents');
             XHR.open('POST', '/api/dataentities/PS/documents', true);
@@ -1821,20 +1813,15 @@ function sendBFForm() {
             XHR.send(jsonData);
             //successful
             XHR.addEventListener('load', function (event) {
-                window.location.href = '?success=1';
+                document.querySelector('#nl_form .form-success').style.display = 'block';
+                document.querySelector('#nl_form .form-controls').remove();
+                document.querySelector('#nl_form #submit_button').remove();
             });
             //error
             XHR.addEventListener('error', function (event) {
-                alert('Houve um erro, por favor tente novamente.');
+                document.querySelector('#nl_form .form-error').style.display = 'block';
             });
-        } else {
-            e.preventDefault();
-            document.querySelector('.lightBox_submit').style.display = 'block';
         }
     });
-    if (window.location.href.indexOf("?success=1") > -1) {
-        document.querySelector('.form .group-form').remove();
-        document.querySelector('.form .form-success').style.display = 'block';
-    }
 }
-window.onload = sendBFForm();
+window.onload = sendNLForm();

@@ -17,8 +17,8 @@ function sendBFForm() {
         var date = new Date();
         var fullDate = `${date.getFullYear()}-${(date.getMonth()<=10?'0':'')}` + `${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${(date.getMinutes()<10?'0':'') + date.getMinutes()}:${date.getSeconds()}`;
         var jsonData = JSON.stringify({
-            'origin': document.querySelector('#bf_origem').value,
-            'campaign': document.querySelector('#bf_campanha').value,
+            'origin': 'ECOMM',            
+            'campaign': 'BLACKFRIDAY',
             'date': fullDate,
             'name': document.querySelector('#bf_nome').value,
             'email': document.querySelector('#bf_email').value,
@@ -42,7 +42,8 @@ function sendBFForm() {
             XHR.send(jsonData);
             //successful
             XHR.addEventListener('load', function (event) {
-                window.location.href = '?success=1';
+                document.querySelector('.form .group-form').remove();
+                document.querySelector('.form .form-success').style.display = 'block';
             });
             //error
             XHR.addEventListener('error', function (event) {
@@ -53,9 +54,5 @@ function sendBFForm() {
             document.querySelector('.lightBox_submit').style.display = 'block';
         }
     });
-    if (window.location.href.indexOf("?success=1") > -1) {
-        document.querySelector('.form .group-form').remove();
-        document.querySelector('.form .form-success').style.display = 'block';
-    }
 }
 window.onload = sendBFForm();
