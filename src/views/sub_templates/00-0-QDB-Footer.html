@@ -2,22 +2,22 @@
     <div class="shell">
         <div class="_footer-line-size-0">
             <div class="_footer-line-size-3 subscribe">
-                <form id="nl_form" method="post" action="http://x.relaciona.quemdisseberenice.com.br/ats/post.aspx">
+                <form id="nl_form" style="display: none;" method="post" action="http://x.relaciona.quemdisseberenice.com.br/ats/post.aspx">
                     <div class="form-controls">
                         <input type="text" name="validation-field" class="hidden" style="display: none;"/>  
                         <input type="hidden" id="nl_origem" name="nl_origem" value="ECOMM" />
                         <input type="hidden" id="nl_campanha" name="nl_campanha" value="NEWSLETTER" />
                         <input type="hidden" id="nl_data_cadastro" name="nl_data_cadastro" value="" />
-                        <input type="checkbox" name="nl_autoriza" id="nl_autoriza" checked="checked" />
-                        <input type="text" id="nl_nome" name="nl_nome" value="null"/>
+                        <input type="checkbox" style="display: none;" name="nl_autoriza" id="nl_autoriza" checked="checked" />
+                        <input type="text" style="display: none;" id="nl_nome" name="nl_nome" value="null"/>
 
                         <input type="email" id="nl_email" name="nl_email" placeholder="receba nossas novidades por e-mail" class="subscribe-field" required='required'/>
                     </div><!-- /.form-controls -->            
-                    <div class="form-success">
-                        <p>MENSAGEM ENVIADA COM SUCESSO!</p>
-                    </div>
                     <button id='submit_button' class="subscribe-btn" placeholder="enviar"> cadastrar <span class="subscribe-percent"></span><i class="success"></i></button>
                     <label for="mail" style="display: none;" class="form-label form-label-sub mobile">a frequência de envios pode variar de acordo com a sua interação</label>
+                    <div class="form-success" style="display: none;">
+                        <p>MENSAGEM ENVIADA COM SUCESSO!</p>
+                    </div>
                 </form>
             </div>
             <div class="_footer-line-size-2">
