@@ -3,7 +3,7 @@
 
 export default {
     $globals: {
-        body: document.querySelector('body')
+        body: document.querySelector('body'),
     },
     header: {
         header: document.querySelector('.header'),

@@ -379,3 +379,17 @@ body {
     }
 
 } 
+.header-overlay{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    opacity: .5;
+    z-index: 1;
+}
+.menu--open{
+    overflow: hidden;
+    .header-overlay{
+        display: block;
+    }
+}

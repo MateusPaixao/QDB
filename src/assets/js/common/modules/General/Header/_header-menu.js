@@ -13,6 +13,7 @@ const Methods = {
             if (el.target == CacheSelector.header.menuHamContainer || el.target == CacheSelector.header.menuHamText) {
                 CacheSelector.header.menuHam.classList.toggle('is--active');
                 CacheSelector.header.menuList.classList.toggle('js--menu-close');
+                CacheSelector.$globals.body.classList.toggle('menu--open');
                 el.target.classList.add('is--active');
             } else {
                 el.preventDefault
@@ -26,8 +27,9 @@ const Methods = {
         })
     },
     observeScroll() {
-        window.addEventListener('scroll', (e) => {
+        window.addEventListener('scroll', function(ev) {
             const body = document.querySelector('body');
+
             this.oldScroll > this.scrollY ? body.classList.remove('scrollDown') : body.classList.add('scrollDown');
             this.oldScroll = this.scrollY;
             
