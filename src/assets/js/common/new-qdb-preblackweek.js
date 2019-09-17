@@ -1,11 +1,14 @@
 //form
 
-function sendBFData() {
+function sendBFForm() {
     //Form BlackFriday
     var btn = document.querySelector('#bf_form .btnSubmit');
-    $('body.pre-black-week').append("<div class='lightBox_submit'><p><span>X</span>Para que a gente possa te avisar sobre as promoções da Black Week, você precisa preencher todos os dados aceitar receber nossas comunicações.</p></div>");
-    $('.lightBox_submit p span').click(function () {
-        $('.lightBox_submit').fadeOut();
+    var lightBox = document.createElement('div');
+    lightBox.classList.add('lightBox_submit');
+    lightBox.innerHTML = '<p><span>X</span>Para que a gente possa te avisar sobre as promoções da Black Week, você precisa preencher todos os dados aceitar receber nossas comunicações.</p>';
+    document.querySelector('body.pre-black-week').appendChild(lightBox);
+    document.querySelector('.lightBox_submit p span').addEventListener('click', function () {
+        document.querySelector('.lightBox_submit').style.display = 'none';
     });
     
     btn.addEventListener("click", function(e) {
@@ -39,20 +42,20 @@ function sendBFData() {
             XHR.send(jsonData);
             //successful
             XHR.addEventListener('load', function (event) {
-                alert('Dados confirmados com sucesso!');
+                window.location.href = '?success=1';
             });
             //error
             XHR.addEventListener('error', function (event) {
                 alert('Houve um erro, por favor tente novamente.');
             });
-            if (window.location.href.indexOf("?success=1") > -1) {
-                $(".form .group-form").remove();
-                $(".form .form-success").show();
-            }
         } else {
             e.preventDefault();
-            $('.lightBox_submit').fadeIn();
+            document.querySelector('.lightBox_submit').style.display = 'block';
         }
     });
+    if (window.location.href.indexOf("?success=1") > -1) {
+        document.querySelector('.form .group-form').remove();
+        document.querySelector('.form .form-success').style.display = 'block';
+    }
 }
-window.onload = sendBFData();
+window.onload = sendBFForm();

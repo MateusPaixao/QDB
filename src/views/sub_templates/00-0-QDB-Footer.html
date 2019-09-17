@@ -2,21 +2,23 @@
     <div class="shell">
         <div class="_footer-line-size-0">
             <div class="_footer-line-size-3 subscribe">
-                <form>
+                <form id="nl_form" method="post" action="http://x.relaciona.quemdisseberenice.com.br/ats/post.aspx">
                     <div class="form-controls">
-                        <label style="display: none;" for="mail" class="form-label">receba nossas novidades por e-mail diariamente</label>
-                        <input type="hidden" name="cr" value="100299" />
-                        <input type="hidden" name="fm" value="149" />
-                        <input type="hidden" id="s_ds_origem_cadastro" name="ds_origem_cadastro" value="site" />
-                        <input type="hidden" id="s_ds_campanha" name="ds_campanha" value="newsletter" />
-                        <input type="hidden" id="s_dt_cadastro" name="dt_cadastro" value="" />
-                        <input type="email" id="s_ds_email" name="ds_email" value="" placeholder="receba nossas novidades por e-mail" class="subscribe-field" />
-                        <label for="mail" style="display: none;" class="form-label form-label-sub web">a frequência de envios pode variar de acordo com a sua interação</label>
-                    </div><!-- /.form-controls -->
-                    <button id='enviar_form_footer' class="subscribe-btn" placeholder="enviar"> cadastrar <span class="subscribe-percent"></span><i class="success"></i></button>
+                        <input type="text" name="validation-field" class="hidden" style="display: none;"/>  
+                        <input type="hidden" id="nl_origem" name="nl_origem" value="ECOMM" />
+                        <input type="hidden" id="nl_campanha" name="nl_campanha" value="NEWSLETTER" />
+                        <input type="hidden" id="nl_data_cadastro" name="nl_data_cadastro" value="" />
+                        <input type="checkbox" name="nl_autoriza" id="nl_autoriza" checked="checked" />
+                        <input type="text" id="nl_nome" name="nl_nome" value="null"/>
+
+                        <input type="email" id="nl_email" name="nl_email" placeholder="receba nossas novidades por e-mail" class="subscribe-field" required='required'/>
+                    </div><!-- /.form-controls -->            
+                    <div class="form-success">
+                        <p>MENSAGEM ENVIADA COM SUCESSO!</p>
+                    </div>
+                    <button id='submit_button' class="subscribe-btn" placeholder="enviar"> cadastrar <span class="subscribe-percent"></span><i class="success"></i></button>
                     <label for="mail" style="display: none;" class="form-label form-label-sub mobile">a frequência de envios pode variar de acordo com a sua interação</label>
                 </form>
-                
             </div>
             <div class="_footer-line-size-2">
                 <p class="_upperTxt">Siga a gente nas <br />redes sociais:</p>
