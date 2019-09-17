@@ -186,8 +186,6 @@ const Methods = {
         let newPrice = document.querySelector('.w-product--wrapper--infos--new-price');
         newPrice.style = `color:${topBannerColor}`;
 
-        let buyButton = document.querySelector('.w-product--wrapper--infos--buy-button');
-        buyButton.style = `background-color:${topBannerColor}`;
 
     },
 
