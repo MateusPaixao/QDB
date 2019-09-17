@@ -448,6 +448,8 @@ p {
     &.firstBanner {
         margin-top: -3.5em;
         float: left;
+        z-index: 5;
+        position: relative;
         @include d(s){
             margin-top: initial;
             float: none;
