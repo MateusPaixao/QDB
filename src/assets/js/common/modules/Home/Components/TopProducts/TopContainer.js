@@ -4,24 +4,23 @@ const Methods = {
     init(){
         Methods.buildVitrines();
     },
-    buildVitrines(){
+    buildVitrines(){ 
         let idCollection = Math.floor(Math.random() * 5000), 
-        Collection = [], 
-        Item = {}, 
-        Placeholder = document.querySelector(".topProducts .--collectionPlaceholder");
+        Collection = [],
+        Placeholder = document.querySelector(".topProducts .collectionPlaceholder"),
+        Content = Placeholder.querySelectorAll(".topProducts .collectionPlaceholder .vitrine-content");
 
-        Placeholder.querySelectorAll(".topProducts .--collectionPlaceholder .vitrine-content").forEach((content)=>{
-            Item.Product = content.dataset.productid;
-            Item.SkuHighlight = content.dataset.sku;
+        for(let i = 0; i < Content.length; i++){
+            let Item = {};
+            Item.Product = Content[i].dataset.productid;
+            Item.SkuHighlight = Content[i].dataset.sku;
             Collection.push(Item);
-            Item = {};
-            // let vitrine = collection.nextSibling;
-            // vitrine.setAttribute("id", "collection-" + collection.textContent);
-            // vitrine.setAttribute("data-collection", product);
-            // General.vitrine(vitrine.dataset.collection, true, "4.2");
-        });
+        }
+
         Placeholder.innerHTML = "";
-        Placeholder.nextSibling.setAttribute("id", "collection-" + idCollection);
+        let Col = "collection" + idCollection
+        console.log("collection" + idCollection)
+        Placeholder.nextSibling.setAttribute("id", Col);
         General.vitrine(idCollection, Collection, true, "4.2");
         // document.querySelector(".topProducts .--collectionPlaceholder").innerHTML = Collection;
         // console.log(Collection);

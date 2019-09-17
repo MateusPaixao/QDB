@@ -7,12 +7,12 @@ import BuildTopProducts from './Components/TopProducts/TopContainer'
 
 const Methods = {
     init() {
-        BuildBanners.init();
+        // BuildBanners.init();
         BuildInfoBar.init();
         BuildPaineis.init();
-        BuildCounter.init();
+        // BuildCounter.init();
         BuildTopProducts.init();
-        BuildBannerCollection.init();
+        // BuildBannerCollection.init();
     }
 }
 

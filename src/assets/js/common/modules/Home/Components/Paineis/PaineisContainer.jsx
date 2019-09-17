@@ -1,3 +1,5 @@
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import Painel from "./_Painel.jsx"
 // import General from "../../../General/general-index"
 

@@ -1,7 +1,8 @@
-// import React, { Component } from 'react';
-// import ReactDOM from 'react-dom';
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import Siema from "../../../global/vendor/siema-slider/siema.min.js"
 import Card from "./components/_Card.jsx"
+// import 'promise-polyfill/src/polyfill';
 
 const Methods = {
   init(){
@@ -231,7 +232,7 @@ const Methods = {
     
     ReactDOM.render(
       <CardContainer />,
-      document.getElementById('collection-' + idCollection)
+      document.getElementById('collection' + idCollection)
     );
   }
 }

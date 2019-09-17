@@ -113,10 +113,12 @@ const styles = () => {
 }
 
 const scripts = () => {
+  process.env.NODE_ENV = 'production';
+  process.stdout.write(process.env.NODE_ENV);
   return gulp.src(paths.scripts.src)
     .pipe(babel())
     .pipe(browserify())
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest(paths.scripts.dest))
     .pipe(gulp.dest('./dist/vtex_speed/arquivos/'))
     .pipe(rename(function (path) {
