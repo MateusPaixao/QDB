@@ -12,6 +12,7 @@ const babel = require('gulp-babel');
 const babelify = require('babelify');
 const browserify = require('gulp-browserify');
 const browserSync   = require('browser-sync').create();
+const concat = require('gulp-concat');
 // const del = require('del');
 const gulp = require('gulp');
 const imagemin = require('gulp-imagemin');
@@ -125,15 +126,21 @@ const scripts = () => {
     .pipe(gulp.dest(paths.scripts.qa))
     .pipe(gulp.dest('./dist/vtex_speed/arquivos/'));
 }
-const concatVendor = () =>{
+
+const concatVendor = () => {
   gulp.src([
     './src/assets/js/common/global/vendor/**/*.js',
     './dist/assets/js/QDBCommon-General.js'
   ])
-  .pipe(concat('QDBCommon-General.js'))
-  .pipe(gulp.dest(paths.scripts.qa))
-  .pipe(gulp.dest('./dist/vtex_speed/arquivos/'));
+  .pipe(concat('QDBCommon-Bundle.js'))
+  .pipe(rename(function (path) {
+    path.basename = "QA-" + path.basename
+  }))
+  .pipe(gulp.dest(paths.scripts.qa));
 }
+
+const bundleScripts = gulp.series(gulp.parallel(scripts, concatVendor));
+
 const checkoutStyles = () => {
   return gulp.src("src/assets/scss/common/checkout6-custom.scss")
     .pipe(sass({outputStyle: 'compressed'}))
@@ -177,7 +184,7 @@ function sync(){
 
 const watch = () => {
   gulp.watch(paths.styles.srcWatch, styles).on('change',browserSync.reload);
-  gulp.watch(paths.scripts.srcWatch, scripts).on('change',browserSync.reload);
+  gulp.watch(paths.scripts.srcWatch, bundleScripts).on('change', browserSync.reload);
 
   gulp.watch('src/assets/scss/**/checkout6-custom.scss', checkoutStyles).on('change',browserSync.reload);
   gulp.watch('src/assets/**/checkout6-custom.js', checkoutScripts).on('change',browserSync.reload);
@@ -189,13 +196,14 @@ const watch = () => {
 }
 
 //------------------------------ Tasks -----------------------------
-const build = gulp.series(gulp.parallel(sync, minimg, minsvg, styles, scripts, checkoutStyles, checkoutScripts, htmls, pugtranspile, watch));
+const build = gulp.series(gulp.parallel(sync, minimg, minsvg, styles, bundleScripts, checkoutStyles, checkoutScripts, htmls, pugtranspile, watch));
 
 // exports.pluginsJs = pluginsJs;
 // exports.clean = clean;
 exports.styles = styles;
 exports.scripts = scripts;
 exports.checkoutStyles = checkoutStyles;
+exports.bundleScripts = bundleScripts;
 exports.checkoutScripts = checkoutScripts;
 exports.htmls = htmls;
 exports.pugtranspile = pugtranspile;
