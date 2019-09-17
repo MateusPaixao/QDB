@@ -14,9 +14,9 @@ export default {
         menuAccordion: document.querySelectorAll('[data-accordion]'),
         menuClose: document.querySelector('.js--close-menu'),
         formBusca: document.querySelector('.header__search'),
-        formBuscaInput: $('.header__search--input')
+        formBuscaInput: document.querySelector('.header__search--input')
     },
     neemu: {
-        acContainer: $('.ac-container'),
+        acContainer: document.querySelector('.ac-container'),
     }
 }

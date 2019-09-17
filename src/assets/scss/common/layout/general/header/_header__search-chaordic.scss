@@ -4,8 +4,31 @@ html {
         box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
         overflow-y: scroll;
         max-height: 70vh;
+        top: 87px !important;
+        left: 15% !important;
         @include d('768px'){
             width: 100vw !important;
+            left: 0 !important;
+        }
+                /* width */
+        &::-webkit-scrollbar {
+            width: 6px;
+            // border-radius: 10px;
+        }
+        
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: $secondaryColor;
+        }
+        
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: $secondaryColor;
         }
     }
     .ac-overlay{
@@ -13,5 +36,10 @@ html {
     }
     .ac-footer{
         display: none;
+    }
+    .scrollDown{
+        .ac-container{
+            top: 48px !important;
+        }
     }
 }

@@ -7,6 +7,7 @@ const Methods = {
         Methods.closeMenu();
         Methods.observeScroll();
         Methods.setActiveAccordion();
+        Methods.updateNumberMinicart();
     },
     openCloseMenu() {
         CacheSelector.header.menuHamContainer.addEventListener('click', (el) => {
@@ -27,12 +28,12 @@ const Methods = {
         })
     },
     observeScroll() {
-        window.addEventListener('scroll', function(ev) {
+        window.addEventListener('scroll', function (ev) {
             const body = document.querySelector('body');
 
             this.oldScroll > this.scrollY ? body.classList.remove('scrollDown') : body.classList.add('scrollDown');
             this.oldScroll = this.scrollY;
-            
+
             return this.scrollY
         })
     },
@@ -43,6 +44,12 @@ const Methods = {
                 checkbox.checked ? checkbox.parentElement.classList.add('is--open') : checkbox.parentElement.classList.remove('is--open')
             })
         })
+    },
+    updateNumberMinicart() {
+        $(window).on('orderFormUpdated.vtex', function() {
+            let itensInCart = document.querySelector('.minicart--itens');
+            itensInCart.textContent = vtexjs.checkout.orderForm.items.length;
+         });
     }
 }
 

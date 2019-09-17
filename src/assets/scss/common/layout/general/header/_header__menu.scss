@@ -25,21 +25,22 @@
         @include d('768px') {
             width: 90vw;
         }
+
         /* width */
         &::-webkit-scrollbar {
             width: 10px;
         }
-        
+
         /* Track */
         &::-webkit-scrollbar-track {
             background: #f1f1f1;
         }
-        
+
         /* Handle */
         &::-webkit-scrollbar-thumb {
             background: $secondaryColor;
         }
-        
+
         /* Handle on hover */
         &::-webkit-scrollbar-thumb:hover {
             background: $secondaryColor;
@@ -59,9 +60,9 @@
         border-bottom: 1px solid lighten($secondaryColor, 20);
 
 
-        &:first-child{
-            
-            &:before{
+        &::first-child {
+
+            &:before {
                 content: '';
                 opacity: 0;
             }
@@ -73,6 +74,12 @@
             font-size: 1.5em;
             position: absolute;
             right: 15px;
+        }
+
+        &.is--open {
+            &:before {
+                transform: rotate(90deg);
+            }
         }
 
         a {
@@ -94,12 +101,31 @@
             flex-direction: column;
             position: relative;
 
-            &::before {
-                transition: .3s ease-in-out;
-                content: '+';
-                font-size: 1.5em;
-                position: absolute;
-                right: 15px;
+            &:hover{
+                background: darken($color: $principalColor, $amount: 10);
+            }
+
+            &.has--sub{
+                &:hover{
+                    background: initial;
+                }
+                &::before {
+                    transition: .3s ease-in-out;
+                    content: '+';
+                    font-size: 1.5em;
+                    position: absolute;
+                    right: 15px;
+                }
+    
+                &.is--open {
+                    &:before {
+                        content: '-';
+                    }
+                }
+            }
+
+            .accordion-checkbox {
+                height: 25px !important;
             }
 
         }
@@ -114,6 +140,9 @@
 
         &--category {
             width: 80%;
+            &:hover{
+                background: darken($color: $principalColor, $amount: 10);
+            }
         }
 
 
@@ -135,13 +164,16 @@
 
             }
         }
-        &.especial{
+
+        &.especial {
             background-color: $secondaryColor;
             color: #fff;
-            &::first-child{
+
+            &::first-child {
                 margin-top: 5px;
             }
-            &::before{
+
+            &::before {
                 content: '';
             }
         }
@@ -248,5 +280,12 @@
 
     .js--menu-close {
         left: calc(-100% - 15px);
+    }
+}
+
+.only--mobile {
+    display: none;
+    @include d('768px') {
+        display: flex;
     }
 }
