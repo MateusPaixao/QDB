@@ -34,27 +34,24 @@ const Methods = {
     },
 
     buildVitrines(){
-        let Placeholders = document.querySelectorAll(".bannerCollection .--collectionPlaceholder");
+        let Placeholders = document.querySelectorAll(".bannerCollection .collectionPlaceholder");
 
-        Placeholders.forEach((Placeholder) => {
+        for(let p = 0; p < Placeholders.length; p++){
             let idCollection = Math.floor(Math.random() * 5000), 
-            Collection = [], 
-            Item = {};
-            
-            Placeholder.querySelectorAll(".vitrine-content").forEach((content)=>{
-                Item.Product = content.dataset.productid;
-                Item.SkuHighlight = content.dataset.sku;
+            Collection = [],
+            Item = {},
+            Content = Placeholders[p].querySelectorAll(".vitrine-content");
+
+            for(let i = 0; i < Content.length; i++){
+                Item.Product = Content[i].dataset.productid;
+                Item.SkuHighlight = Content[i].dataset.sku;
                 Collection.push(Item);
-                Item = {};
-                // let vitrine = collection.nextSibling;
-                // vitrine.setAttribute("id", "collection-" + collection.textContent);
-                // vitrine.setAttribute("data-collection", product);
-                // General.vitrine(vitrine.dataset.collection, true, "4.2");
-            });
-            Placeholder.innerHTML = "";
-            Placeholder.nextSibling.setAttribute("id", "collection-" + idCollection);
-            Vitrine(idCollection, Collection, true, "2.2");
-        });
+                Item = {}
+            }
+
+            Placeholders[p].nextSibling.setAttribute("id", "collection" + idCollection);
+            Vitrine.build(idCollection, Collection, true, "2.2");
+        };
     }
 }
 

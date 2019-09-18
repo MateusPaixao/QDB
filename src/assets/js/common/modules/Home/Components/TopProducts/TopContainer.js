@@ -5,7 +5,7 @@ const Methods = {
     init(){
         Methods.buildVitrines();
     },
-    buildVitrines(){ 
+    buildVitrines(){
         let idCollection = Math.floor(Math.random() * 5000), 
         Collection = [],
         Placeholder = document.querySelector(".topProducts .collectionPlaceholder"),

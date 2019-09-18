@@ -128,18 +128,21 @@ const scripts = () => {
 }
 
 const concatVendor = () => {
-  gulp.src([
+  return gulp.src([
     './src/assets/js/common/global/vendor/**/*.js',
     './dist/assets/js/QDBCommon-General.js'
   ])
-  .pipe(concat('QDBCommon-Bundle.js'))
+  .pipe(concat('QDBCommon-General.js'))
+  .pipe(gulp.dest(paths.scripts.dest))
+  .pipe(gulp.dest('./dist/vtex_speed/arquivos/'))
   .pipe(rename(function (path) {
     path.basename = "QA-" + path.basename
   }))
-  .pipe(gulp.dest(paths.scripts.qa));
+  .pipe(gulp.dest(paths.scripts.qa))
+  .pipe(gulp.dest('./dist/vtex_speed/arquivos/'));
 }
 
-const bundleScripts = gulp.series(gulp.parallel(scripts, concatVendor));
+const bundleScripts = gulp.series(scripts, concatVendor);
 
 const checkoutStyles = () => {
   return gulp.src("src/assets/scss/common/checkout6-custom.scss")

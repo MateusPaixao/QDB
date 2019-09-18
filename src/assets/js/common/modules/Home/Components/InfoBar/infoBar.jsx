@@ -1,5 +1,3 @@
-// import React, {Component} from 'react';
-// import ReactDOM from 'react-dom';
 import Info from "./_Item.jsx"
 // import General from "../../../General/general-index"
 

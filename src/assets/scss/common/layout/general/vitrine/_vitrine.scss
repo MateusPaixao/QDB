@@ -32,7 +32,7 @@
             width: 100%;
             justify-content: space-between;
             padding: 0 10px;
-            &.--closed{
+            &.closed{
                 .cardProduct--change__engine{
                     position: absolute;
                     top: -.5em;
@@ -59,6 +59,7 @@
             width: 100%;
             overflow-y: auto;
             padding: .875em;
+            display: none;
             .cardProduct__config__type{
                 text-align: left;
             }
@@ -180,7 +181,7 @@
             &:hover{
                 filter: brightness(140%);
             }
-            &.--adding{
+            &.adding{
                 transform: translateY(0%);
                 opacity: .7;
                 pointer-events: none;
@@ -192,14 +193,14 @@
                 transform: translateY(0%);
             }
             .cardProduct--change{
-                &.--closed{
+                &.closed{
                     .cardProduct--change__engine{
                         transform: rotate(45deg);
                     }
                 }
             }
         }
-        &.--active{
+        &.active{
             @include d("768px"){
                 .cardProduct--addToCart{
                     transform: translateY(0%);
@@ -213,8 +214,8 @@
             }
         }
     }
-    .--controls__arrows{
-        .--prev, .--next{
+    .controls__arrows{
+        .prev, .next{
             position: absolute;
             top: 50%;
             @include sans(2.5em, $g-primary, 400, 0);
@@ -227,10 +228,10 @@
                 color: $safflower;
             }
         }
-        .--prev{
+        .prev{
             left: -5%;
         }
-        .--next{
+        .next{
             right: -5%;
         }
         @include d("768px"){

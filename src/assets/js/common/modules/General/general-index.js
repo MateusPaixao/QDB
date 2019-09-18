@@ -1,8 +1,7 @@
-// import "../../global/vendor/react/react.production.min.js";
-// import "../../global/vendor/react/react-dom.production.min.js";
 // import Vitrine from "./Vitrine/VitrineContainer.jsx"
 // import Region from "./Regional/PriceContainer.jsx"
 // import { Builder } from "node-vibrant";
+import Global from "../../global/global-index"
 
 const Methods = {
     init(){
@@ -10,36 +9,15 @@ const Methods = {
         Methods.isInViewport();
         Methods.ServiceWorker();
         Methods.General();
+        if(Global.BrowserVendor() == "ie/trident"){
+            Global.Polyfill();
+        }
     },
 
     // Vitrine(idCollection, collection, slider, itemsPerPage){
     //     Vitrine.build(idCollection, collection, slider, itemsPerPage);
     // },
-
-    getBrowserVendor(){
-        var BrowserVendor = "";
-        if(navigator.vendor.match(/google/i)) {
-            BrowserVendor = 'chrome/blink';
-        }
-        else if(navigator.vendor.match(/apple/i)) {
-            BrowserVendor = 'safari/webkit';
-        }
-        else if(navigator.userAgent.match(/firefox\//i)) {
-            BrowserVendor = 'firefox/gecko';
-        }
-        else if(navigator.userAgent.match(/edge\//i)) {
-            BrowserVendor = 'edge/edgehtml';
-        }
-        else if(navigator.userAgent.match(/trident\//i)) {
-            BrowserVendor = 'ie/trident';
-        }
-        else
-        {
-            BrowserVendor = navigator.userAgent + "\n" + navigator.vendor;
-        }
-        return BrowserVendor;
-    },
-
+    
     isInViewport(){
         let images = document.querySelectorAll('source, img');
         

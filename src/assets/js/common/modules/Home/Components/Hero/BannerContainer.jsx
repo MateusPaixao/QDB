@@ -1,5 +1,3 @@
-// import React, {Component} from 'react';
-// import ReactDOM from 'react-dom';
 // import Siema from "../../../../global/vendor/siema-slider/siema.min.js"
 import Banner from "./_BannerPrincipal.jsx"
 // import General from "../../../General/general-index"
@@ -97,10 +95,10 @@ const Methods = {
                 function printSlideIndex() {
                     clearInterval(Autoplay);
                     Autoplay = setInterval(() => slideBanners.next(), 5000);
-                    this.innerElements.forEach((slide, i) => {
+                    for(let i = 0; i < this.innerElements.length; i++){
                         const addOrRemove = i === this.currentSlide ? 'add' : 'remove';
-                        document.querySelectorAll(".--controls__dots .--changePosition")[i].classList[addOrRemove]('--active');
-                    })
+                        document.querySelectorAll(".controls__dots .changePosition")[i].classList[addOrRemove]('active');
+                    };
 
                     // if(this.currentSlide == 0){
                     //     document.querySelector(".bannerHero__controls--arrows .--prev").classList.add("off");
@@ -117,13 +115,13 @@ const Methods = {
 
                 Siema.prototype.addPagination = function() {
                     let dotControl = document.createElement("span");
-                    dotControl.classList.add("--controls__dots");
+                    dotControl.classList.add("controls__dots");
                     // controls.appendChild(dotControl);
                     this.selector.appendChild(dotControl);
 
                     for (let i = 0; i < this.innerElements.length; i++) {
                         const btn = document.createElement('button');
-                        btn.classList.add("--changePosition")
+                        btn.classList.add("changePosition")
                         btn.addEventListener('click', () => {
                             clearInterval(Autoplay);
                             Autoplay = setInterval(() => slideBanners.next(), 5000);
@@ -131,7 +129,7 @@ const Methods = {
                         });
                         dotControl.appendChild(btn);
                     }
-                    document.querySelector(".--controls__dots").childNodes[0].classList.add("--active");
+                    document.querySelector(".controls__dots").childNodes[0].classList.add("active");
                 }
 
                 // Style the arrows with CSS or JS — up to you mate
@@ -140,14 +138,14 @@ const Methods = {
       
                     // make buttons & append them inside Siema's container
                     _this.prevArrow = document.createElement('button');
-                    _this.prevArrow.classList.add("--prev");
+                    _this.prevArrow.classList.add("prev");
                     _this.nextArrow = document.createElement('button');
-                    _this.nextArrow.classList.add("--next");
+                    _this.nextArrow.classList.add("next");
                     _this.prevArrow.textContent = '⯇';
                     _this.nextArrow.textContent = '⯈';
                     
                     let arrowsControl = document.createElement("span");
-                    arrowsControl.classList.add("--controls__arrows");
+                    arrowsControl.classList.add("controls__arrows");
                     _this.selector.appendChild(arrowsControl);
                 
                     arrowsControl.appendChild(_this.prevArrow);

@@ -1,5 +1,3 @@
-// import React, {Component} from 'react';
-// import ReactDOM from 'react-dom';
 // import Siema from "../../../global/vendor/siema-slider/siema.min.js"
 import Card from "./components/_Card.jsx"
 // import 'promise-polyfill/src/polyfill';
@@ -15,7 +13,7 @@ const Methods = {
         super(props);
         this.state = {
           Products: [],
-          Vitrine: "--sliderVitrine-" + idCollection,
+          Vitrine: "sliderVitrine-" + idCollection,
           HasSlider: slider,
           PerPage: itemsPP
         };
@@ -85,7 +83,9 @@ const Methods = {
         
         } else {
             // IntersectionObserver NOT Supported
-            images.forEach(image => loadImage(image));
+            for(let i = 0; i < document.querySelectorAll('source, img').length; i++){
+              loadImage(document.querySelectorAll('source, img')[i]);
+            }
         }
         
         function loadImage(image) {
@@ -114,10 +114,10 @@ const Methods = {
         })
 
         function printSlideIndex() {
-          this.innerElements.forEach((slide, i) => {
-            const addOrRemove = i === this.currentSlide ? 'add' : 'remove';
-            this.innerElements[i].classList[addOrRemove]('--active');
-          })
+          for(let i = 0; i < this.innerElements.length; i++){
+              const addOrRemove = i === this.currentSlide ? 'add' : 'remove';
+              this.innerElements[i].classList[addOrRemove]('active');
+          };
         }
 
         Siema.prototype.addArrows = function () {
@@ -125,14 +125,14 @@ const Methods = {
       
           // make buttons & append them inside Siema's container
           _this.prevArrow = document.createElement('button');
-          _this.prevArrow.classList.add("--prev");
+          _this.prevArrow.classList.add("prev");
           _this.nextArrow = document.createElement('button');
-          _this.nextArrow.classList.add("--next");
+          _this.nextArrow.classList.add("next");
           _this.prevArrow.textContent = '⯇';
           _this.nextArrow.textContent = '⯈';
           
           let arrowsControl = document.createElement("span");
-          arrowsControl.classList.add("--controls__arrows");
+          arrowsControl.classList.add("controls__arrows");
           _this.selector.appendChild(arrowsControl);
       
           arrowsControl.appendChild(_this.prevArrow);
@@ -156,8 +156,8 @@ const Methods = {
 
       mountProducts(Products){
         let ids = [];
-        for(let product of Products){
-          ids.push(product.productId);
+        for(let i = 0; i < Products.length; i++){
+          ids.push(Products[i].productId);
         }
         new Promise((resolve, reject) => {
             let request = new XMLHttpRequest();
@@ -180,25 +180,26 @@ const Methods = {
             const sortProductInNest = (a, b) => {
               return a.productId - b.productId;
             }
-            
+
             let sortedReviews = Reviews.Element.sort(sortReviewInNest),
             sortedProducts = Products.sort(sortProductInNest);
-
             // Remove Duplicate Reviews
             let uniqueReviews = Array.from(new Set(sortedReviews.map(a => a.ProductId)))
             .map(id => {
               return sortedReviews.find(a => a.ProductId === id)
             });
-
-            for(let i = 0; i < uniqueReviews.length; i++){
-              let Product = {};
-              Product.info = sortedProducts[i];
-              Product.review = uniqueReviews[i];
-
-              Product.skuHighlight = collection.find(o => o.Product == sortedProducts[i].productId).SkuHighlight;
-              ProductsFull.push(Product);
+            for(let i = 0; i < sortedReviews.length; i++){
+              if(sortedProducts[i] != undefined){
+                let Product = {};
+                Product.info = sortedProducts[i];
+                Product.review = sortedReviews[i];
+                console.log(sortedProducts[i]);
+                Product.skuHighlight = collection.find(o => o.Product == sortedProducts[i].productId).SkuHighlight;
+                ProductsFull.push(Product);
+              }
             }
-            
+
+            // console.log(ProductsFull)
             this.setState({
               Products: ProductsFull
             }, ()=>{
