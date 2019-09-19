@@ -1783,7 +1783,6 @@ $(document).ready(function(){
 
 window.onload = function sendNLForm() {
     //Form newsleter
-    console.log("newsletter form here");
     var btn = document.querySelector('#nl_form #submit_button');    
     btn.addEventListener("click", function(e) {
         e.preventDefault();
@@ -1811,7 +1810,6 @@ window.onload = function sendNLForm() {
         var validEmail =  filtroEmail.test(document.querySelector('#nl_email').value);
 
         if (validEmail && validUser) {
-            console.log('valid');
             var XHR = new XMLHttpRequest();
             // XHR.open('POST', '//api.vtexcrm.com.br/' + jsnomeLoja + '/dataentities/PS/documents');
             XHR.open('POST', '/api/dataentities/PS/documents', true);
