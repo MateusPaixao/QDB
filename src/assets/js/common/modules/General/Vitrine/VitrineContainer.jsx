@@ -183,7 +183,7 @@ const Methods = {
 
             let sortedReviews = Reviews.Element.sort(sortReviewInNest),
             sortedProducts = Products.sort(sortProductInNest);
-            // Remove Duplicate Reviews
+            // Remove Duplicate Reviews - IEBUG don't work
             let uniqueReviews = Array.from(new Set(sortedReviews.map(a => a.ProductId)))
             .map(id => {
               return sortedReviews.find(a => a.ProductId === id)
@@ -193,7 +193,6 @@ const Methods = {
                 let Product = {};
                 Product.info = sortedProducts[i];
                 Product.review = sortedReviews[i];
-                console.log(sortedProducts[i]);
                 Product.skuHighlight = collection.find(o => o.Product == sortedProducts[i].productId).SkuHighlight;
                 ProductsFull.push(Product);
               }

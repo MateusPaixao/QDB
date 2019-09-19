@@ -6,9 +6,10 @@ import Global from "../../global/global-index"
 const Methods = {
     init(){
         // Methods.Region();
-        Methods.isInViewport();
         Methods.ServiceWorker();
         Methods.General();
+        Methods.TopBanner();
+        Global.isInViewport();
         if(Global.BrowserVendor() == "ie/trident"){
             Global.Polyfill();
         }
@@ -17,49 +18,6 @@ const Methods = {
     // Vitrine(idCollection, collection, slider, itemsPerPage){
     //     Vitrine.build(idCollection, collection, slider, itemsPerPage);
     // },
-    
-    isInViewport(){
-        let images = document.querySelectorAll('source, img');
-        
-        if ('IntersectionObserver' in window) {
-            // IntersectionObserver Supported
-            let config = {
-                    root: null,
-                    rootMargin: '0px',
-                    threshold: 0.5
-                };
-            
-            let observer = new IntersectionObserver(onChange, config);
-            images.forEach(img => observer.observe(img));
-        
-            function onChange(changes, observer) {
-                changes.forEach(change => {
-                if (change.intersectionRatio > 0) {
-                    // Stop watching and load the image
-                    loadImage(change.target);
-                    observer.unobserve(change.target);
-                }
-                });
-            }
-        
-        } else {
-            // IntersectionObserver NOT Supported
-            for(let i = 0; i < document.querySelectorAll('source, img').length; i++){
-                loadImage(document.querySelectorAll('source, img')[i]);
-            }
-        }
-        
-        function loadImage(image) {
-            // image.classList.add('fade-in');
-            if(image.dataset && image.dataset.src) {
-                image.src = image.dataset.src;
-            }
-            
-            if(image.dataset && image.dataset.srcset) {
-                image.srcset = image.dataset.srcset;
-            }
-        }
-    },
 
     Region(){
         Region.init();
@@ -72,17 +30,143 @@ const Methods = {
         });
     },
     ServiceWorker(){
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/files/service-worker.js', { scope: '/' }).then(function(registration) {
-                // Registration was successful
-                console.log('%cServiceWorker registration successful with scope:' + registration.scope + ' 💯', 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#5FCC47; color: #FDFDFD;');
-                }, function(err) {
-                // registration failed :(
-                console.log('%cServiceWorker registration failed: ' + err + " 🥺🥺", 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#FC2626; color: #FDFDFD;');
-                });
-            });
+        const HOUR = 1000 * 60 * 30;
+        const lessThanOneHourAgo = (date) => {
+            const anHourAgo = Date.now() - HOUR;
+            console.log(anHourAgo);
+            console.log(date)
+            return date > anHourAgo;
         }
+        let cookieSWExpiration = Global.GetCookie("SWExpiration");
+
+        if ('serviceWorker' in navigator) {
+            if(cookieSWExpiration == undefined){
+                document.cookie = "SWExpiration=" + (new Date().getTime() + HOUR);
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/files/service-worker.js', { scope: '/' }).then(function(registration) {
+                    // Registration was successful
+                    console.log('%cServiceWorker registration successful with scope:' + registration.scope + ' 💯', 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#5FCC47; color: #FDFDFD;');
+                    }, function(err) {
+                    // registration failed :(
+                    console.log('%cServiceWorker registration failed: ' + err + " 🥺🥺", 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#FC2626; color: #FDFDFD;');
+                    });
+                });
+            }else if(!lessThanOneHourAgo(cookieSWExpiration)){
+                document.cookie = "SWExpiration=" + (new Date().getTime() + HOUR);
+                caches.delete('dynamicCache').then(function(boolean) {
+                    console.log('%cDeleted dynamicCache', 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#5FCC47; color: #FDFDFD;');
+                });
+                caches.delete('staticCache').then(function(boolean) {
+                    console.log('%cDeleted staticCache', 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#5FCC47; color: #FDFDFD;');
+                });
+                navigator.serviceWorker.register('/files/service-worker.js', { scope: '/' }).then(function(registration) {
+                    registration.update();
+                    console.log('%cUpdated Service Worker', 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#09DDED; color: #FDFDFD;');
+                });
+            }else{
+                console.log("%cClient is under cache of Service Worker 💯", 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#5FCC47; color: #FDFDFD;');
+            }
+        }
+    },
+    TopBanner(){
+        function homeCountDown(){
+            const corBg = document.querySelector('.w-counter--bg').textContent; 
+            document.querySelector('.w-counter').style.backgroundColor = corBg;
+
+            
+            if(document.querySelector('.w-counter--container') != null){
+                // COUNTERBAR
+                let bar = document.createElement("span");
+                bar.classList.add("w-counter--container--counterbar")
+                let fill = document.createElement("span");
+                fill.classList.add("w-counter--bar");
+                document.querySelector(".w-counter--container").appendChild(bar);
+                document.querySelector(".w-counter--container--counterbar").appendChild(fill);
+                document.querySelector(".w-counter--container--counterbar").style.backgroundColor = corBg;
+
+                document.querySelector('.w-counter--container').classList.remove('hide-important');
+                let dateFim = document.querySelector('.w-counter--end').textContent;
+                dateFim = dateFim.split('/');
+                dateFim[2] = dateFim[2].split(' ');
+                dateFim = `${dateFim[2][0]}/${dateFim[0]}/${dateFim[1]} ${dateFim[2][1]}`;
+                // console.log(dateFim);
+                const end = new Date(dateFim);
+            
+                const _second = 1000;
+                const _minute = _second * 60;
+                const _hour = _minute * 60;
+                const _day = _hour * 24;
+                let clock = 0;
+                function showRemaining() {
+                    let now = new Date();
+                    let distance = end - now;
+            
+                    if (distance <= 0) {
+                        clearInterval(clock);
+                        document.querySelector('.w-counter--container').classList.add('hidden')
+                        if(document.querySelector('.w-counter--cupom') != null){
+                            document.querySelector('.w-counter--cupom').classList.remove('hidden')
+                            document.querySelector('.w-counter-copy').classList.remove('hidden')
+                        }
+                        return;
+                    }
+                    let days = Math.floor(distance / _day);
+                    let hours = Math.floor(distance / 36e5);
+                    let minutes = Math.floor((distance % _hour) / _minute);
+                    let seconds = Math.floor((distance % _minute) / _second);
+                    
+                    // let dayCounter = document.querySelector('.w-counter--day');
+                    let hourCounter = document.querySelector('.w-counter--hour');
+                    let minuteCounter = document.querySelector('.w-counter--minutes');
+                    let secondsCounter = document.querySelector('.w-counter--seconds');
+                    const diasText = document.querySelector('.w-counter--info')
+
+                    let width = now.getTime() / end.getTime() * 100;
+                    document.querySelector(".w-counter--bar").style.width = width + "%";
+
+                    // dayCounter.innerHTML = days;
+                    // diasText.textContent = days == 1 ? 'dia' : 'dias';
+                    hourCounter.innerHTML = hours < 10 ? '0' + hours : hours;
+                    minuteCounter.innerHTML = minutes < 10 ? '0' + minutes : minutes;
+                    secondsCounter.innerHTML = seconds < 10 ? '0' + seconds : seconds;
+                }
+
+            clock = setInterval(showRemaining, 1000);
+        }
+        };
+        function copiarTopBanner() {
+            const btnCopy = document.querySelector('.w-counter-copy');
+            const cupomToCopy = document.querySelector('.w-counter--cupom');
+            btnCopy.addEventListener('click', function (e) {
+                e.preventDefault;
+                cupomToCopy.select()
+                document.execCommand('copy');
+                btnCopy.textContent = "COPIADO";
+                btnCopy.classList.add("btn-success");
+                setTimeout(() => {
+                    btnCopy.textContent = "COPIAR";
+                    btnCopy.classList.remove("btn-success");
+                }, 3000);
+            })
+        }
+
+
+        setTimeout(function() {
+            if(document.querySelector('.w-counter-copy') != null){
+                copiarTopBanner();
+            }
+            if(document.querySelector('.w-counter') != null){
+                if(Global.BrowserVendor() == 'safari/webkit'){
+                    setTimeout(() => {
+                        homeCountDown();
+                    }, 3000);
+                }
+                else{
+                    homeCountDown();
+                }
+                // $('.w-counter--slick').slick();
+            }
+        }, 500);
     },
     General(){
         /**201812112311*/
@@ -1270,7 +1354,7 @@ const Methods = {
                 closeMenu.addClass('lr-search-visible');
             })
             closeMenu.on('click', () => {
-                if(BrowserVendor == 'safari/webkit'){
+                if(Global.BrowserVendor() == 'safari/webkit'){
                     try{
                         buscaNeemu.removeClass('lr-search-visible');
                         closeMenu.removeClass('lr-search-visible');
@@ -1504,28 +1588,28 @@ const Methods = {
         };
         // ------------- DETECT SAFARI
         // var isSafari = /^((?!chrome|android|crios|fxios).)*safari/i.test(navigator.userAgent);
-        var BrowserVendor = "";
-        (function(){
-            if(navigator.vendor.match(/google/i)) {
-                BrowserVendor = 'chrome/blink';
-            }
-            else if(navigator.vendor.match(/apple/i)) {
-                BrowserVendor = 'safari/webkit';
-            }
-            else if(navigator.userAgent.match(/firefox\//i)) {
-                BrowserVendor = 'firefox/gecko';
-            }
-            else if(navigator.userAgent.match(/edge\//i)) {
-                BrowserVendor = 'edge/edgehtml';
-            }
-            else if(navigator.userAgent.match(/trident\//i)) {
-                BrowserVendor = 'ie/trident';
-            }
-            else
-            {
-                BrowserVendor = navigator.userAgent + "\n" + navigator.vendor;
-            }
-        })();
+        // var BrowserVendor = "";
+        // (function(){
+        //     if(navigator.vendor.match(/google/i)) {
+        //         BrowserVendor = 'chrome/blink';
+        //     }
+        //     else if(navigator.vendor.match(/apple/i)) {
+        //         BrowserVendor = 'safari/webkit';
+        //     }
+        //     else if(navigator.userAgent.match(/firefox\//i)) {
+        //         BrowserVendor = 'firefox/gecko';
+        //     }
+        //     else if(navigator.userAgent.match(/edge\//i)) {
+        //         BrowserVendor = 'edge/edgehtml';
+        //     }
+        //     else if(navigator.userAgent.match(/trident\//i)) {
+        //         BrowserVendor = 'ie/trident';
+        //     }
+        //     else
+        //     {
+        //         BrowserVendor = navigator.userAgent + "\n" + navigator.vendor;
+        //     }
+        // })();
         // // ------------- SET VITRINE IMG
         // window.setVitrineDataImg = function(){
         //     if(BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident'){
@@ -1753,202 +1837,6 @@ const Methods = {
         //     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
         //     if (match) return match[2];
         // }
-        function homeCountDown(){
-            const corBg = document.querySelector('.w-counter--bg').textContent; 
-            document.querySelector('.w-counter').style.backgroundColor = corBg;
-
-            
-            if(document.querySelector('.w-counter--container') != null){
-                // COUNTERBAR
-                let bar = document.createElement("span");
-                bar.classList.add("w-counter--container--counterbar")
-                let fill = document.createElement("span");
-                fill.classList.add("w-counter--bar");
-                document.querySelector(".w-counter--container").appendChild(bar);
-                document.querySelector(".w-counter--container--counterbar").appendChild(fill);
-                document.querySelector(".w-counter--container--counterbar").style.backgroundColor = corBg;
-
-                document.querySelector('.w-counter--container').classList.remove('hide-important');
-                let dateFim = document.querySelector('.w-counter--end').textContent;
-                dateFim = dateFim.split('/');
-                dateFim[2] = dateFim[2].split(' ');
-                dateFim = `${dateFim[2][0]}/${dateFim[0]}/${dateFim[1]} ${dateFim[2][1]}`;
-                // console.log(dateFim);
-                const end = new Date(dateFim);
-            
-                const _second = 1000;
-                const _minute = _second * 60;
-                const _hour = _minute * 60;
-                const _day = _hour * 24;
-                let clock = 0;
-                function showRemaining() {
-                    let now = new Date();
-                    let distance = end - now;
-            
-                    if (distance <= 0) {
-                        clearInterval(clock);
-                        document.querySelector('.w-counter--container').classList.add('hidden')
-                        if(document.querySelector('.w-counter--cupom') != null){
-                            document.querySelector('.w-counter--cupom').classList.remove('hidden')
-                            document.querySelector('.w-counter-copy').classList.remove('hidden')
-                        }
-                        return;
-                    }
-                    let days = Math.floor(distance / _day);
-                    let hours = Math.floor(distance / 36e5);
-                    let minutes = Math.floor((distance % _hour) / _minute);
-                    let seconds = Math.floor((distance % _minute) / _second);
-                    
-                    // let dayCounter = document.querySelector('.w-counter--day');
-                    let hourCounter = document.querySelector('.w-counter--hour');
-                    let minuteCounter = document.querySelector('.w-counter--minutes');
-                    let secondsCounter = document.querySelector('.w-counter--seconds');
-                    const diasText = document.querySelector('.w-counter--info')
-
-                    let width = now.getTime() / end.getTime() * 100;
-                    document.querySelector(".w-counter--bar").style.width = width + "%";
-
-                    // dayCounter.innerHTML = days;
-                    // diasText.textContent = days == 1 ? 'dia' : 'dias';
-                    hourCounter.innerHTML = hours < 10 ? '0' + hours : hours;
-                    minuteCounter.innerHTML = minutes < 10 ? '0' + minutes : minutes;
-                    secondsCounter.innerHTML = seconds < 10 ? '0' + seconds : seconds;
-                }
-
-            clock = setInterval(showRemaining, 1000);
-        }
-        };
-        function copiarTopBanner() {
-            const btnCopy = document.querySelector('.w-counter-copy');
-            const cupomToCopy = document.querySelector('.w-counter--cupom');
-            btnCopy.addEventListener('click', function (e) {
-                e.preventDefault;
-                cupomToCopy.select()
-                document.execCommand('copy');
-                btnCopy.textContent = "COPIADO";
-                btnCopy.classList.add("btn-success");
-                setTimeout(() => {
-                    btnCopy.textContent = "COPIAR";
-                    btnCopy.classList.remove("btn-success");
-                }, 3000);
-            })
-        }
-
-
-        setTimeout(function() {
-            if(document.querySelector('.w-counter-copy') != null){
-                copiarTopBanner();
-            }
-            if(document.querySelector('.w-counter') != null){
-                if(BrowserVendor == 'safari/webkit'){
-                    setTimeout(() => {
-                        homeCountDown();
-                    }, 3000);
-                }
-                else{
-                    homeCountDown();
-                }
-                // $('.w-counter--slick').slick();
-            }
-        }, 500);
-        function homeCountDown(){
-            const corBg = document.querySelector('.w-counter--bg').textContent; 
-            document.querySelector('.w-counter').style.backgroundColor = corBg;
-
-            
-            if(document.querySelector('.w-counter--container') != null){
-                // COUNTERBAR
-                let bar = document.createElement("span");
-                bar.classList.add("w-counter--container--counterbar")
-                let fill = document.createElement("span");
-                fill.classList.add("w-counter--bar");
-                document.querySelector(".w-counter--container").appendChild(bar);
-                document.querySelector(".w-counter--container--counterbar").appendChild(fill);
-                document.querySelector(".w-counter--container--counterbar").style.backgroundColor = corBg;
-
-                document.querySelector('.w-counter--container').classList.remove('hide-important');
-                let dateFim = document.querySelector('.w-counter--end').textContent;
-                dateFim = dateFim.split('/');
-                dateFim[2] = dateFim[2].split(' ');
-                dateFim = `${dateFim[2][0]}/${dateFim[0]}/${dateFim[1]} ${dateFim[2][1]}`;
-                // console.log(dateFim);
-                const end = new Date(dateFim);
-            
-                const _second = 1000;
-                const _minute = _second * 60;
-                const _hour = _minute * 60;
-                const _day = _hour * 24;
-                let clock = 0;
-                function showRemaining() {
-                    let now = new Date();
-                    let distance = end - now;
-            
-                    if (distance <= 0) {
-                        clearInterval(clock);
-                        document.querySelector('.w-counter--container').classList.add('hidden')
-                        if(document.querySelector('.w-counter--cupom') != null){
-                            document.querySelector('.w-counter--cupom').classList.remove('hidden')
-                            document.querySelector('.w-counter-copy').classList.remove('hidden')
-                        }
-                        return;
-                    }
-                    let days = Math.floor(distance / _day);
-                    let hours = Math.floor(distance / 36e5);
-                    let minutes = Math.floor((distance % _hour) / _minute);
-                    let seconds = Math.floor((distance % _minute) / _second);
-                    
-                    // let dayCounter = document.querySelector('.w-counter--day');
-                    let hourCounter = document.querySelector('.w-counter--hour');
-                    let minuteCounter = document.querySelector('.w-counter--minutes');
-                    let secondsCounter = document.querySelector('.w-counter--seconds');
-                    const diasText = document.querySelector('.w-counter--info')
-
-                    let width = now.getTime() / end.getTime() * 100;
-                    document.querySelector(".w-counter--bar").style.width = width + "%";
-
-                    // dayCounter.innerHTML = days;
-                    // diasText.textContent = days == 1 ? 'dia' : 'dias';
-                    hourCounter.innerHTML = hours < 10 ? '0' + hours : hours;
-                    minuteCounter.innerHTML = minutes < 10 ? '0' + minutes : minutes;
-                    secondsCounter.innerHTML = seconds < 10 ? '0' + seconds : seconds;
-                }
-
-            clock = setInterval(showRemaining, 1000);
-        }
-        };
-        function copiarTopBanner() {
-            const btnCopy = document.querySelector('.w-counter-copy');
-            const cupomToCopy = document.querySelector('.w-counter--cupom');
-            btnCopy.addEventListener('click', function (e) {
-                e.preventDefault;
-                cupomToCopy.select()
-                document.execCommand('copy');
-                btnCopy.textContent = "COPIADO";
-                btnCopy.classList.add("btn-success");
-                setTimeout(() => {
-                    btnCopy.textContent = "COPIAR";
-                    btnCopy.classList.remove("btn-success");
-                }, 3000);
-            })
-        }
-
-
-        setTimeout(function() {
-            if(document.querySelector('.w-counter-copy') != null){
-                copiarTopBanner();
-            }
-            if(document.querySelector('.w-counter') != null){
-                if(BrowserVendor == 'safari/webkit'){
-                    setTimeout(() => {
-                        homeCountDown();
-                    }, 3000);
-                }
-                else{
-                    homeCountDown();
-                }
-                // $('.w-counter--slick').slick();
-            }
-        }, 500);
     }
 }
 

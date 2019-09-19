@@ -68,10 +68,58 @@ const Methods = {
               }
             });
           }
+    },
+    isInViewport(){
+        let images = document.querySelectorAll('source, img');
+        
+        if ('IntersectionObserver' in window) {
+            // IntersectionObserver Supported
+            let config = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.5
+                };
+            
+            let observer = new IntersectionObserver(onChange, config);
+            images.forEach(img => observer.observe(img));
+        
+            function onChange(changes, observer) {
+                changes.forEach(change => {
+                if (change.intersectionRatio > 0) {
+                    // Stop watching and load the image
+                    loadImage(change.target);
+                    observer.unobserve(change.target);
+                }
+                });
+            }
+        
+        } else {
+            // IntersectionObserver NOT Supported
+            for(let i = 0; i < document.querySelectorAll('source, img').length; i++){
+                loadImage(document.querySelectorAll('source, img')[i]);
+            }
+        }
+        
+        function loadImage(image) {
+            // image.classList.add('fade-in');
+            if(image.dataset && image.dataset.src) {
+                image.src = image.dataset.src;
+            }
+            
+            if(image.dataset && image.dataset.srcset) {
+                image.srcset = image.dataset.srcset;
+            }
+        }
+    },
+    getCookie(name){
+        var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        if (match) return match[2];
     }
 }
 
 export default {
     Polyfill: Methods.Polyfill,
-    BrowserVendor: Methods.getBrowserVendor
+    BrowserVendor: Methods.getBrowserVendor,
+    isInViewport: Methods.isInViewport,
+    GetCookie: Methods.getCookie
 }
