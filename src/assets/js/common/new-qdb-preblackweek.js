@@ -1,6 +1,6 @@
 //form
 
-function sendBFForm() {
+window.onload = function sendBFForm() {
     //Form BlackFriday
     var btn = document.querySelector('#bf_form .btnSubmit');
     var lightBox = document.createElement('div');
@@ -61,4 +61,3 @@ function sendBFForm() {
         }
     });
 }
-window.onload = sendBFForm();

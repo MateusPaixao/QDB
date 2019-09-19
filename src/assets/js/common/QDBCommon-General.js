@@ -1779,7 +1779,7 @@ $(document).ready(function(){
 
 });
 
-function sendNLForm() {
+window.onload = function sendNLForm() {
     //Form newsleter
     console.log("newsletter form here");
     var btn = document.querySelector('#nl_form #submit_button');    
@@ -1830,4 +1830,3 @@ function sendNLForm() {
         }
     });
 }
-window.onload = sendNLForm();
