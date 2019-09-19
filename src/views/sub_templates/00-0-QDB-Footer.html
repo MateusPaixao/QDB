@@ -2,21 +2,19 @@
     <div class="shell">
         <div class="_footer-line-size-0">
             <div class="_footer-line-size-3 subscribe">
-                <form>
+                <form id="nl_form" method="post" action="https://x.relaciona.quemdisseberenice.com.br/ats/post.aspx">
                     <div class="form-controls">
-                        <label style="display: none;" for="mail" class="form-label">receba nossas novidades por e-mail diariamente</label>
-                        <input type="hidden" name="cr" value="100299" />
-                        <input type="hidden" name="fm" value="149" />
-                        <input type="hidden" id="s_ds_origem_cadastro" name="ds_origem_cadastro" value="site" />
-                        <input type="hidden" id="s_ds_campanha" name="ds_campanha" value="newsletter" />
-                        <input type="hidden" id="s_dt_cadastro" name="dt_cadastro" value="" />
-                        <input type="email" id="s_ds_email" name="ds_email" value="" placeholder="receba nossas novidades por e-mail" class="subscribe-field" />
-                        <label for="mail" style="display: none;" class="form-label form-label-sub web">a frequência de envios pode variar de acordo com a sua interação</label>
-                    </div><!-- /.form-controls -->
-                    <button id='enviar_form_footer' class="subscribe-btn" placeholder="enviar"> cadastrar <span class="subscribe-percent"></span><i class="success"></i></button>
-                    <label for="mail" style="display: none;" class="form-label form-label-sub mobile">a frequência de envios pode variar de acordo com a sua interação</label>
+                        <input type="text" name="validation-field" class="hidden" style="display: none;"/>
+                        <input type="email" id="nl_email" name="nl_email" placeholder="receba nossas novidades por e-mail" class="subscribe-field" required='required'/>
+                    </div><!-- /.form-controls -->            
+                    <button id='submit_button' class="subscribe-btn" placeholder="enviar"> cadastrar <span class="subscribe-percent"></span><i class="success"></i></button>
+                    <div class="form-success" style="display: none;">
+                        <h5>Seu e-mail foi cadastrado com sucesso</h5>
+                    </div>
+                    <div class="form-error" style="display: none;">
+                        <h5>Ops, algo deu errado. Tente novamente mais tarde.</h5>
+                    </div>
                 </form>
-                
             </div>
             <div class="_footer-line-size-2">
                 <p class="_upperTxt">Siga a gente nas <br />redes sociais:</p>
@@ -177,7 +175,7 @@
 <!--VUE-->
 <script src="https://qbbr.vteximg.com.br/arquivos/vue2.min.js"></script>
 
-<script defer="true" async="true" src="/arquivos/QDBCommon-General.js?v=24-08-2019"></script>
+<script defer="true" async="true" src="/arquivos/QDBCommon-General.js?v=16-09-2019"></script>
 <!--<script defer="true" async="true" src="https://qbbr.vteximg.com.br/arquivos/_2019-qdb-leaderboardBanner.js"></script>-->
 <script defer="true" async="true" src="/arquivos/dataLayer-qdb.js?v=29052019"></script>
 
