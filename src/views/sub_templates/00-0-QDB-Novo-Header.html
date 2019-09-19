@@ -3,7 +3,6 @@
         <div class="header__first-column">
             <div class="header__container--access">
                 <span class="header__accessibility"></span>
-                <span id="regiao" class="header__region"></span>
             </div>
             <span class="header__logo">
                 <a href="/">
@@ -24,9 +23,6 @@
                                             <vtex.cmc:SVGHeaderCoracaoMenu />
                                         </div>
                                         <div class="header__clube--text">
-                                            <p class="header__clube--name">Olá, Berenice</p>
-                                            <p class="header__clube--msg-saldo">Saldo Clube das Berês</p>
-                                            <p class="header__clube--saldo">R$ 0,00</p>
                                         </div>
                                     </div>
                                     <div class="header__clube--acessiblity">
@@ -36,10 +32,10 @@
                                 </div>
                                 <div class="header__clube--options">
                                     <div class="header__clube--menu">
-                                        <a href="#">Meus Pedidos</a>
+                                        <a href="/_secure/account/#/orders">Meus Pedidos</a>
                                     </div>
                                     <div class="header__clube--menu">
-                                        <a href="#">Meus Dados</a>
+                                        <a href="/_secure/account/#/profile">Meus Dados</a>
                                     </div>
                                 </div>
                                 <div class="header__clube--banner">
@@ -50,11 +46,11 @@
                             <li class="header__menu"><a href="/">Início</a></li>
                             <li class="header__menu">
                                 Maquiagem
-                                <input type="checkbox" class="accordion-checkbox" />
+                                <input type="checkbox" name="department" class="accordion-checkbox" />
                                 <ul class="header__menu--items">
                                     <li class="header__menu--department has--sub">
                                         Boca
-                                        <input type="checkbox" class="accordion-checkbox" />
+                                        <input type="checkbox" name="subcategorie" class="accordion-checkbox" />
                                         <ul class="header__menu--categories">
                                             <li class="header__menu--category"><a href="/maquiagem"> Ver tudo </a></li>
                                             <li class="header__menu--category"><a href="/maquiagem/olhos/pincel"> Pincel </a></li>
@@ -68,7 +64,7 @@
                                     </li>
                                     <li class="header__menu--department has--sub">
                                         Olhos
-                                        <input type="checkbox" class="accordion-checkbox" />
+                                        <input type="checkbox" name="subcategorie" class="accordion-checkbox" />
                                         <ul class="header__menu--categories">
                                             <li class="header__menu--category"><a href="/maquiagem/olhos"> Ver tudo </a></li>
                                             <li class="header__menu--category"><a href="/maquiagem/olhos/paleta"> Paleta de Sombras</a></li>
@@ -85,7 +81,7 @@
                                     </li>
                                     <li class="header__menu--department has--sub">
                                         Sobrancelhas
-                                        <input type="checkbox" class="accordion-checkbox" />
+                                        <input type="checkbox" name="subcategorie" class="accordion-checkbox" />
                                         <ul class="header__menu--categories">
                                             <li class="header__menu--category"><a href="/maquiagem/sobrancelhas"> Ver tudo </a></li>
                                             <li class="header__menu--category"><a href="/maquiagem/sobrancelhas/caneta"> Caneta </a></li>
@@ -97,7 +93,7 @@
                                     </li>
                                     <li class="header__menu--department has--sub">
                                         Rosto
-                                        <input type="checkbox" class="accordion-checkbox" />
+                                        <input type="checkbox" name="subcategorie" class="accordion-checkbox" />
                                         <ul class="header__menu--categories">
                                             <li class="header__menu--category"><a href="/maquiagem/rosto"> Ver tudo </a></li>
                                             <li class="header__menu--category"><a href="/maquiagem/rosto/base"> Base </a></li>
@@ -119,7 +115,7 @@
                             </li>
                             <li class="header__menu">
                                 Perfumaria
-                                <input type="checkbox" class="accordion-checkbox" />
+                                <input type="checkbox" name="department" class="accordion-checkbox" />
                                 <ul class="header__menu--items">
                                     <li class="header__menu--department">
                                         <a href="/perfumaria/eau-de-parfum">
@@ -140,7 +136,7 @@
                             </li>
                             <li class="header__menu">
                                 Cabelo
-                                <input type="checkbox" class="accordion-checkbox" />
+                                <input type="checkbox" name="department" class="accordion-checkbox" />
                                 <ul class="header__menu--items">
                                     <li class="header__menu--department">
                                         <a href="/cabelos/pra-colorir">
@@ -171,11 +167,11 @@
                             </li>
                             <li class="header__menu">
                                 Corpo e Banho
-                                <input type="checkbox" class="accordion-checkbox" />
+                                <input type="checkbox" name="department" class="accordion-checkbox" />
                                 <ul class="header__menu--items">
                                     <li class="header__menu--department has--sub">
                                         Hidratante desodorante
-                                        <input type="checkbox" class="accordion-checkbox" />
+                                        <input type="checkbox" name="subcategorie" class="accordion-checkbox" />
                                         <ul class="header__menu--categories">
                                             <li class="header__menu--category"><a href="/corpo-e-banho/hidratante-desodorante/creme-hidratante-pra-maos"> Creme hidratante para mãos </a></li>
                                             <li class="header__menu--category"><a href="/corpo-e-banho/hidratante-desodorante/hidratante-desodorante-corporal"> Hidratante desodorante corporal </a></li>
@@ -184,7 +180,7 @@
                                     </li>
                                     <li class="header__menu--department has--sub">
                                         Sabonete
-                                        <input type="checkbox" class="accordion-checkbox" />
+                                        <input type="checkbox" name="subcategorie" class="accordion-checkbox" />
                                         <ul class="header__menu--categories">
                                             <li class="header__menu--category"><a href="/corpo-e-banho/sabonetes/sabonete-em-barra"> Sabonete em barra </a></li>
                                             <li class="header__menu--category"><a href="/corpo-e-banho/sabonetes"> Ver tudo </a></li>
@@ -199,7 +195,7 @@
                             </li>
                             <li class="header__menu">
                                 Acessórios
-                                <input type="checkbox" class="accordion-checkbox" />
+                                <input type="checkbox" name="department" class="accordion-checkbox" />
                                 <ul class="header__menu--items">
                                     <li class="header__menu--department">
                                         <a href="/acessorios-para-maquiagem/apontador">
@@ -245,7 +241,7 @@
                             </li>
                             <li class="header__menu">
                                 Unhas
-                                <input type="checkbox" class="accordion-checkbox" />
+                                <input type="checkbox" name="department" class="accordion-checkbox" />
                                 <ul class="header__menu--items">
                                     <li class="header__menu--department">
                                         <a href="/unhas/esmaltes">
@@ -271,7 +267,7 @@
                             </li>
                             <li class="header__menu">
                                 Kits e Presentes
-                                <input type="checkbox" class="accordion-checkbox" />
+                                <input type="checkbox" name="department" class="accordion-checkbox" />
                                 <ul class="header__menu--items">
                                     <li class="header__menu--department">
                                         <a href="/kits-e-presentes/kits/">
@@ -292,7 +288,7 @@
                             </li>
                             <li class="header__menu only--mobile">
                                 Dicas
-                                <input type="checkbox" class="accordion-checkbox" />
+                                <input type="checkbox" name="department" class="accordion-checkbox" />
                                 <ul class="header__menu--items">
 
                                     <li class="header__menu--department">
@@ -360,7 +356,8 @@
                     <input type="submit" id="search-btn" value="" class="header__search--btn search-btn" />
                 </label>
             </form>
-
+            <span id="regiao" class="header__region"></span>
+            
             <nav class="header__container--nav">
                 <ul class="header__nav">
                     <li class="header__nav--list">

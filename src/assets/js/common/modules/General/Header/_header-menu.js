@@ -8,25 +8,30 @@ const Methods = {
         Methods.observeScroll();
         Methods.setActiveAccordion();
         Methods.updateNumberMinicart();
+        Methods.isLogged();
     },
+
     openCloseMenu() {
         CacheSelector.header.menuHamContainer.addEventListener('click', (el) => {
             if (el.target == CacheSelector.header.menuHamContainer || el.target == CacheSelector.header.menuHamText) {
+                el.stopPropagation;
+                el.preventDefault;
                 CacheSelector.header.menuHam.classList.toggle('is--active');
                 CacheSelector.header.menuList.classList.toggle('js--menu-close');
                 CacheSelector.$globals.body.classList.toggle('menu--open');
                 el.target.classList.add('is--active');
-            } else {
-                el.preventDefault
             }
         })
     },
+
     closeMenu() {
         CacheSelector.header.menuClose.addEventListener('click', () => {
             CacheSelector.header.menuHam.classList.toggle('is--active');
             CacheSelector.header.menuList.classList.toggle('js--menu-close');
+            CacheSelector.$globals.body.classList.toggle('menu--open');
         })
     },
+
     observeScroll() {
         window.addEventListener('scroll', function (ev) {
             const body = document.querySelector('body');
@@ -37,6 +42,7 @@ const Methods = {
             return this.scrollY
         })
     },
+
     setActiveAccordion() {
         const checkbox = document.querySelectorAll('.accordion-checkbox');
         checkbox.forEach((checkbox) => {
@@ -45,12 +51,34 @@ const Methods = {
             })
         })
     },
+    
     updateNumberMinicart() {
-        $(window).on('orderFormUpdated.vtex', function() {
+        $(window).on('orderFormUpdated.vtex', function () {
             let itensInCart = document.querySelector('.minicart--itens');
             itensInCart.textContent = vtexjs.checkout.orderForm.items.length;
-         });
-    }
+        });
+    },
+
+    isLogged() {
+        const url = "/no-cache/profileSystem/getProfile";
+        const userInfos = document.querySelector('.header__clube--text');
+        fetch(url)
+            .then(res => res.json())
+            .then((log) => {
+                if(log.IsUserDefined){
+                    userInfos.innerHTML = `
+                        <p class="header__clube--name">
+                            Olá, ${log.FirstName}
+                        </p>` 
+                }
+                else{
+                    userInfos.innerHTML =
+                    `<a class="header__clube--account" href="/account"> 
+                        Entre ou cadastre-se
+                    </a>`
+                } 
+            })
+    },
 }
 
 export default {

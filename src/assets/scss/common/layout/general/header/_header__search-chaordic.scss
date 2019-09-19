@@ -5,7 +5,7 @@ html {
         overflow-y: scroll;
         max-height: 70vh;
         top: 87px !important;
-        left: 15% !important;
+        left: 20% !important;
         @include d('768px'){
             width: 100vw !important;
             left: 0 !important;
@@ -29,6 +29,9 @@ html {
         /* Handle on hover */
         &::-webkit-scrollbar-thumb:hover {
             background: $secondaryColor;
+        }
+        &.is--active{
+            display: block;
         }
     }
     .ac-overlay{
