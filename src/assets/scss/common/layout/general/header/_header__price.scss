@@ -1,24 +1,41 @@
 .header__region{
-    width: 50%;
+    width: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
     .header__region__selection{
         @include sans(.75rem, $g-primary, 400, initial);
         border: solid 1px $g-primary;
         border-radius: 2rem;
         padding: 2px;
     }
-    position: relative;
-    &.--active, &:hover{
-        &::after{
-            content: 'Escolha a sua região';
-            display: flex;
-            padding: 5px;
-            background: $safflower;
-            color: $w-secundary;
-            position: absolute;    
-            right: -155%;
-            top: -2px;
-            border-radius: 2px;
+    &-container{
+        @include d('768px'){
+            width: auto;
+        }
+    }
+    // &.--active, &:hover{
+    //     &::after{
+    //         content: 'Escolha a sua região';
+    //         display: flex;
+    //         padding: 5px;
+    //         background: $safflower;
+    //         color: $w-secundary;
+    //         position: absolute;    
+    //         right: -110px;
+    //         top: -2px;
+    //         border-radius: 2px;
+    //     }
+    // }
+}
+.scrollDown{
+    .header__region{
+        @include d('768px'){
+        display: none;
+            &-container{
+                display: none;
+            }
         }
     }
 }
-           

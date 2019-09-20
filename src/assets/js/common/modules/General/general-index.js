@@ -1,13 +1,15 @@
 // import Region from "./Regional/PriceContainer.jsx";
 import Header from "./Header/_header-index";
 import Minicart from './Minicart/_minicart-index';
+// import Acessibilidade from './Acessibilidade/_acessibilidade-index';
 import PriceContainer from "./Regional/PriceContainer.jsx";
 
 const Methods = {
     init(){
         Header.init();
         Minicart.init();
-        // PriceContainer.init();
+        // Acessibilidade.init();
+        PriceContainer.init();
     },
 }
 

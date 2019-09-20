@@ -69,8 +69,8 @@
         }
 
         &::before {
-            transition: .1s ease-in-out;
             content: '>';
+            transition: .1s ease-in-out;
             font-size: 1.5em;
             position: absolute;
             right: 15px;
@@ -99,17 +99,21 @@
             font-weight: 500;
             width: 100%;
             flex-direction: column;
+            text-decoration: underline;
             position: relative;
 
-            &:hover{
+            &:hover {
                 background: darken($color: $principalColor, $amount: 10);
             }
 
-            &.has--sub{
+            &.has--sub {
+                text-decoration: none;
                 font-weight: 600;
-                &:hover{
+
+                &:hover {
                     background: initial;
                 }
+
                 &::before {
                     transition: .3s ease-in-out;
                     content: '+';
@@ -117,7 +121,7 @@
                     position: absolute;
                     right: 15px;
                 }
-    
+
                 &.is--open {
                     &:before {
                         content: '-';
@@ -128,7 +132,7 @@
             .accordion-checkbox {
                 height: 25px !important;
             }
-           
+
         }
 
         &--categories {
@@ -142,7 +146,8 @@
         &--category {
             text-decoration: underline;
             width: 80%;
-            &:hover{
+
+            &:hover {
                 background: darken($color: $principalColor, $amount: 10);
             }
         }
@@ -179,16 +184,19 @@
                 content: '';
             }
         }
-        &.ajuda{
+
+        &.ajuda {
             background-color: #342E37;
             color: $principalColor;
-            &::before{
+
+            &::before {
                 content: '?';
                 display: block;
                 border: 1px solid #FDFDFD;
                 color: #FDFDFD;
                 border-radius: 100%;
                 width: 20px;
+                padding: 10px;
                 height: 20px;
                 font-size: .8em;
                 display: flex;
@@ -200,9 +208,10 @@
 
     &__menu-wrapper {
         width: 100%;
-        .header__menu{
-            &:nth-child(2){
-                &:before{
+
+        .header__menu {
+            &:nth-child(2) {
+                &:before {
                     display: none;
                 }
             }
@@ -219,7 +228,7 @@
             padding: 15px;
         }
 
-        &--name{
+        &--name {
             font-weight: bold;
             font-size: 1.4em;
         }
@@ -230,9 +239,10 @@
             width: 100%;
             align-items: center;
         }
-        &--account{
+
+        &--account {
             font-weight: bold;
-            font-size: 18px;
+            font-size: 1.2em;
             line-height: 22px;
             text-decoration-line: underline;
             color: $secondaryColor;
@@ -256,13 +266,12 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: flex-end;
+            position: relative;
 
             span:last-child {
-                background: url(https://qbbr.vteximg.com.br/arquivos/access-black.png) center center no-repeat;
-                font-size: 0;
-                background-size: 15px 15px;
-                width: 15px;
-                height: 15px;
+                position: relative;
+                width: 20px;
+                height: 20px;
             }
 
             @include d('768px') {
@@ -286,6 +295,7 @@
             justify-content: center;
             height: 100%;
             font-weight: bold;
+
             &:first-child {
                 border-right: 1px solid lighten($secondaryColor, 20);
             }
@@ -313,6 +323,24 @@
             z-index: 2;
             color: #fff;
             font-size: 1.5em;
+            text-align: center;
+        }
+
+        .box-acessibilidade.ajuda {
+            position: absolute;
+            z-index: 3;
+            left: 0;
+            bottom: 0;
+
+            &:hover {
+                z-index: 3;
+
+                .box-content {
+                    position: absolute;
+                    left: initial;
+                    right: 30px;
+                }
+            }
         }
     }
 
@@ -323,6 +351,7 @@
 
 .only--mobile {
     display: none;
+
     @include d('768px') {
         display: flex;
     }

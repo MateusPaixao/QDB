@@ -16,6 +16,9 @@ export default {
         formBusca: document.querySelector('.header__search'),
         formBuscaInput: document.querySelector('.header__search--input')
     },
+    body: {
+        containerGroup: document.querySelector('.container-group')
+    },
     neemu: {
         acContainer: document.querySelector('.ac-container'),
     }

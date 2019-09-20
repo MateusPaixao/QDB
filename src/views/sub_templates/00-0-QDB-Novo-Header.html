@@ -2,7 +2,9 @@
     <div class="header__container">
         <div class="header__first-column">
             <div class="header__container--access">
-                <span class="header__accessibility"></span>
+                <span class="header__accessibility">
+                    <vtex.cmc:QDBacessibilidade />
+                </span>
             </div>
             <span class="header__logo">
                 <a href="/">
@@ -27,7 +29,7 @@
                                     </div>
                                     <div class="header__clube--acessiblity">
                                         <span class="header__clube--close js--close-menu">X</span>
-                                        <span class="header__clube--acessibility">AC</span>
+                                        <span class="header__clube--acessibility"><vtex.cmc:QDBacessibilidade /></span>
                                     </div>
                                 </div>
                                 <div class="header__clube--options">
@@ -348,15 +350,22 @@
             </div>
         </div>
         <div class="header__second-column">
-            <form action="//busca.quemdisseberenice.com.br/busca" method="get" class="header__search">
-                <input type="search" name="q" id="q" value="" placeholder="O que procura hoje?"
-                    class="header__search--input search-field" />
-                <label for="search-btn" class="header__search--label">
-                    <vtex.cmc:SVGHeaderSearchBtn />
-                    <input type="submit" id="search-btn" value="" class="header__search--btn search-btn" />
-                </label>
-            </form>
-            <span id="regiao" class="header__region"></span>
+            <div class="header__middle-container">
+                <form action="//busca.quemdisseberenice.com.br/busca" method="get" class="header__search">
+                    <input type="search" name="q" id="q" value="" placeholder="O que procura hoje?"
+                        class="header__search--input search-field" />
+                    <label for="search-btn" class="header__search--label">
+                        <vtex.cmc:SVGHeaderSearchBtn />
+                        <input type="submit" id="search-btn" value="" class="header__search--btn search-btn" />
+                    </label>
+                    
+                </form>
+                <div class="header__region-container">
+                    <label for="selectRegiao">sua região:</label>
+                    <span id="regiao" class="header__region"><label for="selectRegiao" class="header__region__label"></label></span>
+                </div>
+
+            </div>    
             
             <nav class="header__container--nav">
                 <ul class="header__nav">
@@ -832,8 +841,14 @@
                         </div>
                     </li>
                     <li class="header__nav--list">
+                            <a href="/lancamentos">
+                                lançamentos
+                            </a>
+                        </li>
+
+                    <li class="header__nav--list">
                         <a href="/promocao">
-                            promoções
+                            promoções 
                         </a>
                     </li>
                 </ul>

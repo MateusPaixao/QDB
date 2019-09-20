@@ -140,16 +140,47 @@ body {
 
     }
 
-    &__search {
+    &__middle-container {
+        margin: auto 0;
+        display: flex;
         width: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__region-container {
+        width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        label[for="selectRegiao"] {
+            white-space: nowrap;
+            width: auto;
+            margin-right: 1em;
+            @include d('768px'){
+                display: none;
+            }
+        }
+    }
+
+    &__search {
+        width: 70%;
         display: flex;
         margin: auto 0;
         align-items: center;
         border-bottom: 1px solid $secondaryColor;
-
+        @include d('768px') {
+            width: 70%
+        }
         &--input {
             width: 90%;
-            padding: 2px;
+            padding: 0;
+            height: 100%;
+
+            @include d('768px') {
+                width: 90%;
+            }
         }
 
         &--label {
@@ -157,7 +188,9 @@ body {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 5px;
+            margin-right: 5px;
+            padding: 2px;
+            cursor: pointer;
         }
 
         &--btn {
@@ -211,7 +244,8 @@ body {
 
                 }
             }
-            &.account{
+
+            &.account {
                 a {
                     display: flex;
                 }
@@ -241,6 +275,7 @@ body {
 
         @include d('768px') {
             width: 20%;
+            justify-content: flex-start;
         }
     }
 
@@ -303,7 +338,7 @@ body {
 
     &__nav {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         width: 100%;
         cursor: pointer;
@@ -318,6 +353,16 @@ body {
             display: flex;
             align-items: center;
             justify-content: center;
+
+            &:first-child {
+                margin-left: 0;
+                padding-left: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+                padding-right: 0;
+            }
 
             &:hover {
                 font-weight: bold;
@@ -406,6 +451,9 @@ body {
 
     .header__container--nav {
         display: none;
+    }
+    .header__search{
+        width: 90%;
     }
 
     .header__nav--especial {

@@ -9,8 +9,19 @@ const Methods = {
         Methods.setActiveAccordion();
         Methods.updateNumberMinicart();
         Methods.isLogged();
+        Methods.marginTopMenuHeight()
+        
     },
 
+    marginTopMenuHeight() {
+        const containerGroup = CacheSelector.body.containerGroup;
+        const header = CacheSelector.header.header;
+        const elementToMargin = containerGroup.nextElementSibling;
+        let headerHeight = header.offsetHeight + 10;
+
+        elementToMargin.style.margin = `${headerHeight}px`;
+
+    },
     openCloseMenu() {
         CacheSelector.header.menuHamContainer.addEventListener('click', (el) => {
             if (el.target == CacheSelector.header.menuHamContainer || el.target == CacheSelector.header.menuHamText) {
@@ -34,9 +45,11 @@ const Methods = {
 
     observeScroll() {
         window.addEventListener('scroll', function (ev) {
-            const body = document.querySelector('body');
+            const body = CacheSelector.$globals.body;
 
             this.oldScroll > this.scrollY ? body.classList.remove('scrollDown') : body.classList.add('scrollDown');
+            this.oldScroll == 0 && body.classList.contains('scrollDown') ? body.classList.remove('scrollDown') : null; 
+            
             this.oldScroll = this.scrollY;
 
             return this.scrollY
@@ -47,7 +60,7 @@ const Methods = {
         const checkbox = document.querySelectorAll('.accordion-checkbox');
         checkbox.forEach((checkbox) => {
             checkbox.addEventListener('click', () => {
-                checkbox.checked ? checkbox.parentElement.classList.add('is--open') : checkbox.parentElement.classList.remove('is--open')
+                checkbox.checked ? checkbox.parentElement.classList.add('is--open') : checkbox.parentElement.classList.remove('is--open');
             })
         })
     },

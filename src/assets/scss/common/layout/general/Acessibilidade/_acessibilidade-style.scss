@@ -1,0 +1,260 @@
+.box-acessibilidade ul {
+    li {
+        &:hover {
+            text-decoration: underline;
+        }
+
+        a {
+            padding-left: 63px !important;
+            position: relative;
+        }
+    }
+}
+
+.box-acessibilidade.ajuda:hover .box-content {
+    width: 190px;
+}
+
+.box-acessibilidade.ajuda {
+    width: 30px;
+}
+
+.box-icon {
+    display: inline-block;
+    vertical-align: top;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: #FFF;
+    z-index: 3;
+    position: relative;
+    padding: 3px;
+    background: url(https://qbbr.vteximg.com.br/arquivos/access-black.png)2px 3px no-repeat #fff;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease
+}
+
+.box-content {
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    height: 0;
+    -webkit-transition: all .7s ease;
+    transition: all .7s ease;
+    background: #fff;
+    position: fixed;
+    text-align: center;
+    letter-spacing: 1px;
+    z-index: 1;
+    left: 30px;
+    width: 170px
+}
+
+.box-acessibilidade.ajuda:hover .box-content {
+    height: auto;
+    -webkit-transition: all .7s ease;
+    transition: all .7s ease;
+    left: 30px;
+    width: 170px;
+    vertical-align: middle;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
+}
+
+.box-acessibilidade.ajuda:hover .box-icon {
+    background: url(https://qbbr.vteximg.com.br/arquivos/access-white.png)2px 3px no-repeat #000;
+    cursor: pointer;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease
+}
+
+.hoverable {
+    height: 30px;
+    text-align: center;
+    background: #000;
+    color: #FFF;
+    padding: 7px;
+    pointer-events: none;
+}
+
+
+div.ajuda_submenu>ul>li {
+    height: 40px
+}
+
+a.acesso-facil {
+    padding-left: 50px !important;
+    background: url(https://qbbr.vteximg.com.br/arquivos/new-tbb-ico-acesso-facil_new.png)no-repeat !important;
+    background-position: 14px 12px !important;
+    background-size: 21% !important
+}
+
+div.ajuda_submenu li a.contraste {
+    background: url(https://qbbr.vteximg.com.br/arquivos/new-tbb-ico-contraste_new.png)1px 10px no-repeat !important;
+    background-position-x: 0;
+    background-position-y: 10px;
+    background-size: auto auto;
+    background-position: 22px 13px !important;
+    padding-left: 33px
+}
+
+.ajuda_submenu li a {
+    display: block;
+    height: 30px;
+    font-size: 13px;
+    margin: 0;
+    padding: 10px 0 0 0;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 1px
+}
+
+
+/* ACESSIBILIDADE */
+/* HANDTALK */
+.__hand-talk {
+    position: relative;
+}
+
+.__hand-talk a:before {
+    content: "";
+    background: url("/arquivos/libras.png") no-repeat center center;
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    display: block;
+    font-family: "FontAwesome";
+    font-size: 20px;
+    color: #000;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+}
+.menu-lightoff a:before{
+    content: "";
+    background: url("/arquivos/contraste.png") no-repeat center center;
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    display: block;
+    font-family: "FontAwesome";
+    font-size: 20px;
+    color: #000;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+}
+
+.__hand-talk a {
+    display: block !important;
+}
+
+#__disable-hand {
+    height: auto;
+    padding: 0 35px 0 60px;
+}
+
+.__hand-talk a.activeHand {
+    display: none !important;
+}
+
+/* CONTRASTE */
+html._light-off {
+    -webkit-filter: invert(100%) grayscale(100%);
+    -moz-filter: invert(100%) grayscale(100%);
+    -o-filter: invert(100%) grayscale(100%);
+    -ms-filter: invert(100%) grayscale(100%);
+    filter: invert(100%) grayscale(100%);
+    background: #000;
+}
+
+html._light-off ::selection {
+    background: #000;
+    color: #fff;
+}
+
+._light-off img,
+._light-off #widget .thumbnail img {
+    -webkit-filter: invert(100%) grayscale(0%);
+    -moz-filter: invert(100%) grayscale(0%);
+    -o-filter: invert(100%) grayscale(0%);
+    -ms-filter: invert(100%) grayscale(0%);
+    filter: invert(100%) grayscale(0%);
+}
+
+._light-off .buy-button,
+._light-off button,
+._light-off .yv-btn,
+._light-off input,
+._light-off .buy-together,
+._light-off ._showcase ._prd .__p_details_btn,
+._light-off ._vitrines .__vitrines ._prd .__p_details_btn,
+._light-off a.vejamais-vtexresearch {
+    color: #000 !important;
+}
+
+._light-off .yv-bootstrap .yv-star-color,
+._light-off .yv-bootstrap .yv-star-color,
+._light-off .yv-rating>input:checked~label,
+._light-off .yv-bootstrap .fa-star-o:before,
+._light-off .yv-bootstrap .fa-star:before {
+    color: #000 !important;
+}
+
+._light-off .yv-btn-like .btn-label .fa {
+    color: #000 !important;
+    -webkit-filter: brightness(10%);
+    -moz-filter: brightness(10%);
+    -o-filter: brightness(10%);
+    -ms-filter: brightness(10%);
+    filter: brightness(10%);
+}
+
+._light-off ._header-logo a:before {
+    color: #000 !important;
+}
+
+._light-off .footer-logo {
+    -webkit-filter: brightness(10%);
+    -moz-filter: brightness(10%);
+    -o-filter: brightness(10%);
+    -ms-filter: brightness(10%);
+    filter: brightness(10%);
+}
+
+._light-off ._super-menu>ul>li.__dark>a {
+    background-color: #fff;
+}
+
+._light-off ._header-links .__cart-link span {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+._light-off .slick-dots .slick-active button {
+    font-size: 0;
+}
+
+._light-off #widget .product-flags .discount-label,
+._light-off ._vitrines ._flags .priceOff,
+._light-off ._vitrines .flags .priceOff {
+    background: #fff !important;
+    border: 1px #000 solid;
+    color: #000;
+    font-weight: bold;
+}
+
+._light-off #widget .thumbnail img {
+    -webkit-filter: invert(0%);
+    -moz-filter: invert(0%);
+    -o-filter: invert(0%);
+    -ms-filter: invert(0%);
+    filter: invert(0%);
+}
+
+._light-off #summary-cart .wrapper-summary-cart .summary-cart-coupon-discount .form-row .form-controls .btn-coupon-discount,
+._light-off #summary-cart .wrapper-summary-cart .summary-cart-shipping .form-row .form-controls .btn-calculate-postal-code,
+._light-off #summary-cart .wrapper-summary-cart .summary-cart-coupon-discount .form-row .form-controls .btn-coupon-discount {
+    padding: 9px;
+}
+
+/* END: ACESSIBILIDADE */
