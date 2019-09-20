@@ -3383,12 +3383,13 @@ html {
                 margin-top: 10px;
                 height: 30px;
                 bottom: inherit;
-                color: #fdfdfd;
+                color: $w-secundary;
                 -webkit-appearance: none;
                 border-radius: 0;
                 &::placeholder{
                   font-size: 12px;
                   opacity: 0.8;
+                  color: $w-secundary;
                 }
 
                 @include d('1149px', max) {
@@ -3543,6 +3544,8 @@ html {
         li{
             svg{
                 height: 100%;
+                width: 40px;
+                height: 40px;
             }
         }
     }
