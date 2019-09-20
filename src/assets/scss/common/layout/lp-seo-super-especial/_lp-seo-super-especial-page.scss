@@ -135,6 +135,10 @@ body {
             }
         }
     }
+    .vitrine > ul li {
+        display: inline-block;
+        width: 25%;
+    }
     .caption {
         height: 145px;
         position: relative;

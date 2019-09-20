@@ -4,6 +4,7 @@ const Methods = {
     Methods.twentyBanner();
     Methods.getProductBannerInfo();
     //Methods.hideEmptySections();
+    //Methods.buildVitrines();
   },
   productsSlick: () => {
     $(document).ready(function () {
@@ -88,6 +89,28 @@ const Methods = {
         element.parentNode.remove();
       }
     })
+  },
+  buildVitrines : () => {
+    let idCollection = Math.floor(Math.random() * 5000), 
+    Collection = [],
+    Placeholder = document.querySelector(".topProducts .collectionPlaceholder"),
+    Content = Placeholder.querySelectorAll(".topProducts .collectionPlaceholder .vitrine-content");
+
+    for(let i = 0; i < Content.length; i++){
+        let Item = {};
+        Item.Product = Content[i].dataset.productid;
+        Item.SkuHighlight = Content[i].dataset.sku;
+        Collection.push(Item);
+    }
+
+    Placeholder.innerHTML = "";
+    let Col = "collection" + idCollection
+    console.log("collection" + idCollection)
+    Placeholder.nextSibling.setAttribute("id", Col);
+    
+    Vitrine.build(idCollection, Collection, true, "4.2");
+    // document.querySelector(".topProducts .--collectionPlaceholder").innerHTML = Collection;
+    // console.log(Collection);
   }
 }
 document.addEventListener('DOMContentLoaded', () => {
