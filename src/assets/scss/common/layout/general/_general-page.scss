@@ -3306,6 +3306,7 @@ html {
         &.lr-search-visible {
             visibility: visible;
             z-index: 10 !important;
+            display: none !important;
         }
     }
 
