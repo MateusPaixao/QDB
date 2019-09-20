@@ -149,7 +149,7 @@ body {
     }
     .installment,
     .old-price,
-    .price,
+    .new-price,
     .buy-button {
         @extend .d-block;
         margin: 10px 0;
@@ -159,7 +159,7 @@ body {
         font-size: 11px;
         height: 12px;
     }
-    .price {
+    .new-price {
         font-size: 1.6rem;
     }
     .button {
@@ -263,6 +263,28 @@ body {
         width: 51%;
         position: relative;
     }
+    //image right side
+    &.right {
+        .aside {
+            padding-right: 2vw;
+        }
+        .image {
+            text-align: right;
+        }
+    }
+    //image left side
+    &.left {
+        .aside {
+            padding-left: 2vw;
+        }
+        .image {
+            text-align: left;
+        }
+        .discount {
+            left: initial;
+            right: 0;
+        }
+    }
     .image {
         width: 49%;
     }
@@ -286,13 +308,13 @@ body {
         margin-bottom: 30px;
     }
     .installment,
-    .price {
+    .new-price {
         margin: 10px 0;
     }
-    del {
+    .old-price {
         font-size: 2rem;
     }
-    .price {
+    .new-price {
         font-size: 3rem;
         font-weight: 700;
         margin-bottom: 30px;
@@ -321,14 +343,6 @@ body {
         }
         .image img {
             max-height: 400px;
-        }
-    }
-    @media(min-width: 768px) {
-        .aside {
-            padding: 1% 15% 0 5%;
-        }
-        .discount {
-            left: 10%;
         }
     }
 }

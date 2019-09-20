@@ -29,63 +29,73 @@
     </div>
     <main>
         <section class="section-media">
-            <div class="item">
-                <vtex:contentPlaceHolder id="secao1_video" />
+            <!--SEÇÃO 1-->
+            <div class="item section-visibility">
+                <vtex:contentPlaceHolder id="secaoprincipal_video" />
             </div>
             <div class="heading over">
                 <h2 class="title">
-                    <vtex:contentPlaceHolder id="secao1_titulo" />
+                    <vtex:contentPlaceHolder id="secaoprincipal_titulo" />
                 </h2>
                 <article>
-                    <vtex:contentPlaceHolder id="secao1_texto" />      
+                    <vtex:contentPlaceHolder id="secaoprincipal_texto" />      
                 </article>
-                <vtex:contentPlaceHolder id="secao1_link" />
+                <vtex:contentPlaceHolder id="secaoprincipal_link" />
             </div>
         </section>
         <div class="shell">
-            <section class="slick-products-list">
-                <vtex:contentPlaceHolder id="vitrine-01" />
+            <section class="showcase-container">
+                <section class="slick-products-list section-visibility">
+                    <vtex:contentPlaceHolder id="vitrine-01" />
+                </section>
             </section>
-            <section class="heading">
-                <h2 class="title">
-                    <vtex:contentPlaceHolder id="secao2_titulo" />
-                </h2>
-                <article>
-                    <vtex:contentPlaceHolder id="secao2_texto" />      
-                </article>
-            </section>
-            <section class="panel-rating">
-                <div class="image">
-                    <img src="https://placehold.co/595x595"/>
-                </div>
-                <div class="aside">
-                    <div class="rating">
-                        <img src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?"/>
-                        <img src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?"/>
-                        <img src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?"/>
-                        <img src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?"/>
-                        <img src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?"/>
-                    </div>
-                    <article class="desc">
-                            <h4 class="title">Nome do Produto</h4>
-                            <div class="text">
-                                "Jump on human and sleep on her all night long 
-                                be long in the bed, purr in the morning and then 
-                                give a bite to every human around for not waking up request food"
-                            </div>
-                            <p class="author">Name Furr Kitty User</p>
+            <div class="rating-container">
+                <!--SEÇÃO 2-->
+                <section class="heading section-visibility">
+                    <h2 class="title">
+                        <vtex:contentPlaceHolder id="secaoavaliacao_titulo" />
+                    </h2>
+                    <article>
+                        <vtex:contentPlaceHolder id="secaoavaliacao_texto" />      
                     </article>
-                    <a href="#" class="button button-primary resizable">
-                        <span class="icon">&#8594;</span>
-                        <span class="text">Comprar</span>
-                    </a>
+                </section>
+                <section class="panel-rating">
+                    <div class="image">
+                        <img src="https://placehold.co/595x595"/>
+                    </div>
+                    <div class="aside">
+                        <div class="rating">
+                            <img src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?"/>
+                            <img src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?"/>
+                            <img src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?"/>
+                            <img src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?"/>
+                            <img src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?"/>
+                        </div>
+                        <article class="desc">
+                                <h4 class="title">Nome do Produto</h4>
+                                <div class="text">
+                                    "Jump on human and sleep on her all night long 
+                                    be long in the bed, purr in the morning and then 
+                                    give a bite to every human around for not waking up request food"
+                                </div>
+                                <p class="author">Name Furr Kitty User</p>
+                        </article>
+                        <a href="#" class="button button-primary resizable">
+                            <span class="icon">&#8594;</span>
+                            <span class="text">Comprar</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+            <section class="twentytwenty-container">
+                <div class="section-visibility">
+                    <vtex:contentPlaceHolder id="imagem-compara-antes" />
+                </div>
+                <div>
+                    <vtex:contentPlaceHolder id="imagem-compara-depois" />
                 </div>
             </section>
-            <section class="twentytwenty-container">
-                <img src="https://qbbr.vteximg.com.br/arquivos/ids/169016/qdb_extra_CUPOM-20-DESCONTO-FRETE.png"/>
-                <img src="https://qbbr.vteximg.com.br/arquivos/ids/169056/qdb_c9_1_MASCARA-EXTENSAO.jpg"/>
-            </section>
-            <section class="panel-product bannerproduto_direita">
+            <section class="panel-product right">
                 <span class="product-id section-visibility" style="display: none">
                     <vtex:contentPlaceHolder id="bannerproduto_direita" />
                 </span>      
@@ -105,7 +115,7 @@
                     <vtex:contentPlaceHolder id="bannerproduto_direita-img" />                    
                 </div>
             </section>
-            <section class="panel-product bannerproduto_esquerda">
+            <section class="panel-product left">
                 <span class="product-id section-visibility" style="display: none">
                     <vtex:contentPlaceHolder id="bannerproduto_esquerda" />
                 </span> 
@@ -124,6 +134,23 @@
                         <span class="text">Comprar</span>
                     </a>
                 </div>
+            </section>
+            <section>
+                <!-- Section Chaordic - Bottom -->
+                <div class="section--chaordic-bottom">
+                    <div class="shell">
+                        <div class="section-body">
+                            <section class="section-chaordic">
+                                <div class="shell">
+                                    <div chaordic="bottom"></div>
+                                </div>
+                                <!-- /.shell -->
+                            </section>
+                            <!-- /.section-chaordic -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Section Chaordic - Bottom:end -->
             </section>
         </div>
     </main>

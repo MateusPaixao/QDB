@@ -3,6 +3,7 @@ const Methods = {
     Methods.productsSlick();
     Methods.twentyBanner();
     Methods.getProductBannerInfo();
+    //Methods.hideEmptySections();
   },
   productsSlick: () => {
     $(document).ready(function () {
@@ -65,7 +66,7 @@ const Methods = {
               description.innerHTML = product[0]['porque a gente ama'][0];
               newPrice.innerHTML = `R$ ${bestPrice.toFixed(2).replace('.',',')}`;
               oldPrice.innerHTML = listPrice != bestPrice ? `R$ ${listPrice.toFixed(2).replace('.',',')}` : "";
-              discount.innerHTML = percent > 0 ? percent + "%" : "";
+              discount.innerHTML = percent > 0 ? percent + "%" : discount.remove();
               button.setAttribute("href", `/${product[0].linkText}/p`);
 
               //installment
@@ -79,6 +80,14 @@ const Methods = {
           }
         })
     });
+  },
+  hideEmptySections : () => {
+    var section = document.querySelectorAll(".section-visibility");
+    section.forEach((element) => {
+      if (element.innerHTML = "") {
+        element.parentNode.remove();
+      }
+    })
   }
 }
 document.addEventListener('DOMContentLoaded', () => {
