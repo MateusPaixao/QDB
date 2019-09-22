@@ -3,6 +3,7 @@ const Methods = {
     Methods.productsSlick();
     Methods.twentyBanner();
     Methods.getProductBannerInfo();
+    Methods.getProductReview();
     //Methods.hideEmptySections();
     //Methods.buildVitrines();
   },
@@ -81,6 +82,32 @@ const Methods = {
           }
         })
     });
+  },
+  getProductReview: () => {
+    
+    new Promise((resolve, reject) => {
+      var panelRating = document.querySelector('.panel-rating');
+      var productID = document.querySelector('.rating-container .product-id');
+      var title = panelRating.querySelector('.title');
+      var text = panelRating.querySelector('.text');
+      var author = panelRating.querySelector('.author');
+      var button = panelRating.querySelector('.button');
+
+      let request = new XMLHttpRequest();
+      let url = `https://service.yourviews.com.br/api/v2/pub/review/Summary?productid=${productID}&page=1&count=10`;
+      request.open('GET', url);
+      request.setRequestHeader('YVStoreKey','388ef2d0-c3b8-4fd6-af13-446b698d544a'); 
+      request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+      request.onreadystatechange = () => {
+          if (request.readyState === 4) {
+              resolve(JSON.parse(request.response));
+              var obj = JSON.parse(request.response);
+              text.innerHTML = obj.Element.TopOpinions[0].Opinion;
+              console.log(obj.Element.TopOpinions[0].Opinion);
+          }
+      }
+      request.send();
+    })
   },
   hideEmptySections : () => {
     var section = document.querySelectorAll(".section-visibility");

@@ -56,7 +56,10 @@
             </section>
             <div class="rating-container">
                 <!--SEÇÃO 2-->
-                <section class="heading section-visibility">
+                <div style="display: none;" class="product-id section-visibility">
+                    <vtex:contentPlaceHolder id="secaoavaliacao_idproduto" />                
+                </div>
+                <section class="heading">
                     <h2 class="title">
                         <vtex:contentPlaceHolder id="secaoavaliacao_titulo" />
                     </h2>
@@ -66,26 +69,16 @@
                 </section>
                 <section class="panel-rating">
                     <div class="image">
-                        <img src="https://placehold.co/595x595"/>
+                        <vtex:contentPlaceHolder id="secaoavaliacao_imagem" />
                     </div>
                     <div class="aside">
-                        <div class="rating">
-                            <img src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?"/>
-                            <img src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?"/>
-                            <img src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?"/>
-                            <img src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?"/>
-                            <img src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?"/>
-                        </div>
+                        <div class="rating"></div>
                         <article class="desc">
-                                <h4 class="title">Nome do Produto</h4>
-                                <div class="text">
-                                    "Jump on human and sleep on her all night long 
-                                    be long in the bed, purr in the morning and then 
-                                    give a bite to every human around for not waking up request food"
-                                </div>
-                                <p class="author">Name Furr Kitty User</p>
+                                <h4 class="title"></h4>
+                                <div class="text"></div>
+                                <p class="author"></p>
                         </article>
-                        <a href="#" class="button button-primary resizable">
+                        <a href="" class="button button-primary resizable">
                             <span class="icon">&#8594;</span>
                             <span class="text">Comprar</span>
                         </a>
