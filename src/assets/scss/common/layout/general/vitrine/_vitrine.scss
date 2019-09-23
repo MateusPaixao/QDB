@@ -26,17 +26,60 @@
             position: absolute;
             top: 0;
             right: 0;
-            z-index: 50;
+            z-index: 51;
             cursor: pointer;
             display: flex;
             width: 100%;
             justify-content: space-between;
-            padding: 0 10px;
-            &.closed{
+            padding: 5px;
+            transition: all .2s;
+        }
+        &.change-true{
+            .cardProduct--change{
+            width: 80%;
+            background: $w-secundary;
+            transform: translateX(0%);
+                .cardProduct--change__engine{
+                    height: 25px;
+                    width: 25px;
+                    flex-grow: 1;
+                    path{
+                        fill: $safflower;
+                    }
+                }
+                .cardProduct--change__title{
+                    display: flex;
+                    align-items: center;
+                    flex-grow: 1;
+                    color: $safflower;
+                }
+                .cardProduct--change__close{
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    flex-grow: 5;
+                    color: $safflower;
+                    padding-right: 10px;
+                }
+            }
+            &:after{
+                content: '';
+                position: absolute;
+                background: rgba($color: #000000, $alpha: .5);
+                width: 100%;
+                height: 100%;
+            }
+        }
+        &.change-false{
+            .cardProduct--change{
+                & ~ .cardProduct__config{
+                    transform: translateX(100%);
+                }
+                transform: translateX(100%);
                 .cardProduct--change__engine{
                     position: absolute;
                     top: -.5em;
-                    right: -2em;
+                    left: -3.7em;
                     display: flex;
                     background: $safflower;
                     width: 80px;
@@ -44,6 +87,9 @@
                     padding: 10px 0 0;
                     transform: rotate(45deg) translate(0px, -3em);
                     transition: all .2s;
+                    path{
+                        fill: $w-secundary;
+                    }
                 }
                 .cardProduct--change__title, .cardProduct--change__close{
                     display: none;
@@ -56,22 +102,138 @@
             top: 0;
             z-index: 50;
             height: 100%;
-            width: 100%;
+            width: 80%;
             overflow-y: auto;
-            padding: .875em;
-            display: none;
+            padding: 3em .875em;
+            right: 0;
+            transition: all .2s;
+            cursor: initial;
+            // display: none;
             .cardProduct__config__type{
                 text-align: left;
+                display: flex;
+                align-items: center;
+                .cardProduct__config__type__title{
+                    @include sans(.875rem, $g-primary, 400, initial);
+                }
+                .cardProduct__config__type__colors{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 1rem;
+                    height: 1rem;
+                    position: relative;
+                    border-radius: 1rem;
+                    margin-right: 5px;
+                    @include animation("colorConfig", 5s, infinite, cubic-bezier(.6,.51,0,1.01));
+                    &:after{
+                        content: "";
+                        display: block;
+                        background: $w-secundary;
+                        width: 60%;
+                        height: 60%;
+                        border-radius: 1rem;
+                    }
+
+                    @keyframes colorConfig {
+                        0%{
+                            transform: rotate(0);
+                            background: rgba(231, 169, 128, 1); /* Old browsers */
+                            background: -moz-linear-gradient(left, rgba(231, 169, 128, 1) 0%, rgba(231, 169, 128, 1) 50%, rgba(238, 178, 127, 1) 51%, rgba(238, 178, 127, 1) 100%); /* FF3.6-15 */
+                            background: -webkit-linear-gradient(left, rgba(231, 169, 128, 1) 0%,rgba(231, 169, 128, 1) 50%,rgba(238, 178, 127, 1) 51%,rgba(238, 178, 127, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+                            background: linear-gradient(to right, rgba(231, 169, 128, 1) 0%,rgba(231, 169, 128, 1) 50%,rgba(238, 178, 127, 1) 51%,rgba(238, 178, 127, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */background: rgba(151, 97, 63, 1); /* Old browsers */   
+                        }
+                        25%{
+                            transform: rotate(-30deg);
+                            background: rgba(151, 97, 63, 1); /* Old browsers */
+                            background: -moz-linear-gradient(left, rgba(151, 97, 63, 1) 0%, rgba(151, 97, 63, 1) 50%, rgba(108, 65, 49, 1) 51%, rgba(108, 65, 49, 1) 100%); /* FF3.6-15 */
+                            background: -webkit-linear-gradient(left, rgba(151, 97, 63, 1) 0%,rgba(151, 97, 63, 1) 50%,rgba(108, 65, 49, 1) 51%,rgba(108, 65, 49, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+                            background: linear-gradient(to right, rgba(151, 97, 63, 1) 0%,rgba(151, 97, 63, 1) 50%,rgba(108, 65, 49, 1) 51%,rgba(108, 65, 49, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                        }
+                        60%{
+                            transform: rotate(25deg);
+                            background: rgba(231, 169, 128, 1); /* Old browsers */
+                            background: -moz-linear-gradient(left, rgba(231, 169, 128, 1) 0%, rgba(231, 169, 128, 1) 50%, rgba(238, 178, 127, 1) 51%, rgba(238, 178, 127, 1) 100%); /* FF3.6-15 */
+                            background: -webkit-linear-gradient(left, rgba(231, 169, 128, 1) 0%,rgba(231, 169, 128, 1) 50%,rgba(238, 178, 127, 1) 51%,rgba(238, 178, 127, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+                            background: linear-gradient(to right, rgba(231, 169, 128, 1) 0%,rgba(231, 169, 128, 1) 50%,rgba(238, 178, 127, 1) 51%,rgba(238, 178, 127, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */background: rgba(151, 97, 63, 1); /* Old browsers */   
+                        }
+                        80%{
+                            transform: rotate(125deg);
+                            background: rgba(222, 147, 94, 1); /* Old browsers */
+                            background: -moz-linear-gradient(left, rgba(222, 147, 94, 1) 0%, rgba(222, 147, 94, 1) 50%, rgba(215, 159, 126, 1) 71%, rgba(215, 159, 126, 1) 100%); /* FF3.6-15 */
+                            background: -webkit-linear-gradient(left, rgba(222, 147, 94, 1) 0%,rgba(222, 147, 94, 1) 50%,rgba(215, 159, 126, 1) 71%,rgba(215, 159, 126, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+                            background: linear-gradient(to right, rgba(222, 147, 94, 1) 0%,rgba(222, 147, 94, 1) 50%,rgba(215, 159, 126, 1) 71%,rgba(215, 159, 126, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                        }
+                        100%{
+                            transform: rotate(0);
+                            background: rgba(231, 169, 128, 1); /* Old browsers */
+                            background: -moz-linear-gradient(left, rgba(231, 169, 128, 1) 0%, rgba(231, 169, 128, 1) 50%, rgba(238, 178, 127, 1) 51%, rgba(238, 178, 127, 1) 100%); /* FF3.6-15 */
+                            background: -webkit-linear-gradient(left, rgba(231, 169, 128, 1) 0%,rgba(231, 169, 128, 1) 50%,rgba(238, 178, 127, 1) 51%,rgba(238, 178, 127, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+                            background: linear-gradient(to right, rgba(231, 169, 128, 1) 0%,rgba(231, 169, 128, 1) 50%,rgba(238, 178, 127, 1) 51%,rgba(238, 178, 127, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */background: rgba(151, 97, 63, 1); /* Old browsers */   
+                        }
+                    }
+                }
+                .cardProduct__config__type__bulk{
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-end;
+                    width: 20px;
+                    height: 20px;
+                    position: relative;
+                    border-radius: 20px;
+                    margin-right: 5px;
+                    overflow: hidden;
+                    border: solid 1px $safflower;
+                    &:after{
+                        content: "";
+                        display: block;
+                        width: 10%;
+                        height: 90%;
+                        border-radius: 1px;
+                        @include animation("volConfig", 5s, infinite, cubic-bezier(.07,.91,.96,.17));
+                        transition: all .2s;
+                        background: rgba(52, 46, 55, 1); /* Old browsers */
+                        // background: -moz-linear-gradient(top, rgba(52, 46, 55, 1) 0%, rgba(52, 46, 55, 1) 50%, rgba(88, 84, 91, 1) 51%, rgba(88, 84, 91, 1) 100%); /* FF3.6-15 */
+                        // background: -webkit-linear-gradient(top, rgba(52, 46, 55, 1) 0%,rgba(52, 46, 55, 1) 50%,rgba(88, 84, 91, 1) 51%,rgba(88, 84, 91, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+                        // background: linear-gradient(to bottom, rgba(52, 46, 55, 1) 0%,rgba(52, 46, 55, 1) 50%,rgba(88, 84, 91, 1) 51%,rgba(88, 84, 91, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    }
+                    
+                    @keyframes volConfig {
+                        0%{
+                            height: 100%;
+                        }
+                        50%{
+                            height: 50%;
+                        }
+                        100%{
+                            height: 100%;
+                        }
+                    }
+                }
             }
             .cardProduct__config__list{
                 display: flex;
                 flex-flow: wrap;
+                margin: 10px 0 20px;
                 // justify-content: center;
                 .cardProduct__config__list__item{
                     margin: .2em;
-                    border-radius: .2em;
                     overflow: hidden;
                     display: flex;
+                    flex-flow: column;
+                    width: calc(100% / 5);
+                    img{
+                        border-radius: .2em;
+                        cursor: pointer;
+                    }
+                    small{
+                        font-size: 0.75em;
+                    }
+                    &.selected{
+                        img{
+                            border: solid 1px $safflower;
+                        }
+                    }
                 }
             }
         }
@@ -172,6 +334,24 @@
             cursor: pointer;
             background: $safflower;
             transition: all .2s;
+            .cardProduct--addToCart__wave {
+              position: absolute;
+              background: $safflower;
+              width: 700px;
+              height: 700px;
+              bottom: -600px;
+              transform-origin: 50% 48%;
+              border-radius: 43%;
+              animation: drift 6s infinite linear;
+              &.__2{
+                opacity: .5;
+                animation: drift 4s infinite linear;
+              }
+                @keyframes drift {
+                    from { transform: rotate(0deg); }
+                    from { transform: rotate(360deg); }
+                }
+            }
             .cardProduct--addToCart__bag{
                 margin-right: 5px;
                 path{
@@ -189,13 +369,13 @@
         }
 
         &:hover{
-            .cardProduct--addToCart{
-                transform: translateY(0%);
-            }
-            .cardProduct--change{
-                &.closed{
+            &.change-false{
+                .cardProduct--change{
                     .cardProduct--change__engine{
                         transform: rotate(45deg);
+                    }
+                    & ~ .cardProduct--addToCart{
+                        transform: translateY(0%);
                     }
                 }
             }
