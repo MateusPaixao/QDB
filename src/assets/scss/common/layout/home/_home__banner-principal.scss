@@ -1,6 +1,10 @@
 .bannerHero{
 	.bannerHero__banners{
 		position: relative;
+		height: 320px;
+		@include d("768px"){
+			height: initial;
+		}
 		.bannerHero__link{
 			// min-width: 100%;
 			.bannerHero__img{
@@ -12,8 +16,12 @@
 			width: 100%;
 			justify-content: center;
 			padding: 5px 0;
-			position: relative;
+			position: absolute;
+			bottom: 0;
 			z-index: 5;
+			@include d("768px"){
+				position: relative;
+			}
 			.changePosition{
 				width: 1em;
 				height: .5em;

@@ -13,7 +13,7 @@
     .__container{
         display: flex;
         align-items: center;
-        margin-right: 10px;
+        margin-left: 15px;
         max-width: 300px;
         @include d("768px"){
             min-width: 260px;
