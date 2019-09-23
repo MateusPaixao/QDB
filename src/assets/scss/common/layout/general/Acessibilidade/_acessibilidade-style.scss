@@ -17,6 +17,12 @@
 
 .box-acessibilidade.ajuda {
     width: 30px;
+    top: initial;
+    position: initial;
+}
+
+.menu-lightoff.lightoffActive a:after {
+    display: none;
 }
 
 .box-icon {

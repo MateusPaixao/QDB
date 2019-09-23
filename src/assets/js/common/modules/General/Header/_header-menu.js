@@ -17,7 +17,7 @@ const Methods = {
         const containerGroup = CacheSelector.body.containerGroup;
         const header = CacheSelector.header.header;
         const elementToMargin = containerGroup.nextElementSibling;
-        let headerHeight = header.offsetHeight + 10;
+        let headerHeight = header.offsetHeight;
 
         elementToMargin.style.margin = `${headerHeight}px`;
 
