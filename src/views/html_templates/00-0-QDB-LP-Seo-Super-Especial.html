@@ -28,13 +28,13 @@
         <vtex:template id="00-0-QDB-Header" />
     </div>
     <main>
-        <section class="section-media">
+        <section class="section-media section-block">
             <!--SEÇÃO 1-->
-            <div class="item section-visibility">
+            <div class="item">
                 <vtex:contentPlaceHolder id="secaoprincipal_video" />
             </div>
             <div class="heading over">
-                <h2 class="title">
+                <h2 class="title section-visibility">
                     <vtex:contentPlaceHolder id="secaoprincipal_titulo" />
                 </h2>
                 <article>
@@ -44,7 +44,7 @@
             </div>
         </section>
         <div class="shell">
-            <section class="showcase-container">
+            <section class="showcase-container section-block">
                 <!-- <div class="collectionPlaceholder hidden">
                     <vtex:contentPlaceHolder id="vitrineVtex-TopSell-Collection" />
                 </div>
@@ -54,7 +54,7 @@
                     <vtex:contentPlaceHolder id="vitrine-01" />
                 </section>
             </section>
-            <div class="rating-container">
+            <div class="rating-container section-block">
                 <!--SEÇÃO 2-->
                 <div style="display: none;" class="product-id section-visibility">
                     <vtex:contentPlaceHolder id="secaoavaliacao_idproduto" />                
@@ -72,24 +72,30 @@
                         <vtex:contentPlaceHolder id="secaoavaliacao_imagem" />
                     </div>
                     <div class="aside">
-                        <div class="rating"></div>
+                        <div class="rating">
+                            <img style="display: none;" src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?v=636832437549900000"/>
+                            <img style="display: none;" src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?v=636832437549900000"/>
+                            <img style="display: none;" src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?v=636832437549900000"/>
+                            <img style="display: none;" src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?v=636832437549900000"/>
+                            <img style="display: none;" src="https://qbbr.vteximg.com.br/arquivos/favicon.ico?v=636832437549900000"/>
+                        </div>
                         <article class="desc">
                                 <h4 class="title"></h4>
                                 <div class="text"></div>
                                 <p class="author"></p>
                         </article>
-                        <a href="" class="button button-primary resizable">
+                        <a href="" class="button button-primary resizable" target="_blank">
                             <span class="icon">&#8594;</span>
                             <span class="text">Comprar</span>
                         </a>
                     </div>
                 </section>
             </div>
-            <section class="twentytwenty-container">
+            <section class="twentytwenty-container section-block">
                 <vtex:contentPlaceHolder id="imagem-compara-antes" />
                 <vtex:contentPlaceHolder id="imagem-compara-depois" />
             </section>
-            <section class="panel-product right">
+            <section class="panel-product right section-block">
                 <span class="product-id section-visibility" style="display: none">
                     <vtex:contentPlaceHolder id="bannerproduto_direita" />
                 </span>      
@@ -109,7 +115,7 @@
                     <vtex:contentPlaceHolder id="bannerproduto_direita-img" />                    
                 </div>
             </section>
-            <section class="panel-product left">
+            <section class="panel-product left section-block">
                 <span class="product-id section-visibility" style="display: none">
                     <vtex:contentPlaceHolder id="bannerproduto_esquerda" />
                 </span> 
@@ -129,14 +135,14 @@
                     </a>
                 </div>
             </section>
-            <section>
+            <section class="section-block">
                 <!-- Section Chaordic - Bottom -->
                 <div class="section--chaordic-bottom">
                     <div class="shell">
                         <div class="section-body">
                             <section class="section-chaordic">
                                 <div class="shell">
-                                    <div chaordic="bottom"></div>
+                                    <div chaordic="bottom" class="section-visibility"></div>
                                 </div>
                                 <!-- /.shell -->
                             </section>

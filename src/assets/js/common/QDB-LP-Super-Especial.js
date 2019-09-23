@@ -4,7 +4,7 @@ const Methods = {
     Methods.twentyBanner();
     Methods.getProductBannerInfo();
     Methods.getProductReview();
-    //Methods.hideEmptySections();
+    Methods.hideEmptySections();
     //Methods.buildVitrines();
   },
   productsSlick: () => {
@@ -36,11 +36,11 @@ const Methods = {
     });
   },
   getProductBannerInfo: () => {
-    const productElements = document.querySelectorAll(".panel-product");
+    var productElements = document.querySelectorAll(".panel-product");
 
     productElements.forEach((element) => {
-      const productID = element.querySelector('.product-id').textContent.split(";")[0];
-      const productSKU = element.querySelector('.product-id').textContent.split(";")[1];
+      var productID = element.querySelector('.product-id').textContent.split(";")[0];
+      var productSKU = element.querySelector('.product-id').textContent.split(";")[1];
       
       var title = element.querySelector('.title');
       var description = element.querySelector('.description');
@@ -50,11 +50,11 @@ const Methods = {
       var newPrice = element.querySelector('.new-price');
       var button = element.querySelector('.button');
       
-      const url = 'https://qbbr.vtexcommercestable.com.br/api/catalog_system/pub/products/search/?fq=productId:' + productID;
+      var url = 'https://qbbr.vtexcommercestable.com.br/api/catalog_system/pub/products/search/?fq=productId:' + productID;
       fetch(url)
         .then(res => res.json())
         .then((product) => {
-          const skuList = product[0].items;
+          var skuList = product[0].items;
           for (var i in skuList) {
             var sku = skuList[i];
             if (skuList.hasOwnProperty(i) && (sku.itemId == productSKU)) {
@@ -84,36 +84,50 @@ const Methods = {
     });
   },
   getProductReview: () => {
+    var productID = document.querySelector('.rating-container .product-id').textContent;
+    var panelRating = document.querySelector('.panel-rating');
+    var title = panelRating.querySelector('.title');
+    var ratingImg = panelRating.querySelectorAll('.rating img');
+    var text = panelRating.querySelector('.text');
+    var author = panelRating.querySelector('.author');
+    var button = panelRating.querySelector('.button');
     
     new Promise((resolve, reject) => {
-      var panelRating = document.querySelector('.panel-rating');
-      var productID = document.querySelector('.rating-container .product-id');
-      var title = panelRating.querySelector('.title');
-      var text = panelRating.querySelector('.text');
-      var author = panelRating.querySelector('.author');
-      var button = panelRating.querySelector('.button');
-
+      //get review info
       let request = new XMLHttpRequest();
-      let url = `https://service.yourviews.com.br/api/v2/pub/review/Summary?productid=${productID}&page=1&count=10`;
-      request.open('GET', url);
+      let urlReview = `https://service.yourviews.com.br/api/v2/pub/review/get?productid=${productID}&page=1&count=10 `;
+      request.open('GET', urlReview);
       request.setRequestHeader('YVStoreKey','388ef2d0-c3b8-4fd6-af13-446b698d544a'); 
       request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
       request.onreadystatechange = () => {
-          if (request.readyState === 4) {
+        if (request.readyState === 4) {
               resolve(JSON.parse(request.response));
               var obj = JSON.parse(request.response);
-              text.innerHTML = obj.Element.TopOpinions[0].Opinion;
-              console.log(obj.Element.TopOpinions[0].Opinion);
+              text.innerHTML = obj.Element[0].Review;
+              author.innerHTML = obj.Element[0].UserName;
+              var rating =  obj.Element[0].Rating;
+              for (var i = 0; i < rating; i++) {
+                ratingImg[i].style.display = "inline-block";
+              }
           }
       }
       request.send();
+    })
+
+    //get product info
+    var urlProduct = 'https://qbbr.vtexcommercestable.com.br/api/catalog_system/pub/products/search/?fq=productId:' + productID;
+    fetch(urlProduct)
+      .then(res => res.json())
+      .then((product) => {
+        title.innerHTML = product[0].productName;
+        button.setAttribute("href", `/${product[0].linkText}/p`);
     })
   },
   hideEmptySections : () => {
     var section = document.querySelectorAll(".section-visibility");
     section.forEach((element) => {
-      if (element.innerHTML = "") {
-        element.parentNode.remove();
+      if (element.innerHTML == "") {
+        element.closest('.section-block').style.display = "none";
       }
     })
   },
@@ -123,7 +137,7 @@ const Methods = {
     Placeholder = document.querySelector(".topProducts .collectionPlaceholder"),
     Content = Placeholder.querySelectorAll(".topProducts .collectionPlaceholder .vitrine-content");
 
-    for(let i = 0; i < Content.length; i++){
+    for (let i = 0; i < Content.length; i++) {
         let Item = {};
         Item.Product = Content[i].dataset.productid;
         Item.SkuHighlight = Content[i].dataset.sku;
