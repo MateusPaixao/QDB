@@ -126,67 +126,70 @@ class Card extends React.Component{
 
   addToCart(e){
     // e.target.preventDefault();
-    e.innerHTML = "Adicionando...";
-    e.classList.add("adding");
-    vtexjs.checkout.getOrderForm().then((orderForm) => {
-        console.log(orderForm);
-        if(!!orderForm.items.length){
-            orderForm.items.map((e, i) => {
-                if(e.id == this.state.Sku.itemId){
-                    let quantity = 1 + e.quantity;
-                    let updateItem = {
-                        index: i,
-                        quantity: quantity
-                    };
-                    return vtexjs.checkout.updateItems([updateItem]);
-                }else{
-                    let newitem = {
-                        id: this.state.Sku.itemId,
-                        quantity: '1',
-                        seller: '1'
-                    };
-                    return vtexjs.checkout.addToCart([newitem]);
-                }
-            })
-        }else{
-            let newitem = {
-                id: this.state.Sku.itemId,
-                quantity: '1',
-                seller: '1'
-            };
-            return vtexjs.checkout.addToCart([newitem]);
-        }
-    })
-    .done(function(orderForm) {
-        console.log(orderForm);
+    e.innerHTML = '<div class="status--adding__text">ADICIONANDO</div><span class="status--adding__dots"></span>';
+    e.classList.add("status--request");
+    setTimeout(() => {
+      e.classList.add("status--adding");
+    }, 1000);
+    // vtexjs.checkout.getOrderForm().then((orderForm) => {
+    //     console.log(orderForm);
+    //     if(!!orderForm.items.length){
+    //         orderForm.items.map((e, i) => {
+    //             if(e.id == this.state.Sku.itemId){
+    //                 let quantity = 1 + e.quantity;
+    //                 let updateItem = {
+    //                     index: i,
+    //                     quantity: quantity
+    //                 };
+    //                 return vtexjs.checkout.updateItems([updateItem]);
+    //             }else{
+    //                 let newitem = {
+    //                     id: this.state.Sku.itemId,
+    //                     quantity: '1',
+    //                     seller: '1'
+    //                 };
+    //                 return vtexjs.checkout.addToCart([newitem]);
+    //             }
+    //         })
+    //     }else{
+    //         let newitem = {
+    //             id: this.state.Sku.itemId,
+    //             quantity: '1',
+    //             seller: '1'
+    //         };
+    //         return vtexjs.checkout.addToCart([newitem]);
+    //     }
+    // })
+    // .done(function(orderForm) {
+    //     console.log(orderForm);
 
-        // Legado Minicart
-        vtexjs.checkout.getOrderForm().then((orderForm) => {
-            window._orderForm = orderForm;
-            // document.querySelector('.__cart-link a span').textContent = document.querySelector('.__cart-link a span').textContent++;
-            // let qty = 0;
+    //     // Legado Minicart
+    //     vtexjs.checkout.getOrderForm().then((orderForm) => {
+    //         window._orderForm = orderForm;
+    //         // document.querySelector('.__cart-link a span').textContent = document.querySelector('.__cart-link a span').textContent++;
+    //         // let qty = 0;
 
-            // Foreach IE Testar
-            for(let i = 0; i < orderForm.items.length; i++ ){
-              console.log(orderForm.items[i]);
-              // if(!orderForm.items.isGift[i]){
-              //   qty += orderForm.items.quantity[i];
-              // }
-            }
-            // document.querySelectorAll(orderForm.items).forEach((ndx, item) => {
-            //     if (!item.isGift) {
-            //         qty += item.quantity;
-            //     }
-            // });
-            // if (isFinite(qty)) {
-            //     document.querySelector('.__cart-link a span').textContent = qty;
-            // }
-        }).done(() => {
-            e.innerHTML = '<svg className="cardProduct--addToCart__bag" width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.8779 6.22321C18.8046 5.43449 18.0966 4.83464 17.259 4.85168H14.7489V4.53631C14.7492 2.03134 12.6006 0.000399137 9.94984 3.99499e-05C9.94963 3.99499e-05 9.94941 3.99499e-05 9.9492 3.99499e-05C7.36904 -0.0102225 5.26862 1.95802 5.25779 4.39623C5.25758 4.44293 5.25817 4.48962 5.2595 4.53631V4.85291H2.74878C1.93116 4.85876 1.25334 5.45317 1.18619 6.22321L0.0167767 19.9383C-0.0877588 20.9886 0.299876 22.0295 1.07749 22.7865C1.81873 23.5618 2.8738 24.0029 3.97953 23.9997H16.0327C17.1408 24.0136 18.2003 23.5707 18.9347 22.7865C19.6662 22.0032 20.0466 20.9818 19.9954 19.9383L18.8779 6.22321ZM6.32086 4.53631C6.29403 2.61379 7.92153 1.03475 9.95597 1.00941C11.9904 0.984058 13.6614 2.52205 13.6882 4.44457C13.6886 4.47515 13.6886 4.50573 13.6882 4.53631V4.85291H6.32086V4.53631ZM18.1541 22.0475C17.6184 22.6231 16.8445 22.9502 16.0334 22.9441H3.97697C2.39256 22.9385 1.11301 21.7201 1.11904 20.2229C1.11936 20.1452 1.1232 20.0677 1.13056 19.9903L2.30248 6.27519C2.30573 6.03731 2.51246 5.84694 2.76419 5.85001C2.77785 5.85017 2.79145 5.85094 2.805 5.85222H5.31641V7.80374C5.31641 8.09504 5.56628 8.33118 5.87455 8.33118C6.18283 8.33118 6.4327 8.09504 6.4327 7.80374V5.85463H13.8V7.80615C13.8 8.09745 14.0499 8.33359 14.3581 8.33359C14.6664 8.33359 14.9163 8.09745 14.9163 7.80615V5.85463H17.4277C17.687 5.84853 17.9068 6.03351 17.9302 6.27755L19.1021 19.9926C19.0331 20.7573 18.6999 21.4793 18.1541 22.0475Z" /></svg><p className="cardProduct--addToCart__cta">Adicionar a Sacola</p>'
-            e.classList.remove("adding");
-            $('html').trigger('open.MiniCart'); // Função em Jquery devido ao evento do Minicart em General.
-        });
-    });
+    //         // Foreach IE Testar
+    //         for(let i = 0; i < orderForm.items.length; i++ ){
+    //           console.log(orderForm.items[i]);
+    //           // if(!orderForm.items.isGift[i]){
+    //           //   qty += orderForm.items.quantity[i];
+    //           // }
+    //         }
+    //         // document.querySelectorAll(orderForm.items).forEach((ndx, item) => {
+    //         //     if (!item.isGift) {
+    //         //         qty += item.quantity;
+    //         //     }
+    //         // });
+    //         // if (isFinite(qty)) {
+    //         //     document.querySelector('.__cart-link a span').textContent = qty;
+    //         // }
+    //     }).done(() => {
+    //         e.innerHTML = '<svg className="cardProduct--addToCart__bag" width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.8779 6.22321C18.8046 5.43449 18.0966 4.83464 17.259 4.85168H14.7489V4.53631C14.7492 2.03134 12.6006 0.000399137 9.94984 3.99499e-05C9.94963 3.99499e-05 9.94941 3.99499e-05 9.9492 3.99499e-05C7.36904 -0.0102225 5.26862 1.95802 5.25779 4.39623C5.25758 4.44293 5.25817 4.48962 5.2595 4.53631V4.85291H2.74878C1.93116 4.85876 1.25334 5.45317 1.18619 6.22321L0.0167767 19.9383C-0.0877588 20.9886 0.299876 22.0295 1.07749 22.7865C1.81873 23.5618 2.8738 24.0029 3.97953 23.9997H16.0327C17.1408 24.0136 18.2003 23.5707 18.9347 22.7865C19.6662 22.0032 20.0466 20.9818 19.9954 19.9383L18.8779 6.22321ZM6.32086 4.53631C6.29403 2.61379 7.92153 1.03475 9.95597 1.00941C11.9904 0.984058 13.6614 2.52205 13.6882 4.44457C13.6886 4.47515 13.6886 4.50573 13.6882 4.53631V4.85291H6.32086V4.53631ZM18.1541 22.0475C17.6184 22.6231 16.8445 22.9502 16.0334 22.9441H3.97697C2.39256 22.9385 1.11301 21.7201 1.11904 20.2229C1.11936 20.1452 1.1232 20.0677 1.13056 19.9903L2.30248 6.27519C2.30573 6.03731 2.51246 5.84694 2.76419 5.85001C2.77785 5.85017 2.79145 5.85094 2.805 5.85222H5.31641V7.80374C5.31641 8.09504 5.56628 8.33118 5.87455 8.33118C6.18283 8.33118 6.4327 8.09504 6.4327 7.80374V5.85463H13.8V7.80615C13.8 8.09745 14.0499 8.33359 14.3581 8.33359C14.6664 8.33359 14.9163 8.09745 14.9163 7.80615V5.85463H17.4277C17.687 5.84853 17.9068 6.03351 17.9302 6.27755L19.1021 19.9926C19.0331 20.7573 18.6999 21.4793 18.1541 22.0475Z" /></svg><p className="cardProduct--addToCart__cta">Adicionar a Sacola</p>'
+    //         e.classList.remove("adding");
+    //         $('html').trigger('open.MiniCart'); // Função em Jquery devido ao evento do Minicart em General.
+    //     });
+    // });
   }
 
   componentDidMount(){
@@ -259,10 +262,6 @@ class Card extends React.Component{
         {/* <a href={"/" + this.props.info.linkText + "/p?idsku=" + this.state.Sku.itemId} className="cardProduct__link"> */}
           {/* <span className="cardProduct--addToCart"> */}
           <span className="cardProduct--addToCart" onClick={e => this.addToCart(e.currentTarget)}>
-              <div className='cardProduct--addToCart__wave __2'></div>
-              <div className='cardProduct--addToCart__wave'>
-                <p className="adding"></p>
-              </div>
               <svg className="cardProduct--addToCart__bag" width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.8779 6.22321C18.8046 5.43449 18.0966 4.83464 17.259 4.85168H14.7489V4.53631C14.7492 2.03134 12.6006 0.000399137 9.94984 3.99499e-05C9.94963 3.99499e-05 9.94941 3.99499e-05 9.9492 3.99499e-05C7.36904 -0.0102225 5.26862 1.95802 5.25779 4.39623C5.25758 4.44293 5.25817 4.48962 5.2595 4.53631V4.85291H2.74878C1.93116 4.85876 1.25334 5.45317 1.18619 6.22321L0.0167767 19.9383C-0.0877588 20.9886 0.299876 22.0295 1.07749 22.7865C1.81873 23.5618 2.8738 24.0029 3.97953 23.9997H16.0327C17.1408 24.0136 18.2003 23.5707 18.9347 22.7865C19.6662 22.0032 20.0466 20.9818 19.9954 19.9383L18.8779 6.22321ZM6.32086 4.53631C6.29403 2.61379 7.92153 1.03475 9.95597 1.00941C11.9904 0.984058 13.6614 2.52205 13.6882 4.44457C13.6886 4.47515 13.6886 4.50573 13.6882 4.53631V4.85291H6.32086V4.53631ZM18.1541 22.0475C17.6184 22.6231 16.8445 22.9502 16.0334 22.9441H3.97697C2.39256 22.9385 1.11301 21.7201 1.11904 20.2229C1.11936 20.1452 1.1232 20.0677 1.13056 19.9903L2.30248 6.27519C2.30573 6.03731 2.51246 5.84694 2.76419 5.85001C2.77785 5.85017 2.79145 5.85094 2.805 5.85222H5.31641V7.80374C5.31641 8.09504 5.56628 8.33118 5.87455 8.33118C6.18283 8.33118 6.4327 8.09504 6.4327 7.80374V5.85463H13.8V7.80615C13.8 8.09745 14.0499 8.33359 14.3581 8.33359C14.6664 8.33359 14.9163 8.09745 14.9163 7.80615V5.85463H17.4277C17.687 5.84853 17.9068 6.03351 17.9302 6.27755L19.1021 19.9926C19.0331 20.7573 18.6999 21.4793 18.1541 22.0475Z" /></svg>
               <p className="cardProduct--addToCart__cta">Adicionar à Sacola</p>
           </span>
