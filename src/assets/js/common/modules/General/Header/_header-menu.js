@@ -9,7 +9,7 @@ const Methods = {
         Methods.setActiveAccordion();
         Methods.updateNumberMinicart();
         Methods.isLogged();
-        Methods.marginTopMenuHeight()
+        Methods.marginTopMenuHeight();
         
     },
 

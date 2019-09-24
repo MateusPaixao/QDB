@@ -20,9 +20,12 @@ const Methods = {
                 )
             }
         }
+        window.innerWidth > 768 ?
         ReactDOM.render(
-            <ModalContainer />,
-            document.getElementById('regiao')
+            <ModalContainer />,document.getElementById('regiao')
+        ) :
+        ReactDOM.render(
+            <ModalContainer />,document.getElementById('regiao-mobile')
         );
     }
 }
