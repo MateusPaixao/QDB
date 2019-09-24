@@ -787,8 +787,11 @@ ul {
     margin-top: 10px
 }
 
-.topic.Escolhaacor .specification {
-    display: none
+.topic.Escolhaacor .specification,
+.topic.Escolhaacor,
+.topic.Cor_dmp,
+.topic.Tamanho_dmp {
+    display: none;
 }
 
 .sku-selector-container-0 {
