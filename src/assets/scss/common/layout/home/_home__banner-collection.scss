@@ -35,15 +35,17 @@
     }
     .bannerCollection__info{
         .bannerCollection__info__title{
-            @include sans(1.875rem, $g-primary, 900, initial);
+            @include sans(2rem, $g-primary, 900, initial);
             margin-bottom: 10px;
         }
     }
     .bannerCollection__render-collection{
         width: 55%;
         position: relative;
+        margin-top: 4%;
         @include d("768px"){
             width: 100%;
+            margin: initial;
         }
         // &::before, &::after{
         //     content: '';

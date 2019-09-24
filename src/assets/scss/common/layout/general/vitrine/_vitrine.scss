@@ -18,7 +18,7 @@
         text-align: center;
         position: relative;
         overflow: hidden;
-        @include sans(.875rem, $g-primary, 400, initial);
+        @include sans(1rem, $g-primary, 400, initial);
         background: #fff;
         cursor: pointer;
 
@@ -104,7 +104,7 @@
             height: 100%;
             width: 80%;
             overflow-y: auto;
-            padding: 3em .875em;
+            padding: 3em 1em;
             right: 0;
             transition: all .2s;
             cursor: initial;
@@ -114,7 +114,7 @@
                 display: flex;
                 align-items: center;
                 .cardProduct__config__type__title{
-                    @include sans(.875rem, $g-primary, 400, initial);
+                    @include sans(1rem, $g-primary, 400, initial);
                 }
                 .cardProduct__config__type__colors{
                     display: flex;
@@ -289,7 +289,7 @@
                 padding: 0 10px;
                 text-align: center;
                 width: 80%;
-                height: 2rem;
+                height: 2.25rem;
                 overflow: hidden;
                 -webkit-line-clamp: 2;
             }
@@ -304,10 +304,10 @@
         }
         .cardProduct__price{
             .cardProduct__price__before{
-                @include sans(.875em, $g-primary, 400, normal);
+                @include sans(1em, $g-primary, 400, normal);
                 text-decoration: line-through;
                 margin: 0;
-                height: .875em;
+                height: 1em;
                 &._before-false{
                     display: none;
                 }
@@ -317,7 +317,7 @@
                 margin-bottom: 5px;
             }
             .cardProduct__price__parcel{
-                @include sans(.75em, $g-primary, 400, normal);
+                @include sans(.875em, $g-primary, 400, normal);
             }
         }
         .cardProduct--addToCart{
@@ -370,13 +370,8 @@
 
         &:hover{
             &.change-false{
-                .cardProduct--change{
-                    .cardProduct--change__engine{
-                        transform: rotate(45deg);
-                    }
-                    & ~ .cardProduct--addToCart{
-                        transform: translateY(0%);
-                    }
+                .cardProduct--addToCart{
+                    transform: translateY(0%);
                 }
             }
         }

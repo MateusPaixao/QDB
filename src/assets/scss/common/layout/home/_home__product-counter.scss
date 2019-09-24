@@ -151,7 +151,7 @@
                 list-style: none;
             }
             &--title{
-                font-size: 2em;
+                font-size: 1.25em;
                 width: 70%;
                 font-weight: 400;
                 @include d('768px'){
@@ -194,6 +194,7 @@
                 width: 150px;
                 text-align: center;
                 background-color: #686162;
+                font-size: .875rem;
                 button{
                     text-transform: uppercase;
                     cursor: pointer;

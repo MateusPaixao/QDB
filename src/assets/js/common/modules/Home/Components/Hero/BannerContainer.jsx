@@ -77,7 +77,7 @@ const Methods = {
             }
 
             buildSlider(){
-                const slideBanners = new Siema({
+                window.slideBanners = new Siema({
                     selector: ".bannerHero__banners",
                     duration: 150,
                     easing: 'ease-out',
@@ -90,11 +90,11 @@ const Methods = {
                     rtl: false,
                     onChange: printSlideIndex
                 });
-                let Autoplay = setInterval(() => slideBanners.next(), 5000);
+                let Autoplay = setInterval(() => slideBanners.next(), 10000);
 
                 function printSlideIndex() {
                     clearInterval(Autoplay);
-                    Autoplay = setInterval(() => slideBanners.next(), 5000);
+                    Autoplay = setInterval(() => slideBanners.next(), 10000);
                     for(let i = 0; i < this.innerElements.length; i++){
                         const addOrRemove = i === this.currentSlide ? 'add' : 'remove';
                         document.querySelectorAll(".controls__dots .changePosition")[i].classList[addOrRemove]('active');
@@ -124,7 +124,7 @@ const Methods = {
                         btn.classList.add("changePosition")
                         btn.addEventListener('click', () => {
                             clearInterval(Autoplay);
-                            Autoplay = setInterval(() => slideBanners.next(), 5000);
+                            Autoplay = setInterval(() => slideBanners.next(), 10000);
                             this.goTo(i)
                         });
                         dotControl.appendChild(btn);
@@ -164,13 +164,13 @@ const Methods = {
                     // if it's left arrow key
                     if (e.keyCode === 37) {
                         clearInterval(Autoplay);
-                        Autoplay = setInterval(() => slideBanners.next(), 5000);
+                        Autoplay = setInterval(() => slideBanners.next(), 10000);
                         slideBanners.prev()
                     }
                     // if it's right arrow key
                     else if (e.keyCode === 39) {
                         clearInterval(Autoplay);
-                        Autoplay = setInterval(() => slideBanners.next(), 5000);
+                        Autoplay = setInterval(() => slideBanners.next(), 10000);
                         slideBanners.next()
                     }
                 });
