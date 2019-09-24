@@ -1,48 +1,125 @@
-.w-lazy-banner{
-
-    &--desktop{
-        display: block !important;
-        max-width: 1920px;
-        max-height: 100%;
-        @include d('600px'){
-            display: none !important;
-        }
-    }
-    &--mobile{
-        display: none !important;
-        margin: 0 auto;
-        max-width: 400px;
-        max-height: 448px;
-        @include d('600px'){
-            display: block !important;
-        }
-
-    }
-    &--desktop, &--mobile{
-        overflow: hidden;
-        opacity: 0;
-        transition: .5s ease-in-out;
-        &.is--active{
-            opacity: 1;
-        }
-
-        .slick-arrow{
-            display: none !important;
-        }
-        .slick-dots{
-            padding: 10px;
-            li{
-                border: 1px solid #686162;
-                background: transparent;
-                margin: 0 2px;
-                button{
-                    background: transparent;
-                }
-                &.slick-active{
-                    height: 100%;
-                    background-color: #686162;
-                }
-            }
-        } 
-    }
+.bannerHero{
+	.bannerHero__banners{
+		position: relative;
+		height: 320px;
+		@include d("768px"){
+			height: initial;
+		}
+		.bannerHero__link{
+			// min-width: 100%;
+			.bannerHero__img{
+				width: 100%;
+			}
+		}
+		.controls__dots{
+			display: flex;
+			width: 100%;
+			justify-content: center;
+			padding: 5px 0;
+			position: absolute;
+			bottom: 0;
+			z-index: 5;
+			@include d("768px"){
+				position: relative;
+			}
+			.changePosition{
+				width: 1em;
+				height: .5em;
+				background-color: $qdb-grey-m;
+				margin: 0 1px;
+				transition: all .2s;
+				&.active{
+					width: 3em;
+					position: relative;
+					&::before{
+						content: '';
+						width: 0px;
+						height: 100%;
+						display: flex;
+						position: absolute;
+						left: 0;
+						top: 0;
+						background: $safflower;
+						@include animation(slideBar, 5s, initial, linear);
+					}
+				}
+				@keyframes slideBar {
+					0%{
+						width: 0%;
+					};
+					100%{
+						width: 100%;
+					}
+				}
+			}
+		}
+		.controls__arrows{
+			.prev, .next{
+				position: absolute;
+				top: 50%;
+				@include sans(2.5em, $w-secundary, 400, 0);
+				&.off{
+					opacity: 0;
+					pointer-events: none;
+				}
+			}
+			.prev{
+				left: 2%;
+			}
+			.next{
+				right: 2%;
+			}
+			@include d("768px"){
+				display: none;
+			}
+		}
+	}
 }
+
+// .w-lazy-banner{
+
+//     &--desktop{
+//         display: block !important;
+//         max-width: 1920px;
+//         max-height: 100%;
+//         @include d('600px'){
+//             display: none !important;
+//         }
+//     }
+//     &--mobile{
+//         display: none !important;
+//         margin: 0 auto;
+//         max-width: 400px;
+//         max-height: 448px;
+//         @include d('600px'){
+//             display: block !important;
+//         }
+
+//     }
+//     &--desktop, &--mobile{
+//         overflow: hidden;
+//         opacity: 0;
+//         transition: .5s ease-in-out;
+//         &.is--active{
+//             opacity: 1;
+//         }
+
+//         .slick-arrow{
+//             display: none !important;
+//         }
+//         .slick-dots{
+//             padding: 10px;
+//             li{
+//                 border: 1px solid #686162;
+//                 background: transparent;
+//                 button{
+//                     background: transparent;
+//                 }
+//                 &.slick-active{
+//                     height: 100%;
+//                     background-color: #686162;
+//                 }
+//             }
+//         } 
+//     }
+// }

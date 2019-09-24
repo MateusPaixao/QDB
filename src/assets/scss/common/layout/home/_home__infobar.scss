@@ -1,0 +1,55 @@
+.infoBar__render{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 40px;
+    font-size: .875rem;
+    @include d("768px"){
+        display: flex;
+        overflow-y: hidden;
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+    .__container{
+        display: flex;
+        align-items: center;
+        margin-left: 15px;
+        max-width: 300px;
+        @include d("768px"){
+            min-width: 260px;
+        }
+        &:nth-last-child(1){
+            margin-right: 0;
+        }
+        .__icon{
+            margin-right: 5px;
+            .truck{
+                // path{
+                //     ::nth-child(1),
+                //     ::nth-child(2),
+                //     ::nth-child(4)
+                //     {
+                //         stroke: $g-primary;
+                //         fill: transparent;
+                //     }
+                // }
+                // circle{
+                //     stroke: $g-primary;
+                // }
+            }
+            .star{
+                display: flex;
+                height: 40px;
+                width: 40px;
+                path{
+                    fill: #67605f;
+                }
+            }
+        }
+        .__content{
+            a{
+                text-decoration: underline;
+            }
+        }
+    }
+}

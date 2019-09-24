@@ -132,7 +132,7 @@ const concatVendor = () => {
     './src/assets/js/common/global/vendor/**/*.js',
     './dist/assets/js/QDBCommon-General.js'
   ])
-  .pipe(concat('QDBCommon-General-H.js'))
+  .pipe(concat('QDBCommon-General.js'))
   // .pipe(rename('QDBCommon-General-H.js'))
   .pipe(gulp.dest(paths.scripts.dest))
   .pipe(gulp.dest('./dist/vtex_speed/arquivos/'))
