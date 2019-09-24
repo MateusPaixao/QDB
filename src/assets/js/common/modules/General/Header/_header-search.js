@@ -2,7 +2,7 @@ import CacheSelector from '../cache-selector';
 
 const Methods = {
     init() {
-        Methods.activeAcContainer();
+        // Methods.activeAcContainer();
     },
     activeAcContainer() {
         window.onload = function(){

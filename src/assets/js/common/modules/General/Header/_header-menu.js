@@ -14,13 +14,10 @@ const Methods = {
     },
 
     marginTopMenuHeight() {
-        const containerGroup = CacheSelector.body.containerGroup;
         const header = CacheSelector.header.header;
-        const elementToMargin = containerGroup.nextElementSibling;
+        const elementToMargin = CacheSelector.$globals.body;
         let headerHeight = header.offsetHeight;
-
         elementToMargin.style.margin = `${headerHeight}px`;
-
     },
     openCloseMenu() {
         CacheSelector.header.menuHamContainer.addEventListener('click', (el) => {
