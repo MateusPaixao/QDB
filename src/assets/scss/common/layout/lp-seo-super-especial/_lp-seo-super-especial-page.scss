@@ -9,8 +9,10 @@ $gray-1: #d3d3d3;
 $gray-2: darken($gray-1, 5%);
 $gray-3: darken($gray-1, 10%);
 $gray-4: darken($gray-1, 15%);
-
 $gray-5: darken($gray-1, 50%);
+
+//spacing
+$section-spacing: 4vw;
 
 //auxiliar
 .d-block {
@@ -84,16 +86,17 @@ body {
 
 //heading
 .heading {
-    padding: 15px;
     max-width: 75%;
     margin: auto;
     text-align: center;
+    margin-top: $section-spacing;
     &.over {
         position: relative;
         margin-top: -80px;
         background-color: #fff;
         left: 0;
         right: 0;
+        padding: 30px 125px 0;
     }
     .title {
         font-size: 3.0rem;
@@ -103,12 +106,13 @@ body {
         margin: auto;
     }
     article {
-        margin: 20px 0;
-        font-size: 13px;
+        margin: 20px auto;
+        font-size: 15px;
+        max-width: 700px;
+        text-align: center;
     }
     @media (min-width: 992px) {
         max-width: 950px;
-        padding: 30px 125px 42px;
     }
 }
 
@@ -130,6 +134,7 @@ body {
 //showcase container
 .showcase-container{
     position: relative;
+    margin-top: $section-spacing;
 }
 
 //slick carousel

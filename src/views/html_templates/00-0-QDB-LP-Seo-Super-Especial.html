@@ -49,20 +49,19 @@
                 </div>
                 <div class="topProducts__render-collection"></div>
             </section>
-            <div class="rating-container section-block">
-                <!--SEÇÃO 2-->
+            <section class="rating-container section-block">
                 <div style="display: none;" class="product-id section-visibility">
                     <vtex:contentPlaceHolder id="secaoavaliacao_idproduto" />                
                 </div>
-                <section class="heading">
+                <div class="heading">
                     <h2 class="title">
                         <vtex:contentPlaceHolder id="secaoavaliacao_titulo" />
                     </h2>
                     <article>
                         <vtex:contentPlaceHolder id="secaoavaliacao_texto" />      
                     </article>
-                </section>
-                <section class="panel-rating">
+                </div>
+                <div class="panel-rating">
                     <div class="image">
                         <vtex:contentPlaceHolder id="secaoavaliacao_imagem" />
                     </div>
@@ -84,8 +83,8 @@
                             <span class="text">Comprar</span>
                         </a>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
             <section class="twentytwenty-container section-block">
                 <vtex:contentPlaceHolder id="imagem-compara-antes" />
                 <vtex:contentPlaceHolder id="imagem-compara-depois" />
@@ -131,13 +130,18 @@
                 </div>
             </section>
             <section class="section-block">
+                <div class="heading">
+                    <h2 class="title section-visibility">
+                        <vtex:contentPlaceHolder id="secaochaordic_titulo" />
+                    </h2>
+                </div>
                 <!-- Section Chaordic - Bottom -->
                 <div class="section--chaordic-bottom">
                     <div class="shell">
                         <div class="section-body">
                             <section class="section-chaordic">
                                 <div class="shell">
-                                    <div chaordic="bottom" class="section-visibility"></div>
+                                    <div chaordic="bottom"></div>
                                 </div>
                                 <!-- /.shell -->
                             </section>
@@ -155,6 +159,16 @@
         <script src="/arquivos/jquery.event.move.js" type="text/javascript"></script>
         <script src="/arquivos/jquery.twentytwenty-custom-guina.js"></script>
         <script src="/arquivos/QDB-LP-Super-Especial.js"></script>
+        <script>
+            $(function() {
+                $(".twentytwenty-container")
+                    .twentytwenty({
+                        default_offset_pct: 0.69,
+                        orientation: 'horizontal',
+                        no_overlay: false
+                    });
+            });
+        </script>
     </footer>
 </body>
 </html>
