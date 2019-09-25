@@ -151,7 +151,7 @@
                 list-style: none;
             }
             &--title{
-                font-size: 2em;
+                font-size: 1.25em;
                 width: 70%;
                 font-weight: 400;
                 @include d('768px'){
@@ -188,12 +188,13 @@
                 }
             }
             &--buy-button{
-                color: #fff;
+                color: $w-secundary;
                 padding: 10px;
-                border-radius: 10px;
+                border-radius: 5px;
                 width: 150px;
                 text-align: center;
                 background-color: #686162;
+                font-size: .875rem;
                 button{
                     text-transform: uppercase;
                     cursor: pointer;
@@ -216,7 +217,7 @@
         }
         &--flag{
             position: absolute;
-            color: #fff;
+            color: $w-secundary;
             top: 10px;
             right: 10px;
             width: 55px;
