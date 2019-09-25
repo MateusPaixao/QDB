@@ -1,3 +1,5 @@
+import Vitrine from './modules/General/Vitrine/VitrineContainer.jsx';
+
 const Methods = {
   init() {
     Methods.productsSlick();
@@ -5,7 +7,7 @@ const Methods = {
     Methods.getProductBannerInfo();
     Methods.getProductReview();
     Methods.hideEmptySections();
-    //Methods.buildVitrines();
+    Methods.buildVitrines();
   },
   productsSlick: () => {
     $(document).ready(function () {
@@ -134,8 +136,8 @@ const Methods = {
   buildVitrines : () => {
     let idCollection = Math.floor(Math.random() * 5000), 
     Collection = [],
-    Placeholder = document.querySelector(".topProducts .collectionPlaceholder"),
-    Content = Placeholder.querySelectorAll(".topProducts .collectionPlaceholder .vitrine-content");
+    Placeholder = document.querySelector(".collectionPlaceholder"),
+    Content = Placeholder.querySelectorAll(".collectionPlaceholder .vitrine-content");
 
     for (let i = 0; i < Content.length; i++) {
         let Item = {};

@@ -115,72 +115,21 @@ body {
 //banners
 .section-media {
     position: relative;
-    iframe {
-        width: 100%;
-        height: 35vw;
-        min-height: 350px;
+    margin-top: 30px;
+    .item {
+        overflow: hidden;
+        & > * {
+            width: 100%;
+            height: 35vw;
+            min-height: 350px;
+            margin-top: -60px;
+        }
     }
 }
 
-//slick-products-list
-.slick-products-list {
-    .inner {
-        border: solid 1px #fff;
-        padding: 8px;
-        margin: 3px;
-        &:hover {
-            border-color: $gray-1;
-            .button {
-                display: block;
-            }
-        }
-    }
-    .vitrine > ul li {
-        display: inline-block;
-        width: 25%;
-    }
-    .caption {
-        height: 145px;
-        position: relative;
-    }
-    .title {
-        font-size: 14px;
-        text-transform: capitalize;
-        height: 32px;
-        margin: 10px 0;
-        overflow: hidden;
-        text-align: inherit;
-    }
-    .installment,
-    .old-price,
-    .new-price,
-    .buy-button {
-        @extend .d-block;
-        margin: 10px 0;
-    }
-    .installment,
-    .old-price {
-        font-size: 11px;
-        height: 12px;
-    }
-    .new-price {
-        font-size: 1.6rem;
-    }
-    .button {
-        display: none;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-    }
-    @media(min-width: 768px) {
-        .caption {
-            text-align: center;
-        }
-        .button {
-            left: 0;
-            margin: auto;
-        }
-    }
+//showcase container
+.showcase-container{
+    position: relative;
 }
 
 //slick carousel
