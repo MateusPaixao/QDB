@@ -7,7 +7,7 @@
     justify-content: center;
     width: 100%;
     flex-direction: column;
-    background: #fdfdfd;
+    background: $principalColor;
 
     &__first-wrapper {
         display: flex;
@@ -20,13 +20,19 @@
             justify-content: center;
             align-items: center;
 
-            &__container {
+            .value__container {
                 display: flex;
                 align-items: center;
                 justify-content: center;
 
+                svg {
+                    width: 30px;
+                    height: 30px;
+                    border: 1px solid red;
+                }
+
                 &--text {
-                    color: black;
+                    color: $secondaryColor;
 
                 }
             }
@@ -60,6 +66,20 @@
                             font-size: 0.5m
                         }
                     }
+                }
+            }
+        }
+
+        &__last-column {
+
+            .social-media {
+                display: flex;
+                &__logo {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 30px;
+                    height: 30px;
                 }
             }
         }
@@ -97,6 +117,7 @@
             flex-direction: column;
 
             .list__item {
+                color: $secondaryColor;
                 margin: 0;
 
                 &--trusts,
@@ -104,15 +125,25 @@
                     display: flex;
                     align-items: center;
 
-                    .trust {}
+                    .trust,
+                    .payment {
+                        overflow: hidden;
+                        border: 1px solid red;
+                        width: 30px;
+                        height: 30px;
+
+                        svg {
+                            display: none;
+                        }
+                    }
                 }
             }
         }
     }
-    
+
     &__third-wrapper {
         .legal-info {
-            color: black;
+            color: $secondaryColor;
         }
     }
 
