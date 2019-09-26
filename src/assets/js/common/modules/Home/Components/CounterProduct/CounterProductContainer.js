@@ -1,21 +1,21 @@
 const Methods = {
     init() {
-        if(document.querySelector(".w-gerador--datas") != null){
+        if (document.querySelector(".w-gerador--datas") != null) {
+            // Methods.fetchReviews();
             Methods.getProductInfos();
-            Methods.getTopBannerColor()
+            Methods.getTopBannerColor();
+            Methods.AddToCart();
         }
     },
     getProductInfos: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
         const idSku = document.querySelector('.w-gerador--datas').getAttribute('data-sku');
-        const url = 'http://qbbr.vtexcommercestable.com.br/api/catalog_system/pub/products/search/?fq=productId:' + idProduto;
-        
+        const url = '/api/catalog_system/pub/products/search/?fq=productId:' + idProduto;
+
         fetch(url)
             .then(res => res.json())
             .then((product) => {
                 const skuList = product[0].items;
-                console.log('produto',product[0])
-                console.log('Link:',product[0].linkText)
 
                 for (const i in skuList) {
                     if (skuList.hasOwnProperty(i)) {
@@ -28,7 +28,7 @@ const Methods = {
                             let skuImg, skuTitle, oldPrice, newPrice, desconto, buyButton, productLink;
 
                             productLink = document.querySelectorAll('.w-product--link');
-                            productLink[0].href = `/${product[0].linkText}/p`; 
+                            productLink[0].href = `/${product[0].linkText}/p`;
                             productLink[1].href = `/${product[0].linkText}/p`;
 
                             skuImg = document.querySelector('.w-product--wrapper--img');
@@ -46,13 +46,14 @@ const Methods = {
                             desconto = document.querySelector('.w-product--wrapper--flag');
                             desconto.textContent = `-${percent}%`
 
-                            buyButton = document.querySelector('a.w-product--wrapper--infos--buy-button');
-                            buyButton.href = sku.sellers[0].addToCartLink;
+                            buyButton = document.querySelector('.w-product--wrapper--infos--buy-button');
+
 
                             if (sku.sellers[0].commertialOffer.AvailableQuantity <= 0) {
+                                document.querySelector('.w-gerador--datas').setAttribute('data-available', 'false');
                                 Methods.disableProduct();
-                            }
-                            else{
+                            } else {
+                                document.querySelector('.w-gerador--datas').setAttribute('data-available', 'true');
                                 Methods.counterInit()
                                 document.querySelector(".w-product--wrapper--infos--parcelamento").innerHTML = "até " + Math.max.apply(Math, sku.sellers[0].commertialOffer.Installments.map(function (o) {
                                     return o.NumberOfInstallments;
@@ -102,6 +103,8 @@ const Methods = {
             hourCounter.innerHTML = hours < 10 ? '0' + hours : hours;
             minuteCounter.innerHTML = minutes < 10 ? '0' + minutes : minutes;
             secondsCounter.innerHTML = seconds < 10 ? '0' + seconds : seconds;
+
+
         }
 
         clock = setInterval(showRemaining, 1000);
@@ -109,16 +112,31 @@ const Methods = {
 
     disableProduct: () => {
         let buyButton = document.querySelector('.w-product--wrapper--infos--buy-button');
-        let buyButtonTxt = document.querySelector('.w-product--wrapper--infos--buy-button button');
-        buyButtonTxt.textContent = "Indisponível"
+        let buyButtonTxt = document.querySelector('.w-product--wrapper--infos--buy-button');
+        document.querySelector('.w-product--container').classList.add('inactive');
+        const checkAvailable = document.querySelector('.w-gerador--datas').getAttribute('data-available')
+        if (checkAvailable == 'true') {
+            buyButtonTxt.textContent = "PROMOÇÃO ENCERRADA "
+            document.querySelector('.w-promo-text-sad').classList.remove('hidden');
+        } else if (checkAvailable == 'false') {
+            buyButtonTxt.textContent = "Indisponível";
+            document.querySelector('.w-promo-text-out').classList.remove('hidden');
+        }
         buyButton.style = "pointer-events: none;";
         buyButton.href = '';
 
+        const hourCounter = document.querySelector('.w-product--contador--timer--time.--hours');
+        const minuteCounter = document.querySelector('.w-product--contador--time.--minutes');
+        const secondsCounter = document.querySelector('.w-product--contador--time.--segundos');
+
+        hourCounter.innerHTML = '00';
+        minuteCounter.innerHTML = '00';
+        secondsCounter.innerHTML = '00';
+        document.querySelector('.w-product--wrapper--infos--parcelamento').classList.add('hidden');
         document.querySelector('.w-product--wrapper--infos--old-price').classList.add('hidden');
         document.querySelector('.w-product--wrapper--infos--new-price').classList.add('hidden');
-        document.querySelector('.w-product--wrapper--flag').classList.add('hidden');
         document.querySelector('.w-promo-text').classList.add('hidden');
-        document.querySelector('.w-promo-text-sad').classList.remove('hidden');
+        document.querySelector('.w-product--wrapper--flag').classList.add('hidden');
     },
 
     getTopBannerColor: () => {
@@ -146,119 +164,76 @@ const Methods = {
         buyButton.style = `background-color:${topBannerColor}`;
 
     },
-    
+
     fetchReviews: () => {
         const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
         const storeKey = "388ef2d0-c3b8-4fd6-af13-446b698d544a"
-        const url = "https://service.yourviews.com.br/api/" + storeKey + "/review/reviewshelf?productIds=" + idProduto;
+        const url = "https://service.yourviews.com.br/api/v2/pub/review/ReviewShelf?productids=" + idProduto;
 
-        fetch(url, {
-            method: 'GET',
-            mode: 'cors',
-            headers: new Headers({
-                'Content-Type': 'application/json',
-                'Authorization': 'Basic Mzg4ZWYyZDAtYzNiOC00ZmQ2LWFmMTMtNDQ2YjY5OGQ1NDRhOjU2N2Q0MjVmLTA1MGQtNGY1NC05MWUxLTMzODgwZmFjZmRkMw==',
-                'Access-Control-Allow-Origin': '*'
-            })
-        })
-            .then(res => res.json())
-            .then((res) => {
-                console.log('data',res);
-                let html;
-
-                res.Element.map((review, index) => {
-
-                function countRating() {
-
-                    let stars = '';
-
-                    for (let i = 1; i <= review.Rating; i++) {
-
-                        stars += `<svg viewBox="0 0 18 21" width="18" height="21" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.605 14.394L0 10.48s2.528-2.836 3.605-3.913l5.014-5.013a5.326 5.326 0 0 1 7.523 0 5.321 5.321 0 0 1 0 7.521l-1.406 1.405 1.406 1.405a5.321 5.321 0 0 1 0 7.521 5.327 5.327 0 0 1-7.523 0l-5.014-5.013z" fill="#67605F"/></svg>`
-
-                    }
-                    return stars;
-
-                }
-
-                html +=
-
-                    `<li class="review">
-                        <span class="_rate">
-                            ${countRating()}
-                        </span>
-                    </li>`
-                // console.log(html)
-
-            });
-            const el = document.querySelector('.w-product--wrapper--infos--rate');
-            el.innerHTML = html.replace('undefined', '');
-            })
-    },
-
-    getReviews: () => {
-
-        new Promise((resolve, reject) => {
-
-            let request = new XMLHttpRequest();
-            const idProduto = document.querySelector('.w-gerador--datas').getAttribute('data-product');
-            const storeKey = "388ef2d0-c3b8-4fd6-af13-446b698d544a"
-            let url = "https://service.yourviews.com.br/api/" + storeKey + "/review/reviewshelf?productIds=" + idProduto;
-
-            request.open('GET', url);
-
-            request.setRequestHeader('Content-Type', 'application/json');
-            request.setRequestHeader('mode', 'cors');
-            request.setRequestHeader('Authorization', 'Basic Mzg4ZWYyZDAtYzNiOC00ZmQ2LWFmMTMtNDQ2YjY5OGQ1NDRhOjU2N2Q0MjVmLTA1MGQtNGY1NC05MWUxLTMzODgwZmFjZmRkMw==');
-
-            request.setRequestHeader('Access-Control-Allow-Origin', '*');
-
-            request.onreadystatechange = () => {
-
-                if (request.readyState === 4) {
-
-                    resolve(JSON.parse('oieeeee', request.response));
-
-                }
-
+        fetch(url,{
+            method: "GET",
+            headers: {
+                'YVStoreKey': '388ef2d0-c3b8-4fd6-af13-446b698d544a',
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             }
-
-            console.log('request', request)
-
-            request.send();
-
-        }).then((res) => {
-            console.log(res)
-            let html;
-
-            res.Element.map((review, index) => {
-
-                function countRating() {
-
-                    let stars = '';
-
-                    for (let i = 1; i <= review.Rating; i++) {
-
-                        stars += `<svg viewBox="0 0 18 21" width="18" height="21" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.605 14.394L0 10.48s2.528-2.836 3.605-3.913l5.014-5.013a5.326 5.326 0 0 1 7.523 0 5.321 5.321 0 0 1 0 7.521l-1.406 1.405 1.406 1.405a5.321 5.321 0 0 1 0 7.521 5.327 5.327 0 0 1-7.523 0l-5.014-5.013z" fill="#67605F"/></svg>`
-
+        })
+        .then(res => res.json())
+        .then((reviews) => {
+            console.log(reviews);
+        })
+    },
+    AddToCart: () => {
+        document.querySelector(".w-product--wrapper--infos--buy-button").addEventListener("click", () => {
+            let skuId = document.querySelector(".w-gerador--datas").getAttribute("data-sku");
+            console.log(skuId)
+            let quantity;
+            vtexjs.checkout.getOrderForm().then(function (orderForm) {
+                    // console.log(orderForm);
+                    if (!!orderForm.items.length) {
+                        orderForm.items.map((e, i) => {
+                            if (e.id == skuId) {
+                                quantity = e.quantity;
+                                quantity++
+                                let updateItem = {
+                                    index: i,
+                                    quantity: quantity
+                                };
+                                return vtexjs.checkout.updateItems([updateItem]);
+                            } else {
+                                let newitem = {
+                                    id: skuId,
+                                    quantity: 1,
+                                    seller: '1'
+                                };
+                                return vtexjs.checkout.addToCart([newitem]);
+                            }
+                        })
+                    } else {
+                        let newitem = {
+                            id: skuId,
+                            quantity: 1,
+                            seller: '1'
+                        };
+                        return vtexjs.checkout.addToCart([newitem]);
                     }
-                    return stars;
-
-                }
-
-                html +=
-
-                    `<li class="review">
-                        <span class="_rate">
-                            ${countRating()}
-                        </span>
-                    </li>`
-                // console.log(html)
-
-            });
-            const el = document.querySelector('.w-product--wrapper--infos--rate');
-            el.innerHTML = html.replace('undefined', '');
-
+                })
+                .done(function (orderForm) {
+                    // console.log(orderForm);
+                    vtexjs.checkout.getOrderForm().then(function (orderForm) {
+                        window._orderForm = orderForm;
+                        var qty = 0;
+                        $(orderForm.items).each(function (ndx, item) {
+                            if (!item.isGift) {
+                                qty += item.quantity;
+                            }
+                        });
+                        if (isFinite(qty)) {
+                            $('.__cart-link a span').text(qty);
+                        }
+                    }).done(function () {
+                        $('html').trigger('open.MiniCart'); // Função em Jquery devido ao evento do Minicart em General.
+                    });
+                });
         });
     }
 }

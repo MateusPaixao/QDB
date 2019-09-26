@@ -23,10 +23,22 @@ legend {
 html {
     /* line-height:1.15; */
     -webkit-text-size-adjust: 100%;
+    @include sans(1vw, $g-primary, 400, normal);
 }
 
-body {
-    margin: 0
+html,body {
+    margin: 0;
+    @include sans(1vw, $g-primary, 400, normal);
+
+    @include d(l){
+        font-size: 14px;
+    }
+    @include d(s){
+        font-size: 3vw;
+    }
+    @include d(xs){
+        font-size: 4vw;
+    }
 }
 
 hr {
@@ -166,7 +178,7 @@ template {
 html {
     --white: #fff;
     --off-white: #FAF6F5;
-    --lead: #333;
+    --lead: $g-primary;
     --light-lead: #222;
     --turquoise: #4edac0;
     --light-turquoise: #8FEDDB;
@@ -353,13 +365,7 @@ html {
     /* overflow-x: hidden; */
 }
 
-html,
-body {
-    color: #333;
-}
-
 body .wrapper {
-    color: var(--lead);
     margin: 0 auto;
 }
 
@@ -448,6 +454,8 @@ p {
     &.firstBanner {
         margin-top: -3.5em;
         float: left;
+        z-index: 5;
+        position: relative;
         @include d(s){
             margin-top: initial;
             float: none;
@@ -519,15 +527,15 @@ input[type=text] {
 }
 
 .__btn {
-    background-color: #333;
+    background-color: $g-primary;
     color: #ffffff !important;
-    background-color: var(--lead);
+    background-color: $safflower;
     color: var(--white) !important;
 }
 
 .__btn-white {
     background-color: #ffffff;
-    color: #333 !important;
+    color: $g-primary !important;
     background-color: var(--white);
     color: var(--lead) !important;
 }
@@ -535,7 +543,7 @@ input[type=text] {
 .__btn:hover,
 .__btn-white:hover {
     background-color: #8FEDDB;
-    color: #333 !important;
+    color: $g-primary !important;
     background-color: var(--light-turquoise);
     color: var(--lead) !important;
 }
@@ -551,8 +559,7 @@ input[type=text] {
 }
 
 .__btn-white.__arrow-right:after {
-    color: #333;
-    color: var(--lead);
+    color: $g-primary;
 }
 
 button {}
@@ -616,7 +623,7 @@ button {}
 }
 
 .__underlined {
-    border: 1px solid #333;
+    border: 1px solid $g-primary;
     border-width: 0 0 1px 0;
 }
 
@@ -664,7 +671,6 @@ button {}
 .__close-icon:before,
 .__close-icon-black:before {
     content: "X";
-    font-family: "Museo Sans";
     width: 18px;
     height: 18px;
     display: block;
@@ -672,12 +678,11 @@ button {}
     cursor: pointer;
     right: 0;
     top: 0;
-    color: #333;
+    color: $g-primary;
 }
 
 .__close-icon-white:before {
     content: "X";
-    font-family: "Museo Sans";
     width: 18px;
     height: 18px;
     display: block;
@@ -699,7 +704,7 @@ button {}
 
 .__dark,
 .lnc-wishlist.lnc-add-to-cart-btn {
-    background-color: #333 !important;
+    background-color: $g-primary !important;
 }
 
 .__dark a {
@@ -1037,8 +1042,7 @@ html._light-off ::selection {
 ._top-bar,
 ._top-bar a {
     font-size: 0.750em;
-    color: #333;
-    color: var(--lead);
+    color: $g-primary;
 }
 
 ._top-bar-container {
@@ -1158,7 +1162,7 @@ html._light-off ::selection {
 }
 
 ._top-bar-links ul * {
-    color: #333
+    color: $g-primary;
 }
 
 ._top-bar-links ul li {
@@ -1200,7 +1204,7 @@ html._light-off ::selection {
 ._top-bar-links ._top-bar-help.__on a,
 ._top-bar-links ._top-bar-accessibility.__on a {
     text-align: left;
-    color: #333;
+    color: $g-primary;
     background-color: #FAF6F5;
 }
 
@@ -1265,7 +1269,7 @@ html._light-off ::selection {
     line-height: 1.2em;
     width: 100%;
     height: 100%;
-    background-color: #333;
+    background-color: $g-primary;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1537,8 +1541,7 @@ html._light-off ::selection {
 }
 
 ._header-links a:before {
-    color: #333;
-    color: var(--lead);
+    color: $g-primary;
 }
 
 .__user-logged ._header-links .__account-link a:before {
@@ -1782,7 +1785,7 @@ html._light-off ::selection {
     width: 16px;
     position: relative;
     margin: 10px 0 0 20px;
-    font-size: 28px;
+    @include sans(2rem, $g-primary, 400, initial);
 }
 
 .__close-cart:hover {
@@ -1963,7 +1966,7 @@ html._light-off ::selection {
     font-size: 14px;
     /*! font-weight: 700; */
     letter-spacing: 0.035em;
-    color: #333;
+    color: $g-primary;
     text-transform: none;
 }
 
@@ -1989,7 +1992,7 @@ html._light-off ::selection {
     text-indent: 0;
     font-size: 22px;
     bottom: 0;
-    color: #333;
+    color: $g-primary;
 }
 
 .mr-prod-item .mr-rm:hover {
@@ -2028,7 +2031,7 @@ html._light-off ::selection {
 .mr-empty {
     font-size: 1em;
     line-height: 1.4em !important;
-    color: #333;
+    color: $g-primary;
     padding: 20px 35px;
     width: 100%;
     box-sizing: border-box;
@@ -2052,6 +2055,7 @@ html._light-off ::selection {
 .__cart-empty .mr-empty,
 .__cart-loading .mr-loading {
     display: block;
+    opacity: 0;
 }
 
 .__cart-loading .mr-prod-list,
@@ -2081,12 +2085,12 @@ html._light-off ::selection {
     /*! border-bottom:1px solid #FAF6F5; */
     padding: 20px 20px 0;
     /*! display: none; */
-    background: #333;
+    background: $g-primary;
     color: #fff;
 }
 
 .mr-shipping-lbl {
-    /*! color: #333; */
+    /*! color: $g-primary; */
     padding-left: 4px;
 }
 
@@ -2144,7 +2148,7 @@ html._light-off ::selection {
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: #333;
+    background-color: $g-primary;
     opacity: 0.7;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
 }
@@ -2175,7 +2179,7 @@ a.vejamais-vtexresearch {
     min-width: 250px;
     padding: 14px 0;
     margin: 0 auto 100px auto;
-    font: 16px "Museo Sans";
+    font-size: 16px;
     color: #686162;
     text-transform: uppercase;
     background: transparent;
@@ -2239,7 +2243,7 @@ a.vejamais-vtexresearch:hover {
     }
 
     ._header-search-bar input {
-        color: #333;
+        color: $g-primary;
         font-size: 1.2em;
         position: absolute;
         top: 0;
@@ -2396,7 +2400,7 @@ a.vejamais-vtexresearch:hover {
 }
 
 ._super-menu>ul>li.__dark.__super-menu-on>a {
-    color: #333;
+    color: $g-primary;
 }
 
 ._super-menu .__hasChildren:after {
@@ -2665,7 +2669,7 @@ html .feature-secondary {
     }
 
     ._super-menu>ul>li.__dark {
-        background-color: #333;
+        background-color: $g-primary;
     }
 
     ._super-menu>ul>li.__light-turquoise {
@@ -2728,7 +2732,7 @@ html .feature-secondary {
     }
 
     ._super-menu {
-        background-color: #333;
+        background-color: $g-primary;
         -webkit-transition: all ease-in-out .3s;
         transition: all ease-in-out .3s;
         overflow-x: hidden;
@@ -2963,14 +2967,13 @@ html .feature-secondary {
     }
 
     ._d-top ._menu-cat:before {
-        color: #333 !important;
+        color: $g-primary !important;
     }
 
     ._d-top ._header-links .__account-link a:before,
     ._d-top ._header-links .__wishlist-link a:before,
     ._d-top ._header-links .__cart-link a:before {
-        color: #333;
-        color: var(--lead);
+        color: $g-primary;
     }
 
     ._d-top ._menu-cat {
@@ -3036,19 +3039,19 @@ html .feature-secondary {
     ._d-top ._menu-links .__highlight-blue a {
         background-color: #fff;
         font-weight: 700;
-        color: #333;
+        color: $g-primary;
         border-radius: 4px;
     }
 
     ._d-top ._menu-links .__highlight-black a {
-        background-color: #333;
+        background-color: $g-primary;
         color: #fff;
     }
 
     ._black-friday._d-top ._menu-links .__highlight-black a,
     ._light-off._d-top ._menu-links .__highlight-black a {
         background-color: #8FEDDB;
-        color: #333;
+        color: $g-primary;
     }
 
     ._d-top ._menu-links .__highlight-blue a,
@@ -3376,7 +3379,7 @@ html .feature-secondary {
     }
 
     ._footer--razao-social {
-        color: var(--lead);
+        color: $g-primary;
         text-transform: none !important;
         font-weight: 300;
         text-align: center;
@@ -3712,277 +3715,6 @@ html .feature-secondary {
 }
 
 /* END:FOOTER */
-/* INICIO CONTADOR */
-.counter, .topbanner{
-  align-items: center;
-  display: none;
-  width: 100%;
-  padding: 5px 0;
-  justify-content: center;
-  font-size: .75vw;
-  background-color: transparent;
-  color: $w-secundary;
-  text-transform: initial;
-  transition: all .2s;
-  overflow: hidden;
-  &.topbanner{
-    font-size: 1vw;
-    // small{
-    //   width: 100%;
-    //   padding: 5px;
-    // }
-    @include d(l){
-      font-size: 12px;
-    }
-    @include d(xs){
-      font-size: 3vw;
-    }
-    .toslide{
-      margin-right: 10px;
-      width: 30%;
-      @include d(s){
-        width: 50%;
-        &.frete-gratis{
-          width: 100%;
-          }
-      }
-      @include d(xs){
-        width: 50%;
-        &.frete-gratis{
-          width: 100%;
-          }
-      }
-      .slick-list{
-        overflow: hidden;
-        height: 100%;
-      }
-    }
-    .slick-slide{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    span.texto{
-      font-size: 1.5em;
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
-    }
-    .btn-counter{
-      font-size: 1em;
-    }
-  }
-  @include d(l){
-    font-size: 12px;
-    padding: 10px;
-  }
-  @include d(xs){
-    font-size: 1.5vw;
-    padding: 10px;
-  }
-  svg{
-    margin-right: 10px;
-    height: 30px;
-    transition: all .5s;
-      @include d(s){
-          display: none !important;
-      }
-      @include d(xs){
-          display: none !important;
-      }
-    circle{
-          stroke-dasharray: 20;
-          @include animation(wheel, .2s, infinite, linear);
-    }
-  }
-  p.promo-counter{
-      display: flex;
-      text-align: left;
-      align-content: center;
-      text-align: left;
-      margin: 0;
-      height: 30px;
-      b{
-          font-size: 1.5em;
-          line-height: 1.5em;
-      }
-      @include d(s){
-          font-size: 2em;
-          text-align: left;
-          padding: 0 5px;     
-      }
-      @include d(xs){
-          font-size: 2em;
-          text-align: left; 
-          height: initial;      
-      }
-  }
-  .btn-counter{
-      border: solid 1px;
-      padding: 5px 10px;
-      border-radius: 20px;
-      @include d(s){
-          font-size: 2em;
-      }
-      @include d(xs){
-          font-size: 2em;
-      }
-      &:hover{
-          filter: contrast(140%);
-      }
-  }
-  .w-counter--container--counterbar{
-    width: 100%;
-    height: 3px;
-    background-color: transparent;
-    display: block;
-    border-radius: 5px;
-    filter: brightness(90%);
-    .w-counter--bar{
-      width: 100%;
-      height: 3px;
-      background-color: $w-secundary;
-      display: block;
-      border-radius: 5px;
-    }
-  }
-  .counter-timer{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 0;
-      flex-flow: column;
-      // padding: 10px;
-      // margin: 0 auto;
-      @include d(xs){
-        font-size: 1.5em;
-      }
-      .counter-text{
-          // background: $w-secundary;
-          padding: 15px 10px;
-          border-radius: 5px;
-          display: flex;
-          align-items: center;
-          position: relative;
-          z-index: 2;
-          font-size: 1.5em;
-          color: $w-secundary;
-          font-weight: 700;
-          line-height: 1em;
-          box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.35);
-          @include d(xs){
-              font-size: 2em;
-              border-radius: 5px 5px 0 0;
-              width: 100%;
-              justify-content: center;
-              padding: 10px;
-          }
-          @include d(s){
-              font-size: 2em;
-              border-radius: 5px 5px 0 0;
-              width: 100%;
-              justify-content: center;
-              padding: 10px;
-          }
-          svg{
-              height: 2em;
-              width: 2em;
-              circle{
-                stroke-dasharray: 20;
-                animation-name: wheel;
-                animation-duration: 0.2s;
-                animation-iteration-count: infinite;
-                animation-timing-function: linear;
-              }
-          }
-          svg path{
-              fill: $w-secundary;
-              // @include warn(fill, $w-secundary, $amarelo);
-              // @include animation(warncounter, 2s, initial, linear);
-          }
-          .counter-set{
-              margin: 0;
-              // @include warn(color, $w-secundary, $amarelo);
-              // @include animation(warncounter, 2s, initial, linear);
-              animation-iteration-count: infinite;
-          }
-      }
-      .counter--countdown{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          // background-color: $w-secundary;
-          padding: 5px;
-          border-radius: 5px;
-          margin-left: -5px;
-          // box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.35);
-          @include d(s){
-              // border-radius: 0 0 5px 5px;
-              margin-left: initial;
-              width: 100%;
-              // background-color: $w-secundary;
-              box-shadow: none;
-          }
-          @include d(xs){
-              // border-radius: 0 0 5px 5px;
-              margin-left: initial;
-              width: 100%;
-              // background-color: $w-secundary;
-              box-shadow: none;
-          }
-          span{
-              margin: 0 2px;
-              &:nth-child(1){
-                margin-left: 10px;
-              }
-              font-size: 1.875em;
-              color: $w-secundary;
-              font-weight: 700;
-              line-height: .875em;
-              display: flex;
-              align-items: flex-end;
-              @include d(s){
-                  font-size: 2.5em;
-              }
-              @include d(xs){
-                  font-size: 2.5em;
-              }
-              p{
-                  font-size: .5em;
-                  color: $w-secundary;
-                  font-weight: 300;
-                  line-height: 1em;
-                  margin: 0;
-                  @include d(s){
-                      font-size: .875em;
-                  }
-                  @include d(xs){
-                      font-size: .875em;
-                  }
-              }
-          }
-      }
-      small{
-          padding: 5px;
-      }
-  }
-  &:hover{
-      filter: brightness(110%);
-      p.promo-counter svg{
-          transform: translateX(10px) skew(-5deg);
-      }
-  }
-}
-
-@keyframes wheel {
-  from {}
-  to {
-      stroke-dashoffset: 0;
-  }
-}
-
-/* FIM CONTADOR */
 /* CATEGORIA */
 .category_banner {
     display: flex;
@@ -4177,7 +3909,6 @@ html {
 
     .ac-container {
         left: 0 !important;
-        font-family: "Museo Sans", sans-serif !important;
         width: 100% !important;
         top: 70% !important;
         max-height: 420px;
@@ -4452,5 +4183,5 @@ html {
 }
 
 .__regiao{
-    display: none;
+    display: none !important;
 }
