@@ -1,6 +1,6 @@
-.header{
-    display: none !important;
-}
+// .header{
+//     display: none !important;
+// }
 .footer {
     display: flex;
     align-items: center;
@@ -19,6 +19,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
+            &__container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &--text {
+                    color: black;
+
+                }
+            }
         }
     }
 
@@ -26,6 +37,7 @@
         display: flex;
         width: 100%;
         justify-content: center;
+        align-items: flex-start;
     }
 
     .second-wrapper {
@@ -39,16 +51,69 @@
         &__second-column {
             display: flex;
             flex-direction: column;
+
+            .list-wrapper {
+                .list {
+                    &__item {
+                        &--small {
+                            margin: 0;
+                            font-size: 0.5m
+                        }
+                    }
+                }
+            }
         }
     }
+
     .list-wrapper {
         display: flex;
         justify-content: space-around;
-        .list{
+
+        .list {
+            font-weight: 900;
             margin-left: 30px;
-            &:first-child{
+            text-transform: capitalize;
+
+            &:first-child {
                 margin-left: 0;
             }
+
+            &__item {
+                text-transform: initial;
+                font-weight: 100;
+                margin: 5px 0;
+            }
         }
-   }
+    }
+
+    .list {
+
+        &.trusts,
+        &.payments {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 40px;
+            font-weight: 900;
+            flex-direction: column;
+
+            .list__item {
+                margin: 0;
+
+                &--trusts,
+                &--payments {
+                    display: flex;
+                    align-items: center;
+
+                    .trust {}
+                }
+            }
+        }
+    }
+    
+    &__third-wrapper {
+        .legal-info {
+            color: black;
+        }
+    }
+
 }
