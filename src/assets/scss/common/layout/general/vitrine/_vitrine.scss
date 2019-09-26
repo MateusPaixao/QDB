@@ -40,11 +40,13 @@
             background: $w-secundary;
             transform: translateX(0%);
                 .cardProduct--change__engine{
-                    height: 25px;
-                    width: 25px;
+                    height: 15px;
+                    width: 15px;
                     flex-grow: 1;
+                    margin-right: 5px;
                     path{
                         fill: $safflower;
+                        stroke: $w-secundary;
                     }
                 }
                 .cardProduct--change__title{
@@ -78,17 +80,18 @@
                 transform: translateX(100%);
                 .cardProduct--change__engine{
                     position: absolute;
-                    top: -.5em;
+                    top: -.4em;
                     left: -3.7em;
                     display: flex;
                     background: $safflower;
                     width: 80px;
                     height: 35px;
-                    padding: 10px 0 0;
+                    padding: 12px 0 7px;
                     transform: rotate(45deg) translate(0px, -3em);
                     transition: all .2s;
                     path{
                         fill: $w-secundary;
+                        stroke: $safflower;
                     }
                 }
                 .cardProduct--change__title, .cardProduct--change__close{
@@ -353,6 +356,19 @@
                 @include animation("Adding", 5s, linear, cubic-bezier(.6,.51,0,1.01));
                 animation-fill-mode: forwards;
                 flex-flow: column;
+                @keyframes Adding {
+                    0%{
+                        transform: translateY(15%);
+                        height: 10%;
+                    }
+                    10%{
+                        height: 140%;
+                    }
+                    100%{
+                        height: 140%;
+                        transform: translateY(15%);
+                    }
+                }
                 .status--adding__text{
                     transition: all .2s;
                     letter-spacing: .2em;
@@ -367,32 +383,6 @@
                     height: 6%;
                     width: 2px;
                     background: $w-secundary;
-                }
-                @keyframes Adding {
-                    0%{
-                        transform: translateY(15%);
-                        height: 10%;
-                    }
-                    10%{
-                        height: 140%;
-                    }
-                    100%{
-                        height: 140%;
-                        transform: translateY(15%);
-                    }
-                }
-                @keyframes Removing {
-                    0%{
-                        height: 140%;
-                        transform: translateY(15%);
-                    }
-                    1%{
-                        height: 10%;
-                    }
-                    100%{
-                        transform: translateY(15%);
-                        height: 10%;
-                    }
                 }
             }
             &.status--adding{
@@ -429,7 +419,7 @@
                                 height: 100%;
                             }
                             100%{
-                                border-radius: 5px;
+                                border-radius: 20px;
                                 height: 100%;
                             }
                         }
@@ -438,8 +428,15 @@
                         50%{
                             letter-spacing: .2em;
                         }
+                        70%{
+                            letter-spacing: -.6em;
+                            transform: translateY(0%);
+                            opacity: 1;
+                        }
                         100%{
-                            letter-spacing: -.5em;
+                            letter-spacing: -.6em;
+                            transform: translateY(150%);
+                            opacity: 0;
                         }
                     }
                 }
@@ -450,10 +447,135 @@
                     @keyframes downLine {
                         50%{
                             height: 6%;
+                            width: 2px;
+                            border-radius: 0%;
                         }
                         100%{
-                            height: 0%;
+                            height: 10px;
+                            width: 10px;
+                            border-radius: 100%;
                         }
+                    }
+                }
+            }
+            &.status--added{
+                .status--adding__text{
+                    animation: showText .2s cubic-bezier(0,1.01,.56,1.53) 0s forwards;
+                    max-width: 180px;
+                    @keyframes showText {
+                        to{
+                            letter-spacing: .1em;
+                            transform: translateY(0%);
+                            opacity: 1;
+                        }
+                    }
+                    &:after{
+                        display: none;
+                    }
+                }
+                .status--adding__dots{
+                    animation: showProduct .2s cubic-bezier(0,1.01,.56,1.53) 0s forwards;
+                    // overflow: hidden;
+                    height: 10px;
+                    width: 10px;
+                    border-radius: 100%;
+                    // animation-delay: .5s;
+                    position: relative;
+                    border: solid $qdb-grey-m 5px;
+                    img{
+                        border-radius: 100%;
+                        width: 100%;
+                    }
+                    @keyframes showProduct {
+                        to{
+                            height: 170px;
+                            width: 170px;
+                            border-radius: 100%;
+                            overflow: initial;
+                        }
+                    }
+                    .status--adding__dots__cart{
+                        overflow: hidden;
+                        .status--adding__dots__cart__icon{
+                            path{
+                                fill: $safflower;
+                            }
+                        }
+                        &::after, &::before{ 
+                            position: absolute;
+                            background: $safflower;
+                            width: 700px;
+                            height: 700px;
+                            bottom: -600px;
+                            transform-origin: 50% 48%;
+                            border-radius: 43%;
+                            @keyframes drift {
+                                from { transform: rotate(0deg); }
+                                from { transform: rotate(360deg); }
+                            }
+                        }
+                        &::after{
+                            animation: drift 6s infinite linear;
+                        }
+                        &::before{
+                          opacity: .5;
+                          animation: drift 4s infinite linear;
+                        }
+                    }
+                    .circle-dots{
+                        content: '';
+                        position: absolute;
+                        width: 170px;
+                        height: 170px;
+                        left: -5px;
+                        top: -5px;
+                        border-radius: 100%;
+                        opacity: 0;
+                        animation: countdownopacity .1s linear .2s forwards;
+                        @keyframes countdownopacity {
+                            to{
+                                opacity: 1;
+                            }
+                        }
+                        .circle{
+                            fill: transparent;
+                            stroke: $w-secundary;
+                            stroke-width: 4;
+                            stroke-dashoffset: calc(46 * 3.14 * 2);
+                            stroke-dasharray: calc(46 * 3.14 * 2);
+                            animation: countdownclose 4.8s linear 0s forwards;
+                            @keyframes countdownclose {
+                                to{
+                                    stroke-dashoffset: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &.status--remove{
+                border-radius: 100%;
+                width: 200%;
+                margin-left: -50%;
+                transition: all 1s;
+                @include animation("Removing", .8s, linear, cubic-bezier(.6,.51,0,1.01));
+                animation-fill-mode: forwards;
+                flex-flow: column;
+                .cardProduct--addToCart__bag, .cardProduct--addToCart__cta{
+                    opacity: 0;
+                }
+                @keyframes Removing {
+                    0%{
+                        transform: translateY(15%);
+                        height: 140%;
+                    }
+                    100%{
+                        height: 10%;
+                        width: 100%;
+                        margin-left: 0; 
+                        border-radius: 0;
+                        height: 10%;
+                        transform: translateY(100%);
                     }
                 }
             }
