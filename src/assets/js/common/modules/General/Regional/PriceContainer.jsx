@@ -1,5 +1,4 @@
 import PriceSelect from "./components/_PriceSelect.jsx"
-import PriceModal from "./components/_PriceModal.jsx";
 
 const Methods = {
     init(){
@@ -17,13 +16,16 @@ const Methods = {
             
             render(){
                 return (
-                    <PriceModal />
+                    <PriceSelect />
                 )
             }
         }
+        window.innerWidth > 768 ?
         ReactDOM.render(
-            <ModalContainer />,
-            document.getElementById('modalRegional')
+            <ModalContainer />,document.getElementById('regiao')
+        ) :
+        ReactDOM.render(
+            <ModalContainer />,document.getElementById('regiao-mobile')
         );
     }
 }

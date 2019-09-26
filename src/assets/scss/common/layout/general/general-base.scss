@@ -1,8 +1,7 @@
 @import '../../config/global/globals-bases';
 @import './chaordic-shelf/chaordic-shelf-base';
-@import 'new-qdb-style';
-@import './vitrine/vitrine';
-@import './topbanner/top-banner';
-@import './regional/price-modal';
-// @import './header/header__index';
+@import './header/header__index';
+@import './footer/footer__index';
+@import './minicart/minicart__base.scss';
 @import 'general-page';
+@import './Acessibilidade/acessibilidade-base';
