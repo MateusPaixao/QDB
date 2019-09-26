@@ -358,7 +358,7 @@
                 flex-flow: column;
                 @keyframes Adding {
                     0%{
-                        transform: translateY(15%);
+                        transform: translateY(10%);
                         height: 10%;
                     }
                     10%{
@@ -366,7 +366,7 @@
                     }
                     100%{
                         height: 140%;
-                        transform: translateY(15%);
+                        transform: translateY(10%);
                     }
                 }
                 .status--adding__text{
@@ -494,33 +494,18 @@
                             overflow: initial;
                         }
                     }
+                    .status--adding__dots__img{
+                        min-height: 160px;
+                        min-width: 160px;
+                    }
                     .status--adding__dots__cart{
-                        overflow: hidden;
-                        .status--adding__dots__cart__icon{
-                            path{
-                                fill: $safflower;
-                            }
-                        }
-                        &::after, &::before{ 
-                            position: absolute;
-                            background: $safflower;
-                            width: 700px;
-                            height: 700px;
-                            bottom: -600px;
-                            transform-origin: 50% 48%;
-                            border-radius: 43%;
-                            @keyframes drift {
-                                from { transform: rotate(0deg); }
-                                from { transform: rotate(360deg); }
-                            }
-                        }
-                        &::after{
-                            animation: drift 6s infinite linear;
-                        }
-                        &::before{
-                          opacity: .5;
-                          animation: drift 4s infinite linear;
-                        }
+                        padding: 10px;
+                        @include sans(1em, $safflower, 400, initial);
+                        background: $w-secundary;
+                        margin-top: 20px;
+                        border-radius: 5px;
+                        display: flex;
+                        justify-content: center;
                     }
                     .circle-dots{
                         content: '';
@@ -566,7 +551,7 @@
                 }
                 @keyframes Removing {
                     0%{
-                        transform: translateY(15%);
+                        transform: translateY(10%);
                         height: 140%;
                     }
                     100%{
