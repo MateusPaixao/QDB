@@ -26,6 +26,10 @@ html {
 body {
     margin: 0
 }
+html,body{
+    font-family: "CentraleSans-Regular";
+    font-weight: 400;
+}
 
 hr {
     box-sizing: content-box;
@@ -1329,7 +1333,6 @@ a.vejamais-vtexresearch:hover {
 .counter,
 .topbanner {
     align-items: center;
-    display: none;
     width: 100%;
     padding: 5px 0;
     justify-content: center;

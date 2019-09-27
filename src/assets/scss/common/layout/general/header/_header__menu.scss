@@ -3,8 +3,8 @@
         transition: .3s ease-in-out;
         z-index: 3;
         position: absolute;
-        top: -15px;
-        left: -15px;
+        top: 0;
+        left: 0;
         background: #fdfdfd;
         width: 30vw;
         height: 100vh;
@@ -156,7 +156,7 @@
             height: 33px;
             position: absolute;
             opacity: 0;
-            left: -15px;
+            left: 0;
             top: 0;
             cursor: pointer;
 

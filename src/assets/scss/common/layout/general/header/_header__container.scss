@@ -1,13 +1,14 @@
-
-.container-group{
+.container-group {
     position: relative;
 }
+
 .header {
     svg {
         path {
             fill: $secondaryColor
         }
     }
+
     z-index: 20;
     box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
     position: fixed;
@@ -15,14 +16,12 @@
     top: 0;
     background-color: $principalColor;
     width: 100vw;
-    height: 175px;
-    padding: $headerPadding;
+    // padding: $headerPadding;
     min-height: 150px;
-    
+
 
     @include d('768px') {
         min-height: auto;
-        max-height: 110px;
         height: auto;
     }
 
@@ -79,6 +78,7 @@
         @include d('768px') {
             height: auto;
             flex-wrap: wrap;
+            padding: 5px;
             justify-content: space-between;
         }
 
@@ -185,6 +185,8 @@
             width: 90%;
             padding: 0;
             height: 100%;
+            -moz-appearance: none;
+            -webkit-appearance: none;
 
             @include d('768px') {
                 width: 90%;
@@ -304,7 +306,7 @@
         width: 15px;
         background: $secondaryColor;
 
-        height: 3px;
+        height: 2px;
         border-radius: 3px;
         position: relative;
         cursor: pointer;
@@ -314,7 +316,7 @@
             display: block;
             width: 25px;
             background: $secondaryColor;
-            height: 3px;
+            height: 2px;
             border-radius: 3px;
             position: absolute;
             top: -6px;
@@ -325,7 +327,7 @@
             display: block;
             width: 25px;
             background: $secondaryColor;
-            height: 3px;
+            height: 2px;
             border-radius: 3px;
             position: absolute;
             top: 6px;
@@ -389,10 +391,9 @@
             background: $principalColor;
             position: absolute;
             top: 95%;
-            height: 370px;
+            height: 380px;
             left: 0;
             text-align: left;
-            padding: 0 5px;
             box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
             border-radius: 5px;
             overflow: hidden;
@@ -403,11 +404,13 @@
             padding: 10px 0px;
 
         }
-        &--banner{
+
+        &--banner {
             height: 100%;
             width: 230px;
             padding: 0;
         }
+
         &--department-item {
             text-transform: capitalize;
             font-weight: 900;
@@ -459,6 +462,8 @@
 }
 
 .scrollDown {
+    transition: all .2s;
+
     .header {
         min-height: inherit;
         height: auto;
@@ -466,6 +471,7 @@
 
     .header__container {
         height: 100%;
+        padding: 15px;
     }
 
     .header__container--nav {
