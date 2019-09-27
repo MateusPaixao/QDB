@@ -202,9 +202,8 @@
 
                     }
                     .payment:nth-child(5){
-                        svg path{
-                            fill: red;
-                        }
+                        background-color: #B3131B;
+                        
                     }
                     .trust{
                         a{
@@ -238,6 +237,7 @@
         }
         .legal-info {
             color: $secondaryColor;
+            text-align: center;
         }
     }
 
