@@ -36,6 +36,7 @@ const Methods = {
       orientation: 'horizontal',
       no_overlay: false
     });
+    $(window).trigger('resize');
   },
   getProductBannerInfo: () => {
     var productElements = document.querySelectorAll(".panel-product");
@@ -152,8 +153,6 @@ const Methods = {
     Placeholder.nextSibling.setAttribute("id", Col);
     
     Vitrine.build(idCollection, Collection, true, "4.2");
-    // document.querySelector(".topProducts .--collectionPlaceholder").innerHTML = Collection;
-    // console.log(Collection);
   }
 }
 document.addEventListener('DOMContentLoaded', () => {
