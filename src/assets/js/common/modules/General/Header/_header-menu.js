@@ -16,9 +16,9 @@ const Methods = {
     marginTopMenuHeight() {
         const header = CacheSelector.header.header;
         const elementToMargin = CacheSelector.$globals.body;
-        let headerHeight = header.offsetHeight;
         window.addEventListener('scroll', function() {
-            elementToMargin.style.marginTop = `${headerHeight + 50}px`;
+            let headerHeight = header.offsetHeight;
+            this.innerWidth < 768 ? elementToMargin.style.marginTop = `${headerHeight + 50}px` : elementToMargin.style.marginTop = `${headerHeight}px`;
             console.log(window.scrollY)
         })
     },
