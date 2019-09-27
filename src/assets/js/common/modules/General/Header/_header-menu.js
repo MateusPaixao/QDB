@@ -17,7 +17,10 @@ const Methods = {
         const header = CacheSelector.header.header;
         const elementToMargin = CacheSelector.$globals.body;
         let headerHeight = header.offsetHeight;
-        elementToMargin.style.margin = `${headerHeight}px`;
+        window.addEventListener('scroll', function() {
+            elementToMargin.style.marginTop = `${headerHeight + 50}px`;
+            console.log(window.scrollY)
+        })
     },
     openCloseMenu() {
         CacheSelector.header.menuHamContainer.addEventListener('click', (el) => {

@@ -3,7 +3,6 @@
     position: relative;
 }
 .header {
-    display: none !important;
     svg {
         path {
             fill: $secondaryColor
@@ -15,7 +14,7 @@
     left: 0;
     top: 0;
     background-color: $principalColor;
-    width: 100%;
+    width: 100vw;
     height: 175px;
     padding: $headerPadding;
     min-height: 150px;

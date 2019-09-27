@@ -2,11 +2,13 @@
     <div class="footer__first-wrapper">
         <ul class="values">
             <li class="value__container">
-                <svg class="value__container--svg"><vtex.cmc:SVGFooterNewCoelho/></svg>
+                <svg class="value__container--svg">
+                    <vtex.cmc:SVGFooterNewCoelho /></svg>
                 <p class="value__container--text">Não testamos <br />em animais</p>
             </li>
             <li class="value__container">
-                <svg class="value__container--svg"><vtex.cmc:SVGFooterNewRecicla/></svg>
+                <svg class="value__container--svg">
+                    <vtex.cmc:SVGFooterNewRecicla /></svg>
                 <p class="value__container--text">Reciclamos suas <br />embalagens</p>
             </li>
         </ul>
@@ -41,13 +43,25 @@
                             <vtex.cmc:SVGFooterCoelho />
                         </li>
                         <li class="trust">
-                            <vtex.cmc:SVGFooterEbit />
+                            <a id="seloEbit" class="seloEbit" href="http://www.ebit.com.br/#quem-disse-berenice" target="_blank"></a> 
+                            <script type="text/javascript" id="getSelo" src="https://imgs.ebit.com.br/ebitBR/selo-ebit/js/getSelo.js?37171"></script>   
                         </li>
                         <li class="trust">
-                            <vtex.cmc:SVGFooterConfie />
+                            <a class="clearSale" href="https://selo.clearsale.com.br/Loja/ExibirDetalhesLoja/498791AC-C9A7-4709-B8AC-182B6ECD5FA0" target="_blank">
+                                <img src="https://selo.clearsale.com.br/Imagem/498791AC-C9A7-4709-B8AC-182B6ECD5FA0" alt="Selo Clearsale" />
+                            </a>
                         </li>
                         <li class="trust">
-                            <vtex.cmc:SVGFooterSiteBlindado />
+                            <div id="armored_website">
+                                <param id="aw_preload" value="true" />
+                                <param id="aw_use_cdn" value="true" />
+                            </div>
+                            <script type="text/javascript" src="//selo.siteblindado.com/aw.js"></script>
+                        </li>
+                        <li class="trust">
+                            <a href="https://www.lojaconfiavel.com/quemdisseberenice" class="ts-footerstamp" data-lcname="quemdisseberenice"  target="_blank">
+                                <img src="//service.yourviews.com.br/Image/388ef2d0-c3b8-4fd6-af13-446b698d544a/Footer.jpg" title="Loja Confiável" alt="Loja Confiável" style="width: 88px; height: 91px;"/>
+                            </a>
                         </li>
                     </ul>
                 </li>
@@ -118,21 +132,17 @@
                     <vtex.cmc:SvgFooterYoutubeNew />
                 </li>
             </ul>
-            <form id="nl_form" method="post" action="https://x.relaciona.quemdisseberenice.com.br/ats/post.aspx">
+            <form id="nl_form" class="form-newsletter" method="post" action="https://x.relaciona.quemdisseberenice.com.br/ats/post.aspx">
 
-                <div class="form-controls">
-                    <input type="text" name="validation-field" class="hidden" style="display: none;"/>
-                    <input type="email" id="nl_email" name="nl_email" placeholder="receba nossas novidades por e-mail" class="subscribe-field" required="required"/>
+                <div class="form-controls form-newsletter__controls">
+                    <input type="text" name="validation-field" class="hidden" style="display: none;" />
+                    <input type="email" id="nl_email" name="nl_email" placeholder="receba nossas novidades por e-mail"
+                        class="subscribe-field form-newsletter__controls--email" required="required" />
+                    <label for="submit_button" class="form-newsletter__controls--label"><vtex.cmc:SVGFooterNewEnviar /></label>
+                        <button id="submit_button" class="subscribe-btn form-newsletter__controls--submit" placeholder="enviar">
+                            cadastrar <span class="subscribe-percent"></span><i class="success"></i>
+                        </button>
                 </div>
-                <button id="submit_button" class="subscribe-btn" placeholder="enviar">
-                    cadastrar <span class="subscribe-percent"></span><i class="success"></i></button>
-                <div class="form-success" style="display: none;">
-                    <h5>Seu e-mail foi cadastrado com sucesso</h5>
-                </div>
-                <div class="form-error" style="display: none;">
-                    <h5>Ops, algo deu errado. Tente novamente mais tarde.</h5>&gt;
-                </div>
-
             </form>
             <p class="info-small">Descadastre-se quando quiser. Para mais informações, veja nossa
                 <a href="#">
@@ -153,3 +163,34 @@
         </p>
     </div>
 </footer>
+<div id="modalRegional" class="modalRegional hidden"></div>
+<!--<div id="add2HScreen" class="add2HScreen"></div>-->
+
+<script type="application/Id+json">{"@context":"http://schema.org","@type":"Organization","name":"Quem disse berenice","url":"http://www.quemdisseberenice.com.br/","logo":"http://qbbr.vteximg.com.br/arquivos/new_qdb_logo.png","sameAs":["https://www.facebook.com/quemdisseberenice", "https://www.twitter.com/qdberenice","https://www.youtube.com/user/quemdisseberenice","https://instagram.com/quemdisseberenice/"]}</script>
+<script type="application/Id+json">{"@context":"http://schema.org","@type","WebSite","url","http://www.quemdisseberenice.com.br/","potentialAction":{"@type":"SearchAction","target":"http://busca.quemdisseberenice.com.br/busca?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+
+<!-- schema busca -->
+<script>
+    (function() {
+    var jsonData = {
+     "@context": "https://schema.org",
+     "@type": "WebSite",
+     "url": "https://www.quemdisseberenice.com.br/",
+     "name": "quem disse, berenice?",
+     "potentialAction": {
+    "@type": "SearchAction",
+      "target": "https://busca.quemdisseberenice.com.br/busca?q={search_term_string}",   
+     "query-input": "required name=search_term_string"
+     }
+    };
+    var el = document.createElement('script');
+    el.type = 'application/ld+json';
+    el.innerHTML = JSON.stringify(jsonData);
+    document.head.appendChild(el);
+    })();
+</script>
+
+
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+<script src="/arquivos/QA-QDBCommon-General.js"></script>
+<script defer="true" async="true" src="/arquivos/dataLayer-qdb.js"></script>
