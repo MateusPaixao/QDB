@@ -9,6 +9,7 @@ const Methods = {
         Methods.ServiceWorker();
         Methods.General();
         Methods.TopBanner();
+        Methods.Skeleton();
         Global.isInViewport();
         Methods.SendNewsletter();
         if(Global.BrowserVendor() == "ie/trident"){
@@ -19,7 +20,17 @@ const Methods = {
     // Vitrine(idCollection, collection, slider, itemsPerPage){
     //     Vitrine.build(idCollection, collection, slider, itemsPerPage);
     // },
-
+    Skeleton(){
+        document.querySelectorAll(".set--skeleton").forEach(function(skeleton){
+            setTimeout(() => {
+                skeleton.classList.remove("set--skeleton");
+                skeleton.style.opacity = 0;
+                setTimeout(() => {
+                    skeleton.style.opacity = 1;
+                }, 500);
+            }, 3500);
+        });
+    },
     Region(){
         Region.init();
 

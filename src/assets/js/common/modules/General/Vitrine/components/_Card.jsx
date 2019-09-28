@@ -112,8 +112,8 @@ class Card extends React.Component{
             <ul className="cardProduct__config__list">
             {
               this.props.info.items.map(sku => 
-                <li className={`cardProduct__config__list__item ${sku.itemId == this.props.skuHighlight ? "selected" : ""}`} data-name={sku["Escolha a Cor"]} data-sku={sku.itemId} onClick={e => changeSku(e.currentTarget)}>
-                  {console.log(sku)}
+                <li className={`cardProduct__config__list__item __color ${sku.itemId == this.props.skuHighlight ? "selected" : ""}`} data-name={sku["Escolha a Cor"]} data-sku={sku.itemId} onClick={e => changeSku(e.currentTarget)}>
+                  {/* {console.log(sku)} */}
                   {/* {console.log(sku.images.filter(o => { if(o.imageLabel === "thumb" || o.imageLabel === "Thumb"){ return o }}))[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "50", "#height#": "50" , "~": ""})} */}
                   <img className={`${sku.itemId == this.props.skuHighlight ? "selected" : ""}`} data-src={getImgSku(sku)} alt={sku["Escolha a Cor"]} />
                   {/* <small>{sku["Escolha a Cor"]}</small> */}
@@ -134,7 +134,6 @@ class Card extends React.Component{
           {
             this.props.info.items.map(sku => 
               <li className={`cardProduct__config__list__item __volume ${sku.itemId == this.props.skuHighlight ? "selected" : ""}`} data-name={sku["Escolha o Volume"]} data-sku={sku.itemId} onClick={e => changeSku(e.currentTarget)}>
-                {console.log(sku)}
                 {sku["Escolha o Volume"]}
               </li>
             )
@@ -300,8 +299,6 @@ class Card extends React.Component{
       <div className={`cardProduct avaliable-${this.state.Avaliable} change-${this.state.openConfig}`} data-prod={this.props.info.productId} /*onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}*/>
         {this.props.info.items[0].variations != undefined &&
           <React.Fragment>
-            {console.log(this.props.info.items[0]["Escolha o Volume"] + " Volume " + this.state.Sku.itemId)}
-            {console.log(this.props.info.items[0]["Escolha a Cor"] + " Cor " + this.state.Sku.itemId)}
             <span className={`cardProduct--change`} onClick={e => this.openConfig(e)}>
               <span className="cardProduct--change__dots"></span>
               <p className="cardProduct--change__close"><svg width="16" height="8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.354 4.354a.5.5 0 0 0 0-.708L12.172.464a.5.5 0 1 0-.708.708L14.293 4l-2.829 2.828a.5.5 0 1 0 .708.708l3.182-3.182zM0 4.5h15v-1H0v1z" fill="#342E37"/></svg></p>
