@@ -221,9 +221,21 @@
                     display: flex;
                     flex-flow: column;
                     width: calc(100% / 5);
+                    cursor: pointer;
+                    background: $qdb-grey-l;
+                    height: 40px;
+                    position: relative;
+                    &.__volume{
+                        @include sans(1em, $safflower, 400, 50px);
+                        height: 50px;
+                        width: 50px;
+                        border-radius: 100%;
+                        border: solid 1px $safflower;
+                    }
                     img{
                         border-radius: .2em;
                         cursor: pointer;
+                        height: 100%;
                     }
                     small{
                         font-size: 0.75em;
@@ -232,6 +244,10 @@
                         img{
                             border: solid 1px $safflower;
                         }
+                    }
+                    &.__volume.selected{
+                        background: $safflower;
+                        color: $w-secundary;
                     }
                 }
             }
@@ -620,9 +636,10 @@
                             }
                         }
                     }
-                    & ~ .cardProduct--addToCart:not(.status--request):not(.status--adding):not(.status--added){
-                        transform: translateY(0%);
-                    }
+                }
+                
+                .cardProduct--addToCart:not(.status--request):not(.status--adding):not(.status--added){
+                    transform: translateY(0%);
                 }
             }
         }
