@@ -6,6 +6,8 @@ class Card extends React.Component{
     this.state = {
       Sku: this.props.info.items.find(i => i.itemId == this.props.skuHighlight),
       SelectedSkuThumb: "",
+      FreeShipping: "notSet",
+      clusterHighlights: Object.entries(this.props.info.clusterHighlights).length === 0 && this.props.info.clusterHighlights.constructor === Object ? {} : this.props.info.clusterHighlights,
       Avaliable: true,
       haveBefore: false,
       Hover: false,
@@ -25,6 +27,13 @@ class Card extends React.Component{
   }
 
   setAvaliable(){
+    // Move Unavaliable to End
+    // let item = document.querySelectorAll(`cardProduct-${this.props.info.productId} .cardProduct__config__list.__color .cardProduct__config__list__item`);
+    // for(let i = 0; i < item.length; i++){      
+    //   if(item[i].classList.contains("set--avaliable-false")){
+    //     item[i].parentNode.appendChild(item[i]);
+    //   }
+    // }
     let avaliable = true;
     if(this.state.Sku.sellers[0].commertialOffer.AvailableQuantity == 0 || this.state.Sku.sellers[0].commertialOffer.Price == 0 || this.state.Sku.sellers[0].commertialOffer.ListPrice == 0){
       avaliable = false;
@@ -34,10 +43,6 @@ class Card extends React.Component{
         Avaliable: avaliable
       })
     )
-    // document.querySelectorAll(".cardProduct__config__list.__color .cardProduct__config__list__item")
-    // if(e.classList.contains("--avaliable-false")){
-    //   e.parentNode.appendChild(e);
-    // }
   }
 
   setDiscount(){
@@ -164,7 +169,15 @@ class Card extends React.Component{
           <ul className="cardProduct__config__list">
           {
             this.props.info.items.map(sku => 
-              <li className={`cardProduct__config__list__item __volume`} data-name={sku["Escolha o Volume"]} data-sku={sku.itemId} onClick={e => changeSku(e.currentTarget)}>
+              <li className={`cardProduct__config__list__item __volume 
+              ${sku.itemId == this.props.skuHighlight ? "selected" : ""}
+              ${sku.sellers[0].commertialOffer.AvailableQuantity == 0 || sku.sellers[0].commertialOffer.Price == 0 || sku.sellers[0].commertialOffer.ListPrice == 0 ? "set--avaliable-false" : "set--avaliable-true"}
+              ${Math.round((sku.sellers[0].commertialOffer.Price - sku.sellers[0].commertialOffer.ListPrice) * 100 / sku.sellers[0].commertialOffer.ListPrice) < 0 ? "set--discount": "" }
+              `} 
+              data-name={sku["Escolha o Volume"]} 
+              data-sku={sku.itemId}
+              data-discount={sku.sellers[0].commertialOffer.AvailableQuantity == 0 || sku.sellers[0].commertialOffer.Price == 0 || sku.sellers[0].commertialOffer.ListPrice == 0 ? "" : Math.round((sku.sellers[0].commertialOffer.Price - sku.sellers[0].commertialOffer.ListPrice) * 100 / sku.sellers[0].commertialOffer.ListPrice)}
+              onClick={e => changeSku(e.currentTarget)}>
                 {sku["Escolha o Volume"]}
               </li>
             )
@@ -307,7 +320,11 @@ class Card extends React.Component{
     this.setDiscount();
     this.setBeforePrice();
     this.setAvaliable();
-    this.setState({SelectedSkuThumb: this.getImgSku(this.state.Sku)})
+    this.setState({SelectedSkuThumb: this.getImgSku(this.state.Sku)});
+    this.setState({FreeShipping: 109})
+    // this.setState({FreeShipping: window.valorFrete})
+    // console.log(this.state.FreeShipping);
+    // this.props.info.clusterHighlights.map(flag => flag == "Outlet"? "Outlet" : "dope")
   }
 
   render(){
@@ -326,9 +343,35 @@ class Card extends React.Component{
       }
       return stars;      
     }
-
+    const flags = () =>{
+      return(
+        <React.Fragment>
+          {this.state.Discount != 0 &&
+          <span className="cardProduct__flag __discount">
+              <p className="cardProduct__flag__content">
+                {this.state.Discount + "%"}
+              </p>
+            </span>
+          }
+          {this.state.FreeShipping != "notSet" || this.state.FreeShipping > this.state.Sku.sellers[0].commertialOffer.Price.toFixed(2) &&
+          <span className="cardProduct__flag __frete">
+              <p className="cardProduct__flag__content">
+                Frete Grátis
+              </p>
+            </span>
+          }
+          {Object.entries(this.state.clusterHighlights).map(flag =>
+            <span className={`cardProduct__flag __${flag[1].replace("ç", "c")}`}>
+              <p className="cardProduct__flag__content">
+                {flag[1]}
+              </p>
+            </span>
+          )}
+        </React.Fragment>
+      )
+    }
     return (
-      <div className={`cardProduct avaliable-${this.state.Avaliable} change-${this.state.openConfig}`} data-prod={this.props.info.productId} /*onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}*/>
+      <div className={`cardProduct cardProduct-${this.props.info.productId} avaliable-${this.state.Avaliable} change-${this.state.openConfig}`} data-prod={this.props.info.productId} /*onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}*/>
         {this.props.info.items[0].variations != undefined &&
           <React.Fragment>
             <span className={`cardProduct--change`} onClick={e => this.openConfig(e)}>
@@ -339,13 +382,9 @@ class Card extends React.Component{
           </React.Fragment>
         }
         <a href={"/" + this.props.info.linkText + "/p?idsku=" + this.state.Sku.itemId} className="cardProduct__link">
-          <span className="cardProduct__discount">
-            {this.state.Discount != 0 &&
-              <p className="cardProduct__discount__content">
-                {this.state.Discount + "%"}
-              </p>
-            }
-          </span>
+          <div className="cardProduct__flags">
+            {flags()}
+          </div>
           <div className="cardProduct__pictureContainer">
             <div className="cardProduct__pictureContainer__review">
               <ul className="cardProduct__pictureContainer__review__rating">

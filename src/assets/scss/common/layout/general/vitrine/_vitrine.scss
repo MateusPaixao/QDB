@@ -263,11 +263,11 @@
                     display: flex;
                     flex-flow: column;
                     width: calc(100% / 5);
+                    position: relative;
                     &.__color{
                         cursor: pointer;
                         background: $qdb-grey-l;
                         height: 40px;
-                        position: relative;
                         img{
                             border-radius: .2em;
                             cursor: pointer;
@@ -291,14 +291,14 @@
                             opacity: 1;
                             filter: blur(1em);
                             background: $qdb-grey-m;
-                            left: -25%;
+                            left: -45%;
                             top: 0;
                             transform: skew(-15deg);
                             @include animation("highlight-skeleton", 2.5s, infinite, cubic-bezier(.6,.51,0,1.01));
                             
                             @keyframes highlight-skeleton {
                                 60%{
-                                    left: -25%;
+                                    left: -45%;
                                 }
                                 100%{
                                     left: 125%;
@@ -311,11 +311,10 @@
                         height: 40px;
                         width: 40px;
                         border-radius: .2em;
-                        border: solid 1px $safflower;
+                        border: solid 1px $qdb-grey-l;
                         cursor: pointer;
                         &.selected{
-                            background: $safflower;
-                            color: $w-secundary;
+                            border: solid 2px $safflower;
                         }
                     }
                     &.set--discount{
@@ -342,16 +341,28 @@
             display: flex;
             flex-flow: column;
         }
-        .cardProduct__discount{
-            .cardProduct__discount__content{
-                position: absolute;
-                left: 10px;
-                top: 10px;
-                background: $safflower;
-                border-radius: 5px;
-                display: flex;
-                color: $w-secundary;
-                padding: 2.5px 5px;
+        .cardProduct__flags{
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            display: flex;
+            flex-flow: wrap;
+            max-width: 150px;
+            .cardProduct__flag{
+                margin: 2.5px;
+                .cardProduct__flag__content{
+                    background: $safflower;
+                    border-radius: .2em;
+                    display: flex;
+                    color: $w-secundary;
+                    padding: 2.5px 5px;
+                }
+                &.__discount .cardProduct__flag__content{
+                    background: $danger;
+                }
+                &.__Lancamento .cardProduct__flag__content{
+                    background: $dusty;
+                }
             }
         }
         .cardProduct__pictureContainer{
@@ -483,7 +494,7 @@
                     height: 6%;
                     width: 2px;
                     background: $w-secundary;
-                    @include animation("waiting", 1s, infinite, cubic-bezier(.6,.51,0,1.01));
+                    @include animation("waiting", 2s, infinite, cubic-bezier(.6,.51,0,1.01));
                     animation-delay: .2s;
                     @keyframes waiting {
                         0%{
