@@ -34,6 +34,10 @@ class Card extends React.Component{
         Avaliable: avaliable
       })
     )
+    // document.querySelectorAll(".cardProduct__config__list.__color .cardProduct__config__list__item")
+    // if(e.classList.contains("--avaliable-false")){
+    //   e.parentNode.appendChild(e);
+    // }
   }
 
   setDiscount(){
@@ -125,7 +129,16 @@ class Card extends React.Component{
             <ul className="cardProduct__config__list">
             {
               this.props.info.items.map(sku => 
-                <li className={`cardProduct__config__list__item __color ${sku.itemId == this.props.skuHighlight ? "selected" : ""}`} data-name={sku["Escolha a Cor"]} data-sku={sku.itemId} onClick={e => changeSku(e.currentTarget)}>
+                <li className={
+                  `cardProduct__config__list__item __color 
+                  ${sku.itemId == this.props.skuHighlight ? "selected" : ""} 
+                  ${sku.sellers[0].commertialOffer.AvailableQuantity == 0 || sku.sellers[0].commertialOffer.Price == 0 || sku.sellers[0].commertialOffer.ListPrice == 0 ? "set--avaliable-false" : "set--avaliable-true"}
+                  ${Math.round((sku.sellers[0].commertialOffer.Price - sku.sellers[0].commertialOffer.ListPrice) * 100 / sku.sellers[0].commertialOffer.ListPrice) < 0 ? "set--discount": "" }
+                  `}
+                  data-name={sku["Escolha a Cor"]}
+                  data-discount={sku.sellers[0].commertialOffer.AvailableQuantity == 0 || sku.sellers[0].commertialOffer.Price == 0 || sku.sellers[0].commertialOffer.ListPrice == 0 ? "" : Math.round((sku.sellers[0].commertialOffer.Price - sku.sellers[0].commertialOffer.ListPrice) * 100 / sku.sellers[0].commertialOffer.ListPrice)}
+                  data-sku={sku.itemId} 
+                  onClick={e => changeSku(e.currentTarget)}>
                   {/* {console.log(sku)} */}
                   {/* {console.log(sku.images.filter(o => { if(o.imageLabel === "thumb" || o.imageLabel === "Thumb"){ return o }}))[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "50", "#height#": "50" , "~": ""})} */}
                   <img className={`${sku.itemId == this.props.skuHighlight ? "selected" : ""}`} data-src={this.getImgSku(sku)} alt={sku["Escolha a Cor"]} />
