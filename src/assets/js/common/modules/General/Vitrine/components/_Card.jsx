@@ -5,6 +5,7 @@ class Card extends React.Component{
     super(props);
     this.state = {
       Sku: this.props.info.items.find(i => i.itemId == this.props.skuHighlight),
+      SelectedSkuThumb: "",
       Avaliable: true,
       haveBefore: false,
       Hover: false,
@@ -20,6 +21,7 @@ class Card extends React.Component{
     this.mountConfig = this.mountConfig.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.openConfig = this.openConfig.bind(this);
+    this.getImgSku = this.getImgSku.bind(this);
   }
 
   setAvaliable(){
@@ -71,29 +73,32 @@ class Card extends React.Component{
       openConfig: !this.state.openConfig
     })
   }
-
-  mountConfig(){
-    const getImgSku = (sku) => {
-      let skuImg;
-      skuImg = sku.images.filter(o => {
-        if(o.imageLabel === "thumb" || o.imageLabel === "Thumb"){
-            // console.log(o.imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "50", "#height#": "50" , "~": ""}));
-            return o
-        }
-      })
-      if(skuImg.length > 0){
-        // return skuImg
-        return skuImg[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "40", "#height#": "40" , "~": ""});
-      }else{
-        return "noImg"
+  getImgSku(sku){
+    let skuImg;
+    skuImg = sku.images.filter(o => {
+      if(o.imageLabel === "thumb" || o.imageLabel === "Thumb"){
+          // console.log(o.imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "50", "#height#": "50" , "~": ""}));
+          return o
       }
+    })
+    if(skuImg.length > 0){
+      // return skuImg
+      return skuImg[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "40", "#height#": "40" , "~": ""});
+    }else{
+      return "noImg"
     }
+  }
+  mountConfig(){
     const changeSku = (e) => {
       this.setState({
-        Sku: this.props.info.items.find(i => i.itemId == e.dataset.sku)
+        Sku: this.props.info.items.find(i => i.itemId == e.dataset.sku),
       }, () => {
         // let listItem = document.querySelectorAll(".cardProduct__config__list");
-        this.openConfig();
+
+        this.setState({
+          SelectedSkuThumb: this.getImgSku(this.state.Sku)
+        })
+
         e.parentElement.querySelector(".cardProduct__config__list__item.selected").classList.remove("selected");
         for(let i = 0; i < e.parentElement.querySelectorAll(".cardProduct__config__list__item").length; i++){
           let item = e.parentElement.querySelectorAll(".cardProduct__config__list__item")[i];
@@ -105,6 +110,11 @@ class Card extends React.Component{
       <div className="cardProduct__config">
         {this.props.info.items[0]["Escolha a Cor"] != undefined ?
           <React.Fragment>
+            {this.props.info.items.map(sku => sku.itemId == this.props.skuHighlight && 
+              <span className="cardProduct__config__selected" style={{backgroundImage: `url(${this.state.SelectedSkuThumb})`}}>
+                <p className="cardProduct__config__selected__name">{this.state.Sku["Escolha a Cor"]}</p>
+              </span>
+            )}
             <div className="cardProduct__config__type">
               <span className="cardProduct__config__type__colors"></span>
               <p className="cardProduct__config__type__title">Escolha a Cor</p>
@@ -115,7 +125,7 @@ class Card extends React.Component{
                 <li className={`cardProduct__config__list__item __color ${sku.itemId == this.props.skuHighlight ? "selected" : ""}`} data-name={sku["Escolha a Cor"]} data-sku={sku.itemId} onClick={e => changeSku(e.currentTarget)}>
                   {/* {console.log(sku)} */}
                   {/* {console.log(sku.images.filter(o => { if(o.imageLabel === "thumb" || o.imageLabel === "Thumb"){ return o }}))[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "50", "#height#": "50" , "~": ""})} */}
-                  <img className={`${sku.itemId == this.props.skuHighlight ? "selected" : ""}`} data-src={getImgSku(sku)} alt={sku["Escolha a Cor"]} />
+                  <img className={`${sku.itemId == this.props.skuHighlight ? "selected" : ""}`} data-src={this.getImgSku(sku)} alt={sku["Escolha a Cor"]} />
                   {/* <small>{sku["Escolha a Cor"]}</small> */}
                 </li>
               )
@@ -124,6 +134,11 @@ class Card extends React.Component{
           </React.Fragment>
           :
           <React.Fragment>
+          {this.props.info.items.map(sku => sku.itemId == this.props.skuHighlight && 
+            <span className="cardProduct__config__selected __volume">
+              <p className="cardProduct__config__selected__name">{this.state.Sku["Escolha o Volume"]}</p>
+            </span>
+          )}
           <div className="cardProduct__config__type">
             {/* {this.props.info.items.map(sku => console.log(sku))} */}
             {/* {console.log(this.props.info)} */}
@@ -133,7 +148,7 @@ class Card extends React.Component{
           <ul className="cardProduct__config__list">
           {
             this.props.info.items.map(sku => 
-              <li className={`cardProduct__config__list__item __volume ${sku.itemId == this.props.skuHighlight ? "selected" : ""}`} data-name={sku["Escolha o Volume"]} data-sku={sku.itemId} onClick={e => changeSku(e.currentTarget)}>
+              <li className={`cardProduct__config__list__item __volume`} data-name={sku["Escolha o Volume"]} data-sku={sku.itemId} onClick={e => changeSku(e.currentTarget)}>
                 {sku["Escolha o Volume"]}
               </li>
             )
@@ -276,6 +291,7 @@ class Card extends React.Component{
     this.setDiscount();
     this.setBeforePrice();
     this.setAvaliable();
+    this.setState({SelectedSkuThumb: this.getImgSku(this.state.Sku)})
   }
 
   render(){
@@ -301,7 +317,7 @@ class Card extends React.Component{
           <React.Fragment>
             <span className={`cardProduct--change`} onClick={e => this.openConfig(e)}>
               <span className="cardProduct--change__dots"></span>
-              <p className="cardProduct--change__close"><svg width="16" height="8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.354 4.354a.5.5 0 0 0 0-.708L12.172.464a.5.5 0 1 0-.708.708L14.293 4l-2.829 2.828a.5.5 0 1 0 .708.708l3.182-3.182zM0 4.5h15v-1H0v1z" fill="#342E37"/></svg></p>
+              <p className="cardProduct--change__close"><svg width="16" height="8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.354 4.354a.5.5 0 0 0 0-.708L12.172.464a.5.5 0 1 0-.708.708L14.293 4l-2.829 2.828a.5.5 0 1 0 .708.708l3.182-3.182zM0 4.5h15v-1H0v1z"/></svg></p>
             </span>
             {this.mountConfig()}
           </React.Fragment>

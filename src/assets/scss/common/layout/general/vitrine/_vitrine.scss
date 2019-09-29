@@ -38,6 +38,11 @@
                 color: $safflower;
                 padding: 15px 10px;
                 opacity: 0;
+                svg{
+                    path{
+                        fill: $w-secundary;
+                    }
+                }
             }
             .cardProduct--change__dots{
                 width: 5px;
@@ -90,8 +95,8 @@
                     background: $qdb-grey-l;
                 }
                 & ~ .cardProduct__config{
-                display: inline-flex;
-                    transform: translateX(100%);
+                    display: inline-flex;
+                    transform: translateX(105%);
                 }
             }
         }
@@ -103,15 +108,40 @@
             height: 100%;
             width: 80%;
             overflow-y: auto;
-            padding: 10px;
             right: 0;
             transition: all .2s;
             cursor: initial;
             // display: none;
+            .cardProduct__config__selected{
+                width: 100%;
+                background-size: 5000%; // trick to fill with a single color
+                background-position: center;
+                display: flex;
+                text-align: left;
+                padding: 10px;
+                &.__volume{
+                    background: $safflower;
+                    .cardProduct__config__selected__name::before{
+                        content: 'volume atual:'
+                    }
+                }
+                .cardProduct__config__selected__name{
+                    @include sans(1.1em, $w-secundary, 900, initial);
+                    text-transform: uppercase;
+                    &::before{
+                        content: 'cor atual:';
+                        display: block;
+                        text-transform: lowercase;
+                        @include sans(.75em, $w-secundary, 400, initial);
+                    }
+                }
+            }
             .cardProduct__config__type{
                 text-align: left;
                 display: flex;
                 align-items: center;
+                padding: 0 10px;
+                margin-top: 10px;
                 .cardProduct__config__type__title{
                     @include sans(.875rem, $g-primary, 400, initial);
                 }
@@ -208,6 +238,7 @@
                 display: flex;
                 flex-flow: wrap;
                 margin: 10px 0 20px;
+                padding: 0 10px;
                 // justify-content: center;
                 .cardProduct__config__list__item{
                     margin: .2em;
@@ -231,7 +262,7 @@
                         }
                         &.selected{
                             img{
-                                border: solid 1px $safflower;
+                                border: solid 2px $safflower;
                             }
                         }
                         &::before{
@@ -405,6 +436,8 @@
                 .status--adding__text{
                     transition: all .2s;
                     letter-spacing: .2em;
+                    position: relative;
+                    overflow: hidden;
                     &::after{
                         content: '';
                         transition: all .2s;
@@ -416,17 +449,28 @@
                     height: 6%;
                     width: 2px;
                     background: $w-secundary;
+                    @include animation("waiting", 1s, infinite, cubic-bezier(.6,.51,0,1.01));
+                    animation-delay: .2s;
+                    @keyframes waiting {
+                        0%{
+                            height: 6%;
+                        }
+                        50%{
+                            height: 1%;
+                        }
+                        100%{
+                            height: 6%;
+                        }
+                    }
                 }
             }
             &.status--adding{
                 .status--adding__text{
                     letter-spacing: .2em;
-                    position: relative;
                     @include animation("addInCart", 1s, linear, cubic-bezier(.6,.51,0,1.01));
                     animation-fill-mode: forwards;
                     animation-delay: .5s;
                     transition: all .2s;
-                    overflow: hidden;
                     &::after{
                         transition: all .2s;
                         display: block;
@@ -593,7 +637,7 @@
                         height: 40px;
                     }
                     .status--adding__actions__cart{
-                        padding: 10px 12px;
+                        padding: 10px 15px;
                         @include sans(1em, $safflower, 400, initial);
                         background: $w-secundary;
                         border-radius: 5px;
