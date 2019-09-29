@@ -94,7 +94,10 @@ class Card extends React.Component{
         Sku: this.props.info.items.find(i => i.itemId == e.dataset.sku),
       }, () => {
         // let listItem = document.querySelectorAll(".cardProduct__config__list");
-
+        
+        this.setDiscount();
+        this.setBeforePrice();
+        this.setAvaliable();
         this.setState({
           SelectedSkuThumb: this.getImgSku(this.state.Sku)
         })
