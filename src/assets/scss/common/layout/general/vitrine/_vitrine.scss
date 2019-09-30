@@ -331,8 +331,6 @@
                     }
                     &.set--avaliable-false{
                         opacity: .3;
-                        pointer-events: none;
-                        cursor: not-allowed;
                     }
                 }
             }
@@ -430,6 +428,28 @@
             }
             .cardProduct__price__parcel{
                 @include sans(.75em, $g-primary, 400, normal);
+            }
+        }
+        .cardProduct--letMeKnow{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            position: absolute;
+            transform: translateY(100%);
+            bottom: 0;
+            padding: 15px 10px;
+            @include sans(1em, $w-secundary, 400, normal);
+            text-align: center;
+            cursor: pointer;
+            background: $safflower;
+            transition: all .2s;
+            z-index: 51;
+            .cardProduct--letMeKnow__mail{
+                margin-right: 5px;
+                path{
+                    fill: $w-secundary;
+                }
             }
         }
         .cardProduct--addToCart{
@@ -724,6 +744,13 @@
 
         &:hover:not(.avaliable-false){
             &.change-false{
+                .cardProduct--addToCart:not(.status--request):not(.status--adding):not(.status--added){
+                    transform: translateY(0%);
+                }
+            }
+        }
+        &:hover{
+            &.change-false{
                 .cardProduct--change{
                     .cardProduct--change__dots{
                         opacity: 1;
@@ -747,9 +774,12 @@
                         }
                     }
                 }
-                
-                .cardProduct--addToCart:not(.status--request):not(.status--adding):not(.status--added){
-                    transform: translateY(0%);
+            }
+            &.avaliable-false{
+                &.change-false{
+                    .cardProduct--letMeKnow{
+                        transform: translateY(0%);
+                    }
                 }
             }
         }
@@ -787,9 +817,18 @@
             }
         }
         &.avaliable-false{
-            opacity: .5;
-            .cardProduct--addToCart{
-                transform: translateY(100%);
+            .cardProduct__flags, .cardProduct__pictureContainer, .cardProduct__info{
+                opacity: .5;
+            }
+            .cardProduct__price{
+                display: none;
+            }
+            &.active{
+                &.change-false{
+                    .cardProduct--letMeKnow{
+                        transform: translateY(0%);
+                    }
+                }
             }
         }
     }
