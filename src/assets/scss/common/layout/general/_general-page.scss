@@ -897,6 +897,14 @@ html,body {
     position: relative;
 }
 
+.__close-cart {
+    display: block;
+    width: 16px;
+    position: relative;
+    margin: 10px 0 0 20px;
+    @include sans(2rem, $g-primary, 400, initial);
+}
+
 /** MENU:END */
 
 /** MINI CART */
