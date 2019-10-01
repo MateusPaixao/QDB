@@ -7,7 +7,7 @@ const Methods = {
     init(){
         // Methods.Region();
         Methods.ServiceWorker();
-        Methods.General();
+        // Methods.General();
         Methods.TopBanner();
         Methods.Skeleton();
         Global.isInViewport();
