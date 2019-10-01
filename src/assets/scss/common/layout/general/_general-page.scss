@@ -1,3 +1,18 @@
+
+html,body {
+    @include sans(1vw, $g-primary, 400, normal);
+
+    @include d(l){
+        font-size: 14px;
+    }
+    @include d(s){
+        font-size: 3vw;
+    }
+    @include d(xs){
+        font-size: 4vw;
+    }
+}
+
 ._header-base {
     margin-top: 0 !important;
 }
