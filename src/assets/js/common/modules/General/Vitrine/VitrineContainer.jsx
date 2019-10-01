@@ -115,7 +115,7 @@ const Methods = {
 
         function printSlideIndex() {
           for(let i = 0; i < this.innerElements.length; i++){
-              const addOrRemove = i === this.currentSlide ? 'add' : 'remove';
+              const addOrRemove = i === Math.ceil(this.currentSlide) ? 'add' : 'remove';
               this.innerElements[i].classList[addOrRemove]('active');
           };
         }

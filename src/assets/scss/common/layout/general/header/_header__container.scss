@@ -24,7 +24,13 @@
         min-height: auto;
         height: auto;
     }
-
+    
+    svg {
+        path {
+            fill: $secondaryColor
+        }
+    }
+    
     &__first-column {
         display: flex;
         flex-direction: column;

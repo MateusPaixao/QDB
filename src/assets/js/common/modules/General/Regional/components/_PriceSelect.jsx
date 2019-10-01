@@ -45,7 +45,7 @@ class PriceModal extends React.Component {
             "country": {
               "value": "BRA"
             },
-            "geoCoordinates": {
+            "postalCode": {
               "value": LatLong
             }
           }
