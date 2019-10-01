@@ -1,5 +1,6 @@
 
 html,body {
+    background: $w-secundary;
     @include sans(1vw, $g-primary, 400, normal);
 
     @include d(l){

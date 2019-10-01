@@ -18,7 +18,7 @@
         text-align: center;
         position: relative;
         overflow: hidden;
-        @include sans(.875rem, $g-primary, 400, initial);
+        @include sans(1rem, $g-primary, 400, initial);
         background: #fff;
         cursor: pointer;
 
@@ -400,7 +400,7 @@
                 padding: 0 10px;
                 text-align: center;
                 width: 80%;
-                height: 2rem;
+                height: 2.5rem;
                 overflow: hidden;
                 -webkit-line-clamp: 2;
             }
@@ -415,10 +415,10 @@
         }
         .cardProduct__price{
             .cardProduct__price__before{
-                @include sans(.875em, $g-primary, 400, normal);
+                @include sans(1em, $g-primary, 400, normal);
                 text-decoration: line-through;
                 margin: 0;
-                height: .875em;
+                height: 1em;
                 &._before-false{
                     display: none;
                 }

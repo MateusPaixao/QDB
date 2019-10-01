@@ -9,7 +9,7 @@
     }
 
     .header__region__selection {
-        @include sans(.75rem, $g-primary, 400, initial);
+        @include sans(.875rem, $g-primary, 400, initial);
         border: solid 1px $g-primary;
         border-radius: 2rem;
         padding: 2px;

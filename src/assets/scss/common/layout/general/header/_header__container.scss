@@ -166,7 +166,7 @@
         label[for="selectRegiao"] {
             white-space: nowrap;
             width: auto;
-            margin-right: 1em;
+            margin-right: 5px;
 
             @include d('768px') {
                 display: none;
@@ -297,10 +297,10 @@
 
     &__menu-hamburguer {
         pointer-events: none;
+        margin-right: 15px;
 
         &--text {
-            font-size: 0.9em;
-            margin-left: 15px;
+            font-size: 1em;
 
             @include d('768px') {
                 display: none;
@@ -312,7 +312,7 @@
         width: 15px;
         background: $secondaryColor;
 
-        height: 2px;
+        height: 1px;
         border-radius: 3px;
         position: relative;
         cursor: pointer;
@@ -322,7 +322,7 @@
             display: block;
             width: 25px;
             background: $secondaryColor;
-            height: 2px;
+            height: 1px;
             border-radius: 3px;
             position: absolute;
             top: -6px;
@@ -333,7 +333,7 @@
             display: block;
             width: 25px;
             background: $secondaryColor;
-            height: 2px;
+            height: 1px;
             border-radius: 3px;
             position: absolute;
             top: 6px;
@@ -384,7 +384,7 @@
             }
 
             &:hover {
-                font-weight: bold;
+                text-decoration: underline;
 
                 .header__nav--menu {
                     display: flex;
