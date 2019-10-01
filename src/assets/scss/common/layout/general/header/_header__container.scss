@@ -297,8 +297,8 @@
                             transform-origin: 55% 45%;
                         }
                         @keyframes drift {
-                            from { transform: translate(30px, 320px) rotate(0deg); }
-                            to { transform: translate(30px, 320px) rotate(360deg); }
+                            from { transform: translate(30px, 280px) rotate(0deg); }
+                            to { transform: translate(30px, 280px) rotate(360deg); }
                         }
                     }
                 }
@@ -534,17 +534,28 @@
     }
 
     @include d('768px') {
-        .header__first-column {
+        
+        .header__logo {
             display: none;
         }
-
+        .header__first-column{
+            width: initial;
+        }
+        .header__menu-hamburguer-container{
+            display: flex;
+            width: initial;
+            margin-bottom: initial;
+        }
         .header__second-column {
-            width: 80%;
+            width: 70%;
         }
 
         .header__third-column {
             order: 3;
             width: initial;
+        }
+        .header__search{
+            width: 100%;
         }
 
         .header__options--item.account {
