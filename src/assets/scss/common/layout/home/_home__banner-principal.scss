@@ -43,7 +43,7 @@
 						width: 100%;
 						transform: translateX(-100%);
 						background: $safflower;
-						@include animation(slideBar, 5s, initial, linear);
+						@include animation(slideBar, 10s, initial, linear);
 					}
 				}
 				@keyframes slideBar {
