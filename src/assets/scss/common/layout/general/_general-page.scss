@@ -80,7 +80,7 @@ html,body {
     font-size: 1em;
     right: 0;
     top: 0;
-    color: $safflower;
+    color: $g-primary;
 }
 
 .__close-icon-white:before {
@@ -91,7 +91,7 @@ html,body {
     cursor: pointer;
     right: 20px;
     top: 20px;
-    color: #fff;
+    color: $w-secundary;
 }
 
 .__center {
@@ -99,7 +99,7 @@ html,body {
 }
 
 .__light-turquoise {
-    color: #fff !important;
+    color: $w-secundary !important;
     background-color: #686162;
 }
 
@@ -109,7 +109,7 @@ html,body {
 }
 
 .__dark a {
-    color: #fff;
+    color: $w-secundary;
 }
 
 .__bold {
@@ -170,7 +170,7 @@ html,body {
     transition: left 0.4s ease-in-out;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
-    background-color: #fff;
+    background-color: $w-secundary;
 }
 
 .__menu-show .SidebarLeft {
@@ -351,7 +351,7 @@ html,body {
 ._top-bar-links ul {
     position: absolute;
     display: none;
-    background-color: #fff;
+    background-color: $w-secundary;
     z-index: 2;
     float: right;
     right: 0;
@@ -524,7 +524,7 @@ html,body {
         display: block;
         position: absolute;
         cursor: pointer;
-        color: #fff;
+        color: $w-secundary;
         z-index: 10;
         top: 10px;
         right: 14px;
@@ -725,13 +725,13 @@ html,body {
 
 ._header-links .__cart-link span {
     position: absolute;
-    /* background: #ffffff; */
+    /* background: $w-secundaryfff; */
     display: inline-block;
     height: 17px;
     min-width: 17px;
     right: 12px;
     top: 16px;
-    color: #fff !important;
+    color: $w-secundary !important;
     border-radius: 100%;
     font-size: 14px;
     text-indent: 0;
@@ -788,7 +788,7 @@ html,body {
     align-items: flex-end;
     -webkit-appearance: none;
     background-color: #E6E0E0;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid $w-secundary;
 }
 
 ._d-top ._header-search-bar input {
@@ -803,7 +803,7 @@ html,body {
     font-size: 1.2em;
     background: transparent;
     /* visibility: visible; */
-    color: #fff;
+    color: $w-secundary;
 }
 
 ._d-top ._header-search-bar button {
@@ -838,7 +838,7 @@ html,body {
     font-size: 1.2em;
     background: transparent;
     /* visibility: visible; */
-    color: #fff;
+    color: $w-secundary;
 }
 
 /* HERO SLICK */
@@ -954,7 +954,7 @@ a.vejamais-vtexresearch {
 
 a.vejamais-vtexresearch:hover {
     background: #686162;
-    color: #fff;
+    color: $w-secundary;
 }
 
 /** BODY */
@@ -1060,7 +1060,7 @@ a.vejamais-vtexresearch:hover {
 }
 
 .btn_comprar:hover {
-    color: #fff;
+    color: $w-secundary;
     background: $safflower;
 }
 
@@ -1071,7 +1071,7 @@ a.vejamais-vtexresearch:hover {
 
 .btn_comprar:hover svg.heart path {
     stroke-dashoffset: 0;
-    stroke: #fff;
+    stroke: $w-secundary;
 }
 
 /* END:FOOTER */

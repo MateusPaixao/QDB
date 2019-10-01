@@ -145,7 +145,7 @@
         }
 
         .list {
-            font-weight: 900;
+            @include sans(1.2rem, $g-primary, 900, initial);
             margin-left: 30px;
             text-transform: capitalize;
 
@@ -155,7 +155,7 @@
 
             &__item {
                 text-transform: initial;
-                font-weight: 100;
+                @include sans(1rem, $g-primary, 200, initial);
                 margin: 5px 0;
             }
         }
@@ -168,7 +168,7 @@
             display: flex;
             align-items: flex-start;
             margin-top: 40px;
-            font-weight: 900;
+            @include sans(1rem, $g-primary, 900, initial);
             flex-direction: column;
 
             .list__item {
