@@ -268,8 +268,8 @@
                         cursor: pointer;
                         background: $qdb-grey-l;
                         height: 40px;
+                        border-radius: .2em;
                         img{
-                            border-radius: .2em;
                             cursor: pointer;
                             height: 100%;
                             position: relative;
@@ -278,11 +278,9 @@
                             font-size: 0.75em;
                         }
                         &.selected{
-                            img{
-                                border: solid 2px $safflower;
-                            }
+                            border: solid 2px $safflower;
                         }
-                        &::before{
+                        &:not(.set--avaliable-false)::before{
                             content: '';
                             display: flex;
                             position: absolute;
@@ -307,17 +305,18 @@
                         }
                     }
                     &.__volume{
-                        @include sans(.875em, $safflower, 400, 40px);
-                        height: 40px;
-                        width: 40px;
+                        @include sans(.875em, $safflower, 400, initial);
+                        padding: 1em .5em;
                         border-radius: .2em;
                         border: solid 1px $qdb-grey-l;
                         cursor: pointer;
+                        width: initial;
                         &.selected{
                             border: solid 2px $safflower;
                         }
                     }
                     &.set--discount{
+                        padding: .5em 0 1.5em;
                         &::after{
                             content: attr(data-discount) '%';
                             position: absolute;
@@ -325,12 +324,14 @@
                             background: $safflower;
                             @include sans(.75em, $w-secundary, 400, normal);
                             text-align: center;
-                            padding: .1em 0;
+                            padding: .2em 0;
                             width: 100%;
                         }
                     }
                     &.set--avaliable-false{
-                        opacity: .3;
+                        * {
+                            opacity: .3;
+                        }
                     }
                 }
             }
@@ -514,7 +515,7 @@
                     height: 6%;
                     width: 2px;
                     background: $w-secundary;
-                    @include animation("waiting", 2s, infinite, cubic-bezier(.6,.51,0,1.01));
+                    @include animation("waiting", 1.5s, infinite, cubic-bezier(.6,.51,0,1.01));
                     animation-delay: .2s;
                     @keyframes waiting {
                         0%{
