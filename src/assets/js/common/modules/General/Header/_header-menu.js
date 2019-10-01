@@ -18,7 +18,7 @@ const Methods = {
         const elementToMargin = CacheSelector.$globals.body;
         window.addEventListener('scroll', function() {
             let headerHeight = header.offsetHeight;
-            window.innerWidth < 768 ? elementToMargin.style.marginTop = `${headerHeight + 50}px` : elementToMargin.style.marginTop = `${headerHeight}px`;
+            elementToMargin.style.marginTop = `${headerHeight}px`;
         })
     },
     openCloseMenu() {
