@@ -145,6 +145,9 @@
 
         .svg--logo-principal {
             width: 100%;
+            // path{
+            //     fill: #CD4F80;
+            // }
         }
 
     }
@@ -516,6 +519,12 @@
         }
     }
 
+}
+
+.has--topbanner{
+    .header__menu-container{
+        top: -55px;
+    }
 }
 
 .header-overlay {
