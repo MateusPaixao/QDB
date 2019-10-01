@@ -15,7 +15,7 @@
     left: 0;
     top: 0;
     background-color: $principalColor;
-    width: 100vw;
+    width: 100%;
     // padding: $headerPadding;
     min-height: 150px;
 
@@ -175,7 +175,7 @@
     }
 
     &__search {
-        width: 70%;
+        width: 100%;
         display: flex;
         margin: auto 0;
         align-items: center;
@@ -307,7 +307,7 @@
             }
         }
 
-        transition: .3s ease-in-out;
+        transition: all .2s;
         display: block;
         width: 15px;
         background: $secondaryColor;
@@ -339,20 +339,20 @@
             top: 6px;
         }
 
-        &.is--active {
-            transform: rotate(45deg);
-            width: 25px;
+        // &.is--active {
+        //     transform: rotate(45deg);
+        //     width: 25px;
 
-            &::after {
-                top: 0;
-                transform: rotate(-90deg);
-            }
+        //     &::after {
+        //         top: 0;
+        //         transform: rotate(-90deg);
+        //     }
 
-            &::before {
-                width: 0;
-            }
+        //     &::before {
+        //         width: 0;
+        //     }
 
-        }
+        // }
     }
 
     &__nav {
@@ -444,12 +444,13 @@
             padding: 2px 4px;
             border: 1px solid $secondaryColor;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 1em;
             width: 100%;
             display: flex;
             justify-content: center;
             align-content: center;
             margin-bottom: $marginBottom + 5px;
+            transition: all .2s;
 
             &:hover {
                 background-color: $secondaryColor;

@@ -47,7 +47,6 @@
         font-size: 1.2em;
         width: 100%;
         padding: 10px;
-        padding-bottom: 5px;
         display: flex;
         align-items: flex-start;
         flex-direction: column;
@@ -59,8 +58,10 @@
             content: '>';
             transition: .1s ease-in-out;
             font-size: 1.5em;
+            line-height: 1.5em;
             position: absolute;
             right: 15px;
+            top: 0;
         }
 
         &.is--open {
@@ -201,14 +202,6 @@
 
     &__menu-wrapper {
         width: 100%;
-
-        .header__menu {
-            &:nth-child(2) {
-                &:before {
-                    display: none;
-                }
-            }
-        }
     }
 
     &__clube {
