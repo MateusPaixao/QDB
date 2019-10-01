@@ -1,10 +1,9 @@
 const filesToCache = [
-  '/',
   '/arquivos/ids/169248/qdb_c10_1_BASE-AQUA-HIDRATANTE.jpg',
-  '/arquivos/QA-QDBCommon-general.css',
-  '/arquivos/QA-QDBCommon-general.js',
-  '/arquivos/QA-QDBCommon-Home.css',
-  '/arquivos/QA-QDBCommon-Home.js',
+  '/arquivos/QDBCommon-general-H.css',
+  '/arquivos/QDBCommon-General-H.js',
+  '/arquivos/QDBCommon-home-H.css',
+  '/arquivos/QDBCommon-Home-H.js',
 ];
   
 const staticCache = 'staticCache';
@@ -25,11 +24,11 @@ self.addEventListener('activate', event => {
 });
   
 self.addEventListener('fetch', event => {
-  console.log('%cFetch event for ' + event.request.url + ' 🤔', 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#FFE435; color: #FDFDFD;');
+  // console.log('%cFetch event for ' + event.request.url + ' 🤔', 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#FFE435; color: #FDFDFD;');
   event.respondWith(
     fetch(event.request)
     .then(function(res) {
-      console.log('%cNetwork request for ' + event.request.url + ' 🗺️' , 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#3877ED; color: #FDFDFD;');
+      // console.log('%cNetwork request for ' + event.request.url + ' 🗺️' , 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#3877ED; color: #FDFDFD;');
       return caches.open(dynamicCache)
         .then(function(cache) {
           cache.put(event.request.url, res.clone());    //save the response for future
@@ -40,26 +39,9 @@ self.addEventListener('fetch', event => {
       caches.match(event.request)
       .then(response => {
         if (response) {
-          console.log('%cFound ' + event.request.url + ' in cache 😍', 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#5FCC47; color: #FDFDFD;');
+          // console.log('%cFound ' + event.request.url + ' in cache 😍', 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#5FCC47; color: #FDFDFD;');
           return response;
         }
-        // console.log('%cNetwork request for ' + event.request.url + ' 🗺️' , 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#3877ED; color: #FDFDFD;');
-        // return fetch(event.request)
-        // .then(function(res) {
-        //   return caches.open(dynamicCache)
-        //     .then(function(cache) {
-        //       cache.put(event.request.url, res.clone());    //save the response for future
-        //       return res;   // return the fetched data
-        //     })
-        // })
-        // .catch(function(err) {       // fallback mechanism
-        //   return caches.open(staticCache)
-        //     .then(function(cache) {
-        //       console.log("%cOffline", 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#FFE435; color: #FDFDFD;');
-        //       return cache.match('/files/offline.html');
-        //     });
-        // });
-
         // TODO 4 - Add fetched files to the cache
 
       }).catch(error => {

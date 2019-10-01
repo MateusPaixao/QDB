@@ -237,28 +237,22 @@
             cursor: pointer;
 
             &.mini-cart {
-                a {
-                    position: relative;
-
-                    .minicart--itens {
-                        position: absolute;
-                        left: 50%;
-                        top: 50%;
-                        transform: translate(-50%, -40%);
-                        color: $secondaryColor;
-                    }
+                .minicart--itens {
+                    position: absolute;
+                    top: 55%;
+                    left: 49%;
+                    transform: translate(-50%, -50%);
+                    cursor: pointer;
                 }
 
-                svg {
-                    path {
-                        &:first-child {
-                            display: none;
-                        }
+                // svg {
+                //     path {
+                //         &:first-child {
+                //             display: none;
+                //         }
 
-                    }
-
-
-                }
+                //     }
+                // }
             }
 
             &.account {
@@ -275,10 +269,49 @@
             }
 
             svg {
-                width: 30px;
+                width: 35px;
+            }
+            .header__options--item__cartBag{
+                position: relative;
+                .__maskBag{
+                    width: 40px;
+                    height: 40px;
+                    circle{
+                        // transform: translate(100px, 100px) rotate(360deg);
+                        fill: $w-secundary;
+                        transform-origin: 50% 48%;
+                        transform: translate(30px, 300px) rotate(0deg);
+                        // transform: translate(-100px, 150px) rotate(0deg); 
+                        animation: drift 4s infinite linear;
+                        &.__2{
+                          opacity: .5;
+                          animation-delay: 1s;
+                          transform-origin: 50% 55%;
+                        }
+                        &.__3{
+                            animation-delay: .7s;
+                            opacity: 0.9;
+                            transform-origin: 55% 45%;
+                        }
+                        @keyframes drift {
+                            from { transform: translate(30px, 320px) rotate(0deg); }
+                            to { transform: translate(30px, 320px) rotate(360deg); }
+                        }
+                    }
+                }
+                .__bag{
+                    position: absolute;
+                    left: 0;
+                    width: 40px;
+                    height: 40px;
+                    path{
+                        stroke: $g-primary;
+                        stroke-width: 3px;
+                        fill: transparent;
+                    }
+                }
             }
         }
-
     }
 
     &__menu-hamburguer-container {
