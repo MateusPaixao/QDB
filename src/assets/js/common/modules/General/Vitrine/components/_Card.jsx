@@ -266,40 +266,55 @@ class Card extends React.Component{
                 // }
             }).done(() => {
                 resolve(console.log(orderForm));
-                // var
-                // stylesheet = document.styleSheets[6] // replace 0 with the number of the stylesheet that you want to modify,
-                // rules = stylesheet.rules, 
-                // i = rules.length, 
-                // keyframes, 
-                // keyframe;
-                
-                // while (i--) {
-                //     keyframes = rules.item(i);
-                //     if (
-                //         (
-                //               keyframes.type === keyframes.KEYFRAMES_RULE
-                //             || keyframes.type === keyframes.WEBKIT_KEYFRAMES_RULE
-                //         )
-                //         && keyframes.name === "drift"
-                //     ) {rules = keyframes.cssRules;
-                //         i = rules.length;
-                //         while (i--) {
-                //             keyframe = rules.item(i);
-                //             if (
-                //                 (
-                //                       keyframe.type === keyframe.KEYFRAME_RULE
-                //                     || keyframe.type === keyframe.WEBKIT_KEYFRAME_RULE
-                //                 )
-                //                 && keyframe.keyText === "100%"
-                //             ) {
-                //                 keyframe.style.transform =
-                //                     "translate(30px, 280px) rotate(360deg);";
-                //                 break;
-                //             }
-                //         }
-                //         break;
-                //     }
+                let bagMask = document.querySelectorAll(".__maskBag circle");
+                // if(document.querySelector(".minicart--itens").textContent > 10){
+                //   for(let i = 0; i < bagMask.length; i++){
+                //       bagMask[i].classList.add("set--high");
+                //   }
                 // }
+                // else if(document.querySelector(".minicart--itens").textContent > 5){
+                //   for(let i = 0; i < bagMask.length; i++){
+                //       bagMask[i].classList.add("set--medium");
+                //   }
+                // }else{
+                //   for(let i = 0; i < bagMask.length; i++){
+                //       bagMask[i].classList.add("set--low");
+                //   }
+                // }
+            //     var
+            //     stylesheet = document.styleSheets[6] // replace 0 with the number of the stylesheet that you want to modify,
+            //     rules = stylesheet.rules, 
+            //     i = rules.length, 
+            //     keyframes, 
+            //     keyframe;
+                
+            //     while (i--) {
+            //         keyframes = rules.item(i);
+            //         if (
+            //             (
+            //                   keyframes.type === keyframes.KEYFRAMES_RULE
+            //                 || keyframes.type === keyframes.WEBKIT_KEYFRAMES_RULE
+            //             )
+            //             && keyframes.name === "drift"
+            //         ) {rules = keyframes.cssRules;
+            //             i = rules.length;
+            //             while (i--) {
+            //                 keyframe = rules.item(i);
+            //                 if (
+            //                     (
+            //                           keyframe.type === keyframe.KEYFRAME_RULE
+            //                         || keyframe.type === keyframe.WEBKIT_KEYFRAME_RULE
+            //                     )
+            //                     && keyframe.keyText === "100%"
+            //                 ) {
+            //                     keyframe.style.transform =
+            //                         "translate(30px, 280px) rotate(360deg);";
+            //                     break;
+            //                 }
+            //             }
+            //             break;
+            //         }
+            //     }
             });
         });
       });
