@@ -30,7 +30,7 @@
                     justify-content: center;
 
                     &:first-child {
-                        margin-right: 20px;
+                        margin-left: 20px;
                     }
                 }
 
@@ -91,7 +91,8 @@
                     &__item {
                         &--small {
                             margin: 0;
-                            font-size: 0.5m
+                            @include sans(.75em, $g-primary, 200, initial);
+                            text-transform: lowercase;
                         }
                     }
                 }
@@ -113,15 +114,17 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    width: 30px;
-                    height: 30px;
+                    svg{
+                        height: 2em;
+                        width: 2em;
+                    }
                 }
             }
 
             .form-newsletter {
                 display: flex;
                 justify-content: space-between;
-                width: 90%;
+                width: 100%;
 
                 &__controls {
                     width: 100%;
@@ -176,6 +179,11 @@
                 text-transform: initial;
                 @include sans(1rem, $g-primary, 200, initial);
                 margin: 5px 0;
+                & a{
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
             }
         }
     }
@@ -289,6 +297,7 @@
         .legal-info {
             color: $secondaryColor;
             text-align: center;
+            padding-bottom: 60px;
         }
     }
 
