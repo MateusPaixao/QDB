@@ -412,14 +412,6 @@
     display: none;
 }
 
-.__mr-deleting .mr-link {
-    opacity: 0;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    position: absolute;
-    -webkit-transition: all 0.5s ease-in;
-    transition: all 0.5s ease-in;
-}
-
 .__overlay {
     top: 0;
     left: 0;
