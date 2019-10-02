@@ -34,6 +34,12 @@
 //MAIN 
 .st-main {
     background-color: #121112;
+    .st-mobile {
+        background-image: url('/arquivos/m-banner-topo-batom-super-tint-quem-disse-berenice.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 670px;
+    }
     .shell {
         position: relative;
     }
@@ -51,45 +57,45 @@
         color: #fff;
         font-size: 2.5rem;
         font-weight: bold;
+        position: absolute;
         span {
             background-color: #fff;
             color: #29292B;
             text-transform: uppercase;
-            padding: 5px 12px;
+            padding: 12px 0;
             display: block;
             margin-top: 5px;
-            font-size: 2.2rem;
-            width: 205px;
+            font-size: 40px;
+            width: 250px;
             text-align: center;
         }
     }
     h1 {
-        font-size: 2rem;
+        font-size: 30px;
         margin-bottom: 10px;
         display: inline-block;
     }
     h2 {
-        font-size: 1.5rem;
+        font-size: 23px;
         font-weight: normal;
     }
     &__claims {
-        right: 100px;
+        right: 50px;
+        img {
+            margin: 20px 0;
+        }
     }
-}
-
-.st-polaroids {
-    background-color: #2A2A2F;
-    .shell {
-        height: 36vw;
-        text-align: center;
-        max-height: 420px;
-    }
-    img {
-        margin-top: -5vw;
-        position: relative;
-        display: block;
-        max-width: 33.33%;
-        float: left;
+    @media (max-width: 767px) {
+        &__claims {
+            position: initial;
+        }
+        &__title {
+            bottom: initial;
+            top: 45px;
+        }
+        &__claims img {
+            margin: 30px auto;
+        }
     }
 }
 
@@ -97,6 +103,7 @@
     background-color: #18181A;
     text-align: center;
     margin-bottom: 20px;
+    padding-top: 50px;
     &__inner {
         display: flex;
     }
@@ -110,8 +117,9 @@
     p {
         color: #fff;
         font-size: 16px;
-        max-width: 800px;
+        width: 800px;
         margin: auto;
+        max-width: 80%;
     }
     &__button {
         display: inline-block;
@@ -121,5 +129,46 @@
         color: #000;
         font-size: 14px;
         margin: 50px 0;
+    }
+    @media(max-width: 767px) {
+        &__inner {
+            overflow: auto;
+            padding-bottom: 30px;
+        }
+        &__item {
+            min-width: 165px;
+        }
+    }
+}
+
+.st-polaroids {
+    background-color: #2A2A2F;
+    img {
+        max-width: 56%;
+        display: block;
+        margin: initial;
+    }
+    @media(min-width: 768px) {
+        .shell {
+            height: 36vw;
+            text-align: center;
+            max-height: 420px;
+        }
+        img {
+            margin-top: -5vw;
+            position: relative;
+            max-width: 33.33%;
+            float: left;
+        }
+    }
+    @media(max-width: 767px) {
+        .shell {
+            position: relative;
+        }
+        img:nth-child(2) {
+            position: absolute;
+            top: 25%;
+            right: 0;
+        }
     }
 }
