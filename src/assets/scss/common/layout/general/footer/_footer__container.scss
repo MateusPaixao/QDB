@@ -21,7 +21,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px 0;
+            padding: 40px 0;
 
             .value__container {
                 a {
@@ -206,7 +206,6 @@
                         justify-content: center;
                         align-items: center;
                         overflow: hidden;
-                        width: 3.5em;
                         @include d('768px'){
                             width: 2em;
                         }
@@ -223,7 +222,12 @@
                         }
 
                     }
-
+                    .payment {
+                        width: 3em;
+                    }
+                    .trust {
+                        width: 4em;
+                    }
                     .payment:nth-child(5) {
                         background-color: #B3131B;
                         width: 5em;
