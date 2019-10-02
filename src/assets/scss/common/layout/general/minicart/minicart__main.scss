@@ -266,13 +266,12 @@
 .mr-prod-item .mr-rm {
     float: right;
     position: absolute;
-    font-size: 0;
-    text-indent: -99999px;
     width: 12px;
     right: 28px;
     top: 20px;
     right: 12px;
     top: 12px;
+    color: $qdb-grey-m;
 }
 
 .mr-rm:before {
@@ -281,11 +280,15 @@
     text-indent: 0;
     font-size: 22px;
     bottom: 0;
-    color: #333;
 }
 
 .mr-prod-item .mr-rm:hover {
     text-decoration: none;
+}
+.mr-rm.__close-icon-black {
+    &:before{
+        display: none;
+    }
 }
 .mr-total {
     display: flex;

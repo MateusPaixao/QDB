@@ -158,6 +158,9 @@
         width: 100%;
         align-items: center;
         justify-content: space-between;
+        @include d('768px') {
+            padding: 10px;
+        }
     }
 
     &__region-container {
