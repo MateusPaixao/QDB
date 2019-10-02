@@ -10,6 +10,7 @@
         height: 100vh;
         max-height: 100vh;
         overflow-y: scroll;
+        cursor: initial;
         box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
 
         &--items {
@@ -21,9 +22,11 @@
                 display: flex;
             }
         }
-
         @include d('768px') {
-            width: 90vw;
+            width: 50vw;
+        }
+        @include d('568px') {
+            width: 85vw;
         }
 
         &::-webkit-scrollbar-track{
@@ -316,6 +319,7 @@
         &--close{
             padding: 0 0 10px 10px;
             font-size: 1.25rem;
+            cursor: pointer;
         }
         .box-acessibilidade.ajuda {
             position: absolute;

@@ -159,7 +159,7 @@
         align-items: center;
         justify-content: space-between;
         @include d('768px') {
-            padding: 10px;
+            padding: 20px 10px 0px;
         }
     }
 
@@ -528,6 +528,11 @@
 
     .header__menu-hamburguer-container {
         display: none;
+    }
+    .header__middle-container{
+        @include d('768px') {
+            padding: 0;
+        }
     }
 
     @include d('768px') {
