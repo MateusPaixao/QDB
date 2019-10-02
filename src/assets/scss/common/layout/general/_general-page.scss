@@ -13,7 +13,9 @@ html,body {
         font-size: 4vw;
     }
 }
-
+#ajaxBusy{
+    display: none;
+}
 ._header-base {
     margin-top: 0 !important;
 }

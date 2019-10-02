@@ -56,8 +56,19 @@ html {
         }
     }
     .has--topbanner{
+        &.scrollDown{
+            .ac-container{
+                top: 100px !important;
+                @include d('768px'){
+                    top: 115px !important;
+                }
+            }
+        }
         .ac-container{
-            top: 103px;
+            top: 120px !important;
+            @include d('768px'){
+                top: 130px !important;
+            }
         }
     }
 }

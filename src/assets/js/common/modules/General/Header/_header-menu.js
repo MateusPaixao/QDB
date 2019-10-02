@@ -11,6 +11,7 @@ const Methods = {
         Methods.isLogged();
         Methods.marginTopMenuHeight();
         
+        
     },
 
     marginTopMenuHeight() {
@@ -42,6 +43,11 @@ const Methods = {
             CacheSelector.header.menuList.classList.toggle('js--menu-close');
             CacheSelector.$globals.body.classList.toggle('menu--open');
         })
+        CacheSelector.header.overlay.addEventListener('click', () => {
+            CacheSelector.header.menuHam.classList.toggle('is--active');
+            CacheSelector.header.menuList.classList.toggle('js--menu-close');
+            CacheSelector.$globals.body.classList.toggle('menu--open');
+        });
     },
 
     observeScroll() {
@@ -49,7 +55,7 @@ const Methods = {
             const body = CacheSelector.$globals.body;
 
             this.oldScroll > this.scrollY ? body.classList.remove('scrollDown') : body.classList.add('scrollDown');
-            this.oldScroll == 0 && body.classList.contains('scrollDown') ? body.classList.remove('scrollDown') : null; 
+            this.oldScroll < 0 && body.classList.contains('scrollDown') ? body.classList.remove('scrollDown') : null; 
             
             this.oldScroll = this.scrollY;
 
