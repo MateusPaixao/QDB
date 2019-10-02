@@ -75,6 +75,9 @@ const Methods = {
     updateNumberMinicart() {
         $(window).on('orderFormUpdated.vtex', function () {
             let itensInCart = document.querySelector('.minicart--itens');
+            if(vtexjs.checkout.orderForm.items.length > 1){
+                document.querySelector(".__maskBag #wave").style.transform = `translate(-50px, -${635 + vtexjs.checkout.orderForm.items.length}px)`;
+            }
             itensInCart.textContent = vtexjs.checkout.orderForm.items.length;
         });
     },
