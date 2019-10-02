@@ -227,6 +227,9 @@
                     }
                     .trust {
                         width: 4em;
+                        &:nth-child(2){
+                            width: 6em;
+                        }
                     }
                     .payment:nth-child(5) {
                         background-color: #B3131B;

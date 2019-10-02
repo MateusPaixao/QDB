@@ -14,7 +14,8 @@ export default {
         menuAccordion: document.querySelectorAll('[data-accordion]'),
         menuClose: document.querySelector('.js--close-menu'),
         formBusca: document.querySelector('.header__search'),
-        formBuscaInput: document.querySelector('.header__search--input')
+        formBuscaInput: document.querySelector('.header__search--input'),
+        overlay: document.querySelector('.menu--overlay')
     },
     body: {
         containerGroup: document.querySelector('.container-group')
