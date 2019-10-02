@@ -80,6 +80,46 @@
 .st-polaroids {
     background-color: #2A2A2F;
     .shell {
+        height: 36vw;
+        text-align: center;
+        max-height: 420px;
+    }
+    img {
+        margin-top: -5vw;
+        position: relative;
+        display: block;
+        max-width: 33.33%;
+        float: left;
+    }
+}
+
+.st-colors {
+    background-color: #18181A;
+    text-align: center;
+    margin-bottom: 20px;
+    &__inner {
         display: flex;
+    }
+    &__item {
+        h4 {
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+    }
+    p {
+        color: #fff;
+        font-size: 16px;
+        max-width: 800px;
+        margin: auto;
+    }
+    &__button {
+        display: inline-block;
+        background-color: #fff;
+        padding: 10px 40px;
+        border-radius: 8px;
+        color: #000;
+        font-size: 14px;
+        margin: 50px 0;
     }
 }
