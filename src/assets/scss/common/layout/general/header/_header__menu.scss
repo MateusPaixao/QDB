@@ -55,7 +55,7 @@
         flex-direction: column;
         position: relative;
         font-weight: 800;
-        border-bottom: 1px solid lighten($secondaryColor, 20);
+        border-bottom: 1px solid $qdb-grey-l;
 
         &::before {
             content: '>';
@@ -276,7 +276,7 @@
             justify-content: space-around;
             height: 40px;
             align-items: center;
-            border-top: 1px solid lighten($secondaryColor, 20);
+            border-top: 1px solid $qdb-grey-l;
         }
 
         &--menu {
@@ -288,7 +288,7 @@
             font-weight: bold;
 
             &:first-child {
-                border-right: 1px solid lighten($secondaryColor, 20);
+                border-right: 1px solid $qdb-grey-l;
             }
         }
 
