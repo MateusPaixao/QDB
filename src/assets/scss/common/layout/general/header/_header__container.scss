@@ -117,7 +117,7 @@
             display: flex;
             align-items: center;
             justify-content: space-around;
-
+            position: relative;
             @include d('768px') {
                 justify-content: flex-start;
                 width: 30px;
@@ -381,10 +381,8 @@
         align-items: center;
         width: 100%;
         cursor: pointer;
-
         &--list {
             position: relative;
-            margin: 0 5px;
             margin-bottom: $marginBottom;
             padding: 5px;
             text-align: center;
@@ -392,6 +390,24 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
+            &:hover {
+                text-decoration: underline;
+
+                &::after{
+                    content: '';
+                    @include triangle("up", .75em, $qdb-grey-l);
+                    left: 50%;
+                    transform: translateX(-50%);
+                    bottom: -.1em;
+                    position: absolute;
+                    z-index: 1;
+                }
+                .header__nav--menu {
+                    display: flex;
+                }
+            }
+            
 
             &:first-child {
                 margin-left: 0;
@@ -401,13 +417,8 @@
             &:last-child {
                 margin-right: 0;
                 padding-right: 0;
-            }
-
-            &:hover {
-                text-decoration: underline;
-
-                .header__nav--menu {
-                    display: flex;
+                &::after{
+                    display: none;
                 }
             }
         }
@@ -416,26 +427,23 @@
             display: none;
             background: $principalColor;
             position: absolute;
-            top: 120%;
+            top: 105%;
             height: 380px;
             left: -50px;
             text-align: left;
             box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
             border-radius: 5px;
-            &:before{
-                content: '';
-                display: block;
-                background: #fdfdfd;
-                width: 17px;
-                height: 17px;
-                left: 70px;
-                top: -10px;
-                transform: rotate(45deg);
-                position: absolute;
-                z-index: 1;
-                border-left: .5px solid $secondaryColor;
-                border-top: .5px solid $secondaryColor;
-            }
+            cursor: initial;
+            // &:before{
+            //     content: '';
+            //     @include triangle("up", .875em, $qdb-grey-l);
+            //     left: 80px;
+            //     top: -.875em;
+            //     position: absolute;
+            //     z-index: 1;
+            //     // border-left: .5px solid $secondaryColor;
+            //     // border-top: .5px solid $secondaryColor;
+            // }
         }
 
         &--department {
