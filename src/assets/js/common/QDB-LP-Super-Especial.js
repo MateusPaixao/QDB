@@ -33,8 +33,7 @@ const Methods = {
   twentyBanner: () => {
     $(".twentytwenty-container").twentytwenty({
       default_offset_pct: 0.69,
-      orientation: 'horizontal',
-      no_overlay: false
+      orientation: 'horizontal'
     });
     $(window).trigger('resize');
   },

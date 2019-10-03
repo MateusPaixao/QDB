@@ -92,11 +92,12 @@ body {
     margin-top: $section-spacing;
     &.over {
         position: relative;
-        margin-top: -80px;
+        margin-top: -50px;
         background-color: #fff;
         left: 0;
         right: 0;
-        padding: 30px 125px 0;
+        padding: 20px;
+        
     }
     .title {
         font-size: 3.0rem;
@@ -113,6 +114,9 @@ body {
     }
     @media (min-width: 992px) {
         max-width: 950px;
+        &.over {
+            padding: 30px 125px 0;
+        }
     }
 }
 
