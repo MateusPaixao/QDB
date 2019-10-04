@@ -442,14 +442,16 @@ class Card extends React.Component{
             {flags()}
           </div>
           <div className="cardProduct__pictureContainer">
-            <div className="cardProduct__pictureContainer__review">
-              <ul className="cardProduct__pictureContainer__review__rating">
-                {countRating()}
-              </ul>
-              <span className="cardProduct__pictureContainer__review__qtd">
-                Baseado em  <br/>{this.props.review.TotalRatings} avaliações
-              </span>
-            </div>
+            {this.props.review.TotalRatings > 0 &&
+              <div className="cardProduct__pictureContainer__review">
+                <ul className="cardProduct__pictureContainer__review__rating">
+                  {countRating()}
+                </ul>
+                <span className="cardProduct__pictureContainer__review__qtd">
+                  Baseado em  <br/>{this.props.review.TotalRatings} avaliações
+                </span>
+              </div>
+            }
             <img className="cardProduct__pictureContainer__picture" src={this.state.Sku.images[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "150", "#height#": "150" , "~": ""})} loading="lazy"></img>
           </div>
           <div className="cardProduct__info">
