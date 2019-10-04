@@ -97,6 +97,11 @@
             margin: 30px auto;
         }
     }
+    @media (min-width: 768px) and (max-width: 992px) {
+        &__claims img {
+            width: 145px;
+        }
+    }
 }
 
 .st-colors {
@@ -127,6 +132,7 @@
         padding: 10px 40px;
         border-radius: 8px;
         color: #000;
+        font-weight: bold;
         font-size: 14px;
         margin: 50px 0;
     }
@@ -169,6 +175,10 @@
             position: absolute;
             top: 25%;
             right: 0;
+        }
+        img:nth-child(3) {
+            position: relative;
+            z-index: 2;
         }
     }
 }
