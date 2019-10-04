@@ -13,7 +13,7 @@ nav ul, nav ol {
 \* ------------------------------------------------------------ */
 .breadcrumbs {
 	padding-top: 205px;
-	font-family: 'Museo Sans', sans-serif
+	font-family: 'Museo Sans', sans-serif;
 	font-size: 14px;
 	color: #b1b1b1;
     padding-left: 20px;
@@ -30,7 +30,7 @@ nav ul, nav ol {
 .breadcrumbs .bread-crumb > ul > li {
 	display: inline-block;
 	list-style: none;
-	font-family: 'Museo Sans', sans-serif
+	font-family: 'Museo Sans', sans-serif;
 	font-size: 14px;
 	position: relative;
 	text-transform: lowercase;
@@ -478,17 +478,24 @@ nav ul, nav ol {
 }
 .atend_list_icos {
 	position: relative;
-	left: 50%;
-	transform: translateX(-50%);
-	top: 30px;
+    top: 30px;
+    display: flex;
+    justify-content: center;
+    padding-left: 68px;
+}
+.atend_list_icos a,
+.atend_list_icos a:hover {
+    color:#000;
+    text-decoration: underline !important;
 }
 .atend_list_icos li {
 	display: inline-block;
 	width: 240px;
 	height: 62px;
 	padding-left: 68px;
-	padding-top: 22px;
-	/* font-weight: 500; */
+    padding-top: 22px;
+    font-size: 16px;
+    margin-bottom: 15px;
 }
 #atend_ico_01 {
 	background-position: 0px 2px;
@@ -499,12 +506,13 @@ nav ul, nav ol {
     width: 280px;
 	padding-top: 5px;
 	vertical-align: top;
-    margin-right: -80px;
+    margin-right: 0px;
 }
 #atend_ico_02 span {
 	font-size: 15px;
 	display: inline-block;
-	padding-bottom: 4px;
+    padding-bottom: 4px;
+    color: #000;
 }
 #qdb_chat_iframe {
 	position: relative;
@@ -513,8 +521,15 @@ nav ul, nav ol {
 	height: 550px;
 }
 #atend_ico_02 p {
-	font-size: 14px;
-	line-height: 14px;
+	font-size: 11px;
+    line-height: 14px;
+    font-weight: bold;
+}
+@media (max-width: 768px) {
+    .atend_list_icos {
+        flex-direction: column;
+        padding-left: 0;
+    }
 }
 .up_arrow {
 	background: url(../arquivos/atendimento_arrow_up.jpg) no-repeat !important;
