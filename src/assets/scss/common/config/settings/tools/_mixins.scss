@@ -84,10 +84,10 @@
 @mixin sans($size: false, $colour: false, $weight: false,  $lh: false) {
     // font-family: "Centrale";
     @if $weight == 400{
-      font-family: "CentraleSans-Regular";
+      font-family: "CentraleSans-Regular", sans-serif;
     }
     @else if $weight == 900{
-      font-family: "CentraleSans-Bold";
+      font-family: "CentraleSans-Bold", sans-serif;
     }
     @if $weight { font-weight: $weight; }
     @if $size { font-size: $size; }

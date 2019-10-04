@@ -2,31 +2,6 @@
   Fonts
 \* ------------------------------------------------------------ */
 
-@font-face {
-    font-family: 'Museo Sans';
-    src: url('Museo300-Regular-webfont-eot.css');
-    src: url('Museo300-Regular-webfont-eot.css') format('embedded-opentype'), url('Museo300-Regular-webfont-woff.css') format('woff'), url('Museo300-Regular-webfont-ttf.css') format('truetype'), url('Museo300-Regular-webfont-svg.css') format('svg');
-    font-weight: 300;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Museo Sans';
-    src: url('Museo500-Regular-webfont-eot.css');
-    src: url('Museo500-Regular-webfont-eot.css') format('embedded-opentype'), url('Museo500-Regular-webfont-woff.css') format('woff'), url('Museo500-Regular-webfont-ttf.css') format('truetype'), url('Museo500-Regular-webfont-svg.css#Museo Sans') format('svg');
-    font-weight: 500;
-    font-style: normal;
-}
-
-body.qdb-vtexcommercestable-com-br,
-body.www-quemdisseberenice-com-br {
-    font-family: 'Museo Sans', sans-serif;
-}
-
-body.eudora-vtexcommercestable-com-br {
-    font-family: 'MyriadPro-BoldCond', sans-serif;
-}
-
 body.www-quemdisseberenice-com-br .cart-template-holder *,
 body.www-quemdisseberenice-com-br .cart-select-gift-placeholder *,
 body.www-quemdisseberenice-com-br .summary-template-holder * {
@@ -874,12 +849,6 @@ body.www-thebeautybox-com-br .empty-cart-title {
     border: none;
 }
 
-body.tbb-vtexcommercestable-com-br,
-body.tbbqa-vtexcommercestable-com-br,
-body.www-thebeautybox-com-br {
-    font-family: 'Museo Sans', sans-serif;
-}
-
 body.tbb-vtexcommercestable-com-br .cart-template-holder *,
 body.tbb-vtexcommercestable-com-br .cart-select-gift-placeholder *,
 body.tbb-vtexcommercestable-com-br .summary-template-holder *,
@@ -954,11 +923,6 @@ body.totem-thebeautybox-com-br .empty-cart-title {
 .totem-thebeautybox-com-br .chk-footer.tbb {
     display: block;
     border: none;
-}
-
-body.tbbtotem-vtexcommercestable-com-br,
-body.totem-thebeautybox-com-br {
-    font-family: 'Museo Sans', sans-serif;
 }
 
 body.tbbtotem-vtexcommercestable-com-br.cart-template-holder *,
@@ -1326,7 +1290,6 @@ input#payment-discounts-code{
 .btn.btn-mudar-cartao {
     color: #2b6259;
     padding: 5px 10px;
-    font-family: 'Museo Sans', sans-serif;
 }
 
 /* msg */

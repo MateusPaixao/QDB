@@ -776,167 +776,6 @@ button.hover .ico-lotions-black,
     margin-right: -26px
 }
 
-*,
-:before,
-:after {
-    padding: 0;
-    margin: 0;
-    outline: 0;
-    box-sizing: border-box
-}
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section,
-summary,
-main {
-    display: block
-}
-
-html {
-    tap-highlight-color: rgba(0, 0, 0, 0)
-}
-
-body {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
-    -webkit-text-size-adjust: none;
-    -ms-text-size-adjust: none;
-    text-size-adjust: none
-}
-
-p {
-    text-transform: unset!important
-}
-
-img,
-iframe,
-video,
-audio,
-object {
-    max-width: 100%
-}
-
-img,
-iframe {
-    border: 0 0
-}
-
-img {
-    height: auto;
-    display: inline-block;
-    vertical-align: middle
-}
-
-b,
-strong {
-    font-weight: 700
-}
-
-address {
-    font-style: normal
-}
-
-svg:not(:root) {
-    overflow: hidden
-}
-
-a,
-button,
-input[type="submit"],
-input[type="button"],
-input[type="reset"],
-input[type="file"],
-input[type="image"],
-label[for] {
-    cursor: pointer;
-}
-
-a[href^="tel"],
-button[disabled],
-input[disabled],
-textarea[disabled],
-select[disabled] {
-    cursor: default
-}
-
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-    padding: 0;
-    border: 0;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="date"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="month"],
-input[type="week"],
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type*="submit"],
-input[type="tel"],
-input[type="time"],
-input[type="url"],
-input[type="color"],
-textarea,
-a[href^="tel"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none
-}
-
-textarea {
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    overflow-scrolling: touch;
-}
-
-button,
-input,
-optgroup,
-select,
-textarea {
-    font-family: inherit;
-    font-size: inherit;
-    color: inherit;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
-}
-
-button,
-select {
-    text-transform: none;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0
-}
-
-nav ul,
-nav ol {
-    list-style: none outside none
-}
-
 body {
     background: #fff;
     color: $g-primary;
@@ -1413,7 +1252,6 @@ body.overflow {
 }
 
 .slider-feeds {
-    font-family: 'Museo Sans';
     font-size: 16px;
     line-height: 1.13;
     color: #fff;
@@ -1720,7 +1558,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     float: right;
     font-weight: 400;
     margin: 9px 70px 0 0;
-    font-family: 'Museo Sans';
     font-size: 12px;
     letter-spacing: .03em;
     text-decoration: none;
@@ -1759,7 +1596,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 
 .footer p {
     margin-bottom: 18px;
-    font-family: 'Museo Sans';
     font-size: 14px;
     line-height: 1.21;
     color: #b1b1b1;
@@ -2799,7 +2635,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     opacity: 0;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     visibility: hidden;
-    font-family: 'Museo Sans';
     font-size: 14px;
     color: $g-primary;
     text-decoration: none;
@@ -2839,7 +2674,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     height: 32px;
     padding: 0 10px;
     vertical-align: middle;
-    font-family: 'Museo Sans';
     font-size: 12px;
     line-height: 32px;
     letter-spacing: .03em;
@@ -2894,7 +2728,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 
 .contact strong {
     display: block;
-    font-family: 'Museo Sans';
     font-weight: 900;
     text-transform: lowercase
 }
@@ -3049,7 +2882,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     margin: 0 auto 14px;
     font-size: 16px;
     font-weight: 300;
-    font-family: 'Museo Sans', sans-serif
 }
 
 .form-body .form-row .form-controls .login-access-key #field-access-key:focus {
@@ -3152,7 +2984,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     font-weight: 500;
     letter-spacing: .03em;
     width: 180px;
-    font-family: 'Museo Sans';
     font-size: 14px
 }
 
@@ -3677,7 +3508,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 
 @media(min-width:1025px) {
     .nav-secondary {
-        font-family: 'Museo Sans', sans-serif;
         font-size: 12px;
         font-weight: 500;
         letter-spacing: .03em
@@ -3755,7 +3585,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
         background: #2fa5de;
         text-decoration: none;
         margin-right: 0!important;
-        font-family: 'Museo Sans';
+
         letter-spacing: 0
     }
     .ajuda-nav-red a span {
@@ -4251,7 +4081,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     padding: 0 70px 0 30px;
     border: 0;
     border-radius: 58px;
-    font-family: 'Museo Sans';
     font-size: 18px;
     font-weight: 500;
     color: #b1b1b1;
@@ -4640,7 +4469,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 
 .section-promotion .section-nav {
     margin-bottom: 19px;
-    font-family: 'Museo Sans';
     text-align: center
 }
 
@@ -5112,7 +4940,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 
 .socials strong {
     display: block;
-    font-family: 'Museo Sans';
     font-weight: 900
 }
 
@@ -5200,7 +5027,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     padding: 0 27px;
     border: 0;
     border-radius: 51px;
-    font-family: 'Museo Sans';
     background: #fff;
     font-size: 18px;
     font-weight: 500;
@@ -5350,7 +5176,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 }
 
 .sta-cart-container .cart-head h4 {
-    font-family: 'Museo Sans';
     font-weight: 700;
     color: #fff;
     text-align: center
@@ -5378,7 +5203,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 .cart-bar p {
     padding: 5px 18px 0;
     font-weight: 500;
-    font-family: 'Museo Sans';
     font-size: 15px;
     margin-bottom: 0
 }
@@ -5962,7 +5786,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 .form.form-account form .form-actions {
     float: right;
     width: 50%;
-    font-family: "Museo Sans"
 }
 
 .close-minha-conta .ico-close {
@@ -6016,13 +5839,11 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     color: $g-primary;
     font-size: 16px;
     font-weight: 300;
-    font-family: 'Museo Sans', sans-serif
 }
 
 #cart3 .cart-body .cart-inner .nav-my-account .form.form-account form .form-body .form-row .form-controls .login-email #field-email {
     font-size: 16px;
     font-weight: 300;
-    font-family: 'Museo Sans';
     margin: 0 auto 14px;
     margin-bottom: 22px;
     border: 1px solid $g-primary
@@ -6106,7 +5927,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     padding: 0 25px;
     border: 1px solid #b1b1b1;
     border-radius: 50px;
-    font-family: 'Museo Sans';
     font-size: 16px
 }
 
@@ -6244,7 +6064,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 
 .widget-primary.widget-request .widget-body .form-primary.form-primary-alt .form-body .form-row .form-controls #field-email {
     width: 400px;
-    font-family: 'Museo Sans';
     margin: 0 20px
 }
 
@@ -6577,10 +6396,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
         margin-top: 9px;
         margin-top: 6px
     }
-    .contact strong,
-    .col.col-size2 .socials strong {
-        font-family: 'Museo Sans', sans-serif
-    }
     .product-content>h4 {
         display: none
     }
@@ -6633,7 +6448,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
         font-weight: 700
     }
     .product .product-content strong {
-        font-family: 'Museo Sans';
+
         font-size: 18px;
         font-weight: 700;
         color: #1b1b1b;
@@ -6742,7 +6557,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
         margin-top: -13px
     }
     .product .product-content strong {
-        font-family: 'Museo Sans';
+
         font-size: 18px;
         font-weight: 700;
         color: #1b1b1b;
@@ -6876,7 +6691,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     }
     .feed-tag.feed-mobile-insta {
         margin-bottom: 30px;
-        font-family: 'Museo Sans';
+
         font-size: 16px;
         color: #b1b1b1;
         text-decoration: none;
@@ -6917,8 +6732,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     height: auto;
     font-size: 12px;
     font-weight: 700;
-    line-height: 16px;
-    font-family: 'Museo Sans', sans-serif;
+    line-height: 16px;;
     letter-spacing: .01em;
     padding: 3px 5px;
     background: #686162;
@@ -7242,7 +7056,6 @@ body.category .section-products {
     font-size: 10px;
     font-weight: 500;
     line-height: 14px;
-    font-family: 'Museo Sans';
     letter-spacing: .01em;
     padding: 3px 7px 1px 7px;
     background: $g-primary!important;
@@ -7261,7 +7074,6 @@ body.category .section-products {
     font-size: 10px;
     font-weight: 500;
     line-height: 14px;
-    font-family: 'Museo Sans';
     letter-spacing: .01em;
     padding: 3px 7px 1px 7px;
     background: $g-primary!important;
@@ -7280,7 +7092,7 @@ body.category .section-products {
 .priceOff span {
     background: #a6a5a5;
     color:#fff;
-    font-family:"CentraleSans-Bold", sans-serif!important;
+    font-family:"CentraleSans-Bold", sans-serif !important;
     font-size:12px;
     padding: 3px 5px;
     display: block;
@@ -8260,46 +8072,6 @@ body {
         font-size: 16px!important;
         width: auto
     }
-    .tabs p,
-    .yv-row,
-    .yv-slide,
-    .list-hearts,
-    .yv-bootstrap,
-    .list-bullets,
-    .yv-berethink-text,
-    #yv-review-quickreview a,
-    .product-details .product-tag,
-    .tab-content .productDescription,
-    .product-details .product-head small,
-    .product-details .product-info small,
-    .socials-secondary p,
-    .yv-qa .yv-qa-main-ask,
-    .yv-qa strong,
-    .yv-qa span,
-    .yv-qa label,
-    .yv-qa small,
-    .yv-radio-inline,
-    .yv-control-label,
-    #yv-reviews strong,
-    .yv-reviewform-title,
-    .yv-bootstrap .soc div,
-    #yv-reviews .yv-radio-inline,
-    #yv-reviews .yv-control-label,
-    .yv-login-frame .yv-title-socialn,
-    #yv-reviews .yv-form-group~label,
-    #yv-reviews span,
-    #yv-reviews small,
-    #yv-reviews .yv-login-group div label,
-    .yv-control-label,
-    .yv-bootstrap p[itemprop="description"],
-    .yv-bootstrap label,
-    .yv-bootstrap .yv-confirmation,
-    .yv-bootstrap .yv-confirmation p,
-    .yv-bootstrap .soc,
-    .yv-bootstrap .yv-reviewalso,
-    .breadcrumbs .bread-crumb>ul>li {
-        font-family: "Museo Sans"!important
-    }
     .section-hero .slick-dots {
         width: 100%;
         display: -webkit-box;
@@ -8345,9 +8117,6 @@ body {
     }
     .list-hearts:before {
         font-size: 22px
-    }
-    .feature-secondary {
-        font-family: "Museo Sans"!important
     }
 }
 
