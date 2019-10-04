@@ -1,0 +1,975 @@
+/* ------------------------------------------------------------ *\
+	#Reset
+\* ------------------------------------------------------------ */
+ul, li{ 
+	list-style: none; 
+}
+nav ul, nav ol {
+	list-style: none outside none;
+}
+
+/* ------------------------------------------------------------ *\
+	#Breadcrumbs
+\* ------------------------------------------------------------ */
+.breadcrumbs {
+	padding-top: 205px;
+	font-family: 'Museo Sans', sans-serif
+	font-size: 14px;
+	color: #b1b1b1;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.breadcrumbs a {
+	text-decoration: none;
+	transition: .3s;
+	text-transform: lowercase;
+}
+.breadcrumbs .current, .breadcrumbs a:hover {
+	color: #000;
+}
+.breadcrumbs .bread-crumb > ul > li {
+	display: inline-block;
+	list-style: none;
+	font-family: 'Museo Sans', sans-serif
+	font-size: 14px;
+	position: relative;
+	text-transform: lowercase;
+}
+.breadcrumbs .bread-crumb > ul > li:after {
+	content: '>';
+	padding: 0 5px;
+}
+.breadcrumbs .bread-crumb > ul > li.last {
+	color: #000;
+	text-transform: lowercase;
+}
+.breadcrumbs .bread-crumb > ul > li:last-child:after {
+	opacity: 0;
+}
+.section-institucional .breadcrumbs .bread-crumb li:last-child {
+	color: #000;
+}
+
+
+/* ------------------------------------------------------------ *\
+	#Helpers
+\* ------------------------------------------------------------ */
+.section-institucional .shell-content {
+	margin-bottom: 80px;
+	padding-top: 25px;
+}
+.institucional-title {
+	display: inline-block;
+	padding: 10px 0 10px 50px;
+	text-align: center;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.institucional-title:first-letter{text-transform:uppercase;}
+.section_about {
+	margin-bottom: 80px;
+	padding-top: 30px;
+}
+.sobre-nos .wrapper .footer .shell .footer-nav.hidden-xs, .sobre-nos .wrapper .footer .shell  h4.hidden-xs, .frete-e-entrega .wrapper .footer .shell .footer-nav.hidden-xs, .frete-e-entrega .wrapper .footer .shell  h4.hidden-xs, .termos-de-uso .wrapper .footer .shell .footer-nav.hidden-xs, .termos-de-uso .wrapper .footer .shell  h4.hidden-xs, .trabalhe-com-a-gente .wrapper .footer .shell .footer-nav.hidden-xs, .trabalhe-com-a-gente .wrapper .footer .shell  h4.hidden-xs, .carga-tributaria .wrapper .footer .shell .footer-nav.hidden-xs, .carga-tributaria .wrapper .footer .shell  h4.hidden-xs, .trocas-e-devolucoes .wrapper .footer .shell .footer-nav.hidden-xs, .trocas-e-devolucoes .wrapper .footer .shell  h4.hidden-xs, .politica-de-privacidade .wrapper .footer .shell .footer-nav.hidden-xs, .politica-de-privacidade .wrapper .footer .shell  h4.hidden-xs, .cms.institucional .wrapper .footer .shell .footer-nav.hidden-xs, .cms.institucional .wrapper .footer .shell  h4.hidden-xs, .cms.institucional .wrapper .footer .shell .footer-nav.hidden-xs, .cms.institucional .wrapper .footer .shell  h4.hidden-xs, .atendimento .wrapper .footer .shell .footer-nav.hidden-xs, .atendimento .wrapper .footer .shell  h4.hidden-xs{
+	display: none;
+}
+
+/* ------------------------------------------------------------ *\
+	#CSS institucionais
+\* ------------------------------------------------------------ */
+.about_tile .about_tile_line {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+}
+.about_tile .about_tile_line:nth-child(even) .tile-content {
+	padding: 40px 80px 0 35px;
+	vertical-align: bottom;
+}
+.about_tile_line {
+	line-height: 1.13;
+}
+.about_tile_line h3 {
+	font-size: 30px;
+	font-weight: 900;
+	text-align: left;
+	padding: 20px 0 25px;
+	color: #686162!important;
+}
+.about_tile_line .tile-content .tile-box > h2 {
+	font-size: 30px;
+	font-weight: 900;
+}
+.about_tile_line a {
+	text-decoration: none;
+}
+.about_tile_line .tile-content {
+	padding: 0 28px 0 45px;
+}
+.about_tile_line .tile-pink {
+	color: #686162;
+}
+.about_tile_line .tile-content {
+	padding-top: 70px;
+}
+.about_tile_line .tile-link {
+	position: relative;
+	display: inline-block;
+	margin-top: 20px;
+	font-weight: 900;
+	color: #2fa5de;
+	text-decoration: none;
+}
+.about_tile_line .tile-link:after {
+	content: '';
+	position: absolute;
+	width: 50px;
+	height: 5px;
+	left: 0;
+	bottom: -10px;
+	background: #2fa5de;
+}
+.about_tile_line .tile-head {
+	position: relative;
+	padding: 0 20px 60px;
+	margin: 0 -28px 56px -98px;
+	font-family: 'Museo Sans', sans-serif;
+	font-weight: 700;
+	color: #2fa5de;
+	text-align: center;
+}
+.about_tile_line .tile-head:after {
+	content: '';
+	position: absolute;
+	width: 5000px;
+	height: 6px;
+	bottom: 0;
+	left: 0;
+	background: #2fa5de;
+}
+.about_tile_line .tile-head img {
+	margin-bottom: 25px;
+}
+.about_tile_line .tile-content, .about_tile_line .tile-image {
+	width: 50%;
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+.about_tile_inner h2 {
+	padding-top: 25px;
+}
+.about_tile_inner h2, .about_tile_inner h2 > b {
+	font-size: 30px;
+	font-weight: 900;
+	color: #686162!important;
+}
+#about_last_susbtit {
+	font-size: 30px;
+	color: #686162;
+	font-weight: 900;
+	display: block;
+	text-align: left;
+	padding-left: 55px;
+	padding-top: 40px;
+}
+#about_last_paragraph {
+	font-size: 16px;
+	font-weight: 300;
+	padding: 20px 0 0 55px;
+	font-family: 'Museo Sans', sans-serif;
+}
+#about_last_image {
+	max-width: 300px;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 20px 0  50px 0;
+}
+.institucional-sobre.social > h3, .institucional-sobre.logo-footer > h3 {
+	font-size: 30px;
+	color: #000;
+	text-align: center;
+}
+.institucional-sobre.logo-footer > h3 {
+	padding-top: 30px;
+	margin-bottom: 10px;
+}
+.institucional-sobre.logo-footer > img {
+	width: 110px;
+	height: 110px;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.institucional-sobre.social {
+	margin: 90px 0;
+}
+.inst-align table {
+    margin: 0 auto;
+    max-width: 800px;
+    min-width: 820px;
+    margin-top: -40px;
+}
+.inst-intro {
+    font-family: 'Museo Sans', sans-serif !important;
+    display: block;
+    margin: 0 auto;
+    padding-top: 80px;
+    padding-bottom: 25px;
+    text-align: center;
+}
+.MsoNoSpacing span{
+	font-family: 'Museo Sans', sans-serif !important;
+}
+.inst-table-tit {
+	font-weight: bold;
+}
+.MsoTableGrid td {
+	text-indent: -8px;
+}
+.MsoTableGrid td:first-child {
+	float: left;
+}
+.MsoTableGrid td:last-child {
+	text-align: center;
+	float: right;
+	width: 125pt !important;
+}
+.MsoTableGrid tr:first-child {
+	line-height: 60px;
+	border: none;
+}
+.MsoTableGrid tr {
+	line-height: 50px;
+    border-bottom: 1px solid #b1b1b1;
+}
+.inst-small-line {
+    font-size: 12px !important;
+    display: block;
+    width: 825px;
+    margin: 0 auto;
+}
+#frete-tit {
+	background:url("/arquivos/rf-caminhao frete.png") 0 7px no-repeat;
+	min-width: 340px;
+}
+.inst-frete-big-tit {
+	font-size: 30px;
+	font-weight: 900;
+	display: block;
+	margin: 40px 0 13px 45px;
+}
+.inst-paragraph {
+	font-size: 16px;
+	font-weight: 300;
+	padding-left: 45px;
+}
+#pol-intro, .pol-small {
+	font-family: 'Museo Sans', sans-serif;
+	width: 100%;
+	padding-left: 45px;
+}
+#pol-tit {
+	background-position: 0px -139px;
+	margin-bottom: 60px;
+	background: none;
+}
+.inst-pol-tit {
+	font-weight: bold;
+	font-family:'Museo Sans', sans-serif;
+	margin-top: 20px;
+	padding-left: 45px;
+}
+.inst-pol-txt {
+	padding-left: 70px;
+}
+.mobile-inst-sprite {
+	font-family: 'Museo Sans', sans-serif;
+	background: none!important;
+}
+#carga-trib-tit {
+	background-position: 0px 10px;
+	background: url("/arquivos/rf-ajuda-color.png") 0 15px no-repeat;
+}
+.politic-ident {
+	padding-left: 95px;
+}
+#pol-small {
+	padding-left: 45px;
+}
+#termos-tit {
+	background-position: 0px -41px;
+	background: none;
+}
+.terms-subtitle {
+	padding: 15px 0 15px 45px;
+	font-size: 16px;
+	font-weight: 900;
+	display: inline-block;
+}
+.terms-itens {
+	padding-left: 80px;
+}
+.terms-list {
+	padding-left: 96px;
+}
+.terms-itens, .terms-list {
+	font-size: 16px;
+	font-weight: 300;
+}
+.container .footer {
+    margin-top: 50px;
+}
+.termos-de-uso .quemsomos .terms-list > li{
+    list-style: initial;
+    padding-bottom: 10px;
+}
+#terms-small-text {
+    font-size: 14px;
+    padding-left: 40px;
+    position: relative;
+    top: 40px;
+    font-weight: 300;
+}
+.pink-site {
+	color: #686162;
+	font-weight: 500;
+}
+.grey-line {
+	display: inline-block;
+	height: 0px;
+	border-top: 1px solid #b1b1b1;
+	margin-left: 46px;
+	width: 96%;
+}
+.termos-de-uso .quemsomos {
+	padding-top: 45px;
+}
+.inst-paragraph-small:first-child{
+	padding-top: 10px;
+}
+#trabalhe-tit {
+	background-position: 35px -191px;
+	width: 50%;
+	background: none;
+}
+.inst-paragraph-small {
+	max-width: 720px;
+	font-weight: 300;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 20px;
+	font-size: 16px;
+}
+.inst-work-btn {
+    background: #686162;
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 50px;
+    transition: .5s;
+    font-size: 16px;
+	border: 1px solid #fff;	
+    font-weight: 900;
+}
+.inst-work-btn:hover{
+    color: #686162;
+    background: none;
+    border: 1px solid #686162;	
+}
+
+#troca-tit {
+	background-position: 0px -90px;
+	background: none;
+}
+.ident-box {
+	padding-left: 45px;
+}
+.ident-item {
+	padding-left: 80px;
+}
+.accordion {
+	max-width: 1024px;
+	/* min-width: 320px; */
+	margin: 0 auto;
+	background: #FFF;
+}
+.accordion .link {
+	cursor: pointer;
+	display: block;
+	color: #000;
+	font-size: 14px;
+	font-weight: 700;
+	position: relative;
+	-webkit-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+.accordion li.default .submenu {
+	display: block;
+}
+.submenu {
+	display: none;
+	font-size: 14px;
+	padding: 0;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: -1px;
+}
+.atend_sprite {
+	background: url(../arquivos/atendimento_sprite.jpg) no-repeat
+}
+.atend_subtit {
+	text-align: center;
+	font-size: 20px;
+	font-weight: 900;
+	color: #686162;
+	margin-top: 70px;
+	display: inherit;
+}
+.atend_subtit:nth-child(1) {
+	margin-top: 30px;
+}
+.black_bolder_span {
+	font-weight: 500;
+	font-size: 15px;
+	text-align: center;
+	display: inherit;
+	margin-top: 7px;
+}
+.quastion_category {
+	color: #686162;
+	font-weight: 900;
+	font-size: 18px;
+	border-top: 1px solid #ccc;
+	display: inline-block;
+	width: 100%;
+	padding: 15px 0 15px 15px;
+	margin-top: -1px;
+}
+.quastion_category:first-child {
+	border: none;
+}
+#questions_box .link {
+	font-size: 16px;
+	font-weight: 900;
+	border-top: 1px solid #ccc;
+	padding: 15px 10px;
+	margin-top: -1px;
+}
+#questions_box .submenu p {
+	font-size: 14px;
+	font-weight: normal;
+    padding: 0 0 0 10px;
+}
+#questions_box .submenu p:last-child {
+	padding-bottom: 25px;
+}
+#questions_box .submenu p a {
+	font-weight: 900;
+	color: #e4004b;
+}
+.atend_list_icos {
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 30px;
+}
+.atend_list_icos li {
+	display: inline-block;
+	width: 240px;
+	height: 62px;
+	padding-left: 68px;
+	padding-top: 22px;
+	/* font-weight: 500; */
+}
+#atend_ico_01 {
+	background-position: 0px 2px;
+}
+#atend_ico_02 {
+	background-position: 0px -60px;
+	min-height: 64px;
+    width: 280px;
+	padding-top: 5px;
+	vertical-align: top;
+    margin-right: -80px;
+}
+#atend_ico_02 span {
+	font-size: 15px;
+	display: inline-block;
+	padding-bottom: 4px;
+}
+#qdb_chat_iframe {
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	height: 550px;
+}
+#atend_ico_02 p {
+	font-size: 14px;
+	line-height: 14px;
+}
+.up_arrow {
+	background: url(../arquivos/atendimento_arrow_up.jpg) no-repeat !important;
+	background-position: 95% 18px !important;
+}
+.trocas-e-devolucoes .ident-item{
+    padding-left: 40px;
+}
+.trocas-e-devolucoes .ident-box{
+	padding-left: 0;
+}
+.trocas-e-devolucoes .inst-frete-big-tit{
+	font-weight: 700;
+}
+.trocas-e-devolucoes .inst-frete-big-tit,.termos-de-uso .inst-frete-big-tit{
+	font-size: 25px;
+}
+.politica-de-privacidade #pol-small{
+    padding-left: 70px;
+}
+.carga-tributaria .inst-intro{
+    padding-top: 40px;	
+}
+.atendimento .institucional-title{
+    padding: 10px 0 10px 0;	
+}
+.atendimento  .black_bolder_span{
+    font-weight: 300;
+}
+.atendimento #atend_ico_01 > a{
+	text-decoration: none;
+}
+.atendimento #atend_ico_02 span{
+    padding-top: 10px;
+}
+.atendimento #atend_ico_02 span, .atendimento #atend_ico_01 > a{
+	font-weight: 900;
+    font-size: 16px;
+}
+
+#questions_box .link i{
+    /* background: url(../arquivos/atendimento_arrow_down.jpg) no-repeat; */
+    width: 25px;
+    height: 25px;
+    display: block;
+    position: absolute;
+    right: 10px;
+    background-size: 90%;
+    top: 25%;
+    transition: transform .3s ease-out;
+    transition: transform .3s;
+    transition: transform .3s;
+    background-position: center;
+}
+.link.active i{
+    transition: transform .3s ease-out;
+    transition: transform .3s;
+    transition: transform .3s;
+	-webkit-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+
+@media(max-width:768px) {
+	.breadcrumbs{
+	    padding-top: 120px;	
+		padding-left: 0; 
+		padding-right: 0;
+	}
+	.about_tile_line .tile-content{
+		padding-top: 0;
+	}
+	.about_tile_line .tile-content{
+	    padding: 25px 0 0 20px;	
+	}
+	.about_tile_line .tile-content .tile-box > h2{
+	    font-size: 20px;	
+	}
+	.about_tile_line h3{
+	    font-size: 20px;
+	    padding: 0px 0 10px;
+	}
+	.section_about .shell{
+    	padding: 0;
+	}
+	.about_tile_inner > p {
+    	font-size: 14px;
+	}
+	.about_tile .about_tile_line:nth-child(even) .tile-content{
+	    padding: 20px 15px 0 0px;	
+	}
+	.about_tile_inner h2, .about_tile_inner h2 > b{
+		font-size: 15px;
+	}
+	.about_tile_inner h2{
+		padding-top: 0;
+	}
+	#about_last_paragraph{
+	    font-size: 14px;
+	    padding-left: 0;
+	    padding-right: 20px;
+	}
+	#about_last_susbtit{
+	    padding-top: 0;
+	    padding-left: 0;
+	    font-size: 20px;
+	    margin-top: -45px;
+	    margin-bottom: -10px;
+	}
+	.institucional-sobre.social > h3, .institucional-sobre.logo-footer > h3{
+	    font-size: 20px;	
+	}
+	.institucional-sobre.social{
+    	margin: 25px 0 0;
+	}
+	.institucional-sobre.logo-footer > img{
+		width: 60px;
+		height: 60px;
+	}
+	.section_about{
+		padding-bottom: 20px;
+	}
+	.institucional-sobre.logo-footer > h3{
+	    padding-top: 50px;	
+	}
+	.inst-paragraph{
+	    font-size: 14px;
+	    padding-left: 10px;
+	    padding-right: 10px;	
+	}
+	.inst-frete-big-tit{
+	    font-size: 20px;	
+	    margin: 40px 0 15px 7px;
+	}
+	#frete-tit{
+	    background-position: 15px -250px;	
+	}
+	.inst-pol-txt{
+		padding-left: 0;
+	}
+	#pol-intro, .pol-small, .inst-pol-tit, #pol-small{
+		padding: 0;
+	}
+	.section-institucional .shell-content{
+		margin-bottom: 30px;
+	}
+	#pol-tit {
+	    background-position: 0px -145px;
+	    margin-bottom: 30px;
+	}
+	#troca-tit {
+	    background-position: 0px -95px;
+	    margin-bottom: 25px;
+	}
+	.inst-frete-big-tit{
+    	padding: 15px 0 15px 0px;
+	}
+	.terms-subtitle{
+    	padding: 0 0 10px 0;
+	}
+	.inst-paragraph, .ident-box{
+		padding: 0;
+	}
+	.trocas-e-devolucoes .inst-frete-big-tit{
+    	margin: 0;
+	}
+	.inst-frete-big-tit {
+	    color: #686162;
+	}
+	.termos-de-uso .quemsomos{
+	    padding-top: 40px;	
+	}
+	.grey-line{
+	    margin-left: 0;
+    	width: 100%;	
+	}
+	.termos-de-uso .inst-frete-big-tit{
+	    margin: 0;	
+	}
+	.terms-itens, .terms-list{
+		font-size: 14px;
+	}
+	.terms-itens{
+		padding-left: 0;
+	}
+	.terms-list{
+	    padding-left: 20px;	
+	}
+	#terms-small-text{
+	    padding-left: 0;	
+    	top: 10px;
+	}
+	#trabalhe-tit {
+	    background-position: 35px -193px;
+	    width: 64%;
+	}
+	.inst-paragraph-small:first-child{
+	    margin-top: 40px;	
+	}
+	.inst-paragraph-small{
+	    font-size: 14px;	
+	}
+	.inst-work-btn{
+	    margin-top: 30px;	
+	}
+	.MsoNoSpacing span{
+	    padding-top: 25px;	
+	}
+	.inst-align table{
+	    min-width: 100%;
+	    margin-top: 10px;
+	}
+	.MsoTableGrid tr:first-child{
+	    line-height: 25px;
+	}
+}
+
+@media(max-width: 420px) {
+	.about_tile .about_tile_line{
+		display: block;
+	    margin-top: 30px;
+	}
+	.section_about .shell{
+	    padding-left: 10px;
+    	padding-right: 10px;	
+	}
+	.about_tile_line .tile-content, .about_tile_line .tile-image{
+		width: 100%;
+	}
+	.about_tile_line .tile-content{
+	    padding: 25px 0 0 0;	
+	}
+	.section_about{
+	    padding-top: 0;
+	    margin-bottom: 20px
+	}
+	#about_last_susbtit{
+	    padding-left: 20px;	
+	}
+	#about_last_paragraph{
+	    padding-left: 20px;	
+	}
+	.institucional-sobre.logo-footer > h3 {
+    	padding-top: 30px;
+	}	
+	.institucional-sobre.logo-footer > img {
+	    width: 40px;
+	    height: 40px;
+	    margin-bottom: 20px;
+	}
+	.institucional-sobre.social{
+		display: none;
+	}
+	.institucional-title{
+	    margin-top: 100px;
+	    padding: 0;
+	}
+	.institucional-title:first-letter{
+	   text-transform:uppercase;
+	}
+	.inst-paragraph, .ident-box, .trocas-e-devolucoes .inst-frete-big-tit{
+	    padding-left: 10px;
+	    padding-right: 10px;
+	}
+	.frete-e-entrega .inst-frete-big-tit{
+	    padding: 10px 10px 10px 10px;
+	    color: #000 !important;
+	    margin: 15px 0 10px 0;
+	}
+	.trocas-e-devolucoes .ident-box{
+    	padding: 0;
+	}
+	.terms-subtitle {
+	    padding: 0 10px 10px 10px;
+	    font-weight: 700;
+	}
+	.terms-itens{
+	    padding-left: 10px;
+    	padding-right: 10px;	
+	}
+	.termos-de-uso .inst-frete-big-tit {
+	    padding-left: 10px;
+	    padding-right: 10px;
+	    font-size: 20px;
+	}
+	.grey-line {
+	    margin-left: 10px;
+	    width: 95%;
+	}
+	.terms-list{
+	    padding-left: 40px;	
+	}
+	#terms-small-text {
+	    padding-left: 10px;
+	    top: 10px;
+	}
+	.trabalhe-com-a-gente .quemsomos,.politica-de-privacidade .quemsomos{
+	    padding-left: 10px;
+	    padding-right: 10px;
+	}
+	.inst-paragraph-small:first-child{
+	    margin-top: 25px;	
+	}
+	#pol-small {
+	    font-size: 14px;
+	}
+	.MsoNoSpacing span{
+	    padding-left: 10px;	
+    	padding-right: 10px;
+	}
+	.inst-align table{
+		margin-top: -25px;
+	}
+	.MsoTableGrid td:last-child p.MsoNoSpacing span{
+    	padding: 0;
+	}
+	.inst-small-line{
+		width: 100%;
+		font-size: 14px !important;
+		text-align: center;
+	}
+	#trabalhe-tit{
+		width: 100%;
+		background: none;
+	}
+	.inst-paragraph-small{
+		text-align: left;
+	}
+	.inst-paragraph-small:first-child{
+		margin-top: 0;
+	}
+	#trabalhe-tit{
+	    margin-top: 100px;
+	    padding: 0 0 10px 0;
+	    left: -5px;
+	    transform: translateX(0);
+	}
+	.inst-work-btn{
+	    width: 100%;
+	    left: 0;
+    	transform: translateX(0);	
+	}
+	.accordion #acc1 {
+	    border-top: 1px solid #bdbdbd;
+	}
+	.wrapper .wrapper-inner .footer .socials.visible-xs-block{
+    	margin-top: 35px;
+	}
+
+
+
+	.mobile-inst-sprite{
+		background: none;
+	}
+	.carga-tributaria .inst-intro{
+	    padding-top: 0;	
+	}
+	.politica-de-privacidade #pol-small{
+		padding-left: 0;
+	}
+	#pol-tit{
+    	margin-bottom: 20px;
+	}
+	.termos-de-uso .quemsomos{
+	    padding-top: 20px;	
+	}
+	.trocas-e-devolucoes .inst-frete-big-tit{
+		font-size: 20px;
+	}
+	.trocas-e-devolucoes .ident-item{
+	    padding-left: 10px;	
+	}
+	#troca-tit{
+		margin-bottom: 0;
+	}
+	body.trabalhe-com-a-gente .wrapper .container .main-inner .section-institucional .shell-content #trabalhe-tit:before{
+		content: '';
+	    width: 40px;
+	    height: 40px;
+	    display: block;
+	    left: 50%;
+	    position: relative;
+	    transform: translateX(-50%);
+	    margin-bottom: 5px;
+	    background: url(/arquivos/new-qdb-mobile-trabalhe-conosco.png) no-repeat center;
+	}
+	.section-institucional .shell-content h3:before{
+		display: none!important;
+	}
+	body.politica-de-privacidade .wrapper .container .main-inner .section-institucional .shell-content h3:before{
+		content: '';
+	    width: 40px;
+	    height: 40px;
+	    display: block;
+	    left: 50%;
+	    position: relative;
+	    transform: translateX(-50%);
+	    margin-bottom: 5px;
+	    background: url(/arquivos/new-qdb-mobile-politica-privacidade.png) no-repeat center;	
+	}
+	body.termos-de-uso .wrapper .container .main-inner .section-institucional .shell-content h3:before{
+		content: '';
+	    width: 40px;
+	    height: 40px;
+	    display: block;
+	    left: 50%;
+	    position: relative;
+	    transform: translateX(-50%);
+	    margin-bottom: 5px;
+	    background: url(/arquivos/new-qdb-mobile-termos-uso.png) no-repeat center;	
+	}
+	body.trocas-e-devolucoes .wrapper .container .main-inner .section-institucional .shell-content h3:before{
+		content: '';
+	    width: 40px;
+	    height: 40px;
+	    display: block;
+	    left: 50%;
+	    position: relative;
+	    transform: translateX(-50%);
+	    margin-bottom: 5px;
+	    background: url(/arquivos/new-qdb-mobile-troca.png) no-repeat center;	
+	}
+	body.frete-e-entrega .wrapper .container .main-inner .section-institucional .shell-content h3:before{
+		content: '';
+	    width: 40px;
+	    height: 40px;
+	    display: block;
+	    left: 50%;
+	    position: relative;
+	    transform: translateX(-50%);
+	    margin-bottom: 5px;
+	    background: url(/arquivos/new-qdb-mobile-frete.png) no-repeat center;	
+	}
+	body.sobre-nos .wrapper .container .main-inner .section-institucional .shell-content h3.institucional-title:before{
+		content: '';
+	    width: 40px;
+	    height: 40px;
+	    display: block;
+	    left: 50%;
+	    position: relative;
+	    transform: translateX(-50%);
+	    margin-bottom: 5px;
+	    background: url(/arquivos/new-qdb-mobile-sobre.png) no-repeat center;	
+	}
+}	
+
+@media(max-width: 320px) {
+	.MsoNoSpacing span{
+    	padding-top: 0;
+	}
+	.MsoTableGrid td:first-child{
+		width: 190px !important;
+	}
+	.MsoTableGrid td:last-child{
+	    width: 125px !important;	
+	}
+}
