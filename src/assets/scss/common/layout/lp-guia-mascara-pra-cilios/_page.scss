@@ -1,4 +1,4 @@
-@font-face{font-family:'Museo Sans';src:url("/arquivos/museosans-900.eot.css?v=636681312214070000");src:url("/arquivos/museosans-900.eot.css?#iefix") format("embedded-opentype"),url("/arquivos/museosans-900.woff.css?v=636681312265470000") format("woff"),url("/arquivos/museosans-900.ttf.css?v=636681312249200000") format("truetype"),url("/arquivos/museosans-900.svg.css#MuseoSans700") format("svg");font-weight:700;font-style:normal}
+
 .f-container {
     box-sizing: border-box;
     display: flex;
@@ -8,7 +8,6 @@
     padding-bottom: 60px;
     position: relative;
     width: 100%;
-    font-family: 'Museo',sans-serif;
     min-height: 600px;
     &.extensao{
       .mascara-lista{
@@ -89,7 +88,6 @@
 
 .conteudo-texto h2 {
     color: #fff;
-    font-family:"Museo Sans"!important;
     text-align:center;
     font-size: 36px!important;
 }
@@ -181,7 +179,6 @@
 
 .conteudo-texto ul li {
     color: #fff;
-    font-family: "Museo Sans";
     font-size:  16px;
     margin-top: 3px;
     font-weight: 500;
@@ -230,7 +227,6 @@
     font-size: 50px;
     font-weight: 900;
     margin-top: 60px;
-    font-family:  "Museo Sans";
 }
 
 .hero-text .text p {
@@ -521,10 +517,6 @@
 .section-carousel._chighlight li {
     width:auto!important;
 }
-.main-body {
-    font-family:"Museo Sans"!important;
-}
-
 .txt-surpreendente {
   display:flex;
   justify-content:center;
@@ -556,8 +548,6 @@
   font-weight: normal;
   font-style: normal; }
 
-body.kajal-page {
-  font-family: 'Museo Sans'; }
   body.kajal-page .container .container-group {
     top: 0; }
 
