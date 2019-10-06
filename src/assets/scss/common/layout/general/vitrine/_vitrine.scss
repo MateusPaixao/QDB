@@ -810,6 +810,27 @@
                         transform: translateY(0%);
                     }
                 }
+                .group-email{
+                    margin: 1.5em 0 0;
+                    font-size: .75rem;
+                    ._form-email{
+                        width: 75%;
+                    }
+                    .--send{
+                        @include sans(1.1em, $w-secundary, 400, normal);
+                        border-radius: 5px;
+                        top: 30%;
+                        transition: all .5s;
+                    }
+                    &.--sending{
+                        ._form-email, .control-label, .input-bar{
+                            opacity: 0;
+                        }
+                        .--send{
+                            width: 100%;
+                        }
+                    }
+                }
             }
         }
         &.active:not(.avaliable-false){
