@@ -248,23 +248,23 @@ class Card extends React.Component{
                     request.setRequestHeader('Access-Control-Allow-Origin', '*');
                     request.onreadystatechange = () => {
                         if (request.readyState === 4) {
-                            document.querySelector(".--send").innerHTML = "Cadastrando...(2/2)";
+                            document.querySelector(".--send").textContent = "Cadastrando...(2/2)";
                             resolve(request.response);
                         }else{
-                            document.querySelector(".--send").innerHTML = "Erro ao Cadastrar";
+                            document.querySelector(".--send").textContent = "Erro ao Cadastrar";
                         }
                     }
                     request.send(params);
                 }).then((r) => {
                     console.log(r);
                     if(r == true){
-                        document.querySelector(".--send").innerHTML = "Sucesso! Em breve nós te avisaremos.";
+                        document.querySelector(".--send").textContent = "Sucesso! Em breve nós te avisaremos.";
                         setTimeout(() => {
-                            document.querySelector(".--send").innerHTML = "Avise-me!";
+                            document.querySelector(".--send").textContent = "Avise-me!";
                             document.querySelector(".form-group.group-email").classList.remove("--sending");
                         }, 3000);
                     }else{
-                        document.querySelector(".--send").innerHTML = "Avise-me!";
+                        document.querySelector(".--send").textContent = "Avise-me!";
                         document.querySelector(".form-group.group-email").classList.remove("--sending");
                     }
                 });
@@ -282,11 +282,11 @@ class Card extends React.Component{
           </p>
           
           <div class="form-group group-email">
-              <input class="field _form-email" type="text" name="email" required="required" id="field-email" value="" placeholder="" autocomplete="off" />
+              <input class="field _form-email" type="text" name="email" required="required" id="field-email" value="" placeholder="ex: berenice@exemplo.com" autocomplete="off" />
               <label class="control-label" for="email">E-mail</label>
               <i class="input-bar"></i><small class="hidden">E-mail obrigatório</small>
           </div>
-          <button class="--send">Enviar</button>
+          <button class="btn--send">Enviar</button>
         </div>
       </div>
     )
@@ -588,10 +588,13 @@ class Card extends React.Component{
               <p className="cardProduct--addToCart__cta">Adicionar à Sacola</p>
           </span>
           :
-          <span className="cardProduct--letMeKnow status--standBy" onClick={e => this.letMeKnow(e.currentTarget)}>
-              <svg  className="cardProduct--letMeKnow__mail" width="24" height="17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z" fill="#FDFDFD"/></svg>
-              <p className="cardProduct--letMeKnow__cta">Avise-me quando chegar</p>
-          </span>
+          <React.Fragment>
+            {this.unAvaliable()}
+            <span className="cardProduct--letMeKnow status--standBy" onClick={e => this.letMeKnow(e.currentTarget)}>
+                <svg  className="cardProduct--letMeKnow__mail" width="24" height="17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z" fill="#FDFDFD"/></svg>
+                <p className="cardProduct--letMeKnow__cta">Avise-me quando chegar</p>
+            </span>
+          </React.Fragment>
           }
         {/* </a> */}
       </div>

@@ -810,27 +810,6 @@
                         transform: translateY(0%);
                     }
                 }
-                .group-email{
-                    margin: 1.5em 0 0;
-                    font-size: .75rem;
-                    ._form-email{
-                        width: 75%;
-                    }
-                    .--send{
-                        @include sans(1.1em, $w-secundary, 400, normal);
-                        border-radius: 5px;
-                        top: 30%;
-                        transition: all .5s;
-                    }
-                    &.--sending{
-                        ._form-email, .control-label, .input-bar{
-                            opacity: 0;
-                        }
-                        .--send{
-                            width: 100%;
-                        }
-                    }
-                }
             }
         }
         &.active:not(.avaliable-false){
@@ -872,6 +851,35 @@
             }
             .cardProduct__price{
                 display: none;
+            }
+            .cardProduct__sendMe{
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: 0;
+                padding: 10px;
+                cursor: default;
+            }
+            .group-email{
+                margin: 1.5em 0 0;
+                font-size: .75rem;
+                .--send{
+                    @include sans(1.1em, $w-secundary, 400, normal);
+                    border-radius: 5px;
+                    transition: all .5s;
+                }
+                // &.--sending{
+                //     ._form-email, .control-label, .input-bar{
+                //         opacity: 0;
+                //     }
+                //     .--send{
+                //         width: 100%;
+                //     }
+                // }
             }
             &.active{
                 &.change-false{
