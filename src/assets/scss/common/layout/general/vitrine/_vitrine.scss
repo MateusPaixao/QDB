@@ -114,11 +114,36 @@
             // display: none;
             .cardProduct__config__selected{
                 width: 100%;
-                background-size: 5000%; // trick to fill with a single color
                 background-position: center;
                 display: flex;
                 text-align: left;
+                background: $qdb-grey-m;
                 padding: 10px;
+                position: relative;
+                &:not(.set--avaliable-false)::before{
+                    content: '';
+                    display: flex;
+                    position: absolute;
+                    height: 110%;
+                    width: 1em;
+                    opacity: 1;
+                    filter: blur(1em);
+                    background: $qdb-grey-m;
+                    left: -45%;
+                    top: 0;
+                    z-index: -1;
+                    transform: skew(-15deg);
+                    @include animation("highlight-skeleton", 2.5s, infinite, cubic-bezier(.6,.51,0,1.01));
+                    
+                    @keyframes highlight-skeleton {
+                        60%{
+                            left: -45%;
+                        }
+                        100%{
+                            left: 125%;
+                        }
+                    }
+                }
                 &.__volume{
                     background: $safflower;
                     .cardProduct__config__selected__name::before{

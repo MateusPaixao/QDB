@@ -89,7 +89,7 @@ class Card extends React.Component{
       openConfig: !this.state.openConfig
     })
   }
-  getImgSku(sku){
+  getImgSku(sku, size){
     let skuImg;
     skuImg = sku.images.filter(o => {
       if(o.imageLabel === "thumb" || o.imageLabel === "Thumb"){
@@ -99,7 +99,7 @@ class Card extends React.Component{
     })
     if(skuImg.length > 0){
       // return skuImg
-      return skuImg[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "40", "#height#": "40" , "~": ""});
+      return skuImg[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": size, "#height#": size, "~": ""});
     }else{
       return "noImg"
     }
@@ -114,7 +114,7 @@ class Card extends React.Component{
         this.setBeforePrice();
         this.setAvaliable();
         this.setState({
-          SelectedSkuThumb: this.getImgSku(this.state.Sku)
+          SelectedSkuThumb: this.getImgSku(this.state.Sku, "10px")
         })
 
         e.parentElement.querySelector(".cardProduct__config__list__item.selected").classList.remove("selected");
@@ -129,7 +129,7 @@ class Card extends React.Component{
         {this.props.info.items[0]["Escolha a Cor"] != undefined ?
           <React.Fragment>
             {this.props.info.items.map(sku => sku.itemId == this.props.skuHighlight && 
-              <span className="cardProduct__config__selected" style={{backgroundImage: `url(${this.state.SelectedSkuThumb})`}}>
+              <span className="cardProduct__config__selected" style={{backgroundImage: `url(${this.state.SelectedSkuThumb})`, backgroundSize: `5000%`}}>
                 <p className="cardProduct__config__selected__name">{this.state.Sku["Escolha a Cor"]}</p>
               </span>
             )}
@@ -152,7 +152,7 @@ class Card extends React.Component{
                   onClick={e => changeSku(e.currentTarget)}>
                   {/* {console.log(sku)} */}
                   {/* {console.log(sku.images.filter(o => { if(o.imageLabel === "thumb" || o.imageLabel === "Thumb"){ return o }}))[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "50", "#height#": "50" , "~": ""})} */}
-                  <img className={`${sku.itemId == this.props.skuHighlight ? "selected" : ""}`} data-src={this.getImgSku(sku)} alt={sku["Escolha a Cor"]} />
+                  <img className={`${sku.itemId == this.props.skuHighlight ? "selected" : ""}`} data-src={this.getImgSku(sku, "40px")} alt={sku["Escolha a Cor"]} />
                   {/* <small>{sku["Escolha a Cor"]}</small> */}
                 </li>
               )
@@ -191,6 +191,21 @@ class Card extends React.Component{
           </ul>
           </React.Fragment>
         }
+      </div>
+    )
+  }
+
+  unAvaliable(){
+    return(
+      <div className="cardProduct__sendMe">
+        <span className="cardProduct__sendMe set--close">
+
+        </span>
+        <div className="cardProduct__sendMe__steps">
+          <p className="cardProduct__sendMe__steps__title">
+            Saiba quando <b className="cardProduct__sendMe__steps__title__product">{this.state.Sku.name}</b> ficar disponível
+          </p>
+        </div>
       </div>
     )
   }
@@ -374,7 +389,7 @@ class Card extends React.Component{
   componentDidMount(){
     this.setBeforePrice();
     this.setAvaliable();
-    this.setState({SelectedSkuThumb: this.getImgSku(this.state.Sku)});
+    this.setState({SelectedSkuThumb: this.getImgSku(this.state.Sku, "10px")});
     this.setState({FreeShipping: 109})
     // this.setState({FreeShipping: window.valorFrete})
     // console.log(this.state.FreeShipping);
