@@ -253,18 +253,25 @@ class Card extends React.Component{
   CloseLetMeKnow(){
     this.setState({
       letMeKnow: false
+    }, ()=>{
+      el.parentElement.querySelector(".form-group.group-email").classList.remove("set--sended");
+      el.parentElement.querySelector(".form-group.group-email ._form-email").value = "";
+      el.parentElement.querySelector(".cardProduct__sendMe__steps__title").innerHTML = `Saiba quando <b class="cardProduct__sendMe__steps__title__product">${this.state.Sku.name}</b> ficar disponível`;
+      el.classList.add("set--send");
+      el.innerHTML = '<svg className="cardProduct--letMeKnow__mail" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z" fill="#FDFDFD"/></svg> Enviar';
     })
   }
 
   unAvaliable(){
     const EmailSend = (el) =>{
+      console.log(el);
       if(el.classList.contains("set--send")){
-        this.ValidateEmail(document.querySelector('.form-group.group-email input[name="email"]').value);
-        if(document.querySelector(".group-email").classList.contains("has-error") || 
-          document.querySelector(".group-email").classList.contains("has-warning")){
-            document.querySelector(".form-group.group-email").classList.remove("set--sending");
+        this.ValidateEmail(el.parentElement.querySelector('.form-group.group-email input[name="email"]').value);
+        if(el.parentElement.querySelector(".group-email").classList.contains("has-error") || 
+          el.parentElement.querySelector(".group-email").classList.contains("has-warning")){
+            el.parentElement.querySelector(".form-group.group-email").classList.remove("set--sending");
         }else{
-            document.querySelector(".form-group.group-email").classList.add("set--sending");
+            el.parentElement.querySelector(".form-group.group-email").classList.add("set--sending");
             el.classList.remove("set--send");
             // document.querySelector(".--send").innerHTML = "Cadastrando...(1/2)";
             el.innerHTML = 
@@ -279,10 +286,10 @@ class Card extends React.Component{
             </svg>
             Enviando`;
 
-            new Promise((resolve) => {
+            new Promise((resolve, reject) => {
                 let request = new XMLHttpRequest();
                 let url = "https://www.quemdisseberenice.com.br/no-cache/AviseMe.aspx";
-                let params = "notifymeClientName=Quem+disse+berenice&notifymeClientEmail="+ document.querySelector('.form-group.group-email input[name="email"]').value +"&notifymeIdSku=" + this.state.Sku.itemId;
+                let params = "notifymeClientName=Quem+disse+berenice&notifymeClientEmail="+ el.parentElement.querySelector('.form-group.group-email input[name="email"]').value +"&notifymeIdSku=" + this.state.Sku.itemId;
                 console.log(params);
                 request.open('POST', url);
                 request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
@@ -296,31 +303,30 @@ class Card extends React.Component{
                 }
                 request.send(params);
             }).then((r) => {
-                console.log(r);
-                if(r == "true"){
-                  document.querySelector(".form-group.group-email").classList.add("set--sended");
-                  document.querySelector(".form-group.group-email").classList.remove("set--sending");
-                  document.querySelector(".cardProduct__sendMe__steps__title").innerHTML = 
-                  `<svg class="confirmation set--fill" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path class="confirmation__circle" d="M41 0C18.4 0 0 18.4 0 41C0 63.6 18.4 82 41 82C63.6 82 82 63.6 82 41C82 18.4 63.6 0 41 0ZM41 80C19.5 80 2 62.5 2 41C2 19.5 19.5 2 41 2C62.5 2 80 19.5 80 41C80 62.5 62.5 80 41 80Z"/>
-                  <path class="confirmation__icon" d="M61.4998 26.2L33.8998 53.7L20.4998 40.3C20.0998 39.9 19.4998 39.9 19.0998 40.3C18.6998 40.7 18.6998 41.3 19.0998 41.7L33.1998 55.8C33.3998 56 33.6998 56.1 33.8998 56.1C34.0998 56.1 34.3998 56 34.5998 55.8L62.8998 27.5C63.2998 27.1 63.2998 26.5 62.8998 26.1C62.4998 25.7 61.8998 25.8 61.4998 26.2Z"/>
-                  </svg>
+                console.log("ok");
+                el.parentElement.querySelector(".form-group.group-email").classList.add("set--sended");
+                el.parentElement.querySelector(".form-group.group-email").classList.remove("set--sending");
+                el.parentElement.querySelector(".cardProduct__sendMe__steps__title").innerHTML = 
+                `<svg class="confirmation set--fill" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="confirmation__circle" d="M41 0C18.4 0 0 18.4 0 41C0 63.6 18.4 82 41 82C63.6 82 82 63.6 82 41C82 18.4 63.6 0 41 0ZM41 80C19.5 80 2 62.5 2 41C2 19.5 19.5 2 41 2C62.5 2 80 19.5 80 41C80 62.5 62.5 80 41 80Z"/>
+                <path class="confirmation__icon" d="M61.4998 26.2L33.8998 53.7L20.4998 40.3C20.0998 39.9 19.4998 39.9 19.0998 40.3C18.6998 40.7 18.6998 41.3 19.0998 41.7L33.1998 55.8C33.3998 56 33.6998 56.1 33.8998 56.1C34.0998 56.1 34.3998 56 34.5998 55.8L62.8998 27.5C63.2998 27.1 63.2998 26.5 62.8998 26.1C62.4998 25.7 61.8998 25.8 61.4998 26.2Z"/>
+                </svg>
 
-                  Tudo certo, você será notificado assim que <b class="cardProduct__sendMe__steps__title__product">${this.state.Sku.name}</b> ficar disponível!`;
-                  el.textContent = "Ok, entendi";
-                }else{
-                  el.innerHTML = '<svg  className="cardProduct--letMeKnow__mail" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z" fill="#FDFDFD"/></svg> Enviar';
-                  document.querySelector(".form-group.group-email").classList.remove("--sending");
-                  el.classList.add("set--send");
-                  el.innerHTML = '<svg className="cardProduct--letMeKnow__mail" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z" fill="#FDFDFD"/></svg> Enviar';
-                }
+                Tudo certo, você será notificado assim que <b class="cardProduct__sendMe__steps__title__product">${this.state.Sku.name}</b> ficar disponível!`;
+                el.textContent = "Ok, entendi";
+            }).catch((c)=>{
+                console.log("fail");
+                el.innerHTML = '<svg  className="cardProduct--letMeKnow__mail" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z" fill="#FDFDFD"/></svg> Enviar';
+                el.parentElement.querySelector(".form-group.group-email").classList.remove("--sending");
+                el.classList.add("set--send");
+                el.innerHTML = '<svg className="cardProduct--letMeKnow__mail" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z" fill="#FDFDFD"/></svg> Enviar';
             });
         }
       }else{
         this.CloseLetMeKnow();
-        document.querySelector(".form-group.group-email").classList.remove("set--sended");
-        document.querySelector(".form-group.group-email ._form-email").value = "";
-        document.querySelector(".cardProduct__sendMe__steps__title").innerHTML = `Saiba quando <b class="cardProduct__sendMe__steps__title__product">${this.state.Sku.name}</b> ficar disponível`;
+        el.parentElement.querySelector(".form-group.group-email").classList.remove("set--sended");
+        el.parentElement.querySelector(".form-group.group-email ._form-email").value = "";
+        el.parentElement.querySelector(".cardProduct__sendMe__steps__title").innerHTML = `Saiba quando <b class="cardProduct__sendMe__steps__title__product">${this.state.Sku.name}</b> ficar disponível`;
         el.classList.add("set--send");
         el.innerHTML = '<svg className="cardProduct--letMeKnow__mail" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z" fill="#FDFDFD"/></svg> Enviar';
       }

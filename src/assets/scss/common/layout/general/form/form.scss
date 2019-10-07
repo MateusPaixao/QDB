@@ -22,7 +22,7 @@ flex-flow: column;
         right: 0;
         top: 50%;
         transform: translateY(-60%);
-        background: $dusty;
+        background: $safflower;
         border: none;
         cursor: pointer;
         border-radius: 50%;
@@ -102,7 +102,7 @@ width: 0;
 left: 50%;
 bottom: -0.1em;
 position: absolute;
-background: $dusty;
+background: $safflower;
 -webkit-transition: left 0.28s ease, width 0.28s ease;
 transition: left 0.28s ease, width 0.28s ease;
 z-index: 2;
@@ -161,7 +161,7 @@ outline: none;
 .form-group select:focus ~ .control-label,
 .form-group input:focus ~ .control-label,
 .form-group textarea:focus ~ .control-label {
-color: $dusty;
+color: $safflower;
 }
 .form-group select:focus ~ .input-bar::before,
 .form-group input:focus ~ .input-bar::before,
@@ -223,18 +223,18 @@ border: 0.125em solid currentColor;
 .radio .helper::after {
 -webkit-transform: scale(0);
         transform: scale(0);
-background-color: $dusty;
-border-color: $dusty;
+background-color: $safflower;
+border-color: $safflower;
 }
 .radio label:hover .helper {
-color: $dusty;
+color: $safflower;
 }
 .radio input:checked ~ .helper::after {
 -webkit-transform: scale(0.5);
         transform: scale(0.5);
 }
 .radio input:checked ~ .helper::before {
-color: $dusty;
+color: $safflower;
 }
 
 .checkbox {
@@ -258,7 +258,7 @@ transition: border-color 0.28s ease;
 position: absolute;
 height: 0;
 width: 0.2em;
-background-color: $dusty;
+background-color: $safflower;
 display: block;
 -webkit-transform-origin: left top;
         transform-origin: left top;
@@ -282,10 +282,10 @@ left: 0;
         transform: rotate(-45deg);
 }
 .checkbox label:hover .helper {
-color: $dusty;
+color: $safflower;
 }
 .checkbox input:checked ~ .helper {
-color: $dusty;
+color: $safflower;
 }
 .checkbox input:checked ~ .helper::after, .checkbox input:checked ~ .helper::before {
 opacity: 1;
