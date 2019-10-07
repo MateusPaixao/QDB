@@ -31,6 +31,9 @@ const Methods = {
     });
   },
   twentyBanner: () => {
+    var srcBefore = document.querySelector('.banner-before-after .img-before img').getAttribute('src');
+    var srcAfter = document.querySelector('.banner-before-after .img-after img').getAttribute('src');
+    
     $(".twentytwenty-container").twentytwenty({
       default_offset_pct: 0.69,
       orientation: 'horizontal'
