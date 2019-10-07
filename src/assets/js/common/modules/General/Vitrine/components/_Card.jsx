@@ -392,8 +392,13 @@ class Card extends React.Component{
     
     const countRating = () => {
       let stars = [];
-      for(let i = 1; i <= this.props.review.Rating; i++){
-          stars.push(<svg className="cardProduct__review__rating__ratingHeart" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.605 14.394L0 10.48s2.528-2.836 3.605-3.913l5.014-5.013a5.326 5.326 0 0 1 7.523 0 5.321 5.321 0 0 1 0 7.521l-1.406 1.405 1.406 1.405a5.321 5.321 0 0 1 0 7.521 5.327 5.327 0 0 1-7.523 0l-5.014-5.013z" fill="#67605F"/></svg>)
+      let i = 1;
+      for(i = 1; i <= this.props.review.Rating; i++){
+          stars.push(<svg className="cardProduct__review__rating__ratingStar" viewBox="0 0 88 84" width="88" height="84" fill="none" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M43.91.047a2 2 0 0 0-1.819 1.384l-9.42 29.194-30.667-.06a2 2 0 0 0-1.177 3.62l24.85 17.983-9.541 29.164a2 2 0 0 0 3.08 2.238l24.779-18.083 24.79 18.084a2 2 0 0 0 3.078-2.239l-9.541-29.164 24.85-17.982a2 2 0 0 0-1.176-3.621l-30.669.06-9.43-29.195A2 2 0 0 0 43.911.047z" fill="#67605F"/></svg>)
+      }
+      while(i > this.props.review.Rating && i <= 5){
+          stars.push(<svg className="cardProduct__review__rating__ratingStar set--outline" viewBox="0 0 88 84" width="88" height="84" fill="none" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M43.91.047a2 2 0 0 0-1.819 1.384l-9.42 29.194-30.667-.06a2 2 0 0 0-1.177 3.62l24.85 17.983-9.541 29.164a2 2 0 0 0 3.08 2.238l24.779-18.083 24.79 18.084a2 2 0 0 0 3.078-2.239l-9.541-29.164 24.85-17.982a2 2 0 0 0-1.176-3.621l-30.669.06-9.43-29.195A2 2 0 0 0 43.911.047z" stroke="#67605F"/></svg>)
+          i++;
       }
       return stars;      
     }
@@ -442,17 +447,17 @@ class Card extends React.Component{
             {flags()}
           </div>
           <div className="cardProduct__pictureContainer">
+            <img className="cardProduct__pictureContainer__picture" src={this.state.Sku.images[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "150", "#height#": "150" , "~": ""})} loading="lazy"></img>
             {this.props.review.TotalRatings > 0 &&
               <div className="cardProduct__pictureContainer__review">
                 <ul className="cardProduct__pictureContainer__review__rating">
                   {countRating()}
                 </ul>
                 <span className="cardProduct__pictureContainer__review__qtd">
-                  Baseado em  <br/>{this.props.review.TotalRatings} avaliações
+                  {this.props.review.TotalRatings} avaliações
                 </span>
               </div>
             }
-            <img className="cardProduct__pictureContainer__picture" src={this.state.Sku.images[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "150", "#height#": "150" , "~": ""})} loading="lazy"></img>
           </div>
           <div className="cardProduct__info">
             <p className="cardProduct__info__name">
@@ -462,12 +467,12 @@ class Card extends React.Component{
           </div>
           {this.state.Avaliable != false ?
             <div className="cardProduct__price">
-              <p className={"cardProduct__price__before"}>
-              {
-                this.state.haveBefore != false &&
-                "R$" + this.state.Sku.sellers[0].commertialOffer.ListPrice.toFixed(2).toString().replace(".", ",")
-              }
+            {
+              this.state.haveBefore != false &&
+              <p className="cardProduct__price__before">
+                {"R$" + this.state.Sku.sellers[0].commertialOffer.ListPrice.toFixed(2).toString().replace(".", ",")}
               </p>
+            }
               <p className="cardProduct__price__actual">{"R$" + this.state.Sku.sellers[0].commertialOffer.Price.toFixed(2).toString().replace(".", ",")}</p>
               <p className="cardProduct__price__installment">{"até " + Math.max.apply(Math, this.state.Sku.sellers[0].commertialOffer.Installments.map(function(o) { return o.NumberOfInstallments; })) + "x de R$" + Math.min.apply(Math, this.state.Sku.sellers[0].commertialOffer.Installments.map(function(o) { return o.Value; })).toFixed(2).toString().replace(".", ",") + " sem juros"}</p>
             </div>

@@ -366,17 +366,20 @@
         }
         .cardProduct__pictureContainer{
             position: relative;
+            margin-bottom: 10px;
             .cardProduct__pictureContainer__review{
-                position: absolute;
-                bottom: 1em;
-                left: 1em;
                 display: flex;
                 flex-flow: column;
-                align-items: flex-start;
+                align-items: center;
                 .cardProduct__pictureContainer__review__rating{
-                    .cardProduct__review__rating__ratingHeart{
+                    margin: 0 auto;
+                    .cardProduct__review__rating__ratingStar{
                         width: 1em;
                         height: 1em;
+                        margin: 0 .05em;
+                        &.set--outline{
+                            stroke-width: .3em;
+                        }
                     }
                 }
                 .cardProduct__pictureContainer__review__qtd{
