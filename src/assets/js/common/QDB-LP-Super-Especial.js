@@ -31,14 +31,23 @@ const Methods = {
     });
   },
   twentyBanner: () => {
-    var srcBefore = document.querySelector('.banner-before-after .img-before img').getAttribute('src');
-    var srcAfter = document.querySelector('.banner-before-after .img-after img').getAttribute('src');
-    
-    $(".twentytwenty-container").twentytwenty({
-      default_offset_pct: 0.69,
-      orientation: 'horizontal'
+    var imgBefore = document.createElement('img');
+    imgBefore.setAttribute('src', document.querySelector('.banner-before-after .img-before span').innerHTML);
+    document.querySelector('.twentytwenty-container').appendChild(imgBefore);
+
+    var imgAfter = document.createElement('img');
+    imgAfter.setAttribute('src', document.querySelector('.banner-before-after .img-after span').innerHTML);
+    document.querySelector('.twentytwenty-container').appendChild(imgAfter);
+       
+    document.addEventListener('readystatechange', event => { 
+      if (event.target.readyState === "complete") {
+        $(".twentytwenty-container").twentytwenty({
+          default_offset_pct: 0.69,
+          orientation: 'horizontal'
+        });
+        $(window).trigger('resize');
+      }
     });
-    $(window).trigger('resize');
   },
   getProductBannerInfo: () => {
     var productElements = document.querySelectorAll(".panel-product");
