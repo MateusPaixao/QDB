@@ -12,6 +12,7 @@ class Card extends React.Component{
       haveBefore: false,
       Hover: false,
       openConfig: false,
+      letMeKnow: false,
       Qty: 1
     };
     
@@ -24,6 +25,11 @@ class Card extends React.Component{
     this.addToCart = this.addToCart.bind(this);
     this.openConfig = this.openConfig.bind(this);
     this.getImgSku = this.getImgSku.bind(this);
+    this.OpenLetMeKnow = this.OpenLetMeKnow.bind(this);
+    this.CloseLetMeKnow = this.CloseLetMeKnow.bind(this);
+    this.setPlaceholder = this.setPlaceholder.bind(this);
+    this.ValidateEmail = this.ValidateEmail.bind(this);
+    this.EmailCheck = this.EmailCheck.bind(this);
   }
 
   setAvaliable(){
@@ -195,98 +201,145 @@ class Card extends React.Component{
     )
   }
 
+  setPlaceholder(e, place){
+    e.addEventListener('focus', (event) => {
+        event.target.setAttribute("placeholder", place);
+    });
+    e.addEventListener('focusout', (event) => {
+        event.target.setAttribute("placeholder", "");
+    });
+  }
+
+  ValidateEmail(_email){
+    // get valid email
+    let filter = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    if (_email == '' ||  _email == null) {
+        document.querySelector('.form-group.group-email small').innerHTML = '*Obrigatório.';
+        document.querySelector('.form-group.group-email').classList.add('has-warning');
+        document.querySelector('.form-group.group-email small').classList.remove('hidden');
+    }else if(_email == undefined || !filter.test(_email)){
+        document.querySelector('.form-group.group-email small').innerHTML = 'Verifique se você digitou corretamente o e-mail.';
+        document.querySelector('.form-group.group-email').classList.add('has-error');
+        document.querySelector('.form-group.group-email small').classList.remove('hidden');
+    } else {
+        document.querySelector('.form-group.group-email').classList.remove('has-error',  'has-warning');
+        document.querySelector('.form-group.group-email small').classList.add('hidden');
+    }
+  }
+
+  EmailCheck(){
+      let _this = this;
+      document.querySelector('.form-group.group-email input[name="email"]').addEventListener("focus", function () {
+          _this.setPlaceholder(this, 'ex: seuemail@exemplo.com');
+          document.querySelector('.form-group.group-email').classList.remove('has-error', 'has-warning');
+          document.querySelector('.form-group.group-email small').classList.add('hidden');
+      });
+      document.querySelector('.form-group.group-email input[name="email"]').addEventListener("focusOut", function () {
+          setTimeout(() => {
+              _this.ValidateEmail(this.value);
+          }, 1000);
+          _this.setPlaceholder(this, "");
+      });
+  }
+
+  OpenLetMeKnow(){
+    this.setState({
+      letMeKnow: true
+    }, () => {
+      this.EmailCheck();
+    })
+  }
+
+  CloseLetMeKnow(){
+    this.setState({
+      letMeKnow: false
+    })
+  }
+
   unAvaliable(){
-      const ValidateEmail = (_email) => {
-        // get valid email
-        let filter = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-        if (_email == '' ||  _email == null) {
-            document.querySelector('.form-group.group-email small').innerHTML = '*Obrigatório.';
-            document.querySelector('.form-group.group-email').classList.add('has-warning');
-            document.querySelector('.form-group.group-email small').classList.remove('hidden');
-        }else if(_email == undefined || !filter.test(_email)){
-            document.querySelector('.form-group.group-email small').innerHTML = 'Verifique se você digitou corretamente o e-mail.';
-            document.querySelector('.form-group.group-email').classList.add('has-error');
-            document.querySelector('.form-group.group-email small').classList.remove('hidden');
-        } else {
-            document.querySelector('.form-group.group-email').classList.remove('has-error',  'has-warning');
-            document.querySelector('.form-group.group-email small').classList.add('hidden');
-        }
-    }
-    const EmailCheck = () =>{
-        document.querySelector('.form-group.group-email input[name="email"]').addEventListener("focus", function () {
-            setPlaceholder(this, 'ex: seuemail@exemplo.com');
-            console.log(this);
-            document.querySelector('.form-group.group-email').classList.remove('has-error', 'has-warning');
-            document.querySelector('.form-group.group-email small').classList.add('hidden');
-        });
-        document.querySelector('.form-group.group-email input[name="email"]').addEventListener("focusOut", function () {
-            setTimeout(() => {
-                FormActions.ValidateEmail(this.value);
-            }, 1000);
-            setPlaceholder(this, "");
-        });
-    }
-    const EmailSend = (sku) =>{
-        document.querySelector(".form-group.group-email .--send").addEventListener("click", function(){
-            document.querySelector(".form-group.group-email").classList.add("--sending");
-            document.querySelector(".--send").innerHTML = "Cadastrando...(1/2)";
-            FormActions.ValidateEmail(document.querySelector('.form-group.group-email input[name="email"]').value);
+    const EmailSend = (el) =>{
+      if(el.classList.contains("set--send")){
+        this.ValidateEmail(document.querySelector('.form-group.group-email input[name="email"]').value);
+        if(document.querySelector(".group-email").classList.contains("has-error") || 
+          document.querySelector(".group-email").classList.contains("has-warning")){
+            document.querySelector(".form-group.group-email").classList.remove("set--sending");
+        }else{
+            document.querySelector(".form-group.group-email").classList.add("set--sending");
+            el.classList.remove("set--send");
+            // document.querySelector(".--send").innerHTML = "Cadastrando...(1/2)";
+            el.innerHTML = 
+            `<svg class="mailsvg" viewBox="0 0 40 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.0976 0H36.7959C38.4877 0 39.7891 1.30135 39.7891 2.9931V13.6642C39.7891 15.3559 38.4877 16.7874 36.7959 16.7874H19.0976C17.4058 16.7874 16.1045 15.3559 16.1045 13.6642V2.9931C16.1045 1.30135 17.4058 0 19.0976 0ZM18.0565 1.82189L26.3852 8.71904C27.166 9.36972 28.5974 9.36972 29.5084 8.71904L37.837 1.82189C37.5768 1.56162 37.1864 1.30135 36.7959 1.30135H19.0976C18.7072 1.30135 18.3168 1.56162 18.0565 1.82189ZM38.4877 3.12324L30.4193 9.76012C28.9879 10.9313 26.7756 10.9313 25.4742 9.76012L17.4058 3.12324V13.6642C17.4058 14.5751 18.1867 15.3559 19.0976 15.3559H36.7959C37.7069 15.3559 38.4877 14.5751 38.4877 13.6642V3.12324Z" fill="#FDFDFD"/>
+            <path d="M6.47428 12.7533C5.69347 12.7533 5.69347 13.9245 6.47428 13.9245H13.6317C14.4125 13.9245 14.4125 12.7533 13.6317 12.7533H6.47428Z" fill="#FDFDFD"/>
+            <path d="M6.99484 9.23962C6.34417 9.23962 6.34417 10.4108 6.99484 10.4108H13.6317C14.4125 10.4108 14.4125 9.23962 13.6317 9.23962H6.99484Z" fill="#FDFDFD"/>
+            <path d="M4.65236 10.4108C5.43317 10.4108 5.43317 9.23962 4.65236 9.23962H2.96061C2.1798 9.23962 2.1798 10.4108 2.96061 10.4108H4.65236Z" fill="#FDFDFD"/>
+            <path d="M0.488006 6.37663C-0.162669 6.37663 -0.162669 7.54785 0.488006 7.54785H13.6316C14.4124 7.54785 14.4124 6.37663 13.6316 6.37663H0.488006Z" fill="#FDFDFD"/>
+            <path d="M5.69303 2.86301C4.91222 2.86301 4.91222 4.03422 5.69303 4.03422H7.25465C8.03546 4.03422 8.03546 2.86301 7.25465 2.86301H5.69303Z" fill="#FDFDFD"/>
+            <path d="M13.631 4.03422C14.4118 4.03422 14.4118 2.86301 13.631 2.86301H9.33658C8.55577 2.86301 8.55577 4.03422 9.33658 4.03422H13.631Z" fill="#FDFDFD"/>
+            </svg>
+            Enviando`;
 
-            if(document.querySelector(".group-email").classList.contains("has-error")){
-                document.querySelector(".form-group.group-email").classList.remove("--sending");
-                document.querySelector(".--send").innerHTML = "Avise-me!";
-            }else{
-                new Promise((resolve) => {
-                    let request = new XMLHttpRequest();
-                    let url = "https://www.quemdisseberenice.com.br/no-cache/AviseMe.aspx";
-                    let params = "notifymeClientName=Quem+disse+berenice&notifymeClientEmail="+ document.querySelector('.form-group.group-email input[name="email"]').value +"&notifymeIdSku=" + sku;
-                    console.log(params);
-                    request.open('POST', url);
-
-                    request.setRequestHeader('Content-Type', 'application/json');
-                    request.setRequestHeader('Authorization', 'Basic Mzg4ZWYyZDAtYzNiOC00ZmQ2LWFmMTMtNDQ2YjY5OGQ1NDRhOjU2N2Q0MjVmLTA1MGQtNGY1NC05MWUxLTMzODgwZmFjZmRkMw==');
-                    request.setRequestHeader('Access-Control-Allow-Origin', '*');
-                    request.onreadystatechange = () => {
-                        if (request.readyState === 4) {
-                            document.querySelector(".--send").textContent = "Cadastrando...(2/2)";
-                            resolve(request.response);
-                        }else{
-                            document.querySelector(".--send").textContent = "Erro ao Cadastrar";
-                        }
-                    }
-                    request.send(params);
-                }).then((r) => {
-                    console.log(r);
-                    if(r == true){
-                        document.querySelector(".--send").textContent = "Sucesso! Em breve nós te avisaremos.";
-                        setTimeout(() => {
-                            document.querySelector(".--send").textContent = "Avise-me!";
-                            document.querySelector(".form-group.group-email").classList.remove("--sending");
-                        }, 3000);
+            new Promise((resolve) => {
+                let request = new XMLHttpRequest();
+                let url = "https://www.quemdisseberenice.com.br/no-cache/AviseMe.aspx";
+                let params = "notifymeClientName=Quem+disse+berenice&notifymeClientEmail="+ document.querySelector('.form-group.group-email input[name="email"]').value +"&notifymeIdSku=" + this.state.Sku.itemId;
+                console.log(params);
+                request.open('POST', url);
+                request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+                request.onreadystatechange = () => {
+                    if (request.readyState === 4) {
+                        // document.querySelector(".--send").textContent = "Cadastrando...(2/2)";
+                        resolve(request.response);
                     }else{
-                        document.querySelector(".--send").textContent = "Avise-me!";
-                        document.querySelector(".form-group.group-email").classList.remove("--sending");
+                        // document.querySelector(".--send").textContent = "Erro ao Cadastrar";
                     }
-                });
-            }
-        });
+                }
+                request.send(params);
+            }).then((r) => {
+                console.log(r);
+                if(r == "true"){
+                  document.querySelector(".form-group.group-email").classList.add("set--sended");
+                  document.querySelector(".form-group.group-email").classList.remove("set--sending");
+                  document.querySelector(".cardProduct__sendMe__steps__title").innerHTML = 
+                  `<svg class="confirmation set--fill" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path class="confirmation__circle" d="M41 0C18.4 0 0 18.4 0 41C0 63.6 18.4 82 41 82C63.6 82 82 63.6 82 41C82 18.4 63.6 0 41 0ZM41 80C19.5 80 2 62.5 2 41C2 19.5 19.5 2 41 2C62.5 2 80 19.5 80 41C80 62.5 62.5 80 41 80Z"/>
+                  <path class="confirmation__icon" d="M61.4998 26.2L33.8998 53.7L20.4998 40.3C20.0998 39.9 19.4998 39.9 19.0998 40.3C18.6998 40.7 18.6998 41.3 19.0998 41.7L33.1998 55.8C33.3998 56 33.6998 56.1 33.8998 56.1C34.0998 56.1 34.3998 56 34.5998 55.8L62.8998 27.5C63.2998 27.1 63.2998 26.5 62.8998 26.1C62.4998 25.7 61.8998 25.8 61.4998 26.2Z"/>
+                  </svg>
+
+                  Tudo certo, você será notificado assim que <b class="cardProduct__sendMe__steps__title__product">${this.state.Sku.name}</b> ficar disponível!`;
+                  el.textContent = "Ok, entendi";
+                }else{
+                  el.innerHTML = '<svg  className="cardProduct--letMeKnow__mail" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z" fill="#FDFDFD"/></svg> Enviar';
+                  document.querySelector(".form-group.group-email").classList.remove("--sending");
+                  el.classList.add("set--send");
+                  el.innerHTML = '<svg className="cardProduct--letMeKnow__mail" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z" fill="#FDFDFD"/></svg> Enviar';
+                }
+            });
+        }
+      }else{
+        this.CloseLetMeKnow();
+        document.querySelector(".form-group.group-email").classList.remove("set--sended");
+        document.querySelector(".form-group.group-email ._form-email").value = "";
+        document.querySelector(".cardProduct__sendMe__steps__title").innerHTML = `Saiba quando <b class="cardProduct__sendMe__steps__title__product">${this.state.Sku.name}</b> ficar disponível`;
+        el.classList.add("set--send");
+        el.innerHTML = '<svg className="cardProduct--letMeKnow__mail" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z" fill="#FDFDFD"/></svg> Enviar';
+      }
     }
+    
     return(
       <div className="cardProduct__sendMe">
-        <span className="cardProduct__sendMe set--close">
-
-        </span>
+        <span className="cardProduct__sendMe__close set--close" onClick={e => this.CloseLetMeKnow()}>x</span>
         <div className="cardProduct__sendMe__steps">
           <p className="cardProduct__sendMe__steps__title">
             Saiba quando <b className="cardProduct__sendMe__steps__title__product">{this.state.Sku.name}</b> ficar disponível
           </p>
           
           <div class="form-group group-email">
-              <input class="field _form-email" type="text" name="email" required="required" id="field-email" value="" placeholder="ex: berenice@exemplo.com" autocomplete="off" />
+              <input class="field _form-email" type="text" name="email" required="required" id="field-email" placeholder="" autocomplete="off" />
               <label class="control-label" for="email">E-mail</label>
               <i class="input-bar"></i><small class="hidden">E-mail obrigatório</small>
           </div>
-          <button class="btn--send">Enviar</button>
+          <button class="sendMe-action set--send" onClick={(e) => EmailSend(e.currentTarget)}><svg className="cardProduct--letMeKnow__mail" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z" fill="#FDFDFD"/></svg> Enviar</button>
         </div>
       </div>
     )
@@ -529,7 +582,7 @@ class Card extends React.Component{
       )
     }
     return (
-      <div className={`cardProduct cardProduct-${this.props.info.productId} avaliable-${this.state.Avaliable} change-${this.state.openConfig}`} data-prod={this.props.info.productId} /*onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}*/>
+      <div className={`cardProduct cardProduct-${this.props.info.productId} avaliable-${this.state.Avaliable} change-${this.state.openConfig} letMeKnow-${this.state.letMeKnow}`} data-prod={this.props.info.productId} /*onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}*/>
         {this.props.info.items[0].variations != undefined &&
           <React.Fragment>
             <span className={`cardProduct--change`} onClick={e => this.openConfig(e)}>
@@ -590,7 +643,7 @@ class Card extends React.Component{
           :
           <React.Fragment>
             {this.unAvaliable()}
-            <span className="cardProduct--letMeKnow status--standBy" onClick={e => this.letMeKnow(e.currentTarget)}>
+            <span className="cardProduct--letMeKnow status--standBy" onClick={e => this.OpenLetMeKnow()}>
                 <svg  className="cardProduct--letMeKnow__mail" width="24" height="17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z" fill="#FDFDFD"/></svg>
                 <p className="cardProduct--letMeKnow__cta">Avise-me quando chegar</p>
             </span>
