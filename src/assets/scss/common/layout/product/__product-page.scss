@@ -1,3 +1,5 @@
+@import '../../config/global/globals-bases';
+
 .ico-arrow-down {
     background-image: url(../arquivos/new_qdb_sprite.png);
     background-position: -243px -189px;
@@ -2914,7 +2916,19 @@ ul {
     }
 
     #show #include #image .image-zoom .zoomPad #image-main {
-        width: 100%
+        width: 100%;
+        @include d(i6-8Plus){
+            max-width: 280px;
+            max-height: 280px;
+        }
+        @include d(X){
+            max-width: 280px;
+            max-height: 280px;
+        }
+        @include d(XS){
+            max-width: 280px;
+            max-height: 280px;
+        }
     }
 
     .form-steps .field {
