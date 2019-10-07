@@ -31,13 +31,16 @@ const Methods = {
     });
   },
   twentyBanner: () => {
-    var imgBefore = document.createElement('img');
-    imgBefore.setAttribute('src', document.querySelector('.banner-before-after .img-before span').innerHTML);
-    document.querySelector('.twentytwenty-container').appendChild(imgBefore);
+    var elExists = document.querySelector('.banner-before-after .img-before span');
+    if(typeof(elExist) != 'undefined' && elExist != null){
+      var imgBefore = document.createElement('img');
+      imgBefore.setAttribute('src', document.querySelector('.banner-before-after .img-before span').innerHTML);
+      document.querySelector('.twentytwenty-container').appendChild(imgBefore);
 
-    var imgAfter = document.createElement('img');
-    imgAfter.setAttribute('src', document.querySelector('.banner-before-after .img-after span').innerHTML);
-    document.querySelector('.twentytwenty-container').appendChild(imgAfter);
+      var imgAfter = document.createElement('img');
+      imgAfter.setAttribute('src', document.querySelector('.banner-before-after .img-after span').innerHTML);
+      document.querySelector('.twentytwenty-container').appendChild(imgAfter);
+    }
        
     document.addEventListener('readystatechange', event => { 
       if (event.target.readyState === "complete") {
