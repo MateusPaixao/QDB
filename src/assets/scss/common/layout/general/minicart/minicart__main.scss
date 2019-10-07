@@ -35,6 +35,7 @@
 
 ._minicartHead {
     min-height: 40px;
+    height: 60px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -43,29 +44,47 @@
     -webkit-transition: 0.2s;
     transition: 0.2s;
 }
-
-.__close-cart {
-    display: block;
-    width: 16px;
-    position: relative;
-    margin: 10px 0 0 20px;
-    font-size: 28px;
-    font-family: 'Courier New', Courier, monospace;
-}
-
 .__close-cart:hover {
     text-decoration: none;
 }
 
+.__close-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    position: relative;
+    margin: 0;
+    @include sans(2rem, $g-primary, 400, initial);
+}
+
+
 .__cartTitle {
     font-size: 1.2em;
     font-weight: 100;
-    margin-top: 15px;
-    margin-left: 27px;
+    display: flex;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
     text-transform: uppercase;
+}
+
+a.minicart-banner {
+    width: 100%;
+    display: flex;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        display: block;
+    }
 }
 
 /*minicart*/
@@ -81,7 +100,7 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    max-height: calc(100% - 40px);
+    max-height: calc(100% - 18.5%);
 }
 
 .mr-minicart {
@@ -98,19 +117,20 @@
 .mr-prod-list-wrapper {
     overflow-y: auto;
     height: 100%;
+
     /* Track */
-    &::-webkit-scrollbar-track{
-        box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
         border-radius: 10px;
         background-color: #F5F5F5;
     }
 
-    &::-webkit-scrollbar{
+    &::-webkit-scrollbar {
         width: .75em;
         background-color: #F5F5F5;
     }
 
-    &::-webkit-scrollbar-thumb{
+    &::-webkit-scrollbar-thumb {
         border-radius: 10px;
         background-color: $qdb-grey-l;
     }
@@ -271,15 +291,39 @@
     font-size: 22px;
     bottom: 0;
 }
+.__close-icon:before,
+.__close-icon-black:before {
+    content: "X";
+    display: block;
+    position: initial;
+    cursor: pointer;
+    font-size: 1em;
+    right: 0;
+    top: 0;
+    color: $g-primary;
+}
+
+.__close-icon-white:before {
+    content: "X";
+    display: block;
+    font-size: 1em;
+    position: absolute;
+    cursor: pointer;
+    right: 20px;
+    top: 20px;
+    color: $w-secundary;
+}
 
 .mr-prod-item .mr-rm:hover {
     text-decoration: none;
 }
+
 .mr-rm.__close-icon-black {
-    &:before{
+    &:before {
         display: none;
     }
 }
+
 .mr-total {
     display: flex;
     justify-content: space-between;
@@ -302,6 +346,7 @@
         background-color: $success;
         @include sans(1em, $w-secundary, 900, normal);
         letter-spacing: .1em;
+
         &:hover {
             letter-spacing: .3em;
             filter: contrast(140%);

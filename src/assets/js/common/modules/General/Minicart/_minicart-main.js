@@ -19,7 +19,6 @@ const Methods = {
                 item: "<div class='mr-prod-item'>" +
                     "<a class='mr-link' href='{%LINK%}'>" +
                     "<span class='mr-img'><img src='{%IMG%}'/></span>" +
-                    "<span class='mr-prod-brand'>{%BRAND%}</span>" +
                     "<span class='mr-prod-name'>{%NAME%}</span>" +
                     "<span class='mr-prod-qty'>Qtde: <small>{%QTY%}</small></span>" +
                     "<span class='mr-prod-price'><em>{%PRICE%}</em></span>" +
@@ -147,7 +146,6 @@ const Methods = {
                                     item = _mProdsTemplate.item
                                         .replace(/{%LINK%}/, _mProdsList.items[i].detailUrl)
                                         .replace(/{%IMG%}/, _mProdsList.items[i].imageUrl)
-                                        .replace(/{%BRAND%}/, _mProdsList.items[i].additionalInfo.brandName)
                                         .replace(/{%NAME%}/, _mProdsList.items[i].name)
                                         .replace(/{%QTY%}/, _mProdsList.items[i].quantity)
                                         .replace(/{%PRICE%}/, price);
