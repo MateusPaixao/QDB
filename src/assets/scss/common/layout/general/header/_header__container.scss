@@ -304,6 +304,41 @@
                         fill: transparent;
                     }
                 }
+                &.set--highlightFill{
+                    #wave{
+                        @include animation("HighlightWave", .5s, linear, cubic-bezier(.6,.51,0,1.01));
+                        animation-fill-mode: forwards;
+                        @keyframes HighlightWave{
+                            0%{
+                                fill: $g-primary;
+                            }
+                            90%{
+                                fill: #fff;
+                            }
+                            100%{
+                                fill: $g-primary;
+                            }
+                        }
+                    }
+                    #bagMask{
+                        @include animation("HighlightMask", 1.5s, linear, cubic-bezier(.6,.51,0,1.01));
+                        animation-fill-mode: forwards;
+                        @keyframes HighlightMask{
+                            0%{
+                                fill: $g-primary;
+                            }
+                            20%{
+                                fill: #00c8e1;
+                            }
+                            90%{
+                                fill: #00c8e1;
+                            }
+                            100%{
+                                fill: $g-primary;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
