@@ -123,6 +123,7 @@ body {
 //banners
 .section-media {
     position: relative;
+    margin-bottom: $section-spacing;
     .item {
         overflow: hidden;
         & > * {
@@ -137,7 +138,7 @@ body {
 //showcase container
 .showcase-container{
     position: relative;
-    margin-top: $section-spacing;
+    margin-bottom: $section-spacing;
 }
 
 //slick carousel
@@ -174,7 +175,7 @@ body {
     display: flex;
     align-items: center;
     position: relative;
-    margin: 20px 0;
+    margin-bottom: $section-spacing;
     .aside {
         width: 55%;
         padding: 1% 15% 0 5%;
@@ -219,7 +220,7 @@ body {
     display: flex;
     align-items: center;
     position: relative;
-    margin-top: 20px;
+    margin-bottom: $section-spacing;    
     .aside {
         width: 51%;
         position: relative;
@@ -310,6 +311,7 @@ body {
 
 //banner after before
 .banner-before-after {
+    margin-bottom: $section-spacing;
     .img-before,
     .img-after {
         display: none;

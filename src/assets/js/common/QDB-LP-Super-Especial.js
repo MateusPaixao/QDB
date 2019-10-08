@@ -31,17 +31,17 @@ const Methods = {
     });
   },
   twentyBanner: () => {
-    var elExists = document.querySelector('.banner-before-after .img-before span');
-    if(typeof(elExists) != 'undefined' && elExists != null){
+    var bannerSection = window.outerWidth > 768 ? document.querySelector('.banner-before-after.desk') : document.querySelector('.banner-before-after.mob');
+    var isSet = bannerSection.querySelector('.img-before span');
+    if(typeof(isSet) != 'undefined' && isSet != null){
       var imgBefore = document.createElement('img');
-      imgBefore.setAttribute('src', document.querySelector('.banner-before-after .img-before span').innerHTML);
-      document.querySelector('.twentytwenty-container').appendChild(imgBefore);
+      imgBefore.setAttribute('src', bannerSection.querySelector('.img-before span').innerHTML);
+      bannerSection.querySelector('.twentytwenty-container').appendChild(imgBefore);
 
       var imgAfter = document.createElement('img');
-      imgAfter.setAttribute('src', document.querySelector('.banner-before-after .img-after span').innerHTML);
-      document.querySelector('.twentytwenty-container').appendChild(imgAfter);
+      imgAfter.setAttribute('src', bannerSection.querySelector('.img-after span').innerHTML);
+      bannerSection.querySelector('.twentytwenty-container').appendChild(imgAfter);
     }
-       
     document.addEventListener('readystatechange', event => { 
       if (event.target.readyState === "complete") {
         $(".twentytwenty-container").twentytwenty({
