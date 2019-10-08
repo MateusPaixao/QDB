@@ -10,8 +10,6 @@ const Methods = {
         Methods.updateNumberMinicart();
         Methods.isLogged();
         Methods.marginTopMenuHeight();
-        
-        
     },
 
     marginTopMenuHeight() {
