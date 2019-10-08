@@ -32,7 +32,7 @@ const Methods = {
   },
   twentyBanner: () => {
     var elExists = document.querySelector('.banner-before-after .img-before span');
-    if(typeof(elExist) != 'undefined' && elExist != null){
+    if(typeof(elExists) != 'undefined' && elExists != null){
       var imgBefore = document.createElement('img');
       imgBefore.setAttribute('src', document.querySelector('.banner-before-after .img-before span').innerHTML);
       document.querySelector('.twentytwenty-container').appendChild(imgBefore);
