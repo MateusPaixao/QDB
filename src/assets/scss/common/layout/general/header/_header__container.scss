@@ -44,6 +44,9 @@
             order: 1;
             width: 70%;
             align-items: center;
+            margin: 0;
+            padding: 0;
+            height: auto;
         }
     }
 
@@ -70,6 +73,9 @@
         @include d('768px') {
             order: 2;
             width: 20%;
+            margin: 0;
+            padding: 0;
+            height: auto;
         }
     }
 
