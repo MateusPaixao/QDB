@@ -1,23 +1,25 @@
 // import Acessibilidade from './Acessibilidade/_acessibilidade-index';
 import Header from "./Header/_header-index";
-import Global from "../../global/global-index"
+import Footer from "./Footer/_footer-index";
+// import Global from "../../global/global-index"
 import Minicart from './Minicart/_minicart-index';
 import PriceContainer from "./Regional/PriceContainer.jsx";
 import TopBanner from "./TopBanner/topbanner-index";
-
+import {getCookie, getBrowserVendor, isInViewport,Polyfill} from "../../global/global-index";
 
 const Methods = {
     init(){
+        Footer.init();
         Header.init();
         Minicart.init();
         TopBanner.init();
         PriceContainer.init();
         Methods.ServiceWorker();
         Methods.Skeleton();
-        Global.isInViewport();
+        isInViewport();
         Methods.SendNewsletter();
-        if(Global.BrowserVendor() == "ie/trident"){
-            Global.Polyfill();
+        if(getBrowserVendor == "ie/trident"){
+            Polyfill();
         }
         // Acessibilidade.init();
     },
@@ -54,7 +56,7 @@ const Methods = {
             console.log(date)
             return date > anHourAgo;
         }
-        let cookieSWExpiration = Global.GetCookie("SWExpiration");
+        let cookieSWExpiration = getCookie("SWExpiration");
 
         if ('serviceWorker' in navigator) {
             if(cookieSWExpiration == undefined){

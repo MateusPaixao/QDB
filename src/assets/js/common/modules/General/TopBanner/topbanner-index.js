@@ -1,5 +1,6 @@
 import Global from '../../../global/global-index';
 import CacheSelector from '../cache-selector'
+import {getBrowserVendor} from '../../../global/global-index';
 
 const Methods = {
     init() {
@@ -8,7 +9,7 @@ const Methods = {
         }
         if (document.querySelector('.w-counter') != null) {
             CacheSelector.$globals.body.classList.add('has--topbanner')
-            if (Global.BrowserVendor() == 'safari/webkit') {
+            if (getBrowserVendor() == 'safari/webkit') {
                 setTimeout(() => {
                     Methods.homeCountDown();
                 }, 3000);

@@ -108,7 +108,7 @@
 
             .social-media {
                 display: flex;
-                margin-bottom: 5px;
+                margin: 15px 0;
 
                 &__logo {
                     display: flex;
@@ -125,11 +125,13 @@
                 display: flex;
                 justify-content: space-between;
                 width: 100%;
+                margin-bottom: 10px;
 
                 &__controls {
                     width: 100%;
                     display: flex;
-                    border-bottom: 1px solid $secondaryColor;
+                    border: 2px solid #67605F;
+                    border-radius: 20px;
                     padding: 5px;
 
                     &--email {
@@ -313,7 +315,7 @@
             left: 50%;
             width: 30px;
             height: 30px;
-            background: white url("/arquivos/heart.svg.png") no-repeat center center;
+            background: #fdfdfd url("/arquivos/heart.svg.png") no-repeat center center;
             transform: translate(-50%, -50%);
             padding: 0 25px;
             font-size: 3em;

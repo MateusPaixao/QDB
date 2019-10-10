@@ -34,6 +34,9 @@ export function getiPhoneModel() {
             case "Apple A11 GPU":
                 document.body.classList.add('iphone');
                 return "iPhone 8 Plus";
+            case "Apple GPU":
+                document.body.classList.add('iphone');
+                return "iPhone 7 Plus";
         }
         // iPhone 6+/6s+/7+ and 8+ in zoom mode
     } else if ((window.screen.height / window.screen.width == 667 / 375) && (window.devicePixelRatio == 3)) {
