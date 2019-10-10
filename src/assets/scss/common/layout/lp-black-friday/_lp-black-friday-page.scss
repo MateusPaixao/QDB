@@ -238,12 +238,28 @@ $color-2: #211D1E;
         display: flex;
         margin-left: -15px;
         margin-right: -15px;
+        position: relative;
+        &:before {
+            content: '';
+            display: block;
+            background-color: $color-2;
+            height: 3px;
+            left: -999px;
+            right: 95%;
+            position: absolute;
+            top: 50%;
+        }
     }
     &__item {
         border: solid 3px $color-2;
         flex: 1;
         margin: 0 15px;
         padding: 30px;
+        background-color: $color;
+        z-index: 10;
+        &:first-child p {
+            margin-bottom: 30px;
+        }
         &__title {
             text-align: left;
             color: $color-2;
