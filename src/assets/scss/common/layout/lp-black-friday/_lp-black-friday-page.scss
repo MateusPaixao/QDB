@@ -41,15 +41,20 @@ $color-2: #211D1E;
     color: #fff;
     .shell {
         display: flex;
+        flex-direction: column;
+    }
+    &__heading,
+    &__form,
+    form {
+        width: 100%;
     }
     &__heading {
-        width: 50%;
         text-align: center;
         padding: 60px 0;
         position: relative;
         h1 {
             color: $color;
-            font-size: 57px;
+            font-size: 38px;
             text-transform: uppercase;
             font-weight: bold;
             line-height: initial;
@@ -59,7 +64,7 @@ $color-2: #211D1E;
                 position: absolute;
                 left: 0;
                 right: 0;
-                top: 193px;
+                top: 143px;
                 bottom: 0;
                 border: solid 3px $color;
                 border-bottom: none;
@@ -78,13 +83,14 @@ $color-2: #211D1E;
             span {
                 background-color: $color;
                 color: $color-2;
-                font-size: 117px;
+                font-size: 65px;
                 z-index: 10;
                 position: relative;
+                padding: 0 20px;
             }
         }
         h2 {
-            font-size: 25px;
+            font-size: 18px;
             width: 70%;
             margin: auto;
             &:after {
@@ -100,6 +106,95 @@ $color-2: #211D1E;
         }
     }
     &__form {
-        width: 50%;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        position: relative;
+        &__title {
+            font-size: 20px;
+            width: 65%;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            background-color: #fff;
+            color: #aaa;
+            text-transform: uppercase;
+            padding: 10px;
+            font-weight: bold;
+            display: block;
+            width: 100%;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        input[type="checkbox"] {
+            float: left;
+            margin-right: 10px;
+        }
+        &__allow {
+            line-height: 13px;
+            font-size: 13px;
+        }
+        .btnSubmit {
+            font-size: 18px;
+            color: $color-2;
+            background-color: $color;
+            font-weight: bold;
+            padding: 12px 35px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .form-success {
+            display: none;
+        }
+
+    }
+    @media (min-width: 992px) {
+        .shell {
+            flex-direction: initial;
+        }
+        &__heading,
+        &__form {
+            width: 50%;
+        }
+        h1 {
+            font-size: 57px;
+            &:before {
+                top: 193px;
+            }
+            span {
+                font-size: 117px;
+            }
+        }
+        h2 {
+            font-size: 25px;
+        }
+    }
+    @media(max-width: 991px) {
+        form {
+            padding: 0 20px;
+        }
+        &__form {
+            &:before {
+                content: '';
+                display: block;
+                width: 3px;
+                position: absolute;
+                background-color: $color;
+                top: 0;
+                bottom: 0;
+                right: 20px;
+            }
+            &__title {
+                text-align: center;
+                margin: auto;
+                font-size: 16px;
+                width: 75%;
+                margin-bottom: 20px;
+            }
+            .btnSubmit {
+                width: 100%;
+                margin: 40px 0;
+            }
+        }
     }
 }
