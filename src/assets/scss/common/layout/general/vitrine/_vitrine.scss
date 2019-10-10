@@ -18,10 +18,13 @@
         text-align: center;
         position: relative;
         overflow: hidden;
+        z-index: 6;
         @include sans(1rem, $g-primary, 400, initial);
         background: #fff;
         cursor: pointer;
-
+        @include d(xs){
+            min-height: 400px;
+        }
         .cardProduct--change{
             position: absolute;
             right: 0;
@@ -67,39 +70,6 @@
                 }
             }
         }
-        &.change-true{
-            .cardProduct--change{
-                transform: translateX(0%);
-                .cardProduct--change__close{
-                    opacity: 1;
-                    display: inline-flex;
-                }
-            }
-            &:after{
-                content: '';
-                position: absolute;
-                background: rgba($color: #000000, $alpha: .5);
-                width: 100%;
-                height: 100%;
-            }
-        }
-        &.change-false{
-            .cardProduct--change{
-                margin: 10px 10px;
-                width: 35px;
-                height: 25px;
-                justify-content: center;
-                border-radius: 5px;
-                align-items: center;
-                &:hover{
-                    background: $qdb-grey-l;
-                }
-                & ~ .cardProduct__config{
-                    display: inline-flex;
-                    transform: translateX(105%);
-                }
-            }
-        }
         .cardProduct__config{
             position: absolute;
             background: $w-secundary;
@@ -120,30 +90,6 @@
                 background: $qdb-grey-m;
                 padding: 10px;
                 position: relative;
-                &:not(.set--avaliable-false)::before{
-                    content: '';
-                    display: flex;
-                    position: absolute;
-                    height: 110%;
-                    width: 1em;
-                    opacity: 1;
-                    filter: blur(1em);
-                    background: $qdb-grey-m;
-                    left: -45%;
-                    top: 0;
-                    z-index: -1;
-                    transform: skew(-15deg);
-                    @include animation("highlight-skeleton", 2.5s, infinite, cubic-bezier(.6,.51,0,1.01));
-                    
-                    @keyframes highlight-skeleton {
-                        60%{
-                            left: -45%;
-                        }
-                        100%{
-                            left: 125%;
-                        }
-                    }
-                }
                 &.__volume{
                     background: $safflower;
                     .cardProduct__config__selected__name::before{
@@ -179,7 +125,6 @@
                     position: relative;
                     border-radius: 1rem;
                     margin-right: 5px;
-                    @include animation("colorConfig", 5s, infinite, cubic-bezier(.6,.51,0,1.01));
                     &:after{
                         content: "";
                         display: block;
@@ -187,44 +132,6 @@
                         width: 10px;
                         height: 10px;
                         border-radius: 1rem;
-                    }
-
-                    @keyframes colorConfig {
-                        0%{
-                            transform: rotate(0);
-                            background: rgba(231, 169, 128, 1); /* Old browsers */
-                            background: -moz-linear-gradient(left, rgba(231, 169, 128, 1) 0%, rgba(231, 169, 128, 1) 50%, rgb(230, 158, 95) 51%, rgb(230, 158, 95) 100%); /* FF3.6-15 */
-                            background: -webkit-linear-gradient(left, rgba(231, 169, 128, 1) 0%,rgba(231, 169, 128, 1) 50%,rgb(230, 158, 95) 51%,rgb(230, 158, 95) 100%); /* Chrome10-25,Safari5.1-6 */
-                            background: linear-gradient(to right, rgba(231, 169, 128, 1) 0%,rgba(231, 169, 128, 1) 50%,rgb(230, 158, 95) 51%,rgb(230, 158, 95) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                        }
-                        25%{
-                            transform: rotate(-80deg);
-                            background: rgba(151, 97, 63, 1); /* Old browsers */
-                            background: -moz-linear-gradient(left, rgba(151, 97, 63, 1) 0%, rgba(151, 97, 63, 1) 50%, rgb(83, 48, 36) 51%, rgb(83, 48, 36) 100%); /* FF3.6-15 */
-                            background: -webkit-linear-gradient(left, rgba(151, 97, 63, 1) 0%,rgba(151, 97, 63, 1) 50%,rgb(83, 48, 36) 51%,rgb(83, 48, 36) 100%); /* Chrome10-25,Safari5.1-6 */
-                            background: linear-gradient(to right, rgba(151, 97, 63, 1) 0%,rgba(151, 97, 63, 1) 50%,rgb(83, 48, 36) 51%,rgb(83, 48, 36) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                        }
-                        60%{
-                            transform: rotate(25deg);
-                            background: rgba(231, 169, 128, 1); /* Old browsers */
-                            background: -moz-linear-gradient(left, rgba(231, 169, 128, 1) 0%, rgba(231, 169, 128, 1) 50%, rgb(230, 158, 95) 51%, rgb(230, 158, 95) 100%); /* FF3.6-15 */
-                            background: -webkit-linear-gradient(left, rgba(231, 169, 128, 1) 0%,rgba(231, 169, 128, 1) 50%,rgb(230, 158, 95) 51%,rgb(230, 158, 95) 100%); /* Chrome10-25,Safari5.1-6 */
-                            background: linear-gradient(to right, rgba(231, 169, 128, 1) 0%,rgba(231, 169, 128, 1) 50%,rgb(230, 158, 95) 51%,rgb(230, 158, 95) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */   
-                        }
-                        80%{
-                            transform: rotate(125deg);
-                            background: rgba(222, 147, 94, 1); /* Old browsers */
-                            background: -moz-linear-gradient(left, rgb(221, 131, 67) 0%, rgb(221, 131, 67) 50%, rgb(236, 182, 150) 71%, rgb(236, 182, 150) 100%); /* FF3.6-15 */
-                            background: -webkit-linear-gradient(left, rgb(221, 131, 67) 0%,rgb(221, 131, 67) 50%,rgb(236, 182, 150) 71%,rgb(236, 182, 150) 100%); /* Chrome10-25,Safari5.1-6 */
-                            background: linear-gradient(to right, rgb(221, 131, 67) 0%,rgb(221, 131, 67) 50%,rgb(236, 182, 150) 71%,rgb(236, 182, 150) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                        }
-                        100%{
-                            transform: rotate(0);
-                            background: rgba(231, 169, 128, 1); /* Old browsers */
-                            background: -moz-linear-gradient(left, rgba(231, 169, 128, 1) 0%, rgba(231, 169, 128, 1) 50%, rgb(230, 158, 95) 51%, rgb(230, 158, 95) 100%); /* FF3.6-15 */
-                            background: -webkit-linear-gradient(left, rgba(231, 169, 128, 1) 0%,rgba(231, 169, 128, 1) 50%,rgb(230, 158, 95) 51%,rgb(230, 158, 95) 100%); /* Chrome10-25,Safari5.1-6 */
-                            background: linear-gradient(to right, rgba(231, 169, 128, 1) 0%,rgba(231, 169, 128, 1) 50%,rgb(230, 158, 95) 51%,rgb(230, 158, 95) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                        }
                     }
                 }
                 .cardProduct__config__type__bulk{
@@ -238,25 +145,6 @@
                     margin-right: 5px;
                     overflow: hidden;
                     border: solid 4px $safflower;
-                    @include animation("volConfig", 5s, infinite, cubic-bezier(.6,.51,0,1.01));
-
-                    @keyframes volConfig {
-                        0%{
-                            transform: scale(1);
-                        }
-                        25%{
-                            transform: scale(.5);
-                        }
-                        50%{
-                            transform: scale(.8);
-                        }
-                        75%{
-                            transform: scale(.5);
-                        }
-                        100%{
-                            transform: scale(1);
-                        }
-                    }
                 }
             }
             .cardProduct__config__list{
@@ -298,6 +186,8 @@
                             cursor: pointer;
                             height: 100%;
                             position: relative;
+                            object-fit: cover;
+                            object-position: center;
                         }
                         small{
                             font-size: 0.75em;
@@ -314,17 +204,17 @@
                             opacity: 1;
                             filter: blur(1em);
                             background: $qdb-grey-m;
-                            left: -45%;
+                            transform: translateX(-45%);
                             top: 0;
                             transform: skew(-15deg);
-                            @include animation("highlight-skeleton", 2.5s, infinite, cubic-bezier(.6,.51,0,1.01));
+                            // @include animation("highlight-skeleton", 2.5s, infinite, cubic-bezier(.6,.51,0,1.01));
                             
                             @keyframes highlight-skeleton {
                                 60%{
-                                    left: -45%;
+                                    transform: translateX(-45%);
                                 }
                                 100%{
-                                    left: 125%;
+                                    transform: translateX(125%);
                                 }
                             }
                         }
@@ -364,6 +254,7 @@
         .cardProduct__link{
             display: flex;
             flex-flow: column;
+            transform: translateY(-10px);
         }
         .cardProduct__flags{
             position: absolute;
@@ -372,6 +263,7 @@
             display: flex;
             flex-flow: wrap;
             max-width: 150px;
+            z-index: 5;
             .cardProduct__flag{
                 margin: 2.5px;
                 .cardProduct__flag__content{
@@ -453,10 +345,12 @@
             }
             .cardProduct__price__actual{
                 @include sans(1.5em, $g-primary, 900, normal);
-                margin-bottom: 5px;
             }
             .cardProduct__price__parcel{
                 @include sans(.75em, $g-primary, 400, normal);
+            }
+            .cardProduct__price__installment{
+                @include sans(.875em, $g-primary, 400, normal);
             }
         }
         .cardProduct--letMeKnow{
@@ -770,7 +664,104 @@
                 }
             }
         }
-
+        
+        &.change-true{
+            .cardProduct--change{
+                transform: translateX(0%);
+                .cardProduct--change__close{
+                    opacity: 1;
+                    display: inline-flex;
+                }
+                .cardProduct__config{
+                    .cardProduct__config__type__colors{
+                        @include animation("colorConfig", 5s, infinite, cubic-bezier(.6,.51,0,1.01));
+                        @keyframes colorConfig {
+                            0%{
+                                transform: rotate(0);
+                                background: rgba(231, 169, 128, 1); /* Old browsers */
+                                background: -moz-linear-gradient(left, rgba(231, 169, 128, 1) 0%, rgba(231, 169, 128, 1) 50%, rgb(230, 158, 95) 51%, rgb(230, 158, 95) 100%); /* FF3.6-15 */
+                                background: -webkit-linear-gradient(left, rgba(231, 169, 128, 1) 0%,rgba(231, 169, 128, 1) 50%,rgb(230, 158, 95) 51%,rgb(230, 158, 95) 100%); /* Chrome10-25,Safari5.1-6 */
+                                background: linear-gradient(to right, rgba(231, 169, 128, 1) 0%,rgba(231, 169, 128, 1) 50%,rgb(230, 158, 95) 51%,rgb(230, 158, 95) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                            }
+                            25%{
+                                transform: rotate(-80deg);
+                                background: rgba(151, 97, 63, 1); /* Old browsers */
+                                background: -moz-linear-gradient(left, rgba(151, 97, 63, 1) 0%, rgba(151, 97, 63, 1) 50%, rgb(83, 48, 36) 51%, rgb(83, 48, 36) 100%); /* FF3.6-15 */
+                                background: -webkit-linear-gradient(left, rgba(151, 97, 63, 1) 0%,rgba(151, 97, 63, 1) 50%,rgb(83, 48, 36) 51%,rgb(83, 48, 36) 100%); /* Chrome10-25,Safari5.1-6 */
+                                background: linear-gradient(to right, rgba(151, 97, 63, 1) 0%,rgba(151, 97, 63, 1) 50%,rgb(83, 48, 36) 51%,rgb(83, 48, 36) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                            }
+                            60%{
+                                transform: rotate(25deg);
+                                background: rgba(231, 169, 128, 1); /* Old browsers */
+                                background: -moz-linear-gradient(left, rgba(231, 169, 128, 1) 0%, rgba(231, 169, 128, 1) 50%, rgb(230, 158, 95) 51%, rgb(230, 158, 95) 100%); /* FF3.6-15 */
+                                background: -webkit-linear-gradient(left, rgba(231, 169, 128, 1) 0%,rgba(231, 169, 128, 1) 50%,rgb(230, 158, 95) 51%,rgb(230, 158, 95) 100%); /* Chrome10-25,Safari5.1-6 */
+                                background: linear-gradient(to right, rgba(231, 169, 128, 1) 0%,rgba(231, 169, 128, 1) 50%,rgb(230, 158, 95) 51%,rgb(230, 158, 95) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */   
+                            }
+                            80%{
+                                transform: rotate(125deg);
+                                background: rgba(222, 147, 94, 1); /* Old browsers */
+                                background: -moz-linear-gradient(left, rgb(221, 131, 67) 0%, rgb(221, 131, 67) 50%, rgb(236, 182, 150) 71%, rgb(236, 182, 150) 100%); /* FF3.6-15 */
+                                background: -webkit-linear-gradient(left, rgb(221, 131, 67) 0%,rgb(221, 131, 67) 50%,rgb(236, 182, 150) 71%,rgb(236, 182, 150) 100%); /* Chrome10-25,Safari5.1-6 */
+                                background: linear-gradient(to right, rgb(221, 131, 67) 0%,rgb(221, 131, 67) 50%,rgb(236, 182, 150) 71%,rgb(236, 182, 150) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                            }
+                            100%{
+                                transform: rotate(0);
+                                background: rgba(231, 169, 128, 1); /* Old browsers */
+                                background: -moz-linear-gradient(left, rgba(231, 169, 128, 1) 0%, rgba(231, 169, 128, 1) 50%, rgb(230, 158, 95) 51%, rgb(230, 158, 95) 100%); /* FF3.6-15 */
+                                background: -webkit-linear-gradient(left, rgba(231, 169, 128, 1) 0%,rgba(231, 169, 128, 1) 50%,rgb(230, 158, 95) 51%,rgb(230, 158, 95) 100%); /* Chrome10-25,Safari5.1-6 */
+                                background: linear-gradient(to right, rgba(231, 169, 128, 1) 0%,rgba(231, 169, 128, 1) 50%,rgb(230, 158, 95) 51%,rgb(230, 158, 95) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                            }
+                        }
+                    }
+                    .cardProduct__config__type__bulk{
+                        @include animation("volConfig", 5s, infinite, cubic-bezier(.6,.51,0,1.01));
+                        @keyframes volConfig {
+                            0%{
+                                transform: scale(1);
+                            }
+                            25%{
+                                transform: scale(.5);
+                            }
+                            50%{
+                                transform: scale(.8);
+                            }
+                            75%{
+                                transform: scale(.5);
+                            }
+                            100%{
+                                transform: scale(1);
+                            }
+                        }
+                    }
+                }
+            }
+            .set--overlay{
+                position: absolute;
+                background: rgba($color: #000000, $alpha: .5);
+                width: 100%;
+                z-index: 5;
+                height: 100%;
+            }
+        }
+        &.change-false{
+            .cardProduct--change{
+                padding: 15px 5px;
+                margin: 10px;
+                width: 35px;
+                height: 25px;
+                justify-content: center;
+                border-radius: 5px;
+                align-items: center;
+                &:hover{
+                    background: $qdb-grey-l;
+                }
+                & ~ .cardProduct__config{
+                    display: inline-flex;
+                    transform: translateX(105%);
+                }
+            }
+        }
+        
         &:hover:not(.avaliable-false){
             &.change-false{
                 .cardProduct--addToCart:not(.status--request):not(.status--adding):not(.status--added){
