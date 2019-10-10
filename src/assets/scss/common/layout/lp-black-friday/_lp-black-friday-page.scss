@@ -45,20 +45,58 @@ $color-2: #211D1E;
     &__heading {
         width: 50%;
         text-align: center;
+        padding: 60px 0;
+        position: relative;
         h1 {
             color: $color;
             font-size: 57px;
             text-transform: uppercase;
             font-weight: bold;
+            line-height: initial;
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 193px;
+                bottom: 0;
+                border: solid 3px $color;
+                border-bottom: none;
+                margin: 0 20px;
+            }
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 16px;
+                height: 35px;
+                background-color: $color;
+                bottom: 35px;
+                left: 13px;
+            }
             span {
                 background-color: $color;
                 color: $color-2;
                 font-size: 117px;
+                z-index: 10;
+                position: relative;
             }
         }
         h2 {
             font-size: 25px;
-            margin-top: 20px;
+            width: 70%;
+            margin: auto;
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 16px;
+                height: 35px;
+                background-color: $color-2;
+                left: 13px;
+                bottom: 0;
+            }
         }
     }
     &__form {

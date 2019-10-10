@@ -3,12 +3,13 @@ const Methods = {
         Methods.sendBFForm();
     },
     sendBFForm: () => {
+        console.log('BF Form');
         //Form BlackFriday
         var btn = document.querySelector('#bf_form .btnSubmit');
         var lightBox = document.createElement('div');
         lightBox.classList.add('lightBox_submit');
         lightBox.innerHTML = '<p><span>X</span>Para que a gente possa te avisar sobre as promoções da Black Week, você precisa preencher todos os dados aceitar receber nossas comunicações.</p>';
-        document.querySelector('body.pre-black-week').appendChild(lightBox);
+        document.querySelector('body.lp-black-friday').appendChild(lightBox);
         document.querySelector('.lightBox_submit p span').addEventListener('click', function () {
             document.querySelector('.lightBox_submit').style.display = 'none';
         });
