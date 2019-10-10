@@ -171,11 +171,13 @@ body {
 }
 
 //panels
+.rating-container {
+    margin-bottom: $section-spacing;
+}
 .panel-rating {
     display: flex;
     align-items: center;
     position: relative;
-    margin-bottom: $section-spacing;
     .aside {
         width: 55%;
         padding: 1% 15% 0 5%;
@@ -310,8 +312,10 @@ body {
 }
 
 //banner after before
-.banner-before-after {
+.before-after-container {
     margin-bottom: $section-spacing;
+}
+.banner-before-after {
     .img-before,
     .img-after {
         display: none;
