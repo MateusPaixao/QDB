@@ -555,7 +555,12 @@
         }
     }
 }
-
+.iphone{
+    .header__container{
+        margin: -40px 0px;
+        max-height: 120px;
+    }
+}
 .scrollDown {
     transition: all .2s;
 

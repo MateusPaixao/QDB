@@ -1,4 +1,5 @@
 import CacheSelector from '../cache-selector';
+import {getiPhoneModel} from '../../../global/global-index'
 
 
 const Methods = {
@@ -10,6 +11,7 @@ const Methods = {
         Methods.updateNumberMinicart();
         Methods.isLogged();
         Methods.marginTopMenuHeight();
+        getiPhoneModel();
     },
 
     marginTopMenuHeight() {
