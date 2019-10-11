@@ -211,7 +211,7 @@
                     }
                     &.__volume{
                         @include sans(.875em, $safflower, 400, initial);
-                        padding: 0.5em .5em 1.5em;
+                        padding: 1em .5em;
                         border-radius: .2em;
                         border: solid 1px $qdb-grey-l;
                         cursor: pointer;
