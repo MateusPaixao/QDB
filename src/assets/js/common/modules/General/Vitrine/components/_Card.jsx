@@ -6,7 +6,7 @@ class Card extends React.Component{
     this.state = {
       Sku: this.props.info.items.find(i => i.itemId == this.props.skuHighlight),
       SelectedSkuThumb: "",
-      FreeShipping: "notSet",
+      FreeShipping: 1000,
       clusterHighlights: Object.entries(this.props.info.clusterHighlights).length === 0 && this.props.info.clusterHighlights.constructor === Object ? {} : this.props.info.clusterHighlights,
       Avaliable: true,
       haveBefore: false,
@@ -535,7 +535,6 @@ class Card extends React.Component{
     this.setBeforePrice();
     this.setAvaliable();
     this.setState({SelectedSkuThumb: this.getImgSku(this.state.Sku, "10px")});
-    this.setState({FreeShipping: 109})
     // this.setState({FreeShipping: window.valorFrete})
     // console.log(this.state.FreeShipping);
     // this.props.info.clusterHighlights.map(flag => flag == "Outlet"? "Outlet" : "dope")
@@ -572,7 +571,7 @@ class Card extends React.Component{
               </p>
             </span>
           }
-          {this.state.FreeShipping != "notSet" || this.state.FreeShipping > this.state.Sku.sellers[0].commertialOffer.Price.toFixed(2) &&
+          {this.state.Sku.sellers[0].commertialOffer.Price.toFixed(2) > this.state.FreeShipping &&
           <span className="cardProduct__flag __frete">
               <p className="cardProduct__flag__content">
                 Frete Grátis
@@ -639,7 +638,7 @@ class Card extends React.Component{
             </div>
             :
             <div className="cardProduct__price">
-              <p className="cardProduct__price__actual">{"R$" + this.state.RawPrice}</p>
+              {/* <p className="cardProduct__price__actual">{"R$" + this.state.RawPrice}</p> */}
             </div>
           }
         </a>

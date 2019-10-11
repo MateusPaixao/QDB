@@ -65,11 +65,11 @@ const Methods = {
 
     setActiveAccordion() {
         const checkbox = document.querySelectorAll('.accordion-checkbox');
-        checkbox.forEach((checkbox) => {
-            checkbox.addEventListener('click', () => {
-                checkbox.checked ? checkbox.parentElement.classList.add('is--open') : checkbox.parentElement.classList.remove('is--open');
+        for(let i = 0; i < checkbox.length; i++){
+            checkbox[i].addEventListener('click', () => {
+                checkbox[i].checked ? checkbox[i].parentElement.classList.add('is--open') : checkbox[i].parentElement.classList.remove('is--open');
             })
-        })
+        }
     },
     
     updateNumberMinicart() {

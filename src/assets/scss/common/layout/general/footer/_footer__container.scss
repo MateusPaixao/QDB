@@ -114,6 +114,39 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    &.__instagram{
+                        svg{
+                            fill: $g-primary;
+                            transition: all .2s;
+                        }
+                        &:hover{
+                            svg{
+                                fill: url(#rg);
+                            }
+                        }
+                    }
+                    &.__facebook{
+                        svg{
+                            fill: $g-primary;
+                            transition: all .2s;
+                        }
+                        &:hover{
+                            svg{
+                                fill: #4267B2;
+                            }
+                        }
+                    }
+                    &.__youtube{
+                        svg{
+                            fill: $g-primary;
+                            transition: all .2s;
+                        }
+                        &:hover{
+                            svg{
+                                fill: #FF0000;
+                            }
+                        }
+                    }
                     svg{
                         height: 2em;
                         width: 2em;
@@ -125,12 +158,12 @@
                 display: flex;
                 justify-content: space-between;
                 width: 100%;
-                margin-bottom: 10px;
+                margin-bottom: 5px;
 
                 &__controls {
                     width: 100%;
                     display: flex;
-                    border: 2px solid #67605F;
+                    border: .1em solid $g-primary;
                     border-radius: 20px;
                     padding: 5px;
 
@@ -156,8 +189,11 @@
                     }
                 }
             }
-            .privacy {
-                text-decoration: underline;
+            .info-small{
+                font-size: .875em;
+                .privacy {
+                    text-decoration: underline;
+                }
             }
         }
     }
@@ -236,7 +272,7 @@
 
                     }
                     .payment {
-                        width: 3em;
+                        width: 2.5em;
                     }
                     .trust {
                         width: 4em;
@@ -274,7 +310,7 @@
         .logos {
             display: flex;
             justify-content: space-between;
-            margin: 20px;
+            margin: 10px;
 
             &__logo {
                 width: 50%;
@@ -290,7 +326,9 @@
                     justify-content: flex-start;
                     margin-left: 5px;
                 }
-
+                svg{
+                    width: 100%;
+                }
                 .svg--logo-principal {
                     path {
                         fill: $secondaryColor;
@@ -300,27 +338,32 @@
         }
 
         .legal-info {
-            color: $secondaryColor;
+            color: $qdb-grey-m;
             text-align: center;
             padding-bottom: 60px;
+            font-size: .875em;
+            max-width: 390px;
+            margin: 0 auto;
         }
     }
-
+    .heart__breakline{
+        content: '';
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        width: 30px;
+        height: 30px;
+        background: $w-secundary;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        z-index: 5;
+        svg{
+            fill: $g-primary;
+            transform: translate(-50%, -50%);
+        }
+    }
     .shell {
         width: 100%;
-        &:after {
-            content: '';
-            position: absolute;
-            top: 0px;
-            left: 50%;
-            width: 30px;
-            height: 30px;
-            background: #fdfdfd url("/arquivos/heart.svg.png") no-repeat center center;
-            transform: translate(-50%, -50%);
-            padding: 0 25px;
-            font-size: 3em;
-        }
-
         &:before {
             content: '';
             border-top: 1px solid $secondaryColor;

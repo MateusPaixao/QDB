@@ -135,10 +135,21 @@
     }
 
     &__accessibility {
-        background: url(https://qbbr.vteximg.com.br/arquivos/access-black.png) center center no-repeat;
-        width: 25px;
-        height: 25px;
         margin-right: 5px;
+        &:hover{
+            background: $g-primary;
+            .box-icon{
+                background: $g-primary;
+                svg{
+                    path{
+                        fill: $w-secundary;
+                    }
+                }
+            }
+            .box-acessibilidade{
+                box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
+            }
+        }
     }
 
     &__logo {
@@ -266,6 +277,9 @@
             }
 
             &.account {
+                @include d('768px'){
+                    margin-right: 5px;
+                }
                 a {
                     display: flex;
                 }

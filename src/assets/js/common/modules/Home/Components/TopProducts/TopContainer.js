@@ -10,13 +10,14 @@ const Methods = {
         Placeholder = document.querySelector(".topProducts .collectionPlaceholder"),
         Collection = [],
         url = new URL("https://recs.chaordicsystems.com/v0/pages/recommendations"),
-        params = 
-        {apiKey: "qdb-vtex", 
-        secretKey: "rz4YYCNFlWAnPdogRpLdRw==", 
-        deviceId: "dev001", 
-        productFormat: "complete",
-        source: window.innerWidth > 992 ? "desktop" : "mobile", 
-        name: "home"};
+        params = {
+            apiKey: "qdb-vtex", 
+            secretKey: "rz4YYCNFlWAnPdogRpLdRw==", 
+            deviceId: "dev001", 
+            productFormat: "complete",
+            source: window.innerWidth > 992 ? "desktop" : "mobile", 
+            name: "home"
+        };
         
         url.search = new URLSearchParams(params);
 
