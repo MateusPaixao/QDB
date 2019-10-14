@@ -25,174 +25,180 @@ function insertAfterr(newNode, referenceNode) {
     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
-
 (function($, window, document, undefined) {
     var $win = $(window);
     var $doc = $(document);
-
-    $doc.ready(function() {
-        $(".topic > li > span label").click(function(e){
-            e.preventDefault();
-            var id = $(this).attr("for");
-            $("#"+id).click();
-        });
+    fetch("/api/catalog_system/pub/products/search" + window.location.pathname, {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    }).then(response => {
+      return response.json();
+    }).then((prod) => {
+        window.cProduct = prod[0];
+        console.log(window.cProduct);
+        $doc.ready(function() {
+            $(".topic > li > span label").click(function(e){
+                e.preventDefault();
+                var id = $(this).attr("for");
+                $("#"+id).click();
+            });
+        
+            // #Init funcoes
+            let sku = [...document.querySelectorAll(".select-cor-new .group_0 label")].find(label => label.classList.contains("current")) != undefined ? document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku") : new URL(window.location.href).searchParams.get("idsku");
+            settingsProductPreco(sku);
+            settingsProductFichaTecnica();  
+            clubeBeresPontos($('.plugin-preco .valor-por .skuBestPrice').text());
+            shareSocial('.socials-secondary a');
+            selectCor();
+            aviseme();
+            flagProdomocao();
     
-        // #Init funcoes
-        settingsProductPreco();
-        settingsProductFichaTecnica();  
-        clubeBeresPontos($('.plugin-preco .valor-por .skuBestPrice').text());
-        shareSocial('.socials-secondary a');
-        selectCor();
-        aviseme();
-        flagProdomocao();
-
-        trustVoxReviews.init({
-            token: '7068490812e3412c47f79ff7cc2ee524ab4d961d916ae3d0567a22af167a9e67',
-            url: 'https://trustvox.com.br/api/stores/4039/opinions',
-        });
-
-        // #Breadcrumbs
-        $('.breadcrumbs .bread-crumb > ul > li > a').eq(0).text('página inicial');
-
-        // #Valida se existe produto relacionado se não esconde titulo
-        if($('.slider-products.collection.collection-products-relacionados .slider-clip .pratileira').length == 0){
-            $('.produto .wrapper .wrapper-inner .container .main .main-inner .shell .section-products').hide();
-        }
-
-        // #Calcula Cep
-        $('#product-cal-frete').on('click', function(event) {
-            event.preventDefault();
-            calculoCep();
-        });
-
-        var sj_0 = null;
-
-        try {
-            var sj_0 = skuJson_0;    
-        } catch (error) {
-            sj_0 = undefined;
-        }
-        
-        // Muda título da avaliação, inserindo nome do produto
-        if(sj_0 != undefined) $('.section-rating h2').text('avaliações + ' + skuJson_0.name);
-
-        // Adiciona atributo ao campo valor / SEO
-        $('.product-details .product-info strong').attr('itemprop', 'price');
-
-        // Adiciona atributo ao campo nome do produto / SEO
-        $('.product-details .product-head h1').attr('itemprop','name');
-
-        // #Slide produtos relacionados
-        if( $('.slider-products.collection.collection-products-relacionados .slider-clip .pratileira ul'.length)){
-            productSlider($('.slider-products.collection.collection-products-relacionados .slider-clip .pratileira ul'));
-
-            $('.slider-products.collection.collection-products-relacionados .slider-actions .slider-next').on('click', function(event) {
-                event.preventDefault();
-                $('.slider-products.collection.collection-products-relacionados .slider-clip .pratileira ul').trigger('owl.next');
+            trustVoxReviews.init({
+                token: '7068490812e3412c47f79ff7cc2ee524ab4d961d916ae3d0567a22af167a9e67',
+                url: 'https://trustvox.com.br/api/stores/4039/opinions',
             });
-
-            $('.slider-products.collection.collection-products-relacionados .slider-actions .slider-prev').on('click', function(event) {
+    
+            // #Breadcrumbs
+            $('.breadcrumbs .bread-crumb > ul > li > a').eq(0).text('página inicial');
+    
+            // #Valida se existe produto relacionado se não esconde titulo
+            if($('.slider-products.collection.collection-products-relacionados .slider-clip .pratileira').length == 0){
+                $('.produto .wrapper .wrapper-inner .container .main .main-inner .shell .section-products').hide();
+            }
+    
+            // #Calcula Cep
+            $('#product-cal-frete').on('click', function(event) {
                 event.preventDefault();
-                $('.slider-products.collection.collection-products-relacionados .slider-clip .pratileira ul').trigger('owl.prev');
-            }); 
-        }
-
-        // #Tab descriçãos 
-        $('.tabs .tabs-nav a').on('click', function(event) {
-            event.preventDefault();
-            var $this = $(this).attr('href');
-            $(this).parent().addClass('current').siblings().removeClass('current');
-
-            $('.tabs .tabs-body .tab').each(function (index, item) {
-                if($(this).attr('id') == $this){
-                    $(this).addClass('active').siblings().removeClass('active');
-                }
+                calculoCep();
             });
-        });
-
-        // Animate ate o bloco de avaliacoes
-        $('.trustvox-fluid-jump').on('click', function(){ 
-            var body = $("html, body");
-        
-            var offsetTop = 0;
-            
-            if($(window).width() < 768) { 
-                offsetTop = $('li a.avaliacoes').eq(0).offset().top; 
-                $('li a.avaliacoes').eq(0).addClass('active'); 
-                $('.accordion-body.avaliacao').addClass('active');
-            }else{ 
-                offesetTop = $('#trustvox-reviews').offset().top; 
+    
+            var sj_0 = null;
+    
+            try {
+                var sj_0 = skuJson_0;    
+            } catch (error) {
+                sj_0 = undefined;
             }
             
-            body.stop().animate({ scrollTop: offsetTop }, '500');
-        });	
-
-
-        // #Img testura no hover sku
-        $('.select-cor-new .owl-carousel.owl-theme .owl-wrapper-outer .owl-wrapper .owl-item label').on('hover', function(event) {
-            //testurasSKU($(this));
-        });
-
-
-        // #Query mobile
-        if($win.width() < 768) {
-            // Monta ficha tecnica mobile
-            fichaTecnicaMobile();
-        }
-
-        // #Query desktop
-        
-        // if($win.width() > 768) {
-
-            // Animação tabs
-            $('body').on('click touch', '.toggle.avaliacoes', function(event) {
-
+            // Muda título da avaliação, inserindo nome do produto
+            if(sj_0 != undefined) $('.section-rating h2').text('avaliações + ' + skuJson_0.name);
+    
+            // Adiciona atributo ao campo valor / SEO
+            $('.product-details .product-info strong').attr('itemprop', 'price');
+    
+            // Adiciona atributo ao campo nome do produto / SEO
+            $('.product-details .product-head h1').attr('itemprop','name');
+    
+            // #Slide produtos relacionados
+            if( $('.slider-products.collection.collection-products-relacionados .slider-clip .pratileira ul'.length)){
+                productSlider($('.slider-products.collection.collection-products-relacionados .slider-clip .pratileira ul'));
+    
+                $('.slider-products.collection.collection-products-relacionados .slider-actions .slider-next').on('click', function(event) {
+                    event.preventDefault();
+                    $('.slider-products.collection.collection-products-relacionados .slider-clip .pratileira ul').trigger('owl.next');
+                });
+    
+                $('.slider-products.collection.collection-products-relacionados .slider-actions .slider-prev').on('click', function(event) {
+                    event.preventDefault();
+                    $('.slider-products.collection.collection-products-relacionados .slider-clip .pratileira ul').trigger('owl.prev');
+                }); 
+            }
+    
+            // #Tab descriçãos 
+            $('.tabs .tabs-nav a').on('click', function(event) {
                 event.preventDefault();
-                $('html,body').animate({scrollTop:$('.section-rating').offset().top -20},500);
-
+                var $this = $(this).attr('href');
+                $(this).parent().addClass('current').siblings().removeClass('current');
+    
+                $('.tabs .tabs-body .tab').each(function (index, item) {
+                    if($(this).attr('id') == $this){
+                        $(this).addClass('active').siblings().removeClass('active');
+                    }
+                });
             });
-
-        // }
-		
-	    var sj_0 = null;
-
-        try {
-            var sj_0 = skuJson_0;    
-        } catch (error) {
-            sj_0 = undefined;
-        }
-        
-        // Muda título da avaliação, inserindo nome do produto
-        if(sj_0 != undefined)$('.section-rating h2').text('avaliações + ' + skuJson_0.name);
-        // Adiciona atributo ao campo valor / SEO
-        $('.product-details .product-info strong').attr('itemprop', 'price');
-        // Adiciona atributo ao campo nome do produto / SEO
-        $('.product-details .product-head h1').attr('itemprop','name');
-
-        // Dispara modal cliente fidelidade
-        setTimeout(function () {
-            if ($.cookie('ClienteFidelidade') == 'true') {
-                $('.background-modal-bere, .conteudo-modal-bere').hide();
-            } else {
-                if ($('.product-image .tags-product p.pre-venda').length > 0) {
-                    $('.background-modal-bere, .conteudo-modal-bere').show();
-                } else {
+    
+            // Animate ate o bloco de avaliacoes
+            $('.trustvox-fluid-jump').on('click', function(){ 
+                var body = $("html, body");
+            
+                var offsetTop = 0;
+                
+                if($(window).width() < 768) { 
+                    offsetTop = $('li a.avaliacoes').eq(0).offset().top; 
+                    $('li a.avaliacoes').eq(0).addClass('active'); 
+                    $('.accordion-body.avaliacao').addClass('active');
+                }else{ 
+                    offesetTop = $('#trustvox-reviews').offset().top; 
+                }
+                
+                body.stop().animate({ scrollTop: offsetTop }, '500');
+            });	
+    
+    
+            // #Img testura no hover sku
+            $('.select-cor-new .owl-carousel.owl-theme .owl-wrapper-outer .owl-wrapper .owl-item label').on('hover', function(event) {
+                //testurasSKU($(this));
+            });
+    
+    
+            // #Query mobile
+            if($win.width() < 768) {
+                // Monta ficha tecnica mobile
+                fichaTecnicaMobile();
+            }
+    
+            // #Query desktop
+            
+            // if($win.width() > 768) {
+    
+                // Animação tabs
+                $('body').on('click touch', '.toggle.avaliacoes', function(event) {
+    
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop:$('.section-rating').offset().top -20},500);
+    
+                });
+    
+            // }
+            
+            var sj_0 = null;
+    
+            try {
+                var sj_0 = skuJson_0;    
+            } catch (error) {
+                sj_0 = undefined;
+            }
+            
+            // Muda título da avaliação, inserindo nome do produto
+            if(sj_0 != undefined)$('.section-rating h2').text('avaliações + ' + skuJson_0.name);
+            // Adiciona atributo ao campo valor / SEO
+            $('.product-details .product-info strong').attr('itemprop', 'price');
+            // Adiciona atributo ao campo nome do produto / SEO
+            $('.product-details .product-head h1').attr('itemprop','name');
+    
+            // Dispara modal cliente fidelidade
+            setTimeout(function () {
+                if ($.cookie('ClienteFidelidade') == 'true') {
                     $('.background-modal-bere, .conteudo-modal-bere').hide();
+                } else {
+                    if ($('.product-image .tags-product p.pre-venda').length > 0) {
+                        $('.background-modal-bere, .conteudo-modal-bere').show();
+                    } else {
+                        $('.background-modal-bere, .conteudo-modal-bere').hide();
+                    }
                 }
-            }
-        },200);
-
-        /*cookie = new Cookie;
-        if (cookie.get( 'ClienteFidelidade' )) {
-            $('.background-modal-bere, .conteudo-modal-bere').hide();
-        }*/
-
-    });
+            },200);
     
-    function getProduct(){
-        
-    }
-	
+            /*cookie = new Cookie;
+            if (cookie.get( 'ClienteFidelidade' )) {
+                $('.background-modal-bere, .conteudo-modal-bere').hide();
+            }*/
+    
+        });
+    })
+    
 	function setas_avaliacao_efeito() {
 		
 		window.setInterval(function(){
@@ -524,19 +530,24 @@ function imgProduct(){
 /* ====================================================================== *\
     #Settings produto
 \* ====================================================================== */
-function settingsProductPreco(){
-    var precoPor = $('.plugin-preco .valor-por .skuBestPrice').text();
-    var precoDe = $('.descricao-preco .valor-de .skuListPrice').text();
-    var parcelaQd = $('.plugin-preco .descricao-preco .valor-dividido .skuBestInstallmentNumber').text();
-    var parcelaTotal = $('.plugin-preco .descricao-preco .valor-dividido .skuBestInstallmentValue').text();
+function settingsProductPreco(sku){
+    let Sku = window.cProduct.items.find(i => i.itemId == sku);
+    var precoDe = "R$" + Sku.sellers[0].commertialOffer.ListPrice.toFixed(2).toString().replace(".", ",");
+    var precoPor = "R$" + Sku.sellers[0].commertialOffer.Price.toFixed(2).toString().replace(".", ",")
+    // var precoPor = $('.plugin-preco .valor-por .skuBestPrice').text();
+    // var precoDe = $('.descricao-preco .valor-de .skuListPrice').text();
+    // var parcelaQd = "até " + Math.max.apply(Math, this.state.Sku.sellers[0].commertialOffer.Installments.map(function(o) { return o.NumberOfInstallments; })) + "x de R$" + Math.min.apply(Math, this.state.Sku.sellers[0].commertialOffer.Installments.map(function(o) { return o.Value; })).toFixed(2).toString().replace(".", ",") + " sem juros";
+    // var parcelaTotal = $('.plugin-preco .descricao-preco .valor-dividido .skuBestInstallmentValue').text();
     
-    $('.product-details .product-info .product-preco-por').text(precoPor);
     $('.product-details .product-info .product-preco-de').text(precoDe);
-    $('.product-details .product-info .product-parcelamento').text(parcelaQd + ' de ' + parcelaTotal + ' sem juros');
+    $('.product-details .product-info .product-preco-por').text(precoPor);
+    $('.product-details .product-info .product-parcelamento').text("até " + Math.max.apply(Math, Sku.sellers[0].commertialOffer.Installments.map(function(o) { return o.NumberOfInstallments; })) + "x de R$" + Math.min.apply(Math, Sku.sellers[0].commertialOffer.Installments.map(function(o) { return o.Value; })).toFixed(2).toString().replace(".", ",") + " sem juros");
 
-    if(precoDe == "R$ 0,00"){
+    if(Sku.sellers[0].commertialOffer.ListPrice == Sku.sellers[0].commertialOffer.Price){
         $('del.product-preco-de').hide();
-    }    
+    }else{
+        $('del.product-preco-de').show();
+    }
 }
 
 /* ====================================================================== *\
@@ -1021,7 +1032,8 @@ function selectCor(){
 
         $(this).addClass('current');
         $('#' + $(this).attr('for')).click();
-        settingsProductPreco();
+        let sku = [...document.querySelectorAll(".select-cor-new .group_0 label")].find(label => label.classList.contains("current")) != undefined ? document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku") : new URL(window.location.href).searchParams.get("idsku");
+        settingsProductPreco(sku);
         aviseme();
 
         setTimeout(function(){ 
