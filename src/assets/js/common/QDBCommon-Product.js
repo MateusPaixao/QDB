@@ -188,7 +188,10 @@ function insertAfterr(newNode, referenceNode) {
         }*/
 
     });
-	
+    
+    function getProduct(){
+        
+    }
 	
 	function setas_avaliacao_efeito() {
 		
