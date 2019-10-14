@@ -1,0 +1,205 @@
+//AUXILIAR CLASSES
+.clearfix {
+    &:before,
+    &:after {
+        content: ' ';
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+.ba-container {
+    padding: 0 20px;
+}
+  
+.lp-ba img {
+    max-width: 100%;
+    margin: auto;
+}
+
+//MAIN
+.ba-main {
+    position: relative;
+    display: inline-block;
+    h1 {
+        position: absolute;
+        top: 35vw;
+        right: 0;
+        width: 190px;
+        font-size: 4.8vw;
+        color: #686162;
+        span {
+            display: block;
+            &:nth-child(2) {
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 6vw;
+                letter-spacing: 1.5px;
+                line-height: 6.5vw;
+            }
+        }
+    }
+    @media(min-width: 415px) {
+        h1 {
+            top: 9vw;
+            left: 0;
+            right: 0;
+            margin: auto;
+            font-size: 2vw;
+            width: 28vw;
+            span:nth-child(2) {
+                font-size: 2.4vw;
+                line-height: 2.4vw;
+            }
+        }
+    }
+}
+.ba-advantages {
+    background-color: #4fb5db;
+    margin-top: -5px;
+    .item {
+        text-align: center;
+        padding: 20px 0;
+    }
+    img {
+        display: block;
+    }
+    h2 {
+        background-color: #fff;
+        color: #4fb5db;
+        padding: 8px 25px;
+        display: inline-block;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 15px;
+        margin: 10px 0;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        min-width: 185px;
+    }
+    p {
+        color: #fff;
+        font-size: 16px;
+    }
+    svg {
+        position: relative;
+        display: block;
+        margin: auto;
+        margin-bottom: -30px;
+    }
+    @media(max-width: 414px) {
+        .item:first-child {
+            position: relative;
+            margin-top: -75px;
+        }
+    }
+    @media(min-width: 768px) {
+        .shell {
+            height: 245px;
+            position: relative;
+            display: flex;
+        }
+        svg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        .item {
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            top: -75px;
+            flex: 0 1 33.33%;
+        }
+    }
+}
+.ba-features {
+    background-color: #dcebf0;
+    padding: 50px 0;
+    .info {
+        float: left;
+        padding: 10px 0;
+        a {
+            display: inline-block;
+            background-color:#4fb5db;
+            color:#fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            margin-top: 10px;
+            &:hover {
+                background-color:#2aaad8;
+            }
+        }
+    }
+    .price {
+        font-size: 32px;
+        font-weight: 500;
+        span {
+            font-size: 15px;
+        }
+    }
+    .vegan {
+        width: 80px;
+        float: right;
+    }
+    .vegan-desktop {
+        display: none;
+    }
+    p {
+        margin: 20px 0;
+        strong {
+            font-weight: 700;
+        }
+    }
+    @media(min-width: 768px) {
+        .shell {
+            display: flex;
+        }
+        .ba-container {
+            display: flex;
+            flex-direction: column;
+            order: 0;
+            flex: 0 1 30%;
+        }
+        .img-bases {
+            display: flex;
+            order: 1;
+            flex: 0 1 50%;
+        }
+        .vegan-desktop {
+            order: 2;
+            flex: 0 1 20%;
+            display: flex;
+            img {
+                width: 9vw;
+                max-width: 100px;
+            }
+        }
+        .vegan {
+            display: none;
+        }
+    }
+}
+.ba-swatch-colors {
+    margin-bottom: 20px;
+}
+
+//VISIBILITY
+.ba-mobile {
+    display: block;
+}
+.ba-desktop {
+    display: none;
+}
+@media (min-width: 415px) {
+    .ba-mobile {
+        display: none;
+    }
+    .ba-desktop {
+        display: block;
+    }
+}

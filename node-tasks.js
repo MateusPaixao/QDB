@@ -46,13 +46,9 @@ if(date.getDay() == 6){
             });
         });
         // !fs.existsSync(dir + "/backup-" + curday('-')) ? fs.mkdirSync(dir + "/backup-" + curday('-')) : '';
-
-        ncp("dist", dir + "/backup-" + curday('-'), function (err) {
-            if (err) {
-              return console.error(err);
-            }
-            console.log('Backup Done!');
-            j.cancel();
-        });
     });
+}
+
+module.exports.init = function () {
+    Backup("1", 8, 21);
 }

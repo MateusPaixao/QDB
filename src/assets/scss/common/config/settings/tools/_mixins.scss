@@ -38,6 +38,69 @@
               @content;
             }
         }
+
+        /* iphone 3 */
+        @else if $width == i3 {
+            @media only screen and (min-device-width: 320px) and (max-device-height: 480px) and (-webkit-device-pixel-ratio: 1) {
+                @content;
+            }
+        }
+
+        /* iphone 4 */
+        @else if $width == i4 {
+            @media only screen and (min-device-width: 320px) and (max-device-height: 480px) and (-webkit-device-pixel-ratio: 2) { 
+                @content;
+            }
+        }
+
+        /* iphone 5 */
+        @else if $width == i5 {
+            @media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (-webkit-device-pixel-ratio: 2) { 
+                @content;
+            }
+        }
+
+        /* iphone 6, 6s, 7, 8 */
+        @else if $width == i6-8 {
+            @media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (-webkit-device-pixel-ratio: 2) { 
+                @content;
+            }
+        }
+        
+        /* iphone 6+, 6s+, 7+, 8+ */
+        @else if $width == i6-8Plus {
+            @media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (-webkit-device-pixel-ratio: 3) { 
+                @content;
+            }
+        }
+
+        /* iphone X */
+        @else if $width == X {
+            @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) { 
+                @content;
+            }
+        }
+
+        /* iphone XR */
+        @else if $width == XR {
+            @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) { 
+                @content;
+            }
+        }
+
+        /* iphone XS */
+        @else if $width == XS {
+            @media only screen and (min-device-width : 375px) and (max-device-height : 812px) and (-webkit-device-pixel-ratio : 3) { 
+                @content;
+            }
+        }
+
+        /* iphone XS Max */
+        @else if $width == XSMax {
+           @media only screen and (min-device-width : 414px) and (max-device-height : 896px) and (-webkit-device-pixel-ratio : 3) { 
+                @content;
+           }
+        }
     }
     @else{
         @media only screen and (#{$type}-width: $width + 1) {
@@ -84,10 +147,10 @@
 @mixin sans($size: false, $colour: false, $weight: false,  $lh: false) {
     // font-family: "Centrale";
     @if $weight == 400{
-      font-family: "CentraleSans-Regular";
+      font-family: "CentraleSans-Regular", sans-serif;
     }
     @else if $weight == 900{
-      font-family: "CentraleSans-Bold";
+      font-family: "CentraleSans-Bold", sans-serif;
     }
     @if $weight { font-weight: $weight; }
     @if $size { font-size: $size; }

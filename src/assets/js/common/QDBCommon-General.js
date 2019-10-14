@@ -1,4 +1,6 @@
+import General from "./modules/General/general-index"
 
+<<<<<<< HEAD
 // FID/**201812112311*/
 var menuData = [{
     "text": "Entre ou cadastre-se",
@@ -1939,4 +1941,7 @@ function copiarTopBanner(){
     }, 500);
 =======
 });
+>>>>>>> develop
+=======
+General.init();
 >>>>>>> develop

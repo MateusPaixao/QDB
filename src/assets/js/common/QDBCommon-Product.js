@@ -371,28 +371,18 @@ var DataSkuManager = function (selectorGroup){
         if(skuJson == undefined) return false;
 
         $.each(skuJson.skus, function(index, value){
-            regex = /^[0-9\,]{0,}[m|v|p|g|ml]{1,}$/g;
+            // regex = /^[0-9\,]{0,}[m|v|p|g|ml]{1,}$/g;
             if(value.values[0]){
-                if(!value.values[0].match(regex)){
-                    cont = value.values.length-2;
-                    if(cont < 0){
-                       cont = 0;
-                    }
-                }else{
-                    cont = value.values.length-1;
-                    if(cont < 0){
-                       cont = 0;
-                    }
-                }
-                if(arrSkuList.indexOf(value.values[cont]) == -1){
-                    arrSkuList.push(value.values[cont]);
+                if(arrSkuList.indexOf(value.values[0]) == -1){
+                    arrSkuList.push(value.values[0]);
+                    console.log(arrSkuList.indexOf(value.values[0]));
                     _owner.objSkusInfo.skuList.push({
                         id: value.sku,
-                        name: value.values[cont],
+                        name: value.values[0],
                         thumb: '',
                         texture: ''
                     });
-                    callSkuJsonAndMountThumbs(value.sku, value.values[cont]);
+                    callSkuJsonAndMountThumbs(value.sku, value.values[0]);
                 }
             }
         });
@@ -489,11 +479,11 @@ var DataSkuManager = function (selectorGroup){
                     }
                 }
                 else{
-                    document.querySelectorAll(".select-cor-new .product-disabled,.select-cor-new .item_unavailable").forEach(element => {
+                    $(".select-cor-new .product-disabled,.select-cor-new .item_unavailable").each(element => {
                         $(element).insertAfter($('.select-cor-new > span > label:last-child'))
                         // console.log("colors unavaliable");
                     });
-                    document.querySelectorAll(".select-cor-new .flag-discount-percent").forEach(element => {
+                    $(".select-cor-new .flag-discount-percent").each(element => {
                         $(element).parent("label").insertAfter($('.select-cor-new > span label:last-child'));
                         $(element).parent("label").insertBefore($('.select-cor-new > span label:first-child'));
                         // console.log("discount first");
@@ -955,7 +945,7 @@ function selectCor(){
                 }
             }
             else{
-                document.querySelectorAll(".product-disabled.item_unavailable").forEach(element => {
+                $(".product-disabled.item_unavailable").each(element => {
                     $(element).insertAfter($('.select-cor-new > span > label :last-child'))
                 });
             }
@@ -1251,7 +1241,7 @@ let AddToCart = () =>{
     document.querySelector(".product-buy-button .buy-button").addEventListener("click", function(el){
         el.preventDefault();
         let skuId = "";
-        new URL(window.location.href).searchParams.get("idsku") != null ? skuId = new URL(window.location.href).searchParams.get("idsku") : skuId = document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku");
+        skuId = [...document.querySelectorAll(".select-cor-new .group_0 label")].find(label => label.classList.contains("current")) != undefined ? skuId = document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku") : skuId = new URL(window.location.href).searchParams.get("idsku");
         // console.log(skuId);
         el.srcElement.innerHTML = "Adicionando...";
         el.srcElement.style.opacity = ".7";

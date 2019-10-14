@@ -486,7 +486,7 @@ button.hover .ico-lotions-black,
 
 #menu-promocoes a {
     position: relative;
-    color: #000;
+    color: $g-primary;
     padding-left: 30px
 }
 
@@ -776,176 +776,9 @@ button.hover .ico-lotions-black,
     margin-right: -26px
 }
 
-*,
-:before,
-:after {
-    padding: 0;
-    margin: 0;
-    outline: 0;
-    box-sizing: border-box
-}
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section,
-summary,
-main {
-    display: block
-}
-
-html {
-    tap-highlight-color: rgba(0, 0, 0, 0)
-}
-
 body {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
-    -webkit-text-size-adjust: none;
-    -ms-text-size-adjust: none;
-    text-size-adjust: none
-}
-
-p {
-    text-transform: unset!important
-}
-
-img,
-iframe,
-video,
-audio,
-object {
-    max-width: 100%
-}
-
-img,
-iframe {
-    border: 0 0
-}
-
-img {
-    height: auto;
-    display: inline-block;
-    vertical-align: middle
-}
-
-b,
-strong {
-    font-weight: 700
-}
-
-address {
-    font-style: normal
-}
-
-svg:not(:root) {
-    overflow: hidden
-}
-
-a,
-button,
-input[type="submit"],
-input[type="button"],
-input[type="reset"],
-input[type="file"],
-input[type="image"],
-label[for] {
-    cursor: pointer;
-}
-
-a[href^="tel"],
-button[disabled],
-input[disabled],
-textarea[disabled],
-select[disabled] {
-    cursor: default
-}
-
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-    padding: 0;
-    border: 0;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="date"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="month"],
-input[type="week"],
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type*="submit"],
-input[type="tel"],
-input[type="time"],
-input[type="url"],
-input[type="color"],
-textarea,
-a[href^="tel"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none
-}
-
-textarea {
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    overflow-scrolling: touch;
-}
-
-button,
-input,
-optgroup,
-select,
-textarea {
-    font-family: inherit;
-    font-size: inherit;
-    color: inherit;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
-}
-
-button,
-select {
-    text-transform: none;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0
-}
-
-nav ul,
-nav ol {
-    list-style: none outside none
-}
-
-body {
-    min-width: 320px;
     background: #fff;
-    font-family: 'Museo Sans';
-    letter-spacing: .5px;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 1.08;
-    color: #000;
+    color: $g-primary;
     overflow-y: scroll
 }
 
@@ -991,19 +824,9 @@ h4 {
 }
 
 h6 {
-    font-family: 'Museo Sans';
     font-size: 14px;
     font-weight: 300;
-    color: #333
-}
-
-p,
-ul,
-ol,
-dl,
-table,
-blockquote {
-    margin-bottom: 1.08em
+    color: $g-primary
 }
 
 h1[class],
@@ -1068,46 +891,6 @@ blockquote:last-child {
         font-size: 20px;
         margin-bottom: 8px
     }
-}
-
-@font-face {
-    font-family: 'Museo Sans';
-    src: url(https://qbbr.vteximg.com.br/arquivos/museosans-100-webfont.eot.css);
-    src: url(https://qbbr.vteximg.com.br/arquivos/museosans-100-webfont.eot.css?#iefix)format("embedded-opentype"), url(https://qbbr.vteximg.com.br/arquivos/museosans-100-webfont.woff.css)format("woff"), url(https://qbbr.vteximg.com.br/arquivos/museosans-100-webfont.ttf.css)format("truetype"), url(https://qbbr.vteximg.com.br/arquivos/museosans-100-webfont.svg.css#MuseoSans100)format("svg");
-    font-weight: 100;
-    font-style: normal
-}
-
-@font-face {
-    font-family: 'Museo Sans';
-    src: url(https://qbbr.vteximg.com.br/arquivos/museosans-300-webfont.eot.css);
-    src: url(https://qbbr.vteximg.com.br/arquivos/museosans-300-webfont.eot.css?#iefix)format("embedded-opentype"), url(https://qbbr.vteximg.com.br/arquivos/museosans-300-webfont.woff.css)format("woff"), url(https://qbbr.vteximg.com.br/arquivos/museosans-300-webfont.ttf.css)format("truetype"), url(https://qbbr.vteximg.com.br/arquivos/museosans-300-webfont.svg.css#MuseoSans300)format("svg");
-    font-weight: 300;
-    font-style: normal
-}
-
-@font-face {
-    font-family: 'Museo Sans';
-    src: url(https://qbbr.vteximg.com.br/arquivos/museosans_500-webfont.eot.css);
-    src: url(https://qbbr.vteximg.com.br/arquivos/museosans_500-webfont.eot.css?#iefix)format("embedded-opentype"), url(https://qbbr.vteximg.com.br/arquivos/museosans_500-webfont.woff.css)format("woff"), url(https://qbbr.vteximg.com.br/arquivos/museosans_500-webfont.ttf.css)format("truetype"), url(https://qbbr.vteximg.com.br/arquivos/museosans_500-webfont.svg.css#MuseoSans500)format("svg");
-    font-weight: 500;
-    font-style: normal
-}
-
-@font-face {
-    font-family: 'Museo Sans';
-    src: url(https://qbbr.vteximg.com.br/arquivos/museosans_700-webfont.eot.css);
-    src: url(https://qbbr.vteximg.com.br/arquivos/museosans_700-webfont.eot.css?#iefix)format("embedded-opentype"), url(https://qbbr.vteximg.com.br/arquivos/museosans_700-webfont.woff.css)format("woff"), url(https://qbbr.vteximg.com.br/arquivos/museosans_700-webfont.ttf.css)format("truetype"), url(https://qbbr.vteximg.com.br/arquivos/museosans_700-webfont.svg.css#MuseoSans700)format("svg");
-    font-weight: 700;
-    font-style: normal
-}
-
-@font-face {
-    font-family: 'Museo Sans';
-    src: url(https://qbbr.vteximg.com.br/arquivos/museosans-900.eot.css);
-    src: url(https://qbbr.vteximg.com.br/arquivos/museosans-900.eot.css?#iefix)format("embedded-opentype"), url(https://qbbr.vteximg.com.br/arquivos/museosans-900.woff.css)format("woff"), url(https://qbbr.vteximg.com.br/arquivos/museosans-900.ttf.css)format("truetype"), url(https://qbbr.vteximg.com.br/arquivos/museosans-900.svg.css#MuseoSans900)format("svg");
-    font-weight: 700;
-    font-style: normal
 }
 
 input::-webkit-input-placeholder {
@@ -1316,7 +1099,7 @@ input:-webkit-autofill {
 }
 
 .container-group.header-follder-page .header {
-    background: #000
+    background: $g-primary
 }
 
 .list-sponsors,
@@ -1481,7 +1264,6 @@ body.overflow {
 }
 
 .slider-feeds {
-    font-family: 'Museo Sans';
     font-size: 16px;
     line-height: 1.13;
     color: #fff;
@@ -1551,7 +1333,7 @@ body.overflow {
 }
 
 .slide.slide-primary.slide-secondary.tweets.twiite-text {
-    background: #000
+    background: $g-primary
 }
 
 .slide.slide-primary.slide-secondary.tweets.twiite-text .slide-entry.red .ico-twitter-secondary {
@@ -1567,7 +1349,7 @@ a.link_ajuda {
     width: 140px;
     top: 250px;
     position: fixed;
-    z-index: 3
+    z-index: 20
 }
 
 .box-icon {
@@ -1611,7 +1393,7 @@ a.link_ajuda {
 }
 
 .box-acessibilidade.ajuda:hover .box-icon {
-    background: url(https://qbbr.vteximg.com.br/arquivos/access-white.png)2px 3px no-repeat #000;
+    background: url(https://qbbr.vteximg.com.br/arquivos/access-white.png)2px 3px no-repeat $g-primary;
     cursor: pointer;
     -webkit-transition: all .2s ease;
     transition: all .2s ease
@@ -1620,7 +1402,7 @@ a.link_ajuda {
 .hoverable {
     height: 30px;
     text-align: center;
-    background: #000;
+    background: $g-primary;
     color: #FFF;
     padding: 7px;
     pointer-events: none
@@ -1661,7 +1443,7 @@ div.ajuda_submenu li a.contraste {
 
 i.fa.fa-phone.left {
     font-size: 15px;
-    color: #000;
+    color: $g-primary;
     margin-left: 10px
 }
 
@@ -1741,7 +1523,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 
 .list-links {
     padding: 0 10px;
-    color: #000;
+    color: $g-primary;
     text-align: left
 }
 
@@ -1788,7 +1570,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     float: right;
     font-weight: 400;
     margin: 9px 70px 0 0;
-    font-family: 'Museo Sans';
     font-size: 12px;
     letter-spacing: .03em;
     text-decoration: none;
@@ -1827,7 +1608,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 
 .footer p {
     margin-bottom: 18px;
-    font-family: 'Museo Sans';
     font-size: 14px;
     line-height: 1.21;
     color: #b1b1b1;
@@ -1892,7 +1672,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     height: 60px;
     border-radius: 50%;
     margin: 15px 0 12px;
-    background: #000;
+    background: $g-primary;
     transition: .3s;
     -webkit-transition: .3s;
     -ms-transition: .3s;
@@ -2052,7 +1832,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     height: 157px;
     -webkit-transition: .3s;
     transition: .3s;
-    background: #000
+    background: $g-primary
 }
 
 .header .nav-teritary {
@@ -2090,7 +1870,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 }
 
 .header-secondary {
-    background: #000
+    background: $g-primary
 }
 
 @media(min-width:1025px) {
@@ -2099,7 +1879,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
         height: 61px;
         top: 0;
         left: 0;
-        background: #000;
+        background: $g-primary;
         z-index: 90
     }
     .header.active .nav-teritary {
@@ -2184,7 +1964,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
         height: 2px;
         top: 10px;
         left: 0;
-        background: #000
+        background: $g-primary
     }
     .header.active .search:after,
     .header.active .search:before {
@@ -2254,7 +2034,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
         left: 0;
         right: 0;
         padding-top: 6px;
-        background: #000;
+        background: $g-primary;
         z-index: 20
     }
     .active-nav {
@@ -2493,7 +2273,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     color: #fff;
     height: 32px;
     margin: 0;
-    background: #000;
+    background: $g-primary;
     text-align: center
 }
 
@@ -2543,7 +2323,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 }
 
 .header-acessibilidade div.box-precisa-de-ajuda:hover a.link_ajuda span {
-    color: #333;
+    color: $g-primary;
     -webkit-transform: rotateX(90deg)translateY(-15px);
     -moz-transform: rotateX(90deg)translateY(-15px)
 }
@@ -2562,7 +2342,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 }
 
 .header-acessibilidade .ajuda_submenu li a {
-    color: #333;
+    color: $g-primary;
     font-weight: 600;
     text-decoration: none;
     text-transform: lowercase;
@@ -2629,7 +2409,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 
 .header-acessibilidade div.ajuda a.link_ajuda>div>div:nth-child(2) {
     background: #fff;
-    color: #000
+    color: $g-primary
 }
 
 .header-acessibilidade div.ajuda:hover a.link_ajuda>div {
@@ -2856,7 +2636,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 }
 
 .btn-transparent:hover {
-    color: #000;
+    color: $g-primary;
     background: #fff
 }
 
@@ -2867,9 +2647,8 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     opacity: 0;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     visibility: hidden;
-    font-family: 'Museo Sans';
     font-size: 14px;
-    color: #000;
+    color: $g-primary;
     text-decoration: none;
     text-align: center;
     z-index: 12;
@@ -2907,14 +2686,13 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     height: 32px;
     padding: 0 10px;
     vertical-align: middle;
-    font-family: 'Museo Sans';
     font-size: 12px;
     line-height: 32px;
     letter-spacing: .03em;
     color: #fff;
     text-decoration: none;
     text-align: center;
-    background: #000;
+    background: $g-primary;
     -webkit-transition: .3s;
     transition: .3s
 }
@@ -2962,7 +2740,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 
 .contact strong {
     display: block;
-    font-family: 'Museo Sans';
     font-weight: 900;
     text-transform: lowercase
 }
@@ -2981,7 +2758,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     height: 60px;
     border-radius: 50%;
     margin: 15px auto 12px;
-    background: #000;
+    background: $g-primary;
     transition: .3s;
     -webkit-transition: .3s;
     -ms-transition: .3s;
@@ -3021,7 +2798,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     .contact i {
         margin: 9px auto 5px;
         border-radius: 50%;
-        background-color: #000
+        background-color: $g-primary
     }
     .ico-chat .ico-chat {
         width: 45px!important;
@@ -3113,11 +2890,10 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 }
 
 .form-body .form-row .form-controls .login-access-key #field-access-key {
-    border: 1px solid #000;
+    border: 1px solid $g-primary;
     margin: 0 auto 14px;
     font-size: 16px;
     font-weight: 300;
-    font-family: 'Museo Sans', sans-serif
 }
 
 .form-body .form-row .form-controls .login-access-key #field-access-key:focus {
@@ -3150,7 +2926,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     padding-top: 15px;
     vertical-align: middle;
     text-align: center;
-    background: #000
+    background: $g-primary
 }
 
 @media(max-width:1024px) {
@@ -3220,7 +2996,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     font-weight: 500;
     letter-spacing: .03em;
     width: 180px;
-    font-family: 'Museo Sans';
     font-size: 14px
 }
 
@@ -3277,7 +3052,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 }
 
 .nav-aside .product-quaternary .pratileira ul li .product-link-menu:hover {
-    color: #000
+    color: $g-primary
 }
 
 .product-link-menu:hover {
@@ -3357,7 +3132,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     .nav>ul>li#menu-promocoes.has-dd>.nav-inner>a {
         display: block;
         background-color: #ffef00;
-        color: #000;
+        color: $g-primary;
         height: auto;
         padding: 11px 30px;
         line-height: 40px;
@@ -3387,7 +3162,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
         opacity: 0;
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
         visibility: hidden;
-        background: #000;
+        background: $g-primary;
         -webkit-transition: .3s;
         transition: .3s
     }
@@ -3401,7 +3176,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
         opacity: 0;
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
         visibility: hidden;
-        background: #000;
+        background: $g-primary;
         -webkit-transition: .3s;
         transition: .3s
     }
@@ -3419,7 +3194,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
         opacity: 0;
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
         visibility: hidden;
-        background: #000;
+        background: $g-primary;
         -webkit-transition: .3s;
         transition: .3s
     }
@@ -3433,7 +3208,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
         opacity: 0;
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
         visibility: visible;
-        background: #000;
+        background: $g-primary;
         z-index: 1
     }
     .nav>ul>.has-dd>.nav-inner>a:after {
@@ -3527,7 +3302,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
         font-weight: 700;
         color: #fff;
         text-align: left;
-        background: #000;
+        background: $g-primary;
         -webkit-transition: left .3s;
         transition: left .3s
     }
@@ -3617,7 +3392,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
         opacity: 0;
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
         visibility: hidden;
-        color: #000;
+        color: $g-primary;
         text-align: left;
         background: #fff;
         z-index: -1;
@@ -3709,7 +3484,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     }
     .nav-dropdown ul.active>.active>a {
         color: #fff;
-        background: #000
+        background: $g-primary
     }
     .nav-dropdown .shell {
         padding: 0
@@ -3745,7 +3520,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 
 @media(min-width:1025px) {
     .nav-secondary {
-        font-family: 'Museo Sans', sans-serif;
         font-size: 12px;
         font-weight: 500;
         letter-spacing: .03em
@@ -3823,7 +3597,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
         background: #2fa5de;
         text-decoration: none;
         margin-right: 0!important;
-        font-family: 'Museo Sans';
+
         letter-spacing: 0
     }
     .ajuda-nav-red a span {
@@ -4044,7 +3818,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     top: 50px;
     left: 0;
     padding: 14px 20px;
-    color: #000;
+    color: $g-primary;
     background: #fff
 }
 
@@ -4091,7 +3865,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 }
 
 .profile .profile-logout:hover {
-    color: #000
+    color: $g-primary
 }
 
 .profile .profile-logout span {
@@ -4319,7 +4093,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     padding: 0 70px 0 30px;
     border: 0;
     border-radius: 58px;
-    font-family: 'Museo Sans';
     font-size: 18px;
     font-weight: 500;
     color: #b1b1b1;
@@ -4327,7 +4100,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 }
 
 .search .search-field:focus {
-    color: #000
+    color: $g-primary
 }
 
 .search .toggle {
@@ -4481,7 +4254,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 }
 
 .section-subscribe {
-    background: #000;
+    background: $g-primary;
     margin-top: 41px
 }
 
@@ -4540,7 +4313,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 }
 
 .subscribe-field.text-search {
-    color: #000!important
+    color: $g-primary!important
 }
 
 .section-products-secondary h3 {
@@ -4708,7 +4481,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 
 .section-promotion .section-nav {
     margin-bottom: 19px;
-    font-family: 'Museo Sans';
     text-align: center
 }
 
@@ -5164,7 +4936,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: #000;
+    background: $g-primary;
     -webkit-transition: .3s;
     transition: .3s
 }
@@ -5180,7 +4952,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 
 .socials strong {
     display: block;
-    font-family: 'Museo Sans';
     font-weight: 900
 }
 
@@ -5268,7 +5039,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     padding: 0 27px;
     border: 0;
     border-radius: 51px;
-    font-family: 'Museo Sans';
     background: #fff;
     font-size: 18px;
     font-weight: 500;
@@ -5383,7 +5153,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 .sta-cart-container .cart-head {
     position: relative;
     padding: 16px 0 15px;
-    background: #000
+    background: $g-primary
 }
 
 .sta-cart-container .cart-head .toggle {
@@ -5418,7 +5188,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 }
 
 .sta-cart-container .cart-head h4 {
-    font-family: 'Museo Sans';
     font-weight: 700;
     color: #fff;
     text-align: center
@@ -5446,7 +5215,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 .cart-bar p {
     padding: 5px 18px 0;
     font-weight: 500;
-    font-family: 'Museo Sans';
     font-size: 15px;
     margin-bottom: 0
 }
@@ -5591,7 +5359,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     height: 2px;
     top: 6px;
     left: -3px;
-    background: #000;
+    background: $g-primary;
     -webkit-transition: background .3s;
     -ms-transition: background .3s;
     -moz-transition: background .3s
@@ -5641,7 +5409,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 
 .product .product-content h2,
 .product .product-content h3 {
-    color: #000
+    color: $g-primary
 }
 
 .product-content .product-evaluation {
@@ -6030,7 +5798,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 .form.form-account form .form-actions {
     float: right;
     width: 50%;
-    font-family: "Museo Sans"
 }
 
 .close-minha-conta .ico-close {
@@ -6069,31 +5836,29 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 #cart3 .cart-head h4 {
     font-size: 36px;
     font-weight: 900;
-    color: #000;
+    color: $g-primary;
     margin-top: 55px
 }
 
 #cart3 .cart-body .cart-inner .nav-my-account .form.form-account form .form-body h2 {
-    color: #000;
+    color: $g-primary;
     font-size: 20px;
     font-weight: 900;
     margin-bottom: .9em
 }
 
 #cart3 .cart-body .cart-inner .nav-my-account .form.form-account form .form-body p {
-    color: #000;
+    color: $g-primary;
     font-size: 16px;
     font-weight: 300;
-    font-family: 'Museo Sans', sans-serif
 }
 
 #cart3 .cart-body .cart-inner .nav-my-account .form.form-account form .form-body .form-row .form-controls .login-email #field-email {
     font-size: 16px;
     font-weight: 300;
-    font-family: 'Museo Sans';
     margin: 0 auto 14px;
     margin-bottom: 22px;
-    border: 1px solid #000
+    border: 1px solid $g-primary
 }
 
 #cart3 .cart-body .cart-inner .nav-my-account .form.form-account form .form-body .form-row .form-controls .login-email #field-email:focus {
@@ -6128,7 +5893,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 #cart3 .cart-body .cart-inner .nav-my-account .form.form-account form .form-actions p {
     font-size: 20px;
     font-weight: 900;
-    color: #000;
+    color: $g-primary;
     padding-top: 0;
     padding-bottom: 10px
 }
@@ -6174,7 +5939,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     padding: 0 25px;
     border: 1px solid #b1b1b1;
     border-radius: 50px;
-    font-family: 'Museo Sans';
     font-size: 16px
 }
 
@@ -6189,7 +5953,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 .form-steps .form-head {
     position: relative;
     padding: 50px 0 30px;
-    background: #000
+    background: $g-primary
 }
 
 .form-steps .form-head:after {
@@ -6202,7 +5966,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     margin-left: -8px;
     border-style: solid;
     border-width: 8px 8px 0;
-    border-color: #000 transparent transparent
+    border-color: $g-primary transparent transparent
 }
 
 .form-steps .form-head h3 {
@@ -6245,7 +6009,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 }
 
 .form-steps .form-inner-secondary h3 {
-    color: #000;
+    color: $g-primary;
     margin-bottom: 48px
 }
 
@@ -6312,7 +6076,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 
 .widget-primary.widget-request .widget-body .form-primary.form-primary-alt .form-body .form-row .form-controls #field-email {
     width: 400px;
-    font-family: 'Museo Sans';
     margin: 0 20px
 }
 
@@ -6323,8 +6086,8 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     display: inline-block;
     height: 45px;
     padding: 0 20px;
-    background: #000;
-    border: 1px solid #000;
+    background: $g-primary;
+    border: 1px solid $g-primary;
     font-size: 16px;
     line-height: 42px;
     font-weight: 900;
@@ -6535,7 +6298,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 }
 
 .product .product-tag span.produtos-top {
-    background: #000
+    background: $g-primary
 }
 
 @media(max-width:768px) {
@@ -6549,7 +6312,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
         height: 45px!important;
         border-radius: 50%;
         margin: 15px 0 12px;
-        background: #000;
+        background: $g-primary;
         transition: .3s;
         -webkit-transition: .3s;
         -ms-transition: .3s;
@@ -6645,10 +6408,6 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
         margin-top: 9px;
         margin-top: 6px
     }
-    .contact strong,
-    .col.col-size2 .socials strong {
-        font-family: 'Museo Sans', sans-serif
-    }
     .product-content>h4 {
         display: none
     }
@@ -6701,7 +6460,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
         font-weight: 700
     }
     .product .product-content strong {
-        font-family: 'Museo Sans';
+
         font-size: 18px;
         font-weight: 700;
         color: #1b1b1b;
@@ -6810,7 +6569,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
         margin-top: -13px
     }
     .product .product-content strong {
-        font-family: 'Museo Sans';
+
         font-size: 18px;
         font-weight: 700;
         color: #1b1b1b;
@@ -6944,7 +6703,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     }
     .feed-tag.feed-mobile-insta {
         margin-bottom: 30px;
-        font-family: 'Museo Sans';
+
         font-size: 16px;
         color: #b1b1b1;
         text-decoration: none;
@@ -6971,7 +6730,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     margin: 0;
     color: #fff;
     text-align: left;
-    background: #000;
+    background: $g-primary;
     display: block!important
 }
 
@@ -6985,8 +6744,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
     height: auto;
     font-size: 12px;
     font-weight: 700;
-    line-height: 16px;
-    font-family: 'Museo Sans', sans-serif;
+    line-height: 16px;;
     letter-spacing: .01em;
     padding: 3px 5px;
     background: #686162;
@@ -7006,7 +6764,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 }
 
 .product-tag .flag.tudo {
-    background: #000;
+    background: $g-primary;
     width: 70px;
     margin-left: 0;
     display: inline-block;
@@ -7134,7 +6892,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 }
 
 .shell-error-404 .shell>h4 {
-    color: #000;
+    color: $g-primary;
     font-size: 25px;
     padding-bottom: 20px
 }
@@ -7162,7 +6920,7 @@ div.box-precisa-de-ajuda.ajuda>div>ul>li:nth-child(3)>a {
 .shell-error-404 .shell>h4 {
     font-size: 30px;
     font-weight: 900;
-    color: #000
+    color: $g-primary
 }
 
 .shell-voltar>a {
@@ -7230,7 +6988,7 @@ body.category .section-products {
 }
 
 .erro-500 {
-    background: #000;
+    background: $g-primary;
     border-top: 5px solid #686162
 }
 
@@ -7299,7 +7057,7 @@ body.category .section-products {
 }
 
 .product .product-tag .hidden div.flag-produtos-top>p {
-    background: #000!important
+    background: $g-primary!important
 }
 
 .product .product-tag .hidden div.flag-batom-no-carrinho p.flag.batom-no-carrinho,
@@ -7310,10 +7068,9 @@ body.category .section-products {
     font-size: 10px;
     font-weight: 500;
     line-height: 14px;
-    font-family: 'Museo Sans';
     letter-spacing: .01em;
     padding: 3px 7px 1px 7px;
-    background: #000!important;
+    background: $g-primary!important;
     text-align: left
 }
 
@@ -7329,10 +7086,9 @@ body.category .section-products {
     font-size: 10px;
     font-weight: 500;
     line-height: 14px;
-    font-family: 'Museo Sans';
     letter-spacing: .01em;
     padding: 3px 7px 1px 7px;
-    background: #000!important;
+    background: $g-primary!important;
     text-align: left
 }
 
@@ -7348,7 +7104,7 @@ body.category .section-products {
 .priceOff span {
     background: #a6a5a5;
     color:#fff;
-    font-family:"CentraleSans-Bold", sans-serif!important;
+    font-family:"CentraleSans-Bold", sans-serif !important;
     font-size:12px;
     padding: 3px 5px;
     display: block;
@@ -7623,16 +7379,16 @@ body.category .section-products {
 }
 
 .boti-top-orders--list--item--timeline .boti-top-orders--list--item--timeline--list .boti-top-orders--list--item--timeline--list--item.timeline--list--item-active:not(.timeline--list--item-first) .canceled .timeline--list--item-ico {
-    border: 3px solid #000;
-    background: url(https://qbbr.vteximg.com.br/arquivos/qbbr-boti-sprite.png)no-repeat -10px -132px #000;
+    border: 3px solid $g-primary;
+    background: url(https://qbbr.vteximg.com.br/arquivos/qbbr-boti-sprite.png)no-repeat -10px -132px $g-primary;
     background-position: -15px -303px!important
 }
 
 .boti-top-orders--list--item--timeline .boti-top-orders--list--item--timeline--list .boti-top-orders--list--item--timeline--list--item.timeline--list--item-active .timeline--list--item-ico {
     border: 3px solid #686162;
     background: url(https://qbbr.vteximg.com.br/arquivos/qbbr-boti-sprite.png)no-repeat -11px -132px #686162;
-    border: 3px solid #000;
-    background: url(https://qbbr.vteximg.com.br/arquivos/qbbr-boti-sprite.png)no-repeat -10px -132px #000
+    border: 3px solid $g-primary;
+    background: url(https://qbbr.vteximg.com.br/arquivos/qbbr-boti-sprite.png)no-repeat -10px -132px $g-primary
 }
 
 .boti-top-orders--list--item--timeline .boti-top-orders--list--item--timeline--list .boti-top-orders--list--item--timeline--list--item.timeline--list--item-active.approved:after {
@@ -7640,29 +7396,29 @@ body.category .section-products {
 }
 
 .boti-top-orders--list--item--timeline .boti-top-orders--list--item--timeline--list .boti-top-orders--list--item--timeline--list--item.timeline--list--item-active.ready-order:before {
-    background: #000
+    background: $g-primary
 }
 
 .boti-top-orders--list--item--timeline .boti-top-orders--list--item--timeline--list .boti-top-orders--list--item--timeline--list--item.timeline--list--item-active.approved.sended:before,
 .boti-top-orders--list--item--timeline .boti-top-orders--list--item--timeline--list .boti-top-orders--list--item--timeline--list--item.timeline--list--item-active.approved.sended:after {
-    background: #000
+    background: $g-primary
 }
 
 .boti-top-orders--list--item--timeline .boti-top-orders--list--item--timeline--list .boti-top-orders--list--item--timeline--list--item.timeline--list--item-active.sended.rastreo:before,
 .boti-top-orders--list--item--timeline .boti-top-orders--list--item--timeline--list .boti-top-orders--list--item--timeline--list--item.timeline--list--item-active.sended.rastreo:after {
-    background: #000
+    background: $g-primary
 }
 
 .boti-top-orders--list--item--timeline .boti-top-orders--list--item--timeline--list .boti-top-orders--list--item--timeline--list--item.timeline--list--item-active.sended:after {
-    background: #000
+    background: $g-primary
 }
 
 .boti-top-orders--list--item--timeline .boti-top-orders--list--item--timeline--list .boti-top-orders--list--item--timeline--list--item.rastreo:after {
-    background: #000
+    background: $g-primary
 }
 
 .boti-top-orders--list--item--timeline .boti-top-orders--list--item--timeline--list .boti-top-orders--list--item--timeline--list--item.rastreo .boti-btn {
-    background: #000
+    background: $g-primary
 }
 
 .boti-top-orders--list--item--timeline .boti-top-orders--list--item--timeline--list .boti-top-orders--list--item--timeline--list--item span {
@@ -7727,7 +7483,7 @@ body.category .section-products {
 
 .boti-btn {
     background: #686162;
-    color: #333;
+    color: $g-primary;
     padding: 12px 20px;
     display: block;
     text-decoration: none;
@@ -7870,7 +7626,7 @@ li.widget-primary.widget-order .slide p {
 .slider-order .owl-dot {
     width: 13px;
     height: 13px;
-    border: 1px solid #333;
+    border: 1px solid $g-primary;
     border-radius: 50%;
     background-color: #686162;
     margin: 0 6px;
@@ -7879,7 +7635,7 @@ li.widget-primary.widget-order .slide p {
 }
 
 .slider-order .owl-dot.active {
-    background-color: #333
+    background-color: $g-primary
 }
 
 .slider-order .owl-dots {
@@ -8063,7 +7819,7 @@ li.widget-primary.widget-order .slide p {
 }
 
 .form-primary.form-primary-alt .form-actions #ViewOrder:hover {
-    color: #000
+    color: $g-primary
 }
 
 .widget-request input#field-email {
@@ -8328,46 +8084,6 @@ body {
         font-size: 16px!important;
         width: auto
     }
-    .tabs p,
-    .yv-row,
-    .yv-slide,
-    .list-hearts,
-    .yv-bootstrap,
-    .list-bullets,
-    .yv-berethink-text,
-    #yv-review-quickreview a,
-    .product-details .product-tag,
-    .tab-content .productDescription,
-    .product-details .product-head small,
-    .product-details .product-info small,
-    .socials-secondary p,
-    .yv-qa .yv-qa-main-ask,
-    .yv-qa strong,
-    .yv-qa span,
-    .yv-qa label,
-    .yv-qa small,
-    .yv-radio-inline,
-    .yv-control-label,
-    #yv-reviews strong,
-    .yv-reviewform-title,
-    .yv-bootstrap .soc div,
-    #yv-reviews .yv-radio-inline,
-    #yv-reviews .yv-control-label,
-    .yv-login-frame .yv-title-socialn,
-    #yv-reviews .yv-form-group~label,
-    #yv-reviews span,
-    #yv-reviews small,
-    #yv-reviews .yv-login-group div label,
-    .yv-control-label,
-    .yv-bootstrap p[itemprop="description"],
-    .yv-bootstrap label,
-    .yv-bootstrap .yv-confirmation,
-    .yv-bootstrap .yv-confirmation p,
-    .yv-bootstrap .soc,
-    .yv-bootstrap .yv-reviewalso,
-    .breadcrumbs .bread-crumb>ul>li {
-        font-family: "Museo Sans"!important
-    }
     .section-hero .slick-dots {
         width: 100%;
         display: -webkit-box;
@@ -8413,9 +8129,6 @@ body {
     }
     .list-hearts:before {
         font-size: 22px
-    }
-    .feature-secondary {
-        font-family: "Museo Sans"!important
     }
 }
 
