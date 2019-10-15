@@ -11,10 +11,10 @@ const Methods = {
         BuildBanners.init();
         BuildInfoBar.init();
         BuildPaineis.init();
-        // BuildCounter.init();
         BuildTopProducts.init();
         BuildBannerCollection.init();
         isInViewport();
+        BuildCounter.init();
     }
 }
 
