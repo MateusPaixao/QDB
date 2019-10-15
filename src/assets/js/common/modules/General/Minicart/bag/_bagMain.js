@@ -18,13 +18,17 @@ export const bag = {
       let classList = event.target.classList;
       
       switch (true) {
-        case classList.contains('js--bag-close'):       bag.close();
+        case classList.contains('js--bag-close'):       
+          bag.close();
           break;
-        case classList.contains('cardProduct--addToCart'):         bag.add();
+        case classList.contains('cardProduct--addToCart'):         
+          bag.add();
           break;
-        case classList.contains('js--bag-remove'):                bag.remove(event.target);
+        case classList.contains('js--bag-remove'):                
+          bag.remove(event.target);
           break;
-        case classList.contains('js--bag-select'):      bag.select(event.target);
+        case classList.contains('js--bag-select'):      
+          bag.select(event.target);
           break;
       }
     });

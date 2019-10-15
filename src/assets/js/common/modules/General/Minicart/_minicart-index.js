@@ -3,8 +3,8 @@ import {bag} from './bag/_bagMain';
 
 const Methods = {
     init(){
-        // CheckoutFull.init();
-        bag.init();
+        CheckoutFull.init();
+        // bag.init();
     }
 }
 
