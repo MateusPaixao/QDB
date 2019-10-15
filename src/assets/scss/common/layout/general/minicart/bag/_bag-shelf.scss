@@ -39,6 +39,8 @@
 
         &-img {
             width: 100%;
+            border: 1px solid lightgrey;
+            border-radius: 5px;
         }
 
         &-info {
@@ -87,8 +89,8 @@
                 margin-top: 5%;
                 transition: transform 0.2s ease;
                 position: absolute;
-                left: 10px;
-                top: 10px;
+                left: 0px;
+                top: -10px;
 
                 &:after {
                     // font-family: 'Eudoricon';
