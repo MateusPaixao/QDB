@@ -122,7 +122,7 @@ const Methods = {
             buyButtonTxt.textContent = "Indisponível";
             document.querySelector('.w-promo-text-out').classList.remove('hidden');
         }
-        buyButton.style = "pointer-events: none";
+        buyButton.style = "pointer-events: none;";
         buyButton.href = '';
 
         const hourCounter = document.querySelector('.w-product--contador--timer--time.--hours');
