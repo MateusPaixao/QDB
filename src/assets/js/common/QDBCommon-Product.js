@@ -532,6 +532,11 @@ function imgProduct(){
 \* ====================================================================== */
 function settingsProductPreco(sku){
     let Sku = window.cProduct.items.find(i => i.itemId == sku);
+    if(Sku.sellers[0].commertialOffer.ListPrice == Sku.sellers[0].commertialOffer.Price){
+        $('del.product-preco-de').hide();
+    }else{
+        $('del.product-preco-de').show();
+    }
     var precoDe = "R$" + Sku.sellers[0].commertialOffer.ListPrice.toFixed(2).toString().replace(".", ",");
     var precoPor = "R$" + Sku.sellers[0].commertialOffer.Price.toFixed(2).toString().replace(".", ",")
     // var precoPor = $('.plugin-preco .valor-por .skuBestPrice').text();
@@ -542,12 +547,6 @@ function settingsProductPreco(sku){
     $('.product-details .product-info .product-preco-de').text(precoDe);
     $('.product-details .product-info .product-preco-por').text(precoPor);
     $('.product-details .product-info .product-parcelamento').text("até " + Math.max.apply(Math, Sku.sellers[0].commertialOffer.Installments.map(function(o) { return o.NumberOfInstallments; })) + "x de R$" + Math.min.apply(Math, Sku.sellers[0].commertialOffer.Installments.map(function(o) { return o.Value; })).toFixed(2).toString().replace(".", ",") + " sem juros");
-
-    if(Sku.sellers[0].commertialOffer.ListPrice == Sku.sellers[0].commertialOffer.Price){
-        $('del.product-preco-de').hide();
-    }else{
-        $('del.product-preco-de').show();
-    }
 }
 
 /* ====================================================================== *\
