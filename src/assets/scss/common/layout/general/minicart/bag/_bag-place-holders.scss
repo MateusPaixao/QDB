@@ -1,0 +1,31 @@
+%gradient-line {
+  width: 100%;
+  background: white linear-gradient(to right, $bag-color-secondary, white) center/ 100% 1px no-repeat;
+}
+
+%bag-cta {
+  cursor: pointer;
+  font-size: calc(13rem/16);
+  text-transform: uppercase;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid bg-color-dark;
+  transition: all 0.2s ease;
+  border-radius: 20px;
+  flex: 1 0;
+  min-width: auto;
+  margin: 10px;
+  flex-basis: auto;
+  // box-shadow: 15px 10px 15px 2px rgba(0, 0, 0, 0.3);
+      &:hover {
+        font-weight: bolder;
+      }
+}
+
+%totals{
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+}

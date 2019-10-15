@@ -1,8 +1,10 @@
 import CheckoutFull from './_minicart-main';
+import {bag} from './bag/_bagMain';
 
 const Methods = {
     init(){
-        CheckoutFull.init();
+        // CheckoutFull.init();
+        bag.init();
     }
 }
 

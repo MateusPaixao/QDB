@@ -1,0 +1,105 @@
+.bag{
+  &-bottom{
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   padding: 1%;
+   margin: 0 auto;
+   &__discount{
+    @extend %totals;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+      &--show{
+        opacity: 1;
+      }
+
+      &-left,&-right{
+        font-size: calc(17rem/16);
+        width: 40%;
+        color: grey;
+      }
+      &-right{
+        text-align: right;
+      }
+  }
+    &__total{
+      @extend %totals;
+      margin: 10px auto;
+   
+      &-left,&-right{
+        font-size: calc(18rem/16);
+        width: 40%;
+      }
+      &-right{
+        color: $bag-color-secondary;
+        font-weight: bold;
+        text-align: right;
+      }
+    }
+    
+    &__cta{
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      z-index: 530;
+      flex-wrap: wrap-reverse;
+      &-keep{
+        @extend %bag-cta;
+        color: $bag-color-primary-dark;
+        background-color: white;
+        padding: 1rem 0;
+        border: $bag-color-primary-dark 1px solid;
+        &:hover {
+          color: white;
+          background-color:$bag-color-primary-dark;
+        }
+      }
+      &-finish{
+        @extend %bag-cta;
+        color: white;
+        background-color: #342E37;
+        padding: 1rem; 
+        }
+    }
+    &__bonus{
+      margin: auto;
+      width: 98%;
+      color: $bag-color-secondary;
+      padding: 1% 4%;
+      // border: 1px solid $bag-color-secondary;
+      display: flex;
+      flex-direction: column;
+      &-item{
+        display: inline-block;
+        font: 15px/1 "Open Sans";
+        animation: fadeIn 0.5s ease;
+        margin-bottom: 5px;
+        &::before{
+          font-family: "Eudoricon";
+          content: "\e999";
+          margin-right: 10px;
+          vertical-align: middle;
+        }
+        &::after{
+          font-family: "Eudoricon";
+          content: "\e91b";
+          float: right;
+        }
+      }
+      &-item:not(:nth-child(1)){
+        &::before{
+          font-family: "Eudoricon";
+          content: "\e99b";
+        }
+      }
+    }
+  }
+}
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
