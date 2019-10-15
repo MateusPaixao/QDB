@@ -37,7 +37,7 @@
             var _callback = fn || false;
             if (!_callback) return;
 
-            masterdataAPI.select(config.tableStores + "/search?uf=" + uf + "&_fields=lat,lng,cep,cidade,destaque,email,endereco,estado,foto,marcas,nome,numero,observacao,telefone,uf,atendimento&_sort=nome", qty, function(cities) {
+            masterdataAPI.select(config.tableStores + "/search?uf=" + uf + "&_fields=lat,lng,cep,cidade,destaque,email,endereco,estado,foto,marcas,nome,numero,observacao,telefone,uf,atendimento,linkMaps&_sort=nome", qty, function(cities) {
                 if (cities.length) {
                     fn(cities);
                 } else {
@@ -86,7 +86,7 @@
             var _callback = fn || false;
             if (!_callback) return;
 
-            masterdataAPI.select(config.tableStores + "/search?cidade=" + city + "&_fields=cep,lat,lng,cidade,destaque,email,endereco,estado,foto,marcas,nome,numero,observacao,telefone,uf,atendimento&_sort=nome", qty, function(stores) {
+            masterdataAPI.select(config.tableStores + "/search?cidade=" + city + "&_fields=cep,lat,lng,cidade,destaque,email,endereco,estado,foto,marcas,nome,numero,observacao,telefone,uf,atendimento,linkMaps&_sort=nome", qty, function(stores) {
                 if (stores.length) {
                     stores = _insertArrayAtendimento(stores);
                     fn(stores);
@@ -105,7 +105,7 @@
             var _callback = fn || false;
             if (!_callback) return;
 
-            masterdataAPI.select(config.tableStores + "/search" + "?_fields=id,lat,lng,cep,cidade,destaque,email,endereco,estado,foto,marcas,nome,numero,observacao,telefone,uf,atendimento&_sort=nome", qtd, function(stores) {
+            masterdataAPI.select(config.tableStores + "/search" + "?_fields=id,lat,lng,cep,cidade,destaque,email,endereco,estado,foto,marcas,nome,numero,observacao,telefone,uf,atendimento,linkMaps&_sort=nome", qtd, function(stores) {
                 if (stores.length) {
                     stores = _insertArrayAtendimento(stores);
                     fn(stores);
@@ -120,7 +120,7 @@
             var _callback = fn || false;
             if (!_callback) return;
 
-            masterdataAPI.select(config.tableStores + "/search?_fields=id,lat,lng,cep,cidade,destaque,email,endereco,estado,foto,marcas,nome,numero,observacao,telefone,uf,atendimento&_sort=nome", "0-"+config.max_show_stores, function(store) {
+            masterdataAPI.select(config.tableStores + "/search?_fields=id,lat,lng,cep,cidade,destaque,email,endereco,estado,foto,marcas,nome,numero,observacao,telefone,uf,atendimento,linkMaps&_sort=nome", "0-"+config.max_show_stores, function(store) {
                 if (store.length) {
                     fn(store.length, store);
                 } else {
@@ -134,7 +134,7 @@
             var _callback = fn || false;
             if (!_callback) return;
 
-            masterdataAPI.select(config.tableStores + "/search?uf=" + uf + "&_fields=id,lat,lng,cep,cidade,destaque,email,endereco,estado,foto,marcas,nome,numero,observacao,telefone,uf,atendimento&_sort=nome", "0-"+config.max_show_stores, function(store) {
+            masterdataAPI.select(config.tableStores + "/search?uf=" + uf + "&_fields=id,lat,lng,cep,cidade,destaque,email,endereco,estado,foto,marcas,nome,numero,observacao,telefone,uf,atendimento,linkMaps&_sort=nome", "0-"+config.max_show_stores, function(store) {
                 if (store.length) {
                     fn(store.length, store);
                 } else {
@@ -148,7 +148,7 @@
             var _callback = fn || false;
             if (!_callback) return;
 
-            masterdataAPI.select(config.tableStores + "/search?cidade=" + city + "&_fields=id,lat,lng,cep,cidade,destaque,email,endereco,estado,foto,marcas,nome,numero,observacao,telefone,uf,atendimento&_sort=nome", "0-"+config.max_show_stores, function(store) {
+            masterdataAPI.select(config.tableStores + "/search?cidade=" + city + "&_fields=id,lat,lng,cep,cidade,destaque,email,endereco,estado,foto,marcas,nome,numero,observacao,telefone,uf,atendimento,linkMaps&_sort=nome", "0-"+config.max_show_stores, function(store) {
                 if (store.length) {
                     fn(store);
                 } else {

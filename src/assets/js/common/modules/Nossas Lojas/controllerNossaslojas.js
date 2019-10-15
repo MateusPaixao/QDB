@@ -21,7 +21,6 @@
 
         // Gerar json das lojas para mostrar todas as localidades no mapa principal
         var generateJsonStores = function (stores) {
-
             var jsonlist = {
                 "center": {
                     "lat": -14.5009009, // Brasil lat
@@ -110,7 +109,7 @@
             storeService.getStoresAll("0-1000", function (stores) {
 
                 if (stores.length) {
-                    console.log(stores);
+                    // console.log(stores);
                     recursiveStores(stores, 0);
 
                 } else {
@@ -127,7 +126,7 @@
         // Inicia os mapas de minhas lojas
         var initMap = function (jsonStores) {
 
-            console.log(jsonStores);
+            // console.log(jsonStores);
 
             $('[id*="map"]').each(function () {
                 var $map = $(this);
@@ -152,7 +151,7 @@
                 for (var i = 0; i < markersLength; i++) {
                     var content = mapData.markers ? mapData.markers[i].info.title + mapData.markers[i].info.text + mapData.markers[i].info.link : '';
 
-                    console.log(mapData.markers[i].position);
+                    // console.log(mapData.markers[i].position);
                     marker = new google.maps.Marker({
                         position: mapData.markers ? mapData.markers[i].position : mapData,
                         icon: '/arquivos/map-marker.png',
