@@ -25,6 +25,73 @@ function insertAfterr(newNode, referenceNode) {
     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
+let AddToCart = () =>{
+    document.querySelector(".product-buy-button .buy-button").innerHTML = 'Adicionar a Sacola';
+    document.querySelector(".product-buy-button .buy-button").addEventListener("click", function(el){
+        el.preventDefault();
+        let skuId = "";
+        skuId = [...document.querySelectorAll(".select-cor-new .group_0 label")].find(label => label.classList.contains("current")) != undefined ? skuId = document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku") : skuId = new URL(window.location.href).searchParams.get("idsku");
+        // console.log(skuId);
+        el.srcElement.innerHTML = "Adicionando...";
+        el.srcElement.style.opacity = ".7";
+        el.srcElement.style.pointerEvents = "none";
+        let quantity;
+        vtexjs.checkout.getOrderForm().then(function(orderForm){
+            // console.log(orderForm);
+            if(!!orderForm.items.length){
+                orderForm.items.map((e, i) => {
+                    if(e.id == skuId){
+                        quantity = e.quantity;
+                        quantity++
+                        let updateItem = {
+                            index: i,
+                            quantity: quantity
+                        };
+                        return vtexjs.checkout.updateItems([updateItem]);
+                    }else{
+                        let newitem = {
+                            id: skuId,
+                            quantity: 1,
+                            seller: '1'
+                        };
+                        return vtexjs.checkout.addToCart([newitem]);
+                    }
+                })
+            }else{
+                let newitem = {
+                    id: skuId,
+                    quantity: 1,
+                    seller: '1'
+                };
+                return vtexjs.checkout.addToCart([newitem]);
+            }
+        })
+        .done(function(orderForm) {
+            // console.log(orderForm);
+            vtexjs.checkout.getOrderForm().then(function (orderForm) {
+                window._orderForm = orderForm;
+                var qty = 0;
+                $(orderForm.items).each(function (ndx, item) {
+                    if (!item.isGift) {
+                        qty += item.quantity;
+                    }
+                });
+                if (isFinite(qty)) {
+                    $('.__cart-link a span').text(qty);
+                }
+            }).done(function(){
+                el.srcElement.innerHTML = 'Adicionar a Sacola';
+                el.srcElement.style.opacity = '1';
+                el.srcElement.style.pointerEvents = "auto";
+                $('html').trigger('open.MiniCart'); // Função em Jquery devido ao evento do Minicart em General.
+                // setTimeout(() => {
+                //     $('html').trigger('close.MiniCart'); // Função em Jquery devido ao evento do Minicart em General.
+                // }, 10000);
+            });
+        });
+    });
+}
+
 (function($, window, document, undefined) {
     var $win = $(window);
     var $doc = $(document);
@@ -45,6 +112,10 @@ function insertAfterr(newNode, referenceNode) {
                 $("#"+id).click();
             });
         
+            if($(".select-cor-new .group_0")){
+                console.log("UEEEEEEEE");
+                AddToCart();
+            }
             // #Init funcoes
             let sku = [...document.querySelectorAll(".select-cor-new .group_0 label")].find(label => label.classList.contains("current")) != undefined ? document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku") : new URL(window.location.href).searchParams.get("idsku");
             settingsProductPreco(sku);
@@ -1083,7 +1154,6 @@ function aviseme($this){
     if(dataLayer[0].productListPriceTo == 0){
         $('.rw-indisponivel--price').addClass('hidden');
     }
-    setTimeout(function(){
         if($('.notifyme.sku-notifyme').css('display') == 'block'){
             $('.product-details .product-body .product-actions').addClass('product-disabled-hide');
             $('#product-cal-frete').hide();
@@ -1134,7 +1204,6 @@ function aviseme($this){
                 $('.success-aviseme').hide();
             }
         }
-    }, 1000);
 }
 
 /* ====================================================================== *\
@@ -1246,75 +1315,3 @@ var trustVoxReviews = {
         })
     }
 }
-
-let AddToCart = () =>{
-    document.querySelector(".product-buy-button .buy-button").innerHTML = 'Adicionar a Sacola';
-    document.querySelector(".product-buy-button .buy-button").addEventListener("click", function(el){
-        el.preventDefault();
-        let skuId = "";
-        skuId = [...document.querySelectorAll(".select-cor-new .group_0 label")].find(label => label.classList.contains("current")) != undefined ? skuId = document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku") : skuId = new URL(window.location.href).searchParams.get("idsku");
-        // console.log(skuId);
-        el.srcElement.innerHTML = "Adicionando...";
-        el.srcElement.style.opacity = ".7";
-        el.srcElement.style.pointerEvents = "none";
-        let quantity;
-        vtexjs.checkout.getOrderForm().then(function(orderForm){
-            // console.log(orderForm);
-            if(!!orderForm.items.length){
-                orderForm.items.map((e, i) => {
-                    if(e.id == skuId){
-                        quantity = e.quantity;
-                        quantity++
-                        let updateItem = {
-                            index: i,
-                            quantity: quantity
-                        };
-                        return vtexjs.checkout.updateItems([updateItem]);
-                    }else{
-                        let newitem = {
-                            id: skuId,
-                            quantity: 1,
-                            seller: '1'
-                        };
-                        return vtexjs.checkout.addToCart([newitem]);
-                    }
-                })
-            }else{
-                let newitem = {
-                    id: skuId,
-                    quantity: 1,
-                    seller: '1'
-                };
-                return vtexjs.checkout.addToCart([newitem]);
-            }
-        })
-        .done(function(orderForm) {
-            // console.log(orderForm);
-            vtexjs.checkout.getOrderForm().then(function (orderForm) {
-                window._orderForm = orderForm;
-                var qty = 0;
-                $(orderForm.items).each(function (ndx, item) {
-                    if (!item.isGift) {
-                        qty += item.quantity;
-                    }
-                });
-                if (isFinite(qty)) {
-                    $('.__cart-link a span').text(qty);
-                }
-            }).done(function(){
-                el.srcElement.innerHTML = 'Adicionar a Sacola';
-                el.srcElement.style.opacity = '1';
-                el.srcElement.style.pointerEvents = "auto";
-                $('html').trigger('open.MiniCart'); // Função em Jquery devido ao evento do Minicart em General.
-                // setTimeout(() => {
-                //     $('html').trigger('close.MiniCart'); // Função em Jquery devido ao evento do Minicart em General.
-                // }, 10000);
-            });
-        });
-    });
-}
-$(function(){
-    if(document.querySelector(".select-cor-new .group_0")){
-        AddToCart();
-    }
-});
