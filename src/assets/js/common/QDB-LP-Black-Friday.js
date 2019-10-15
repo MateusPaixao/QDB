@@ -1,5 +1,4 @@
 function sendBFForm() {
-    console.log('BF Form');
     //Form BlackFriday
     var btn = document.querySelector('#bf_form .btnSubmit');
     var lightBox = document.createElement('div');

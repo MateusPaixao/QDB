@@ -42,7 +42,7 @@ $color-2: #211D1E;
         position: relative;
         display: block;
         padding: 12px;
-        font-size: 25px;
+        font-size: 4.2vw;
         margin: auto;
         text-align: center;
         margin-bottom: 30px !important; //culpa do common general
@@ -64,6 +64,7 @@ $color-2: #211D1E;
      @media(min-width: 768px) {
         &__title {
             width: 90%;
+            font-size: 25px;
         }
      }
 }
@@ -182,6 +183,7 @@ $color-2: #211D1E;
         }
         .form-success {
             display: none;
+            font-size: 18px;
         }
 
     }

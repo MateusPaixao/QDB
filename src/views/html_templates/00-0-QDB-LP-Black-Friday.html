@@ -36,7 +36,7 @@
                             <p class="bf-main__form__title">
                                 Deixe seu e-mail, a gente avisa quando a SUPERBLACK começar
                             </p>
-                            <input type="text" required='required' id="bf_nome" name="bf_nome" placeholder="Nome"/>
+                            <input type="text" required='required' id="bf_nome" name="bf_nome" placeholder="Nome" onkeypress="return /[a-zåäö ]/i.test(event.key)"/>
                             <input type="text" required='required' id="bf_email" name="bf_email" placeholder="E-mail"/>
                             <input type="checkbox" name="bf_autoriza" id="bf_autoriza"/>
                             <label for="bf_autoriza" class="bf-main__form__allow">aceito receber comunicação por e-mail das marcas participantes</label>
