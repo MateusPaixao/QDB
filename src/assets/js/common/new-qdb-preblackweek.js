@@ -1,6 +1,6 @@
 //form
 
-window.onload = function sendBFForm() {
+function sendBFForm() {
     //Form BlackFriday
     var btn = document.querySelector('#bf_form .btnSubmit');
     var lightBox = document.createElement('div');
@@ -39,6 +39,8 @@ window.onload = function sendBFForm() {
         var validEmail =  filtroEmail.test(document.querySelector('#bf_email').value);
 
         if (validEmail && validName && validTerms && validUser) {
+            btn.value = 'Enviando...';
+            btn.setAttribute('disabled','disabled');
             var XHR = new XMLHttpRequest();
             // XHR.open('POST', '//api.vtexcrm.com.br/' + jsnomeLoja + '/dataentities/PS/documents');
             XHR.open('POST', '/api/dataentities/PS/documents', true);
@@ -61,3 +63,4 @@ window.onload = function sendBFForm() {
         }
     });
 }
+sendBFForm();
