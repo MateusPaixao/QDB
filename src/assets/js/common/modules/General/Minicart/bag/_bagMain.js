@@ -152,10 +152,12 @@ export const bag = {
     bag.update(items, totalizers);
   },
   open() {
+    document.body.classList.add('menu--open');
     overlay.open();
     el.cart.classList.add('bag--open');
   },
   close() {
+    document.body.classList.remove('menu--open');
     el.cart.classList.remove('bag--open');
     overlay.close();
   },
