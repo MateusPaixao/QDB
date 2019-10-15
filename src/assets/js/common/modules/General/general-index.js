@@ -91,13 +91,13 @@ const Methods = {
     Accessibility(){
         // Refatorar
         $( document ).ready(function() { $(".__hand-talk").css("display", "block"); });
-        var setCookie = function(cname, cvalue, exdays) {
+        const setCookie = function(cname, cvalue, exdays) {
             var d = new Date();
             d.setTime(d.getTime() + (exdays*24*60*60*1000));
             var expires = "expires="+ d.toUTCString();
             document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         };
-        var getCookie = function(cname) {
+        const getCookie = function(cname) {
             var name = cname + "=";
             var decodedCookie = decodeURIComponent(document.cookie);
             var ca = decodedCookie.split(';');
@@ -112,13 +112,13 @@ const Methods = {
             }
             return "";
         };
-        var lightOffCookie = function () {
+        const lightOffCookie = function () {
             if (getCookie('lightoff') == "true"){
                 $('html').addClass('_light-off'); 
             }
             return true;
         };
-        var contrastButton = function () {
+        const contrastButton = function () {
             var _li = $('li.menu-lightoff');
             _li
             .not('.lightoffActive')
@@ -135,7 +135,7 @@ const Methods = {
             .addClass('lightoffActive');
             return true;
         };
-        var lightOff = function(){
+        const lightOff = function(){
             if(/lightoff/.test(document.location.search) || getCookie('lightoff') == 'true'){ 
                 $('html').addClass('_light-off');
                 $('li.menu-lightoff').addClass('lightoffActive');
@@ -144,14 +144,14 @@ const Methods = {
         };
         
         // HAND TALK
-        var cookieHandOn = function (){
+        const cookieHandOn = function (){
             setCookie('HandTalkBox', 1, 1);
              dataLayer.push({event:'HandTalkBox'});
         };
-        var cookieHandOff = function (){
+        const cookieHandOff = function (){
             setCookie('HandTalkBox', 2, 1);
         };
-        var startAcessibilidade = function () {
+        const startAcessibilidade = function () {
             lightOffCookie();
             lightOff();
             contrastButton();
@@ -172,19 +172,19 @@ const Methods = {
     SendNewsletter(){
         window.onload = function sendNLForm() {
             //Form newsleter
-            var btn = document.querySelector('#nl_form #submit_button');    
+            let btn = document.querySelector('.form-newsletter__controls #submit_button');
             btn.addEventListener("click", function(e) {
                 e.preventDefault();
                 //get data 2019-09-17 15:42:31
-                var date = new Date();
-                var year = `${date.getFullYear()}`;
-                var month = `${(date.getMonth()<=10?'0':'')}` + `${date.getMonth()+1}`;
-                var day = `${(date.getDate()<10?'0':'')}` + `${date.getDate()}`;
-                var hours = `${(date.getHours()<10?'0':'')}` + `${date.getHours()}`;
-                var minutes = `${(date.getMinutes()<10?'0':'')}` + `${date.getMinutes()}`;
-                var seconds = `${(date.getSeconds()<10?'0':'')}` + `${date.getSeconds()}`;
-                var fullDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-                var jsonData = JSON.stringify({
+                let date = new Date();
+                let year = `${date.getFullYear()}`;
+                let month = `${(date.getMonth()<9?'0':'')}` + `${date.getMonth()+1}`;
+                let day = `${(date.getDate()<10?'0':'')}` + `${date.getDate()}`;
+                let hours = `${(date.getHours()<10?'0':'')}` + `${date.getHours()}`;
+                let minutes = `${(date.getMinutes()<10?'0':'')}` + `${date.getMinutes()}`;
+                let seconds = `${(date.getSeconds()<10?'0':'')}` + `${date.getSeconds()}`;
+                let fullDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+                let jsonData = JSON.stringify({
                     'origin': 'ECOMM',
                     'campaign': 'NEWSLETTER',
                     'date': fullDate,
@@ -194,27 +194,76 @@ const Methods = {
                 });
                 
                 //set form validation
-                var filtroEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-                var validUser = document.querySelector("input[name='validation-field']").value == 0;
-                var validEmail =  filtroEmail.test(document.querySelector('#nl_email').value);
-        
-                if (validEmail && validUser) {
-                    var XHR = new XMLHttpRequest();
-                    // XHR.open('POST', '//api.vtexcrm.com.br/' + jsnomeLoja + '/dataentities/PS/documents');
-                    XHR.open('POST', '/api/dataentities/PS/documents', true);
-                    // Add the required HTTP header
-                    XHR.setRequestHeader('accept', 'application/vnd.vtex.ds.v10+json');
-                    XHR.setRequestHeader('content-type', 'application/json');
-                    XHR.send(jsonData);
-                    //successful
-                    XHR.addEventListener('load', function (event) {
-                        document.querySelector('#nl_form .form-success').style.display = 'block';
-                        document.querySelector('#nl_form .form-controls').remove();
-                        document.querySelector('#nl_form #submit_button').remove();
+                // let filtroEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+                // let validUser = document.querySelector("input[name='validation-field']").value == 0;
+                // let validEmail;
+                
+                const setPlaceholder = (e, place) => {
+                    e.addEventListener('focus', (event) => {
+                        event.target.setAttribute("placeholder", place);
                     });
-                    //error
-                    XHR.addEventListener('error', function (event) {
-                        document.querySelector('#nl_form .form-error').style.display = 'block';
+                    e.addEventListener('focusout', (event) => {
+                        event.target.setAttribute("placeholder", "");
+                    });
+                }
+
+                const ValidateEmail = (_email) => {
+                    // get valid email
+                    let filter = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+                    if (_email == '' ||  _email == null) {
+                        document.querySelector('.form-newsletter .set--alert').innerHTML = '*Obrigatório.';
+                        document.querySelector('.form-newsletter .group-email').classList.add('has-warning');
+                        document.querySelector('.form-newsletter .set--alert').classList.remove('hidden');
+                    }else if(_email == undefined || !filter.test(_email)){
+                        document.querySelector('.form-newsletter .set--alert').innerHTML = 'Verifique se você digitou corretamente o e-mail.';
+                        document.querySelector('.form-newsletter .group-email').classList.add('has-error');
+                        document.querySelector('.form-newsletter .set--alert').classList.remove('hidden');
+                    } else {
+                        document.querySelector('.form-newsletter .group-email').classList.remove('has-error',  'has-warning');
+                        document.querySelector('.form-newsletter .set--alert').classList.add('hidden');
+                    }
+                }
+
+                document.querySelector('.form-newsletter .group-email input[name="nl_email"]').addEventListener("focus", function () {
+                    setPlaceholder(this, 'ex: seuemail@exemplo.com');
+                    document.querySelector('.form-newsletter .group-email').classList.remove('has-error', 'has-warning');
+                    document.querySelector('.form-newsletter .set--alert').classList.add('hidden');
+                });
+                document.querySelector('.form-newsletter .group-email input[name="nl_email]').addEventListener("focusOut", function () {
+                    setTimeout(() => {
+                        ValidateEmail(this.value);
+                    }, 1000);
+                    setPlaceholder(this, "");
+                });
+                // document.querySelector('#nl_email').addEventListener("keydown", () => {
+                //     validEmail =  filtroEmail.test(this.value);
+                //     if()
+                // });
+                
+                if (validEmail && validUser) {
+                    document.querySelector(".form-newsletter").classList.add("set--sending");
+                    new Promise((resolve) => {
+                        let request = new XMLHttpRequest();
+                        // request.open('POST', '//api.vtexcrm.com.br/' + jsnomeLoja + '/dataentities/PS/documents');
+                        request.open('POST', '/api/dataentities/PS/documents', true);
+                        // Add the required HTTP header
+                        request.setRequestHeader('accept', 'application/vnd.vtex.ds.v10+json');
+                        request.setRequestHeader('content-type', 'application/json');
+                        request.send(jsonData);
+                        request.onreadystatechange = () => {
+                            if (request.readyState === 4) {
+                                resolve(JSON.parse(request.response));
+                                // document.querySelector('#nl_form .form-success').style.display = 'block';
+                                // document.querySelector('#nl_form .form-controls').remove();
+                                // document.querySelector('#nl_form #submit_button').remove();
+                            }
+                        }
+                    }).then((response)=>{
+                        // setTimeout(() => {
+                            
+                        // }, 1000);
+                    }).catch(()=>{
+
                     });
                 }
             });

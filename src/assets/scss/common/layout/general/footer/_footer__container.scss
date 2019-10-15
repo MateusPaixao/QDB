@@ -159,33 +159,99 @@
                 justify-content: space-between;
                 width: 100%;
                 margin-bottom: 5px;
+                position: relative;
 
                 &__controls {
                     width: 100%;
                     display: flex;
                     border: .1em solid $g-primary;
                     border-radius: 20px;
-                    padding: 5px;
 
+                    .group-email{
+                        margin: 0;
+                        width: 90%;
+                        padding: 5px 10px;
+                        input{
+                            font-size: 1em;
+                            height: initial;
+                        }
+                        .control-label{
+                            top: .6em
+                        }
+                    }
+                    .group-email select ~ .control-label, .group-email input:focus ~ .control-label, .group-email input:valid ~ .control-label, .group-email input.form-file ~ .control-label, .group-email input.has-value ~ .control-label, .group-email textarea:focus ~ .control-label, .group-email textarea:valid ~ .control-label, .group-email textarea.form-file ~ .control-label, .group-email textarea.has-value ~ .control-label{
+                        top: -1.5em;
+                    }
                     &--email {
                         width: 90%;
+                        padding: 10px 0 10px 10px;
                     }
-
-                    &--label {
+                    &--submit {
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        width: 10%;
                         cursor: pointer;
+                        position: absolute;
+                        right: 5px;
+                        top: 0;
+                        height: 100%;
+                        border-radius: 50px;
+                        transition: all .2s cubic-bezier(.78, .03, .2, .9);
 
-                        svg {
+                        .newsletter__icon {
                             width: 30px;
-                            height: 30px;
+                            height: 100%;
+                            path{
+                                fill: $g-primary;
+                            }
+                            rect{
+                                stroke: $g-primary;
+                            }
                         }
                     }
-
-                    &--submit {
-                        display: none;
+                }
+                &.set--sending{
+                    .form-newsletter__controls{
+                        border: none;
+                        &--label {
+                            right: 0;
+                            height: 100%;
+                            width: 100%;
+                            background: $dusty;
+                            // @include animation("sendNewsletter", 2s, infinite, linear);
+                            // animation-fill-mode: forwards;
+                            // animation-delay: .2s;
+                            // @keyframes sendNewsletter {
+                            //     0%{
+                            //         transform: rotate(0deg);
+                            //     }
+                            //     100%{
+                            //         transform: rotate(360deg);
+                            //     }
+                            // }
+                            .newsletter__icon{
+                                width: 40px;
+                                @include animation("airplane", 2s, infinite, linear);
+                                animation-fill-mode: forwards;
+                                @keyframes airplane {
+                                    0%{
+                                        transform: translate(0, 0px) rotate(45deg);;
+                                    }
+                                    50%{
+                                        transform: translate(0, -2px) rotate(45deg);;
+                                    }
+                                    100%{
+                                        transform: translate(0, 0px) rotate(45deg);;
+                                    }
+                                }
+                                path{
+                                    fill: $w-secundary;
+                                }
+                                rect{
+                                    stroke: none;
+                                }
+                            }
+                        }
                     }
                 }
             }
