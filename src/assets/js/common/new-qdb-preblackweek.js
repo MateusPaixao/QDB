@@ -16,7 +16,7 @@ window.onload = function sendBFForm() {
         //get data 2019-09-17 15:42:31
         var date = new Date();
         var year = `${date.getFullYear()}`;
-        var month = `${(date.getMonth()<=10?'0':'')}` + `${date.getMonth()+1}`;
+        var month = `${(date.getMonth()<9?'0':'')}` + `${date.getMonth()+1}`;
         var day = `${(date.getDate()<10?'0':'')}` + `${date.getDate()}`;
         var hours = `${(date.getHours()<10?'0':'')}` + `${date.getHours()}`;
         var minutes = `${(date.getMinutes()<10?'0':'')}` + `${date.getMinutes()}`;
