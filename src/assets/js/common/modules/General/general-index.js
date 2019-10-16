@@ -11,7 +11,6 @@ const Methods = {
     init(){
         Footer.init();
         Header.init();
-        Minicart.init();
         TopBanner.init();
         PriceContainer.init();
         Methods.ServiceWorker();
@@ -21,6 +20,7 @@ const Methods = {
         if(getBrowserVendor() == "ie/trident"){
             Polyfill();
         }
+        Minicart.init();
         // Acessibilidade.init();
     },
 

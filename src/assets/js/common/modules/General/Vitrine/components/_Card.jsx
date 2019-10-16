@@ -116,7 +116,7 @@ class Card extends React.Component{
         Sku: this.props.info.items.find(i => i.itemId == e.dataset.sku),
       }, () => {
         // let listItem = document.querySelectorAll(".cardProduct__config__list");
-        // console.log(this.props.info);
+        console.log(this.props.info);
         this.setBeforePrice();
         this.setAvaliable();
         this.setState({
@@ -266,7 +266,7 @@ class Card extends React.Component{
 
   unAvaliable(){
     const EmailSend = (el) =>{
-      // console.log(el);
+      console.log(el);
       if(el.classList.contains("set--send")){
         this.ValidateEmail(el.parentElement.querySelector('.form-group.group-email input[name="email"]').value);
         if(el.parentElement.querySelector(".group-email").classList.contains("has-error") || 
@@ -292,7 +292,7 @@ class Card extends React.Component{
                 let request = new XMLHttpRequest();
                 let url = "https://www.quemdisseberenice.com.br/no-cache/AviseMe.aspx";
                 let params = "notifymeClientName=Quem+disse+berenice&notifymeClientEmail="+ el.parentElement.querySelector('.form-group.group-email input[name="email"]').value +"&notifymeIdSku=" + this.state.Sku.itemId;
-                // console.log(params);
+                console.log(params);
                 request.open('POST', url);
                 request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
                 request.onreadystatechange = () => {
@@ -359,7 +359,7 @@ class Card extends React.Component{
     const Add = () => {
       return new Promise ((resolve, reject) => {
         vtexjs.checkout.getOrderForm().then((orderForm) => {
-            // console.log(orderForm);
+            console.log(orderForm);
             if(!!orderForm.items.length){
                 orderForm.items.map((e, i) => {
                     if(e.id == this.state.Sku.itemId){
@@ -408,7 +408,7 @@ class Card extends React.Component{
   
                 // Foreach IE Testar
                 for(let i = 0; i < orderForm.items.length; i++ ){
-                  // console.log(orderForm.items[i]);
+                  console.log(orderForm.items[i]);
                   // if(!orderForm.items.isGift[i]){
                   //   qty += orderForm.items.quantity[i];
                   // }
@@ -422,7 +422,7 @@ class Card extends React.Component{
                 //     document.querySelector('.__cart-link a span').textContent = qty;
                 // }
             }).done(() => {
-                // resolve(console.log(orderForm));
+                resolve(console.log(orderForm));
                 let cartBag = document.querySelector(".header__options--item__cartBag");
                 cartBag.classList.add("set--highlightFill");
                 setTimeout(() => {

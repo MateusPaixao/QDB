@@ -4,6 +4,7 @@
    display: flex;
    align-items: center;
    flex-wrap: wrap;
+   height: 25%;
    background-color: $qdb-grey-l;
    &__discount{
     @extend %totals;

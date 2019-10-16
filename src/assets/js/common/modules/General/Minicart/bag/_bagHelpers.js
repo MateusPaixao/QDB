@@ -17,8 +17,8 @@ export default {
       return skuList.skus[0]
     }
     else{
-      let cor  =  document.querySelector('.skuList input:checked').dataset.value
-      return  skuList.skus.filter( (sku)=> sku.values.includes(cor))[0];
+      let cor = document.querySelector('.skuList input:checked').dataset.value
+      return skuList.skus.filter( (sku)=> sku.values.includes(cor))[0];
     }
   },
 
