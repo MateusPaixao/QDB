@@ -249,6 +249,7 @@
 
         @include d('768px') {
             margin: initial;
+            height: initial;
         }
 
         &--item {
@@ -576,7 +577,7 @@
     .header__middle-container{
         @include d('768px'){
             padding: -20px 0px !important;
-            margin-top: -30px;
+            margin-top: -40px;
             margin-bottom: 20px;
         }
     }
