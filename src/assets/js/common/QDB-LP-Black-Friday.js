@@ -1,12 +1,10 @@
-//form
-
 function sendBFForm() {
     //Form BlackFriday
     var btn = document.querySelector('#bf_form .btnSubmit');
     var lightBox = document.createElement('div');
     lightBox.classList.add('lightBox_submit');
-    lightBox.innerHTML = '<p><span>X</span>Para que a gente possa te avisar sobre as promoções da Black Week, você precisa preencher todos os dados aceitar receber nossas comunicações.</p>';
-    document.querySelector('body.pre-black-week').appendChild(lightBox);
+    lightBox.innerHTML = '<p><span>&times;</span>Para que a gente consiga te avisar sobre as promoções da SUPERBLACK, você precisa preencher todos os dados do formulário e aceitar receber nossas comunicações. Parece que algum campo ficou em branco ou foi preenchido de maneira incorreta. Pode revisar, por favor?</p>';
+    document.querySelector('body.lp-black-friday').appendChild(lightBox);
     document.querySelector('.lightBox_submit p span').addEventListener('click', function () {
         document.querySelector('.lightBox_submit').style.display = 'none';
     });
