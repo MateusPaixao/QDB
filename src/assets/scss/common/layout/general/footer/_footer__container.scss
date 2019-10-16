@@ -31,6 +31,9 @@
 
                     &:first-child {
                         margin-left: 20px;
+                        @include d('768px'){
+                            margin-left: 5px;
+                        }
                     }
                 }
 
@@ -70,7 +73,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            width: 33.3%;
+            margin-right: 20px;
 
             @include d('768px') {
                 width: 100%;
@@ -176,7 +179,8 @@
                             height: initial;
                         }
                         .control-label{
-                            top: .6em
+                            top: .75em;
+                            font-size: 1em;
                         }
                     }
                     .group-email select ~ .control-label, .group-email input:focus ~ .control-label, .group-email input:valid ~ .control-label, .group-email input.form-file ~ .control-label, .group-email input.has-value ~ .control-label, .group-email textarea:focus ~ .control-label, .group-email textarea:valid ~ .control-label, .group-email textarea.form-file ~ .control-label, .group-email textarea.has-value ~ .control-label{
@@ -277,9 +281,17 @@
             @include sans(1.2rem, $g-primary, 900, initial);
             margin-left: 30px;
             text-transform: capitalize;
+            @include d('768px'){
+                margin-left: initial;
+                margin: 10px;
+                width: 50%;
+            }
 
             &:first-child {
                 margin-left: 0;
+            }
+            &:last-child{
+                margin-right: 0;
             }
 
             &__item {

@@ -124,7 +124,10 @@ export function verifyIos() {
     };
     // iPhone X Detection example:
     if (iOS && screen.width == 1125 && screen.height === 2436) {
-        $('body').addClass('iphone');
+        document.querySelector("body").classList.add('iphone');
+        window.onload = () => {
+            window.scrollBy(0,1);
+        }
     }
 }
 export function getBrowserVendor() {

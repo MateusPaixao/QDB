@@ -11,6 +11,7 @@ const Methods = {
     init(){
         Footer.init();
         Header.init();
+        Minicart.init();
         TopBanner.init();
         PriceContainer.init();
         Methods.ServiceWorker();
@@ -20,7 +21,6 @@ const Methods = {
         if(getBrowserVendor() == "ie/trident"){
             Polyfill();
         }
-        Minicart.init();
         // Acessibilidade.init();
     },
 
@@ -233,7 +233,6 @@ const Methods = {
                     setTimeout(() => {
                         ValidateEmail(this.value);
                     }, 1000);
-                    setPlaceholder(this, "");
                 });
                 // document.querySelector('#nl_email').addEventListener("keydown", () => {
                 //     validEmail =  filtroEmail.test(this.value);
