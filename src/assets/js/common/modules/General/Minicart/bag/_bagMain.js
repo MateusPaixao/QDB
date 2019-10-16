@@ -43,21 +43,21 @@ export const bag = {
   },
 
   add() {
-    if (skuJson.skus.length > 1 && document.querySelector('.skuList input:checked') == null) {
-      alert('Por favor, selecione o modelo desejado.')
-      return
-    }
-    if (!helper.getSku(skuJson).available) {
-      alert("Produto indisponível")
-      return
-    }
+    // if (skuJson.skus.length > 1 && document.querySelector('.skuList input:checked') == null) {
+    //   alert('Por favor, selecione o modelo desejado.')
+    //   return
+    // }
+    // if (!helper.getSku(skuJson).available) {
+    //   alert("Produto indisponível")
+    //   return
+    // }
 
-    let quantity = document.querySelector('.quantity-field').value
-    if (quantity < 1) {
-      alert('Escolha a quantidade');
-      return
-    }
-    else {
+    // let quantity = document.querySelector('.quantity-field').value
+    // if (quantity < 1) {
+    //   alert('Escolha a quantidade');
+    //   return
+    // }
+
       bag.open();
       bag.disable();
       const product = {
@@ -69,8 +69,8 @@ export const bag = {
         bag.render(items, totalizers);
         bag.enable();
       });
-    }
-  },
+    },
+  
 
   remove(target) {
     bag.disable();
