@@ -179,13 +179,13 @@ const Methods = {
         })
         .then(res => res.json())
         .then((reviews) => {
-            console.log(reviews);
+            // console.log(reviews);
         })
     },
     AddToCart: () => {
         document.querySelector(".w-product--wrapper--infos--buy-button").addEventListener("click", () => {
             let skuId = document.querySelector(".w-gerador--datas").getAttribute("data-sku");
-            console.log(skuId)
+            // console.log(skuId)
             let quantity;
             vtexjs.checkout.getOrderForm().then(function (orderForm) {
                     // console.log(orderForm);

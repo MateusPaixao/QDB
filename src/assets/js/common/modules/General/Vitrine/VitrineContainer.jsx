@@ -206,7 +206,7 @@ const Methods = {
                 this.slider(this.state.Vitrine, this.state.PerPage);
               }
               this.isInViewport();
-              console.log(this.state.Products);
+              // console.log(this.state.Products);
             })
         })
       }

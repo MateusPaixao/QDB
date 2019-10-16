@@ -29,12 +29,12 @@ const Methods = {
             col.top[0].displays[0].recommendations.map((p) => {
                 let Item = {};
                 Item.Product = p.id;
-                console.log(p.skus.find(el => el.status == "available"));
+                // console.log(p.skus.find(el => el.status == "available"));
                 Item.SkuHighlight = p.skus.find(el => el.status == "available").sku;
                 Collection.push(Item);
             });
             document.querySelector(".topProducts__title").textContent = col.top[0].title;
-            console.log(Collection);
+            // console.log(Collection);
 
             Placeholder.innerHTML = "";
             let Col = "collection" + idCollection;
