@@ -249,6 +249,7 @@
 
         @include d('768px') {
             margin: initial;
+            height: initial;
         }
 
         &--item {

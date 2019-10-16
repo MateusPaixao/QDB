@@ -16,6 +16,7 @@ export function getiPhoneModel() {
 
     // iPhone X
     if ((window.screen.height / window.screen.width == 812 / 375) && (window.devicePixelRatio == 3)) {
+        document.body.classList.add('iphone');
         return "iPhone X";
         // iPhone 6+/6s+/7+ and 8+
     } else if ((window.screen.height / window.screen.width == 736 / 414) && (window.devicePixelRatio == 3)) {
@@ -23,20 +24,35 @@ export function getiPhoneModel() {
             default:
                 return "iPhone 6 Plus, 6s Plus, 7 Plus or 8 Plus";
             case "Apple A8 GPU":
+                window.onload = () => {
+                    window.scrollBy(0,1);
+                }
                 document.body.classList.add('iphone');
                 return "iPhone 6 Plus";
             case "Apple A9 GPU":
+                window.onload = () => {
+                    window.scrollBy(0,1);
+                }
                 document.body.classList.add('iphone');
                 return "iPhone 6s Plus";
             case "Apple A10 GPU":
+                window.onload = () => {
+                    window.scrollBy(0,1);
+                }
                 document.body.classList.add('iphone');
                 return "iPhone 7 Plus";
             case "Apple A11 GPU":
+                window.onload = () => {
+                    window.scrollBy(0,1);
+                }
                 document.body.classList.add('iphone');
                 return "iPhone 8 Plus";
             case "Apple GPU":
+                window.onload = () => {
+                    window.scrollBy(0,1);
+                }
                 document.body.classList.add('iphone');
-                return "iPhone 7 Plus";
+                return "iPhone Default";
         }
         // iPhone 6+/6s+/7+ and 8+ in zoom mode
     } else if ((window.screen.height / window.screen.width == 667 / 375) && (window.devicePixelRatio == 3)) {
@@ -44,17 +60,35 @@ export function getiPhoneModel() {
             default:
                 return "iPhone 6 Plus, 6s Plus, 7 Plus or 8 Plus (display zoom)";
             case "Apple A8 GPU":
+                window.onload = () => {
+                    window.scrollBy(0,1);
+                }
                 document.body.classList.add('iphone');
                 return "iPhone 6 Plus (display zoom)";
             case "Apple A9 GPU":
+                window.onload = () => {
+                    window.scrollBy(0,1);
+                }
                 document.body.classList.add('iphone');
                 return "iPhone 6s Plus (display zoom)";
             case "Apple A10 GPU":
+                window.onload = () => {
+                    window.scrollBy(0,1);
+                }
                 document.body.classList.add('iphone');
                 return "iPhone 7 Plus (display zoom)";
             case "Apple A11 GPU":
+                window.onload = () => {
+                    window.scrollBy(0,1);
+                }
                 document.body.classList.add('iphone');
                 return "iPhone 8 Plus (display zoom)";
+            case "Apple GPU":
+                window.onload = () => {
+                    window.scrollBy(0,1);
+                }
+                document.body.classList.add('iphone');
+                return "iPhone Default";
         }
         // iPhone 6/6s/7 and 8
     } else if ((window.screen.height / window.screen.width == 667 / 375) && (window.devicePixelRatio == 2)) {
@@ -64,11 +98,29 @@ export function getiPhoneModel() {
             case "Apple A8 GPU":
                 return "iPhone 6";
             case "Apple A9 GPU":
+                document.body.classList.add('iphone');
+                window.onload = () => {
+                    window.scrollBy(0,1);
+                }
                 return "iPhone 6s";
             case "Apple A10 GPU":
+                document.body.classList.add('iphone');
+                window.onload = () => {
+                    window.scrollBy(0,1);
+                }
                 return "iPhone 7";
             case "Apple A11 GPU":
+                document.body.classList.add('iphone');
+                window.onload = () => {
+                    window.scrollBy(0,1);
+                }
                 return "iPhone 8";
+            case "Apple GPU":
+                window.onload = () => {
+                    window.scrollBy(0,1);
+                }
+                document.body.classList.add('iphone');
+                return "iPhone Default";
         }
         // iPhone 5/5C/5s/SE or 6/6s/7 and 8 in zoom mode
     } else if ((window.screen.height / window.screen.width == 1.775) && (window.devicePixelRatio == 2)) {
@@ -122,7 +174,14 @@ export function verifyIos() {
         width: window.screen.width * ratio,
         height: window.screen.height * ratio
     };
-    // iPhone X Detection example:
+    // iPhone 6s, 7S, 8S Detection
+    if(iOS &&  screen.height == 2001 && screen.height === 1125){
+        document.querySelector("body").classList.add('iphone');
+        window.onload = () => {
+            window.scrollBy(0,1);
+        }
+    }
+    // iPhone X Detection
     if (iOS && screen.width == 1125 && screen.height === 2436) {
         document.querySelector("body").classList.add('iphone');
         window.onload = () => {
