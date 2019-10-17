@@ -220,7 +220,7 @@ const Methods = {
           })
           return (
             <React.Fragment>
-              <div className={"cardProductContainer " + this.state.Vitrine}>
+              <div className={`cardProductContainer slider-${this.state.HasSlider} ${this.state.Vitrine}`}>
                 {cards}
               </div>
             </React.Fragment>

@@ -185,7 +185,9 @@
                         img{
                             cursor: pointer;
                             height: 100%;
-                            position: relative;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
                             object-fit: cover;
                             object-position: center;
                         }
@@ -1026,6 +1028,17 @@
             .cardProduct--addToCart{
                 bottom: 0;
             }
+        }
+    }
+    &.slider-false{
+        display: flex;
+        flex-flow: wrap;
+        width: 100%;
+        .cardProduct{
+            min-height: 380px;
+            min-width: 280px;
+            width: calc(100% / 5);
+            margin: 5px;
         }
     }
 }
