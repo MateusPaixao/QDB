@@ -913,3 +913,137 @@ ul{
 		max-width: 60px;
 	}
 }
+
+/* CATEGORIA */
+.category_banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 110%;
+    margin-left: -5%;
+    @include sans(1vw, $w-secundary, normal, normal);
+
+    @include d(l) {
+        font-size: 16px;
+    }
+
+    @include d(s) {
+        flex-flow: column;
+        font-size: 3vw;
+    }
+
+    @include d(xs) {
+        flex-flow: column-reverse;
+        font-size: 4vw;
+    }
+
+    img {
+        object-position: bottom;
+        object-fit: contain;
+        max-width: 100%;
+        width: initial;
+        height: initial;
+    }
+
+    .box-banner a {
+        display: flex;
+    }
+
+    .category_banner_texto {
+        color: $w-secundary;
+        max-width: 500px;
+        padding: 20px 0;
+
+        @include d(s) {
+            padding: 20px;
+        }
+
+        @include d(xs) {
+            padding: 20px;
+        }
+
+        h2 {
+            @include sans(2.5em, $w-secundary, 900, normal);
+        }
+
+        p {
+            margin-top: 10px;
+            @include sans(.875em, $w-secundary, 400, 1.5em);
+        }
+    }
+}
+
+// .category_banner {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   font-weight: normal;
+//   font-size: 1vw;
+//   color: #fff;
+//   line-height: normal;
+//   width: 115%;
+//   margin-left: -5%;
+// }
+
+// @media screen and (min-width: 1199px) {
+//   .category_banner {
+//     font-size: 16px;
+//   }
+// }
+
+// @media screen and (min-width: 575px) and (max-width: 767px) {
+//   .category_banner {
+//     flex-flow: column;
+//     font-size: 3vw;
+//   }
+// }
+
+// @media screen and (max-width: 575px) {
+//   .category_banner {
+//     flex-flow: column-reverse;
+//     font-size: 4vw;
+//   }
+// }
+
+// .category_banner img {
+//   -o-object-position: bottom;
+//      object-position: bottom;
+//   -o-object-fit: contain;
+//      object-fit: contain;
+//   max-width: 100%;
+//   padding: 10px;
+// }
+
+// .category_banner .category_banner_texto {
+//   color: #fff;
+//   max-width: 500px;
+//   margin-left: 5%;
+// }
+
+// @media screen and (min-width: 575px) and (max-width: 767px) {
+//   .category_banner .category_banner_texto {
+//     margin-left: 0%;
+//     padding: 20px;
+//   }
+// }
+
+// @media screen and (max-width: 575px) {
+//   .category_banner .category_banner_texto {
+//     margin-left: 0%;
+//     padding: 20px;
+//   }
+// }
+
+// .category_banner .category_banner_texto h2 {
+//   font-family: "CentraleSans-Bold";
+//   font-weight: 900;
+//   font-size: 2.5em;
+//   color: #fff;
+//   line-height: normal;
+// }
+
+// .category_banner .category_banner_texto p {
+//   line-height: 1.5em;
+//   margin-top: 10px;
+// }
+/* FIM CATEGORIA */
