@@ -593,7 +593,7 @@ class Card extends React.Component{
     }
     return (
       <div className={`cardProduct cardProduct-${this.props.info.productId} avaliable-${this.state.Avaliable} change-${this.state.openConfig} letMeKnow-${this.state.letMeKnow}`} data-prod={this.props.info.productId} /*onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}*/>
-        {this.props.info.items[0].variations != undefined &&
+        {this.props.info.items[0].variations != undefined && this.props.info.items.length > 1 &&
           <React.Fragment>
             <span className={`cardProduct--change`} onClick={e => this.openConfig()}>
               <span className="cardProduct--change__dots"></span>
