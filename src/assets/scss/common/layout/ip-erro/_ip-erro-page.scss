@@ -1,7 +1,25 @@
 //AUXILIAR CLASSES
+.clearfix {
+    &:before,
+    &:after {
+        content: ' ';
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+//INITIAL
 .ip-error img {
     max-width: 100%;
     margin: auto;
+    display: block;
+    transition: transform .2s;
+    &:hover {
+        filter: blur(1px);
+        transform: scale(1.1);
+    }
 }
 
 .ip-error {
@@ -12,31 +30,44 @@
       color: #222;
     }
     p {
-        font-size: 20px;
+        font-size: 16px;
         color: #4A4A4A;
-        font-weight: bold;
         width: 580px;
         margin: 30px auto;
+        max-width: 80%;
     }
     &__inner {
-        display: flex;
-        width: 1000px;
+        display: inline-block;
         margin: auto;
         max-width: 100%;
-        justify-content: space-between;
     }
     &__item {
-        flex: 1;
-        max-width: 220px;
-        position: relative;
+        float: left;
+        width: 50%;
+        a {
+            position: relative;
+            display: block;
+            overflow: hidden;
+        }
         h3 {
             position: absolute;
             z-index: 2;
             left: 0;
             right: 0;
-            top: 40%;
+            top: 43%;
             color: #fff;
             font-size: 19px;
+            text-transform: uppercase;
+        }
+    }
+    @media(min-width: 768px) {
+        p {
+            font-size: 20px;
+        }
+        &__item {
+            max-width: 220px;
+            width: 25%;
+            padding: 0 5px;
         }
     }
 }
