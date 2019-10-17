@@ -16,10 +16,6 @@
     margin: auto;
     display: block;
     transition: transform .2s;
-    &:hover {
-        filter: blur(1px);
-        transform: scale(1.1);
-    }
 }
 
 .ip-error {
@@ -48,8 +44,12 @@
             position: relative;
             display: block;
             overflow: hidden;
+            &:hover img {
+                filter: blur(1px);
+                transform: scale(1.1);
+            }
         }
-        h3 {
+        &__title {
             position: absolute;
             z-index: 2;
             left: 0;
@@ -58,6 +58,11 @@
             color: #fff;
             font-size: 19px;
             text-transform: uppercase;
+            span {
+                margin-left: 10px;
+                font-size: 25px;
+                line-height: 15px;
+            }
         }
     }
     @media(min-width: 768px) {
