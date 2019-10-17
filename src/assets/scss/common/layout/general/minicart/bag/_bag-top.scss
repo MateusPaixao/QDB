@@ -42,18 +42,24 @@
         }
 
         &__icon {
-            font-size: calc(18rem/16);
-
-            padding: 10px;
-
-            // &::before {
-            //     display: inline-block;
-            //     font-family: 'Eudoricon';
-            //     content: '\e99f';
-            //     padding: 0 10px;
-            // }
+            font-size: calc(14rem/16);
+            padding: 1px 4px;
+            color: #67605F;
+            border-radius: 20px;
+            align-items: center;
+            justify-content: center;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            top: 55%;
+            left: 50%;
         }
-
+        &__amount{
+            position: relative;
+            .bag-svg{
+                width: 30px;
+                height: 30px;
+            }
+        }
         &__title {
             font-size: calc(18rem/16);
         }

@@ -300,6 +300,10 @@ export function isInViewport() {
             image.src = image.dataset.src;
         }
 
+        if (image.dataset && image.dataset.img) {
+            image.src = image.dataset.img;
+        }
+
         if (image.dataset && image.dataset.srcset) {
             image.srcset = image.dataset.srcset;
         }

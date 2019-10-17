@@ -24,7 +24,9 @@
         height: max-content;
         flex-wrap: wrap;
         padding: 2.5% 0 2.5% 1%;
+        margin-left: 1%;
         opacity: 0;
+        border-bottom: 1px solid $qdb-grey-l;
         animation: bagShow 2s ease forwards;
 
         @media (max-width: 480px) {
