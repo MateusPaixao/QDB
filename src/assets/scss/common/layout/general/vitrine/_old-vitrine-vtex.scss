@@ -1,0 +1,71 @@
+.product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+    position: relative;
+    padding: 0 30px;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+    transition: all .3s ease;
+
+    &:hover {
+        border: 1px solid #d0d0d0
+    }
+}
+
+.product-content {
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    font-family: "CentraleSans-Regular", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    p {
+        color: #231f20;
+        font-size: 14px;
+        font-weight: 500;
+        height: 46px;
+        overflow: hidden;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 3px;
+        text-transform: lowercase;
+    }
+    del {
+        color: #231f20;
+        font-size: 12px;
+        text-decoration: line-through;
+    }
+
+    strong {
+        color: #231f20;
+        font-size: 18px;
+        display: block;
+        font-weight: 700;
+        line-height: 1;
+        margin-top: 3px;
+    }
+
+    small {
+        display: block;
+        color: #231f20;
+        font-size: 12px;
+        font-weight: 300;
+        margin-top: 5px;
+        min-height: 14px;
+    }
+}
+
+html {
+    .section-contact.category-chaordic-bottom {
+        margin-top: 100px;
+    }
+}
+a.vejamais-vtexresearch {
+    font: 16px "CentraleSans-Regular", sans-serif !important;
+}

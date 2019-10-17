@@ -5,7 +5,7 @@ import Footer from "./Footer/_footer-index";
 import Minicart from './Minicart/_minicart-index';
 import PriceContainer from "./Regional/PriceContainer.jsx";
 import TopBanner from "./TopBanner/topbanner-index";
-import {getCookie, getBrowserVendor, isInViewport,Polyfill} from "../../global/global-index";
+import {getCookie, getBrowserVendor, isInViewport,Polyfill, setVitrineDataImg} from "../../global/global-index";
 
 const Methods = {
     init(){
@@ -15,6 +15,7 @@ const Methods = {
         PriceContainer.init();
         Methods.ServiceWorker();
         Methods.Skeleton();
+        setVitrineDataImg();
         isInViewport();
         Methods.SendNewsletter();
         if(getBrowserVendor() == "ie/trident"){
