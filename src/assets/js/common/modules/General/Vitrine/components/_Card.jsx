@@ -27,9 +27,6 @@ class Card extends React.Component{
     this.getImgSku = this.getImgSku.bind(this);
     this.OpenLetMeKnow = this.OpenLetMeKnow.bind(this);
     this.CloseLetMeKnow = this.CloseLetMeKnow.bind(this);
-    this.setPlaceholder = this.setPlaceholder.bind(this);
-    this.ValidateEmail = this.ValidateEmail.bind(this);
-    this.EmailCheck = this.EmailCheck.bind(this);
   }
 
   setAvaliable(){
@@ -203,52 +200,9 @@ class Card extends React.Component{
     )
   }
 
-  setPlaceholder(e, place){
-    e.addEventListener('focus', (event) => {
-        event.target.setAttribute("placeholder", place);
-    });
-    e.addEventListener('focusout', (event) => {
-        event.target.setAttribute("placeholder", "");
-    });
-  }
-
-  ValidateEmail(_email){
-    // get valid email
-    let filter = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    if (_email == '' ||  _email == null) {
-        document.querySelector('.form-group.group-email small').innerHTML = '*Obrigatório.';
-        document.querySelector('.form-group.group-email').classList.add('has-warning');
-        document.querySelector('.form-group.group-email small').classList.remove('hidden');
-    }else if(_email == undefined || !filter.test(_email)){
-        document.querySelector('.form-group.group-email small').innerHTML = 'Verifique se você digitou corretamente o e-mail.';
-        document.querySelector('.form-group.group-email').classList.add('has-error');
-        document.querySelector('.form-group.group-email small').classList.remove('hidden');
-    } else {
-        document.querySelector('.form-group.group-email').classList.remove('has-error',  'has-warning');
-        document.querySelector('.form-group.group-email small').classList.add('hidden');
-    }
-  }
-
-  EmailCheck(){
-      let _this = this;
-      document.querySelector('.form-group.group-email input[name="email"]').addEventListener("focus", function () {
-          _this.setPlaceholder(this, 'ex: seuemail@exemplo.com');
-          document.querySelector('.form-group.group-email').classList.remove('has-error', 'has-warning');
-          document.querySelector('.form-group.group-email small').classList.add('hidden');
-      });
-      document.querySelector('.form-group.group-email input[name="email"]').addEventListener("focusOut", function () {
-          setTimeout(() => {
-              _this.ValidateEmail(this.value);
-          }, 1000);
-          _this.setPlaceholder(this, "");
-      });
-  }
-
   OpenLetMeKnow(){
     this.setState({
       letMeKnow: true
-    }, () => {
-      this.EmailCheck();
     })
   }
 
@@ -265,12 +219,45 @@ class Card extends React.Component{
   }
 
   unAvaliable(){
+    let filter = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    const permitSend = (e) =>{
+      if(filter.test(e.value)){
+        e.parentElement.parentElement.querySelector('.sendMe-action').classList.remove("set--forbidden");
+        e.parentElement.parentElement.querySelector('.sendMe-action').classList.add("set--send");
+      }else{
+        e.parentElement.parentElement.querySelector('.sendMe-action').classList.add("set--forbidden");
+        e.parentElement.parentElement.querySelector('.sendMe-action').classList.remove("set--send");
+      }
+    }
+    const ValidateEmail = (e) => {
+      if (e.value == '' ||  e.value == null) {
+          e.parentElement.querySelector('small').innerHTML = '*Obrigatório.';
+          e.parentElement.classList.add('has-warning');
+          e.parentElement.querySelector('small').classList.remove('hidden');
+      }else if(e.value == undefined || !filter.test(e.value)){
+          e.parentElement.querySelector('small').innerHTML = 'Verifique se você digitou corretamente o e-mail.';
+          e.parentElement.classList.add('has-error');
+          e.parentElement.querySelector('small').classList.remove('hidden');
+      } else {
+          e.parentElement.classList.remove('has-error',  'has-warning');
+          e.parentElement.querySelector('small').classList.add('hidden');
+      }
+    }
+    const _onFocus = (e) =>{
+        e.setAttribute("placeholder", 'ex: seuemail@exemplo.com');
+        e.parentElement.classList.remove('has-error', 'has-warning');
+        e.parentElement.querySelector('small').classList.add('hidden');
+    }
+    const _onBlur = (e) =>{
+        e.setAttribute("placeholder", '');
+        ValidateEmail(e);
+    }
+
     const EmailSend = (el) =>{
-      console.log(el);
       if(el.classList.contains("set--send")){
-        this.ValidateEmail(el.parentElement.querySelector('.form-group.group-email input[name="email"]').value);
+        ValidateEmail(el.parentElement.querySelector('.form-group.group-email input[name="email"]'));
         if(el.parentElement.querySelector(".group-email").classList.contains("has-error") || 
-          el.parentElement.querySelector(".group-email").classList.contains("has-warning")){
+            el.parentElement.querySelector(".group-email").classList.contains("has-warning")){
             el.parentElement.querySelector(".form-group.group-email").classList.remove("set--sending");
         }else{
             el.parentElement.querySelector(".form-group.group-email").classList.add("set--sending");
@@ -340,13 +327,24 @@ class Card extends React.Component{
             Saiba quando <b className="cardProduct__sendMe__steps__title__product">{this.state.Sku.name}</b> ficar disponível
           </p>
           
-          <div class="form-group group-email">
-              <input class="field _form-email" type="text" name="email" required="required" id="field-email" placeholder="" autocomplete="off" />
+          <div class="">
+              <input 
+                id="field-email" 
+                class="field _form-email" 
+                type="text" 
+                name="email" 
+                required="required" 
+                placeholder="" 
+                autocomplete="off" 
+                // onFocus={e => _onFocus(e.currentTarget)} 
+                // onBlur={e => _onBlur(e.currentTarget)}
+                // onChange={e => permitSend(e.currentTarget)}
+              />
               <label class="control-label" for="email">E-mail</label>
               <i class="input-bar"></i>
               <small class="hidden">E-mail obrigatório</small>
           </div>
-          <button class="sendMe-action set--send" onClick={(e) => EmailSend(e.currentTarget)}><svg className="cardProduct--letMeKnow__mail" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z" fill="#FDFDFD"/></svg> Enviar</button>
+          <button class="sendMe-action set--forbidden" onClick={(e) => EmailSend(e.currentTarget)}><svg className="cardProduct--letMeKnow__mail" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z" fill="#FDFDFD"/></svg> Enviar</button>
         </div>
       </div>
     )
