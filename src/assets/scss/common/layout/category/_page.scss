@@ -1,4 +1,64 @@
+.cols {
+    margin: 0 -15px
+}
 
+.col {
+    float: left;
+    width: 100%;
+    padding: 0 15px
+}
+
+.col-1of2 {
+    width: 50%
+}
+
+.col-1of3 {
+    width: 33.3%
+}
+
+.col-1of4 {
+    width: 25%
+}
+
+.col-1of5 {
+    width: 20%
+}
+
+.col-size1 {
+    width: 67.92%
+}
+
+.col-size2 {
+    width: 32.08%
+}
+
+.col-size3 {
+    width: 38.27%
+}
+
+.col-size4 {
+    width: 26.85%
+}
+
+.col-size5 {
+    width: 34.88%
+}
+
+.col-size6 {
+    width: 40.54%
+}
+
+.col-size7 {
+    width: 24%
+}
+
+.col-size8 {
+    width: 57%
+}
+
+.col-size9 {
+    width: 43%
+}
 /* ------------------------------------------------------------ *\
 	#Helpers
 \* ------------------------------------------------------------ */
@@ -25,8 +85,11 @@ ul{
 	position: relative;
 	display: inline-block;
 	vertical-align: top;
-	width: 25%;
+	width: calc(100% / 4);
 	margin-bottom: 20px;
+	@include d(xs){
+		width: calc(100% / 2);
+	}
 }
 
 /* ------------------------------------------------------------ *\
@@ -735,9 +798,9 @@ ul{
 	.category .product .product-content{
 	    margin-top: 8px;	
 	}
-	.category .wrapper .wrapper-inner .container .main .filters .shell .filters-body .cols .main .vitrine .pratileira .pratileira ul li {
-		width: 33% !important;
-	}
+	// .category .wrapper .wrapper-inner .container .main .filters .shell .filters-body .cols .main .vitrine .pratileira .pratileira ul li {
+	// 	width: 33% !important;
+	// }
 	.category .wrapper-menu {
 	    position: fixed;
 	    width: 260px;
