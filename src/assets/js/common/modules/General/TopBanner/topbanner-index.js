@@ -18,6 +18,7 @@ const Methods = {
             }
             // $('.w-counter--slick').slick();
         }
+        Methods.flip();
     },
     homeCountDown() {
         const corBg = document.querySelector('.w-counter--bg').textContent;
@@ -97,6 +98,39 @@ const Methods = {
                 btnCopy.classList.remove("btn-success");
             }, 3000);
         })
+    },
+    flip() {
+        const flipContainer = document.querySelector('.flip');
+        function startFlip() {
+            const flip = new Siema({
+                selector: '.flip',
+                duration: 200,
+                easing: 'ease-out',
+                perPage: 1,
+                startIndex: 0,
+                draggable: true,
+                multipleDrag: true,
+                threshold: 20,
+                loop: true,
+                rtl: false
+            });
+            const next = document.querySelector('.siemaNext');
+            const prev = document.querySelector('.siemaPrev');
+    
+            next.addEventListener('click', () => {
+                flip.next();
+            })
+            prev.addEventListener('click', () => {
+                flip.prev();
+            })
+
+        }
+        setTimeout(() => {
+            flip.next();
+        }, 2000);
+        // Verify if has topbanner
+        flipContainer.childNodes > 0 ? startFlip() : startFlip();
+
     }
 }
 

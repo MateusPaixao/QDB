@@ -1,0 +1,43 @@
+%arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50px;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    @include d('500px'){
+        width: 25px;
+    }
+    &:before{
+        font-size: 2em;
+        color: #fdfdfd;
+    }
+}
+
+.flip-banner {
+    position: relative;
+    .siemaPrev {
+        @extend %arrow;
+        left: 20px;
+        @include d('500px'){
+            left: 0;
+        }
+
+        &:before {
+            content: '⯇';
+        }
+    }
+
+    .siemaNext {
+        @extend %arrow;
+        right: 20px;
+        @include d('500px'){
+            right: 0;
+        }
+        &:before {
+            content: '⯈';
+        }
+    }
+}
