@@ -1463,7 +1463,7 @@ template {
   justify-content: space-between;
   align-items: center;
   max-width: 510px;
-  min-height: 420px;
+  min-height: 250px;
   position: relative;
 }
 
@@ -1475,7 +1475,7 @@ template {
   padding: 20px;
   font-family: "CentraleSans-Bold";
   font-weight: 900;
-  font-size: 3em;
+  font-size: 2em;
   color: #FDFDFD;
   line-height: normal;
   width: 100%;
@@ -1551,6 +1551,7 @@ template {
 
 .logged section.clube-das-beres-container ._benefits {
   margin-left: 40px;
+  flex-grow: 1;
 }
 
 @media screen and (min-width: 575px) and (max-width: 767px) {
@@ -1575,6 +1576,8 @@ template {
 .logged section.clube-das-beres-container ._benefits ul li {
   display: flex;
   align-items: center;
+  margin-bottom: 15px;
+  font-size: 16px;
 }
 
 .logged section.clube-das-beres-container ._benefits ul li svg {
