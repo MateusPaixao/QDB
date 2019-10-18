@@ -474,7 +474,7 @@
 }
 
 .resultado-busca .wrapper .wrapper-inner .container .main .filters .shell .filters-body .cols .main .vitrine .pratileira .pratileira ul li {
-    width: 25%;
+    width: calc(100% / 4);
     display: inline-block;
     vertical-align: top;
     margin-bottom: 50px;

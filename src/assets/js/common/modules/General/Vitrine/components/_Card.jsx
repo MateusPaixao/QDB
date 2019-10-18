@@ -327,18 +327,17 @@ class Card extends React.Component{
             Saiba quando <b className="cardProduct__sendMe__steps__title__product">{this.state.Sku.name}</b> ficar disponível
           </p>
           
-          <div class="">
+          <div class="form-group group-email">
               <input 
                 id="field-email" 
                 class="field _form-email" 
                 type="text" 
                 name="email" 
                 required="required" 
-                placeholder="" 
-                autocomplete="off" 
-                // onFocus={e => _onFocus(e.currentTarget)} 
-                // onBlur={e => _onBlur(e.currentTarget)}
-                // onChange={e => permitSend(e.currentTarget)}
+                placeholder=""
+                onFocus={e => _onFocus(e.currentTarget)} 
+                onBlur={e => _onBlur(e.currentTarget)}
+                onChange={e => permitSend(e.currentTarget)}
               />
               <label class="control-label" for="email">E-mail</label>
               <i class="input-bar"></i>
