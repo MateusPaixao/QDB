@@ -185,6 +185,7 @@
                         img{
                             cursor: pointer;
                             height: 100%;
+                            width: 100%;
                             position: absolute;
                             top: 0;
                             left: 0;
@@ -677,10 +678,10 @@
                             
                             @keyframes highlight-skeleton {
                                 60%{
-                                    transform: translateX(-45%);
+                                    transform: skew(-15deg) translateX(-45%);
                                 }
                                 100%{
-                                    transform: translateX(125%);
+                                    transform: skew(-15deg) translateX(125%);
                                 }
                             }
                         }
@@ -961,6 +962,11 @@
                         .cardProduct--letMeKnow__mail{
                             margin-right: 5px;
                             height: 1em;
+                        }
+                        &.set--forbidden{
+                            opacity: .7;
+                            pointer-events: none;
+                            cursor: not-allowed;
                         }
                     }
                 }
