@@ -1,36 +1,16 @@
-@mixin mq($width, $type: max) {
-    @if($width == 'tb') {
-        $width: 768px;
-    }
-  
-    @if($width == 'ml') {
-      $width: 425px;
-    }
-  
-    @if($width == 'mm') {
-      $width: 375px;
-    }
-    @media only screen and (#{$type}-width: $width) {
-        @content;
-    }
-}
 .vitrine { 
     .pratileira {
         .pratileira { 
             ul {
                 display: flex;
                 flex-wrap: wrap;
+                width: 100%;
                 li {
                     display: flex;
                     margin-bottom: 20px;
                     flex-direction: column;
                     align-items: center;
-                    @include mq('768px'){
-                        width: 33% !important;
-                    }
-                    @include mq('420px'){
-                        width: 50% !important;
-                    }
+
                 }
             }
         }
