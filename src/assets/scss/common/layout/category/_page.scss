@@ -59,6 +59,13 @@
 .col-size9 {
     width: 43%
 }
+#yv-review-quickreview a,
+html .yv-bootstrap .yv-filter,
+.yv-bootstrap .yv-clear-filters,
+html .yv-bootstrap .yv-star-color {
+    color: #686162 !important;
+    font-family: "CentraleSans-Regular" !important;
+}
 /* ------------------------------------------------------------ *\
 	#Helpers
 \* ------------------------------------------------------------ */

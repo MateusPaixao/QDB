@@ -7,7 +7,7 @@ const Methods = {
         // isInViewport();
         // BuildVitrines.init();
         oldScripts.init();
-        // SmartResearch.init();
+        SmartResearch.init();
     }
 }
 export default {

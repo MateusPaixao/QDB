@@ -15,9 +15,9 @@ const Methods = {
         PriceContainer.init();
         Methods.ServiceWorker();
         Methods.Skeleton();
+        Methods.SendNewsletter();
         setVitrineDataImg();
         isInViewport();
-        Methods.SendNewsletter();
         if(getBrowserVendor() == "ie/trident"){
             Polyfill();
         }
@@ -190,14 +190,14 @@ const Methods = {
                     'campaign': 'NEWSLETTER',
                     'date': fullDate,
                     'name': null,
-                    'email': document.querySelector('#nl_email').value,
+                    'email': document.querySelector('.newsletter-email').value,
                     'acceptEmail': true
                 });
                 
                 //set form validation
                 // let filtroEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
                 // let validUser = document.querySelector("input[name='validation-field']").value == 0;
-                // let validEmail;
+                let validEmail;
                 
                 const setPlaceholder = (e, place) => {
                     e.addEventListener('focus', (event) => {
@@ -230,17 +230,18 @@ const Methods = {
                     document.querySelector('.form-newsletter .group-email').classList.remove('has-error', 'has-warning');
                     document.querySelector('.form-newsletter .set--alert').classList.add('hidden');
                 });
-                document.querySelector('.form-newsletter .group-email input[name="nl_email]').addEventListener("focusOut", function () {
+                document.querySelector('.form-newsletter .group-email input[name="nl_email"]').addEventListener("focusOut", function () {
                     setTimeout(() => {
                         ValidateEmail(this.value);
                     }, 1000);
                 });
                 // document.querySelector('#nl_email').addEventListener("keydown", () => {
-                //     validEmail =  filtroEmail.test(this.value);
-                //     if()
+                //     validEmail = filtroEmail.test(this.value);
                 // });
                 
-                if (validEmail && validUser) {
+                if (!document.querySelector('.form-newsletter .group-email').classList.contains("has-error") || 
+                    !document.querySelector('.form-newsletter .group-email').classList.contains("has-warning")) {
+
                     document.querySelector(".form-newsletter").classList.add("set--sending");
                     new Promise((resolve) => {
                         let request = new XMLHttpRequest();
@@ -253,17 +254,20 @@ const Methods = {
                         request.onreadystatechange = () => {
                             if (request.readyState === 4) {
                                 resolve(JSON.parse(request.response));
-                                // document.querySelector('#nl_form .form-success').style.display = 'block';
-                                // document.querySelector('#nl_form .form-controls').remove();
-                                // document.querySelector('#nl_form #submit_button').remove();
                             }
                         }
                     }).then((response)=>{
-                        // setTimeout(() => {
-                            
-                        // }, 1000);
+                        document.querySelector(".form-newsletter").classList.add("set--sended");
+                        document.querySelector(".form-newsletter").classList.remove("set--sending");
+                        document.querySelector(".newsletter-email").value = "";
+                        setTimeout(() => {
+                            document.querySelector(".form-newsletter").classList.remove("set--sended");
+                        }, 1000);
                     }).catch(()=>{
-
+                        document.querySelector(".form-newsletter").classList.add("set--fail");
+                        setTimeout(() => {
+                            document.querySelector(".form-newsletter").classList.remove("set--sending", "set--fail");
+                        }, 1000);
                     });
                 }
             });

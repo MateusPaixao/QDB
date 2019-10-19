@@ -185,6 +185,7 @@
                     }
                     .group-email select ~ .control-label, .group-email input:focus ~ .control-label, .group-email input:valid ~ .control-label, .group-email input.form-file ~ .control-label, .group-email input.has-value ~ .control-label, .group-email textarea:focus ~ .control-label, .group-email textarea:valid ~ .control-label, .group-email textarea.form-file ~ .control-label, .group-email textarea.has-value ~ .control-label{
                         top: -1.5em;
+                        font-size: .875em;
                     }
                     &--email {
                         width: 90%;
@@ -217,11 +218,13 @@
                 &.set--sending{
                     .form-newsletter__controls{
                         border: none;
-                        &--label {
+                        &--submit {
                             right: 0;
                             height: 100%;
                             width: 100%;
                             background: $dusty;
+                            cursor: not-allowed;
+                            pointer-events: none;
                             // @include animation("sendNewsletter", 2s, infinite, linear);
                             // animation-fill-mode: forwards;
                             // animation-delay: .2s;
@@ -256,6 +259,61 @@
                                 }
                             }
                         }
+                    }
+                    .control-label{
+                        opacity: 0;
+                    }
+                }
+                &.set--sended{
+                    .form-newsletter__controls{
+                        border: none;
+                        &--submit {
+                            right: 0;
+                            height: 100%;
+                            width: 100%;
+                            background: $success;
+                            cursor: not-allowed;
+                            pointer-events: none;
+                            
+                            .newsletter__icon{
+                                width: 40px;
+                                @include animation("airplaneSended", .5s, linear, cubic-bezier(.6,.51,0,1.01));
+                                animation-fill-mode: forwards;
+                                @keyframes airplaneSended {
+                                    0%{
+                                        transform: translateX(0) rotate(45deg);;
+                                    }
+                                    100%{
+                                        transform: translateX(20em) rotate(45deg);
+                                    }
+                                }
+                                path{
+                                    fill: $w-secundary;
+                                }
+                                rect{
+                                    stroke: none;
+                                }
+                            }
+                        }
+                    }
+                    .control-label{
+                        opacity: 0;
+                    }
+                }
+                &.set--fail{
+                    .form-newsletter__controls{
+                        border: none;
+                        &--submit {
+                            right: 0;
+                            height: 100%;
+                            width: 100%;
+                            background: $danger;
+                            cursor: not-allowed;
+                            pointer-events: none;
+                        }
+                    }
+                    .control-label{
+                        opacity: 0;
                     }
                 }
             }
