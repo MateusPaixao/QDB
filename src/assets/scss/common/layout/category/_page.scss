@@ -97,6 +97,11 @@ ul{
 	@include d(xs){
 		width: calc(100% / 2);
 	}
+	like-button{
+		position: absolute;
+		right: 10px;
+		top: 10px;
+	}
 }
 
 /* ------------------------------------------------------------ *\
