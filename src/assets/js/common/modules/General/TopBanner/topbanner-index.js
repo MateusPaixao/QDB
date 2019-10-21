@@ -18,7 +18,7 @@ const Methods = {
             }
             // $('.w-counter--slick').slick();
         }
-        Methods.flip();
+        // Methods.flip();
     },
     homeCountDown() {
         const corBg = document.querySelector('.w-counter--bg').textContent;
