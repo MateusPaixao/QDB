@@ -18,9 +18,8 @@ const Methods = {
         Methods.SendNewsletter();
         setVitrineDataImg();
         isInViewport();
-        if(getBrowserVendor() == "ie/trident"){
-            Polyfill();
-        }
+        getBrowserVendor() == "ie/trident" ? Polyfill() : "";
+        getBrowserVendor() == "safari/webkit" ? document.querySelector("body").classList.add("ios") : "";
         Minicart.init();
         // Acessibilidade.init();
     },
