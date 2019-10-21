@@ -15,6 +15,7 @@ export const bag = {
           getOrder().then(function ({items,totalizers}) {
             bag.render(items,totalizers)
           });
+        //   document.body.classList.contains('produto') ? bag.open() : null;
         });
     },
 

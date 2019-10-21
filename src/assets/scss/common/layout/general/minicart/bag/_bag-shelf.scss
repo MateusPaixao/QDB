@@ -28,7 +28,9 @@
         opacity: 0;
         border-bottom: 1px solid $qdb-grey-l;
         animation: bagShow 2s ease forwards;
-
+        &:last-child{
+            border: none;
+        }
         @media (max-width: 480px) {
             width: 95%;
             padding-right: 1%;
@@ -129,14 +131,6 @@
             padding: 10px;
             width: 100%;
             background: $w-secundary linear-gradient(to right, $w-secundary, $bag-color-secondary, $w-secundary) center/ 100% 1px no-repeat;
-        }
-    }
-}
-
-.iphone {
-    .bag-shelf {
-        &__item{
-            min-height: 120px;
         }
     }
 }
