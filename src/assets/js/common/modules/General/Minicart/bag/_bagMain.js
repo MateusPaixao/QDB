@@ -128,7 +128,7 @@ export const bag = {
             <select class="bag-shelf__item-info-quantity js--bag-select" name="quantity">
               ${helper.createOptions(bag.maxQuantity, item.quantity)}
             </select>
-            <i class="bag-shelf__item-info-del js--bag-remove" data-index=${items.indexOf(item)}></i>  
+            <button class="bag-shelf__item-info-del js--bag-remove" data-index=${items.indexOf(item)}></button>  
           </div>
           <div class="bag-shelf__item-line"></div>
       </section>`

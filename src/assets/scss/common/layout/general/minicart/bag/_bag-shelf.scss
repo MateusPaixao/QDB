@@ -132,3 +132,11 @@
         }
     }
 }
+
+.iphone {
+    .bag-shelf {
+        &__item{
+            min-height: 120px;
+        }
+    }
+}
