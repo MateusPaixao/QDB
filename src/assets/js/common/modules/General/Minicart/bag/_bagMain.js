@@ -14,8 +14,8 @@ export const bag = {
         $(window).on('checkoutRequestEnd.vtex', function (ev) {
           getOrder().then(function ({items,totalizers}) {
             bag.render(items,totalizers)
+            document.body.classList.contains('produto') ? bag.open() : null;
           });
-        //   document.body.classList.contains('produto') ? bag.open() : null;
         });
     },
 
