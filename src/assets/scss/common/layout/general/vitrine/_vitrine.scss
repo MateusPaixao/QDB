@@ -263,17 +263,21 @@
             .cardProduct__flag{
                 margin: 2.5px;
                 .cardProduct__flag__content{
-                    background: $safflower;
                     border-radius: .2em;
                     display: flex;
-                    color: $w-secundary;
                     padding: 2.5px 5px;
                 }
                 &.__discount .cardProduct__flag__content{
                     background: $danger;
+                    color: $w-secundary;
                 }
                 &.__Lancamento .cardProduct__flag__content{
-                    background: $dusty;
+                    border: solid 1px $danger;
+                    color: $danger;
+                }
+                &.__Outlet{
+                    border: solid 1px $danger;
+                    color: $danger;
                 }
             }
         }
