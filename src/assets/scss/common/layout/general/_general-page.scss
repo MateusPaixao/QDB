@@ -1139,11 +1139,33 @@ body.nm-noscroll {
 }
 
 // REFATORAR
-#yv-review-quickreview a,
+html .yv-qa .yv-qa-main-ask, 
+html .yv-qa strong, 
+html .yv-qa span, 
+html .yv-qa label, 
+html .yv-qa small, 
+html #yv-reviews strong, 
+html #yv-reviews .yv-control-label, 
+html #yv-reviews .yv-radio-inline, 
+html #yv-reviews .yv-login-group div label, 
+html #yv-reviews .yv-form-group ~ label, 
+html #yv-reviews span, 
+html #yv-reviews small, 
+html .yv-login-frame .yv-title-socialn, 
+html .yv-reviewform-title, .yv-control-label, 
+html .yv-radio-inline, .yv-reviewform-title, 
+html .yv-control-label, 
+html .yv-bootstrap p[itemprop="description"], 
+html .yv-row, .yv-bootstrap label, 
+html .yv-bootstrap .yv-confirmation, 
+html .yv-bootstrap .yv-confirmation p, 
+html .yv-bootstrap .soc, 
+html .yv-bootstrap .soc div, 
+html .yv-bootstrap .yv-reviewalso,
+html #yv-review-quickreview a,
 html .yv-bootstrap .yv-filter,
 html .yv-bootstrap .yv-clear-filters,
-html .yv-bootstrap .yv-star-color,
-html .yv-slide, .yv-berethink-text {
+html .yv-bootstrap .yv-star-color {
     color: #686162 !important;
     font-family: "CentraleSans-Regular" !important;
 }
