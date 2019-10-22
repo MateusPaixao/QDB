@@ -8,12 +8,12 @@ import {isInViewport} from '../../global/global-index'
 
 const Methods = {
     init() {
-        isInViewport();
         BuildBanners.init();
         BuildInfoBar.init();
         BuildPaineis.init();
         BuildTopProducts.init();
         BuildBannerCollection.init();
+        isInViewport(); 
         BuildCounter.init(); // BUG NO I.E e IOS quebrando thread, manter em ultimo
     }
 }

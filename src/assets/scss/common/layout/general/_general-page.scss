@@ -1137,3 +1137,129 @@ body.nm-noscroll {
 .svg--logo-principal {
     margin-bottom: 5px;
 }
+
+// REFATORAR
+html .yv-qa .yv-qa-main-ask, 
+html .yv-qa strong, 
+html .yv-qa span, 
+html .yv-qa label, 
+html .yv-qa small, 
+html #yv-reviews strong, 
+html #yv-reviews .yv-control-label, 
+html #yv-reviews .yv-radio-inline, 
+html #yv-reviews .yv-login-group div label, 
+html #yv-reviews .yv-form-group ~ label, 
+html #yv-reviews span, 
+html #yv-reviews small, 
+html .yv-login-frame .yv-title-socialn, 
+html .yv-reviewform-title, .yv-control-label, 
+html .yv-radio-inline, .yv-reviewform-title, 
+html .yv-control-label, 
+html .yv-bootstrap p[itemprop="description"], 
+html .yv-row, .yv-bootstrap label, 
+html .yv-bootstrap .yv-confirmation, 
+html .yv-bootstrap .yv-confirmation p, 
+html .yv-bootstrap .soc, 
+html .yv-bootstrap .soc div, 
+html .yv-bootstrap .yv-reviewalso,
+html #yv-review-quickreview a,
+html .yv-bootstrap .yv-filter,
+html .yv-bootstrap .yv-clear-filters,
+html .yv-bootstrap .yv-star-color {
+    color: #686162 !important;
+    font-family: "CentraleSans-Regular" !important;
+}
+
+html .yv-bootstrap .yv-rbreakdown .yv-progress-bar,
+html .yv-bootstrap .yv-order-filter:hover,
+html .yv-bootstrap .yv-order-filter:focus,
+html .yv-bootstrap .yv-order-filter:visited,
+html .yv-bootstrap .yv-order-filter:active,
+html .yv-bootstrap .yv-order-filter,
+html .yv-bootstrap .yv-btn-primary,
+html .yv-bootstrap .yv-btn-info,
+html .uploadcare-widget-button-open {
+    background-color: #686162 !important;
+}
+
+html .uploadcare-widget-button-open:hover,
+html .yv-bootstrap .yv-btn-primary:hover,
+html .yv-bootstrap .yv-btn-info:hover,
+html .yv-bootstrap .yv-btn-info:hover,
+html .uploadcare-widget-button:hover,
+html .yv-bootstrap .yv-btn-info:hover,
+html .yv-bootstrap .yv-btn-primary:active,
+html .yv-bootstrap .yv-btn-primary:focus,
+html .yv-bootstrap .yv-btn-info:active,
+html .yv-bootstrap .yv-btn-info:focus .uploadcare-widget-button,
+html .uploadcare-widget-button:active,
+html .uploadcare-widget-button:focus,
+html .yv-bootstrap .yv-btn-info:focus,
+html .uploadcare-widget-button-open:focus,
+html .uploadcare-widget-button-open:active {
+    background-color: #a6a5a5 !important;
+}
+
+// .__overlay {
+//     top: 0;
+//     left: 0;
+//     position: fixed;
+//     width: 100%;
+//     height: 100%;
+//     z-index: 100;
+//     visibility: hidden;
+// }
+
+// .__overlay-bkg {
+//     top: 0px;
+//     left: 0;
+//     position: fixed;
+//     width: 100%;
+//     height: 100%;
+//     background-color: $g-primary;
+//     opacity: 0.7;
+//     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+// }
+
+// .overlay {
+//     content: '';
+//     position: fixed;
+//     width: 100%;
+//     height: 100%;
+//     top: 100%;
+//     left: 0;
+//     top: 0;
+//     background: rgba(0, 0, 0, .5);
+//     z-index: 9;
+//     transition: .3s;
+//     visibility: hidden;
+//     opacity: 0;
+// }
+
+// .overlay.active,
+// .overlay-active {
+//     opacity: .5;
+//     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+//     visibility: visible;
+//     -webkit-transition: .3s .3s;
+//     transition: .3s .3s
+// }
+
+// .sta-cart-overlay,
+// .overlay-cep,
+// .overlay-clube,
+// .overlay-login {
+//     display: none;
+//     width: 100%;
+//     height: 100%;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     z-index: 9999;
+//     background: rgba(0, 0, 0, .9);
+//     opacity: .9!important;
+//     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+//     visibility: visible;
+//     -webkit-transition: .3s;
+//     transition: .3s
+// }
