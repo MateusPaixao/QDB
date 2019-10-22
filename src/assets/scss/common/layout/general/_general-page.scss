@@ -988,7 +988,8 @@ a.vejamais-vtexresearch:hover {
 }
 .texto--legal {
     font-size: 12px;
-    margin: 0 0 40px 0;
+    background: $qdb-grey-m;
+    padding: 40px 0;
 }
 
 .texto--legal .shell p {
