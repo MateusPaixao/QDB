@@ -169,7 +169,7 @@ section.faq>p{font-size:16px}
     }
 }
 
-.btn-blue{height:51px;padding:0 45px;border:0;border-radius:51px;font-family: 'Museo Sans', sans-serif;font-size:16px;font-weight:900;line-height:49px;color:#fff;background-color:#2fa5de;position:relative;z-index:2;margin-top:15px;}
+.btn-blue{display: inline-block;height:51px;padding:0 45px;border:0;border-radius:51px;font-family: 'Museo Sans', sans-serif;font-size:16px;font-weight:900;line-height:49px;color:#fff;background-color:#2fa5de;position:relative;z-index:2;margin-top:15px;}
 .btn-blue:hover{background-color:#5bc8ff;color:#fff}
 .sec-link{position:relative;z-index:2;display:inline-block;margin-top:20px;font-weight:900;color:#2fa5de;text-decoration:none}
 .sec-link:after{content:'';position:absolute;width:18%;height:5px;left:0;bottom:-10px;background:#2fa5de}
@@ -350,6 +350,9 @@ section.faq>p{font-size:16px}
     justify-content: center;
     align-items: center;
     text-align: center;
+    .logo-fidelidade {
+      width: 300px;
+    }
   }
   
   @media screen and (min-width: 767px) and (max-width: 991px) {
