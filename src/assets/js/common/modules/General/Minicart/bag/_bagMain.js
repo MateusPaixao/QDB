@@ -120,19 +120,19 @@ export const bag = {
             items.forEach((item) => {
                 el.shelf.innerHTML +=
                     `<section class="bag-shelf__item">
-          <a class="bag-shelf__item-img-anchor" href=${item.detailUrl}>
-            <img class="bag-shelf__item-img" src=${item.imageUrl}>
-          </a>
-          <div class="bag-shelf__item-info">
-            <div class="bag-shelf__item-info-name">${item.name}</div>
-            <div class="bag-shelf__item-info-price">${helper.precify(item)}</div>
-            <select class="bag-shelf__item-info-quantity js--bag-select" name="quantity">
-              ${helper.createOptions(bag.maxQuantity, item.quantity)}
-            </select>
-            <button class="bag-shelf__item-info-del js--bag-remove" data-index=${items.indexOf(item)}></button>  
-          </div>
-          <div class="bag-shelf__item-line"></div>
-      </section>`
+                        <a class="bag-shelf__item-img-anchor" href=${item.detailUrl}>
+                            <img class="bag-shelf__item-img" src=${item.imageUrl} loading="lazy">
+                        </a>
+                        <div class="bag-shelf__item-info">
+                            <div class="bag-shelf__item-info-name">${item.name}</div>
+                            <div class="bag-shelf__item-info-price">${helper.precify(item)}</div>
+                            <select class="bag-shelf__item-info-quantity js--bag-select" name="quantity">
+                            ${helper.createOptions(bag.maxQuantity, item.quantity)}
+                            </select>
+                            <button class="bag-shelf__item-info-del js--bag-remove" data-index=${items.indexOf(item)}></button>  
+                        </div>
+                        <div class="bag-shelf__item-line"></div>
+                    </section>`
             })
         } else {
             el.shelf.innerHTML = `<div class="bag-shelf__empty">Sacola Vazia</div>`

@@ -185,7 +185,7 @@ const Methods = {
     AddToCart: () => {
         document.querySelector(".w-product--wrapper--infos--buy-button").addEventListener("click", () => {
             let skuId = document.querySelector(".w-gerador--datas").getAttribute("data-sku");
-            // console.log(skuId)
+            console.log(skuId);
             let quantity;
             vtexjs.checkout.getOrderForm().then(function (orderForm) {
                     // console.log(orderForm);
@@ -218,21 +218,7 @@ const Methods = {
                     }
                 })
                 .done(function (orderForm) {
-                    // console.log(orderForm);
-                    vtexjs.checkout.getOrderForm().then(function (orderForm) {
-                        window._orderForm = orderForm;
-                        var qty = 0;
-                        $(orderForm.items).each(function (ndx, item) {
-                            if (!item.isGift) {
-                                qty += item.quantity;
-                            }
-                        });
-                        if (isFinite(qty)) {
-                            $('.__cart-link a span').text(qty);
-                        }
-                    }).done(function () {
-                        $('html').trigger('open.MiniCart'); // Função em Jquery devido ao evento do Minicart em General.
-                    });
+                    console.log(orderForm);
                 });
         });
     }

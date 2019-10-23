@@ -157,7 +157,7 @@ class Card extends React.Component{
                   onClick={e => changeSku(e.currentTarget)}>
                   {/* {console.log(sku)} */}
                   {/* {console.log(sku.images.filter(o => { if(o.imageLabel === "thumb" || o.imageLabel === "Thumb"){ return o }}))[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "50", "#height#": "50" , "~": ""})} */}
-                  <img className={`${sku.itemId == this.props.skuHighlight ? "selected" : ""}`} data-src={this.getImgSku(sku, "40px")} alt={sku["Escolha a Cor"]} />
+                  <img className={`${sku.itemId == this.props.skuHighlight ? "selected" : ""}`} data-src={this.getImgSku(sku, "40px")} alt={sku["Escolha a Cor"]} loading="lazy" />
                   {/* <small>{sku["Escolha a Cor"]}</small> */}
                 </li>
               )
@@ -610,9 +610,9 @@ class Card extends React.Component{
         <div className="cardProduct__flags">
           {flags()}
         </div>
-        <a {... this.state.Adding == false ? {href: "/" + this.props.info.linkText + "/p?idsku=" + this.state.Sku.itemId} : {}} className="cardProduct__link">
+        <a {... this.state.Adding == false ? {href: "/" + this.props.info.linkText + "/p?idsku=" + this.state.Sku.itemId} : {href: "/checkout/#/cart"}} className="cardProduct__link">
             <div className="cardProduct__pictureContainer">
-              <img className="cardProduct__pictureContainer__picture" src={this.state.Sku.images[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "150", "#height#": "150" , "~": ""})} loading="lazy"></img>
+              <img className="cardProduct__pictureContainer__picture" data-src={this.state.Sku.images[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "150", "#height#": "150" , "~": ""})} loading="lazy"></img>
               {this.props.review.TotalRatings > 0 &&
                 <div className="cardProduct__pictureContainer__review">
                   <ul className="cardProduct__pictureContainer__review__rating">

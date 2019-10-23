@@ -16,7 +16,10 @@
         margin-left: 15px;
         max-width: 300px;
         @include d("768px"){
-            min-width: 260px;
+            min-width: 70%;
+            &:nth-child(3){
+                min-width: 85%;
+            }
         }
         &:nth-last-child(1){
             margin-right: 0;

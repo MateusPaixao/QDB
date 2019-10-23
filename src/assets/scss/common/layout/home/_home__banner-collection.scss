@@ -4,7 +4,7 @@
         .bannerCollection__info{
             padding: 0 5% 0 0;
             @include d("768px"){
-                padding: 0 15px;
+                padding: 0 10px;
                 margin-bottom: 10px;
             }
         }
@@ -18,7 +18,7 @@
             .shell{
                 flex-flow: column-reverse;
                 .bannerCollection__info{
-                    padding: 0 15px;
+                    padding: 0 10px;
                     margin-bottom: 10px;
                 }
             }
