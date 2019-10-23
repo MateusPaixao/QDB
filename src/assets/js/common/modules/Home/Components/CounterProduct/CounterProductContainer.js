@@ -1,3 +1,5 @@
+import {bag} from "../../../General/Minicart/bag/_bagMain"
+
 const Methods = {
     init() {
         if (document.querySelector(".w-gerador--datas") != null) {
@@ -179,13 +181,15 @@ const Methods = {
         })
         .then(res => res.json())
         .then((reviews) => {
-            // console.log(reviews);
+            console.log(reviews);
         })
     },
     AddToCart: () => {
-        document.querySelector(".w-product--wrapper--infos--buy-button").addEventListener("click", () => {
+        document.querySelector(".w-product--wrapper--infos--buy-button").addEventListener("click", (el) => {
             let skuId = document.querySelector(".w-gerador--datas").getAttribute("data-sku");
-            console.log(skuId);
+            el.target.style = `pointer-events: none; opacity: .7;background-color:${document.querySelector('.w-counter--bg').getAttribute('data-color')};`;
+            el.target.innerHTML = "Adicionando";
+            console.log(skuId)
             let quantity;
             vtexjs.checkout.getOrderForm().then(function (orderForm) {
                     // console.log(orderForm);
@@ -219,6 +223,11 @@ const Methods = {
                 })
                 .done(function (orderForm) {
                     console.log(orderForm);
+                    el.target.style = `background-color:${document.querySelector('.w-counter--bg').getAttribute('data-color')}`;
+                    el.target.innerHTML = "Adicionar à Sacola";
+                    
+                    // el.classList.remove("status--adding");
+                    bag.open();
                 });
         });
     }

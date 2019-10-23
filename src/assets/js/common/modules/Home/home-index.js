@@ -4,6 +4,7 @@ import BuildInfoBar from './Components/InfoBar/infoBar.jsx';
 import BuildPaineis from './Components/Paineis/PaineisContainer.jsx'
 import BuildBannerCollection from './Components/BannerCollection/BannerContainer'
 import BuildTopProducts from './Components/TopProducts/TopContainer'
+import {getBannerRetorna} from './Components/BannerRetorna/BannerContainer'
 import {isInViewport} from '../../global/global-index'
 
 const Methods = {
@@ -12,6 +13,7 @@ const Methods = {
         BuildInfoBar.init();
         BuildPaineis.init();
         BuildTopProducts.init();
+        window.innerWidth > 768 ? getBannerRetorna() : "";
         BuildBannerCollection.init();
         isInViewport(); 
         BuildCounter.init(); // BUG NO I.E e IOS quebrando thread, manter em ultimo
