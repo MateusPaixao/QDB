@@ -132,7 +132,7 @@ const Methods = {
             function autoplay() {
                 setInterval(function() {
                     flip.currentSlide == (flip.innerElements.length - 1) ? flip.goTo(0) : flip.next();
-                }, 8000);
+                }, 4000);
             }
             autoplay();
         
