@@ -344,4 +344,14 @@ export function setVitrineDataImg() {
     window.onscroll = function (){
         setImg();
     }
+
+    // Solução para IOS
+    // $(document).on("scrollstop",function(){
+    //     setImg();
+    // });
+    // $('body').on({
+    //     'touchmove': function() { 
+    //         setImg();
+    //     }
+    // });
 }

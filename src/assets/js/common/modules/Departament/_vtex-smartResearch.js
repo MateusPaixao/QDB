@@ -203,8 +203,9 @@ const Methods = {
                                             elemLoading.remove();
                                             ajaxCallbackObj.requests++;
                                             options.ajaxCallback(ajaxCallbackObj);
-                                            setTimeout(() => {
+                                            let LoadImgs = setInterval(() => {
                                                 isInViewport();
+                                                if(document.querySelectorAll("img[src^='https://qbbr.vteximg.com.br/arquivos/QDBLoad.gif'").length == 0) clearInterval(LoadImgs);
                                             }, 1000);
                                         }
                                     });

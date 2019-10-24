@@ -17,9 +17,12 @@ const Methods = {
         Methods.Skeleton();
         Methods.SendNewsletter();
         setVitrineDataImg();
-        // let LoadImgs = setInterval(() => {
+        let LoadImgs = setInterval(() => {
+        // setTimeout(() => {
             isInViewport();
+            if(document.querySelectorAll("img[src^='https://qbbr.vteximg.com.br/arquivos/QDBLoad.gif'").length == 0) clearInterval(LoadImgs);
         // }, 1000);
+        }, 1000);
         // if(document.querySelectorAll("img[src^='https://qbbr.vteximg.com.br/arquivos/QDBLoad.gif'").length == 0){
         //     clearInterval(LoadImgs);
         // }

@@ -163,9 +163,6 @@
 }
 
 /*  Modifier: Header Secondary  */
-.nossas-lojas .header {
-    background: #000;
-}
 .ico-dashes {
     width: 14px;
     height: 11px;
@@ -195,7 +192,6 @@
 }
 .section-form .section-body {
     position: relative;
-    padding: 152px 0 154px;
 }
 .section-form .section-body:after {
     content: '';
@@ -337,7 +333,7 @@
     background-size: 100% 100%;
 }
 .breadcrumbs {
-    padding-top: 215px;
+    padding-top: 20px;
 }
 .breadcrumbs span {
     margin-right: 5px;
