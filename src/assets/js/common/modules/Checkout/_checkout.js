@@ -1,6 +1,7 @@
 const Methods = {
     init() {
         Methods.checkout();
+        Methods.optinClube();
     },
 
     // Necessário Modularizar
@@ -918,6 +919,17 @@ const Methods = {
             return applyAllSelectors;
         })(jQuery, window, document);
         // END: SKU SLECTOR
+    },
+    optinClube(){
+        const checkboxContainer = document.querySelector('.newsletter');
+        const optin = `
+        
+        <label class="checkbox newsletter-label">
+            <input type="checkbox" id="opt-in-clube">
+            <span class="newsletter-text">Quero fazer parte do nosso clube.</span>
+        </label>`
+
+        checkboxContainer.innerHTML += optin;
     }
 }
 
