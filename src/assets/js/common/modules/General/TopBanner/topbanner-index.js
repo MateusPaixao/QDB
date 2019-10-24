@@ -18,7 +18,7 @@ const Methods = {
             }
             // $('.w-counter--slick').slick();
         }
-        // Methods.flip();
+        Methods.flip();
     },
     homeCountDown() {
         const corBg = document.querySelector('.w-counter--bg').textContent;
@@ -85,51 +85,59 @@ const Methods = {
         }
     },
     copiarTopBanner() {
-        const btnCopy = document.querySelector('.w-counter-copy');
-        const cupomToCopy = document.querySelector('.w-counter--cupom');
-        btnCopy.addEventListener('click', function (e) {
-            e.preventDefault;
-            cupomToCopy.select()
-            document.execCommand('copy');
-            btnCopy.textContent = "COPIADO";
-            btnCopy.classList.add("btn-success");
-            setTimeout(() => {
-                btnCopy.textContent = "COPIAR";
-                btnCopy.classList.remove("btn-success");
-            }, 3000);
-        })
+        const btnCopy = document.querySelectorAll('.w-counter-copy');
+        btnCopy.forEach(btn => {
+            const cupomToCopy = btn.previousSibling.previousSibling;
+            btn.addEventListener('click', function (e) {
+                e.preventDefault;
+                cupomToCopy.select();
+                document.execCommand('copy');
+                btn.textContent = "COPIADO";
+                btn.classList.add("btn-success");
+                setTimeout(() => {
+                    btn.textContent = "COPIAR";
+                    btn.classList.remove("btn-success");
+                }, 3000);
+            })
+        } )
     },
     flip() {
         const flipContainer = document.querySelector('.flip');
+        const flipBanner = document.querySelector('.flip-banner');
         function startFlip() {
             const flip = new Siema({
                 selector: '.flip',
-                duration: 200,
+                duration: 300,
                 easing: 'ease-out',
                 perPage: 1,
                 startIndex: 0,
                 draggable: true,
                 multipleDrag: true,
                 threshold: 20,
-                loop: true,
+                loop: false,
                 rtl: false
             });
             const next = document.querySelector('.siemaNext');
             const prev = document.querySelector('.siemaPrev');
     
             next.addEventListener('click', () => {
-                flip.next();
+                flip.currentSlide == (flip.innerElements.length - 1) ? flip.goTo(0) : flip.next();
             })
             prev.addEventListener('click', () => {
-                flip.prev();
+                flip.currentSlide == 0 ? flip.goTo(flip.innerElements.length - 1) : flip.prev();
             })
-
+            
+            flipBanner.classList.add('is--active');
+            
+            function autoplay() {
+                setInterval(function() {
+                    flip.currentSlide == (flip.innerElements.length - 1) ? flip.goTo(0) : flip.next();
+                }, 4000);
+            }
+            autoplay();
+        
         }
-        setTimeout(() => {
-            flip.next();
-        }, 2000);
-        // Verify if has topbanner
-        flipContainer.childNodes > 0 ? startFlip() : startFlip();
+        startFlip();
 
     }
 }
