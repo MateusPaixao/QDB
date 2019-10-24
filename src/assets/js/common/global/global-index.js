@@ -314,23 +314,34 @@ export function getCookie(name) {
     if (match) return match[2];
 }
 export function setVitrineDataImg() {
-    if (getBrowserVendor() == 'edge/edgehtml' || getBrowserVendor() == 'ie/trident') {
-        for (var i = 0; i < document.querySelectorAll(".imgsrc").length; i++) {
+    function setImg(){
+        for(var i = 0; i < document.querySelectorAll(".imgsrc").length; i++){
             var imgSource = document.querySelectorAll(".imgsrc")[i].innerHTML;
             var imgSrc = imgSource.substring(
-                imgSource.lastIndexOf('src="') + 5,
-                imgSource.lastIndexOf('?v=')
-            );
-            document.querySelectorAll(".imgsrc")[i].nextSibling.nextSibling.setAttribute('data-img', imgSrc);
+                        imgSource.lastIndexOf('src="') + 5, 
+                        imgSource.lastIndexOf('?v=')
+                    );
+            document.querySelectorAll(".imgsrc")[i].nextSibling.nextSibling.setAttribute('data-src', imgSrc);
         }
-    } else {
-        document.querySelectorAll(".imgsrc").forEach(function (img) {
-            var imgSource = img.innerHTML;
-            var imgSrc = imgSource.substring(
-                imgSource.lastIndexOf('src="') + 5,
-                imgSource.lastIndexOf('?v=')
-            );
-            img.nextSibling.nextSibling.setAttribute('data-img', imgSrc);
-        });
+    }
+    // loadImg = function() {
+    //     setImg();
+    //     var imginview = getAllElementsWithAttribute('data-img');
+    //     for(var i=0; i < imginview.length; i++){
+    //         imginview[i].src = imginview[i].dataset.img;
+    //     }
+    //     var ievitrineimg = document.querySelectorAll(".product .product-image img");
+    //     for(var i=0; i < ievitrineimg.length; i++){
+    //         ievitrineimg[i].style.left = 0;
+    //         ievitrineimg[i].style.position = "relative";
+    //         ievitrineimg[i].style.transform = "none";
+    //         document.querySelectorAll(".product p, .product .product-content h2, .product .product-content h3")[i].style.height = "initial";
+    //     }
+    // };
+    window.onmousemove = function () {
+        setImg();
+    };
+    window.onscroll = function (){
+        setImg();
     }
 }

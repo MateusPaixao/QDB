@@ -1,8 +1,9 @@
-import {setVitrineDataImg} from "../../global/global-index"
+import {isInViewport} from "../../global/global-index"
 
 const Methods = {
     init(){
         Methods.SmartResearch();
+        console.log("Research Ready");
     },
     SmartResearch(){
         var infinitScroll = false;
@@ -172,7 +173,6 @@ const Methods = {
                         infinitScroll = true;
                         
                         $("a.vejamais-vtexresearch").bind('click',function(e){
-
                             e.preventDefault();
 
                             var _this=jQuery(this);
@@ -203,6 +203,9 @@ const Methods = {
                                             elemLoading.remove();
                                             ajaxCallbackObj.requests++;
                                             options.ajaxCallback(ajaxCallbackObj);
+                                            setTimeout(() => {
+                                                isInViewport();
+                                            }, 1000);
                                         }
                                     });
                                     currentPage++;
@@ -466,7 +469,7 @@ const Methods = {
                 {
                     var label=input.parent(),
                         text=label.text();
-                        qtt="";
+                        // qtt="";
                     
                     text=fns.removeCounter(text);
                     
@@ -475,7 +478,7 @@ const Methods = {
                 removeCounter:function(text)
                 {
                     return text.replace(/\([0-9]+\)/ig,function(a){
-                        qtt=a.replace(/\(|\)/,"");
+                        // qtt=a.replace(/\(|\)/,"");
                         return "";
                     });
                 },

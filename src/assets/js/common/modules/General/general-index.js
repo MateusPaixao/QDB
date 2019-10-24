@@ -17,7 +17,12 @@ const Methods = {
         Methods.Skeleton();
         Methods.SendNewsletter();
         setVitrineDataImg();
-        isInViewport();
+        // let LoadImgs = setInterval(() => {
+            isInViewport();
+        // }, 1000);
+        // if(document.querySelectorAll("img[src^='https://qbbr.vteximg.com.br/arquivos/QDBLoad.gif'").length == 0){
+        //     clearInterval(LoadImgs);
+        // }
         getBrowserVendor() == "ie/trident" ? Polyfill() : "";
         getBrowserVendor() == "safari/webkit" ? document.querySelector("body").classList.add("ios") : "";
         Minicart.init();
