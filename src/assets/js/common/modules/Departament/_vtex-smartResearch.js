@@ -1,3 +1,5 @@
+import {setVitrineDataImg} from "../../global/global-index"
+
 const Methods = {
     init(){
         Methods.SmartResearch();
