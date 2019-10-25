@@ -16,20 +16,29 @@ const Methods = {
                     Methods.addCloseButton();
                 }, 1000);
             })
+            input.addEventListener('keydown', function(){
+                setTimeout(() => {
+                    Methods.addCloseButton();
+                }, 1000);
+            });
     },
     addCloseButton() {
-        if(!document.querySelector(".ac-container .close--container")){
-            const acContainer = document.querySelector('.ac-container');
-            const btnClose = document.createElement('span');
-            btnClose.textContent = "X";
-            btnClose.classList.add('close--container');
-    
-            acContainer.appendChild(btnClose);
-            console.log(btnClose);
-    
-            btnClose.addEventListener('click', function(){
-                document.querySelector(".ac-overlay").style.display = "none";
-            });
+        try{
+            if(!document.querySelector(".ac-container .close--container")){
+                const acContainer = document.querySelector('.ac-container');
+                const btnClose = document.createElement('span');
+                btnClose.textContent = "X";
+                btnClose.classList.add('close--container');
+        
+                acContainer.appendChild(btnClose);
+                console.log(btnClose);
+        
+                btnClose.addEventListener('click', function(){
+                    document.querySelector(".ac-overlay").style.display = "none";
+                });
+            }
+        }catch(e){
+            console.log(e);
         }
     }
 }
