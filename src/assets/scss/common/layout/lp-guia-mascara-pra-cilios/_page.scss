@@ -213,10 +213,6 @@
 }
 
 
-.header {
-    background: #000;
-}
-
 .hero-text .text {
     text-align: center;
     margin: 0 auto;
@@ -551,10 +547,6 @@
   body.kajal-page .container .container-group {
     top: 0; }
 
-.header {
-  background-color: black;
-  position: fixed;
-  transition: all 1s ease; }
 
 .is-mobile {
   display: none !important; }
@@ -688,8 +680,6 @@
 
 
 @media (max-width: 480px) {
-  .header {
-    height: auto; }
   .se-joga h3 {
     line-height: initial; }
   .se-joga h3 p:nth-child(1) {
