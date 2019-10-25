@@ -934,7 +934,7 @@ const Methods = {
 
         function sendOptinMasterData(){
             const goToPayment = document.querySelector('#go-to-payment');
-            goToPayment.addEventListener('submit', (ev) => {
+            goToPayment.addEventListener('click', (ev) => {
                 ev.preventDefault();
                 const userOptinClube = {
                     "optinClube": optinCheckbox.checked ? true : false
@@ -943,8 +943,8 @@ const Methods = {
                 headers.append('Content-Type', 'application/json');
                 headers.append('Accept', 'application/vnd.vtex.ds.v10+json');
                 headers.append(table, "CL");
-                // const url = 'qbbr.vtexcommercestable.com.br/api/dataentities/CL/documents';
-                const url = 'https://botiwall.corebiz.com.br/md/update'
+                const url = 'qbbr.vtexcommercestable.com.br/api/dataentities/CL/documents';
+                // const url = 'https://botiwall.corebiz.com.br/md/update'
                 const vtexHeaderConfig = {
                     method: 'PUT',
                     mode: 'cors',
@@ -953,7 +953,8 @@ const Methods = {
                 };
                 fetch(url, vtexHeaderConfig)
                     .then(response => response.json())
-                    .then(() => {
+                    .then((data) => {
+                        console.log(data)
                         alert('enviado');     
                     }).catch(() => {
                         alert('Ocorreu um erro! tente novamente');
