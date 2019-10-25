@@ -1,3 +1,5 @@
+import {bag} from "../../../General/Minicart/bag/_bagMain"
+
 const Methods = {
     init() {
         if (document.querySelector(".w-gerador--datas") != null) {
@@ -183,8 +185,10 @@ const Methods = {
         })
     },
     AddToCart: () => {
-        document.querySelector(".w-product--wrapper--infos--buy-button").addEventListener("click", () => {
+        document.querySelector(".w-product--wrapper--infos--buy-button").addEventListener("click", (el) => {
             let skuId = document.querySelector(".w-gerador--datas").getAttribute("data-sku");
+            el.target.style = `pointer-events: none; opacity: .7;background-color:${document.querySelector('.w-counter--bg').getAttribute('data-color')};`;
+            el.target.innerHTML = "Adicionando";
             console.log(skuId)
             let quantity;
             vtexjs.checkout.getOrderForm().then(function (orderForm) {
@@ -218,21 +222,12 @@ const Methods = {
                     }
                 })
                 .done(function (orderForm) {
-                    // console.log(orderForm);
-                    vtexjs.checkout.getOrderForm().then(function (orderForm) {
-                        window._orderForm = orderForm;
-                        var qty = 0;
-                        $(orderForm.items).each(function (ndx, item) {
-                            if (!item.isGift) {
-                                qty += item.quantity;
-                            }
-                        });
-                        if (isFinite(qty)) {
-                            $('.__cart-link a span').text(qty);
-                        }
-                    }).done(function () {
-                        $('html').trigger('open.MiniCart'); // Função em Jquery devido ao evento do Minicart em General.
-                    });
+                    console.log(orderForm);
+                    el.target.style = `background-color:${document.querySelector('.w-counter--bg').getAttribute('data-color')}`;
+                    el.target.innerHTML = "Adicionar à Sacola";
+                    
+                    // el.classList.remove("status--adding");
+                    bag.open();
                 });
         });
     }

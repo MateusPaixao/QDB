@@ -176,11 +176,11 @@ const Methods = {
         $(changeUrlButtonMoreProducts);
 
         /*201905281755*/
-        var addContinueShoppingBtn = function () {
-            $('.full-cart .cart').prepend('<div class="_more-prds-btns"><a href="/">Escolher mais produtos</a></div>');
-            return true;
-        };
-        $(window).on('load', addContinueShoppingBtn);
+        // var addContinueShoppingBtn = function () {
+        //     $('.full-cart .cart').prepend('<div class="_more-prds-btns"><a href="/">Escolher mais produtos</a></div>');
+        //     return true;
+        // };
+        // $(window).on('load', addContinueShoppingBtn);
         var moveGiftTables = function () {
             // if($(window).width()>768) return false;
             var gifts = $('.full-cart > .cart-select-gift-placeholder').eq(0);

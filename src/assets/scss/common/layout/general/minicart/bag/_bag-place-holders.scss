@@ -1,0 +1,35 @@
+%gradient-line {
+  width: 100%;
+  background: rgb(92,167,149);
+  background: linear-gradient(90deg, rgba(92,167,149,1) 0%, rgba(44,205,167,1) 100%);
+}
+
+%bag-cta {
+  cursor: pointer;
+  font-size: 1em;
+  text-transform: uppercase;
+  height: auto;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid bg-color-dark;
+  transition: all 0.2s ease;
+  border-radius: 20px;
+  flex: 1 0;
+  min-width: auto;
+  flex-basis: auto;
+      &:hover {
+        font-weight: bolder;
+        font-size: 1em;
+      }
+}
+
+%totals{
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      padding: 5px;
+      justify-content: center;
+      align-items: center;
+}

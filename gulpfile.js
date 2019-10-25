@@ -110,7 +110,7 @@ const styles = () => {
       path.basename = "QA-" + path.basename
     }))
     .pipe(gulp.dest(paths.styles.qa))
-    .pipe(gulp.dest('./dist/vtex_speed/arquivos/'));
+    .pipe(gulp.dest('./dist/vtex_speed/arquivos/'))
 }
 
 const scripts = () => {
@@ -124,7 +124,7 @@ const scripts = () => {
       path.basename = "QA-" + path.basename
     }))
     .pipe(gulp.dest(paths.scripts.qa))
-    .pipe(gulp.dest('./dist/vtex_speed/arquivos/'));
+    .pipe(gulp.dest('./dist/vtex_speed/arquivos/'))
 }
 
 const concatVendor = () => {
@@ -140,7 +140,7 @@ const concatVendor = () => {
     path.basename = "QA-" + path.basename
   }))
   .pipe(gulp.dest(paths.scripts.qa))
-  .pipe(gulp.dest('./dist/vtex_speed/arquivos/'));
+  .pipe(gulp.dest('./dist/vtex_speed/arquivos/'))
 }
 
 const bundleScripts = gulp.series(scripts, concatVendor);

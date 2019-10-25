@@ -66,26 +66,6 @@ class PriceModal extends React.Component {
                   location.reload();
                 }, 2500);
               }, 3000);
-              let pricetablestate;
-              switch(Region.split(",")[0]){
-                case "Norte":
-                    pricetablestate = "REGIAO_NORTE"
-                break
-                case "Nordeste":
-                    pricetablestate = "REGIAO_NORDESTE"
-                break
-                case "Centro Oeste":
-                    pricetablestate = "REGIAO_CENTROESTE"
-                break
-                case "Sul":
-                    pricetablestate = "REGIAO_SUL"
-                break
-                case "Sudeste":
-                    pricetablestate = "REGIAO_SUDESTE"
-                break
-              }
-              console.log(pricetablestate);
-              localStorage.setItem("pricetablestate", pricetablestate)
               console.log("Location Up");
           }
       };
