@@ -929,7 +929,38 @@ const Methods = {
             <span class="newsletter-text">Quero fazer parte do nosso clube.</span>
         </label>`
 
-        checkboxContainer.innerHTML += optin;
+        const optinCheckbox = document.querySelector("#opt-in-clube");
+            optinCheckbox === null ? checkboxContainer.innerHTML += optin : null;
+
+        function sendOptinMasterData(){
+            const goToPayment = document.querySelector('#go-to-payment');
+            goToPayment.addEventListener('submit', (ev) => {
+                ev.preventDefault();
+                const userOptinClube = {
+                    "optinClube": optinCheckbox.checked ? true : false
+                };
+                const headers = new Headers();
+                headers.append('Content-Type', 'application/json');
+                headers.append('Accept', 'application/vnd.vtex.ds.v10+json');
+                headers.append(table, "CL");
+                // const url = 'qbbr.vtexcommercestable.com.br/api/dataentities/CL/documents';
+                const url = 'https://botiwall.corebiz.com.br/md/update'
+                const vtexHeaderConfig = {
+                    method: 'PUT',
+                    mode: 'cors',
+                    headers: headers,
+                    body: JSON.stringify(userOptinClube)
+                };
+                fetch(url, vtexHeaderConfig)
+                    .then(response => response.json())
+                    .then(() => {
+                        alert('enviado');     
+                    }).catch(() => {
+                        alert('Ocorreu um erro! tente novamente');
+                    });
+            });
+        }
+        sendOptinMasterData();
     }
 }
 
