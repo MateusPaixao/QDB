@@ -223,6 +223,81 @@
     font-weight: 700
 }
 
+.product .product-tag .hidden div.flags-product {
+    display: block
+}
+
+.product .product-tag .hidden div.flags-product p {
+    display: inline-block
+}
+
+.product .product-tag .hidden div.flag-produtos-top,.product .product-tag .hidden div.flag-noite-da-baleza,.product .product-tag .hidden div.flag-batom-no-carrinho,.product .product-tag .hidden div.escolha-a-cor-do-batom-no-carrinho {
+    display: inline-block;
+    float: left;
+    margin-bottom: 9px;
+    margin-right: 5px
+}
+
+.product .product-tag .hidden div.flag-produtos-top p.flag.produtos-top {
+    display: block
+}
+
+.product .product-tag .hidden div.flag-noite-da-baleza p.noite-da-beleza {
+    display: block
+}
+
+.product .product-tag .hidden div.flag-noite-da-baleza>p {
+    background: #392b7a !important
+}
+
+.product .product-tag .hidden div.flag-produtos-top>p {
+    background: #686162 !important
+}
+
+.product .product-tag .hidden div.flag-batom-no-carrinho p.flag.batom-no-carrinho,.product .product-tag .hidden div.flag-batom-no-carrinho p.flag.escolha-a-cor-do-batom-no-carrinho {
+    display: block;
+    width: 106px;
+    height: 34px;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: .01em;
+    padding: 3px 7px 1px 7px;
+    background: #686162 !important;
+    text-align: left
+}
+
+.product .product-tag .hidden div.flag-leve-4-pague-2 {
+    display: inline-block;
+    float: left
+}
+
+.product .product-tag .hidden div.flag-leve-4-pague-2 p.flag.leve-4-pague-2 {
+    display: block;
+    width: 85px;
+    height: 20px;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: .01em;
+    padding: 3px 7px 1px 7px;
+    background: #686162 !important;
+    text-align: left
+}
+
+.product .product-tag .hidden div.flag-desconto>p,.priceOff span {
+    background: #a6a5a5;
+    color: #fff;
+    font-family: "CentraleSans-Bold",sans-serif !important;
+    font-size: 12px;
+    padding: 3px 5px;
+    display: block
+}
+
+.product .product-tag .hidden div.flag-desconto p.flag.descont.flag-active {
+    display: block
+}
+
 .product .product-tag {
     position: absolute;
     height: 25px;

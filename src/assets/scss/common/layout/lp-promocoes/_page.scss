@@ -1015,13 +1015,9 @@ h2 {
 
 .carousel-banners {
     /*! margin: 0 42px; */
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-justify-content: space-around;
-    -ms-flex-pack: distribute;
-    justify-content: space-around
+    justify-content: space-around;
+    flex-flow: wrap;
 }
 
 .carousel-wrapper .carousel-banners>.box-banner {

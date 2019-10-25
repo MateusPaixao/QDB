@@ -1,6 +1,26 @@
 const Methods = {
     init(){
         Methods.oldFunctions();
+        Methods.setFlags();
+    },
+    setFlags(){
+        setTimeout(() => {
+            let flagsDesconto = document.querySelectorAll(".flag-desconto");
+            for(let i = 0; i < flagsDesconto.length; i++){
+                if(flagsDesconto[i].children[0].textContent != 0){
+                    flagsDesconto[i].children[0].textContent = `-${Math.round(flagsDesconto[i].children[0].textContent.replace("%", "").replace(",", "."))}%`;
+                    flagsDesconto[i].classList.remove("hidden");
+                }
+            }
+            
+            let flags = document.querySelectorAll(".flags-product");
+
+            for(let i = 0; i < flags.length; i++){
+                if(flags[i].childElementCount > 0){
+                    flags[i].classList.remove("hidden");
+                }
+            }
+        }, 1000);
     },
     oldFunctions(){
         (function($, window, document, undefined) {
@@ -605,6 +625,7 @@ const Methods = {
                 }
             }
         }
+        
     }
 }
 
