@@ -207,6 +207,25 @@ const Methods = {
                                                 isInViewport();
                                                 if(document.querySelectorAll("img[src^='https://qbbr.vteximg.com.br/arquivos/QDBLoad.gif'").length == 0) clearInterval(LoadImgs);
                                             }, 1000);
+                                            
+                                            let flagsDesconto = document.querySelectorAll(".flag-desconto");
+                                    
+                                            for(let i = 0; i < flagsDesconto.length; i++){
+                                                if(flagsDesconto[i].children[0].textContent != 0){
+                                                    if(!flagsDesconto[i].children[0].textContent.includes("-")){
+                                                        flagsDesconto[i].children[0].textContent = `-${Math.round(flagsDesconto[i].children[0].textContent.replace("%", "").replace(",", "."))}%`;
+                                                        flagsDesconto[i].classList.remove("hidden");
+                                                    }
+                                                }
+                                            }
+                                            
+                                            let flags = document.querySelectorAll(".flags-product");
+
+                                            for(let i = 0; i < flags.length; i++){
+                                                if(flags[i].childElementCount > 0){
+                                                    flags[i].classList.remove("hidden");
+                                                }
+                                            }
                                         }
                                     });
                                     currentPage++;
