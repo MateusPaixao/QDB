@@ -5,7 +5,7 @@
 const Banner = (props) => {
     return (
       <a className="bannerHero__link" href={props.Url} >
-          <img className="bannerHero__img" src={props.Src} loading="lazy" />
+          <img className="bannerHero__img" data-src={props.Src} loading="lazy" />
       </a>
     );
 }

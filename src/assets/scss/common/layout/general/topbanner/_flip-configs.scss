@@ -1,0 +1,59 @@
+%arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50px;
+    position: absolute;
+    top: 50%;
+    @include d('500px'){
+        width: 25px;
+    }
+    &:before, &:after{
+        content: '';
+        display: block;
+        background-color: #fdfdfd;
+        width: 15px;
+        height: 2px;
+        margin: -2px;
+        border-radius: 2px;
+    }
+    &:before {
+        transform: rotate(45deg);
+    }
+    &:after {
+        transform: rotate(-45deg);
+    }
+}
+
+.flip-banner {
+    position: relative;
+    display: block;
+    visibility: hidden;
+    max-height: 55px;
+    background-color: lightgray;
+    &.is--active{
+        background-color: none;
+        visibility: visible;
+    }
+    .siemaPrev {
+        @extend %arrow;
+        transform: translateY(-50%) rotate(90deg);
+        left: 20px;
+        @include d('500px'){
+            left: 0;
+        }
+    }
+
+    .siemaNext {
+        @extend %arrow;
+        transform: translateY(-50%) rotate(-90deg);
+        right: 20px;
+        @include d('500px'){
+            right: 0;
+        }
+        &:before {
+            content: '';
+        }
+    }
+}

@@ -4,17 +4,19 @@ import BuildInfoBar from './Components/InfoBar/infoBar.jsx';
 import BuildPaineis from './Components/Paineis/PaineisContainer.jsx'
 import BuildBannerCollection from './Components/BannerCollection/BannerContainer'
 import BuildTopProducts from './Components/TopProducts/TopContainer'
-import Global from '../../global/global-index'
+import {getBannerRetorna} from './Components/BannerRetorna/BannerContainer'
+import {isInViewport} from '../../global/global-index'
 
 const Methods = {
     init() {
         BuildBanners.init();
         BuildInfoBar.init();
         BuildPaineis.init();
-        BuildCounter.init();
         BuildTopProducts.init();
+        window.innerWidth > 768 ? getBannerRetorna() : "";
         BuildBannerCollection.init();
-        Global.isInViewport();
+        isInViewport(); 
+        BuildCounter.init(); // BUG NO I.E e IOS quebrando thread, manter em ultimo
     }
 }
 

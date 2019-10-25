@@ -115,7 +115,7 @@ const Methods = {
 
         function printSlideIndex() {
           for(let i = 0; i < this.innerElements.length; i++){
-              const addOrRemove = i === this.currentSlide ? 'add' : 'remove';
+              const addOrRemove = i === Math.ceil(this.currentSlide) ? 'add' : 'remove';
               this.innerElements[i].classList[addOrRemove]('active');
           };
         }
@@ -184,10 +184,10 @@ const Methods = {
             let sortedReviews = Reviews.Element.sort(sortReviewInNest),
             sortedProducts = Products.sort(sortProductInNest);
             // Remove Duplicate Reviews - IEBUG don't work
-            let uniqueReviews = Array.from(new Set(sortedReviews.map(a => a.ProductId)))
-            .map(id => {
-              return sortedReviews.find(a => a.ProductId === id)
-            });
+            // let uniqueReviews = Array.from(new Set(sortedReviews.map(a => a.ProductId)))
+            // .map(id => {
+            //   return sortedReviews.find(a => a.ProductId === id)
+            // });
             for(let i = 0; i < sortedReviews.length; i++){
               if(sortedProducts[i] != undefined){
                 let Product = {};
@@ -220,7 +220,7 @@ const Methods = {
           })
           return (
             <React.Fragment>
-              <div className={"cardProductContainer " + this.state.Vitrine}>
+              <div className={`cardProductContainer slider-${this.state.HasSlider} ${this.state.Vitrine}`}>
                 {cards}
               </div>
             </React.Fragment>

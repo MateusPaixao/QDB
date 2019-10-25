@@ -1,0 +1,88 @@
+    .bag-top {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+
+        &__info {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row-reverse;
+            width: 100%;
+            align-items: center;
+            flex: 2;
+        }
+
+        &__load-wrap {
+            width: 100%;
+            flex: 1;
+            align-items: center;
+            margin-top: 2%;
+        }
+
+        &__load {
+            margin: auto 0;
+            height: 4px;
+            width: 0%;
+            opacity: 0;
+            transition: opacity 0.2s;
+            justify-self: flex-start;
+            transition: 0.5s ease-in-out;
+            overflow-x: hidden;
+            background: rgb(92,167,149);
+            background: linear-gradient(90deg, rgba(92,167,149,1) 0%, rgba(44,205,167,1) 100%);
+
+            &--ready {
+                opacity: 1;
+                animation: loading 5s ease-in-out;
+            }
+        }
+
+        &__icon {
+            font-size: calc(14rem/16);
+            padding: 1px 4px;
+            color: #67605F;
+            border-radius: 20px;
+            align-items: center;
+            justify-content: center;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            top: 55%;
+            left: 50%;
+        }
+        &__amount{
+            position: relative;
+            .bag-svg{
+                width: 30px;
+                height: 30px;
+            }
+        }
+        &__title {
+            font-size: calc(18rem/16);
+        }
+
+        &__close {
+            cursor: pointer;
+            font-size: calc(25rem/16);
+            size: inherit;
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+            text-align: center;
+            color: $bag-color-dark;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            z-index: 720;
+            border-radius: 20px;
+
+            &:hover {
+                transform: scale(1.2);
+                font-weight: bold;
+            }
+        }
+    }

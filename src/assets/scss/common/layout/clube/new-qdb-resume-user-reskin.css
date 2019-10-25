@@ -1,0 +1,190 @@
+/* sprite menu */
+.ico-menu-bag{background-image:url("/arquivos/rf-sacola-color.png");width:27px;height:36px;display:inline-block;vertical-align:middle;font-size:0;background-size: contain;background-repeat: no-repeat;}
+.ico-menu-user{background-image:url("/arquivos/rf-usuario-color.png");background-position:center;width:35px;height:32px;display:inline-block;vertical-align:middle;font-size:0;margin-top:4px;background-size: contain;background-repeat: no-repeat;}
+.ico-menu-star{background-image:url("/arquivos/rf-estrela-clube-color.png");width:35px;height:35px;background-size:contain;background-position:center;background-repeat:no-repeat}
+.ico-menu-percent{background-image:url("/arquivos/discount-new-icon.png");width:35px;height:35px;background-size:contain;background-position:center;background-repeat:no-repeat}
+.ico-menu-help{background-image:url("/arquivos/rf-ajuda-color.png");width: 38px;height:35px;background-size:contain;background-position:center;background-repeat:no-repeat;}
+
+.ico-back {background-image: url(/arquivos/new-qbbr-sprite.png);width: 17px;height: 30px;display: inline-block;vertical-align: middle;font-size: 0;}
+
+/* active menu icons*/
+body.account .ico-menu-user{background-image:url("/arquivos/rf-usuario-color.png");/* background-position:0 -181px; */width:35px;height:32px;display:inline-block;vertical-align:middle;font-size:0;margin-top:4px;background-size: contain;background-repeat: no-repeat;}
+body.fidelidade .ico-menu-star{background-size:contain;background-image:url(/arquivos/ico-star-blue.png);background-position:center;background-repeat:no-repeat;width:34px;height:34px;display:inline-block;vertical-align:middle;font-size:0}
+body.orders .ico-menu-bag{background-image:url("/arquivos/rf-sacola-color.png");background-position:center;background-repeat:no-repeat;background-size: contain;}
+body.beneficios .ico-menu-percent{background-size: contain;background-image:url("/arquivos/discount-new-icon.png");background-position: center;background-repeat: no-repeat;width:35px;height:35px}
+
+/* active menu*/
+body.account    .nav-profile-menu ul li:nth-of-type(1) a{color:#686162;border-color: #686162}
+body.orders     .nav-profile-menu ul li:nth-of-type(2) a{color:#686162;border-color: #686162}
+body.fidelidade .nav-profile-menu ul li:nth-of-type(3) a{color:#2fa5de;border-color: #2fa5de}
+body.beneficios .nav-profile-menu ul li:nth-of-type(4) a{color: #686162;border-color: #686162;}
+
+/* muda menu fidelidade e benefÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â­cios */
+body.fidelidade .nav-profile-menu ul .current a, body.beneficios .nav-profile-menu ul .current a{color:#2fa5de;border-bottom:5px solid #2fa5de}
+body.fidelidade .nav-profile-menu ul:after, body.fidelidade .section-profile .resume-info .box-avatar::after, body.beneficios .nav-profile-menu ul:after, body.beneficios .section-profile .resume-info .box-avatar::after{background-color: #686162;}
+
+/* active menu mobile mudar */
+@media (max-width: 480px) {
+    body.account .nav-profile-menu ul li{display: none}
+    body.account .nav-profile-menu ul li:nth-of-type(1){display: block;pointer-events: none;cursor: default}
+    
+    body.orders .nav-profile-menu ul li{display: none;border: 0!important;}
+    body.orders .nav-profile-menu ul li.current{display: block;}
+    body.orders .nav-profile-menu ul li:nth-of-type(2){display: block;pointer-events: none;cursor: default}
+    
+    body.fidelidade .nav-profile-menu ul li{display: none}
+    body.fidelidade .nav-profile-menu ul li:nth-of-type(3){display: block!important;pointer-events: none;cursor: default;}
+    
+    body.beneficios .nav-profile-menu ul li{display: none}
+    body.beneficios .nav-profile-menu ul li:nth-of-type(4){display: block;pointer-events: none;cursor: default}
+}
+
+/* breadcrumbs */
+.breadcrumbs{padding-top:205px;font-family:'Museo Sans',serif;font-size:14px;color:#b1b1b1;padding-left:20px;padding-right:20px;display: none;}
+.breadcrumbs a{text-decoration:none;transition:.3s;text-transform:lowercase}
+.breadcrumbs .current,.breadcrumbs a:hover{color:#000}
+.breadcrumbs .shell span{padding:0 5px}
+.breadcrumbs .bread-crumb>ul>li{display:inline-block;list-style:none;font-family:'Museo Sans',serif;font-size:14px;position:relative;text-transform:lowercase}
+.breadcrumbs .bread-crumb>ul>li:after{content:'>';padding:0 5px}
+.breadcrumbs .bread-crumb>ul>li.last{color:#000;text-transform:lowercase}
+.breadcrumbs .bread-crumb>ul>li:last-child:after{opacity:0}
+.section-institucional .breadcrumbs .bread-crumb li:last-child{color:#000}
+
+div#cart1{display:none}
+.fidelidade .main, .beneficios .main{/* margin-top: -37px; */}
+
+/* resume info */
+.section-profile{margin-top: 0;position: relative;}
+.section-profile .custom-select{display:none}
+.section-profile .section-head{margin-bottom:64px}
+.section-profile .section-head::after{content:"";width:50vw;/* position:absolute; */top:0;right:0;background-color:#e7e7e7;height: 175px;border-bottom-left-radius:74px;}
+.section-profile .resume-info{width:100%;max-width:830px;background-color:#e7e7e7;height:175px;display:flex;align-items:flex-end;padding:15px;border-bottom-left-radius:74px;margin-bottom:22px;float:right;/* position: relative; */z-index: 1;}
+.section-profile .resume-info .box-avatar{position:relative;margin-right:85px}
+.section-profile .resume-info .box-avatar::after{content:'';height:124px;width:124px;background-color:#686162;position:absolute;top:0;left:4px;border-radius:50%}
+.section-profile .resume-info .avatar{border-radius:50%;position:relative;z-index:1;max-width:124px!important;height:124px!important}
+.section-profile .resume-info h3{font-weight:700;color:#000!important;margin-bottom:5px;text-transform:initial;text-align:left}
+.section-profile .resume-pts{margin-bottom:5px;line-height: 30px;}
+.section-profile .last-sale{margin-bottom:10px}
+.section-profile .resume-pts>span{background-color:#d6dad9;padding:0 11px;color:#2fa5de;height:30px;line-height:30px;border-radius:15px;display:inline-block;margin:0 2px;font-family: "museo sans"}
+.section-profile .resume-pts>span i{background-image:url(/arquivos/ico-star-blue.png);background-position:center;background-size:contain;width:15px;height:15px;vertical-align:sub}
+.section-profile .resume-pts>span span{margin-left:5px;position: relative;top: 1px;}
+.section-profile .btn-logout{text-decoration:none;font-weight:700}
+.section-profile .btn-logout p::first-letter{text-decoration:underline}
+
+@media (max-width: 1023px) {
+    .section-profile .section-head{margin-bottom:28px}
+    .section-profile .section-head h3{font-size:36px}
+    .section-profile .section-head .avatar{margin-bottom:22px}
+    .section-profile .section-head::after{content: none}
+}
+
+@media (max-width: 767px) {
+    .section-profile .section-head{border-bottom:1px solid #2fa5de;padding-bottom:30px}
+    .section-profile .section-head h3{font-size:36px;margin-bottom:30px}
+    .section-profile .custom-select{width:226px;display:block;margin:0 auto;position:relative}
+    .section-profile .custom-select:after{content:'\f107';font-family:'FontAwesome';font-size:20px;color:#000;position:absolute;right:11px;top:50%;margin-top:-10px;pointer-events:none;z-index:10}
+    .section-profile .custom-select select{height:43px;position:relative;opacity:1;background-color:#fff;-webkit-appearance:none;-moz-appearance:none;appearance:none;border:1px solid #000;border-radius:0;font-weight:300;font-size:16px;padding:0 40px 0 20px}
+}
+@media (max-width: 480px) {
+    .section-profile .resume-info{width:calc(100% - 20px);margin-top: 0;height:365px;display:block;text-align:center;padding:32px;}
+    .account .section-profile .resume-info{/* margin-top: 132px; */}
+    .section-profile .resume-pts{line-height: 7px;}
+    .section-profile .resume-pts>span{display:block;width:130px;margin:8px auto}
+    .section-profile .resume-info .box-avatar::after{top:0;left:50%;margin-left:-58px}
+    .section-profile .resume-info .box-avatar{margin:0}
+    .section-profile .resume-info h3{text-align:center;margin-bottom:10px}
+    .section-profile .resume-info .last-sale{margin-bottom: 20px;}
+}
+
+/* nav */
+.nav-profile-menu{text-align:center;clear:both}
+.nav-profile-menu ul{list-style:none;margin:0;padding:0;font-size:0;position:relative}
+.nav-profile-menu ul:after{content:'';height:1px;background-color:#686162;position:absolute;left:-30px;bottom:0;right:-30px}
+.nav-profile-menu ul li{display: inline-block!important;vertical-align:middle;margin:0 25px;}
+.nav-profile-menu ul li:nth-of-type(4){width:135px}
+.nav-profile-menu ul a{display:block;font-weight:900;font-size:16px;color:#000;text-decoration:none;padding-bottom:0;position:relative;transition:color .4s ease;border-bottom:5px solid #fff}
+.nav-profile-menu ul span{display:inline-block;height:41px;vertical-align:middle;margin-right:8px}
+@media (max-width: 1023px) {
+    .nav-profile-menu ul li{margin:0 37px}
+}
+
+@media (max-width: 480px) {
+    .nav-profile-menu{margin:auto;width:285px;border:2px solid #2fa5de;height:50px;border-radius:25px;color:#2fa5de;text-align:center;position:relative;padding:15px 25px;font-weight:700;z-index:2;-webkit-transition:all .6s;-ms-transition:all .6s;-moz-transition:all .6s;overflow: hidden;transition:all .6s;}
+    .nav-profile-menu.active{height: auto;-webkit-transition:all .6s;-ms-transition:all .6s;-moz-transition:all .6s;transition:all .6s;}
+    nav.nav-profile-menu-mobile{display:block!important;width:285px;margin:auto;clear:both;position:relative}
+    .nav-profile-menu::after{content:"";width:19px;height:11px;background-repeat:no-repeat;background-image:url(/arquivos/cdb-seta-blue.png);background-size:contain;position:absolute;right:23px;top:19px;-webkit-transition:all .6s;-ms-transition:all .6s;-moz-transition:all .6s;transition:all .6s}
+    .nav-profile-menu.active:after{transform:rotate(-180deg);-webkit-transition:all .6s;-ms-transition:all .6s;-moz-transition:all .6s;transition:all .6s}
+    .nav-profile-menu ul span:first-of-type{display:none}
+    .nav-profile-menu ul span{height:auto;margin:0;width:100%;font-size:0}
+    .nav-profile-menu ul span::before{font-size:16px;content:"benefÃƒÆ’Ã‚Â­Ãƒâ€šÃ‚Â­cios exclusivos";}
+    .nav-profile-menu ul li{width:100%;margin:0;text-align:center;display:block}
+    .nav-profile-menu ul li:nth-of-type(4){width:100%}
+    .nav-profile-menu ul li.active{display:block!important}
+    .nav-profile-menu ul li{display:none}
+    .nav-profile-menu ul li a::after, .nav-profile-menu ul:after{content: none!important}
+    .nav-profile-menu ul li a{color: #2fa5de!important;padding-bottom: 15px;border-bottom: 0!important;}
+}
+
+/* tabs vitrines meus pontos e benefÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â­cios exclusivos */
+section.vitrines-pontos{margin:100px auto auto;width:100%;max-width:1280px}
+.nav-vitrines ul{text-align:center;width:100%;border-bottom:1px solid #2fa5de}
+.nav-vitrines ul li{margin:0 41.5px;display:inline-block;list-style:none;margin-bottom:10px}
+.nav-vitrines ul li a{font-weight:700;font-size:18px;text-decoration:none;position:relative}
+.nav-vitrines ul li.current a{color:#2fa5de}
+.nav-vitrines ul li.current a::after{content:"";width:40px;height:5px;background-color:#2fa5de;position:absolute;bottom:-9px;left:50%;margin-left:-20px}
+.content-pontos>ul li{list-style-type:none;display:none;margin:30px 0}
+.content-pontos>ul li.current{display:block}
+.content-pontos .pratileira{width:100%}
+.content-pontos .pratileira li{width:25%;display:inline-block;vertical-align:top}
+@media (max-width: 480px){
+    h2{
+        font-size: 20px!important;
+    }
+    .nav-vitrines{display: none}
+    .content-pontos>ul li:nth-of-type(3), .content-pontos>ul li:last-of-type{
+        display: none;
+    }
+    .content-pontos .pratileira li{
+        width: 50%;
+    }
+}
+
+/* pop-up aniversario */
+
+.modal-enter{opacity:0}
+.modal-leave-active{opacity:0}
+.modal-enter .modal-container,.modal-leave-active .modal-container{-webkit-transform:scale(1.1);transform:scale(1.1)}
+.modal-overlay{position:fixed;height:100vh;width:100vw!important;background-color:rgba(0,0,0,0.7);z-index: 9999;top:0;left:0;transition:opacity .3s ease;overflow:auto;opacity:1!important;display: none;}
+.modal-aniversario{background-color: #f0f0f0;width:100%;max-width:690px;position:absolute;left:50%;margin-left:-345px;top:100px;border-top:7px solid #2fa5de;z-index: 9999;margin-bottom:100px;text-align:center;}
+.modal-aniversario h2{background-image:url(/arquivos/cdb-ganhe-creme-maos.png);font-size:0;width:405px;height:187px;margin:0 auto;position:relative;top:-45px;text-align: center;}
+.modal-aniversario ul{max-width:555px;margin: 15px auto 0;}
+.modal-aniversario li{color: #84191b;font-size:14px;text-align:left;font-weight:500;list-style:none;margin-bottom:17px;}
+.modal-aniversario p{color: #811a1b;text-align:center;font-weight:500;font-size:12px;padding: 20px;}
+.modal-aniversario button{font-size:16px;font-weight:900;color:#fff;height:40px;width:140px;background-color: #811a1b;margin: 3px auto 20px 400px;border:0;border-radius: 5px;}
+.modal-aniversario .selo-interno{position:absolute;top:325px;right:19px}
+.modal-aniversario .close-modal{position:absolute;top:0;right:0;font-size:35px;z-index:90;cursor:pointer;background-color:#2fa5de;width:41px;height:32px;text-align:center}
+.modal-aniversario .close-modal span{transform:rotate(45deg);font-weight:400;color:#fff;display:block;line-height:23px}
+.modal-aniversario .ico-cdb-dia{background-image:url(/arquivos/ico-cdb-dia.png)}
+.modal-aniversario .ico-cdb-pessoa{background-image:url(/arquivos/ico-cdb-pessoa.png)}
+.modal-aniversario .ico-cdb-calendario{background-image:url(/arquivos/ico-cdb-calendario.png)}
+.modal-aniversario .ico-cdb-batom{background-image:url(/arquivos/ico-cdb-batom.png)}
+.modal-aniversario .ico{width:20px;margin-right:13px;display:block;background-position:top center;background-repeat:no-repeat;float:left;height:31px}
+.selo-birthday{position: absolute;top: 25px;right: 100px;cursor: pointer;}
+.modal-on{overflow:hidden}
+.modal-on .container .container-group{z-index: 1}
+.modal-on .modal-overlay{display: block!important}
+.modal-on nav.nav{position: relative;z-index: 0;}
+.modal-on .bar{z-index: 1;}
+.modal-on .title-banner, .modal-on .box-banner .banner-title, .modal-on .header .header-content, .modal-on .owl-carousel{z-index: 0}
+@media (max-width: 480px) {
+    .selo-birthday{top:45px;right:15px}
+    .modal-aniversario{top:0;left:0;margin:0}
+    .modal-aniversario h2{font-size:0!important;width:320px;background-size:contain;background-repeat:no-repeat;height:156px}
+    .modal-on .nav-profile-menu,.modal-on .header{z-index:0}
+    .modal-aniversario .selo-interno{top:75px}
+    .modal-aniversario ul{max-width:290px}
+    .modal-aniversario p{box-sizing:border-box;padding:0 10px 20px}
+}
+@media (max-width: 375px) {
+    .selo-birthday{right:8px;width:70px}
+}
