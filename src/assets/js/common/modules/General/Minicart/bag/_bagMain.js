@@ -20,8 +20,8 @@ export const bag = {
         window.onload = function(){
             getOrder().then(function ({items,totalizers}) {
                 bag.render(items,totalizers);
-                bag.open();
-                // document.body.classList.contains('produto') ? bag.open() : null;
+                // bag.open();
+                document.body.classList.contains('produto') ? bag.open() : null;
             });
         }
     },

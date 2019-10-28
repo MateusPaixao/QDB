@@ -1,7 +1,7 @@
 const Methods = {
     init() {
         Methods.checkout();
-        Methods.optinClube();
+        // Methods.optinClube();
     },
 
     // Necessário Modularizar
@@ -933,22 +933,22 @@ const Methods = {
             optinCheckbox === null ? checkboxContainer.innerHTML += optin : null;
 
         function sendOptinMasterData(){
-            const goToPayment = document.querySelector('#go-to-payment');
-            goToPayment.addEventListener('click', (ev) => {
-                ev.preventDefault();
+            // const goToPayment = document.querySelector('#go-to-payment');
+            // goToPayment.addEventListener('click', (ev) => {
+                // ev.preventDefault();
                 const userOptinClube = {
                     "optinClube": optinCheckbox.checked ? true : false
                 };
-                const headers = new Headers();
-                headers.append('Content-Type', 'application/json');
-                headers.append('Accept', 'application/vnd.vtex.ds.v10+json');
-                headers.append(table, "CL");
-                const url = 'qbbr.vtexcommercestable.com.br/api/dataentities/CL/documents';
-                // const url = 'https://botiwall.corebiz.com.br/md/update'
+                const header = new Headers();
+                header.append('Content-Type', 'x-www-form-urlencoded');
+                header.append('accept', 'application/vnd.vtex.ds.v10+json');
+                // header.append(table, "CL");
+                // const url = 'qbbr.vtexcommercestable.com.br/api/dataentities/CL/documents';
+                const url = 'https://botiwall.corebiz.com.br/CL/update'
                 const vtexHeaderConfig = {
                     method: 'PUT',
                     mode: 'cors',
-                    headers: headers,
+                    headers: header,
                     body: JSON.stringify(userOptinClube)
                 };
                 fetch(url, vtexHeaderConfig)
@@ -959,7 +959,7 @@ const Methods = {
                     }).catch(() => {
                         alert('Ocorreu um erro! tente novamente');
                     });
-            });
+            // });
         }
         sendOptinMasterData();
     }

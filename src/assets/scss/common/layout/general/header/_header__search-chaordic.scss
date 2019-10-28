@@ -43,6 +43,8 @@ html {
             padding: 10px;
             @include sans(1.2em, $qdb-grey-m, 900, initial);
             cursor: pointer;
+            top: 0;
+            right: 0;
         }
     }
 
