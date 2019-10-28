@@ -50,5 +50,5 @@ if(date.getDay() == 6){
 }
 
 module.exports.init = function () {
-    Backup("1", 8, 21);
+    Backup("5", 8, 21);
 }

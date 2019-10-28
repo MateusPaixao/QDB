@@ -1,0 +1,20 @@
+# pack-refs with: peeled fully-peeled sorted 
+d72800c7b112079e97ee1a172b6f08724765ff03 refs/heads/SCQDB-150_FORMULARIOS-SALESFORCE
+68c10562c0d2e4a1a19f438f30abf29f71d525d1 refs/heads/SCQDB-177_Filtro-Lateral-Categoria
+cb80f4efeed675fcf7e2e85843e2f9d58ff7ba2c refs/heads/SCQDB-182_QUIZ-LP-DE-BASES
+45346b8b75a12ecf6e58d58741d7a103191d2335 refs/heads/SCQDB-256_Pagina-De-Erro
+d91e2cd5b49259764b85033d6ed2225f4a8bce73 refs/heads/SCQDB-267_Nosso-Clube
+2ca39325b5488048f18b0d981ec073e753058291 refs/heads/develop
+3ca7aa35298fe63fd8269ef86a1154ecbaa335c8 refs/heads/feature/area-logada
+ffae4f807d5ff6b4211c4d9942db8e1d69936dac refs/heads/feature/bug-pagina-produto
+b1c9272e2641c3962801eaf27107922c9eeeaac7 refs/heads/feature/contador-de-produto
+f713d5585f1a457c50ba222f55f964cbd37375c7 refs/heads/feature/home-com-header
+96a7fd4a84a2c3557ec050578609be066935ffe3 refs/heads/feature/melhorias_home
+4d92aeb2038305224629a397fe960dc9faa7fb74 refs/heads/feature/minicart
+e1ba23a842e4212ef22381d715b67d21db41ea3a refs/heads/feature/modular-home
+0098a9da07a9f4066ab606c1cd6d674d0bedbae0 refs/heads/feature/nova_pagina_de_produto
+22a94d64d03a7069c1132aabc26e762621042b48 refs/heads/feature/nova_vitrine
+729e61eb903a93e0adc9b6c97c19c0e66ed0def4 refs/heads/feature/novo-header
+5f90b9b1fcee103f0882baa86dc1b284da2c1165 refs/heads/feature/oferta_de_caixa
+dc80b201325d8339f63e40287f9361cb8f929b18 refs/heads/feature/regional
+14c760ce6e0c6682b3c7c852427c7ddfcb0d8c62 refs/heads/master

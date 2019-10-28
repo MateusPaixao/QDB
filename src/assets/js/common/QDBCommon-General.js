@@ -1,5 +1,7 @@
+// import "./global/vendor/compatibility/fetch"
 import General from "./modules/General/general-index"
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 // FID/**201812112311*/
 var menuData = [{
@@ -1945,3 +1947,8 @@ function copiarTopBanner(){
 =======
 General.init();
 >>>>>>> develop
+=======
+window.valorFrete;
+console.log('teste')
+General.init();
+>>>>>>> 2ca39325b5488048f18b0d981ec073e753058291

@@ -1,0 +1,82 @@
+html {
+    .ac-container {
+        width: 50% !important;
+        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
+        overflow-y: scroll;
+        max-height: 70vh;
+        top: 70px !important;
+        left: 20% !important;
+
+        @include d('768px') {
+            width: 100vw !important;
+            left: 0 !important;
+        }
+
+        /* width */
+        &::-webkit-scrollbar {
+            width: 6px;
+            // border-radius: 10px;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: $secondaryColor;
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: $secondaryColor;
+        }
+
+        &.is--active {
+            display: block !important;
+            visibility: visible !important;
+        }
+
+        .close--container {
+            position: absolute;
+            padding: 10px;
+            @include sans(1.2em, $qdb-grey-m, 900, initial);
+            cursor: pointer;
+        }
+    }
+
+    .ac-overlay {
+        display: none !important;
+    }
+
+    .ac-footer {
+        display: none;
+    }
+
+    .scrollDown {
+        .ac-container {
+            top: 48px !important;
+        }
+    }
+
+    .has--topbanner {
+        &.scrollDown {
+            .ac-container {
+                top: 100px !important;
+
+                @include d('768px') {
+                    top: 115px !important;
+                }
+            }
+        }
+
+        .ac-container {
+            top: 120px !important;
+
+            @include d('768px') {
+                top: 150px !important;
+            }
+        }
+    }
+}
