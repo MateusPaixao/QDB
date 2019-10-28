@@ -32,16 +32,16 @@ export default {
     }).join('');
   },
 
-  precify( { price, listPrice, quantity } ) {
-    if (price !== listPrice) {
+  precify( { sellingPrice, listPrice, quantity } ) {
+    if (sellingPrice !== listPrice) {
       return `<span class="bag-shelf__item-info-price-discount js--bag-old-price">
         ${((listPrice * quantity ) / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
       </span>
       <span class="bag-shelf__item-info-price-sell js--bag-best-price">
-        ${((price * quantity )/ 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+        ${((sellingPrice * quantity )/ 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
       </span>`;
     }
-    return (( price * quantity ) / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    return (( sellingPrice * quantity ) / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   },
 
   discountify(oldPrices,bestPrices){
