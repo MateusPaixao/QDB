@@ -261,7 +261,8 @@ section.faq>p{font-size:16px}
     section.more-about .desc-video{padding:30px 0;margin:auto;width:100%;}
     section.more-about .desc-video::after{background-image:url('/arquivos/cdb-banner-beneficios-grafismos-mobile.png');width: 414px;bottom: initial;top: 25px;right: -20px;}
     section.more-about li.pontos{padding: 380px 40px 50px;background-repeat:no-repeat;background-position-y:top;background-position-x:-920px;background-size:1490px}
-    section.more-about li.pontos .wrap-tab div::after{background-image:url('/arquivos/cdb-banner-acumule-grafismos-mobile.png');width: 414px;height: 100%;top: 84px;right: -74px;left: initial;}
+    section.more-about li.pontos .wrap-tab div::after{display:none;}
+    
     section.more-about li.como-funciona{padding:380px 40px 0;background-repeat:no-repeat;background-position-y:top;background-position-x:-355px;background-size:1490px}
     //section.more-about li.como-funciona .wrap-tab div::after{background-image:url('/arquivos/cdb-banner-como-funciona-grafismos-mobile.png');top:-20px;left:-62px}
     section.more-about li.como-funciona.tab-content div.wrap-tab{padding:0 22px}
