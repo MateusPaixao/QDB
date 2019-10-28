@@ -15,8 +15,10 @@ const browserSync   = require('browser-sync').create();
 const concat = require('gulp-concat');
 // const del = require('del');
 const gulp = require('gulp');
+const imagemin = require('gulp-imagemin');
 const pug = require('gulp-pug');
 const sass = require('gulp-sass');
+const svgmin = require('gulp-svgmin');
 const uglify = require('gulp-uglify');
 const rename = require("gulp-rename");
 
@@ -36,6 +38,16 @@ const paths = {
     dest: './dist/assets/css/',
     qa: './qa/assets/css/',
     srcWatch: ['src/assets/scss/**/*.scss', '!src/assets/scss/**/checkout6-custom.scss'],
+  },
+  imgs: {
+    src: 'src/assets/img/*.{png,gif,jpg}',
+    dest: './dist/assets/img/',
+    srcWatch: 'src/assets/img/*'
+  },
+  svgs: {
+    src: 'src/assets/img/icon/*.svg',
+    dest: './dist/assets/img/icon/',
+    srcWatch: 'src/assets/img/icon/*'
   },
   scripts: {
     src: ['src/assets/js/common/*.js', 'src/assets/js/common/*.jsx', '!src/assets/js/common/checkout6-custom.js'],
@@ -64,11 +76,11 @@ const pugtranspile = () => {
     .pipe(pug({
       pretty: true
     }))
-    .pipe(gulp.dest(paths.htmls.dest));
+    .pipe(gulp.dest(paths.markup.dest));
 }
 const htmls = () => {
-  return gulp.src('src/views/html/*.html')
-    .pipe(gulp.dest(paths.htmls.dest));
+  return gulp.src(paths.markup.html)
+    .pipe(gulp.dest(paths.markup.dest));
 }
 
 const minimg = () => {
