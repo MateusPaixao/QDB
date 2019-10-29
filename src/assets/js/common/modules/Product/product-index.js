@@ -1,4 +1,5 @@
 import Features from './Components/Features/features.jsx'
+// import setPeopleInPage from './Components/Features/_peopleInPage.jsx'
 
 const Methods = {
     init(){
@@ -7,10 +8,17 @@ const Methods = {
         Methods.oldProduct();
     },
     GetProduct(){
-        request("/api/catalog_system/pub/products/search" + window.location.pathname)
-        .then((Product) => {
-            console.log(Product);
-            // Product.sellers[0].commertialOffer.Price - Product.sellers[0].commertialOffer.ListPrice != 0 ? Features.PeopleInPage(30, 15) : Features.PeopleInPage(5, 1);
+        fetch("/api/catalog_system/pub/products/search" + window.location.pathname)
+        .then(response => response.json())
+        .then(Product => {
+            // console.log(Product[0]);
+            let skuId = [...document.querySelectorAll(".select-cor-new .group_0 label")].find(label => label.classList.contains("current")) != undefined ? skuId = document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku") : skuId = new URL(window.location.href).searchParams.get("idsku");
+            // console.log("skuid ", skuId);
+            let Sku = Product[0].items.find(e => e.itemId == skuId);
+            console.log(Sku);
+            // window.innerWidth < 768 ? document.querySelector(".product-buy-button").after(document.querySelector("#people-seeing--render")) : "";
+            Sku.sellers[0].commertialOffer.Price - Sku.sellers[0].commertialOffer.ListPrice != 0 ? Features.setPeopleInPage(30, 15) : Features.setPeopleInPage(5, 1);
+            Sku.sellers[0].commertialOffer.AvailableQuantity <= 10 ? Features.setStockLeft(Sku.sellers[0].commertialOffer.AvailableQuantity) : "";
         })
     },
     oldProduct(){      
@@ -128,7 +136,6 @@ const Methods = {
                     });
                 
                     if($(".select-cor-new .group_0")){
-                        console.log("UEEEEEEEE");
                         AddToCart();
                     }
                     // #Init funcoes
@@ -470,7 +477,7 @@ const Methods = {
                     if(value.values[0]){
                         if(arrSkuList.indexOf(value.values[0]) == -1){
                             arrSkuList.push(value.values[0]);
-                            console.log(arrSkuList.indexOf(value.values[0]));
+                            // console.log(arrSkuList.indexOf(value.values[0]));
                             _owner.objSkusInfo.skuList.push({
                                 id: value.sku,
                                 name: value.values[0],

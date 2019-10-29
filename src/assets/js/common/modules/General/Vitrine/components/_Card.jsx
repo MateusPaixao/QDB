@@ -585,7 +585,7 @@ class Card extends React.Component{
           }
           {this.state.Avaliable != false &&
             Object.entries(this.state.clusterHighlights).map(flag =>
-              <span className={`cardProduct__flag __${flag[1].replace("ç", "c")}`}>
+              <span className={`cardProduct__flag __${flag[1].replace("ç", "c").replace(" ", "")}`}>
                 <p className="cardProduct__flag__content">
                   {flag[1]}
                 </p>

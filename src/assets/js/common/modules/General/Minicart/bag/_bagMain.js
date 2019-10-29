@@ -17,13 +17,13 @@ export const bag = {
             document.body.classList.contains('produto') ? bag.open() : null;
           });
         });
-        window.onload = function(){
-            getOrder().then(function ({items,totalizers}) {
-                bag.render(items,totalizers);
-                bag.open();
-                // document.body.classList.contains('produto') ? bag.open() : null;
-            });
-        }
+        // window.onload = function(){
+        //     getOrder().then(function ({items,totalizers}) {
+        //         bag.render(items,totalizers);
+        //         bag.open();
+        //         // document.body.classList.contains('produto') ? bag.open() : null;
+        //     });
+        // }
     },
 
     maxQuantity: [1, 2, 3, 4, 5, 6, 7],

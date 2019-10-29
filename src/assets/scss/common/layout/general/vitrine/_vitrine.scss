@@ -280,6 +280,11 @@
                     border: solid 1px $danger;
                     color: $danger;
                 }
+                &.super-black{
+                    border: none;
+                    color: $blackfriday-s;
+                    background: $blackfriday-p;
+                }
             }
         }
         .cardProduct__pictureContainer{

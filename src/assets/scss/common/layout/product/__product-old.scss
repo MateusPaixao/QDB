@@ -1,5 +1,3 @@
-@import '../../config/settings/config-bases';
-
 .ico-arrow-down {
     background-image: url(../arquivos/new_qdb_sprite.png);
     background-position: -243px -189px;
@@ -1071,7 +1069,7 @@ ul {
 }
 
 .portal-notify-me-ref {
-    margin-top: 40px
+    margin-top: 0px !important;
 }
 
 .sku-notifyme-form.notifyme-form>p {
@@ -1289,7 +1287,7 @@ ul {
     text-decoration: none;
     vertical-align: middle;
     padding: 0 20px;
-    margin: 0 auto 18px;
+    margin: 0 auto 5px !important;
     background: #342E37;
     border: 1px solid #342E37;
     -webkit-border-radius: 5px;
@@ -3182,13 +3180,16 @@ p.flag.leve-4-pague-2 {
 }
 
 .slider-colors .select-cor-new {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    width: 80%;
-    margin-left: 95px;
+    width: 76%;
+    // margin-left: 95px;
     max-height: 200px;
     overflow-y: auto;
     padding: 10px;
+    .group_0{
+        @include d("768px", "min"){
+            display: flex;
+            flex-flow: wrap;
+        }
+    }
 }
