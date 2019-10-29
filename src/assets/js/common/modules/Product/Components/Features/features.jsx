@@ -2,10 +2,11 @@ import PeopleInPage from './_peopleInPage.jsx'
 
 const Methods = {
     init(){
-        PeopleInPage();
+        // PeopleInPage();
     }
 }
 
 export default {
-    init: Methods.init
+    init: Methods,
+    PeopleInPage: PeopleInPage
 }

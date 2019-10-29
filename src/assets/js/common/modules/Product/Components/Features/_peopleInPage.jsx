@@ -1,4 +1,4 @@
-export function PeopleInPage(){
+export function PeopleInPage(num, minV){
     class PeopleSeeing extends React.Component {
         constructor(props){
             super(props);
@@ -8,7 +8,7 @@ export function PeopleInPage(){
             this.peopleSeeing = this.peopleSeeing.bind(this);
         }
 
-        peopleSeeing = (num, minV) =>{
+        peopleSeeing = () =>{
             this.setState({
                 nPeople: Math.floor(Math.random() * (num + 5)) + minV
             }, () => {
@@ -42,6 +42,6 @@ export function PeopleInPage(){
     
     ReactDOM.render(
         <PeopleSeeing />,
-        document.getElementById('bannerHero--render')
+        document.getElementById('people-seeing--render')
     );
 }
