@@ -1,6 +1,7 @@
 const Methods = {
     init() {
         Methods.checkout();
+        // Methods.optinClube();
     },
 
     // Necessário Modularizar
@@ -918,6 +919,49 @@ const Methods = {
             return applyAllSelectors;
         })(jQuery, window, document);
         // END: SKU SLECTOR
+    },
+    optinClube(){
+        const checkboxContainer = document.querySelector('.newsletter');
+        const optin = `
+        
+        <label class="checkbox newsletter-label">
+            <input type="checkbox" id="opt-in-clube">
+            <span class="newsletter-text">Quero fazer parte do nosso clube.</span>
+        </label>`
+
+        const optinCheckbox = document.querySelector("#opt-in-clube");
+            optinCheckbox === null ? checkboxContainer.innerHTML += optin : null;
+
+        function sendOptinMasterData(){
+            // const goToPayment = document.querySelector('#go-to-payment');
+            // goToPayment.addEventListener('click', (ev) => {
+                // ev.preventDefault();
+                const userOptinClube = {
+                    "optinClube": optinCheckbox.checked ? true : false
+                };
+                const header = new Headers();
+                header.append('Content-Type', 'x-www-form-urlencoded');
+                header.append('accept', 'application/vnd.vtex.ds.v10+json');
+                // header.append(table, "CL");
+                // const url = 'qbbr.vtexcommercestable.com.br/api/dataentities/CL/documents';
+                const url = 'https://botiwall.corebiz.com.br/CL/update'
+                const vtexHeaderConfig = {
+                    method: 'PUT',
+                    mode: 'cors',
+                    headers: header,
+                    body: JSON.stringify(userOptinClube)
+                };
+                fetch(url, vtexHeaderConfig)
+                    .then(response => response.json())
+                    .then((data) => {
+                        console.log(data)
+                        alert('enviado');     
+                    }).catch(() => {
+                        alert('Ocorreu um erro! tente novamente');
+                    });
+            // });
+        }
+        sendOptinMasterData();
     }
 }
 
