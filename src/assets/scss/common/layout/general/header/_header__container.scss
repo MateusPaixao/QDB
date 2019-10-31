@@ -558,6 +558,18 @@
                 color: $principalColor;
             }
 
+            // BlackFriday
+            &.blackfriday{
+                border: none;
+                background: $blackfriday-p;
+                color: $blackfriday-s;
+                padding: 4px 4px;
+                &:hover {
+                    background-color: $blackfriday-s;
+                    color: $blackfriday-p;
+                }
+            }
+
             @include d('768px') {
                 display: none;
             }

@@ -342,6 +342,14 @@
                 left: 0;
                 top: 0;
             }
+
+            // Blackfriday
+            &.blackfriday{
+                background: $blackfriday-p;
+                p{
+                    color: $blackfriday-s;
+                }
+            }
         }
 
         &--banner-txt {

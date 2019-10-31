@@ -126,6 +126,10 @@ export function getiPhoneModel() {
     } else if ((window.screen.height / window.screen.width == 1.775) && (window.devicePixelRatio == 2)) {
         switch (renderer) {
             default:
+                // window.onload = () => {
+                //     window.scrollBy(0, 1);
+                // }
+                // document.body.classList.add('iphone');
                 return "iPhone 5, 5C, 5S, SE or 6, 6s, 7 and 8 (display zoom)";
             case "PowerVR SGX 543":
                 return "iPhone 5 or 5c";

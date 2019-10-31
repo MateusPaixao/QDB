@@ -22,21 +22,25 @@
                             border-radius: .2em;
                             margin: 2.5px;
                             border-radius: .2em;
+                            float: left;
                         }
-                        .flags-product .flag{
-                            padding: 2.5px 5px;
-                            border-radius: .2em;
-                            margin: 2.5px;
-                            border-radius: .2em;
-                            border: solid 1px $danger;
-                            color: $danger;
-                            
-                            &.super-black{
-                                border: none;
-                                color: $blackfriday-s;
-                                background: $blackfriday-p;
+                        .flags-product{
+                            float: left;
+                            .flag{
+                                padding: 2.5px 5px;
+                                border-radius: .2em;
+                                margin: 2.5px;
+                                border-radius: .2em;
+                                border: solid 1px $danger;
+                                color: $danger;
+                                
+                                &.super-black{
+                                    border: none;
+                                    color: $blackfriday-s;
+                                    background: $blackfriday-p;
+                                }
                             }
-                        }
+                        } 
                     }
                 }
             }
