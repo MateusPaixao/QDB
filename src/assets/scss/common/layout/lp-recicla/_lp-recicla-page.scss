@@ -1,0 +1,426 @@
+.sta-cart-overlay, .overlay-cep, .overlay-clube, .overlay-login {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 8888;
+    background: rgba(0, 0, 0, .9);
+    opacity: .9!important;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+    visibility: visible;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+/* width */
+.popup-inner::-webkit-scrollbar {
+	width: 7px;
+	border-radius:50px;
+}
+
+/* Track */
+.popup-inner::-webkit-scrollbar-track {
+	background: #D5D5D5; 
+	border-radius:50px;
+}
+
+/* Handle */
+.popup-inner::-webkit-scrollbar-thumb {
+	background: #686162; 
+	border-radius:10px;
+}
+
+/* Handle on hover */
+.popup-inner::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+}
+.popupOn {
+    height:100%;
+    overflow: hidden;
+}
+@media (min-width:320px){
+	.section-top {
+		display:block;
+		background:#d0d0d0;
+		font-family:"CentraleSans-Bold";
+		color:#fff;
+		padding: 20px 0 40px 0;
+		position: relative;
+	}
+	
+	h1.logo-retornaBere {
+		font-weight:500;
+		font-size:38px;
+		font-family:"Museo Sans";
+		position:relative;
+		z-index:10;
+    }
+    
+	h1.logo-retornaBere strong {
+		display:block;
+		font-weight:900;
+		font-size:62px;
+		text-indent:-1px;
+	}
+    h1.logo-retornaBere a {
+        font-weight: 900;
+        cursor: text;
+    }
+		
+	.section-top-inner {
+		display:flex;
+		flex-direction:column;
+		padding: 0 40px;
+		position:relative;
+	}
+	.section-top .section-top-inner:before {
+		content:" ";
+		position:absolute;
+		width: 846px;
+		height: 873px;
+		background: url("https://qbbr.vteximg.com.br/arquivos/VERDE-lp1.png") 0 0 no-repeat;
+		background-size: contain;
+		top: -190px;
+		left: -370px;
+	}
+	.section-top-inner .inner-col4 p {
+		font-size:20px;
+		font-family: "CentraleSans-Regular";
+		margin-top:30px;
+		padding-right: 20%;
+		position: relative;
+	}
+	.section-top-inner .inner-col4  p strong {
+		font-weight: 700;
+		font-size:26px;
+		display:block;
+		color: #fff;
+		margin-bottom:15px;
+		line-height:32px;
+	}
+	.inner-row {
+		position:relative;
+	}
+	.section-top-inner .inner-col4  p strong:after {
+		content:" ";
+		width:70px;
+		height:5px;
+		background:#fff;
+		display:block;
+		margin-top:15px	
+	}
+	.section-top-inner .inner-row {
+		color:#399570;
+		-ms-box-orient: horizontal;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-justify-content: space-around;
+		justify-content: space-around;
+		-webkit-flex-flow: row wrap;
+		flex-flow: row wrap;
+		-webkit-align-items: stretch;
+		align-items: stretch;
+	}
+	.section-top-inner .inner-row p {
+		margin-top:15px;
+		font-size:16px;
+		font-family:"CentraleSans-Regular";
+		position:relative;
+		margin: 10px 0 0 -15px;
+		line-height: 25px;
+	}
+	.section-top-inner .inner-row p strong {
+		font-weight:bold;
+	}
+	.section-top-inner .inner-row > p span:first-child {
+		color:#399570;
+		font-size:89px;
+		float: left;
+		height: 100%;
+		margin-right: 10px;
+		line-height: 76px;
+		font-weight: 900;
+	}
+	.section-top-inner .inner-row > p span:last-child {
+		text-decoration:underline;
+		font-weight:bold;
+	}
+	.inner-col3 {
+		display:flex;
+		flex-direction:column;
+		margin-top: 70px;
+	}
+
+	.section-infos {
+		padding:50px 0;
+		background:#399570;
+		color:#fff;
+	}
+	.section-infos-inner {
+		padding:0 30px
+	}
+	.section-infos-inner .inner-row {
+		display:flex;
+		flex-direction:column;
+		font-size:20px;
+	}
+	.infos-popup {
+		display:none;
+		position: fixed;
+		background: #fff;
+		top: 0;
+		z-index: 9999;
+		left: 0;
+		width: 100%;
+		height: 95%;
+		color: #686162;
+		text-align: center;
+		padding: 0 0 20px 0;
+		border-top: 5px solid #399570;
+	}
+	.popup-inner h3 {
+		text-align:left;
+		font-size:20px;
+	}
+	.popup-inner p {
+		font-size:14px;
+	}
+	.section-infos-inner .inner-row > span {
+		margin: 15px 0;
+		cursor:pointer;
+	}
+	p.openPop:after {
+		content:"\f054";
+		font-family:"FontAwesome";
+		font-size:14px;
+		position:absolute;
+		top: 2px;
+		/* margin-left:18px; */
+		right: 20px;
+	}
+	
+	.section-infos-inner .inner-row > span:first-child {
+		font-size:26px;
+		padding-right:50px;
+		font-family:"CentraleSans-Bold";
+		margin-bottom:25px;
+		cursor:text;
+	}
+	.section-infos-inner .inner-row > span:first-child:after {
+		display:none;
+	}
+	.close-popup {
+		position:absolute;
+		background:#399570;
+		width: 40px;
+		height: 40px;
+		top:0;
+		right:0;
+	}
+
+	.close-popup:after,
+	.close-popup:before {
+		content:" ";
+		width: 80%;
+		height:2px;
+		background:#fff;
+		position:absolute;
+		top: 17px;
+		left: 4px;
+	}
+	.close-popup:after {
+		transform: rotate(45deg);
+	}
+	.close-popup:before {
+		transform: rotate(-45deg);
+	}
+	.infos-popup a {
+		background: #399570;
+		color: #fff;
+		border-radius: 7px;
+		padding: 8px 35px;
+		font-size: 16px;
+	}
+	.popup-inner {
+		height: 74%;
+		margin: 50px 55px 33px 55px;
+		overflow-y: scroll;
+		padding-right: 35px;
+		text-align: left;
+		font-size: 14px;
+	}
+    .popup-inner p {
+        
+    }
+    .popup-inner p strong {
+        font-family:"CentraleSans-Bold";
+        display:block;
+    }
+    .popup-inner strong {
+    	font-family:"CentraleSans-Bold";
+    	font-weight:700;
+    }
+    .popup-inner h3 {
+        font-family:"CentraleSans-Bold";
+    }
+    .openPop {
+    	position:relative;
+    }
+    
+}
+	
+
+@media (min-width:678px){
+	.section-top-inner {
+		display:flex;
+		width:1050px;
+		margin:0 auto;
+		flex-direction: row;
+		justify-content: space-between;
+		position:relative;
+	}
+	.inner-col4 {
+		width: 35%;
+	}
+	.section-top .section-top-inner:before {
+		content:" ";
+		position:absolute;
+		width: 1000px;
+		height: 1000px;
+		background: url("https://qbbr.vteximg.com.br/arquivos/VERDE-lp1.png") 0 0 no-repeat;
+		background-size: contain;
+		top: -190px;
+		left: -410px;
+	}
+	.section-top .section-top-inner:after {
+		content:" ";
+		position:absolute;
+		width: 777px;
+		height: 767px;
+		background: url("https://qbbr.vteximg.com.br/arquivos/VERDE-lp2.png") 0 0 no-repeat;
+		/* background-size: contain; */
+		top: -490px;
+		right: -250px;
+	}
+	.inner-col3 {
+		display:flex;
+		flex-direction:column;
+		justify-content: end;
+		margin-top: 41px;
+		width: 54%;
+		z-index: 1;
+	}
+
+	.section-top-inner .inner-row {
+		color:#399570;
+		-ms-box-orient: horizontal;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-justify-content: space-around;
+		justify-content: space-around;
+		-webkit-flex-flow: row wrap;
+		flex-flow: row-reverse;
+		-webkit-align-items: stretch;
+		align-items: stretch;
+	}
+	.section-top-inner .inner-row:last-child{
+		width: 130%;
+		flex-direction:row;
+		margin-left: -120px;
+		margin-top: -10px;
+	}
+	.section-top-inner .inner-row p {
+		margin-top: 93px;
+		font-size: 24px;
+		line-height: 34px;
+	}
+	.section-top-inner .inner-row > p span:first-child {
+		font-size:133px;
+		font-family:"CentraleSans-Bold";
+		font-weight:900;
+		line-height: 100px;
+	}
+	.section-top-inner .inner-row img {
+		margin:0 10px
+	}
+	.section-top-inner .inner-col4 p strong {
+		font-size:30px;
+		line-height: 38px;
+	}
+	.section-top-inner .inner-col4 p  {
+		font-size:26px;
+		line-height: 37px;
+	}
+	.section-infos {
+		padding:50px 0;
+		background:#399570;
+		color:#fff;
+		position: relative;
+	}
+	.section-infos-inner {
+		padding:0 30px;
+		display:block;
+		position:relative;
+	}
+	.section-infos-inner {
+		width:1050px;
+		margin:0 auto;
+	}
+	.section-infos-inner .inner-row {
+		display:flex;
+		flex-direction:row;
+		font-size:20px;
+	}
+	.section-infos-inner .inner-row > span:first-child {
+		font-size:26px;
+		width: 38%;
+	}
+	.section-infos {
+		padding: 20px 0 10px;
+	}
+	footer{
+		padding-top:0!important;
+		position:relative;
+	}
+	.infos-popup {
+		top: 12%;
+		left:50%;
+		width:850px;
+		height: 490px;
+		margin-left:-425px;
+		border-top: 5px solid #399570;
+		z-index:9999;
+		text-align: center;
+	}
+	.popup-inner {
+		height: 345px;
+		margin: 50px 55px 33px 55px;
+		overflow-y: scroll;
+		padding-right: 35px;
+	}
+	.popup-inner h3 {
+		text-align:left;
+		font-size:20px;
+	}
+	.popup-inner p {
+		font-size:14px;
+	}
+	p.openPop:after {
+		right: auto;
+		content:"\f054";
+		font-family:"FontAwesome";
+		font-size:14px;
+		position:absolute;
+		top: 18px;
+		margin-left:18px;
+	}
+}
