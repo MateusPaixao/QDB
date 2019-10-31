@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-BR" class="_d-top">
+
+    <head>
+        <vtex:contentPlaceHolder id="Metatags" />
+        
+        <vtex:template id="00-0-QDB-Head"/>
+        
+        <title>cupons de descontos | quem disse, berenice?</title>
+        
+        <link href="/arquivos/lp-cupons.css?v=29-04-2019-6" rel="stylesheet"/>
+    </head>
+
+    <body>
+        <script>    
+            $(function (){
+                document.title = '<vtex:contentPlaceHolder id="Título da página" />';
+            });
+        </script>
+        <div class="wrapper">
+            <div class="cart" id="cart1" data-item="wish">
+                <!-- <vtex:template id="new-qdb-wishlist"/> -->
+            </div><!-- /#products1.products -->
+            
+            <div class="wrapper-inner">
+                <div class="container">
+                    <div class="container-group header-follder-page">
+                        <vtex:template id="00-0-QDB-Header" />
+                    </div><!-- /.container-group -->
+
+                    <div class="main">
+                        <div class="main-inner">
+                            <div class="shell"> 
+                                    <!--<div class="breadcrumbs">-->
+                                    <!--    <div class="bread-crumb">-->
+                                    <!--        <ul>-->
+                                    <!--            <li>-->
+                                    <!--                <a href="/">página inicial</a>-->
+                                    <!--            </li>-->
+
+                                    <!--            <li>-->
+                                    <!--                <vtex:contentPlaceHolder id="breadcrumbs" />-->
+                                    <!--            </li>-->
+                                    <!--        </ul>-->
+                                    <!--    </div> /.bread-crumb -->
+                                    <!-- </div>/.breadcrumbs -->
+                                </div><!-- /.shell -->
+                            </div><!-- /.main-inner --> 
+                        </div><!-- /.main --> 
+                    <article class="lp-cupons">
+                          <div class="banner-w-txt"><span class="sobreposta"><img src="https://qbbr.vteximg.com.br/arquivos/qdb_PREPARE-SE-BEIJO-rgb.png" alt="Cupons de descontos da quem disse, berenice?"/></span><span>
+                              <h1><strong>Cupons de desconto quem disse, berenice?</strong></h1>
+                              <p>Pra te ajudar a rechear seu nécessaire, criamos alguns cupons de desconto incríveis! Vem aproveitar pra levar todas as maquiagens e acessórios que você tá de olho.</p></span></div>
+                          <section class="cupons">
+                            <div class="shell">
+                              <ul class="lista-cupons" role="list" aria-labelledby="ttlCoupons">
+                                
+                              </ul>
+                            </div>
+                          </section>
+                          <section class="guide">
+                            <h2>Passo a passo de como usar o cupom</h2>
+                            <div class="shell">
+                              <div class="steps"><span><img src="https://qbbr.vteximg.com.br/arquivos/lp-cupons-passo-1.png" alt="Passo 1 de como usar cupom de desconto qdb"/>
+                                  <p>Clique no botão “copiar código” para copiá-lo automaticamente</p></span><span><img src="https://qbbr.vteximg.com.br/arquivos/lp-cupons-passo-2.png" alt="Passo 2 de como usar cupom de desconto da quem disse berenice"/>
+                                  <p>No carrinho de compras, insira o código copiado e clique em “ok”</p></span><span><img src="https://qbbr.vteximg.com.br/arquivos/lp-cupons-passo-3.png" alt="Passo 3 para usar cupom de desconto da quem disse berenice"/>
+                                  <p>Pronto! O desconto será automaticamente aplicado no valor total da compra</p></span></div>
+                            </div>
+                          </section>
+                          <section class="about">
+                            <div class="shell">
+                              <h3>Cupom de desconto</h3>
+                              <p>Quem não adora uma promoção de maquiagem? Vem aproveitar pra levar seus produtos preferidos com desconto! Tem batom, sombra, itens de perfumaria e de cuidados com a pele. É só usar nossos cupons de desconto ao finalizar a compra.</p>
+                            </div>
+                          </section>
+                          <script>
+                                var coupons = [];
+                                <vtex:contentPlaceHolder id="EE-Coupons" />
+                            </script>
+                        </article>
+                    <footer class="footer">
+                        <vtex:template id="00-0-QDB-Footer" />
+                        <script src="/arquivos/lp-cupons.js?v=02-05-2019" type="text/javascript"></script> 
+                    </footer><!-- /.footer -->
+                </div><!-- /.container -->
+            </div><!-- /.wrapper-inner -->
+        </div><!-- /.wrapper -->
+    </body>
+</html>
