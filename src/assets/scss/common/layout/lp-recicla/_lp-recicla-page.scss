@@ -296,7 +296,8 @@
 		background-size: contain;
 		top: -190px;
 		left: -410px;
-	}
+    }
+    
 	.section-top .section-top-inner:after {
 		content:" ";
 		position:absolute;
@@ -305,7 +306,7 @@
 		background: url("https://qbbr.vteximg.com.br/arquivos/VERDE-lp2.png") 0 0 no-repeat;
 		/* background-size: contain; */
 		top: -490px;
-		right: -250px;
+		right: 0;
 	}
 	.inner-col3 {
 		display:flex;
