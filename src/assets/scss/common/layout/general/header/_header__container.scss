@@ -563,10 +563,12 @@
                 border: none;
                 background: $blackfriday-p;
                 color: $blackfriday-s;
+                text-shadow: 0px 0px 5px $blackfriday-s;
                 padding: 4px 4px;
                 &:hover {
                     background-color: $blackfriday-s;
                     color: $blackfriday-p;
+                    text-shadow: none;
                 }
             }
 
