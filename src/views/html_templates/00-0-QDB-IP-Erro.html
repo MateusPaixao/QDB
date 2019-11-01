@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common"
+    xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-BR" class="_d-top">
+
+<head>
+    <script>
+        $(function () {
+            document.title = '<vtex:contentPlaceHolder id="Título da página" />';
+        });
+    </script>
+    <vtex:contentPlaceHolder id="Metatags" />
+    <vtex:template id="00-0-QDB-Head" />
+
+    <link rel="stylesheet" href="/arquivos/QDB-IP-Erro.css" />
+    <script>
+            window.chaordic_meta = {
+                page: {
+                    name: "home"
+                }
+            };
+    </script>       
+</head>
+
+<body>
+    <div class="container-group">
+        <vtex:template id="00-0-QDB-Header" />
+    </div>
+    <main class="ip-error">
+        <section class="shell">
+            <h1 class="ip-error__title">Ops!</h1>
+            <p>Não achamos a página que você buscou, mas não se preocupe, separamos algumas sugestões pra você:</p>
+            <ul class="ip-error__inner clearfix">
+                <li class="ip-error__item">
+                    <a href="https://www.quemdisseberenice.com.br/maquiagem/rosto">
+                        <img 
+                            src="/arquivos/qdb-categoria-rosto.png" 
+                            alt="Categoria Rosto"
+                            title="veja os produtos da categoria rosto"
+                        />
+                        <h3 class="ip-error__item__title">Rosto <span>&#8250;</span></h3>
+                    </a>
+                </li>
+                <li class="ip-error__item">
+                    <a href="https://www.quemdisseberenice.com.br/maquiagem/olhos">
+                        <img 
+                            src="/arquivos/qdb-categoria-olhos.png" 
+                            alt="Categoria Olhos"
+                            title="veja os produtos da categoria olhos"
+                        />
+                        <h3 class="ip-error__item__title">Olhos <span>&#8250;</span></h3>
+                    </a>
+                </li>
+                <li class="ip-error__item">
+                    <a href="https://www.quemdisseberenice.com.br/maquiagem/boca">
+                        <img 
+                            src="/arquivos/qdb-categoria-boca.png" 
+                            alt="Categoria Boca"
+                            title="veja os produtos da categoria boca"
+                        />
+                        <h3 class="ip-error__item__title">Boca <span>&#8250;</span></h3>                    
+                    </a>
+                </li>
+                <li class="ip-error__item">
+                    <a href="https://www.quemdisseberenice.com.br/promocao">
+                        <img 
+                            src="/arquivos/qdb-categoria-promocoes.png" 
+                            alt="Categoria Promoções"
+                            title="veja os produtos da categoria promoções"
+                        />
+                        <h3 class="ip-error__item__title">Promoções <span>&#8250;</span></h3>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <!-- Section Chaordic - Bottom -->
+            <div class="section--chaordic-bottom">
+                    <div class="shell">
+                        <div class="section-body">
+                            <section class="section-chaordic">
+                                <div class="shell">
+                                    <div chaordic="bottom"></div>
+                                </div>
+                                <!-- /.shell -->
+                            </section>
+                            <!-- /.section-chaordic -->
+                        </div>
+                    </div>
+                </div>
+            <!-- Section Chaordic - Bottom:end -->
+        </section>
+    </main>
+    <footer class="footer">
+        <vtex:template id="00-0-QDB-Footer" />
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+//AUXILIAR CLASSES
+.clearfix {
+    &:before,
+    &:after {
+        content: ' ';
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+//INITIAL
+.ip-error img {
+    max-width: 100%;
+    margin: auto;
+    display: block;
+    transition: transform .2s;
+}
+
+.ip-error {
+    text-align: center;
+    padding: 40px 0;
+    &__title {
+      font-size: 52px; 
+      color: #222;
+    }
+    p {
+        font-size: 16px;
+        color: #4A4A4A;
+        width: 580px;
+        margin: 30px auto;
+        max-width: 80%;
+    }
+    &__inner {
+        display: inline-block;
+        margin: auto;
+        max-width: 100%;
+    }
+    &__item {
+        float: left;
+        width: 50%;
+        a {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            &:hover img {
+                filter: blur(1px);
+                transform: scale(1.1);
+            }
+        }
+        &__title {
+            position: absolute;
+            z-index: 2;
+            left: 0;
+            right: 0;
+            top: 43%;
+            color: #fff;
+            font-size: 19px;
+            text-transform: uppercase;
+            span {
+                margin-left: 10px;
+                font-size: 25px;
+                line-height: 15px;
+            }
+        }
+    }
+    @media(min-width: 768px) {
+        p {
+            font-size: 20px;
+        }
+        &__item {
+            max-width: 220px;
+            width: 25%;
+            padding: 0 5px;
+        }
+    }
+}
+//chaordic
+.section-chaordic div[chaordic="bottom"] {
+    width: auto;
+}
