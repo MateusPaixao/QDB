@@ -612,7 +612,7 @@ class Card extends React.Component{
         </div>
         <a {... this.state.Adding == false ? {href: "/" + this.props.info.linkText + "/p?idsku=" + this.state.Sku.itemId} : {href: "/checkout/#/cart"}} className="cardProduct__link">
             <div className="cardProduct__pictureContainer">
-              <img className="cardProduct__pictureContainer__picture" data-src={this.state.Sku.images[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "150", "#height#": "150" , "~": ""})} loading="lazy"></img>
+              <img className="cardProduct__pictureContainer__picture" src={this.state.Sku.images[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "150", "#height#": "150" , "~": ""})} loading="lazy"></img>
               {this.props.review.TotalRatings > 0 &&
                 <div className="cardProduct__pictureContainer__review">
                   <ul className="cardProduct__pictureContainer__review__rating">
