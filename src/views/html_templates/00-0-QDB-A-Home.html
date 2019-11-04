@@ -6,167 +6,162 @@
     <title>quem disse, berenice? - Maquiagens, Fragrâncias e Cosméticos</title>
     <meta name="description" content="maquiagem não tem regra e pra sermos nós mesmas só precisamos dar o primeiro passo, sem medo de errar. coragem! errou? tenta de novo! se joga!"
     />
-    
-    <link rel="canonical" href="https://www.quemdisseberenice.com.br/" />
-    
+    <vtex:metaTags />
     <vtex:template id="00-0-QDB-Head" />
-    <link rel="stylesheet" href="/arquivos/QDBCommon-home.css?v=17-07-2019" />
     
+    <link rel="preload" href="/arquivos/QDBCommon-home.css" as="style"/>
     
-    <style>._hero-nav { display: none; }</style>
-   
+    <link rel="stylesheet" href="/arquivos/QDBCommon-home.css" />
+    <!--<link rel="stylesheet" href="/arquivos/new_qdb_style_home.css" />-->
+    <!--<link rel="stylesheet" href="/arquivos/_chaordic_showcase.css" />-->
     <!-- <vtex:contentPlaceHolder id="primeiraOferta" /> -->
 </head>
 <body>
-    <vtex.cmc:modalformblackweek />
     <div class="wrapper">
-         
-        <!-- /#products1.products -->
         <div class="wrapper-inner">
             <div class="container">
                 <div class="container-group">
                     <vtex:template id="00-0-QDB-Header" />
                 </div>
-                <!-- /.container-group -->
-                <!-- slides owl-carousel ./begin -->
-                 
+                    
+                <noscript class="bannersMobile">
+                    <vtex:contentPlaceHolder id="Hero Banner Mobile (noscript)" />
+                </noscript>
+                
+                <noscript class="bannersDesktop">
+                    <vtex:contentPlaceHolder id="Hero Banner Desktop (noscript)" />
+                </noscript>
                 
                 <!-- Section Hero -->
-                <section class="section section-hero">
-                    <div class="_hero _hero-mobile">
-                        <div class="_hero-carousel _hero-carousel-mobile"></div>
-                        <noscript class="_hero-data _hero-data-mobile">
-                            <vtex:contentPlaceHolder id="Hero Banner Mobile (noscript)" />
-                        </noscript>
-                    </div>
-                    <div class="_hero _hero-desktop">
-                        <div class="_hero-carousel _hero-carousel-desktop">
-                            <vtex:contentPlaceHolder id="Hero Banner Desktop (visible)" />
-                        </div>
-                        <noscript class="_hero-data _hero-data-desktop">
-                            <vtex:contentPlaceHolder id="Hero Banner Desktop (noscript)" />
-                        </noscript>
-                    </div>
+                <section id="bannerHero" class="bannerHero">
+                    <div id="bannerHero--render" class="bannerHero__banners"></div>
                 </section>
                 <!-- Section Hero:end -->
                 
-                
                 <!-- FAIXA DE FRETE -->
-                <section class="section-products banner-frete NoUnderline">
-                    <div class="shell">
-                        <h4><vtex:contentPlaceHolder id="Título Home (abaixo do banner hero)" /></h4>
-                        <div class="section-inner">
-                            <vtex:template id="new-qdb-pit-bar-2019" />
-                        </div>
-                        <!-- /.section-inner -->
-                    </div>
-                </section>
+                <noscript class="infoBar">
+                    shippingInit
+                        shippingUrlInit <vtex.cmc:placeholderlinkfretegratis /> shippingUrlEnd
+                        shippingTextInit <vtex.cmc:placeholderfretegratis /> shippingTextEnd
+                    shippingEnd
+                </noscript>
+                <div id="infoBar__render" class="infoBar__render"></div>
                 <!-- end/FAIXA DE FRETE -->
+                
                 <!-- Paineis de beleza -->
-                <section class="panels-slider">
-                    <div class="panels-slider-wrapper">
-                        <div class="panels-carousel">
-                            <vtex:contentPlaceHolder id="Paineis de beleza" />
-                        </div>
-                        <!--<div class="panels-slider-dots owl-dots"></div>-->
+                <section class="paineisBeleza">
+                    <div id="paineisBeleza--render" class="paineisBeleza__container">
                     </div>
+                    <noscript class="paineisBeleza__banners">
+                        <vtex:contentPlaceHolder id="Paineis de beleza" />
+                    </noscript>
                 </section>
                 <!-- Paineis de beleza /end -->
+                <vtex:contentPlaceHolder id="produtoContador" />
+                
+                <div class="topProducts">
+                    <div class="shell">
+                        <h2 class="topProducts__title">
+                            <vtex:contentPlaceHolder id="vitrineVtex-TopSell-Title" />
+                        </h2>
+                        <div class="collectionPlaceholder hidden">
+                            <vtex:contentPlaceHolder id="vitrineVtex-TopSell-Collection" />
+                        </div>
+                        <div class="topProducts__render-collection"></div>
+                    </div>
+                </div>
+                
+                <noscript class="retornaBanner">
+                    <vtex:contentPlaceHolder id="Retorna Bere Banner Desktop" />
+                </noscript>
+                <a class="set--retornaBanner"><img src="" /></a>
+                
                 <div class="main">
-
                     <!-- Section Chaordic - Top -->
-                    <section class="section-chaordic">
-                        <div class="shell">
-                            <div chaordic="top"></div>
-                        </div>
-                    </section>
+                    <!--<section class="section section-chaordic">-->
+                    <!--    <div class="_vitrines _top" data-position='top'></div>-->
+                    <!--</section>-->
                     <!-- Section Chaordic - Top:end -->
-
-                    <section class="section-products impar">
+                    
+                    <noscript id="banV1" class="bannerVitrine">
+                        <!--Vitrine 1-->
+                        banTitleInit
+                            <vtex:contentPlaceHolder id="Título vitrine 01" />
+                        banTitleEnd
+                        
+                        banBaninit
+                            <vtex:contentPlaceHolder id="bannner-vitrineVtex-01" />
+                        banBanend
+                    </noscript>
+                    
+                    <section class="bannerCollection __left">
                         <div class="shell">
-                            <div class="bannerContent firstBanner">
-                                <h3><vtex:contentPlaceHolder id="Título vitrine 02" /></h3>
-                                <vtex:contentPlaceHolder id="bannner-vitrineVtex-02" />
+                            <div class="bannerCollection__info">
+                                <h3 class="bannerCollection__info__title"></h3>
+                                <a class="bannerCollection__info__banner_url">
+                                    <img class="bannerCollection__info__banner_img" src="" data-src="" loading="lazy" />
+                                </a>
                             </div>
-                            <div class="section-content">
-                                
-                                <div class="slider-products collection collection-products-nas-redes-sociais">
-                                    <div class="slider-clip">
-                                        <vtex:contentPlaceHolder id="VitrineVtex-02" />
-                                    </div>
-                                   
-                                </div>
-                                <!-- /.slider-products -->
+                            <div class="collectionPlaceholder hidden">
+                                <vtex:contentPlaceHolder id="vitrineVtex-BannerCollection-01" />
                             </div>
-                            <!-- /.section-content -->
+                            <div class="bannerCollection__render-collection"></div>
                         </div>
-                        <!-- /.shell -->
                     </section>
-                    <!-- /.section-products -->
+                    
                     <section class="bannerLinha">
                         <div class="shell">
-                            <vtex:contentPlaceHolder id="Banner Linha" />
+                            <noscript class="bannerLinha__src">
+                                <vtex:contentPlaceHolder id="Banner Linha" />
+                            </noscript>
+                            <img class="bannerLinha__img" loading="lazy" />
                         </div>
                     </section>
-                    <!-- section-feeds-instagram -->
-                    <vtex:contentPlaceHolder id="new-qdb-feeds-instagram" />
-                    <!-- /.section-feeds-instagram -->
                     
-                    <section class="section-products par">
+                    <noscript id="banV2" class="bannerVitrine">
+                        <!--Vitrine 1-->
+                        banTitleInit
+                            <vtex:contentPlaceHolder id="Título vitrine 02" />
+                        banTitleEnd
+                        
+                        banBaninit
+                            <vtex:contentPlaceHolder id="bannner-vitrineVtex-02" />
+                        banBanend
+                    </noscript>
+                    
+                    <section class="bannerCollection __right">
                         <div class="shell">
-                            <div class="bannerContent">
-                                <h3><vtex:contentPlaceHolder id="Título vitrine 01" /></h3>
-                                <vtex:contentPlaceHolder id="bannner-vitrineVtex-01" />
+                            <div class="collectionPlaceholder hidden">
+                                <vtex:contentPlaceHolder id="vitrineVtex-BannerCollection-02" />
                             </div>
-                            <div class="section-content">
-                                
-                                <div class="slider-products collection collection-products-nas-redes-sociais">
-                                    <div class="slider-clip">
-                                        <vtex:contentPlaceHolder id="VitrineVtex-01" />
-                                    </div>
-                                   
-                                </div>
-                                <!-- /.slider-products -->
+                            <div class="bannerCollection__render-collection"></div>
+                            <div class="bannerCollection__info">
+                                <h3 class="bannerCollection__info__title"></h3>
+                                <a class="bannerCollection__info__banner_url">
+                                    <img class="bannerCollection__info__banner_img" src="" data-src="" loading="lazy" />
+                                </a>
                             </div>
-                            <!-- /.section-content -->
                         </div>
-                        <!-- /.shell -->                       
                     </section>
                     <!-- /.section-products -->
-                    <section class="section-chaordic">
-                        <div class="shell">
-                            <div chaordic="middle"></div>
-                        </div>
-                    </section>
-                    <!-- Section Chaordic - Bottom -->
-                     <section class="section-chaordic">
-                        <div class="shell">
-                            <div chaordic="bottom"></div>
-                        </div>
-                    </section>
+                     <!-- Section Chaordic - _middle -->
+                    <!--<section class="section section-chaordic">-->
+                    <!--    <div class="_vitrines _middle" data-position='bottom'></div>-->
+                    <!--</section>-->
                     <!-- Section Chaordic - Bottom:end -->
-
-                    <!-- Paineis de beleza -->
-                    <section class="panels-slider">
-                        <div class="panels-slider-wrapper">
-                            <div class="panels-carousel">
-                                <vtex:contentPlaceHolder id="Paineis de beleza BOTTOM" />
-                            </div>
-                            <!--<div class="panels-slider-dots owl-dots"></div>-->
-                        </div>
-                    </section>
-                    <!-- Paineis de beleza /end -->
-                    
-                    
+                    <!-- Section Chaordic - Bottom -->
+                    <!--<section class="section section-chaordic">-->
+                    <!--    <div class="_vitrines _bottom" data-position='bottom'></div>-->
+                    <!--</section>-->
+                    <!-- Section Chaordic - Bottom:end -->
                 </div>
                 <!-- /.main -->
-               
+                
                 <footer class="footer">
-                        <!-- vtex:template id="new-qdb-footer" / -->
                     <vtex:template id="00-0-QDB-Footer" />
                 </footer>
                 <!-- /.footer -->
-                <section class="texto--legal" style="display:block;">
+                <section class="texto--legal">
                     <div class="shell">
                         <vtex:contentPlaceHolder id="Texto Legal (Promoções)" />
                     </div>
@@ -177,7 +172,22 @@
         <!-- /.wrapper-inner -->
     </div>
     <!-- /.wrapper -->
+               
+    <script type="text/javascript" src="/arquivos/QDBCommon-Home.js"></script>
     <!-- <vtex:contentPlaceHolder id="Codes etc" /> -->
-    <script type="text/javascript" src="/arquivos/new_qdb_functions.js?v=20-05-2019-3"></script>
+    <!--<script type="text/javascript" src="/arquivos/new_qdb_functions.js?v=20-05-2019-3"></script>-->
+    <!--<script type="text/javascript" src="/arquivos/chaordic-showcase.js"></script>-->
+    <!--<script async="true" custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>-->
+    <!--<script type="text/javascript" async="true">-->
+    <!--    if ('serviceWorker' in navigator) {-->
+    <!--        window.addEventListener('load', function () {-->
+    <!--            navigator.serviceWorker.register("/arquivos/sw.js", { "scope": "/" }).then(function () {-->
+    <!--                console.log("Service Worker registered successfully.");-->
+    <!--            }).catch(function (error) {-->
+    <!--                console.error("Service Worker registration failed:", error);-->
+    <!--            });-->
+    <!--        });-->
+    <!--    }-->
+    <!--</script>-->
 </body>
 </html>
