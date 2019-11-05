@@ -1,3 +1,3 @@
-import Departament from './modules/Departament/departament-index'
+import Departament from './modules/Category/category-index'
 
 Departament.init();

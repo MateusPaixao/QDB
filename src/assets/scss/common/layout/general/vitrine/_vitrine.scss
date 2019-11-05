@@ -1,5 +1,14 @@
 .render-collection{
     position: relative;
+    &__loading{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+        width: 100%;
+        background: $qdb-grey-l;
+        @include sans(2em, $g-primary, 900, initial)
+    }
 }
 .cardProductContainer{
     // display: flex;
@@ -280,7 +289,7 @@
                     border: solid 1px $danger;
                     color: $danger;
                 }
-                &.super-black{
+                &.__SuperBlack{
                     border: none;
                     color: $blackfriday-s;
                     background: $blackfriday-p;
@@ -1049,6 +1058,7 @@
     &.slider-false{
         display: flex;
         flex-flow: wrap;
+        justify-content: center;
         width: 100%;
         .cardProduct{
             min-height: 380px;

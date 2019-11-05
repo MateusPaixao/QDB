@@ -172,7 +172,7 @@ const Methods = {
 
                         infinitScroll = true;
                         
-                        $("a.vejamais-vtexresearch").bind('click',function(e){
+                        $(".set--smartResearch").bind('click',function(e){
                             e.preventDefault();
 
                             var _this=jQuery(this);
@@ -194,7 +194,7 @@ const Methods = {
                                             if(data.trim().length<1)
                                             {
                                                 moreResults=false;
-                                                $("a.vejamais-vtexresearch").remove();
+                                                $(".set--smartResearch").remove();
                                                 log("Não existem mais resultados a partir da página: "+(currentPage-1),"Aviso");
                                             }
                                             else{
@@ -248,8 +248,9 @@ const Methods = {
                 currentSearchUrl=searchUrl=fn.getSearchUrl();
 
             //Adicionar o veja mais
-            if(moreResults && $("a.vejamais-vtexresearch").length == 0)
-            $("<a class='vejamais-vtexresearch' href='#'>ver mais produtos</a>").insertAfter(".pager.bottom");
+            // if(moreResults && $(".set--smartResearch").length == 0){
+            //     $("<a class='vejamais-vtexresearch' href='#'>ver mais produtos</a>").insertAfter(".pager.bottom");
+            // }
             
             // Reporting Errors
             if($this.length<1)
