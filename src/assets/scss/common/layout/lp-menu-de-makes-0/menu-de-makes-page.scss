@@ -9,8 +9,9 @@ $bg-button: #E7979B;
         font-weight: 800;
         text-align: center;
         padding: 20px 0;
+        font-size: 5.5vw;
     }
-    @media(min-width: 992px) {
+    @media(min-width: 768px) {
         &__title {
             font-size: 2vw;
         }
@@ -206,5 +207,31 @@ $bg-button: #E7979B;
     }
     @media(max-width: 991px) {
         margin-top: -150px;
+    }
+}
+.advantages-section {
+    &__inner {
+        display: flex;
+        width: 85%;
+        margin: auto;
+    }
+    &__item {
+        flex: 1;
+        box-shadow: 3px 3px 8px rgba(0, 0, 18, 0.2);
+        text-align: center;
+        border-radius: 8px;
+        margin: 0 10px;
+        &__title {
+            font-size: 23px;
+            font-weight: 800;
+            &:before {
+                content: '';
+                height: 2px;
+                display: block;
+                background-color: #e6e6e6;
+                width: 110px;
+                margin: auto;
+            }
+        }
     }
 }
