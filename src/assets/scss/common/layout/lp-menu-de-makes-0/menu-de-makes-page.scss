@@ -4,13 +4,13 @@
     height: 32vw;
     max-height: 500px;
     background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     &__aside {
         position: absolute;
         top: 0;
-        left: 55%;
-        color: #fff;
-        width: 25%;
         bottom: 0;
+        color: #fff;
         padding: 1vw 0;
         &__logo {
             width: 300px;
@@ -27,20 +27,60 @@
             position: absolute;
             background-color: #fff;
             color: #000;
-            -webkit-border-radius: 50%;
             border-radius: 50%;
-            height: 7vw;
-            width: 7vw;
-            top: 30px;
-            left: 100%;
-            font-size: 1.2vw;
             font-weight: 800;
-            padding: 1.8vw 1.2vw;
             text-align: center;
-            line-height: 1.2vw;
             span {
                 display: block;
-                font-size: 0.7vw;
+            }
+        }
+    }
+    @media (min-width: 992px) {
+        &__aside {
+            width: 25%;
+            left: 55%;
+            &__seal {
+                height: 7vw;
+                width: 7vw;
+                top: 30px;
+                left: 100%;
+                font-size: 1.2vw;
+                padding: 1.8vw 1.2vw;
+                line-height: 1.2vw;
+                span {
+                    font-size: 0.7vw;
+                }
+            }
+        }
+    }
+    @media(max-width: 991px) {
+        background-image: url(banner-topo-menu-de-makes-quem-disse-berenice-mobile.png);
+        height: 500px;
+        &__aside {
+            right: 0;
+            left: 0;
+            padding: 20px;
+            background-color: rgba(0,0,0,0.4);
+            &__logo {
+                width: 60%;
+            }
+            &__text {
+                font-size: 12px;
+            }
+            &__title {
+                font-size: 30px;
+            }
+            &__seal {
+                right: 20px;
+                top: 20px;
+                height: 80px;
+                width: 80px;
+                font-size: 12px;
+                line-height: 12px;
+                padding: 24px 16px;
+                span {
+                    font-size: 7px;
+                }
             }
         }
     }
