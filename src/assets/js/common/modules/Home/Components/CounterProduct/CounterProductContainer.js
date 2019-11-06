@@ -147,7 +147,7 @@ const Methods = {
         if (hasTopBanner) {
             topBannerColor = document.querySelector('.w-counter--bg').getAttribute('data-color');
         } else {
-            topBannerColor = "red";
+            topBannerColor = "black";
         }
 
         let cronometro = document.querySelector('.w-product--contador');
@@ -161,9 +161,6 @@ const Methods = {
 
         let newPrice = document.querySelector('.w-product--wrapper--infos--new-price');
         newPrice.style = `color:${topBannerColor}`;
-
-        let buyButton = document.querySelector('.w-product--wrapper--infos--buy-button');
-        buyButton.style = `background-color:${topBannerColor}`;
 
     },
 

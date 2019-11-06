@@ -1398,10 +1398,10 @@ const Methods = {
             let url = `http://qbbr.vtexcommercestable.com.br/api/catalog_system/pub/products/search/?fq=productId:${productId}`
 
             function createFlag() {
-                const appendReference = document.querySelector('.product-parcelamento');
+                const appendReference = document.querySelector('.product-tag');
                 const span = document.createElement('span');
                 span.classList.add('exclusivo')
-                span.textContent = "Promoção exclusiva site";
+                span.textContent = "Promoção exclusiva do site";
                 appendReference.after(span)
             }
 
@@ -1410,7 +1410,6 @@ const Methods = {
                 .then((productInfo) => {
                     console.log(productInfo[0].productClusters[862])
                     productInfo[0].productClusters[862] !== undefined ? createFlag() : null;
-
                 })
         }
     }
