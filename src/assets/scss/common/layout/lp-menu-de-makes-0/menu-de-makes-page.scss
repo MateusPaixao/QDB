@@ -1,0 +1,47 @@
+.head-section  {
+    position: relative;
+    background-image: url(banner-topo-menu-de-makes-quem-disse-berenice.png);
+    height: 32vw;
+    max-height: 500px;
+    background-position: center;
+    &__aside {
+        position: absolute;
+        top: 0;
+        left: 55%;
+        color: #fff;
+        width: 25%;
+        bottom: 0;
+        padding: 1vw 0;
+        &__logo {
+            width: 300px;
+        }
+        &__text {
+            font-size: 1.5vw;
+            margin-bottom: 15px;
+        }
+        &__title {
+            font-size: 3vw;
+            font-weight: 800;
+        }
+        &__seal {
+            position: absolute;
+            background-color: #fff;
+            color: #000;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            height: 7vw;
+            width: 7vw;
+            top: 30px;
+            left: 100%;
+            font-size: 1.2vw;
+            font-weight: 800;
+            padding: 1.8vw 1.2vw;
+            text-align: center;
+            line-height: 1.2vw;
+            span {
+                display: block;
+                font-size: 0.7vw;
+            }
+        }
+    }
+}
