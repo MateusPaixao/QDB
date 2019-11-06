@@ -1,3 +1,77 @@
-.header.blackfriday {
-    color: #222;
+.header.blackfriday{
+    color: $w-secundary;
+    background-color: $blackfriday-p;
+
+    svg{
+        path{
+            fill: $w-secundary;
+        }
+    }
+
+    .header__nav{
+        &--department-item{
+            color: $w-secundary;
+        }
+        &--menu{
+            background: lighten($color: $blackfriday-p, $amount: 5);
+        }
+        &--categories{
+            color: $w-secundary;
+        }
+        &--list{
+            &:hover {
+                &::after{
+                    content: '';
+                    @include triangle("up", .75em, lighten($color: $blackfriday-p, $amount: 5));
+                }
+                &:last-child {
+                    &::after{
+                        display: none;
+                    }
+                }
+            }
+        }
+        &--especial{
+            border: none;
+            background: $blackfriday-s;
+            color: $blackfriday-p;
+            box-shadow: 0px 0px 5px $blackfriday-s;
+            padding: 4px 4px;
+        }
+    }
+
+    .header__menu-hamburguer{
+        background: $w-secundary;
+        &::before, &::after{
+            background: $w-secundary;
+        }
+    }
+
+    .header__menu-container{
+        background: $blackfriday-p;
+        .header__clube{
+            background: $blackfriday-p;
+        }
+    }
+
+    .header__options--item{
+        .header__options--item__cartBag .__bag path{
+            stroke: $w-secundary;
+        }
+    }
+    
+    .header__region__selection{
+        background: $blackfriday-p;
+        border-color: $w-secundary;
+        color: $w-secundary;
+    }
+
+    .header__search{
+        border-color: $w-secundary;
+        input{
+            &::placeholder{
+                color: $blackfriday-s;
+            }
+        }
+    }
 }

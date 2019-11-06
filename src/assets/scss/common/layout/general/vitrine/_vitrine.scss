@@ -1087,6 +1087,15 @@
                     }
                 }
             }
+            .cardProduct__config{
+                .cardProduct__config__list{
+                    .cardProduct__config__list__item{
+                        @include d("768px"){
+                            width: calc(100% / 2.5);
+                        }
+                    }
+                }
+            }
         }
     }
 }
