@@ -17,6 +17,22 @@ $bg-button: #E7979B;
     }
 }
 
+//VISIBILITY
+.d-mobile {
+    display: block;
+}
+.d-desktop {
+    display: none;
+}
+@media (min-width: 768px) {
+    .d-mobile {
+        display: none;
+    }
+    .d-desktop {
+        display: block;
+    }
+}
+
 .head-section  {
     position: relative;
     background-image: url(banner-topo-menu-de-makes-quem-disse-berenice.png);
@@ -30,13 +46,14 @@ $bg-button: #E7979B;
         top: 0;
         bottom: 0;
         color: #fff;
-        padding: 3vw 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         &__logo {
             width: 300px;
         }
         &__text {
             font-size: 1.5vw;
-            margin-bottom: 15px;
         }
         &__title {
             font-size: 3vw;
@@ -75,19 +92,31 @@ $bg-button: #E7979B;
     @media(max-width: 991px) {
         background-image: url(banner-topo-menu-de-makes-quem-disse-berenice-mobile.png);
         height: 500px;
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0,0,0,0.4);
+        }
         &__aside {
             right: 0;
             left: 0;
-            padding: 20px;
-            background-color: rgba(0,0,0,0.4);
+            padding: 0 20px;
+            height: 70%;
             &__logo {
-                width: 60%;
+                max-width: 60%;
             }
             &__text {
-                font-size: 12px;
+                font-size: 4vw;
+                order: 3;
             }
             &__title {
-                font-size: 30px;
+                font-size: 6vw;
+                order: 2;
             }
             &__seal {
                 right: 20px;
@@ -140,7 +169,7 @@ $bg-button: #E7979B;
             background-color: $bg-button;
             color: #000;
             height: 70px;
-            width: 60%;
+            width: 160px;
             display: block;
             line-height: 70px;
             text-align: center;
@@ -160,7 +189,22 @@ $bg-button: #E7979B;
         }
         &__text {
             color: #000;
+            font-size: 15px;
         }
     }
-    
+    @media(max-width: 767px) {
+        &__inner {
+            overflow: auto;
+            padding: 20px 0;
+        }
+        &__item {
+            min-width: 75%;
+            &__cover {
+                height: 200px;
+            }
+        }
+    }
+    @media(max-width: 991px) {
+        margin-top: -150px;
+    }
 }
