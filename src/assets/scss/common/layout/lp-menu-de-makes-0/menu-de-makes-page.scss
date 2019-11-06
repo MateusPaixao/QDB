@@ -1,3 +1,22 @@
+//VARIABLES
+$color-title: #686162;
+$bg-button: #E7979B;
+
+//GENERAL
+.lp-menu-de-makes {
+    &__title {
+        color: $color-title;
+        font-weight: 800;
+        text-align: center;
+        padding: 20px 0;
+    }
+    @media(min-width: 992px) {
+        &__title {
+            font-size: 2vw;
+        }
+    }
+}
+
 .head-section  {
     position: relative;
     background-image: url(banner-topo-menu-de-makes-quem-disse-berenice.png);
@@ -11,7 +30,7 @@
         top: 0;
         bottom: 0;
         color: #fff;
-        padding: 1vw 0;
+        padding: 3vw 0;
         &__logo {
             width: 300px;
         }
@@ -84,4 +103,64 @@
             }
         }
     }
+}
+.options-section {
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__item {
+        flex: 1;
+        max-width: 360px;
+        border-radius: 10px;
+        margin: 0 10px;
+        overflow: hidden;
+        box-shadow: 3px 2px 15px rgba(0, 0, 20, 0.2);
+        &__cover {
+            height: 260px;
+            overflow: hidden;
+            position: relative;
+            img {
+                margin-top: -25%;
+                width: 115%;
+                max-width: initial;
+            }
+            svg {
+                position: absolute;
+                left: 20px;
+                top: 20px;
+            }
+        }
+        &__caption {
+            margin-top: -35px;
+            position: relative;
+            padding: 0 30px 30px;
+        }
+        &__button {
+            background-color: $bg-button;
+            color: #000;
+            height: 70px;
+            width: 60%;
+            display: block;
+            line-height: 70px;
+            text-align: center;
+            margin: auto;
+            font-size: 20px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            font-weight: 800;
+            box-shadow: 3px 3px 10px rgba(0, 0, 41, 0.2);
+        }
+        &__title {
+            font-size: 20px;
+            text-transform: uppercase;
+            color: #000;
+            font-weight: 800;
+            margin: 20px 0;
+        }
+        &__text {
+            color: #000;
+        }
+    }
+    
 }
