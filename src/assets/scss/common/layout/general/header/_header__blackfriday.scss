@@ -51,9 +51,33 @@
         background: $blackfriday-p;
         .header__clube{
             background: $blackfriday-p;
+            &--menu{
+                a{
+                    &:hover{
+                        background-color: $blackfriday-s;
+                        color: $blackfriday-p;
+                    }
+                }
+            }
         }
     }
-
+    .header__menu{
+        &.especial{
+            background-color: lighten($color: $blackfriday-p, $amount: 10);
+            color: $w-secundary;
+        }
+        &.ajuda{
+            background-color: lighten($color: $blackfriday-p, $amount: 20);
+        }
+    }
+    .header__clube--banner{
+        // Blackfriday
+        background: $blackfriday-s;
+        p{
+            color: $blackfriday-p;
+            box-shadow: 0px 0px 5px $blackfriday-s;
+        }
+    }
     .header__options--item{
         .header__options--item__cartBag .__bag path{
             stroke: $w-secundary;
