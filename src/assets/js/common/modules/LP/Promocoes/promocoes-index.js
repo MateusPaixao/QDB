@@ -1,8 +1,10 @@
 import Promocoes from './Vitrine/_promocoes'
+import TopChaordic from './Chaordic/topProducts'
 
 const Methods = {
     init(){
-        Promocoes.init()
+        Promocoes.init();
+        TopChaordic.init();
     }
 }
 

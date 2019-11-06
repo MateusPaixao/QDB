@@ -7,7 +7,10 @@
         height: 200px;
         width: 100%;
         background: $qdb-grey-l;
-        @include sans(2em, $g-primary, 900, initial)
+        @include sans(2em, $g-primary, 900, initial);
+        @include d("768px"){
+            margin: 0 10px;
+        }
     }
 }
 .cardProductContainer{
@@ -1065,6 +1068,25 @@
             min-width: 280px;
             width: calc(100% / 5);
             margin: 5px;
+
+            @include d("768px"){
+                width: calc(100% / 2 - 2%);
+                min-width: initial;
+                margin: 1%;
+            }
+            &__flags{
+                @include d("768px"){
+                    top: .5em;
+                    left: .5em;
+                }
+            }
+            &__flag{
+                &__content{
+                    @include d("768px"){
+                        font-size: .875em;
+                    }
+                }
+            }
         }
     }
 }

@@ -163,3 +163,9 @@
         }
     }
 }
+
+.filters .shell, .main{
+    @include d("768px"){
+        padding: 0;
+    }
+}

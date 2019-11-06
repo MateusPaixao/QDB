@@ -34,8 +34,24 @@ const Methods = {
         const contentProducts = CacheSelector.$globals.contentProducts;
         let btnSR = document.createElement('button');
         btnSR.classList.add("contentProducts__smartResearch","set--smartResearch");
-        contentProducts.appendChild(btnSR);
 
+        const targetNode = document.querySelector(".contentProducts__render-collection");
+
+        const config = { attributes: true, childList: true, subtree: true };
+
+        const callback = function(mutationsList, observer) {
+            for(let mutation of mutationsList) {
+                if (mutation.type === 'childList') {
+                    if(targetNode.childNodes[0].childElementCount >= 24){
+                        contentProducts.appendChild(btnSR);
+                    }
+                    observer.disconnect();
+                }
+            }
+        };
+        const observer = new MutationObserver(callback);
+        observer.observe(targetNode, config);
+           
         let actualPage = 1;
 
         btnSR.addEventListener("click", () => {
@@ -85,9 +101,9 @@ const Methods = {
                     Page.nextSibling.setAttribute("id", "collection" + idCollection);
                     Vitrine.build(idCollection, Collection, false);
 
-                    const targetNode = document.getElementById("collection" + idCollection);
+                    const PageTargetNode = document.getElementById("collection" + idCollection);
 
-                    const config = { attributes: true, childList: true, subtree: true };
+                    const PageConfig = { attributes: true, childList: true, subtree: true };
 
                     const callback = function(mutationsList, observer) {
                         for(let mutation of mutationsList) {
@@ -105,8 +121,8 @@ const Methods = {
                             }
                         }
                     };
-                    const observer = new MutationObserver(callback);
-                    observer.observe(targetNode, config);
+                    const PageObserver = new MutationObserver(callback);
+                    PageObserver.observe(PageTargetNode, PageConfig);
                 })
             })
         })
