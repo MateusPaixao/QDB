@@ -986,63 +986,6 @@ ul{
 }
 
 /* CATEGORIA */
-.category_banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 110%;
-    margin-left: -5%;
-    @include sans(1vw, $w-secundary, normal, normal);
-
-    @include d(l) {
-        font-size: 16px;
-    }
-
-    @include d(s) {
-        flex-flow: column;
-        font-size: 3vw;
-    }
-
-    @include d(xs) {
-        flex-flow: column-reverse;
-        font-size: 4vw;
-    }
-
-    img {
-        object-position: bottom;
-        object-fit: contain;
-        max-width: 100%;
-        width: initial;
-        height: initial;
-    }
-
-    .box-banner a {
-        display: flex;
-    }
-
-    .category_banner_texto {
-        color: $w-secundary;
-        max-width: 500px;
-        padding: 20px 0;
-
-        @include d(s) {
-            padding: 20px;
-        }
-
-        @include d(xs) {
-            padding: 20px;
-        }
-
-        h2 {
-            @include sans(2.5em, $w-secundary, 900, normal);
-        }
-
-        p {
-            margin-top: 10px;
-            @include sans(.875em, $w-secundary, 400, 1.5em);
-        }
-    }
-}
 
 // .category_banner {
 //   display: flex;

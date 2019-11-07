@@ -51,7 +51,7 @@
                 }
 
                 &--text {
-                    color: $secondaryColor;
+                    color: inherit;
 
                 }
             }
@@ -99,7 +99,7 @@
                     &__item {
                         &--small {
                             margin: 0;
-                            @include sans(.75em, $g-primary, 200, initial);
+                            @include sans(.75em, inherit, 200, initial);
                             text-transform: lowercase;
                         }
                     }
@@ -349,7 +349,7 @@
         }
 
         .list {
-            @include sans(1.2rem, $g-primary, 900, initial);
+            @include sans(1.2rem, inherit, 900, initial);
             margin-left: 30px;
             text-transform: capitalize;
             @include d('768px'){
@@ -367,7 +367,7 @@
 
             &__item {
                 text-transform: initial;
-                @include sans(1rem, $g-primary, 200, initial);
+                @include sans(1rem, inherit, 200, initial);
                 margin: 5px 0;
                 & a{
                     &:hover{
@@ -385,7 +385,7 @@
             display: flex;
             align-items: flex-start;
             margin-top: 40px;
-            @include sans(1rem, $g-primary, 900, initial);
+            @include sans(1rem, inherit, 900, initial);
             flex-direction: column;
             @include d("768px"){
                 margin-top: 20px;

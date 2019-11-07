@@ -12,7 +12,7 @@ const Methods = {
         "function"!==typeof String.prototype.trim&&(String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g,"")});
         jQuery.fn.vtexSmartResearch=function(opts)
         {
-            let $this=jQuery(this);
+            var $this=jQuery(this);
             
             var log=function(msg,type){
                 if(typeof console=="object")
@@ -171,8 +171,13 @@ const Methods = {
                     if(type && infinitScroll == false){
 
                         infinitScroll = true;
+                        console.log(type);
+                        console.log("Ueeee");
                         
                         $("a.vejamais-vtexresearch").bind('click',function(e){
+                            console.log($this);
+                            console.log("Ueeee");
+
                             e.preventDefault();
 
                             var _this=jQuery(this);
@@ -203,6 +208,7 @@ const Methods = {
                                             elemLoading.remove();
                                             ajaxCallbackObj.requests++;
                                             options.ajaxCallback(ajaxCallbackObj);
+                                            
                                             let LoadImgs = setInterval(() => {
                                                 isInViewport();
                                                 if(document.querySelectorAll("img[src^='https://qbbr.vteximg.com.br/arquivos/QDBLoad.gif'").length == 0) clearInterval(LoadImgs);
@@ -250,20 +256,21 @@ const Methods = {
             $("<a class='vejamais-vtexresearch' href='#'>ver mais produtos</a>").insertAfter(".pager.bottom");
             
             // Reporting Errors
-            if($this.length<1)
-            {
-                log("Nenhuma opção de filtro encontrada","Aviso");
-                if(options.showLinks) jQuery(options.linksMenu).css("visibility","visible").show();
+            // if($this.length<1)
+            // {
+            //     console.log($this);
+            //     log("Nenhuma opção de filtro encontrada","Aviso");
+            //     if(options.showLinks) jQuery(options.linksMenu).css("visibility","visible").show();
 
-                if($(body).hasClass("resultado-busca")){
-                fn.infinitScroll(true);
-                }else{
-                fn.infinitScroll(false);
-                }
+            //     if($(body).hasClass("resultado-busca")){
+            //     fn.infinitScroll(true);
+            //     }else{
+            //     fn.infinitScroll(false);
+            //     }
                 
-                fn.scrollToTop();
-                return $this;
-            }
+            //     fn.scrollToTop();
+            //     return $this;
+            // }
 
             // Reporting Errors
             if(loadContentE.length<1){log("Elemento para destino da requisição não foi encontrado \n ("+loadContentE.selector+")"); return false;}
@@ -489,7 +496,7 @@ const Methods = {
                 {
                     var label=input.parent(),
                         text=label.text();
-                        // qtt="";
+                        qtt="";
                     
                     text=fns.removeCounter(text);
                     
@@ -498,7 +505,7 @@ const Methods = {
                 removeCounter:function(text)
                 {
                     return text.replace(/\([0-9]+\)/ig,function(a){
-                        // qtt=a.replace(/\(|\)/,"");
+                        qtt=a.replace(/\(|\)/,"");
                         return "";
                     });
                 },

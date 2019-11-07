@@ -1,11 +1,12 @@
-import oldScripts from './_departament-old';
+import oldScripts from './_search-old';
 import SmartResearch from './_vtex-smartResearch'
-// import BuildVitrines from './_vitrines'
+// import BuildSearch from './_search'
 // import {isInViewport} from '../../global/global-index'
+
 const Methods = {
     init() {
         // isInViewport();
-        // BuildVitrines.init();
+        // BuildSearch.init();
         oldScripts.init();
         SmartResearch.init();
     }

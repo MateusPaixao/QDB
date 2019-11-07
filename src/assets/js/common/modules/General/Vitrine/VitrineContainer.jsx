@@ -15,7 +15,8 @@ const Methods = {
           Products: [],
           Vitrine: "sliderVitrine-" + idCollection,
           HasSlider: slider,
-          PerPage: itemsPP
+          PerPage: itemsPP,
+          Loaded: false
         };
 
         this.mountProducts = this.mountProducts.bind(this);
@@ -220,6 +221,9 @@ const Methods = {
           })
           return (
             <React.Fragment>
+              {this.state.Products.length == 0 &&
+                <div className="render-collection__loading set--loading">carregando...</div>
+              }
               <div className={`cardProductContainer slider-${this.state.HasSlider} ${this.state.Vitrine}`}>
                 {cards}
               </div>
