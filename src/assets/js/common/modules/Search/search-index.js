@@ -4,7 +4,7 @@ import BuildSearch from './_search'
 import {isInViewport} from '../../global/global-index'
 const Methods = {
     init() {
-        isInViewport();
+        // isInViewport();
         // BuildSearch.init();
         oldScripts.init();
         SmartResearch.init();
