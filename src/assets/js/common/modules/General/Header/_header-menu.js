@@ -54,18 +54,16 @@ const Methods = {
         window.addEventListener('scroll', function (ev) {
             const body = CacheSelector.$globals.body;
 
-            if(window.innerWidth < 768){
-                window.scrollY < 200 ? body.classList.remove('scrollDown') : body.classList.add('scrollDown');
-            }else{
+            // if(window.innerWidth < 768){
+            //     window.scrollY < 200 ? body.classList.remove('scrollDown') : body.classList.add('scrollDown');
+            // }else{
                 this.oldScroll > this.scrollY ? body.classList.remove('scrollDown') : body.classList.add('scrollDown');
                 this.oldScroll < 0 && body.classList.contains('scrollDown') ? body.classList.remove('scrollDown') : null; 
                 
-                this.oldScroll < 0 && body.classList.contains('scrollDown') ? body.classList.remove('scrollDown') : null; 
-                
                 this.oldScroll = this.scrollY;
-    
+
                 return this.scrollY
-            }
+            // }
         })
     },
 
