@@ -5,9 +5,9 @@ import {isInViewport} from '../../global/global-index'
 const Methods = {
     init() {
         isInViewport();
-        BuildSearch.init();
+        // BuildSearch.init();
+        SmartResearch.init();
         oldScripts.init();
-        // SmartResearch.init();
     }
 }
 export default {
