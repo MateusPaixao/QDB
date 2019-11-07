@@ -4,6 +4,7 @@ $bg-button: #E7979B;
 
 //GENERAL
 .lp-menu-de-makes {
+    background-color: #EAEAEA;
     &__title {
         color: $color-title;
         font-weight: 800;
@@ -12,6 +13,7 @@ $bg-button: #E7979B;
         font-size: 5.5vw;
     }
     @media(min-width: 768px) {
+        background-color: #fff;
         &__title {
             font-size: 2vw;
         }
@@ -166,6 +168,7 @@ $bg-button: #E7979B;
             margin-top: -35px;
             position: relative;
             padding: 0 30px 30px;
+            background-color: #fff;
         }
         &__button {
             background-color: $bg-button;
@@ -225,6 +228,7 @@ $bg-button: #E7979B;
         border-radius: 8px;
         margin: 0 10px;
         padding: 15px;
+        background-color: #fff;
         svg {
             height: 100px;
         }
@@ -259,23 +263,23 @@ $bg-button: #E7979B;
         margin-right: -10px;
     }
     &__inner {
-        width: 85%;
+        width: 95%;
         margin: auto;
         position: relative;
     }
     &__item {
         margin: 10px;
-        text-align: center;
         &__title {
             font-size: 20px;
             font-weight: 800;
-            margin: 20px 0;
             span {
                 font-weight: 200;
                 display: block;
                 font-size: 15px;
-                margin-top: 5px;
             }
+        }
+        img {
+            border-radius: 8px;
         }
     }
     &__controls {
@@ -300,6 +304,39 @@ $bg-button: #E7979B;
         }
         .next {
             float: right;
+        }
+    }
+    @media(min-width: 768px) {
+        &__inner {
+            width: 85%;
+        }
+        &__item {
+            text-align: center;
+            img {
+                border-radius: 0;
+            }
+            &__title {
+                margin: 20px 0;
+                span {
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}
+
+.modal-scheduling {
+    display: none;
+    &.show {
+        display: block;
+        &:before {
+            content: '';
+            position: fixed;
+            background-color: rgba(0,0,0,0.6);
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
         }
     }
 }
