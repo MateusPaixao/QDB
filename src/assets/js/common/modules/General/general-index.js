@@ -12,7 +12,7 @@ const Methods = {
         Footer.init();
         Header.init();
         TopBanner.init();
-        PriceContainer.init();
+        // PriceContainer.init();
         Methods.ServiceWorker();
         Methods.Skeleton();
         Methods.SendNewsletter();
