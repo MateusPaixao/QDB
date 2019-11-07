@@ -6,8 +6,8 @@ const Methods = {
     init() {
         isInViewport();
         // BuildSearch.init();
-        SmartResearch.init();
         oldScripts.init();
+        SmartResearch.init();
     }
 }
 export default {

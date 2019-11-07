@@ -172,7 +172,7 @@ const Methods = {
 
                         infinitScroll = true;
                         
-                        $(".vejamais-vtexresearch").bind('click',function(e){
+                        $("a.vejamais-vtexresearch").bind('click',function(e){
                             e.preventDefault();
 
                             var _this=jQuery(this);
@@ -194,38 +194,36 @@ const Methods = {
                                             if(data.trim().length<1)
                                             {
                                                 moreResults=false;
-                                                $(".vejamais-vtexresearch").remove();
+                                                $("a.vejamais-vtexresearch").remove();
                                                 log("Não existem mais resultados a partir da página: "+(currentPage-1),"Aviso");
                                             }
-                                            else{
+                                            else
                                                 currentItems.after(data);
-                                                console.log(data);
-                                                currentStatus=true;
-                                                elemLoading.remove();
-                                                ajaxCallbackObj.requests++;
-                                                options.ajaxCallback(ajaxCallbackObj);
-                                                let LoadImgs = setInterval(() => {
-                                                    isInViewport();
-                                                    if(document.querySelectorAll("img[src^='https://qbbr.vteximg.com.br/arquivos/QDBLoad.gif'").length == 0) clearInterval(LoadImgs);
-                                                }, 1000);
-                                                
-                                                let flagsDesconto = document.querySelectorAll(".flag-desconto");
-                                        
-                                                for(let i = 0; i < flagsDesconto.length; i++){
-                                                    if(flagsDesconto[i].children[0].textContent != 0){
-                                                        if(!flagsDesconto[i].children[0].textContent.includes("-")){
-                                                            flagsDesconto[i].children[0].textContent = `-${Math.round(flagsDesconto[i].children[0].textContent.replace("%", "").replace(",", "."))}%`;
-                                                            flagsDesconto[i].classList.remove("hidden");
-                                                        }
+                                            currentStatus=true;
+                                            elemLoading.remove();
+                                            ajaxCallbackObj.requests++;
+                                            options.ajaxCallback(ajaxCallbackObj);
+                                            let LoadImgs = setInterval(() => {
+                                                isInViewport();
+                                                if(document.querySelectorAll("img[src^='https://qbbr.vteximg.com.br/arquivos/QDBLoad.gif'").length == 0) clearInterval(LoadImgs);
+                                            }, 1000);
+                                            
+                                            let flagsDesconto = document.querySelectorAll(".flag-desconto");
+                                    
+                                            for(let i = 0; i < flagsDesconto.length; i++){
+                                                if(flagsDesconto[i].children[0].textContent != 0){
+                                                    if(!flagsDesconto[i].children[0].textContent.includes("-")){
+                                                        flagsDesconto[i].children[0].textContent = `-${Math.round(flagsDesconto[i].children[0].textContent.replace("%", "").replace(",", "."))}%`;
+                                                        flagsDesconto[i].classList.remove("hidden");
                                                     }
                                                 }
-                                                
-                                                let flags = document.querySelectorAll(".flags-product");
-    
-                                                for(let i = 0; i < flags.length; i++){
-                                                    if(flags[i].childElementCount > 0){
-                                                        flags[i].classList.remove("hidden");
-                                                    }
+                                            }
+                                            
+                                            let flags = document.querySelectorAll(".flags-product");
+
+                                            for(let i = 0; i < flags.length; i++){
+                                                if(flags[i].childElementCount > 0){
+                                                    flags[i].classList.remove("hidden");
                                                 }
                                             }
                                         }
@@ -248,9 +246,8 @@ const Methods = {
                 currentSearchUrl=searchUrl=fn.getSearchUrl();
 
             //Adicionar o veja mais
-            if(moreResults && $(".vejamais-vtexresearch").length == 0){
-                $("<a class='vejamais-vtexresearch' href='#'>ver mais produtos</a>").insertAfter(".pager.bottom");
-            }
+            if(moreResults && $("a.vejamais-vtexresearch").length == 0)
+            $("<a class='vejamais-vtexresearch' href='#'>ver mais produtos</a>").insertAfter(".pager.bottom");
             
             // Reporting Errors
             if($this.length<1)
