@@ -2,6 +2,7 @@ const Methods = {
     init(){
         Methods.oldFunctions();
         Methods.setFlags();
+        // Methods.SmartResearchOld();
     },
     setFlags(){
         setTimeout(() => {

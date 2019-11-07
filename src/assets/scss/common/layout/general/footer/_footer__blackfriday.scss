@@ -1,4 +1,38 @@
 .footer.blackfriday{
     color: $w-secundary;
     background-color: $blackfriday-p;
+
+    .heart__breakline{
+        display: none;
+    }
+
+    .footer__first-wrapper .values .value__container--svg svg path{
+        fill: $w-secundary;
+    }
+
+    .second-wrapper__last-column .social-media__logo.__instagram svg,
+    .second-wrapper__last-column .social-media__logo.__facebook svg,
+    .second-wrapper__last-column .social-media__logo.__youtube svg{
+        fill: $w-secundary;
+    }
+
+    .footer__third-wrapper .logos__logo .svg--logo-principal path,
+    .second-wrapper__last-column .form-newsletter__controls--submit .newsletter__icon path{
+        fill: $w-secundary
+    }
+
+    .second-wrapper__last-column .form-newsletter__controls{
+        border-color: $w-secundary;
+    }
+
+    .second-wrapper__last-column .form-newsletter__controls--submit .newsletter__icon rect{
+        stroke: $w-secundary;
+    }
+
+    input.newsletter-email{
+        color: $w-secundary;
+        &::placeholder{
+            color: $w-secundary;
+        }
+    }
 }
