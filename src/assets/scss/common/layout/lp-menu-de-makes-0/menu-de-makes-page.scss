@@ -134,6 +134,7 @@ $bg-button: #E7979B;
         }
     }
 }
+
 .options-section {
     &__inner {
         display: flex;
@@ -209,6 +210,7 @@ $bg-button: #E7979B;
         margin-top: -150px;
     }
 }
+
 .advantages-section {
     margin-top: 20px;
     &__inner {
@@ -247,6 +249,57 @@ $bg-button: #E7979B;
         }
         &__item {
             min-width: 230px;
+        }
+    }
+}
+
+.options-carousel {
+    .siema {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    &__inner {
+        width: 85%;
+        margin: auto;
+        position: relative;
+    }
+    &__item {
+        margin: 10px;
+        text-align: center;
+        &__title {
+            font-size: 20px;
+            font-weight: 800;
+            margin: 20px 0;
+            span {
+                font-weight: 200;
+                display: block;
+                font-size: 15px;
+                margin-top: 5px;
+            }
+        }
+    }
+    &__controls {
+        position: absolute;
+        left: -16px;
+        right: -16px;
+        top: 40%;
+        & > * {
+            height: 35px;
+            width: 35px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 40px;
+            color: #fff;
+            background-color: #000;
+            border-radius: 50%;
+            cursor: pointer;
+            user-select: none;
+        }
+        .prev {
+            float: left;
+        }
+        .next {
+            float: right;
         }
     }
 }
