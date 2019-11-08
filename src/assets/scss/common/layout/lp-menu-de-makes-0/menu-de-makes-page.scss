@@ -167,7 +167,7 @@ $bg-button: #E7979B;
         &__caption {
             margin-top: -35px;
             position: relative;
-            padding: 0 30px 30px;
+            padding: 30px;
             background-color: #fff;
         }
         &__button {
@@ -184,6 +184,10 @@ $bg-button: #E7979B;
             text-transform: uppercase;
             font-weight: 800;
             box-shadow: 3px 3px 10px rgba(0, 0, 41, 0.2);
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -35px;
         }
         &__title {
             font-size: 20px;
@@ -327,16 +331,134 @@ $bg-button: #E7979B;
 
 .modal-scheduling {
     display: none;
+    position: fixed;
+    width: 720px;
+    top: 30%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 100;
+    & > * {
+        flex: 1;
+    }
     &.show {
-        display: block;
+        display: flex;
         &:before {
             content: '';
             position: fixed;
-            background-color: rgba(0,0,0,0.6);
+            background-color: rgba(0,0,0,0.8);
             top: 0;
             bottom: 0;
             left: 0;
             right: 0;
+        }
+    }
+    &__main {
+        position: relative;
+        box-shadow: 3px 3px 8px rgba(0, 0, 15, 0.2);
+        z-index: 10;
+        &__logo {
+            width: 230px;
+            position: absolute;
+            bottom: 100%;
+            margin-bottom: 15px;
+        }
+    }
+    &__aside {
+        background-color: #F2F2F2;
+        position: relative;
+        border-radius: 8px;
+        &__item {
+            display: inline-block;
+            background-color: #fff;
+            box-shadow: 3px 3px 8px rgba(0, 0, 18, 0.2);
+            padding: 25px 15px;
+            margin: 10px;
+            width: 125px;
+            border-radius: 8px;
+            position: relative;
+            h5 {
+                color: #E7979B;
+                font-size: 14px;
+                text-transform: uppercase;
+                font-weight: 800;
+                margin-top: 10px;
+            }
+            span {
+                position: absolute;
+                background-color: #333;
+                color: #fff;
+                border-radius: 8px;
+                opacity: 0;
+                font-size: 12px;
+                padding: 6px;
+                right: 0;
+                top: 0;
+                left: 0;
+            }
+            &:hover {
+                box-shadow: 3px 3px 10px rgba(0,0,18,0.3);
+                span {
+                    transition: all ease-in-out 0.2s;
+                    top: -42px;
+                    opacity: 0.8;
+                }
+            }
+        }
+        &__title {
+            margin: 65px auto 30px;
+            text-align: center;
+            font-size: 25px;
+            font-weight: 800;
+            width: 80%;
+        }
+        &__inner {
+            text-align: center;
+        }
+    }
+    &__close {
+        font-size: 35px;
+        position: absolute;
+        background-color: #fff;
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+        text-align: center;
+        line-height: 30px;
+        right: 20px;
+        top: 20px;
+        cursor: pointer;
+        &:first-child {
+            left: 20px;
+            line-height: 25px;
+        }
+        &:hover {
+            color: #000;
+        }
+    }
+    //post added content
+    .options-section {
+        margin-top: 20px;
+        &__item {
+            margin: 0;
+            &__caption {
+                padding: 10px 30px 40px;
+            }
+            &__button {
+                display: none;
+            }
+        }
+    }
+    @media(max-width: 767px) {
+        width: 90%;
+        max-width: 390px;
+        &__aside {
+            &__inner {
+                margin-bottom: 20px;
+            }
+        }
+        &__main {
+            display: none;
         }
     }
 }
