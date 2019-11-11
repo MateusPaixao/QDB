@@ -188,6 +188,9 @@ $bg-button: #E7979B;
             left: 0;
             right: 0;
             top: -35px;
+            &:hover {
+                background-color: darken($bg-button, 2) ;
+            }
         }
         &__title {
             font-size: 20px;
@@ -262,6 +265,7 @@ $bg-button: #E7979B;
 }
 
 .options-carousel {
+    margin-top: 20px;
     .siema {
         margin-left: -10px;
         margin-right: -10px;

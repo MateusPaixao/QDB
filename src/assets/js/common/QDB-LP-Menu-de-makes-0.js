@@ -14,6 +14,7 @@ function setOptionsCarousel() {
 	prev.addEventListener('click', () => options.prev());
 	next.addEventListener('click', () => options.next());
 }
+
 function setSchedulingModal() {
 	const modal = document.querySelector('.modal-scheduling');
 	const optionContainer = modal.querySelector('.modal-scheduling__main__content');
