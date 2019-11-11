@@ -518,7 +518,7 @@ class Card extends React.Component{
               
               e.querySelector(".status--adding__actions").innerHTML = 
               `<a href="/checkout/#/cart">
-                  <span class="status--adding__actions__cart">Fechar Pedido</span>
+                  <span class="status--adding__actions__cart">Finalizar Pedido</span>
                 </a>`
                 // <span class="status--adding__actions--add">+1</span>
                 // document.querySelector(".status--adding__actions--add").addEventListener("click", () => {
