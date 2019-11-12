@@ -63,14 +63,21 @@ $bg-button: #E7979B;
             font-weight: 800;
         }
         &__seal {
-            position: absolute;
             background-color: #fff;
             color: #000;
-            border-radius: 50%;
-            font-weight: 800;
-            text-align: center;
-            span {
-                display: block;
+            font-size: 12px;
+            width: 150px;
+            position: absolute;
+            right: 0;
+            top: 30px;
+            border-radius: 8px;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            svg {
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
             }
         }
     }
@@ -79,22 +86,14 @@ $bg-button: #E7979B;
             width: 25%;
             left: 55%;
             &__seal {
-                height: 7vw;
-                width: 7vw;
-                top: 30px;
-                left: 100%;
-                font-size: 1.2vw;
-                padding: 1.8vw 1.2vw;
-                line-height: 1.2vw;
-                span {
-                    font-size: 0.7vw;
-                }
+                right: -170px;
+                top: 75px;
             }
         }
     }
     @media(max-width: 991px) {
         background-image: url(banner-topo-menu-de-makes-quem-disse-berenice-mobile.png);
-        height: 500px;
+        height: 450px;
         &:before {
             content: '';
             display: block;
@@ -109,56 +108,56 @@ $bg-button: #E7979B;
             right: 0;
             left: 0;
             padding: 0 20px;
-            height: 70%;
             &__logo {
-                max-width: 50%;
+                max-width: 55%;
             }
             &__text {
-                font-size: 3.5vw;
+                font-size: 2.5vw;
                 order: 3;
-                width: 55%;
+                width: 60%;
             }
             &__title {
-                font-size: 6vw;
+                font-size: 4vw;
                 order: 2;
-                width: 50%;
+                width: 55%;
             }
-            &__seal {
-                right: 20px;
-                top: 20px;
-                height: 80px;
-                width: 80px;
-                font-size: 12px;
-                line-height: 12px;
-                padding: 24px 16px;
-                span {
-                    font-size: 7px;
-                }
+        }
+    }
+    @media (max-width: 768px) {
+        &__aside {
+            &__text {
+                font-size: 4vw;
+                line-height: 6vw;
+            }
+            &__title {
+                font-size: 8vw;
             }
         }
     }
 }
 
 .options-section {
+    margin: 0 0 60px;
     &__inner {
         display: flex;
         justify-content: space-between;
     }
     &__item {
         flex: 1;
-        max-width: 360px;
-        border-radius: 10px;
         margin: 0 10px;
-        overflow: hidden;
         box-shadow: 3px 2px 15px rgba(0, 0, 20, 0.2);
+        position: relative;
         &__cover {
-            height: 260px;
+            height: 230px;
             overflow: hidden;
             position: relative;
             img {
-                margin-top: -25%;
                 width: 100%;
                 max-width: initial;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
             }
             svg {
                 position: absolute;
@@ -167,20 +166,23 @@ $bg-button: #E7979B;
             }
         }
         &__caption {
-            margin-top: -35px;
             position: relative;
-            padding: 30px;
+            padding: 30px 30px 40px;
             background-color: #fff;
         }
         &__button {
             background-color: $bg-button;
             color: #000;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            bottom: -35px;
             height: 70px;
             width: 160px;
             display: block;
             line-height: 70px;
             text-align: center;
-            margin: auto;
             font-size: 20px;
             border-radius: 8px;
             text-transform: uppercase;
@@ -195,22 +197,50 @@ $bg-button: #E7979B;
             text-transform: uppercase;
             color: #000;
             font-weight: 800;
-            margin: 20px 0;
+            margin-bottom: 20px ;
         }
         &__text {
             color: #000;
             font-size: 15px;
+            margin-bottom: 15px;
         }
     }
     @media(max-width: 767px) {
+        margin: 30px 0 0;
         &__inner {
-            overflow: auto;
-            padding: 20px 0;
+            flex-direction: column;
         }
         &__item {
-            min-width: 75%;
+            max-width: 500px;
+            margin: 0 auto 60px;
+            &__title {
+                font-size: 18px;
+            }
+            &__caption {
+                padding: 25px 15px;
+                float: left;
+                width: 60%;
+                height: 230px;
+            }
             &__cover {
-                height: 60vw;
+                float: left;
+                width: 40%;
+                img {
+                    width: 160%;
+                    left: -30%;
+                }
+                svg {
+                    height: 50px;
+                    left: auto;
+                    right: 10px;
+                    top: 10px;
+                    width: 50px;
+                }
+            }
+            &__button {
+                height: 50px;
+                line-height: 50px;
+                font-size: 17px;
             }
         }
     }
