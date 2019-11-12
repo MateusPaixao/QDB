@@ -1,4 +1,6 @@
-import {bag} from "../../../General/Minicart/bag/_bagMain"
+import {
+    bag
+} from "../../../General/Minicart/bag/_bagMain"
 
 const Methods = {
     init() {
@@ -7,6 +9,7 @@ const Methods = {
             Methods.getProductInfos();
             Methods.getTopBannerColor();
             Methods.AddToCart();
+            Methods.setParentHeight();
         }
     },
     getProductInfos: () => {
@@ -50,7 +53,7 @@ const Methods = {
 
                             buyButton = document.querySelector('.w-product--wrapper--infos--buy-button');
 
-
+                           
                             if (sku.sellers[0].commertialOffer.AvailableQuantity <= 0) {
                                 document.querySelector('.w-gerador--datas').setAttribute('data-available', 'false');
                                 Methods.disableProduct();
@@ -66,6 +69,7 @@ const Methods = {
                         }
                     }
                 }
+                // Methods.setParentHeight();
             })
     },
 
@@ -169,24 +173,24 @@ const Methods = {
         const storeKey = "388ef2d0-c3b8-4fd6-af13-446b698d544a"
         const url = "https://service.yourviews.com.br/api/v2/pub/review/ReviewShelf?productids=" + idProduto;
 
-        fetch(url,{
-            method: "GET",
-            headers: {
-                'YVStoreKey': '388ef2d0-c3b8-4fd6-af13-446b698d544a',
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            }
-        })
-        .then(res => res.json())
-        .then((reviews) => {
-            console.log(reviews);
-        })
+        fetch(url, {
+                method: "GET",
+                headers: {
+                    'YVStoreKey': '388ef2d0-c3b8-4fd6-af13-446b698d544a',
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                }
+            })
+            .then(res => res.json())
+            .then((reviews) => {
+                // console.log(reviews);
+            })
     },
     AddToCart: () => {
         document.querySelector(".w-product--wrapper--infos--buy-button").addEventListener("click", (el) => {
             let skuId = document.querySelector(".w-gerador--datas").getAttribute("data-sku");
             el.target.style = `pointer-events: none; opacity: .7;background-color:${document.querySelector('.w-counter--bg').getAttribute('data-color')};`;
             el.target.innerHTML = "Adicionando";
-            console.log(skuId)
+            // console.log(skuId)
             let quantity;
             vtexjs.checkout.getOrderForm().then(function (orderForm) {
                     // console.log(orderForm);
@@ -219,14 +223,20 @@ const Methods = {
                     }
                 })
                 .done(function (orderForm) {
-                    console.log(orderForm);
                     el.target.style = `background-color:${document.querySelector('.w-counter--bg').getAttribute('data-color')}`;
                     el.target.innerHTML = "Adicionar à Sacola";
-                    
-                    // el.classList.remove("status--adding");
                     bag.open();
                 });
         });
+    },
+    setParentHeight() {
+        const parent = document.querySelector('.w-product--container');
+        const counter = document.querySelector('.w-product--counter');
+        if(parent.offsetHeight > counter.offsetHeight){
+            window.onload = setTimeout(() => {
+                counter.style.height = parent.offsetHeight + 'px';
+            }, 2000); 
+        }
     }
 }
 export default {

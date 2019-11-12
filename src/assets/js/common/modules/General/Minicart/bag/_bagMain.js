@@ -6,24 +6,21 @@ import {
     removeItem,
     updateItem
 } from '../_vtexHelpers';
+import barraDeFrete from '../components/bagBarraFrete'
 
 export const bag = {
     init() {
         bag.bindEvents();
         bag.load();
+        // barraDeFrete.init();
+        
         $(window).on('checkoutRequestEnd.vtex', function (ev) {
           getOrder().then(function ({items,totalizers}) {
             bag.render(items,totalizers)
             document.body.classList.contains('produto') ? bag.open() : null;
           });
         });
-        // window.onload = function(){
-        //     getOrder().then(function ({items,totalizers}) {
-        //         bag.render(items,totalizers);
-        //         bag.open();
-        //         // document.body.classList.contains('produto') ? bag.open() : null;
-        //     });
-        // }
+
     },
 
     maxQuantity: [1, 2, 3, 4, 5, 6, 7],

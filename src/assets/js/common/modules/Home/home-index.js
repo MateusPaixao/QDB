@@ -13,10 +13,10 @@ const Methods = {
         BuildInfoBar.init();
         BuildPaineis.init();
         BuildTopProducts.init();
-        window.innerWidth > 768 ? getBannerRetorna() : "";
         BuildBannerCollection.init();
         isInViewport(); 
         BuildCounter.init(); // BUG NO I.E e IOS quebrando thread, manter em ultimo
+        window.innerWidth > 768 ? getBannerRetorna() : "";
     }
 }
 

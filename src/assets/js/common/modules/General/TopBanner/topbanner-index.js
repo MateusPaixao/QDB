@@ -104,6 +104,9 @@ const Methods = {
     flip() {
         const flipContainer = document.querySelector('.flip');
         const flipBanner = document.querySelector('.flip-banner');
+
+        flipContainer.childElementCount > 0 ? flipBanner.classList.add('is--active') : null;
+
         function startFlip() {
             const flip = new Siema({
                 selector: '.flip',
@@ -115,29 +118,41 @@ const Methods = {
                 multipleDrag: true,
                 threshold: 20,
                 loop: false,
-                rtl: false
+                rtl: false,
+                onChange: clearAutoplay
             });
             const next = document.querySelector('.siemaNext');
             const prev = document.querySelector('.siemaPrev');
-    
+            
             next.addEventListener('click', () => {
+                clearInterval(autoplay);
                 flip.currentSlide == (flip.innerElements.length - 1) ? flip.goTo(0) : flip.next();
             })
             prev.addEventListener('click', () => {
+                clearInterval(autoplay);
                 flip.currentSlide == 0 ? flip.goTo(flip.innerElements.length - 1) : flip.prev();
             })
             
-            flipBanner.classList.add('is--active');
-            
-            function autoplay() {
-                setInterval(function() {
+            let autoplay = setInterval(function() {
+                flip.currentSlide == (flip.innerElements.length - 1) ? flip.goTo(0) : flip.next();
+            }, 4000);
+
+            function clearAutoplay(){
+                clearInterval(autoplay);
+                autoplay = setInterval(function() {
                     flip.currentSlide == (flip.innerElements.length - 1) ? flip.goTo(0) : flip.next();
                 }, 4000);
             }
-            autoplay();
-        
+            
         }
-        startFlip();
+        function hideArrows(){
+            const next = document.querySelector('.siemaNext');
+            const prev = document.querySelector('.siemaPrev');
+            
+            next.classList.add('hidden');
+            prev.classList.add('hidden');   
+        }
+        flipContainer.childElementCount > 1 ? startFlip() : hideArrows();
 
     }
 }
