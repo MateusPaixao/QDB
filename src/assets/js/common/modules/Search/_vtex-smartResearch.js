@@ -305,7 +305,7 @@ const Methods = {
                             label.addClass("sr_selected");
                         }
                         
-                        fns.adjustText(_this);
+                        // fns.adjustText(_this);
                         // Add span vazio (depois de executar de "adjustText")
                         label.append('<span class="sr_box"></span><span class="sr_box2"></span>');
                         
@@ -496,7 +496,7 @@ const Methods = {
                 {
                     var label=input.parent(),
                         text=label.text();
-                        qtt="";
+                        // qtt="";
                     
                     text=fns.removeCounter(text);
                     
