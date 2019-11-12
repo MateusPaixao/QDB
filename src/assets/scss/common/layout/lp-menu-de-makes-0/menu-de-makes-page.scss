@@ -111,15 +111,17 @@ $bg-button: #E7979B;
             padding: 0 20px;
             height: 70%;
             &__logo {
-                max-width: 60%;
+                max-width: 50%;
             }
             &__text {
-                font-size: 4vw;
+                font-size: 3.5vw;
                 order: 3;
+                width: 55%;
             }
             &__title {
                 font-size: 6vw;
                 order: 2;
+                width: 50%;
             }
             &__seal {
                 right: 20px;
@@ -155,7 +157,7 @@ $bg-button: #E7979B;
             position: relative;
             img {
                 margin-top: -25%;
-                width: 115%;
+                width: 100%;
                 max-width: initial;
             }
             svg {
@@ -184,10 +186,6 @@ $bg-button: #E7979B;
             text-transform: uppercase;
             font-weight: 800;
             box-shadow: 3px 3px 10px rgba(0, 0, 41, 0.2);
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: -35px;
             &:hover {
                 background-color: darken($bg-button, 2) ;
             }
@@ -212,12 +210,9 @@ $bg-button: #E7979B;
         &__item {
             min-width: 75%;
             &__cover {
-                height: 200px;
+                height: 60vw;
             }
         }
-    }
-    @media(max-width: 991px) {
-        margin-top: -150px;
     }
 }
 
@@ -254,12 +249,27 @@ $bg-button: #E7979B;
     }
     @media(max-width: 991px) {
         &__inner {
-            width: initial;
-            overflow: auto;
-            padding: 20px 0;
+            width: 100%;
+            flex-direction: column;
+            max-width: 500px;
         }
         &__item {
-            min-width: 230px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            padding: 4vw;
+            text-align: left;
+            svg {
+                margin-right: 4vw;
+                flex: 1;
+            }
+            &__title {
+                flex: 2.5;
+                font-size: 19px;
+                &:before {
+                    display: none;
+                }
+            }
         }
     }
 }
@@ -286,15 +296,15 @@ $bg-button: #E7979B;
                 font-size: 15px;
             }
         }
-        img {
-            border-radius: 8px;
-        }
     }
     &__controls {
         position: absolute;
         left: -16px;
         right: -16px;
-        top: 40%;
+        top: 0;
+        bottom: 50px;
+        margin: auto;
+        height: 35px;
         & > * {
             height: 35px;
             width: 35px;
@@ -320,9 +330,6 @@ $bg-button: #E7979B;
         }
         &__item {
             text-align: center;
-            img {
-                border-radius: 0;
-            }
             &__title {
                 margin: 20px 0;
                 span {

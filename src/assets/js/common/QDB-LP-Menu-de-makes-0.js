@@ -3,8 +3,7 @@ import Siema from "./global/vendor/siema-slider/siema.min.js"
 function setOptionsCarousel() {
 	const options = new Siema({
 		perPage: {
-			0: 1,
-			420: 2,
+			0: 2,
 			768: 3
 		}
 	});
