@@ -206,7 +206,8 @@
         -webkit-appearance: none;
 
         @include d('768px') {
-            width: 100%
+            width: 100%;
+            margin: 10px 0 15px;
         }
 
         &--input {
@@ -232,10 +233,6 @@
 
         &--btn {
             display: none;
-        }
-
-        @include d('768px') {
-            margin: 10px 0;
         }
     }
 
