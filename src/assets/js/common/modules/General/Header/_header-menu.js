@@ -27,26 +27,29 @@ const Methods = {
     openCloseMenu() {
         CacheSelector.header.menuHamContainer.addEventListener('click', (el) => {
             if (el.target == CacheSelector.header.menuHamContainer || el.target == CacheSelector.header.menuHamText) {
-                el.stopPropagation;
                 el.preventDefault;
-                CacheSelector.header.menuHam.classList.toggle('is--active');
-                CacheSelector.header.menuList.classList.toggle('js--menu-close');
-                CacheSelector.$globals.body.classList.toggle('menu--open');
+                CacheSelector.header.menuHam.classList.add('is--active');
+                console.log("UE1");
+                CacheSelector.header.menuList.classList.remove('js--menu-close');
+                console.log("U2");
+                CacheSelector.$globals.body.classList.add('menu--open');
+                console.log("U23");
                 el.target.classList.add('is--active');
+                el.stopPropagation;
             }
         })
     },
 
     closeMenu() {
         CacheSelector.header.menuClose.addEventListener('click', () => {
-            CacheSelector.header.menuHam.classList.toggle('is--active');
-            CacheSelector.header.menuList.classList.toggle('js--menu-close');
-            CacheSelector.$globals.body.classList.toggle('menu--open');
+            CacheSelector.header.menuHam.classList.remove('is--active');
+            CacheSelector.header.menuList.classList.add('js--menu-close');
+            CacheSelector.$globals.body.classList.remove('menu--open');
         })
         CacheSelector.header.overlay.addEventListener('click', () => {
-            CacheSelector.header.menuHam.classList.toggle('is--active');
-            CacheSelector.header.menuList.classList.toggle('js--menu-close');
-            CacheSelector.$globals.body.classList.toggle('menu--open');
+            CacheSelector.header.menuHam.classList.remove('is--active');
+            CacheSelector.header.menuList.classList.add('js--menu-close');
+            CacheSelector.$globals.body.classList.remove('menu--open');
         });
     },
 

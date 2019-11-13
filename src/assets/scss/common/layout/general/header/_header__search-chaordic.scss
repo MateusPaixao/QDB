@@ -48,6 +48,11 @@ html {
         }
     }
 
+    .ac-empty-search-error{
+        border: none !important;
+        color: #c41915;
+        background-color: transparent!important;
+    }
     .ac-overlay {
         display: none !important;
     }
