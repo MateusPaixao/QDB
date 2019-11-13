@@ -12,6 +12,9 @@ $bg-button: #E7979B;
         padding: 20px 0;
         font-size: 5.5vw;
     }
+    &__legal-text {
+        font-size: 10px;
+    }
     @media(min-width: 768px) {
         background-color: #fff;
         &__title {
@@ -69,7 +72,7 @@ $bg-button: #E7979B;
             width: 150px;
             position: absolute;
             right: 0;
-            top: 30px;
+            top: 5%;
             border-radius: 8px;
             padding: 8px;
             display: flex;
@@ -87,7 +90,6 @@ $bg-button: #E7979B;
             left: 55%;
             &__seal {
                 right: -170px;
-                top: 75px;
             }
         }
     }
@@ -102,7 +104,7 @@ $bg-button: #E7979B;
             bottom: 0;
             left: 0;
             right: 0;
-            background-color: rgba(0,0,0,0.4);
+            background-image: linear-gradient(to right, rgba(0,0,0,0.8), transparent);
         }
         &__aside {
             right: 0;
@@ -241,6 +243,13 @@ $bg-button: #E7979B;
                 height: 50px;
                 line-height: 50px;
                 font-size: 17px;
+            }
+            &:first-child,
+            &:last-child {
+                //centralizar melhor o recorte de duas imagens específicas
+                .options-section__item__cover img {
+                    left: -15%;
+                }
             }
         }
     }
