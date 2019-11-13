@@ -19,6 +19,7 @@
     width: 100%;
     // padding: $headerPadding;
     min-height: 150px;
+    max-height: 235px;
 
 
     @include d('768px') {
