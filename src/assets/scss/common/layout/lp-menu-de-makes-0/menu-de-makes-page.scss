@@ -163,8 +163,10 @@ $bg-button: #E7979B;
             }
             svg {
                 position: absolute;
-                left: 20px;
-                top: 20px;
+                left: 15px;
+                top: 15px;
+                height: 60px;
+                width: 60px;
             }
         }
         &__caption {
@@ -347,14 +349,17 @@ $bg-button: #E7979B;
         & > * {
             height: 35px;
             width: 35px;
-            line-height: 30px;
+            line-height: 32px;
             text-align: center;
-            font-size: 40px;
+            font-size: 30px;
             color: #fff;
             background-color: #000;
             border-radius: 50%;
             cursor: pointer;
             user-select: none;
+            &:hover {
+                font-weight: 800;
+            }
         }
         .prev {
             float: left;
@@ -383,10 +388,11 @@ $bg-button: #E7979B;
     display: none;
     position: fixed;
     width: 720px;
-    top: 30%;
+    top: 50%;
+    margin: auto;
+    margin-top: -180px;
     left: 0;
     right: 0;
-    margin: auto;
     z-index: 100;
     & > * {
         flex: 1;
@@ -417,7 +423,6 @@ $bg-button: #E7979B;
     &__aside {
         background-color: #F2F2F2;
         position: relative;
-        border-radius: 8px;
         &__item {
             display: inline-block;
             background-color: #fff;
@@ -467,20 +472,20 @@ $bg-button: #E7979B;
         }
     }
     &__close {
-        font-size: 35px;
+        font-size: 30px;
         position: absolute;
         background-color: #fff;
         border-radius: 50%;
         height: 30px;
         width: 30px;
         text-align: center;
-        line-height: 30px;
+        line-height: 32px;
         right: 20px;
         top: 20px;
         cursor: pointer;
         &:first-child {
             left: 20px;
-            line-height: 25px;
+            line-height: 28px;
         }
         &:hover {
             color: #000;
