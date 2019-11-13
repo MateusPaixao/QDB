@@ -25,28 +25,25 @@
             margin-right: 0;
         }
         .__icon{
-            margin-right: 5px;
-            .truck{
-                // path{
-                //     ::nth-child(1),
-                //     ::nth-child(2),
-                //     ::nth-child(4)
-                //     {
-                //         stroke: $g-primary;
-                //         fill: transparent;
-                //     }
-                // }
-                // circle{
-                //     stroke: $g-primary;
-                // }
+            margin-right: 10px;
+            stroke: none;
+            fill:#686162;
+            svg{
+                width: 2.4em;
             }
-            .star{
-                display: flex;
-                height: 40px;
-                width: 40px;
-                path{
-                    fill: #67605f;
-                }
+            .__truck{
+                fill:none;
+                stroke:#686162;
+                width: 2.9em;
+            }
+            .__locked {
+                width: 1.9em;
+            }
+            .__card {
+                width: 3em;
+            }
+            .__cosmetics {
+                
             }
         }
         .__content{
