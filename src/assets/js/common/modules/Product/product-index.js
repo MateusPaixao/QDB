@@ -3,8 +3,8 @@ import Features from './Components/Features/features.jsx'
 
 const Methods = {
     init(){
-        Methods.GetProduct();
-        Features.init();
+        // Methods.GetProduct();
+        // Features.init();
         Methods.oldProduct();
     },
     GetProduct(){
@@ -54,6 +54,13 @@ const Methods = {
                 el.preventDefault();
                 let skuId = "";
                 skuId = [...document.querySelectorAll(".select-cor-new .group_0 label")].find(label => label.classList.contains("current")) != undefined ? skuId = document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku") : skuId = new URL(window.location.href).searchParams.get("idsku");
+                if(skuId == null || skuId == undefined){
+                    fetch("/api/catalog_system/pub/products/search" + window.location.pathname)
+                    .then(response => response.json())
+                    .then((Product) =>{
+                        skuId = Product[0].items[0].itemId;
+                    })
+                }
                 // console.log(skuId);
                 el.srcElement.innerHTML = "Adicionando...";
                 el.srcElement.style.opacity = ".7";
@@ -140,7 +147,16 @@ const Methods = {
                     }
                     // #Init funcoes
                     let sku = [...document.querySelectorAll(".select-cor-new .group_0 label")].find(label => label.classList.contains("current")) != undefined ? document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku") : new URL(window.location.href).searchParams.get("idsku");
-                    settingsProductPreco(sku);
+                    if(sku == null || sku == undefined){
+                        fetch("/api/catalog_system/pub/products/search" + window.location.pathname)
+                        .then(response => response.json())
+                        .then((Product) =>{
+                            sku = Product[0].items[0].itemId;
+                            settingsProductPreco(sku);
+                        })
+                    }else{
+                        settingsProductPreco(sku);
+                    }
                     settingsProductFichaTecnica();  
                     clubeBeresPontos($('.plugin-preco .valor-por .skuBestPrice').text());
                     shareSocial('.socials-secondary a');
@@ -1125,7 +1141,16 @@ const Methods = {
                 $(this).addClass('current');
                 $('#' + $(this).attr('for')).click();
                 let sku = [...document.querySelectorAll(".select-cor-new .group_0 label")].find(label => label.classList.contains("current")) != undefined ? document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku") : new URL(window.location.href).searchParams.get("idsku");
-                settingsProductPreco(sku);
+                if(sku == null || sku == undefined){
+                    fetch("/api/catalog_system/pub/products/search" + window.location.pathname)
+                    .then(response => response.json())
+                    .then((Product) =>{
+                        sku = Product[0].items[0].itemId;
+                        settingsProductPreco(sku);
+                    })
+                }else{
+                    settingsProductPreco(sku);
+                }
                 aviseme();
 
                 setTimeout(function(){ 
