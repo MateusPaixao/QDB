@@ -1,2 +1,3 @@
 * [Home](/)
-* [Sobre](start.md)
+* [Inicio](/install/)
+* [Estrutura](/structure/)
