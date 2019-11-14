@@ -19,6 +19,7 @@
     width: 100%;
     // padding: $headerPadding;
     min-height: 150px;
+    max-height: 235px;
 
 
     @include d('768px') {
@@ -670,7 +671,7 @@
 
 .has--topbanner{
     .header__menu-container{
-        top: -55px;
+        top: -75px;
     }
 }
 
