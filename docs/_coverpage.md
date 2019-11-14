@@ -2,7 +2,7 @@
 
 > Diversidade em Código
 
-- Bem vindo ao seu HUB de desenvolvimento.
+- Bem vindo ao coração de Quem Disse Berenice.
 
 [Bitbucket](https://bitbucket.org/grupoboticario/qdb-ecomm/)
 [Começar](/start)
