@@ -70,19 +70,19 @@ html {
     .has--topbanner {
         &.scrollDown {
             .ac-container {
-                top: 120px !important;
+                top: 100px !important;
 
                 @include d('768px') {
-                    top: 135px !important;
+                    top: 115px !important;
                 }
             }
         }
 
         .ac-container {
-            top: 140px !important;
+            top: 120px !important;
 
             @include d('768px') {
-                top: 170px !important;
+                top: 150px !important;
             }
         }
     }
