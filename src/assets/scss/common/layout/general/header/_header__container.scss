@@ -19,6 +19,7 @@
     width: 100%;
     // padding: $headerPadding;
     min-height: 150px;
+    max-height: 235px;
 
 
     @include d('768px') {
@@ -206,7 +207,8 @@
         -webkit-appearance: none;
 
         @include d('768px') {
-            width: 100%
+            width: 100%;
+            margin: 10px 0 15px;
         }
 
         &--input {
@@ -232,10 +234,6 @@
 
         &--btn {
             display: none;
-        }
-
-        @include d('768px') {
-            margin: 10px 0;
         }
     }
 
@@ -673,7 +671,7 @@
 
 .has--topbanner{
     .header__menu-container{
-        top: -55px;
+        top: -75px;
     }
 }
 
