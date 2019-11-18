@@ -151,7 +151,6 @@ $secondaryColor: #AC0032;
             display: flex;
             flex-wrap: wrap;
             width: 70%;
-            margin-bottom: 50px;
             @include d('768px'){
                 flex-direction: column;
                 width: 100%;
@@ -245,9 +244,7 @@ $secondaryColor: #AC0032;
                 margin-top: 20px;
                 width: 100%;
                 display: flex;
-                @include d('768px'){
-                    flex-direction: column;
-                }
+                overflow: auto;
                 &--container{
                     align-items: center;
                     justify-content: center;
@@ -276,7 +273,30 @@ $secondaryColor: #AC0032;
                         color: #fff;
                     }
                 }
+                @include d('768px'){
+                    &--container{
+                        min-width: 280px;
+                    }
+                }
             }
+        }
+    }
+    .buttons {
+        width: 100%;
+        margin: 20px 0;
+        a {
+            display: block;
+            background-color: #991534;
+            color: #fff;
+            margin: 10px auto;
+            width: 100%;
+            max-width: 375px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            text-transform: uppercase;
+            border-radius: 8px;
+            font-size: 14px;
         }
     }
 }
