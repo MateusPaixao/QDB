@@ -2,11 +2,11 @@
 // import setPeopleInPage from './Components/Features/_peopleInPage.jsx'
 
 const Methods = {
-    init(){
-        // Methods.GetProduct();
-        // Features.init();
+    init() {
         Methods.oldProduct();
         Methods.exclusiveOnEcommerce();
+        Methods.observeSkuSelect();
+
     },
     GetProduct() {
         fetch("/api/catalog_system/pub/products/search" + window.location.pathname)
@@ -16,7 +16,6 @@ const Methods = {
                 let skuId = [...document.querySelectorAll(".select-cor-new .group_0 label")].find(label => label.classList.contains("current")) != undefined ? skuId = document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku") : skuId = new URL(window.location.href).searchParams.get("idsku");
                 // console.log("skuid ", skuId);
                 let Sku = Product[0].items.find(e => e.itemId == skuId);
-                console.log(Sku);
                 // window.innerWidth < 768 ? document.querySelector(".product-buy-button").after(document.querySelector("#people-seeing--render")) : "";
                 // Sku.sellers[0].commertialOffer.Price - Sku.sellers[0].commertialOffer.ListPrice != 0 ? Features.setPeopleInPage(30, 15) : Features.setPeopleInPage(5, 1);
                 // Sku.sellers[0].commertialOffer.AvailableQuantity <= 10 ? Features.setStockLeft(Sku.sellers[0].commertialOffer.AvailableQuantity) : "";
@@ -50,12 +49,12 @@ const Methods = {
                 el.preventDefault();
                 let skuId = "";
                 skuId = [...document.querySelectorAll(".select-cor-new .group_0 label")].find(label => label.classList.contains("current")) != undefined ? skuId = document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku") : skuId = new URL(window.location.href).searchParams.get("idsku");
-                if(skuId == null || skuId == undefined){
+                if (skuId == null || skuId == undefined) {
                     fetch("/api/catalog_system/pub/products/search" + window.location.pathname)
-                    .then(response => response.json())
-                    .then((Product) =>{
-                        skuId = Product[0].items[0].itemId;
-                    })
+                        .then(response => response.json())
+                        .then((Product) => {
+                            skuId = Product[0].items[0].itemId;
+                        })
                 }
                 // console.log(skuId);
                 el.srcElement.innerHTML = "Adicionando...";
@@ -143,17 +142,17 @@ const Methods = {
                     }
                     // #Init funcoes
                     let sku = [...document.querySelectorAll(".select-cor-new .group_0 label")].find(label => label.classList.contains("current")) != undefined ? document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku") : new URL(window.location.href).searchParams.get("idsku");
-                    if(sku == null || sku == undefined){
+                    if (sku == null || sku == undefined) {
                         fetch("/api/catalog_system/pub/products/search" + window.location.pathname)
-                        .then(response => response.json())
-                        .then((Product) =>{
-                            sku = Product[0].items[0].itemId;
-                            settingsProductPreco(sku);
-                        })
-                    }else{
+                            .then(response => response.json())
+                            .then((Product) => {
+                                sku = Product[0].items[0].itemId;
+                                settingsProductPreco(sku);
+                            })
+                    } else {
                         settingsProductPreco(sku);
                     }
-                    settingsProductFichaTecnica();  
+                    settingsProductFichaTecnica();
                     clubeBeresPontos($('.plugin-preco .valor-por .skuBestPrice').text());
                     shareSocial('.socials-secondary a');
                     selectCor();
@@ -1188,14 +1187,14 @@ const Methods = {
                 $(this).addClass('current');
                 $('#' + $(this).attr('for')).click();
                 let sku = [...document.querySelectorAll(".select-cor-new .group_0 label")].find(label => label.classList.contains("current")) != undefined ? document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku") : new URL(window.location.href).searchParams.get("idsku");
-                if(sku == null || sku == undefined){
+                if (sku == null || sku == undefined) {
                     fetch("/api/catalog_system/pub/products/search" + window.location.pathname)
-                    .then(response => response.json())
-                    .then((Product) =>{
-                        sku = Product[0].items[0].itemId;
-                        settingsProductPreco(sku);
-                    })
-                }else{
+                        .then(response => response.json())
+                        .then((Product) => {
+                            sku = Product[0].items[0].itemId;
+                            settingsProductPreco(sku);
+                        })
+                } else {
                     settingsProductPreco(sku);
                 }
                 aviseme();
@@ -1425,6 +1424,7 @@ const Methods = {
         function createFlag() {
             const appendReference = document.querySelector('.product-tag');
             const span = document.createElement('span');
+            span.classList.add('product-flag');
             span.classList.add('exclusivo')
             span.textContent = "Promoção exclusiva do site";
             appendReference.after(span)
@@ -1435,6 +1435,75 @@ const Methods = {
             .then((productInfo) => {
                 productInfo[0].productClusters[862] !== undefined ? createFlag() : null;
             })
+    },
+    showValidade() {
+        fetch("/api/catalog_system/pub/products/search" + window.location.pathname)
+            .then(response => response.json())
+            .then(Product => {
+                let skuId = [...document.querySelectorAll(".select-cor-new .group_0 label")].find(label => label.classList.contains("current")) != undefined ? skuId = document.querySelector(".select-cor-new .group_0 .current").getAttribute("data-idsku") : skuId = new URL(window.location.href).searchParams.get("idsku");
+                let Sku = Product[0].items.find(e => e.itemId == skuId);
+                try {
+                    Sku.attachments.forEach(attachment => {
+                        if (attachment.name.indexOf("validade") != -1) {
+                            let validade = attachment.name;
+
+                            const flagValidade = document.querySelector('.validade');
+                            flagValidade == null ? createFlag() : null;
+
+                            flagValidade.classList.remove('hidden')
+
+                            function formatDate() {
+                                const array = validade.split('-');
+                                const month = array[1];
+                                const year = array[2];
+
+                                const monthFormat = {
+                                    'jan': 'Janeiro',
+                                    'fev': 'Fevereiro',
+                                    'mar': 'Março',
+                                    'abr': 'Abril',
+                                    'mai': 'Maio',
+                                    'jun': 'Junho',
+                                    'jul': 'Julho',
+                                    'ago': 'Agosto',
+                                    'set': 'Setembro',
+                                    'out': 'Outubro',
+                                    'nov': 'Novembro',
+                                    'dez': 'Dezembro'
+                                };
+
+                                const string = monthFormat[month] + " de " + "20" + year;
+
+                                return string;
+                            };
+
+                            function createFlag() {
+                                const appendReference = document.querySelector('.product-tag');
+                                const span = document.createElement('span');
+                                span.classList.add('product-flag');
+                                span.classList.add('validade');
+                                span.innerHTML = `A Validade desse produto é até <span>${formatDate()}</span>, tá?`
+                                appendReference.after(span)
+                            }
+                        } else {
+                            console.log('sem attachments')
+                        }
+                    })
+                } catch (err) {
+                    document.querySelector('.validade').classList.add('hidden');
+                    console.log('Sem attachments', err);
+                }
+            })
+            .catch(err => console.log('Erro na chamada da API',err))
+    },
+    observeSkuSelect() {
+        $(window).on('skuSelected.vtex', function (e, productId, skuObj) {
+            try {
+                Methods.showValidade();
+            } catch (err) {
+                // console.log(err)
+            }
+        });
     }
 }
 

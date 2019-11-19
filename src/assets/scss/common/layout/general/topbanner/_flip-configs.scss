@@ -30,7 +30,7 @@
     position: relative;
     display: block;
     visibility: hidden;
-    // max-height: 55px;
+    max-height: 55px;
     background-color: lightgray;
     &.is--active{
         background-color: none;
