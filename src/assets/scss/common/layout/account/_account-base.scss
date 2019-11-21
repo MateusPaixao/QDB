@@ -1,3 +1,5 @@
+@import './variables';
+
 .logged{
     @include sans(1vw, $g-primary, 400, normal);
     @include d(l){
@@ -817,7 +819,7 @@
             }
         }
     }
-    .--skeleton{
+    .set--skeleton{
         background: #c7c5c4 !important;
         color: transparent !important;
         border-radius: .3em;

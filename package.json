@@ -61,6 +61,7 @@
     "vtex-lazyload": "0.0.3",
     "webpack-dev-server": "^3.8.0",
     "whatwg-fetch": "^3.0.0",
+    "xml-js": "^1.6.11",
     "youtube-iframe": "^1.0.3"
   },
   "devDependencies": {
