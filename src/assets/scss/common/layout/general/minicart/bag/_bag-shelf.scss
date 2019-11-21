@@ -1,0 +1,146 @@
+.bag-shelf {
+    width: 99%;
+    height: 80%;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 85%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1%;
+
+    @include scrollbar();
+
+    // @media (max-width: 350px) {
+    //     height: 55%;
+    //     max-height: 55%;
+    // }
+
+    &__item {
+        display: flex;
+        width: 97%;
+        position: relative;
+        min-height: 120px;
+        height: max-content;
+        flex-wrap: wrap;
+        padding: 2.5% 0 2.5% 1%;
+        margin-left: 1%;
+        opacity: 0;
+        border-bottom: 1px solid $qdb-grey-l;
+        animation: bagShow 2s ease forwards;
+        &:last-child{
+            border: none;
+        }
+        @media (max-width: 480px) {
+            width: 95%;
+            padding-right: 1%;
+        }
+
+        &-img-anchor {
+            flex-shrink: 0;
+            align-self: center;
+        }
+
+        &-img {
+            width: 100%;
+            border: 1px solid lightgrey;
+            border-radius: 5px;
+        }
+
+        &-info {
+            display: flex;
+            flex: 1 3;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            padding: 2.5%;
+
+            &-name {
+                font-size: calc(14rem/16);
+                width: 70%;
+            }
+
+            &-price {
+                font-size: calc(13rem/16);
+                text-align: right;
+                justify-self: flex-end;
+                width: 30%;
+                color: $bag-color-secondary;
+                font-weight: bold;
+
+                &-discount {
+                    text-decoration: line-through;
+                    font-style: italic;
+                    color: grey;
+                    font-weight: lighter;
+                }
+            }
+
+            &-quantity {
+                border: 1px solid $bag-color-secondary;
+                border-radius: 5px;
+                height: 25px;
+                width: 40px;
+                margin-top: 5%;
+                color: $bag-color-secondary;
+                transition: transform 0.2s ease;
+                padding: 0 0 0 5px;
+
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                appearance: none;
+                background-color: #fff;
+                background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNDQiIHZpZXdCb3g9IjAgMCA3MiA0NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTM4LjI2NzggNDIuMzgxNEMzNy4wNzE1IDQzLjc2MjggMzQuOTI4NSA0My43NjI4IDMzLjczMjIgNDIuMzgxNEwxLjMyNzc4IDQuOTYzOTZDLTAuMzU0ODUgMy4wMjEwMiAxLjAyNTMxIC02LjM3Nzg1ZS0wNyAzLjU5NTU3IC04LjYyNDg0ZS0wN0w2OC40MDQ0IC02LjUyODI2ZS0wNkM3MC45NzQ3IC02Ljc1Mjk2ZS0wNiA3Mi4zNTQ5IDMuMDIxMDIgNzAuNjcyMiA0Ljk2Mzk1TDM4LjI2NzggNDIuMzgxNFoiIGZpbGw9IiM2NzYwNUYiLz4KPC9zdmc+Cg==');
+                background-repeat: no-repeat, repeat;
+                background-position: right .5em top 50%, 0 0;
+                background-size: .65em auto, 100%;
+
+                // &:hover {
+                //     transform: scale(1.1);
+                // }
+            }
+
+            &-del {
+                margin-top: 5%;
+                transition: transform 0.2s ease;
+                position: absolute;
+                left: 0px;
+                top: -10px;
+
+                &:after {
+                    // font-family: 'Eudoricon';
+                    content: "x";
+                    cursor: pointer;
+                    display: flex;
+                    font-size: small;
+                    align-items: center;
+                    justify-content: center;
+                    color: #fdfdfd;
+                    height: 15px;
+                    width: 15px;
+                    background: #342E37;
+                    border-radius: 15px;
+                    transform: scale(1.2);
+                }
+
+                &:hover {
+                    transform: scale(1.3);
+                }
+            }
+        }
+    }
+
+    &__empty {
+        margin: auto;
+        text-align: center;
+
+        &::after {
+            content: "";
+            display: block;
+            height: 5px;
+            margin: auto;
+            padding: 10px;
+            width: 100%;
+            background: $w-secundary linear-gradient(to right, $w-secundary, $bag-color-secondary, $w-secundary) center/ 100% 1px no-repeat;
+        }
+    }
+}

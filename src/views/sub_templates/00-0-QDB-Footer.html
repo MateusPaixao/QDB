@@ -2,27 +2,25 @@
     <div class="shell">
         <div class="_footer-line-size-0">
             <div class="_footer-line-size-3 subscribe">
-                <form>
+                <form id="nl_form" method="post" action="https://x.relaciona.quemdisseberenice.com.br/ats/post.aspx">
                     <div class="form-controls">
-                        <label style="display: none;" for="mail" class="form-label">receba nossas novidades por e-mail diariamente</label>
-                        <input type="hidden" name="cr" value="100299" />
-                        <input type="hidden" name="fm" value="149" />
-                        <input type="hidden" id="s_ds_origem_cadastro" name="ds_origem_cadastro" value="site" />
-                        <input type="hidden" id="s_ds_campanha" name="ds_campanha" value="newsletter" />
-                        <input type="hidden" id="s_dt_cadastro" name="dt_cadastro" value="" />
-                        <input type="email" id="s_ds_email" name="ds_email" value="" placeholder="receba nossas novidades por e-mail" class="subscribe-field" />
-                        <label for="mail" style="display: none;" class="form-label form-label-sub web">a frequência de envios pode variar de acordo com a sua interação</label>
-                    </div><!-- /.form-controls -->
-                    <button id='enviar_form_footer' class="subscribe-btn" placeholder="enviar"> cadastrar <span class="subscribe-percent"></span><i class="success"></i></button>
-                    <label for="mail" style="display: none;" class="form-label form-label-sub mobile">a frequência de envios pode variar de acordo com a sua interação</label>
+                        <input type="text" name="validation-field" class="hidden" style="display: none;"/>
+                        <input type="email" id="nl_email" name="nl_email" placeholder="receba nossas novidades por e-mail" class="subscribe-field" required='required'/>
+                    </div><!-- /.form-controls -->            
+                    <button id='submit_button' class="subscribe-btn" placeholder="enviar"> cadastrar <span class="subscribe-percent"></span><i class="success"></i></button>
+                    <div class="form-success" style="display: none;">
+                        <h5>Seu e-mail foi cadastrado com sucesso</h5>
+                    </div>
+                    <div class="form-error" style="display: none;">
+                        <h5>Ops, algo deu errado. Tente novamente mais tarde.</h5>
+                    </div>
                 </form>
-                
             </div>
             <div class="_footer-line-size-2">
                 <p class="_upperTxt">Siga a gente nas <br />redes sociais:</p>
-                <a href="https://www.instagram.com/quemdisseberenice/" class="icons_footer icons_instagram" title="Instagram"><vtex.cmc:SVGFooterInstagram /></a>
-                <a href="https://www.youtube.com/user/quemdisseberenice" class="icons_footer icons_youtube" title="Youtube"><vtex.cmc:SVGFooterYoutube /></a>
-                <a href="https://www.facebook.com/quemdisseberenice" class="icons_footer icons_facebook" title="Facebook"><vtex.cmc:SVGFooterFacebook /></a>
+                <a href="https://www.instagram.com/quemdisseberenice/" target="_blank" class="icons_footer icons_instagram" title="Instagram"><vtex.cmc:SVGFooterInstagram /></a>
+                <a href="https://www.youtube.com/user/quemdisseberenice" target="_blank" class="icons_footer icons_youtube" title="Youtube"><vtex.cmc:SVGFooterYoutube /></a>
+                <a href="https://www.facebook.com/quemdisseberenice" target="_blank" class="icons_footer icons_facebook" title="Facebook"><vtex.cmc:SVGFooterFacebook /></a>
             </div>
         </div>
         <div class="_footer-line-size-0">
@@ -49,6 +47,7 @@
                         <li><a href="https://www.quemdisseberenice.com.br/nossas-lojas">Nossas lojas</a></li>
                         <li><a href="https://www.quemdisseberenice.com.br/institucional/atendimento">Ver principais dúvidas</a></li>
                         <li><a href="https://www.quemdisseberenice.com.br/sitemap">Mapa do site</a></li>
+                        <li><a href="https://www.quemdisseberenice.com.br/black-friday">Black Friday 2019</a></li>
                     </ul>
                 </div>
                 <div class="footer_col">
@@ -60,6 +59,7 @@
                         <li><a href="https://www.quemdisseberenice.com.br/institucional/faleconosco" title="e-mail fale conosco">E-mail ></a></li>
                         <li><a href="https://www.quemdisseberenice.com.br/institucional/chat" title="chat fale conosco">Chat ></a></li>
                         <li><a href="https://www.quemdisseberenice.com.br/institucional/atendimento" title="atendimento fale conosco">Fale com a gente ></a></li>
+                        <li><a href="https://www.quemdisseberenice.com.br/venda-corporativa" title="atendimento venda corporativa">Venda corporativa ></a></li>
                     </ul>
                 </div>
             </div>
@@ -124,16 +124,16 @@
             <div class="_footer--razao-social">
                 <span>INTERBELLE COMÉRCIO DE PRODUTOS DE BELEZA LTDA. RODOVIA RÉGIS BITENCOURT, KM 437, RIBEIRÃO VERMELHO, REGISTRO, SP, CEP 11900-000 CNPJ/MF 11.137.051/0406-41</span>  
             </div>
-            <div class="_seloGrupo">
-                <a href="http://www.grupoboticario.com.br/">Uma empresa do <span class="_grupoBoticario">Grupo Boticário</span></a>
-            </div>
+            <a href="http://www.grupoboticario.com.br/" target="_blank">
+            	<img src="/arquivos/logo-boticario.jpg" style="
+                width: 100%;
+                max-width: 400px;
+                "/>
+            </a>
         </div>
     </div>
 </section>
 
-
-<!-- LAZYLOAD HERO BANNER -->
- <script type="text/javascript" src="https://qbbr.vteximg.com.br/arquivos/lazyHeroBanners.js"></script> 
 <!-- App JS -->
 <script type="text/javascript" src="https://qbbr.vteximg.com.br/arquivos/new_qdb_jquery.vtexcart.js"></script>
 <script type="text/javascript" src="/arquivos/new_qdb_helpers.js"></script>
@@ -170,11 +170,13 @@
 
 
 <script type="text/javascript" src="https://qbbr.vteximg.com.br/arquivos/new_qdb_jquery.mask.min.js"></script>
-<script type="text/javascript" src="https://qbbr.vteximg.com.br/arquivos/jquery.md5.plugin.js"></script>
+<!--<script type="text/javascript" src="https://qbbr.vteximg.com.br/arquivos/jquery.md5.plugin.js"></script>-->
 
-<script defer="true" async="true" src="/arquivos/QDBCommon-General.js"></script>
-<!--<script defer="true" async="true" src="https://qbbr.vteximg.com.br/arquivos/_qdb-standard.js?v=13-06-2019-2"></script>-->
-<script defer="true" async="true" src="https://qbbr.vteximg.com.br/arquivos/_2019-qdb-leaderboardBanner.js"></script>
+<!--VUE-->
+<script src="https://qbbr.vteximg.com.br/arquivos/vue2.min.js"></script>
+
+<script defer="true" async="true" src="/arquivos/QDBCommon-General.js?v=16-09-2019"></script>
+<!--<script defer="true" async="true" src="https://qbbr.vteximg.com.br/arquivos/_2019-qdb-leaderboardBanner.js"></script>-->
 <script defer="true" async="true" src="/arquivos/dataLayer-qdb.js?v=29052019"></script>
 
 <!-- Script Yourviews -->
@@ -192,12 +194,14 @@
 <!-- /Script Yourviews -->
 <vtex.cmc:ModalBereFidelidade />
 
+<div id="modalRegional" class="modalRegional"></div>
+
 <a href=".wrapper" class="btn-top scroll">
     <i class="ico-arrow-up"></i>
     topo
 </a>
-<div id="vue-app-quickvue">
-    <quickvue ref="quickvue"></quickvue>
-</div>
+<!--<div id="vue-app-quickvue">-->
+<!--    <quickvue ref="quickvue"></quickvue>-->
+<!--</div>-->
 <vtex.cmc:QDBacessibilidade />
 <!--<vtex.cmc:QDBTopBanner />-->

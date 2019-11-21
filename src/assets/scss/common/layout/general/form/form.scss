@@ -1,0 +1,363 @@
+@import '../../../config/global/globals-bases.scss';
+
+// fieldset {
+//     margin: 0 0 3em;
+//     padding: 0;
+//     border: none;
+// }
+.form-radio,
+.form-group {
+position: relative;
+margin-top: 1.5em;
+margin-bottom: 1.5em;
+display: flex;
+flex-flow: column;
+    &.inline{
+        display: inline-flex;
+        margin-top: 0;
+        margin-right: 5px;
+    }
+    .--next, .--send{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-60%);
+        background: $safflower;
+        border: none;
+        cursor: pointer;
+        border-radius: 50%;
+        padding: .5em .6em;
+        &:hover{
+            filter: brightness(110%);
+        }
+    }
+}
+
+.form-inline > .form-group,
+.form-inline > .btn {
+display: inline-block;
+margin-bottom: 0;
+}
+
+.form-help {
+margin-top: 0.125em;
+margin-left: 0.125em;
+// color: #b3b3b3;
+color: $qdb-grey-l;
+font-size: 0.8em;
+}
+.checkbox .form-help, .form-radio .form-help, .form-group .form-help {
+position: absolute;
+width: 100%;
+}
+.checkbox .form-help {
+position: relative;
+margin-bottom: 1em;
+}
+.form-radio .form-help {
+padding-top: 0.25em;
+margin-top: -1em;
+}
+
+.form-group input {
+height: 1.9em;
+&::placeholder{
+    color: $qdb-grey-l;
+}
+}
+.form-group textarea {
+resize: none;
+}
+.form-group select {
+width: 100%;
+font-size: 1em;
+height: 1.6em;
+padding: 0.125em 0.125em 0.0625em;
+background: none;
+border: none;
+line-height: 1.6;
+box-shadow: none;
+}
+.form-group .control-label {
+position: absolute;
+top: 0.25em;
+pointer-events: none;
+padding-left: 0.125em;
+z-index: 1;
+color: $qdb-grey-m;
+font-size: 1.2em;
+font-weight: normal;
+-webkit-transition: all 0.28s ease;
+transition: all 0.28s ease;
+}
+.form-group .input-bar {
+position: relative;
+border-bottom: 0.1em solid $qdb-grey-m;
+display: block;
+}
+.form-group .input-bar::before {
+content: '';
+height: 0.125em;
+width: 0;
+left: 50%;
+bottom: -0.1em;
+position: absolute;
+background: $safflower;
+-webkit-transition: left 0.28s ease, width 0.28s ease;
+transition: left 0.28s ease, width 0.28s ease;
+z-index: 2;
+}
+.form-group input,
+.form-group textarea {
+display: block;
+background: none;
+padding: 0.125em 0.125em 0.0625em;
+font-size: 1.2em;
+border-width: 0;
+border-color: transparent;
+line-height: 1.9;
+width: 100%;
+color: transparent;
+-webkit-transition: all 0.28s ease;
+transition: all 0.28s ease;
+box-shadow: none;
+}
+.form-group input[type="file"] {
+line-height: 1;
+}
+.form-group input[type="file"] ~ .input-bar {
+display: none;
+}
+.form-group select,
+.form-group input:focus,
+.form-group input:valid,
+.form-group input.form-file,
+.form-group input.has-value,
+.form-group textarea:focus,
+.form-group textarea:valid,
+.form-group textarea.form-file,
+.form-group textarea.has-value {
+color: #333;
+}
+.form-group select ~ .control-label,
+.form-group input:focus ~ .control-label,
+.form-group input:valid ~ .control-label,
+.form-group input.form-file ~ .control-label,
+.form-group input.has-value ~ .control-label,
+.form-group textarea:focus ~ .control-label,
+.form-group textarea:valid ~ .control-label,
+.form-group textarea.form-file ~ .control-label,
+.form-group textarea.has-value ~ .control-label {
+font-size: 0.8em;
+color: $g-primary;
+top: -1em;
+left: 0;
+}
+.form-group select:focus,
+.form-group input:focus,
+.form-group textarea:focus {
+outline: none;
+}
+.form-group select:focus ~ .control-label,
+.form-group input:focus ~ .control-label,
+.form-group textarea:focus ~ .control-label {
+color: $safflower;
+}
+.form-group select:focus ~ .input-bar::before,
+.form-group input:focus ~ .input-bar::before,
+.form-group textarea:focus ~ .input-bar::before {
+width: 100%;
+left: 0;
+}
+
+.checkbox label,
+.form-radio label {
+position: relative;
+cursor: pointer;
+padding-left: 2em;
+font-size: 1em;
+text-align: left;
+color: $g-primary;
+display: block;
+}
+.checkbox input,
+.form-radio input {
+width: auto;
+opacity: 0.00000001;
+position: absolute;
+left: 0;
+}
+
+.radio {
+margin-bottom: 1em;
+}
+.radio .helper {
+position: absolute;
+top: -0.25em;
+left: -0.25em;
+cursor: pointer;
+display: block;
+font-size: 1em;
+-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+        user-select: none;
+// color: #999;
+color: $qdb-grey-m;
+}
+.radio .helper::before, .radio .helper::after {
+content: '';
+position: absolute;
+left: 0;
+top: 0;
+margin: 0.25em;
+width: 1em;
+height: 1em;
+-webkit-transition: -webkit-transform 0.28s ease;
+transition: -webkit-transform 0.28s ease;
+transition: transform 0.28s ease;
+transition: transform 0.28s ease, -webkit-transform 0.28s ease;
+border-radius: 50%;
+border: 0.125em solid currentColor;
+}
+.radio .helper::after {
+-webkit-transform: scale(0);
+        transform: scale(0);
+background-color: $safflower;
+border-color: $safflower;
+}
+.radio label:hover .helper {
+color: $safflower;
+}
+.radio input:checked ~ .helper::after {
+-webkit-transform: scale(0.5);
+        transform: scale(0.5);
+}
+.radio input:checked ~ .helper::before {
+color: $safflower;
+}
+
+.checkbox {
+// margin-top: 3rem;
+margin-bottom: 1em;
+}
+.checkbox .helper {
+color: $qdb-grey-m;
+position: absolute;
+top: 0;
+left: 0;
+width: 1em;
+height: 1em;
+z-index: 0;
+border: 0.125em solid currentColor;
+border-radius: 0.0625em;
+-webkit-transition: border-color 0.28s ease;
+transition: border-color 0.28s ease;
+}
+.checkbox .helper::before, .checkbox .helper::after {
+position: absolute;
+height: 0;
+width: 0.2em;
+background-color: $safflower;
+display: block;
+-webkit-transform-origin: left top;
+        transform-origin: left top;
+border-radius: 0.25em;
+content: '';
+-webkit-transition: opacity 0.28s ease, height 0s linear 0.28s;
+transition: opacity 0.28s ease, height 0s linear 0.28s;
+opacity: 0;
+}
+.checkbox .helper::before {
+top: 0.65em;
+left: 0.38em;
+-webkit-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+box-shadow: 0 0 0 0.0625em $w-secundary;
+}
+.checkbox .helper::after {
+top: 0.3em;
+left: 0;
+-webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+}
+.checkbox label:hover .helper {
+color: $safflower;
+}
+.checkbox input:checked ~ .helper {
+color: $safflower;
+}
+.checkbox input:checked ~ .helper::after, .checkbox input:checked ~ .helper::before {
+opacity: 1;
+-webkit-transition: height 0.1s ease;
+transition: height 0.1s ease;
+}
+.checkbox input:checked ~ .helper::after {
+height: 0.5em;
+}
+.checkbox input:checked ~ .helper::before {
+height: 1.2em;
+-webkit-transition-delay: 0.1s;
+        transition-delay: 0.1s;
+}
+
+.radio + .radio,
+.checkbox + .checkbox {
+margin-top: 1em;
+}
+
+.has-error .legend.legend, .has-error.form-group .control-label.control-label {
+color: #d9534f;
+}
+.has-error.form-group .form-help,
+.has-error.form-group .helper, .has-error.checkbox .form-help,
+.has-error.checkbox .helper, .has-error.radio .form-help,
+.has-error.radio .helper, .has-error.form-radio .form-help,
+.has-error.form-radio .helper {
+color: #d9534f;
+}
+.has-error .input-bar::before {
+background: #d9534f;
+left: 0;
+width: 100%;
+}
+.has-error small{
+color: #d9534f;
+}
+.success .legend.legend, .success.form-group .control-label.control-label {
+color: #00E13F;
+}
+.success.form-group .form-help,
+.success.form-group .helper, .success.checkbox .form-help,
+.success.checkbox .helper, .success.radio .form-help,
+.success.radio .helper, .success.form-radio .form-help,
+.success.form-radio .helper {
+color: #00E13F;
+}
+.success .input-bar::before {
+background: #00E13F;
+left: 0;
+width: 100%;
+}
+.success small{
+color: #00E13F;
+}
+
+.has-warning .legend.legend, .has-warning.form-group .control-label.control-label {
+color: #e1ac00;
+}
+.has-warning.form-group .form-help,
+.has-warning.form-group .helper, .has-warning.checkbox .form-help,
+.has-warning.checkbox .helper, .has-warning.radio .form-help,
+.has-warning.radio .helper, .has-warning.form-radio .form-help,
+.has-warning.form-radio .helper {
+color: #e1ac00;
+}
+.has-warning .input-bar::before {
+background: #e1ac00;
+left: 0;
+width: 100%;
+}
+.has-warning small{
+color: #e1ac00;
+}

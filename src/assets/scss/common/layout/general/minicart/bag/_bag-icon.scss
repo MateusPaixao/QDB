@@ -1,0 +1,25 @@
+.header__bag-icon{
+  background:url(https://edbr.vteximg.com.br/arquivos/iconcart.png) center no-repeat;
+  width:25px;
+  height:25px;
+  color:#202122;
+  display:block;
+  float:left;
+  text-align:center;
+  padding-top:9px;
+  margin-top:-6px;
+  margin-right:11px;
+  line-height: 1.3;
+  cursor:pointer;
+      @media (max-width:768px){
+      margin-left:17px;
+      margin-top:56px;
+      width:39px;
+      height:41px;
+      padding-top:18px;
+      display:block;
+      background-size:100%;
+      float:right;
+      font-size:12px
+    }
+}

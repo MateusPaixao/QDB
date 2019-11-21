@@ -12,10 +12,14 @@
     margin: 20px 0 30px!important;
 }
 
+._chaordic-showcase-container .slick-list {
+    padding: 0 2px;
+}
 ._prd {
     text-align: center;
     position:relative;
     padding: 20px 0;
+    height: 360px !important;
 }
 ._flags-wrapper {
     position:absolute;
@@ -66,4 +70,16 @@
 }
 ._prd:hover .btn_comprar  {
         opacity: 1;
+}
+@media (max-width:5000px){
+    ._chaordic-showcase-container {
+        width: 1150px; 
+        margin:0 auto;
+    }
+}
+@media (max-width:768px){
+    ._chaordic-showcase-container {
+        width: 100%; 
+        margin:0 auto;
+    }
 }

@@ -1,0 +1,195 @@
+/* OFERTA DE CAIXA */
+.ofertaDeCaixa {
+    margin:20px 0;
+    display: inline-block;
+    width: 100%;
+    clear: both;
+    position: relative;
+}
+.ofertaDeCaixa::after {
+    content:' ';
+    position: absolute;
+    width:100%;
+    height:100%;
+    background: #fff;
+    top:0;
+    opacity:0.7;
+    z-index:10;
+    display:none; 
+}
+.ofertaDeCaixa h3._titleOfertas {
+    font-size: 22px!important;
+    margin-bottom: 60px;    
+}
+._navBar-OfertaCaixa {
+    display: block;
+    width: 85.5%;
+    height: 4px;
+    background: #ccd9d6;
+    clear: both;
+    border-radius: 50px;
+    position: absolute;
+    top: 77px;
+}
+._navBar-OfertaCaixa span {
+    background: #5ca795;
+    display:block;
+    border-radius:50px;
+    height:100%;
+    max-width:100%;
+    width: 21%;
+    -webkit-transition: width 0.8s; /* Safari prior 6.1 */
+    transition: width 0.8s;
+}
+.ofertaDeCaixa a, .ofertaDeCaixa h3, .ofertaDeCaixa span {
+    color:#67605F;
+    font-family:"CentraleSans-Regular";
+}
+.ofertaDeCaixa h3 {
+    font-size:14px!important;
+}
+.ofertaDeCaixa a:hover, .ofertaDeCaixa h3:hover, .ofertaDeCaixa span:hover {
+    text-decoration:none;
+}
+.ofertaDeCaixa ul {
+    list-style-type:none;
+    margin:0;
+}
+.ofertaDeCaixa ul > li ._prd {
+  width: 215px;
+  height: 340px;
+  text-align: center;
+  background: #fff;
+  padding: 20px;
+  position: relative; }
+
+.ofertaDeCaixa ._prd {
+  filter: grayscale(100%);
+  padding: 9px;
+  border: 1px solid rgba(145, 145, 145, 0.45);
+  border-radius: 5px;
+  width: 200px;
+  cursor:defaut;
+}
+._product {
+    opacity: 0.6; 
+}
+.promoActive ._product {
+    opacity: 1; 
+}
+._prd .activeValue {
+    position: absolute;
+    width: 100%;
+    top: -48px;
+    left: 0;
+    text-align: center;
+}
+._prd .activeValue::before {
+    content:' ';
+    width:10px;
+    height:10px;
+    border-radius:100%;
+    border:2px solid #5ca795;
+    background: #fff;
+    display: block;
+    position: absolute;
+    bottom:-16px;
+    left:49%;
+}
+.promoActive .activeValue::before {
+    background: #5ca795;
+    bottom:-15px;
+}
+.ofertaDeCaixa ._prd .__lnk-buy-btn {
+  display:none;
+}
+
+.promoActive {
+    filter:none!important;  
+    opacity: 1 !important;
+    border:2px solid #5ca795 !important;
+}
+.promoActive .__lnk-buy-btn {
+    display: block!important;
+}
+.__p_pricing_ > span {
+    display:block;
+}
+.ofertaDeCaixa ._showcase {
+    display:flex;
+    justify-content:space-between;
+}
+.__p_brand {
+    display:none
+}
+.__p_details_btn {
+    background:#5CA795;
+    color:#fff!important;
+    padding:7px 15px;
+    border-radius:5px;
+    font-size:14px!important;
+    display: inline-block;
+}
+.__p_img {
+    display:block;
+    width: 150px;
+    height: 150px;
+    margin:0 auto;
+}
+._p_price_, ._p_price_:hover {
+    text-decoration:line-through!important;
+    font-size:12px!important;
+}
+._p_priceoffer_ span {
+    font-size:18px!important;
+    font-weight:700;
+}
+.ofertaDeCaixa .slick-arrow {
+    position:absolute;
+    top: 9px;
+    background:url("https://qbbr.vteximg.com.br/arquivos/cdb-seta-black.png") 0 0 no-repeat;
+    border:none;
+    text-indent:-999em;
+    width: 19px;
+    height: 15px;
+    z-index:10;
+    background-size: contain;
+    opacity: 0.5;
+    cursor: pointer;
+    }
+.ofertaDeCaixa .slick-prev {left: -25px;transform:rotate(90deg);}
+.ofertaDeCaixa .slick-next {right: -25px;transform:rotate(-90deg);}
+.__hide {height:0 !important;overflow:hidden;}
+.__lnk-buy-btn {
+    position:absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    border: none!important;
+    height: auto;
+}
+@media (max-width:768px){
+    .ofertaDeCaixa {
+        width: 100%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+    .ofertaDeCaixa ._showcase ul {
+        margin-right:10px;
+    } 
+    ._navBar-OfertaCaixa {
+        top:99px;
+        width:670px;
+        margin-left:-27%;
+    }
+    html h3._titleOfertas {
+        text-align:center;
+        overflow: hidden!important;
+    }
+}
+@media (min-width:768px){
+    ._navBar-OfertaCaixa{
+        margin-left:-20%;
+        width: 105%;
+    }
+}

@@ -1,0 +1,380 @@
+
+/* INICIO CONTADOR */
+.counter, .topbanner{
+  align-items: center;
+  display: none;
+  width: 100%;
+  padding: 5px 0;
+  justify-content: center;
+  font-size: .75vw;
+  background-color: transparent;
+  color: $w-secundary;
+  text-transform: initial;
+  transition: all .2s;
+  overflow: hidden;
+  &.topbanner{
+    font-size: 1vw;
+    // small{
+    //   width: 100%;
+    //   padding: 5px;
+    // }
+    @include d(l){
+      font-size: 12px;
+    }
+    @include d(xs){
+      font-size: 3vw;
+    }
+    .toslide{
+      margin-right: 10px;
+      width: 30%;
+      @include d(s){
+        width: 50%;
+        &.frete-gratis{
+          width: 100%;
+          }
+      }
+      @include d(xs){
+        width: 50%;
+        &.frete-gratis{
+          width: 100%;
+          }
+      }
+      .slick-list{
+        overflow: hidden;
+        height: 100%;
+      }
+    }
+    .slick-slide{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    span.texto{
+      font-size: 1.5em;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-counter{
+      font-size: 1em;
+    }
+  }
+  @include d(l){
+    font-size: 12px;
+    padding: 10px;
+  }
+  @include d(xs){
+    font-size: 1.5vw;
+    padding: 10px;
+  }
+  svg{
+    margin-right: 10px;
+    height: 30px;
+    transition: all .5s;
+      @include d(s){
+          display: none !important;
+      }
+      @include d(xs){
+          display: none !important;
+      }
+    circle{
+          stroke-dasharray: 20;
+          @include animation(wheel, .2s, infinite, linear);
+    }
+  }
+  p.promo-counter{
+      display: flex;
+      text-align: left;
+      align-content: center;
+      text-align: left;
+      margin: 0;
+      height: 30px;
+      b{
+          font-size: 1.5em;
+          line-height: 1.5em;
+      }
+      @include d(s){
+          font-size: 2em;
+          text-align: left;
+          padding: 0 5px;     
+      }
+      @include d(xs){
+          font-size: 2em;
+          text-align: left; 
+          height: initial;      
+      }
+  }
+  .btn-counter{
+      border: solid 1px;
+      padding: 5px 10px;
+      border-radius: 20px;
+      @include d(s){
+          font-size: 2em;
+      }
+      @include d(xs){
+          font-size: 2em;
+      }
+      &:hover{
+          filter: contrast(140%);
+      }
+  }
+  .w-counter--container--counterbar{
+    width: 100%;
+    height: 3px;
+    background-color: transparent;
+    display: block;
+    border-radius: 5px;
+    filter: brightness(90%);
+    .w-counter--bar{
+      width: 100%;
+      height: 3px;
+      background-color: $w-secundary;
+      display: block;
+      border-radius: 5px;
+    }
+  }
+  .counter-timer{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0;
+      flex-flow: column;
+      // padding: 10px;
+      // margin: 0 auto;
+      @include d(xs){
+        font-size: 1.5em;
+      }
+      .counter-text{
+          // background: $w-secundary;
+          padding: 15px 10px;
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+          position: relative;
+          z-index: 2;
+          font-size: 1.5em;
+          color: $w-secundary;
+          font-weight: 700;
+          line-height: 1em;
+          box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.35);
+          @include d(xs){
+              font-size: 2em;
+              border-radius: 5px 5px 0 0;
+              width: 100%;
+              justify-content: center;
+              padding: 10px;
+          }
+          @include d(s){
+              font-size: 2em;
+              border-radius: 5px 5px 0 0;
+              width: 100%;
+              justify-content: center;
+              padding: 10px;
+          }
+          svg{
+              height: 2em;
+              width: 2em;
+              circle{
+                stroke-dasharray: 20;
+                animation-name: wheel;
+                animation-duration: 0.2s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+              }
+          }
+          svg path{
+              fill: $w-secundary;
+              // @include warn(fill, $w-secundary, $amarelo);
+              // @include animation(warncounter, 2s, initial, linear);
+          }
+          .counter-set{
+              margin: 0;
+              // @include warn(color, $w-secundary, $amarelo);
+              // @include animation(warncounter, 2s, initial, linear);
+              animation-iteration-count: infinite;
+          }
+      }
+      .counter--countdown{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          // background-color: $w-secundary;
+          padding: 5px;
+          border-radius: 5px;
+          margin-left: -5px;
+          // box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.35);
+          @include d(s){
+              // border-radius: 0 0 5px 5px;
+              margin-left: initial;
+              width: 100%;
+              // background-color: $w-secundary;
+              box-shadow: none;
+          }
+          @include d(xs){
+              // border-radius: 0 0 5px 5px;
+              margin-left: initial;
+              width: 100%;
+              // background-color: $w-secundary;
+              box-shadow: none;
+          }
+          span{
+              margin: 0 2px;
+              &:nth-child(1){
+                margin-left: 10px;
+              }
+              font-size: 1.875em;
+              color: $w-secundary;
+              font-weight: 700;
+              line-height: .875em;
+              display: flex;
+              align-items: flex-end;
+              @include d(s){
+                  font-size: 2.5em;
+              }
+              @include d(xs){
+                  font-size: 2.5em;
+              }
+              p{
+                  font-size: .5em;
+                  color: $w-secundary;
+                  font-weight: 300;
+                  line-height: 1em;
+                  margin: 0;
+                  @include d(s){
+                      font-size: .875em;
+                  }
+                  @include d(xs){
+                      font-size: .875em;
+                  }
+              }
+          }
+      }
+      small{
+          padding: 5px;
+      }
+  }
+  &:hover{
+      filter: brightness(110%);
+      p.promo-counter svg{
+          transform: translateX(10px) skew(-5deg);
+      }
+  }
+}
+
+
+.w-counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 40px;
+  height: 55px;
+  font-size: 1.5vw;
+  padding: 5px;
+  background: rgb(178, 158, 158);
+  @include d('425px'){
+      padding: 0;
+  }
+  &.topbanner{
+      @include d('425px'){
+          font-size: 2.8vw;
+      }
+  }
+  &:hover{
+    -webkit-filter: brightness(110%);
+  }
+    &--day,&--hour,&--minutes,&--seconds{
+        font-weight: bold !important;
+    }
+  &--info{
+    font-size: 0.7em;
+    margin-left: 0;
+    margin-right: 5px;
+  }
+  &--text{
+    color: #fff;
+    font-size: 1.5em;
+    margin: 0 !important;
+    @include d('425px'){
+        font-size: 1.5em;
+        margin: 2px !important;
+    }
+    &.texto{
+        width: 85%;
+        text-align: center;
+    }
+  }
+  &--slick{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 5px;
+  }
+  &--container{
+    font-size: 1.625em;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    &.topbanner{
+        width: auto;
+    }
+
+  }
+
+  &--cupom{
+      -webkit-appearance: none;
+      color: #fff;
+      border: 1px dashed #f8f8f8;
+      border-radius: 5px;
+      padding: 5px;
+      text-align: center;
+      max-height: 40px;
+      font-size: 1.2em;
+      text-transform: uppercase;
+      @include d('425px'){
+          font-size: 1em; 
+      }
+    }
+    &-copy{
+        border: 1px solid #f8f8f8;
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        border-radius: 5px;
+        text-transform: lowercase;
+        cursor: copy;
+        font-size: 1em;
+        max-height: 30px;
+        @include d('425px'){
+            font-size: 0.8em;
+        }
+
+  }
+  &--cupom, &-copy,&--container{
+    margin-left: 5px;
+    @include d('425px'){
+        margin-left: 1px;
+    }
+  }
+
+}
+.w-counter--container--counterbar{
+  width: 100%;
+  height: 3px;
+  background-color: transparent;
+  display: block;
+  border-radius: 5px;
+  filter: brightness(90%);
+  .w-counter--bar{
+    width: 100%;
+    height: 3px;
+    background-color: $w-secundary;
+    display: block;
+    border-radius: 5px;
+  }
+}

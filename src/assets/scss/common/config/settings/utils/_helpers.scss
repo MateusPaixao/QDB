@@ -3,3 +3,63 @@ body{
         overflow-y: hidden;
     }
 }
+
+.fade-in {
+    animation-name: fadeIn;
+    animation-duration: 300ms;
+    animation-timing-function: cubic-bezier(0, 0, 0.4, 1);
+    animation-fill-mode: forwards;
+} 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}  
+
+.--skeleton{
+    background: #c7c5c4 !important;
+    color: transparent !important;
+    border-radius: .3rem;
+    *{
+        opacity: 0;
+    }
+    overflow: hidden !important;
+    border: none !important;
+    position: relative;
+    &:before{
+        content: '';
+        display: flex;
+        position: absolute;
+        height: 110%;
+        width: 5em;
+        background: $qdb-grey-m;
+        filter: blur(20px);
+        opacity: .3;
+        left: -25%;
+        top: 0;
+        transform: skew(-15deg);
+        @include animation("highlight-skeleton", 2.5s, infinite, cubic-bezier(.6,.51,0,1.01));
+    }
+    @keyframes highlight-skeleton {
+        60%{
+            left: -25%;
+        }
+        100%{
+            left: 125%;
+        }
+    }
+}
+
+.hidden{
+    display: none !important;
+}
+
+.shell {
+    max-width: 1190px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto
+}

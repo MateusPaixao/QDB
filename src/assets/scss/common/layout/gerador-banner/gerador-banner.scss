@@ -1,0 +1,62 @@
+body{
+    background: #f8f8f8;
+}
+.qdb{
+    color: #ff0066;
+    margin-left: 10px;
+}
+.x-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+.x-container form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+.x-container form input{
+    border-radius: 5px;
+    outline: none;
+    padding: 3px;
+}
+.cor{
+    padding: 0 !important;
+}
+.x-container form input[type="button"]{
+    background: #ff0066;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+.submit{
+    width: 150px;
+}
+.x-container form input[type="checkbox"]{
+    background: #ff0066;
+}
+label,div{
+    margin-top: 5px;
+}
+.x-container .generate {
+    border: 1px solid;
+    width: fit-content;
+    height: 215px;
+    min-width: 300px;
+    display: flex;
+    border-radius: 5px;
+    
+}
+.buttons-container{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+.x-container .copy {
+    width: 100px;
+}
+.hidden{
+    display: none;
+}

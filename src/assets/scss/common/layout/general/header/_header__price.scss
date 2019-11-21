@@ -1,0 +1,60 @@
+.header__region {
+    width: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    :after {
+        display: none;
+    }
+
+    &__selection {
+        @include sans(.875rem, $g-primary, 400, initial);
+        border: solid 1px $g-primary;
+        border-radius: 1em;
+        padding: 2px 5px;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNDQiIHZpZXdCb3g9IjAgMCA3MiA0NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTM4LjI2NzggNDIuMzgxNEMzNy4wNzE1IDQzLjc2MjggMzQuOTI4NSA0My43NjI4IDMzLjczMjIgNDIuMzgxNEwxLjMyNzc4IDQuOTYzOTZDLTAuMzU0ODUgMy4wMjEwMiAxLjAyNTMxIC02LjM3Nzg1ZS0wNyAzLjU5NTU3IC04LjYyNDg0ZS0wN0w2OC40MDQ0IC02LjUyODI2ZS0wNkM3MC45NzQ3IC02Ljc1Mjk2ZS0wNiA3Mi4zNTQ5IDMuMDIxMDIgNzAuNjcyMiA0Ljk2Mzk1TDM4LjI2NzggNDIuMzgxNFoiIGZpbGw9IiM2NzYwNUYiLz4KPC9zdmc+Cg==');
+        background-repeat: no-repeat, repeat;
+        background-position: right .7em top 50%, 0 0;
+        background-size: .65em auto, 100%;
+    }
+
+    &-container {
+        @include d('768px') {
+            width: auto;
+        }
+    }
+}
+
+.regionalizacao--mobile {
+    display: none;
+
+    @include d('768px') {
+        display: flex;
+    }
+
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+
+    label {
+        margin-right: 5px;
+    }
+
+}
+
+.scrollDown {
+    .regionalizacao--mobile {
+        @include d('768px') {
+            display: none;
+
+            &-container {
+                display: none;
+            }
+        }
+    }
+}

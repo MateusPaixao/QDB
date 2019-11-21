@@ -1,0 +1,21 @@
+/*
+   Packages
+*/
+// @import '../../packages/sass/config-base';
+
+
+// @import '../../packages/sass/global/_reset'; 
+/*
+   Minicart Shared
+*/
+// @import 'containers/';
+
+@import './bag/bag-base';
+@import './bag/bag-palets';
+@import './bag/bag-place-holders';
+@import './bag/bag-animations';
+@import './bag/bag-top';
+@import './bag/bag-shelf';
+@import './bag/bag-bottom';
+@import './bag/overlay';
+// @import './bag/bag-theme-black';

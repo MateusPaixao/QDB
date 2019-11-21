@@ -3,7 +3,7 @@ const storeName = 'qbbr';
 
 const bases = {
     src: './src',
-    build: './dist/vtex_speed'
+    build: './dist/vtex_speed/arquivos/'
 }
 
 //----------------------------- Modules ---------------------------------
@@ -12,6 +12,7 @@ const babel = require('gulp-babel');
 const babelify = require('babelify');
 const browserify = require('gulp-browserify');
 const browserSync   = require('browser-sync').create();
+const concat = require('gulp-concat');
 // const del = require('del');
 const gulp = require('gulp');
 const imagemin = require('gulp-imagemin');
@@ -19,12 +20,34 @@ const pug = require('gulp-pug');
 const sass = require('gulp-sass');
 const svgmin = require('gulp-svgmin');
 const uglify = require('gulp-uglify');
+const rename = require("gulp-rename");
 
 const paths = {
+  imgs: {
+    src: 'src/assets/img/*.{png,gif,jpg}',
+    dest: './dist/assets/img/',
+    srcWatch: 'src/assets/img/*'
+  },
+  svgs: {
+    src: 'src/assets/img/icon/*.svg',
+    dest: './dist/assets/img/icon/',
+    srcWatch: 'src/assets/img/icon/*'
+  },
   styles: {
-    src: 'src/assets/scss/common/*.scss',
+    src: ['src/assets/scss/common/*.scss', '!src/assets/scss/common/checkout6-custom.scss'],
     dest: './dist/assets/css/',
-    srcWatch: 'src/assets/scss/**/*.scss',
+    qa: './qa/assets/css/',
+    srcWatch: ['src/assets/scss/**/*.scss', '!src/assets/scss/**/checkout6-custom.scss'],
+  },
+  imgs: {
+    src: 'src/assets/img/*.{png,gif,jpg}',
+    dest: './dist/assets/img/',
+    srcWatch: 'src/assets/img/*'
+  },
+  svgs: {
+    src: 'src/assets/img/icon/*.svg',
+    dest: './dist/assets/img/icon/',
+    srcWatch: 'src/assets/img/icon/*'
   },
   imgs: {
     src: 'src/assets/img/*.{png,gif,jpg}',
@@ -37,9 +60,10 @@ const paths = {
     srcWatch: 'src/assets/img/icon/*'
   },
   scripts: {
-    src: 'src/assets/js/common/*.js',
+    src: ['src/assets/js/common/*.js', 'src/assets/js/common/*.jsx', '!src/assets/js/common/checkout6-custom.js'],
     dest: './dist/assets/js/',
-    srcWatch: 'src/assets/**/*.js',
+    qa: './qa/assets/js/',
+    srcWatch: ['src/assets/**/*.js','src/assets/**/*.jsx', '!src/assets/**/checkout6-custom.js'],
   },
   markup: {
     pug: 'src/views/common/*/*.pug',
@@ -73,14 +97,14 @@ const minimg = () => {
   return gulp.src(paths.imgs.src)
       .pipe(imagemin())
       .pipe(gulp.dest(paths.imgs.dest))
-      .pipe(gulp.dest('./dist/vtex_speed'));
+      .pipe(gulp.dest('./dist/vtex_speed/arquivos/'));
 };
 
 const minsvg = () => {
   return gulp.src(paths.svgs.src)
       .pipe(svgmin())
       .pipe(gulp.dest(paths.svgs.dest))
-      .pipe(gulp.dest('./dist/vtex_speed'));
+      .pipe(gulp.dest('./dist/vtex_speed/arquivos/'));
 };
 
 const styles = () => {
@@ -91,16 +115,64 @@ const styles = () => {
       cascade: false,
     }))
     .pipe(gulp.dest(paths.styles.dest))
-    .pipe(gulp.dest('./dist/vtex_speed'));
+    .pipe(gulp.dest('./dist/vtex_speed/arquivos/'))
+    .pipe(rename(function (path) {
+      path.basename = "QA-" + path.basename
+    }))
+    .pipe(gulp.dest(paths.styles.qa))
+    .pipe(gulp.dest('./dist/vtex_speed/arquivos/'))
 }
 
 const scripts = () => {
   return gulp.src(paths.scripts.src)
     .pipe(babel())
     .pipe(browserify())
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest(paths.scripts.dest))
-    .pipe(gulp.dest('./dist/vtex_speed'));
+    .pipe(gulp.dest('./dist/vtex_speed/arquivos/'))
+    .pipe(rename(function (path) {
+      path.basename = "QA-" + path.basename
+    }))
+    .pipe(gulp.dest(paths.scripts.qa))
+    .pipe(gulp.dest('./dist/vtex_speed/arquivos/'))
+}
+
+const concatVendor = () => {
+  return gulp.src([
+    './src/assets/js/common/global/vendor/**/*.js',
+    './dist/assets/js/QDBCommon-General.js'
+  ])
+  .pipe(concat('QDBCommon-General.js'))
+  // .pipe(rename('QDBCommon-General-H.js'))
+  .pipe(gulp.dest(paths.scripts.dest))
+  .pipe(gulp.dest('./dist/vtex_speed/arquivos/'))
+  .pipe(rename(function (path) {
+    path.basename = "QA-" + path.basename
+  }))
+  .pipe(gulp.dest(paths.scripts.qa))
+  .pipe(gulp.dest('./dist/vtex_speed/arquivos/'))
+}
+
+const bundleScripts = gulp.series(scripts, concatVendor);
+
+const checkoutStyles = () => {
+  return gulp.src("src/assets/scss/common/checkout6-custom.scss")
+    .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(autoprefixer({
+      browsers: ['last 10 versions'],
+      cascade: false,
+    }))
+    .pipe(gulp.dest(paths.styles.dest))
+    .pipe(gulp.dest('./dist/vtex_speed/files/'))
+}
+
+const checkoutScripts = () => {
+  return gulp.src('src/assets/js/common/checkout6-custom.js')
+    .pipe(babel())
+    .pipe(browserify())
+    .pipe(uglify())
+    .pipe(gulp.dest(paths.scripts.dest))
+    .pipe(gulp.dest('./dist/vtex_speed/files/'))
 }
 
 const pluginsJs = () => {
@@ -118,15 +190,19 @@ function sync(){
       startPath: '/admin/login/',
       proxy: 'https://' + storeName  + '.vtexcommercestable.com.br',
       serveStatic: [{
-          route: '/arquivos',
-          dir: [bases.build]
+          route: ['/files', '/arquivos'],
+          dir: [bases.build + '/../files', bases.build]
       }]
   })
 }
 
 const watch = () => {
   gulp.watch(paths.styles.srcWatch, styles).on('change',browserSync.reload);
-  gulp.watch(paths.scripts.srcWatch, scripts).on('change',browserSync.reload);
+  gulp.watch(paths.scripts.srcWatch, bundleScripts).on('change', browserSync.reload);
+
+  gulp.watch('src/assets/scss/**/checkout6-custom.scss', checkoutStyles).on('change',browserSync.reload);
+  gulp.watch('src/assets/**/checkout6-custom.js', checkoutScripts).on('change',browserSync.reload);
+
   gulp.watch('src/views/**/*', pugtranspile).on('change',browserSync.reload);
   gulp.watch('src/views/html/*', htmls).on('change',browserSync.reload);
   gulp.watch(paths.imgs.srcWatch, minimg).on('change',browserSync.reload);
@@ -134,12 +210,15 @@ const watch = () => {
 }
 
 //------------------------------ Tasks -----------------------------
-const build = gulp.series(gulp.parallel(sync, minimg, minsvg, styles, scripts, htmls, pugtranspile, watch));
+const build = gulp.series(gulp.parallel(sync, minimg, minsvg, styles, bundleScripts, checkoutStyles, checkoutScripts, htmls, pugtranspile, watch));
 
 // exports.pluginsJs = pluginsJs;
 // exports.clean = clean;
 exports.styles = styles;
 exports.scripts = scripts;
+exports.checkoutStyles = checkoutStyles;
+exports.bundleScripts = bundleScripts;
+exports.checkoutScripts = checkoutScripts;
 exports.htmls = htmls;
 exports.pugtranspile = pugtranspile;
 exports.minimg = minimg;
