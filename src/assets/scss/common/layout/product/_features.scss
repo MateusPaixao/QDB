@@ -40,3 +40,21 @@
 .addToCart__stock-left{
     @include sans(1rem, $danger, 400, normal);
 }
+
+.product-flag {
+    padding: 5px 15px;
+    margin: 5px 0 15px 0;
+    font-weight: 600;
+    color: $safflower;
+    border: 1px solid $safflower;
+    font-size: 14px;
+}
+
+.validade {
+    margin: 10px 0 5px 0;
+    span{
+        color: $danger;
+        text-decoration: underline;
+        padding: 1px;
+    }
+}
