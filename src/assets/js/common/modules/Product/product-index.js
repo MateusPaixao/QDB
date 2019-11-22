@@ -656,7 +656,7 @@ const Methods = {
                                 _selctorGroup.insertBefore(produtosComDesconto[i].parentNode, inserirAntes);
                             }
                         }
-                    }, 3000);
+                    }, 2500);
                     selectLocation(window.location.href);
                 });
             }
