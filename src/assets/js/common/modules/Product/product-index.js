@@ -5,6 +5,7 @@ const Methods = {
     init() {
         Methods.oldProduct();
         Methods.exclusiveOnEcommerce();
+        Methods.showValidade();
         Methods.observeSkuSelect();
 
     },
@@ -1478,7 +1479,7 @@ const Methods = {
                                     'dez': 'Dezembro'
                                 };
 
-                                const string = monthFormat[month] + " de " + "20" + year;
+                                const string = monthFormat[month] + " / " + "20" + year;
 
                                 return string;
                             };
@@ -1488,7 +1489,7 @@ const Methods = {
                                 const span = document.createElement('span');
                                 span.classList.add('product-flag');
                                 span.classList.add('validade');
-                                span.innerHTML = `A Validade desse produto é até <span>${formatDate()}</span>, tá?`
+                                span.innerHTML = `Vencimento: <span>${formatDate()}</span>`
                                 appendReference.after(span)
                             }
                         } else {
