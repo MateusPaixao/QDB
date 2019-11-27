@@ -165,6 +165,7 @@
 }
 
 .filters .shell, .main{
+    overflow: hidden;
     @include d("768px"){
         padding: 0;
     }
