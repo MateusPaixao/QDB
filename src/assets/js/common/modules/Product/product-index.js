@@ -630,27 +630,33 @@ const Methods = {
                         if (BrowserVendor == 'edge/edgehtml' || BrowserVendor == 'ie/trident') {
                             var coresNaoDisponiveis = document.querySelectorAll(".select-cor-new .product-disabled,.select-cor-new .item_unavailable");
                             var produtosComDesconto = document.querySelectorAll(".select-cor-new .flag-discount-percent");
-                            var inserirDepois = document.querySelector('.select-cor-new > span > label:last-child')
-                            var inserirAntes = document.querySelector('.select-cor-new > span label:first-child')
+                            var inserirDepois = document.querySelector('.select-cor-new > span > label:last-child');
+                            var inserirAntes = document.querySelector('.select-cor-new > span label:first-child');
                             for (var i = 0; i < coresNaoDisponiveis.length; i++) {
                                 insertAfterr(coresNaoDisponiveis[i], inserirDepois)
                             }
                             for (var i = 0; i < produtosComDesconto.length; i++) {
-                                insertAfterr(produtosComDesconto[i].parent("label"), inserirDepois)
-                                produtosComDesconto[i].insertBefore(inserirAntes);
+                                var _selctorGroup = produtosComDesconto[i].parentNode.parentNode;
+                                // insertAfterr(produtosComDesconto[i].parentNode, inserirDepois);
+                                _selctorGroup.insertBefore(produtosComDesconto[i].parentNode, inserirAntes);
                             }
+                            // console.log('IEEEE');
                         } else {
+                            // console.log('brownsersss222');
                             $(".select-cor-new .product-disabled,.select-cor-new .item_unavailable").each(element => {
                                 $(element).insertAfter($('.select-cor-new > span > label:last-child'))
                                 // console.log("colors unavaliable");
                             });
-                            $(".select-cor-new .flag-discount-percent").each(element => {
-                                $(element).parent("label").insertAfter($('.select-cor-new > span label:last-child'));
-                                $(element).parent("label").insertBefore($('.select-cor-new > span label:first-child'));
-                                // console.log("discount first");
-                            });
+                            var produtosComDesconto = document.querySelectorAll(".select-cor-new .flag-discount-percent");
+                            var inserirDepois = document.querySelector('.select-cor-new > span > label:last-child');
+                            var inserirAntes = document.querySelector('.select-cor-new > span label:first-child');
+                            for (var i = 0; i < produtosComDesconto.length; i++) {
+                                var _selctorGroup = produtosComDesconto[i].parentNode.parentNode;
+                                // insertAfterr(produtosComDesconto[i].parentNode, inserirDepois);
+                                _selctorGroup.insertBefore(produtosComDesconto[i].parentNode, inserirAntes);
+                            }
                         }
-                    }, 2000);
+                    }, 2500);
                     selectLocation(window.location.href);
                 });
             }
