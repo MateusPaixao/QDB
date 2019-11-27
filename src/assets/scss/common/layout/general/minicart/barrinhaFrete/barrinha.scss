@@ -1,0 +1,29 @@
+.bag-top {
+    &__bar {
+        width: 100%;
+        text-align: center;
+        height: 35px;
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        background: rgb(44,205,167);
+    }
+}
+.price{
+    &__text-content{
+        z-index: 2;
+        color: #fdfdfd;
+    }
+    &__track.js--price-track {
+        background: #C7C5C4;
+        height: 35px;
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        transition: .2s ease;
+    }
+    &__remaining, &__frete{
+        font-weight: bold;
+    }
+}

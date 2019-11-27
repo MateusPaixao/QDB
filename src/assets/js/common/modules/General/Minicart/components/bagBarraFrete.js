@@ -1,68 +1,37 @@
-const Methods = {
+const BarraFrete = {
     init() {
-        setTimeout(() => {
-            Methods.startShippingBar();
-        }, 300);
+        BarraFrete.refresh();
+        BarraFrete.observeOrderForm();
     },
+    refresh() {
+        vtexjs.checkout.getOrderForm().done(function(orderForm) {
+            let meuCarrinho;
+            orderForm.totalizers.length > 0 && orderForm.totalizers[0].id == "Items" ? meuCarrinho = orderForm.totalizers[0].value / 100 : meuCarrinho = 0;
+            let desconto;
 
-    startShippingBar() {
-        const valorFrete = parseFloat(window.valorFrete);
-        let total = vtexjs.checkout.orderForm.totalizers[0].value / 100;
-        let descontos;
-        const validateDiscount = vtexjs.checkout.orderForm.totalizers[1] !== undefined && vtexjs.checkout.orderForm.totalizers[1].id == "Discounts";
-        validateDiscount ? descontos = parseFloat(vtexjs.checkout.orderForm.totalizers[1].value / 100) : descontos = 0;
-
-        let totalMenosDesconto = total + descontos;
-        let finalValue = valorFrete - totalMenosDesconto;
-
-        finalValue <= 0 ? console.log("Valor final menor ou igual a 0") : console.log("Valor final maior que 0");
-
-        Methods.createShippingBar();
-
-        $(window).on('orderFormUpdated.vtex', function (event, orderForm) {
-
-            if (document.querySelector('.shipping--fill') != null || document.querySelector('.shipping--fill') != undefined) {
-                const total = parseFloat(vtexjs.checkout.orderForm.totalizers[0].value / 100);
-                let descontos;
-
-                validateDiscount ? descontos = parseFloat(vtexjs.checkout.orderForm.totalizers[1].value / 100) : descontos = 0;
-
-                const totalMenosDesconto = total + descontos;
-                let faltamFrete = valorFrete - totalMenosDesconto;
-
+            vtexjs.checkout.orderForm.totalizers[1] !== undefined && vtexjs.checkout.orderForm.totalizers[1].id == "Discounts" ? desconto = parseFloat(vtexjs.checkout.orderForm.totalizers[1].value / 100) : desconto = 0;
                 
-                faltamFrete <= 0 ? console.log("Frete Grátis") : console.log("Faltam para frete grátis:",faltamFrete.toFixed(2).replace('.', ','));
+            const valorFrete = 79.90;
+            const valueRemainingText = document.querySelector('.price__remaining');
 
-                Methods.updateValues();
-            }
+            let carrinhoMenosDescontos = meuCarrinho + desconto;
+            let valorParaTerFrete = valorFrete - carrinhoMenosDescontos;
+
+            valorParaTerFrete <= 0 ? valueRemainingText.textContent = "0" : valueRemainingText.textContent = `R$${valorParaTerFrete.toFixed(2).replace('.',',')}`; 
+
+            const barProgress = (carrinhoMenosDescontos / valorFrete) * 100;
+            const barTrack = document.querySelector('.js--price-track');
+            console.log(barProgress)
+            barTrack.style = `transform: translate(${barProgress.toFixed(2)}%)`;
         });
-
     },
-    createShippingBar() {
-        const shippingBar = document.createElement('div');
-        const shippingFill = document.createElement('span');
-
-        shippingBar.classList.add('class', 'shipping');
-        shippingFill.classList.add('class', 'shipping--fill');
-        shippingBar.appendChild(shippingFill);
-
-        const minicartHeader = document.querySelector('.bag-top__load-wrap');
-        minicartHeader.appendChild(shippingBar);
-    },
-    updateValues() {
-        const shippingContent = document.querySelector('.shipping--fill');
-        let total = parseFloat(vtexjs.checkout.orderForm.totalizers[0].value / 100);
-        let descontos;
-
-        validateDiscount ? descontos = parseFloat(vtexjs.checkout.orderForm.totalizers[1].value / 100) : descontos = 0;
-
-        let subtotalMdiscount = total + descontos;
-        let freeShippingValue = parseFloat("{{valor_para_frete_gratis}}".replace(',', '.'));
-        let barWidth = (subtotalMdiscount / freeShippingValue) * 100;
-        shippingContent.style.width = barWidth + '%';
+    observeOrderForm() {
+        $(window).on('checkoutRequestEnd.vtex', function (ev) {
+            BarraFrete.refresh();
+        });
     }
+    
 }
-
-export default{
-    init: Methods.init
-}
+export default {
+    init: BarraFrete.init
+}   
