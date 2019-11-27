@@ -1,0 +1,3 @@
+# Estrutura
+
+## Diretórios
