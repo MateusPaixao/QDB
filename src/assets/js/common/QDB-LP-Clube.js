@@ -240,7 +240,7 @@ $(function(){
         if (CPFvalida(_validaCPF) == false) {
             $('#clubSignUp .group-cpf').addClass('has-error');
             $('#clubSignUp .group-cpf small').removeClass('hidden');
-            $('#clubSignUp .group-cpf small').text('Informe um CPF VÃ¡lido.');
+            $('#clubSignUp .group-cpf small').text('Informe um CPF Válido.');
         } else {
             $('#clubSignUp input[name="field-cpf"]').removeClass('msg-error');
             // $("#clubSignUp .step-2").removeClass("hidden");
@@ -263,7 +263,7 @@ $(function(){
     
                     $("#clubSignUp .loading-form .texto-validacao").text("Validando CPF...");
                     if (status == 3288334563) {
-                        $("#clubSignUp .loading-form .texto-validacao").text("CPF VÃ¡lido.");
+                        $("#clubSignUp .loading-form .texto-validacao").text("CPF Válido.");
                         $("#clubSignUp .loading-form .input-bar").css("background-color", "#00E13F");
                         $("#clubSignUp .loading-form #loader").css("display", "none");
                         $("#clubSignUp .loading-form #checked").css("display", "initial");
@@ -274,7 +274,7 @@ $(function(){
                             $("#clubSignUp .modal-top .name").text("Cadastro 2/3");
                         }, 1500);
                     } else if (status == 0) {
-                        $("#clubSignUp .loading-form .texto-validacao").text("CPF jÃ¡ cadastrado...tente novamente");
+                        $("#clubSignUp .loading-form .texto-validacao").text("CPF já cadastrado...tente novamente");
                         $("#clubSignUp .loading-form .input-bar").css("background-color", "#e1bb00");
                         setTimeout(() => {
                             $("#clubSignUp .step-1").removeClass("hidden");
@@ -291,7 +291,6 @@ $(function(){
         }
     }
     $("button.--next").on("click", function(){
-        console.log("UÉEEE")
         ValidaCPF($('#field-cpf').val());
     });
     $('#clubSignUp input[name="cpf"]').focus(function(){
@@ -351,7 +350,7 @@ $(function(){
             $('#clubSignUp .group-email').addClass('has-warning');
             $('#clubSignUp .group-email small').removeClass('hidden');
         }else if(_email == undefined || !filtro.test(_email)){
-            $('#clubSignUp .group-email small').text('Verifique se vocÃª digitou corretamente o e-mail.');
+            $('#clubSignUp .group-email small').text('Verifique se você digitou corretamente o e-mail.');
             $('#clubSignUp .group-email').addClass('has-error');
             $('#clubSignUp .group-email small').removeClass('hidden');
         } else {
@@ -380,7 +379,7 @@ $(function(){
             $('#clubSignUp .group-datenasc small').removeClass('hidden');
             
         }else if (dateNasc == undefined || dateNasc == "Invalid Date" || _date.length < 10) {
-            $('#clubSignUp .group-datenasc small').text('Formato de data invÃ¡lido.');
+            $('#clubSignUp .group-datenasc small').text('Formato de data inválido.');
             $('#clubSignUp .group-datenasc').addClass('has-error');
             $('#clubSignUp .group-datenasc small').removeClass('hidden');
         } else {
@@ -407,7 +406,7 @@ $(function(){
             $('#clubSignUp .group-cel small').removeClass('hidden');
         }else if (_celular == undefined || _celular.length < 14) {
             $('#clubSignUp .group-cel').addClass('has-error');
-            $('#clubSignUp .group-cel small').text('Verifique se o nÃºmero estÃ¡ correto.');
+            $('#clubSignUp .group-cel small').text('Verifique se o nÃºmero está correto.');
             $('#clubSignUp .group-cel small').removeClass('hidden');
         } else {
             $('#clubSignUp input[name="cel"]').removeClass('has-error has-warning');
@@ -444,7 +443,7 @@ $(function(){
             || $(".group-email").hasClass("has-error")
             || $(".group-datenasc").hasClass("has-error")
             || $(".group-cel").hasClass("has-error")){
-            // #Chamada funÃ§Ã£o que verifica se existe email cadastrado na CL passa objeto do form como parametro
+            // #Chamada função que verifica se existe email cadastrado na CL passa objeto do form como parametro
             $("#clubSignUp .step-2").addClass("hidden");
             $("#clubSignUp .loading-form #checked").css("display", "none");
             $("#clubSignUp .loading-form #loader").css("display", "initial");
@@ -620,32 +619,30 @@ $(function(){
             type: 'GET',
             success: function (data) {
                 // if (data.length == 0) {
-                    console.log(data);
-                    console.info('>>>>>>>>>>>>>>>> Não possui email cadastrado no master data');
-                    if (typeof (idCliente) == 'undefined') {
-                        let idCliente = 0;
-                        insertMasterData(_dataObject, idCliente, function (resp) {
+                    if (data.length == 0) {
+                        console.info('>>>>>>>>>>>>>>>> Não possui email cadastrado no master data');
+                        insertMasterData(_dataObject, undefined, function (resp) {
                             if (resp) {
                                 console.log("Cadastrado na CL do MD!")
                                 
                                 createFidelidade(_dataObject, '1', function (bool, data) {
                                     if (bool) {
-                                        var dataAtualiza = JSON.parse(xml2json(data, ""));
+                                        let dataAtualiza = JSON.parse(xml2json(data, ""));
         
-                                        statusAtualiza = dataAtualiza["soap:Envelope"]["soap:Body"].CriaClienteSobrenomeResponse.CriaClienteSobrenomeResult.Status;
+                                        let statusAtualiza = dataAtualiza["soap:Envelope"]["soap:Body"].CriaClienteSobrenomeResponse.CriaClienteSobrenomeResult.Status;
         
                                         if (statusAtualiza == 3288334773) {
-                                            $('#clubSignUp .loading-form .texto-validacao').text("O e-mail " + _dataObject.email + " jÃ¡ estÃ¡ em uso!");
+                                            $('#clubSignUp .loading-form .texto-validacao').text("O e-mail " + _dataObject.email + " já está em uso!");
                                         } else if (statusAtualiza == 3254845440) {
                                             $('#clubSignUp .loading-form .texto-validacao').text("Ocorreu um erro no processamento, revise os dados e tente novamente!");
                                         } else if (statusAtualiza == 0) {
                                             $("#clubSignUp .loading-form .texto-validacao").text("Dados Gravados 1/2");
-                                            insertMasterData(_dataObject, idCliente, function (resp) {
+                                            insertMasterData(_dataObject, undefined, function (resp) {
                                                 if (resp) {
                                                     console.log("Response " + resp)
                                                     $("#clubSignUp .loading-form .texto-validacao").text("Dados Gravados 2/2");
                                                     setTimeout(() => {
-                                                        $("#clubSignUp .loading-form .texto-validacao").html("ConcluÃ­do! Em breve vocÃª receberÃ¡ um e-mail confirmando seu cadastro.");
+                                                        $("#clubSignUp .loading-form .texto-validacao").html("Concluído! Em breve você receberá um e-mail confirmando seu cadastro.");
                                                         $("#clubSignUp .loading-form .input-bar").css("background-color", "#00E13F");
                                                         $("#clubSignUp .loading-form #loader").css("display", "none");
                                                         $("#clubSignUp .loading-form #checked").css("display", "initial");
@@ -710,7 +707,10 @@ $(function(){
             document: apenasNumeros(_dataObject.document),
             isNewsletterOptIn: true
         }
-        if (idCliente) {
+
+        let type, url;
+
+        if (idCliente != undefined) {
             type = 'PATCH';
             url = 'https://api.vtexcrm.com.br/qbbr/dataentities/CL/documents/' + idCliente;
         } else {
@@ -853,7 +853,7 @@ $(function(){
     
         
         var _msgSuccess = function () {
-            console.info('ConfirmaÃ§Ã£o');
+            console.info('Confirmação');
             $("#clubSignUp .step-3").removeClass("hidden");
             $("#clubSignUp .loading-form").addClass("hidden");
             $(".modal--beres .logo-fidelidade").insertAfter("#clubSignUp .modal-top .name");
@@ -861,15 +861,15 @@ $(function(){
             $(".modal--beres .modal-info").css("display", "none");
             $("#clubSignUp .modal-top .name").text("Cadastro 3/3");
             setTimeout(() => {
-                $("#clubSignUp .loading-form .texto-validacao").html("ConcluÃ­do!");
+                $("#clubSignUp .loading-form .texto-validacao").html("Concluído!");
                 $("#clubSignUp .step-3").removeClass("hidden");
                 $("#clubSignUp .step-2, #clubSignUp .step-1").addClass("hidden");
             }, 2000);
         }
-        myHeaders = new Headers({
-            "unidadenegocio": "QDB",
-            "canalvenda": "LOJA"
-        });
+        // let myHeaders = new Headers({
+        //     "unidadenegocio": "QDB",
+        //     "canalvenda": "LOJA"
+        // });
     
         // fetch('https://api.grupoboticario.com.br/grb/sb/fidelidade/'+_dataObject.document+'/cadastro?client_id=cb7dd0da-226b-41bf-bb0e-770c2c54e123&client_secret=I8oT0gR6pX7mW7tW5cF8iF1tE3tW6xR5jD6sL1hG3wR0rV6bM8',{
         //     method: 'POST',
@@ -884,44 +884,41 @@ $(function(){
             type: "GET",
             data: { data: JSON.stringify(data)},
             success: function (data) {
-                if (typeof (callback) === "function") callback(true, data);
-    
-                if (atualiza == true) {
-                    $("#clubSignUp .loading-form .texto-validacao").text("JÃ¡ cadastrado, dados atualizados");
-                    $("#clubSignUp .loading-form .input-bar").css("background-color", "#00E13F");
-                    $("#clubSignUp .loading-form #loader").css("display", "none");
-                    $("#clubSignUp .loading-form #checked").css("display", "initial");
-                    setTimeout(() => {
-                        $("#clubSignUp .loading-form .texto-validacao").html("ConcluÃ­do!<br>Em breve vocÃª receberÃ¡ um e-mail confirmando seu cadastro.");
-                    }, 2000);
-                } else {
+                // if (atualiza == true) {
+                //     $("#clubSignUp .loading-form .texto-validacao").text("Já cadastrado, dados atualizados");
+                //     $("#clubSignUp .loading-form .input-bar").css("background-color", "#00E13F");
+                //     $("#clubSignUp .loading-form #loader").css("display", "none");
+                //     $("#clubSignUp .loading-form #checked").css("display", "initial");
+                //     setTimeout(() => {
+                //         $("#clubSignUp .loading-form .texto-validacao").html("Concluído!<br>Em breve você receberá um e-mail confirmando seu cadastro.");
+                //     }, 2000);
+                // } else {
                     $.ajax({
                         url: Botiwall + "/bematech/soap/confirmar",
                         type: "GET",
                         data: { documentNumber: _dataObject.document},
                         success: function (msg) {
-                            console.info('ConfirmaÃ§Ã£o');
+                            console.info('Confirmação');
                             $("#clubSignUp .loading-form .texto-validacao").text("Dados Gravados 2/2");
                             $("#clubSignUp .loading-form .input-bar").css("background-color", "#00E13F");
                             $("#clubSignUp .loading-form #loader").css("display", "none");
                             $("#clubSignUp .loading-form #checked").css("display", "initial");
                             setTimeout(() => {
-                                $("#clubSignUp .loading-form .texto-validacao").html("ConcluÃ­do!<br>Em breve vocÃª receberÃ¡ um e-mail confirmando seu cadastro.");
+                                $("#clubSignUp .loading-form .texto-validacao").html("Concluído!<br>Em breve você receberá um e-mail confirmando seu cadastro.");
                             }, 2000);
                             console.log(msg.documentElement.textContent);
                         },
                         error: function (msg) {
-                            console.info('>>>>>>>>>>>>>> confirmaÃ§Ã£o');
+                            console.info('>>>>>>>>>>>>>> confirmação');
                             console.log(">>>>>>>>>>>>>>> falha para confirmar o cadastro");
                             hideLoader();
                             return false;
                         }
                     });
-                }
+                // }
             },
             error: function (error) {
                 console.log(error);
-                if (typeof (callback) === "function") callback(false, error);
             }
         });
     }
@@ -954,27 +951,27 @@ $(function(){
     
         var perguntas = [{
                 "title": "como eu acumulo pontos?",
-                "mensagem": "a cada R$1 gasto em uma das nossas lojas, vocÃª ganha 1 ponto na sua conta do clube das berÃªs fidelidade."
+                "mensagem": "a cada R$1 gasto em uma das nossas lojas, você ganha 1 ponto na sua conta do clube das berês fidelidade."
             },
             {
                 "title": "como eu troco meus pontos?",
-                "mensagem": "a cada 20 pontos acumulados, vocÃª tem direito a R$ 1,00 de crÃ©dito no pagamento de qualquer produto ou serviÃ§o. aÃ­ funciona assim: vocÃª pode usar os pontos pra ter um desconto na sua compra ou pagar ela inteira! mas olha, vocÃª sÃ³ pode fazer essa troca quando tiver o saldo mÃ­nimo de 100 pontos, ok?"
+                "mensagem": "a cada 20 pontos acumulados, você tem direito a R$ 1,00 de crÃ©dito no pagamento de qualquer produto ou serviço. aí funciona assim: você pode usar os pontos pra ter um desconto na sua compra ou pagar ela inteira! mas olha, você sÃ³ pode fazer essa troca quando tiver o saldo mínimo de 100 pontos, ok?"
             },
             {
-                "title": "como funcionam as promoÃ§Ãµes exclusivas?",
-                "mensagem": "a gente sempre prepara promoÃ§Ãµes exclusivas pras consumidoras cadastradas no clube das berÃªs <3 pra saber delas Ã© sÃ³ ficar de olho nos e-mails que a gente envia, nas publicaÃ§Ãµes na nossa pÃ¡gina no Facebook e no nosso site (ah! pra ter acesso Ã s promos na nossa loja virtual, vocÃª precisa fazer o login na sua conta, tÃ¡?). <br/>se vocÃª for comprar em uma das nossas lojas fÃ­sicas, vocÃª precisa levar um print do nosso e-mail ou da nossa publicaÃ§Ã£o no Facebook pra mostrar pra vendedora."
+                "title": "como funcionam as promoçÃµes exclusivas?",
+                "mensagem": "a gente sempre prepara promoçÃµes exclusivas pras consumidoras cadastradas no clube das berês <3 pra saber delas Ã© sÃ³ ficar de olho nos e-mails que a gente envia, nas publicaçÃµes na nossa página no Facebook e no nosso site (ah! pra ter acesso Ã s promos na nossa loja virtual, você precisa fazer o login na sua conta, tá?). <br/>se você for comprar em uma das nossas lojas físicas, você precisa levar um print do nosso e-mail ou da nossa publicação no Facebook pra mostrar pra vendedora."
             },
             {
-                "title": "tem presente de aniversÃ¡rio?",
-                "mensagem": "no mÃªs de aniversÃ¡rio das berÃªs, a gente sempre manda um e-mail com uma surpresa! Ã© sÃ³ ficar de olho nas nossas mensagens ;) nÃ£o esquece que pra participar vocÃª precisa levar um print do e-mail na loja, combinado?"
+                "title": "tem presente de aniversário?",
+                "mensagem": "no mês de aniversário das berês, a gente sempre manda um e-mail com uma surpresa! Ã© sÃ³ ficar de olho nas nossas mensagens ;) não esquece que pra participar você precisa levar um print do e-mail na loja, combinado?"
             },
             {
                 "title": "como eu me cadastro?",
-                "mensagem": "pra fazer seu cadastro Ã© super fÃ¡cil: Ã© sÃ³ dar uma passadinha em uma das nossas lojas e conversar com uma das vendedoras, ou se cadastrar <a href='' class='pop-cadastro'>aqui no nosso site</a>. ah! vocÃª nÃ£o precisa comprar nada pra se cadastrar!"
+                "mensagem": "pra fazer seu cadastro Ã© super fácil: Ã© sÃ³ dar uma passadinha em uma das nossas lojas e conversar com uma das vendedoras, ou se cadastrar <a href='' class='pop-cadastro'>aqui no nosso site</a>. ah! você não precisa comprar nada pra se cadastrar!"
             },
             {
                 "title": "atÃ© quando valem meus pontos?",
-                "mensagem": "os pontos acumulados no clube das berÃªs fidelidade tem o prazo de validade de 1 ano."
+                "mensagem": "os pontos acumulados no clube das berês fidelidade tem o prazo de validade de 1 ano."
             },
         ];
     

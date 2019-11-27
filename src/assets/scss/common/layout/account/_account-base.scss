@@ -62,6 +62,7 @@
         position: absolute;
         bottom: 0;
         right: 0;
+        display: none;
         @include d(s){
             margin-bottom: 10px;
             right: 10px;
@@ -209,7 +210,7 @@
                                 padding: 10px;
                                 border-radius: 5px;
                                 position: absolute;
-                                bottom: -7.5em;
+                                top: 3em;
                                 z-index: 10;
                                 display: none;
                                 // ._arrow-up {
