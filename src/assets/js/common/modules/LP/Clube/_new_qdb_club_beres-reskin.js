@@ -890,12 +890,11 @@ const Methods = {
                             type: "GET",
                             data: { documentNumber: _dataObject.document},
                             success: function (msg) {
-                                console.info('Confirmação');
                                 $("#clubSignUp .loading-form .texto-validacao").text("Dados Gravados 2/2");
                                 $("#clubSignUp .loading-form .input-bar").css("background-color", "#00E13F");
                                 $("#clubSignUp .loading-form #loader").css("display", "none");
                                 $("#clubSignUp .loading-form #checked").css("display", "initial");
-                                setTimeout(() => {
+                                setTimeout(function(){
                                     _msgSuccess();
                                 }, 2000);
                                 console.log(msg.documentElement.textContent);
