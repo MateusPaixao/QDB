@@ -12,14 +12,13 @@ export const bag = {
     init() {
         bag.bindEvents();
         bag.load();
-        // barraDeFrete.init();
-        
         $(window).on('checkoutRequestEnd.vtex', function (ev) {
           getOrder().then(function ({items,totalizers}) {
             bag.render(items,totalizers)
             document.body.classList.contains('produto') ? bag.open() : null;
           });
         });
+        bag.cupom();
 
     },
 
@@ -153,4 +152,12 @@ export const bag = {
         el.cart.classList.remove('bag--open');
         overlay.close();
     },
+    cupom() {
+        vtexjs.checkout.getOrderForm().done(function (orderForm) {
+            const title = document.querySelector('.bag-top__title')
+            const couponActive = orderForm.marketingData.coupon;
+            couponActive != null ? title.innerHTML = `Cupom ativo: <span class="bag-top__coupon">${couponActive}</span>` : title.textContent = `Minha Sacola`
+
+        })
+    }
 }

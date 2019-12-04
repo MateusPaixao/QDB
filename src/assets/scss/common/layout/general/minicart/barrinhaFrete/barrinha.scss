@@ -1,29 +1,56 @@
+$heightBarrinha: 40px;
 .bag-top {
     &__bar {
         width: 100%;
         text-align: center;
-        height: 35px;
+        min-height: $heightBarrinha;
+        height: $heightBarrinha;
+        max-height: $heightBarrinha;
+        padding: 0;
+        margin: 0;
         display: flex;
         position: relative;
         justify-content: center;
         align-items: center;
-        background: rgb(44,205,167);
+        background: rgb(44, 205, 167);
     }
 }
-.price{
-    &__text-content{
-        z-index: 2;
-        color: #fdfdfd;
+
+.price {
+    &__text {
+        &-content,
+        &-success {
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fdfdfd;
+
+            .svg--caminhao {
+                fill: #fdfdfd;
+                width: 35px;
+                height: 100%;
+                margin-right: 5px;
+            }
+        }
     }
+
     &__track.js--price-track {
         background: #C7C5C4;
-        height: 35px;
+        min-height: $heightBarrinha;
+        height: $heightBarrinha;
+        max-height: $heightBarrinha;
+        padding: 0;
+        margin: 0;
         width: 100%;
         position: absolute;
         z-index: 1;
-        transition: .2s ease;
+        transition: .4s ease;
     }
-    &__remaining, &__frete{
+
+    &__remaining,
+    &__frete {
         font-weight: bold;
+        margin: 0 5px;
     }
 }
