@@ -18,7 +18,7 @@ export const bag = {
             document.body.classList.contains('produto') ? bag.open() : null;
           });
         });
-        bag.cupom();
+        // bag.cupom();
 
     },
 
