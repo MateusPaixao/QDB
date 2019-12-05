@@ -1479,7 +1479,7 @@ const Methods = {
                                     'dez': 'Dezembro'
                                 };
 
-                                const string = monthFormat[month] + " / " + "20" + year;
+                                const string = monthFormat[month] + "/" + "20" + year;
 
                                 return string;
                             };
