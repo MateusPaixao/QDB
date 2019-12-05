@@ -15,8 +15,6 @@ const BarraFrete = {
 
             freteBarCompleted.classList.remove('hidden');
             freteBarUncompleted.classList.add('hidden');
-
-            console.log('FILLED')
         }
         function barUnfilled() {
             var freteBarCompleted = document.querySelector('.price__text-success');
@@ -24,11 +22,10 @@ const BarraFrete = {
 
             freteBarCompleted.classList.add('hidden');
             freteBarUncompleted.classList.remove('hidden');
-
-            console.log('UNFILLED')
         }
 
         // let cookieValorFrete = getCookie('ValorFrete');
+        try {
             vtexjs.checkout.getOrderForm().done(function (orderForm) {
                 let meuCarrinho;
                 let desconto;
@@ -70,7 +67,10 @@ const BarraFrete = {
 
                 barTrack.style = `transform: translate(${barProgress.toFixed(2)}%)`;
             });
-            console.log('LO CACHE VIRASTE, ARIBAaaa')
+        }
+        catch(err){
+            console.log('Erro na função de Barra de frete minicart',err);
+        } 
         
 
         // function listenerShipping() {
