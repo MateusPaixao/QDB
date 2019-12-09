@@ -70,7 +70,6 @@ const Methods = {
                     $('body').addClass('overflow-pop-up');
                 });
         
-        
                 //#Close overlay
                 $('.overlay-clube').on('click', function (e) {
                     e.preventDefault();
@@ -853,7 +852,8 @@ const Methods = {
                     'hour': todayHours,
                     'minute': todayMinutes,
                     'second': todaySeconds
-                }
+                },
+                'EnviaComunicacao': document.querySelector('input[name="terms"]').checked
             };
         
             // myHeaders = new Headers({

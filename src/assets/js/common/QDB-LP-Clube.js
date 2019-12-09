@@ -1,6 +1,7 @@
 $(function(){
     const Botiwall = "https://botiwall.corebiz.com.br";
     // const Botiwall = "http://localhost/boti-api-middleware/public";
+    console.log(document.querySelector('input[name="terms"]').checked);
 
     (function ($, window, document, undefined) {
         var $win = $(window);
@@ -848,7 +849,8 @@ $(function(){
                 'hour': todayHours,
                 'minute': todayMinutes,
                 'second': todaySeconds
-            }
+            },
+            'EnviaComunicacao': document.querySelector('input[name="terms"]').checked
         };
     
         
