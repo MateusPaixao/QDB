@@ -15,14 +15,16 @@ const Methods = {
     },
 
     marginTopMenuHeight() {
-        const header = CacheSelector.header.header;
-        const elementToMargin = CacheSelector.$globals.body;
-        let headerHeight = header.offsetHeight;
-        elementToMargin.style.marginTop = `${headerHeight}px`;
-        window.addEventListener('scroll', function() {
-            headerHeight = header.offsetHeight;
+        setTimeout(function(){
+            const header = CacheSelector.header.header;
+            const elementToMargin = CacheSelector.$globals.body;
+            let headerHeight = header.offsetHeight;
             elementToMargin.style.marginTop = `${headerHeight}px`;
-        })
+            window.addEventListener('scroll', function() {
+                headerHeight = header.offsetHeight;
+                elementToMargin.style.marginTop = `${headerHeight}px`;
+            })
+        }, 1000)        
     },
     openCloseMenu() {
         CacheSelector.header.menuHamContainer.addEventListener('click', (el) => {
