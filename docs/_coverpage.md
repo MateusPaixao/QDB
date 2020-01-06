@@ -2,7 +2,7 @@
 
 > Diversidade em Código
 
-- Bem vindo ao coração de Quem Disse Berenice.
+- Bem vindo ao coração do e-commerce de Quem Disse Berenice.
 
 [Download](https://bitbucket.org/grupoboticario/qdb-ecomm/)
 [Começar](/install/)
