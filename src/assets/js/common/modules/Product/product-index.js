@@ -1,4 +1,4 @@
-// import Features from './Components/Features/features.jsx'
+import Features from './Components/Features/features.jsx'
 // import setPeopleInPage from './Components/Features/_peopleInPage.jsx'
 
 const Methods = {
@@ -7,6 +7,7 @@ const Methods = {
         Methods.exclusiveOnEcommerce();
         Methods.showValidade();
         Methods.observeSkuSelect();
+        // Methods.GetProduct();
 
     },
     GetProduct() {
@@ -18,7 +19,7 @@ const Methods = {
                 // console.log("skuid ", skuId);
                 let Sku = Product[0].items.find(e => e.itemId == skuId);
                 // window.innerWidth < 768 ? document.querySelector(".product-buy-button").after(document.querySelector("#people-seeing--render")) : "";
-                // Sku.sellers[0].commertialOffer.Price - Sku.sellers[0].commertialOffer.ListPrice != 0 ? Features.setPeopleInPage(30, 15) : Features.setPeopleInPage(5, 1);
+                
                 // Sku.sellers[0].commertialOffer.AvailableQuantity <= 10 ? Features.setStockLeft(Sku.sellers[0].commertialOffer.AvailableQuantity) : "";
             })
     },
@@ -591,6 +592,8 @@ const Methods = {
                                             $(this).attr('title', $(this).text());
                                             $(this).attr('data-background', urlThumbSku.replace("65-65/", "200-200/").replace("144-292/", "200-200/"));
                                             $(this).attr('data-idSku', '' + objSucess[0].Id + '');
+                                            // console.log(objSucess[0]);
+                                            $(this).attr('data-pop', objSucess[0].ListPrice != objSucess[0].BestPrice ? Math.floor(Math.random() * 15) + 5 : Math.floor(Math.random() * 5) + 5);
 
                                             if (objSucess[0].SkuSellersInformation[0].AvailableQuantity == 0) {
                                                 $(this).addClass('product-disabled');
@@ -696,6 +699,7 @@ const Methods = {
             } else {
                 $('del.product-preco-de').show();
             }
+
             var precoDe = "R$" + Sku.sellers[0].commertialOffer.ListPrice.toFixed(2).toString().replace(".", ",");
             var precoPor = "R$" + Sku.sellers[0].commertialOffer.Price.toFixed(2).toString().replace(".", ",")
             // var precoPor = $('.plugin-preco .valor-por .skuBestPrice').text();
@@ -1200,9 +1204,35 @@ const Methods = {
                         .then((Product) => {
                             sku = Product[0].items[0].itemId;
                             settingsProductPreco(sku);
+                            
+                            if(new URL(window.location.href).searchParams.get("setPop")){
+                                console.log($(this).attr('data-pop'));
+
+                                let Sku = window.cProduct.items.find(i => i.itemId == sku);
+
+                                console.log(Sku.sellers[0].commertialOffer.ListPrice);
+                                if(Sku.sellers[0].commertialOffer.ListPrice > 0){
+                                    let value = $(this).attr('data-pop');
+                                    Sku.sellers[0].commertialOffer.Price - Sku.sellers[0].commertialOffer.ListPrice != 0 ? Features.setPeopleInPage(value) : Features.setPeopleInPage(value);
+                                } else {
+                                    document.querySelector(".people-seeing").style.display = "none";
+                                }
+                            }
                         })
                 } else {
                     settingsProductPreco(sku);
+                    if(new URL(window.location.href).searchParams.get("setPop")){
+                        console.log($(this).attr('data-pop'));
+                    
+                        let Sku = window.cProduct.items.find(i => i.itemId == sku);
+                        console.log(Sku.sellers[0].commertialOffer.ListPrice);
+                        if(Sku.sellers[0].commertialOffer.ListPrice > 0){
+                            let value = $(this).attr('data-pop');
+                            Sku.sellers[0].commertialOffer.Price - Sku.sellers[0].commertialOffer.ListPrice != 0 ? Features.setPeopleInPage(value) : Features.setPeopleInPage(value);
+                        } else {
+                            document.querySelector(".people-seeing").style.display = "none";
+                        }
+                    }
                 }
                 aviseme();
 
