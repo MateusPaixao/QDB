@@ -583,15 +583,21 @@
 .iphone{
     .header__container{
         @include d('768px'){
-            margin: -30px 0px;
+            height: 100%;
+            // margin: -30px 0px;
             // overflow: hidden;
         }
     }
     .header__middle-container{
         @include d('768px'){
-            padding: -20px 0px !important;
-            margin-top: -40px;
-            margin-bottom: 20px;
+            // padding: -20px 0px !important;
+            // margin-top: -40px;
+            // margin-bottom: 20px;
+        }
+    }
+    .header__second-column{
+        @include d('768px'){
+            margin-top: -50px;
         }
     }
 }
@@ -652,6 +658,10 @@
         }
         .header__second-column {
             width: 70%;
+        }
+
+        .header__second-column{
+            margin-top: -10px;
         }
 
         .header__third-column {
