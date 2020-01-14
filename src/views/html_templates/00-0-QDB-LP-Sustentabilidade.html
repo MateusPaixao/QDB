@@ -66,7 +66,7 @@
                                 </div>
                             </div>
 
-                            <a href="#" class="products-section__button">Comprar</a></div>
+                            <a target="_blank" href="https://www.quemdisseberenice.com.br/batom-lapis-mate_820752-p/p?idsku=1853" class="products-section__button">Comprar</a></div>
                     </div>
                 </div>
 
@@ -84,7 +84,7 @@
                             <p>tem cartucho PCR² e não possui partículas plásticas.</p>
                         </div>
 
-                        <a href="#" class="products-section__button">Comprar</a>
+                        <a target="_blank" href="https://www.quemdisseberenice.com.br/pigmento-pra-olhos-quem-disse-berenice--810571-p/p?idsku=1981" class="products-section__button">Comprar</a>
                     </div>
                 </div>
 
@@ -125,7 +125,20 @@
                 <h2 class="showcase-section__middle-text">é testado em animais.</h2>
                 <h2 class="showcase-section__final-text">Conheça nossos produtos veganos: </h2>
             </div>
+
+            <div class="topProducts">
+                <div class="shell">
+                    <h2 class="topProducts__title">
+                        <vtex:contentPlaceHolder id="vitrineVtex-TopSell-Title" />
+                    </h2>
+                    <div class="collectionPlaceholder hidden">
+                        <vtex:contentPlaceHolder id="vitrineVtex-TopSell-Collection" />
+                    </div>
+                    <div class="topProducts__render-collection"></div>
+                </div>
+            </div>
         </div>
+                
     </section>
 
     <section class="fundation-section__container">
@@ -151,10 +164,26 @@
         <div class="recicla-section__container__info">
             <h2>Aqui você ajuda o meio ambiente e ainda ganha um batom!</h2>
             <h2>Sabia que a gente recicla as embalagens vazias de produtos de qualquer marca de maquiagem?</h2>
+
+            <a href="#" class="fundation-section__button recicla-section__info__button">Conheça</a>
         </div>
 
         <div class="recicla-section__container__image">
             <img class="st-desktop" src="/arquivos/qdb-recicla-branco.png?v=637081449567930000" alt="Recicla - quem disse, berenice?" />
+        </div>
+    </section>
+
+    <section class="recicla-section__container__mobile">
+        <div class="recicla-section__container__mobile__image">
+            <img class="st-desktop" src="/arquivos/qdb-recicla-branco.png?v=637081449567930000" alt="Recicla - quem disse, berenice?" />
+        </div>
+
+        <div class="recicla-section__container__info__mobile">
+            <h2>Aqui você ajuda o meio ambiente e ainda ganha um batom!</h2>
+            <h2>Sabia que a gente recicla as embalagens vazias de produtos de qualquer marca de maquiagem?</h2>
+            <div class="recicla-section__container__more">
+                <a target="_blank" href="https://www.quemdisseberenice.com.br/recicla" class="products-section__button recicla-section__button">Saiba mais</a>
+            </div>
         </div>
     </section>
 
@@ -167,38 +196,49 @@
     </section>
 
     <section class="glossary-section__container">
-        <h3 class="glossary-section__title">GLOSSÁRIO DA SUSTENTABILDIADE</h3>
+        <div class="glossary-section__title__container">
+            <h3 class="glossary-section__title">GLOSSÁRIO DA SUSTENTABILDIADE</h3>
+        </div>
 
         <div class="glossary__item">
-            <h4 class="glossary__item__question">Eco Álcool</h4>
+            
+            <div class="glossary__item__container">            
+                <h4 class="glossary__item__question">Eco Álcool</h4>
+            </div>
 
             <div class="glossary__item__answer">
-
+                - Plástico 100% renovável, feito a partir da cana-de-açúcar
             </div>
 
         </div>
 
         <div class="glossary__item">
-            <h4 class="glossary__item__question">Ecoglitter</h4>
+            <div class="glossary__item__container"> 
+                <h4 class="glossary__item__question">Ecoglitter</h4>
+            </div>
 
             <div class="glossary__item__answer">
-
+                - Plástico 100% renovável, feito a partir da cana-de-açúcar
             </div>
 
         </div>
 
         <div class="glossary__item">
-            <h4 class="glossary__item__question">PCR (resina reciclada-pós-consumo)</h4>
+            <div class="glossary__item__container"> 
+                <h4 class="glossary__item__question">PCR (resina reciclada-pós-consumo)</h4>
+            </div>
 
             <div class="glossary__item__answer">
-
+                - Plástico 100% renovável, feito a partir da cana-de-açúcar
             </div>
 
         </div>
 
-        <div class="glossary__item">
-            <h4 class="glossary__item__question">Plástico vegetal</h4>
-
+        <div class="glossary__item active">
+            <div class="glossary__item__container"> 
+                <h4 class="glossary__item__question">Plástico vegetal</h4>
+            </div>
+            
             <div class="glossary__item__answer">
                 - Plástico 100% renovável, feito a partir da cana-de-açúcar
             </div>
@@ -210,6 +250,6 @@
     <footer class="footer">
         <vtex:template id="00-0-QDB-Footer" />
     </footer>
-    <script src="/arquivos/QDB-LP-Recicla.js"></script>
+    <script src="/arquivos/QA-QDB-LP-Sustentabilidade.js"></script>
 </body>
 </html>

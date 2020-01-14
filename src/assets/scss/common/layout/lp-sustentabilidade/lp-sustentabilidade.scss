@@ -169,7 +169,6 @@
     font-size: 15px;
     text-align: center;
     border-radius: 5px;
-    text-transform: uppercase;
     width: 50%;
     margin-left: 80px;
     display: flex;
@@ -204,9 +203,19 @@
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    height: 50%;
     -ms-flex-pack: distribute;
     justify-content: space-around;
+    flex-direction: row;
+    padding: 20px;
+}
+
+.topProducts{
+    width: 60%;
+    position: relative;
+}
+
+.topProducts__title{
+    display: none;
 }
 
 .showcase-section__content{
@@ -298,6 +307,10 @@
     margin-bottom: 20px;
 }
 
+.recicla-section__container__mobile{
+    display: none;
+}
+
 .recicla-section__container__info{
     width: 50%;
     padding: 100px;
@@ -322,11 +335,13 @@
         font-size: 24px;
         margin-bottom: 30px;
     }
+    h2:nth-child(2){
+        margin-bottom: 50px;
+    }
 }
 
 .recicla-section__container__image{
-    padding: 70px;
-    margin-top: 350px;
+    margin-top: 80px;
     margin-left: 90px;
 }
 
@@ -340,10 +355,17 @@
     margin-top: 30px;
     padding: 9px;
     border-radius: 6px;
+    margin-bottom: 30px;
+}
+
+.recicla-section__info__button{
+    width: 30%;
+    background: #FFF;
+    color: #000;
 }
 
 .recicla-info{
-    ont-size: 20px;
+    font-size: 20px;
     color: #FFFFFF;
     letter-spacing: 0;
     border-bottom: solid 1px #2D2D2D;
@@ -366,6 +388,188 @@
     p:last-child{
         font-size: 50px;
     }
+}
+
+.glossary-section__container{
+    padding: 15px;    
+}
+
+.glossary-section__title__container{
+    border-top: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    padding: 15px;
+        h3{
+            font-size: 18px;
+        }
+}
+
+.glossary__item{
+    padding: 15px;
+    border-bottom: solid 1px #ccc;
+    cursor: pointer;
+}
+
+.glossary__item__answer{
+    display: none;
+}
+
+.active{
+    .glossary__item__answer{
+        display: block;
+        margin-top: 30px;
+    }
+}
+
+.hidden{
+    display: none;
+}
+
+//responsive
+
+@media (max-width: 767px) {    
+    .header-section{
+        background: url(/arquivos/bg-wet-leaft-mobile.png) no-repeat;
+        background-size: cover;
+        height: 35vw;
+        min-height: 420px;
+        &::after{
+            display: none;
+        }
+    }
+
+    .header-section__inner{
+        display: block;
+        padding: 30px;
+    }
+    
+    .products-section{
+        width: 100%;
+    }
+
+    .products-section__text{
+        font-size: 16px;
+    }
+
+    .products-section__list{
+        flex-direction: column;
+    }
+
+    .products-section__product-info h2{
+        text-align: initial;
+    }
+
+    .showcase-section__content{
+        width: 80%;
+        margin-bottom: 10px;;
+    }
+
+    // .cardProductContainer:first-child{
+    //     width: 4419.05px;
+    // }
+
+    .showcase-section__container{
+        height: auto;
+    }
+
+    .showcase-section__inner{
+        flex-direction: column;
+    }
+    
+    .topProducts{
+        width: 100%;
+    }
+
+    .fundation-section__container{
+        min-height: 558px;
+    }
+
+    .fundation-section__container__info{
+        width: 100%;
+    }
+
+    .fundation-section__container__image{
+        display: none;
+    }
+
+    .fundation-section__container{
+        min-height: 558px;
+        width: 100%;
+    }
+
+    .fundation-section__container__info{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .fundation-section__button{
+        padding: 30px;
+        line-height: initial;
+    }
+
+    .recicla-section__container__info::after{
+        display: none;
+    }
+
+    .recicla-section__container{
+        display: none;
+    }
+
+    .recicla-section__container__mobile{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .recicla-section__container__mobile__image{
+        background: url(/arquivos/image-09.png) no-repeat;
+        background-size: cover;
+        height: 36vw;
+        min-height: 120px;
+        position: relative;
+        display: flex;
+        padding: 20px;
+            img{
+                width: 250px;
+                height: 70px;
+            }
+    }
+
+    .recicla-section__container__info__mobile{
+        background: #EDEDED;
+        padding: 20px;
+            h2:first-child{
+                font-size: 20px;
+                margin-bottom: 15px;
+            }    
+            h2:last-child{
+                font-size: 14px;
+            }
+    }
+
+    .recicla-section__container__more{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .recicla-section__button{
+        padding: 23px;
+        width: 40%;
+        display: flex;
+    }
+
+    .fundation-section__button{
+        display: none;
+    }
+
+    //retirar
+    .recicla-info__container{
+        display: none;
+    }
+
+    .glossary-section__container{
+       
+    }
+    
 }
 
 

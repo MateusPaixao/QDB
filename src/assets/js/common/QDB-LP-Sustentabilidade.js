@@ -1,2 +1,13 @@
+import Vitrine from "./modules/LP/sustentabilidade-index"
 
-console.log("LP - Recicla")
+const Methods = {
+    init() {
+        Methods.buildVitrine();
+    },
+    buildVitrine: () => {
+      Vitrine.init();
+    }
+}
+// document.addEventListener('DOMContentLoaded', () => {
+    Methods.init();
+// })
