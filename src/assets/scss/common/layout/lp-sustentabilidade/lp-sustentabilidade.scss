@@ -256,6 +256,9 @@
         h2{
             margin-bottom: 30px;
         }
+        h2:nth-child(4){
+            font-weight: bold;
+        }
 }
 
 .fundation-section__button{
@@ -424,6 +427,26 @@
     display: none;
 }
 
+.footer-section__container{
+    background-size: cover;
+    height: 16vw;
+    min-height: 260px;
+    position: relative;
+    background: #ccc;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    div{
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    svg{
+        width: 100px;
+        margin-right: 90px;
+    }
+}
 //responsive
 
 @media (max-width: 767px) {    
@@ -565,13 +588,36 @@
     .recicla-info__container{
         display: none;
     }
-
-    .glossary-section__container{
-       
-    }
     
+
+    .icons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg{
+            width: 60px;
+            margin-right: 27px;
+        }
+
+        svg:last-child{
+            margin: 0;
+        }
+    }
 }
 
+.glossary__item__container{
+    display: flex;
+    justify-content: space-between;
+}
 
+.icon{
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.cls-1{
+    fill: transparent;
+}
 
 
