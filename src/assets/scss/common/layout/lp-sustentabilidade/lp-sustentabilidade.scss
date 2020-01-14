@@ -103,7 +103,6 @@
     -ms-flex: 1;
     flex: 1;
     margin: 5px;
-    padding: 10px 20px;
     justify-content: space-evenly;
     height: 160px;
 }
@@ -188,11 +187,16 @@
 
 .showcase-section__container{
     background-size: cover;
-    height: 32vw;
+    height: auto;
     min-height: 380px;
     position: relative;
     background: #232222;
     margin-top: 20px;
+    padding: 20px;
+}
+
+.shellProducts{
+    margin-bottom: 20px;
 }
 
 .showcase-section__inner{
@@ -237,6 +241,22 @@
 
 .showcase-section__final-text{
     margin-top: 10px;
+}
+
+.showcase-section__button {
+    background-color: #fff;
+    color: #000;
+    width: 40%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 50px;
 }
 
 .fundation-section__container{
@@ -299,7 +319,7 @@
 }
 
 .recicla-section__container{
-    background: url(/arquivos/image-09.png) no-repeat;
+    background: url(/arquivos/image-12.png) no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
     height: 36vw;
@@ -492,6 +512,7 @@
 
     .showcase-section__container{
         height: auto;
+        padding: 10px;
     }
 
     .showcase-section__inner{
@@ -500,6 +521,7 @@
     
     .topProducts{
         width: 100%;
+        margin-bottom: 20px;
     }
 
     .fundation-section__container{
@@ -580,13 +602,19 @@
         display: flex;
     }
 
-    .fundation-section__button{
-        display: none;
-    }
-
     //retirar
     .recicla-info__container{
         display: none;
+    }
+
+    .showcase-section__button{
+        background-color: #fff;
+        color: #000;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        height: 50px;
     }
     
 
@@ -603,6 +631,10 @@
         svg:last-child{
             margin: 0;
         }
+    }
+
+    .products-section__single{
+        padding: 0;
     }
 }
 
