@@ -38,7 +38,7 @@
 
 
 .addToCart__stock-left{
-    @include sans(1rem, $danger, 400, normal);
+    @include sans(1rem, $error, 400, normal);
 }
 
 .product-flag {
@@ -53,7 +53,7 @@
 .validade {
     margin: 10px 0 5px 0;
     span{
-        color: $danger;
+        color: $error;
         text-decoration: underline;
         padding: 1px;
     }

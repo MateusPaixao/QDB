@@ -2,10 +2,43 @@
   Fonts
 \* ------------------------------------------------------------ */
 
+@font-face {
+    font-family: 'Museo Sans';
+    src: url('Museo300-Regular-webfont-eot.css');
+    src: url('Museo300-Regular-webfont-eot.css') format('embedded-opentype'), url('Museo300-Regular-webfont-woff.css') format('woff'), url('Museo300-Regular-webfont-ttf.css') format('truetype'), url('Museo300-Regular-webfont-svg.css') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Museo Sans';
+    src: url('Museo500-Regular-webfont-eot.css');
+    src: url('Museo500-Regular-webfont-eot.css') format('embedded-opentype'), url('Museo500-Regular-webfont-woff.css') format('woff'), url('Museo500-Regular-webfont-ttf.css') format('truetype'), url('Museo500-Regular-webfont-svg.css#Museo Sans') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TheGreatEscape';
+    src: url('thegreatescape-webfont-eot.css');
+    src: url('thegreatescape-webfont-eotd41d.css?#iefix') format('embedded-opentype'), url('thegreatescape-webfont-woff.css') format('woff'), url('thegreatescape-webfont-ttf.css') format('truetype'), url('thegreatescape-webfont-svg.css#TheGreatEscapeRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body.qdb-vtexcommercestable-com-br,
+body.www-quemdisseberenice-com-br {
+    font-family: 'Museo Sans', sans-serif;
+}
+
+body.eudora-vtexcommercestable-com-br {
+    font-family: 'MyriadPro-BoldCond', sans-serif;
+}
+
 body.www-quemdisseberenice-com-br .cart-template-holder *,
 body.www-quemdisseberenice-com-br .cart-select-gift-placeholder *,
 body.www-quemdisseberenice-com-br .summary-template-holder * {
-    font-size: 12px!important;
+    font-size: 12px;
 }
 
 body.qdb-vtexcommercestable-com-br .cart-template-holder *,
@@ -17,7 +50,7 @@ body.qdb-vtexcommercestable-com-br .summary-template-holder * {
 body.www-quemdisseberenice-com-br .cart-template-holder *,
 body.www-quemdisseberenice-com-br .cart-select-gift-placeholder *,
 body.www-quemdisseberenice-com-br .summary-template-holder * {
-    font-size: 12px!important;
+    font-size: 12px;
 }
 
 body.eudora-vtexcommercestable-com-br .cart-template-holder *,
@@ -100,7 +133,7 @@ body.eudora-vtexcommercestable-com-br .empty-cart-title {
 }
 
 .full-cart .summary-totalizers .monetary {
-    color: #5ca795;
+    color: #000;
 }
 
 #payment-data .alert.alert-warning {
@@ -330,15 +363,15 @@ body + object {
 /*CART*/
 
 .vtex-front-messages-placeholder {
-    background: #fff!important;
+    background: $qdb-grey-l !important;
     box-shadow: none;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-    color: #fc3d5a!important;
-    border: 5px solid #fc3d5a!important;
+    color: $qdb-grey !important;
+    border: none !important;
 }
 
 .vtex-front-messages-placeholder .vtex-front-messages-detail {
@@ -420,6 +453,22 @@ body + object {
 
 #order-continue-shopping {
     margin-top: 20px;
+}
+.coupon-fieldset .input-small {
+    /* width: 67%; */
+    border: 2px solid #E5E5E5;
+    border-radius: 7px!important;
+    text-transform: uppercase;
+    padding: 12px 20px;
+}
+@media (min-width:767px) {
+    .coupon-fieldset .input-small {
+        width: 40%;
+        border: 2px solid #E5E5E5;
+        border-radius: 7px!important;
+        text-transform: uppercase;
+        padding: 12px 20px;
+    }
 }
 
 @media (max-width:767px) {
@@ -635,9 +684,7 @@ body + object {
     .summary-template-holder .summary .shipping {
         width: 100%;
     }
-    .coupon-fieldset .input-small {
-        width: 67%;
-    }
+    
     #cart-to-orderform:last-child {
         margin-right: 0px!important;
     }
@@ -801,7 +848,7 @@ body + object {
 
     #cart-coupon-add{
         /* float: right; */
-        margin: 10px 0 0 0;
+        /* margin: 10px 0 0 0; */
     }
 
     .orderform-active{
@@ -847,6 +894,12 @@ body.www-thebeautybox-com-br .empty-cart-title {
 .www-thebeautybox-com-br .chk-footer.tbb {
     display: block;
     border: none;
+}
+
+body.tbb-vtexcommercestable-com-br,
+body.tbbqa-vtexcommercestable-com-br,
+body.www-thebeautybox-com-br {
+    font-family: 'Museo Sans', sans-serif;
 }
 
 body.tbb-vtexcommercestable-com-br .cart-template-holder *,
@@ -923,6 +976,11 @@ body.totem-thebeautybox-com-br .empty-cart-title {
 .totem-thebeautybox-com-br .chk-footer.tbb {
     display: block;
     border: none;
+}
+
+body.tbbtotem-vtexcommercestable-com-br,
+body.totem-thebeautybox-com-br {
+    font-family: 'Museo Sans', sans-serif;
 }
 
 body.tbbtotem-vtexcommercestable-com-br.cart-template-holder *,
@@ -1280,7 +1338,7 @@ input#payment-discounts-code{
 }
 
 .card-flag{
-    opacity: .4!important;4
+    opacity: .4!important;
 }
 
 .card-selected {
@@ -1290,6 +1348,7 @@ input#payment-discounts-code{
 .btn.btn-mudar-cartao {
     color: #2b6259;
     padding: 5px 10px;
+    font-family: 'Museo Sans', sans-serif;
 }
 
 /* msg */

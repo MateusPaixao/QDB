@@ -281,16 +281,16 @@
                     border-radius: .2em;
                 }
                 &.__discount .cardProduct__flag__content{
-                    background: $danger;
+                    background: $error;
                     color: $w-secundary;
                 }
                 &.__Lancamento .cardProduct__flag__content{
-                    border: solid 1px $danger;
-                    color: $danger;
+                    border: solid 1px $error;
+                    color: $error;
                 }
                 &.__Outlet{
-                    border: solid 1px $danger;
-                    color: $danger;
+                    border: solid 1px $error;
+                    color: $error;
                 }
                 &.__SuperBlack{
                     border: none;

@@ -226,7 +226,7 @@
             width: 55px;
             padding: 5px;
             text-align: center;
-            background-color: $danger;
+            background-color: $error;
             @include d('768px'){
                 right: inherit;
                 left: 10px;
