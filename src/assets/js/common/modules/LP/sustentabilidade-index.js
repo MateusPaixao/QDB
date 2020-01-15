@@ -12,14 +12,14 @@ const Methods = {
     Collection = [],
     url = new URL("https://recs.chaordicsystems.com/v0/pages/recommendations"),
     params = {
-        apiKey: "qdb-vtex", 
-        secretKey: "rz4YYCNFlWAnPdogRpLdRw==", 
-        deviceId: "dev001", 
+        apiKey: "qdb-vtex",
+        secretKey: "rz4YYCNFlWAnPdogRpLdRw==",
+        deviceId: "dev001",
         productFormat: "complete",
-        source: window.innerWidth > 992 ? "desktop" : "mobile", 
+        source: window.innerWidth > 992 ? "desktop" : "mobile",
         name: "home"
     };
-    
+
     url.search = new URLSearchParams(params);
 
     fetch(url, {
@@ -42,23 +42,23 @@ const Methods = {
         let Col = "collection" + idCollection;
         console.log(Col)
         Placeholder.nextSibling.setAttribute("id", Col);
-        
+
         Vitrine.build(idCollection, Collection, true, "2.2");
     });
   },
 
   toggleClass(){
-    var faq = document.getElementsByClassName("glossary__item");
+        const faq = document.getElementsByClassName("glossary__item")
+        for (var i = 0; i < faq.length; i++) {
+            faq[i].addEventListener("click", function() {
 
-    for (var i = 0; i < faq.length; i++) {
-        faq[i].addEventListener("click", function() {
-          var current = document.getElementsByClassName("active");
-          current[0].className = current[0].className.replace(" active", "");
-          this.className += " active";
-        });
-      }
+                for (var i = 0; i < faq.length; i++) {
+                    faq[i].className = faq[i].className.replace(" active", "");
+                }
+                this.className += " active";
+            });
+        }
     },
-
 }
 
 export default {
