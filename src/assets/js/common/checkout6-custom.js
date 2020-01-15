@@ -1,3 +1,5 @@
+import Checkout from './modules/Checkout/checkout-index'
+
 /**UTLS*/
 var Utls = function(e, h, k, l) {
     return function() {
@@ -103,5 +105,6 @@ var Utls = function(e, h, k, l) {
         return !0
     }
 } 
- 
-Methods.init(); 
+
+
+// Methods.init(); 

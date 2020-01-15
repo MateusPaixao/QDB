@@ -2,38 +2,14 @@
   Fonts
 \* ------------------------------------------------------------ */
 
-@font-face {
-    font-family: 'Museo Sans';
-    src: url('Museo300-Regular-webfont-eot.css');
-    src: url('Museo300-Regular-webfont-eot.css') format('embedded-opentype'), url('Museo300-Regular-webfont-woff.css') format('woff'), url('Museo300-Regular-webfont-ttf.css') format('truetype'), url('Museo300-Regular-webfont-svg.css') format('svg');
-    font-weight: 300;
-    font-style: normal;
-}
+// body.qdb-vtexcommercestable-com-br,
+// body.www-quemdisseberenice-com-br {
+//     font-family: 'Museo Sans', sans-serif;
+// }
 
-@font-face {
-    font-family: 'Museo Sans';
-    src: url('Museo500-Regular-webfont-eot.css');
-    src: url('Museo500-Regular-webfont-eot.css') format('embedded-opentype'), url('Museo500-Regular-webfont-woff.css') format('woff'), url('Museo500-Regular-webfont-ttf.css') format('truetype'), url('Museo500-Regular-webfont-svg.css#Museo Sans') format('svg');
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'TheGreatEscape';
-    src: url('thegreatescape-webfont-eot.css');
-    src: url('thegreatescape-webfont-eotd41d.css?#iefix') format('embedded-opentype'), url('thegreatescape-webfont-woff.css') format('woff'), url('thegreatescape-webfont-ttf.css') format('truetype'), url('thegreatescape-webfont-svg.css#TheGreatEscapeRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-body.qdb-vtexcommercestable-com-br,
-body.www-quemdisseberenice-com-br {
-    font-family: 'Museo Sans', sans-serif;
-}
-
-body.eudora-vtexcommercestable-com-br {
-    font-family: 'MyriadPro-BoldCond', sans-serif;
-}
+// body.eudora-vtexcommercestable-com-br {
+//     font-family: 'MyriadPro-BoldCond', sans-serif;
+// }
 
 body.www-quemdisseberenice-com-br .cart-template-holder *,
 body.www-quemdisseberenice-com-br .cart-select-gift-placeholder *,
@@ -44,7 +20,7 @@ body.www-quemdisseberenice-com-br .summary-template-holder * {
 body.qdb-vtexcommercestable-com-br .cart-template-holder *,
 body.qdb-vtexcommercestable-com-br .cart-select-gift-placeholder *,
 body.qdb-vtexcommercestable-com-br .summary-template-holder * {
-    font-size: 12px!important;
+    font-size: 12px !important;
 }
 
 body.www-quemdisseberenice-com-br .cart-template-holder *,
@@ -53,11 +29,11 @@ body.www-quemdisseberenice-com-br .summary-template-holder * {
     font-size: 12px;
 }
 
-body.eudora-vtexcommercestable-com-br .cart-template-holder *,
-body.eudora-vtexcommercestable-com-br .cart-select-gift-placeholder *,
-body.eudora-vtexcommercestable-com-br .summary-template-holder * {
-    font-size: 14px!important;
-}
+// body.eudora-vtexcommercestable-com-br .cart-template-holder *,
+// body.eudora-vtexcommercestable-com-br .cart-select-gift-placeholder *,
+// body.eudora-vtexcommercestable-com-br .summary-template-holder * {
+//     font-size: 14px!important;
+// }
 
 .cart-template-holder *,
 .cart-select-gift-placeholder *,
@@ -365,23 +341,43 @@ body + object {
 .vtex-front-messages-placeholder {
     background: $qdb-grey-l !important;
     box-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
+    border-radius: .2em;
     color: $qdb-grey !important;
     border: none !important;
+    margin: 10px;
+    max-width: 100%;
+    align-items: center;
+    @include sans(1em, $grey, 400, initial);
+
+    &.vtex-front-messages-placeholder-opened{
+        display: flex !important;
+        // transform: scaleY(1) translateX(-50%) !important;
+    }
+
+    &:before{
+        content: '';
+        background-image: url("/arquivos/icon_alert.svg.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 10px;
+        display: block;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.vtex-front-messages-template.vtex-front-messages-type-warning{
+    border: none;
 }
 
 .vtex-front-messages-placeholder .vtex-front-messages-detail {
-    color: #fc3d5a!important;
-    font-family: 'TheGreatEscape';
+    color: $grey !important;
+    font-family: 'WorkSans-Regular';
     font-size: 16px;
 }
 
 .vtex-front-messages-placeholder .close {
-    color: #fc3d5a!important;
+    color: $grey !important;
     opacity: .9;
     -moz-opacity: .9;
     -webkit-opacity: .9;
@@ -404,7 +400,7 @@ body + object {
 .body-order-placed h1.title {
     font-size: 24px;
     margin-bottom: 0px!important;
-    color: #FB515E;
+    color: $secundary;
 }
 
 .order-info .section-info-title {
@@ -457,7 +453,7 @@ body + object {
 .coupon-fieldset .input-small {
     /* width: 67%; */
     border: 2px solid #E5E5E5;
-    border-radius: 7px!important;
+    border-radius: .2em!important;
     text-transform: uppercase;
     padding: 12px 20px;
 }
@@ -465,7 +461,7 @@ body + object {
     .coupon-fieldset .input-small {
         width: 40%;
         border: 2px solid #E5E5E5;
-        border-radius: 7px!important;
+        border-radius: .2em!important;
         text-transform: uppercase;
         padding: 12px 20px;
     }
