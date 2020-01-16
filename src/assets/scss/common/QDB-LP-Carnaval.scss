@@ -1,0 +1,154 @@
+.videoContainer{
+    background: url(/arquivos/banner-carnaval.jpg) no-repeat;
+    background-size: cover;
+    height: 34vw;
+    
+}
+
+.videoContainer__text{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    margin-left: 70px;
+
+    h2{color: #fff;}
+    h2:first-child{
+        font-weight: bold;
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+    h2:nth-child(2){
+        font: normal normal normal 20px/1 Helvetica, arial, sans-serif;
+        text-align: center;
+        background: #000;
+        display: inline-block;
+        padding: 3px 15px;
+        width: fit-content;
+        font-size: 24px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }   
+}
+
+.makeContainer{
+    height: auto;
+}
+
+.makeContainer__text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    margin-left: 40px;
+    width: 90%;
+
+    h2:first-child{
+        font-size: 36px;
+        color: #232222;
+        letter-spacing: 0;
+        margin-bottom: 15px; 
+    }
+    h2:last-child{
+        font-size: 18px;
+        color: #232222;
+        letter-spacing: 0;
+        line-height: 20px;
+    }
+}
+
+.makeCard{
+    height: 20vw;       
+    padding: 100px;
+    position: relative;
+    z-index: 2;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    
+    h1,h2, span{
+        color: #FFF;
+        position: relative;
+        z-index: 2;
+    }
+    h1{        
+        font-size: 29px;
+        margin-bottom: 20px;
+    }
+    h2{
+        margin-bottom: 30px;
+    }
+    span{
+        font-size: 16px;
+    }
+}
+
+.glitter{
+    background: url(/arquivos/banner-glitter.png) no-repeat;
+    background-size: cover;
+    &::after{
+        z-index: -1;
+        position: absolute;
+        content: '';
+        display: block;
+        width: 48%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(18,35,18,0.5);
+    }
+    h1{
+        
+    }
+}
+
+.locao{
+    background: url(/arquivos/banner-locao-glitter.png) no-repeat;
+    background-size: cover;
+    flex-direction: row-reverse;
+    &::after{
+        z-index: -1;
+        position: absolute;
+        content: '';
+        display: block;
+        width: 50%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background: rgba(18,35,18,0.5);
+    }
+}
+
+.sombra{
+    background: url(/arquivos/banner-sombra.png) no-repeat;
+    background-size: cover;
+    &::after{
+        z-index: -1;
+        position: absolute;
+        content: '';
+        display: block;
+        width: 48%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(18,35,18,0.5);
+    }    
+}
+
+.makeCard__button{
+    background-color: #fff;
+    color: #000;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+
