@@ -443,6 +443,27 @@
     }
 }
 
+.icon-none 
+    .glossary__item__container .icon{
+    display: none;
+}
+
+.icon-none
+    .glossary__item__container {
+        .minus-icon{
+            display: block;
+    }
+}
+
+.minus-icon{
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.minus-icon{
+    display: none;
+}
+
 .hidden{
     display: none;
 }
@@ -647,6 +668,9 @@
     font-size: 26px;
     font-weight: bold;
 }
+
+
+
 
 .cls-1{
     fill: transparent;

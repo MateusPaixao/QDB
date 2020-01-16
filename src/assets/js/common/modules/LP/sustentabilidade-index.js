@@ -48,16 +48,31 @@ const Methods = {
   },
 
   toggleClass(){
-        const faq = document.getElementsByClassName("glossary__item")
-        for (var i = 0; i < faq.length; i++) {
-            faq[i].addEventListener("click", function() {
+        // const faq = document.getElementsByClassName("glossary__item")
+        // for (var i = 0; i < faq.length; i++) {
+        //     faq[i].addEventListener("click", function() {
+        //         for (var i = 0; i < faq.length; i++) {
+        //             faq[i].className = faq[i].className.replace(" active", "");      
+        //             faq[i].className = faq[i].className.replace(" icon-none", "");               
+        //         }
+        //         this.className += " active icon-none";
+        //         // var splt = this.className.split(' ')
 
-                for (var i = 0; i < faq.length; i++) {
-                    faq[i].className = faq[i].className.replace(" active", "");
-                }
-                this.className += " active";
-            });
-        }
+        //         // if(splt[1] == 'active'){
+        //         //     // this.className = " icon-none"
+        //         //     this.classList.remove("active");
+        //         //     this.classList.remove("icon-none");
+        //         //     console.log('abri dnv')
+        //         // }
+        //     });
+        // }
+
+
+        $('.glossary__item').on('click', function(){
+            $(this).toggleClass("active icon-none")
+        })
+
+        //toggle class Jquery
     },
 }
 
