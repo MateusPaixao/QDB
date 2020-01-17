@@ -4,28 +4,19 @@ class makeContainer extends React.Component{
         this.state = {
             card: [
                 {
-                    image: '/arquivos/ultra-glitter.png',
-                    banner: '',
-                    name: 'Ultra Glitter Multiuso',
-                    description: 'Com tecnologia inovadora, é fácil de aplicar e de retirar.',
-                    price: 'R$20,00',
-                    class: 'glitter'
+                    image: '/arquivos/make-1.jpg',                    
+                    name: 'Pra brilhar na festa',
+                    description: 'Quer brilhar muito neste carnaval?  Faça sua maquiagem com um de nossos especialistas e saia de nossa loja direto pra festa.',
                 },
                 {
-                    image: '/arquivos/locao-glitter.png',
-                    banner: '',
-                    name: 'Loção Glitter',
-                    description: 'Tá na dúvida de onde brilhar? Brilha no corpo todo.',
-                    price: 'R$20,00',
-                    class: 'locao'
+                    image: '/arquivos/make-2.jpg',                    
+                    name: 'Pra chegar chegando',
+                    description: 'Sabe aquela maquiagem que é colorida e elegante ao mesmo tempo? Agende um horário com o Menu de Makes e encha seu carnaval de cor.',
                 },
                 {
-                    image: '/arquivos/sombra-refil.png',
-                    banner: '',
-                    name: 'Sombra Refil',
-                    description: 'Duas novas cores vibrantes que faltavam na sua paleta.',
-                    price: 'R$20,00',
-                    class: 'sombra'
+                    image: '/arquivos/make-3.jpg',                    
+                    name: 'Pra acertar na folia',
+                    description: 'Faça aquela maquiagem que é a cara do Carnaval, e claro, sua cara também. Agende seu horário com um de nossos especialistas.',
                 }
             ]
         }
@@ -36,29 +27,47 @@ class makeContainer extends React.Component{
     }
 
     render(){        
-        
+        console.log(this.state.card)
         return(
             <div className="makeContainer">
-                <div className="makeContainer__text">
-                    <h2>Sua maquiagem de Carnaval está aqui!</h2>
-                    <h2>Conheça nossos lançamentos e curta a folia com a tranquilidade de quem sabe que vai conseguir tirar todo o glitter do corpo.</h2>
+                <div className="productContainer__text">
+                    <h2>Conheça nosso Menu de Makes especial de Carnaval.</h2>
+                    <h2>Pra entrar ainda mais no clima de festa, você escolhe o look e a gente faz.</h2>
                 </div>      
 
-                 {
+                <div className="makeContainer__product">
+                {
+                    this.state.card.map((card) => 
+                    
+                        <div className="makeContainer__individual">
+                            <div className="makeContainer__individual__image">
+                                <img src={card.image} alt="" srcset=""/>
+                            </div>
+
+                            <div className="makeContainer__individual__info">
+
+                            </div>
+
+                        </div>
+                    
+                    )}
+                </div>
+
+                 {/* {
                      this.state.card.map((card) => 
-                        <div className={`makeCard ${card.class}`}>
+                        <div className={`productCard ${card.class}`}>
                             <div>
                                 <h1>{card.name}</h1>
                                 <h2>{card.description}</h2>
                                 <span>{card.price}</span>
-                                <a className="makeCard__button" href="#">Comprar</a>
+                                <a className="productCard__button" href="#">Quero esse</a>
                             </div>
                             <div>
                                 <img src={card.image} alt="" srcset=""/>
                             </div>
                         </div>
                      )
-                 }
+                 } */}
                 
             </div>
         )

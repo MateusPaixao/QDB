@@ -2,7 +2,6 @@
     background: url(/arquivos/banner-carnaval.jpg) no-repeat;
     background-size: cover;
     height: 34vw;
-    margin-top: 11%;
     //margin top talvez bug
 }
 
@@ -35,11 +34,11 @@
     }   
 }
 
-.makeContainer{
+.productContainer, .makeContainer{
     height: auto;
 }
 
-.makeContainer__text{
+.productContainer__text{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,7 +60,7 @@
     }
 }
 
-.makeCard{
+.productCard{
     height: 20vw;       
     padding: 100px;
     position: relative;
@@ -139,7 +138,7 @@
     }    
 }
 
-.makeCard__button{
+.productCard__button{
     background-color: #fff;
     color: #000;
     width: 200px;
@@ -150,6 +149,22 @@
     align-items: center;
     border-radius: 8px;
     margin-top: 10px;
+}
+
+.makeContainer__product{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;;
+}
+
+.makeContainer__individual{
+    width: 470px;
+    height: 278px;
+    background: #FFFFFF;
+    box-shadow: 0 0 8px 0 rgba(0,0,0,0.20);
+    border-radius: 5px;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 

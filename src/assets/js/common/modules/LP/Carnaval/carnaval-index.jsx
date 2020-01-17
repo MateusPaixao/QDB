@@ -1,5 +1,5 @@
 import VideoContainer from "./Components/VideoContainer/videoContainer.jsx"
-// import ProductContainer from "./Components/ProductContainer/productContainer.jsx"
+import ProductContainer from "./Components/ProductContainer/productContainer.jsx"
 import MakeContainer from "./Components/MakeContainer/makeContainer.jsx"
 import {isInViewport} from "../../../global/global-index"
 
@@ -26,6 +26,7 @@ const Methods = {
                 return(
                     <div>
                         <VideoContainer />
+                        <ProductContainer />
                         <MakeContainer />
                     </div>
                 )
