@@ -45,12 +45,24 @@ class makeContainer extends React.Component{
                             </div>
 
                             <div className="makeContainer__individual__info">
+                                <h2>{card.name}</h2>
+                                <h2>{card.description}</h2>
 
+                                <a class="productCard__button makeContainer__button" href="https://www.servicosquemdisseberenice.com.br/">Agendar</a>
                             </div>
 
                         </div>
                     
                     )}
+
+                        <div className="makeContainer__individual more">
+                            <div className="makeContainer__more">
+                                <a href="https://www.quemdisseberenice.com.br/servicos">
+                                    <img src="/arquivos/plus_icon.png" alt=""/>
+                                    <h2>Saiba mais sobre o menu de makes</h2>
+                                </a>
+                            </div>
+                        </div>
                 </div>
 
                  {/* {
