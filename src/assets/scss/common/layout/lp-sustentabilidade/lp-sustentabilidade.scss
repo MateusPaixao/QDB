@@ -115,11 +115,15 @@
 
 .numeral_icon{
     display: flex;
-    margin-right: 30px;
+    margin-right: 45px;
     img{
         width: 50%;
         height: 50%;
     }
+}
+
+.second_icon{
+    margin-top: 15px;
 }
 
 //verificar opcao melhor
@@ -621,6 +625,11 @@
         padding: 23px;
         width: 40%;
         display: flex;
+    }
+
+    .numeral_icon{
+        margin-top: 0;
+        margin-right: 30px;    
     }
 
     //retirar
