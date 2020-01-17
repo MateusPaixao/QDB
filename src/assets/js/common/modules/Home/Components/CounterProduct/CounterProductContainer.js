@@ -7,7 +7,7 @@ const Methods = {
         if (document.querySelector(".w-gerador--datas") != null) {
             // Methods.fetchReviews();
             Methods.getProductInfos();
-            Methods.getTopBannerColor();
+            // Methods.getTopBannerColor();
             Methods.AddToCart();
             Methods.setParentHeight();
         }
