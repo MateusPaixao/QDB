@@ -58,8 +58,8 @@ class makeContainer extends React.Component{
                         <div className="makeContainer__individual more">
                             <div className="makeContainer__more">
                                 <a href="https://www.quemdisseberenice.com.br/servicos">
-                                    <img src="/arquivos/plus_icon.png" alt=""/>
-                                    <h2>Saiba mais sobre o menu de makes</h2>
+                                    <img src="/arquivos/ver_mais.png?v=12.png" alt=""/>
+                                    <h2>Conheça as nossas outras opções</h2>
                                 </a>
                             </div>
                         </div>
