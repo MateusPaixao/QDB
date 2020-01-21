@@ -16,11 +16,11 @@
 
     p{
         color: #fff; 
-        font-size: 18px;
+        font-size: 1.3em;
     }
     h1:first-child{
         font-weight: bold;
-        font-size: 36px;
+        font-size: 2.7em;
         margin-bottom: 5px;
         color: #FFF;
     }
@@ -31,7 +31,7 @@
         display: inline-block;
         padding: 3px 15px;
         width: fit-content;
-        font-size: 36px;
+        font-size: 2.7em;
         text-transform: uppercase;
         margin-bottom: 10px;
         color: #FFF;
@@ -79,7 +79,7 @@
         z-index: 2;
     }
     h3{        
-        font-size: 27px;
+        font-size: 1.9em;
         margin-bottom: 20px;
     }
     p{
@@ -97,11 +97,14 @@
 
 .productCard__prices{
     display: flex;
-    flex-direction: column;
-        .pastPrice{
-            font-size: 14px;
-            text-decoration: line-through;
-    }
+        flex-direction: column;
+            .pastPrice{
+                font-size: 14px;
+                text-decoration: line-through;
+        }
+        span{
+            font-weight: bold;
+        }
 } 
 
 .glitter{
@@ -274,8 +277,16 @@
     .videoContainer__text{
         margin-left: 0;
         justify-content: flex-end;
-        height: 95%;
-        padding: 30px;
+        padding: 20px;
+    }
+
+    .videoContainer__text {
+        h1{
+            font-size: 1.7em;
+        }
+        p{
+            font-size: 1em;
+        }
     }
 
     .productCard__button{
@@ -357,7 +368,21 @@
         right: 0;
         background: rgba(18,35,18,0.5);
     }
-    .productCard__name h1:first-child{
-        border: none;
+    .productCard__name .lastName{
+        border-bottom: solid 1px #FFF;
+        margin-bottom: 15px !important;
     }
+    .productCard__name .firstName{
+        border: none !important;
+    }
+    .glitter .productCard__info .productCard__name{
+        flex-wrap: wrap;
+            h3{
+                margin-bottom: 0;
+            }
+    }
+    .productCard h3{
+        font-size: 1.6em;
+    }
+
 }

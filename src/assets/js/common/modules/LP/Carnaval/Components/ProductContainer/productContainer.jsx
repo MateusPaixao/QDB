@@ -4,9 +4,10 @@ class productContainer extends React.Component{
         this.state = {
             product1: {
                 image: '/arquivos/banner-ultra-glitter-multiuso-quem-disse-berenice.png', 
-                mobileImage: '/arquivos/glitter-mobile.png?v=12',       
-                firstName: 'Ultra ',            
-                name: ' Glitter Multiuso',
+                mobileImage: '/arquivos/glitter-mobile.png?v=12',                   
+                firstName: 'Ultra',
+                middleName: 'Glitter',
+                lastName: 'Multiuso',                
                 description: 'Com tecnologia inovadora, é fácil de aplicar e de retirar.',
                 productId: 1590,
                 link: 'https://www.quemdisseberenice.com.br/ultra-glitter-multiuso-douralix_826010/p',
@@ -54,18 +55,20 @@ class productContainer extends React.Component{
                 var prices = []       
                 var pastPrices = []  
                 data.map((price, i) => {   
-                    var actualPrice = price.items[0].sellers[0].commertialOffer.Price
-                    var oldPrice = price.items[0].sellers[0].commertialOffer.ListPrice                     
+                    var actualPrice = price.items[0].sellers[0].commertialOffer.Price.toFixed(2).toString().replace(".", ",")
+                    var oldPrice = price.items[0].sellers[0].commertialOffer.ListPrice.toFixed(2).toString().replace(".", ",")                
 
                     prices.push({price:actualPrice})
                     pastPrices.push({pastPrices: oldPrice})
                                      
-                })                   
+                })        
+                
+                console.log(pastPrices)
                 this.setState({
                     product1:[
                         this.state.product1, 
-                        prices[0],
-                        pastPrices[0]
+                        prices[2],
+                        pastPrices[2]
                     ]
                 })
 
@@ -80,8 +83,8 @@ class productContainer extends React.Component{
                 this.setState({
                     product3:[
                         this.state.product3, 
-                        prices[2],
-                        pastPrices[2]
+                        prices[0],
+                        pastPrices[0]
                     ]
                 })                
             })
@@ -100,13 +103,17 @@ class productContainer extends React.Component{
                     <div className="productCard glitter">
                         <div className="productCard__info">
                             <div className="productCard__name">
-                                <h3>{this.state.product1.length > 1 && this.state.product1[0].firstName}</h3>
+                                <h3 className="firstName">{this.state.product1.length > 1 && this.state.product1[0].firstName}</h3>
                                 <span>&nbsp;</span>
-                                <h3>{this.state.product1[0].name}</h3>
+                                <h3>{this.state.product1[0].middleName}</h3>
+                                <span>&nbsp;</span>
+                                <h3 className="lastName">{this.state.product1[0].lastName}</h3>
                             </div>
                             <p>{this.state.product1[0].description}</p>
                             <div className="productCard__prices">                            
+                            {this.state.product1[2].pastPrices != this.state.product1[1].price &&
                                 <span className="pastPrice">R${this.state.product1[2].pastPrices}</span>
+                            }
                                 <span>R${this.state.product1[1].price}</span>
                             </div>
                             <a className="productCard__button" href={this.state.product1[0].link}>Quero esse</a>
