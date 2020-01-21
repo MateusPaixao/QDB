@@ -116,3 +116,8 @@ const Methods = {
 export default {
     init: Methods.init
 }
+
+window.setTimeout(function(){
+    var bodyClass = document.body.getAttribute('class');
+    document.body.setAttribute('class',bodyClass+' iphone');
+},3000);

@@ -12,6 +12,7 @@ import {isInViewport} from '../../global/global-index'
 const Methods = {
     init() {
         BuildBanners.init();
+        console.log('ue')
         BuildInfoBar.init();
         BuildPaineis.init();
         BuildTopProducts.init();
