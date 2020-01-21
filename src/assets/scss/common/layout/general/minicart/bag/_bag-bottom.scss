@@ -13,12 +13,13 @@
       &--show{
         display: flex;
         opacity: 1;
+        padding-top: 10px;
       }
 
       &-left,&-right{
+        @include sans(inherit, $danger, 800, initial);
         font-size: calc(17rem/16);
         width: 40%;
-        color: #CF8484;
       }
       &-right{
         text-align: right;
@@ -30,10 +31,11 @@
       &-left,&-right{
         font-size: calc(18rem/16);
         width: 40%;
+        font-weight: 800;
       }
       &-right{
         color: $bag-color-secondary;
-        font-weight: bold;
+        font-weight: 800;
         text-align: right;
       }
     }
