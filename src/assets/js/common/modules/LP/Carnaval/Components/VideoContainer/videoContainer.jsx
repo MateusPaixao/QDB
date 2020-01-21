@@ -13,9 +13,9 @@ class videoContainer extends React.Component{
         return(
             <div className="videoContainer">
                 <div className="videoContainer__text">
-                    <h2>Arrase nesse</h2>
-                    <h2>Carnaval</h2>
-                    <h2>Aprenda a fazer sua make com <br/> as cores tendências nesse Carnaval.</h2>
+                    <h1>Arrase nesse</h1>
+                    <h1>Carnaval</h1>
+                    <p>Aprenda a fazer sua make com <br/> as cores tendências nesse Carnaval.</p>
                 </div>
             </div>
         )

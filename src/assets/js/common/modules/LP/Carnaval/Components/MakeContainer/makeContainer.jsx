@@ -6,16 +6,22 @@ class makeContainer extends React.Component{
                 {
                     image: '/arquivos/make-1.jpg',                    
                     name: 'Pra brilhar na festa',
+                    alt: 'Banner passo a passo carnaval quem disse, Berenice?',
+                    title: 'passo a passo carnaval quem disse, Berenice?',
                     description: 'Quer brilhar muito neste carnaval?  Faça sua maquiagem com um de nossos especialistas e saia de nossa loja direto pra festa.',
                 },
                 {
                     image: '/arquivos/make-2.jpg',                    
                     name: 'Pra chegar chegando',
+                    alt: 'Banner passo a passo carnaval quem disse, Berenice?',
+                    title: 'passo a passo carnaval quem disse, Berenice?',
                     description: 'Sabe aquela maquiagem que é colorida e elegante ao mesmo tempo? Agende um horário com o Menu de Makes e encha seu carnaval de cor.',
                 },
                 {
                     image: '/arquivos/make-3.jpg',                    
                     name: 'Pra acertar na folia',
+                    alt: 'Banner passo a passo carnaval quem disse, Berenice?',
+                    title: 'passo a passo carnaval quem disse, Berenice?',
                     description: 'Faça aquela maquiagem que é a cara do Carnaval, e claro, sua cara também. Agende seu horário com um de nossos especialistas.',
                 }
             ]
@@ -32,7 +38,7 @@ class makeContainer extends React.Component{
             <div className="makeContainer">
                 <div className="productContainer__text">
                     <h2>Conheça nosso Menu de Makes especial de Carnaval.</h2>
-                    <h2>Pra entrar ainda mais no clima de festa, você escolhe o look e a gente faz.</h2>
+                    <p>Pra entrar ainda mais no clima de festa, você escolhe o look e a gente faz.</p>
                 </div>      
 
                 <div className="makeContainer__product">
@@ -41,12 +47,12 @@ class makeContainer extends React.Component{
                     
                         <div className="makeContainer__individual">
                             <div className="makeContainer__individual__image">
-                                <img src={card.image} alt="" srcset=""/>
+                                <img src={card.image} alt={card.alt} title={card.title}/>
                             </div>
 
                             <div className="makeContainer__individual__info">
-                                <h2>{card.name}</h2>
-                                <h2>{card.description}</h2>
+                                <h3>{card.name}</h3>
+                                <p>{card.description}</p>
 
                                 <a class="productCard__button makeContainer__button" href="https://www.servicosquemdisseberenice.com.br/">Agendar</a>
                             </div>
@@ -63,24 +69,7 @@ class makeContainer extends React.Component{
                                 </a>
                             </div>
                         </div>
-                </div>
-
-                 {/* {
-                     this.state.card.map((card) => 
-                        <div className={`productCard ${card.class}`}>
-                            <div>
-                                <h1>{card.name}</h1>
-                                <h2>{card.description}</h2>
-                                <span>{card.price}</span>
-                                <a className="productCard__button" href="#">Quero esse</a>
-                            </div>
-                            <div>
-                                <img src={card.image} alt="" srcset=""/>
-                            </div>
-                        </div>
-                     )
-                 } */}
-                
+                </div>                
             </div>
         )
     }

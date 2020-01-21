@@ -3,17 +3,19 @@ class productContainer extends React.Component{
         super(props)
         this.state = {
             product1: {
-                image: '/arquivos/ultra-glitter.png', 
+                image: '/arquivos/banner-ultra-glitter-multiuso-quem-disse-berenice.png', 
                 mobileImage: '/arquivos/glitter-mobile.png?v=12',       
                 firstName: 'Ultra ',            
                 name: ' Glitter Multiuso',
                 description: 'Com tecnologia inovadora, é fácil de aplicar e de retirar.',
                 productId: 1590,
                 link: 'https://www.quemdisseberenice.com.br/ultra-glitter-multiuso-douralix_826010/p',
+                alt: 'Banner ultra glitter multiuso quem disse, Berenice?',
+                title: 'ultra glitter multiuso quem disse, Berenice?'
                 
             },
             product2: {
-                image: '/arquivos/locao-glitter.png',    
+                image: '/arquivos/banner-locao-glitter-quem-disse-berenice.png',    
                 mobileImage: '/arquivos/locao-glitter-mobile.png?v=1231',            
                 firstName: 'Loção ',            
                 name: ' Glitter',
@@ -21,6 +23,8 @@ class productContainer extends React.Component{
                 productId: 1578,
                 class: 'locao',
                 link: 'https://www.quemdisseberenice.com.br/locao-desodorante-hidratante-corporal-com-glitter-douradex_826006/p',
+                alt: 'Banner loção glitter quem disse, Berenice?',
+                title: 'loção glitter quem disse, Berenice?',
                 
             },
             product3: {
@@ -89,18 +93,18 @@ class productContainer extends React.Component{
             <div className="productContainer">
                 <div className="productContainer__text">
                     <h2>Sua maquiagem de Carnaval está aqui!</h2>
-                    <h2>Conheça nossos lançamentos e curta a folia com a tranquilidade de quem sabe que vai conseguir tirar todo o glitter do corpo.</h2>
+                    <p>Conheça nossos lançamentos e curta a folia com a tranquilidade de quem sabe que vai conseguir tirar todo o glitter do corpo.</p>
                 </div>      
 
                 {this.state.product1.length > 1 &&
                     <div className="productCard glitter">
                         <div className="productCard__info">
                             <div className="productCard__name">
-                                <h1>{this.state.product1.length > 1 && this.state.product1[0].firstName}</h1>
+                                <h3>{this.state.product1.length > 1 && this.state.product1[0].firstName}</h3>
                                 <span>&nbsp;</span>
-                                <h1>{this.state.product1[0].name}</h1>
+                                <h3>{this.state.product1[0].name}</h3>
                             </div>
-                            <h2>{this.state.product1[0].description}</h2>
+                            <p>{this.state.product1[0].description}</p>
                             <div className="productCard__prices">                            
                                 <span className="pastPrice">R${this.state.product1[2].pastPrices}</span>
                                 <span>R${this.state.product1[1].price}</span>
@@ -108,8 +112,8 @@ class productContainer extends React.Component{
                             <a className="productCard__button" href={this.state.product1[0].link}>Quero esse</a>
                         </div>
                         <div className="productCard__image">
-                            <img className="desktopImage" src={this.state.product1[0].image} alt="" srcset=""/>
-                            <img className="mobileImage" src={this.state.product1[0].mobileImage} alt="" srcset=""/>
+                            <img className="desktopImage" src={this.state.product1[0].image} alt={this.state.product1[0].alt} title={this.state.product1[0].title}/>
+                            <img className="mobileImage" src={this.state.product1[0].mobileImage} alt={this.state.product1[0].alt} title={this.state.product1[0].title}/>
                         </div>
                     </div>
                 }
@@ -118,11 +122,11 @@ class productContainer extends React.Component{
                     <div className="productCard locao">
                         <div className="productCard__info">
                             <div className="productCard__name">
-                                <h1>{this.state.product2.length > 1 && this.state.product2[0].firstName}</h1>
+                                <h3>{this.state.product2.length > 1 && this.state.product2[0].firstName}</h3>
                                 <span>&nbsp;</span>
-                                <h1>{this.state.product2[0].name}</h1>
+                                <h3>{this.state.product2[0].name}</h3>
                             </div>
-                            <h2>{this.state.product2[0].description}</h2>
+                            <p>{this.state.product2[0].description}</p>
                             <div className="productCard__prices">
                                 {this.state.product2[2].pastPrices != this.state.product2[1].price &&
                                     <span className="pastPrice">R${this.state.product2[2].pastPrices}</span>
@@ -132,8 +136,8 @@ class productContainer extends React.Component{
                             <a className="productCard__button" href={this.state.product2[0].link}>Quero esse</a>
                         </div>
                         <div className="productCard__image">
-                            <img className="desktopImage" src={this.state.product2[0].image} alt="" srcset=""/>
-                            <img className="mobileImage" src={this.state.product2[0].mobileImage} alt="" srcset=""/>
+                            <img className="desktopImage" src={this.state.product2[0].image} alt={this.state.product2[0].alt} title={this.state.product2[0].title}/>
+                            <img className="mobileImage" src={this.state.product2[0].mobileImage} alt={this.state.product2[0].alt} title={this.state.product2[0].title}/>
                         </div>
                     </div>
                 }
@@ -142,11 +146,11 @@ class productContainer extends React.Component{
                     <div className="productCard sombra">
                         <div className="productCard__info">
                             <div className="productCard__name">
-                                <h1>{this.state.product3.length > 1 && this.state.product3[0].firstName}</h1>
+                                <h3>{this.state.product3.length > 1 && this.state.product3[0].firstName}</h3>
                                 <span>&nbsp;</span>
-                                <h1>{this.state.product3[0].name}</h1>
+                                <h3>{this.state.product3[0].name}</h3>
                             </div>
-                            <h2>{this.state.product3[0].description}</h2>
+                            <p>{this.state.product3[0].description}</p>
                             <div className="productCard__prices">
                             {this.state.product3[2].pastPrices != this.state.product3[1].price &&
                                     <span className="pastPrice">R${this.state.product2[2].pastPrices}</span>    
