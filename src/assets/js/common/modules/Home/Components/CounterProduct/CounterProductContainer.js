@@ -20,6 +20,7 @@ const Methods = {
         fetch(url)
             .then(res => res.json())
             .then((product) => {
+                console.log(product);
                 const skuList = product[0].items;
 
                 for (const i in skuList) {
