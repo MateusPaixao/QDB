@@ -3,6 +3,10 @@ const Methods = {
         Methods.ClubeOld();
     },
     ClubeOld(){
+        let APIGrupoHeaders = {
+            "unidadeNegocio": "QDB",
+              "canalVenda": "LOJA"
+        }
         (function ($, window, document, undefined) {
             var $win = $(window);
             var $doc = $(document);
@@ -265,31 +269,21 @@ const Methods = {
                 $('#clubSignUp .loading-form').removeClass('hidden');
                 $.support.cors = true;
                 $.ajax({
-                    url: "https://botiwall.corebiz.com.br/bematech/soap/consultar",
+                    url: "https://api.grupoboticario.com.br/grb/sb/fidelidade/"+_validaCPF+"/conta?mesesVencimentos=24&client_id=cb7dd0da-226b-41bf-bb0e-770c2c54e123&client_secret=I8oT0gR6pX7mW7tW5cF8iF1tE3tW6xR5jD6sL1hG3wR0rV6bM8",
+                    // url: "https://botiwall.corebiz.com.br/bematech/soap/consultar",
                     type: "GET",
-                    data: { documentNumber: _validaCPF},
+                    headers: APIGrupoHeaders,
                     success: function (data) {
-                        var jsonData = JSON.parse(xml2json(data, ""));
-                        var status = jsonData["soap:Envelope"]["soap:Body"].ConsultaResumoClienteResponse.ConsultaResumoClienteResult.Status;
-                        var descricao = jsonData["soap:Envelope"]["soap:Body"].ConsultaResumoClienteResponse.ConsultaResumoClienteResult.Descricao;
+                        // var jsonData = JSON.parse(xml2json(data, ""));
+                        // var status = jsonData["soap:Envelope"]["soap:Body"].ConsultaResumoClienteResponse.ConsultaResumoClienteResult.Status;
+                        // var descricao = jsonData["soap:Envelope"]["soap:Body"].ConsultaResumoClienteResponse.ConsultaResumoClienteResult.Descricao;
         
                         console.log(data);
-                        console.info('>>>>> searchFidelidade >>>>> status >>>>>>>>> ' + status);
-                        console.info('>>>>> searchFidelidade >>>>> descricao >>>>>>>' + descricao);
+                        // console.info('>>>>> searchFidelidade >>>>> status >>>>>>>>> ' + status);
+                        // console.info('>>>>> searchFidelidade >>>>> descricao >>>>>>>' + descricao);
         
                         $("#clubSignUp .loading-form .texto-validacao").text("Validando CPF...");
-                        if (status == 3288334563) {
-                            $("#clubSignUp .loading-form .texto-validacao").text("CPF Válido.");
-                            $("#clubSignUp .loading-form .input-bar").css("background-color", "#00E13F");
-                            $("#clubSignUp .loading-form #loader").css("display", "none");
-                            $("#clubSignUp .loading-form #checked").css("display", "initial");
-                            setTimeout(() => {
-                                $("#clubSignUp .step-2").removeClass("hidden");
-                                $("#clubSignUp .loading-form").addClass("hidden");
-                                $("#clubSignUp .loading-form .input-bar").css("background-color", "#00A7E1");
-                                $("#clubSignUp .modal-top .name").text("Cadastro 2/3");
-                            }, 1500);
-                        } else if (status == 0) {
+                        if (data.conta) {
                             $("#clubSignUp .loading-form .texto-validacao").text("CPF já cadastrado...tente novamente");
                             $("#clubSignUp .loading-form .input-bar").css("background-color", "#e1bb00");
                             setTimeout(() => {
@@ -298,10 +292,20 @@ const Methods = {
                                 $("#clubSignUp .loading-form .input-bar").css("background-color", "#00A7E1");
                                 $("#clubSignUp .modal-top .name").text("Cadastro 1/3");
                             }, 1000);
+                        } else {
                         }
                     },
                     error: function (error) {
-                        console.error(error);
+                        $("#clubSignUp .loading-form .texto-validacao").text("CPF Válido.");
+                        $("#clubSignUp .loading-form .input-bar").css("background-color", "#00E13F");
+                        $("#clubSignUp .loading-form #loader").css("display", "none");
+                        $("#clubSignUp .loading-form #checked").css("display", "initial");
+                        setTimeout(() => {
+                            $("#clubSignUp .step-2").removeClass("hidden");
+                            $("#clubSignUp .loading-form").addClass("hidden");
+                            $("#clubSignUp .loading-form .input-bar").css("background-color", "#00A7E1");
+                            $("#clubSignUp .modal-top .name").text("Cadastro 2/3");
+                        }, 1500); 
                     }
                 });
             }
@@ -796,65 +800,65 @@ const Methods = {
             var dataNascimento = _dataObject.birthDate.split('/')[2].toString() + '/'+ _dataObject.birthDate.split('/')[1].toString() + '-' + _dataObject.birthDate.split('/')[0].toString();
             var telFidelidade = _dataObject.phone.split(')')[0].replace('(', '') + _dataObject.phone.split(')')[1].replace('(', '').replace('-','');
         
-            // var data1 = {"consumidor": {
-            //     "contatos":    [
-            //              {
-            //           "valor": _dataObject.email,
-            //           "tipoContato": "EMAIL"
-            //        },
-            //              {
-            //           "valor": telFidelidade.replace(' ',''),
-            //           "tipoContato": "TELEFONE_CELULAR"
-            //        }
-            //     ],
-            //     "contatosTelefonico": [],
-            //     "documentos": [   {
-            //        "valor": _dataObject.document,
-            //        "tipoDocumento": "CPF"
-            //     }],
-            //     "nome": _dataObject.firstName.split(' ')[0],
-            //     "sobrenome": _dataObject.lastName,
-            //     "dataNascimento": dataNascimento.replace('/','-'),
-            //     "sexo": idSexoSelected.toUpperCase(),
-            //     "enderecos": [   {
-            //        "logradouro": "",
-            //        "numero": "",
-            //        "cep": "",
-            //        "bairro": "",
-            //        "complemento": "",
-            //        "cidade":       {
-            //           "nome": "",
-            //           "estado": {"abreviacao": ""}
-            //        }
-            //     }]
-            // }}
+            var data = {"consumidor": {
+                "contatos":    [
+                         {
+                      "valor": _dataObject.email,
+                      "tipoContato": "EMAIL"
+                   },
+                         {
+                      "valor": telFidelidade.replace(' ',''),
+                      "tipoContato": "TELEFONE_CELULAR"
+                   }
+                ],
+                "contatosTelefonico": [],
+                "documentos": [   {
+                   "valor": _dataObject.document,
+                   "tipoDocumento": "CPF"
+                }],
+                "nome": _dataObject.firstName.split(' ')[0],
+                "sobrenome": _dataObject.lastName,
+                "dataNascimento": dataNascimento.replace('/','-'),
+                "sexo": idSexoSelected.toUpperCase(),
+                "enderecos": [   {
+                   "logradouro": "",
+                   "numero": "",
+                   "cep": "",
+                   "bairro": "",
+                   "complemento": "",
+                   "cidade":       {
+                      "nome": "",
+                      "estado": {"abreviacao": ""}
+                   }
+                }]
+            }}
         
-            var data = {
-                'document': _dataObject.document,
-                'name': _dataObject.firstName.split(' ')[0],
-                'lastName': _dataObject.lastName,
-                'birthday': {
-                    'day': _dataObject.birthDate.split('/')[0].toString(),
-                    'month': _dataObject.birthDate.split('/')[1].toString(),
-                    'year': _dataObject.birthDate.split('/')[2].toString()
-                },
-                'phone': {
-                    'ddd': _dataObject.phone.split(')')[0].replace('(', ''),
-                    'number': _dataObject.phone.split(')')[1].replace('(', '').replace('-','')
-                },
-                'email': _dataObject.email,
-                'TipoCliente': 1,
-                'atualiza': atualiza,
-                'datetime': {
-                    'day': todayDay,
-                    'month': todayMonth,
-                    'year': todayYear,
-                    'hour': todayHours,
-                    'minute': todayMinutes,
-                    'second': todaySeconds
-                },
-                'EnviaComunicacao': document.querySelector('input[name="terms"]').checked
-            };
+            // var data = {
+            //     'document': _dataObject.document,
+            //     'name': _dataObject.firstName.split(' ')[0],
+            //     'lastName': _dataObject.lastName,
+            //     'birthday': {
+            //         'day': _dataObject.birthDate.split('/')[0].toString(),
+            //         'month': _dataObject.birthDate.split('/')[1].toString(),
+            //         'year': _dataObject.birthDate.split('/')[2].toString()
+            //     },
+            //     'phone': {
+            //         'ddd': _dataObject.phone.split(')')[0].replace('(', ''),
+            //         'number': _dataObject.phone.split(')')[1].replace('(', '').replace('-','')
+            //     },
+            //     'email': _dataObject.email,
+            //     'TipoCliente': 1,
+            //     'atualiza': atualiza,
+            //     'datetime': {
+            //         'day': todayDay,
+            //         'month': todayMonth,
+            //         'year': todayYear,
+            //         'hour': todayHours,
+            //         'minute': todayMinutes,
+            //         'second': todaySeconds
+            //     },
+            //     'EnviaComunicacao': document.querySelector('input[name="terms"]').checked
+            // };
         
             // myHeaders = new Headers({
             //     "unidadenegocio": "QDB",
@@ -870,48 +874,67 @@ const Methods = {
             // .catch((err)=>console.log(err))
         
             $.ajax({
-                url: "https://botiwall.corebiz.com.br/bematech/soap/cadastrar",
-                type: "GET",
+                // url: "https://botiwall.corebiz.com.br/bematech/cadastrar/"+_dataObject.document,
+                url: "https://api.grupoboticario.com.br/grb/sb/fidelidade/"+_dataObject.document+"/cadastro?client_id=cb7dd0da-226b-41bf-bb0e-770c2c54e123&client_secret=I8oT0gR6pX7mW7tW5cF8iF1tE3tW6xR5jD6sL1hG3wR0rV6bM8",
+                type: "POST",
+                headers: APIGrupoHeaders,
                 data: { data: JSON.stringify(data)},
-                success: function (data) {
-                    if (typeof (callback) === "function") callback(true, data);
-        
-                    if (atualiza == true) {
-                        $("#clubSignUp .loading-form .texto-validacao").text("Já cadastrado, dados atualizados");
-                        $("#clubSignUp .loading-form .input-bar").css("background-color", "#00E13F");
-                        $("#clubSignUp .loading-form #loader").css("display", "none");
-                        $("#clubSignUp .loading-form #checked").css("display", "initial");
-                        setTimeout(() => {
-                            _msgSuccess();
-                        }, 2000);
-                    } else {
-                        $.ajax({
-                            url: "https://botiwall.corebiz.com.br/bematech/soap/confirmar",
-                            type: "GET",
-                            data: { documentNumber: _dataObject.document},
-                            success: function (msg) {
-                                $("#clubSignUp .loading-form .texto-validacao").text("Dados Gravados 2/2");
-                                $("#clubSignUp .loading-form .input-bar").css("background-color", "#00E13F");
-                                $("#clubSignUp .loading-form #loader").css("display", "none");
-                                $("#clubSignUp .loading-form #checked").css("display", "initial");
-                                setTimeout(function(){
-                                    _msgSuccess();
-                                }, 2000);
-                                console.log(msg.documentElement.textContent);
-                            },
-                            error: function (msg) {
-                                console.info('>>>>>>>>>>>>>> confirmação');
-                                console.log(">>>>>>>>>>>>>>> falha para confirmar o cadastro");
-                                hideLoader();
-                                return false;
-                            }
-                        });
-                    }
+                success: function (msg) {
+                    console.log(msg)
+                    $("#clubSignUp .loading-form .texto-validacao").text("Dados Gravados 2/2");
+                    $("#clubSignUp .loading-form .input-bar").css("background-color", "#00E13F");
+                    $("#clubSignUp .loading-form #loader").css("display", "none");
+                    $("#clubSignUp .loading-form #checked").css("display", "initial");
+                    setTimeout(function(){
+                        _msgSuccess();
+                    }, 2000);
+                    // console.log(msg.documentElement.textContent);
                 },
-                error: function (error) {
-                    console.log(error);
-                    if (typeof (callback) === "function") callback(false, error);
+                error: function (msg) {
+                    console.info(msg);
+                    console.log(">>>>>>>>>>>>>>> falha para cadastrar");
+                    // hideLoader();
+                    return false;
                 }
+                // success: function (data) {
+                //     if (typeof (callback) === "function") callback(true, data);
+        
+                //     if (atualiza == true) {
+                //         $("#clubSignUp .loading-form .texto-validacao").text("Já cadastrado, dados atualizados");
+                //         $("#clubSignUp .loading-form .input-bar").css("background-color", "#00E13F");
+                //         $("#clubSignUp .loading-form #loader").css("display", "none");
+                //         $("#clubSignUp .loading-form #checked").css("display", "initial");
+                //         setTimeout(() => {
+                //             _msgSuccess();
+                //         }, 2000);
+                //     } else {
+                //         $.ajax({
+                //             url: "https://botiwall.corebiz.com.br/bematech/soap/confirmar",
+                //             type: "GET",
+                //             data: { documentNumber: _dataObject.document},
+                //             success: function (msg) {
+                //                 $("#clubSignUp .loading-form .texto-validacao").text("Dados Gravados 2/2");
+                //                 $("#clubSignUp .loading-form .input-bar").css("background-color", "#00E13F");
+                //                 $("#clubSignUp .loading-form #loader").css("display", "none");
+                //                 $("#clubSignUp .loading-form #checked").css("display", "initial");
+                //                 setTimeout(function(){
+                //                     _msgSuccess();
+                //                 }, 2000);
+                //                 console.log(msg.documentElement.textContent);
+                //             },
+                //             error: function (msg) {
+                //                 console.info('>>>>>>>>>>>>>> confirmação');
+                //                 console.log(">>>>>>>>>>>>>>> falha para confirmar o cadastro");
+                //                 hideLoader();
+                //                 return false;
+                //             }
+                //         });
+                //     }
+                // },
+                // error: function (error) {
+                //     console.log(error);
+                //     if (typeof (callback) === "function") callback(false, error);
+                // }
             });
         }
         $(document).ready(function () {
