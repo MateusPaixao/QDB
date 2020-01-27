@@ -30,6 +30,7 @@ const Methods = {
             idProduto: document.querySelector('.w-gerador--text.idproduto').value,
             idSku: document.querySelector('.w-gerador--text.idsku').value,
             titulo: document.querySelector('.w-gerador--text.title').value,
+            color: document.querySelector(".w-gerador--color").value,
             texto: document.querySelector('.w-gerador--text.text').value,
             tituloSad: document.querySelector('.w-gerador--text.title-sad').value,
             textoSad: document.querySelector('.w-gerador--text.text-sad').value,
@@ -62,15 +63,15 @@ const Methods = {
             </div>
             <div class="w-product--contador">
                 <div class="w-product--contador--timer">
-                    <span class="w-product--contador--timer--time --hours">0</span>
+                    <span style="color: ${Attributes.color}" class="w-product--contador--timer--time --hours">0</span>
                     <small class="w-product--contador--timer--small hora">horas</small>
                 </div>
                 <div class="w-product--contador--timer">
-                    <span class="w-product--contador--time --minutes">0</span>
+                    <span style="color: ${Attributes.color}" class="w-product--contador--time --minutes">0</span>
                     <small class="w-product--contador--timer--small min">minutos</small>
                 </div>
                 <div class="w-product--contador--timer">
-                    <span class="w-product--contador--time --segundos">0</span>
+                    <span style="color: ${Attributes.color}" class="w-product--contador--time --segundos">0</span>
                     <small class="w-product--contador--timer--small seg">segundos</small>
                 </div>
             </div>
@@ -78,7 +79,7 @@ const Methods = {
         <article class="w-product--infos">
         <div class="w-product--wrapper">
             <div class="w-product--wrapper--relative">
-                <span class="w-product--wrapper--flag">-0%</span>
+                <span style="background-color: ${Attributes.color}" class="w-product--wrapper--flag">-0%</span>
                 <a class="w-product--link" href="">
                     <img src="" class="w-product--wrapper--img">
                 </a>
@@ -88,8 +89,8 @@ const Methods = {
                 <a class="w-product--link" href="">
                     <p class="w-product--wrapper--infos--title"></p>
                 </a>
-                <p class="w-product--wrapper--infos--old-price"></p>
-                <p class="w-product--wrapper--infos--new-price"></p>
+                <p style="color: ${Attributes.color}" class="w-product--wrapper--infos--old-price"></p>
+                <p style="color: ${Attributes.color}" class="w-product--wrapper--infos--new-price"></p>
                 <p class="w-product--wrapper--infos--parcelamento"></p>
                 <button class="w-product--wrapper--infos--buy-button">Adicionar a Sacola</button>
                 </div>

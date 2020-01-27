@@ -7,7 +7,7 @@ const Methods = {
         if (document.querySelector(".w-gerador--datas") != null) {
             // Methods.fetchReviews();
             Methods.getProductInfos();
-            Methods.getTopBannerColor();
+            // Methods.getTopBannerColor();
             Methods.AddToCart();
             Methods.setParentHeight();
         }
@@ -20,6 +20,7 @@ const Methods = {
         fetch(url)
             .then(res => res.json())
             .then((product) => {
+                console.log(product);
                 const skuList = product[0].items;
 
                 for (const i in skuList) {

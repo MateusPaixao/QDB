@@ -346,6 +346,7 @@ body + object {
     border: none !important;
     margin: 10px;
     max-width: 100%;
+    width: initial !important;
     align-items: center;
     @include sans(1em, $grey, 400, initial);
 
