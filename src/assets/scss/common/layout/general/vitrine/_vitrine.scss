@@ -1,5 +1,17 @@
 .render-collection{
     position: relative;
+    &__loading{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+        width: 100%;
+        background: $qdb-grey-l;
+        @include sans(2em, $g-primary, 900, initial);
+        @include d("768px"){
+            margin: 0 10px;
+        }
+    }
 }
 .cardProductContainer{
     // display: flex;
@@ -269,16 +281,21 @@
                     border-radius: .2em;
                 }
                 &.__discount .cardProduct__flag__content{
-                    background: $danger;
+                    background: $error;
                     color: $w-secundary;
                 }
                 &.__Lancamento .cardProduct__flag__content{
-                    border: solid 1px $danger;
-                    color: $danger;
+                    border: solid 1px $error;
+                    color: $error;
                 }
                 &.__Outlet{
-                    border: solid 1px $danger;
-                    color: $danger;
+                    border: solid 1px $error;
+                    color: $error;
+                }
+                &.__SuperBlack{
+                    border: none;
+                    color: $blackfriday-s;
+                    background: $blackfriday-p;
                 }
             }
         }
@@ -1044,12 +1061,41 @@
     &.slider-false{
         display: flex;
         flex-flow: wrap;
+        justify-content: center;
         width: 100%;
         .cardProduct{
             min-height: 380px;
             min-width: 280px;
             width: calc(100% / 5);
             margin: 5px;
+
+            @include d("768px"){
+                width: calc(100% / 2 - 2%);
+                min-width: initial;
+                margin: 1%;
+            }
+            &__flags{
+                @include d("768px"){
+                    top: .5em;
+                    left: .5em;
+                }
+            }
+            &__flag{
+                &__content{
+                    @include d("768px"){
+                        font-size: .875em;
+                    }
+                }
+            }
+            .cardProduct__config{
+                .cardProduct__config__list{
+                    .cardProduct__config__list__item{
+                        @include d("768px"){
+                            width: calc(100% / 2.5);
+                        }
+                    }
+                }
+            }
         }
     }
 }

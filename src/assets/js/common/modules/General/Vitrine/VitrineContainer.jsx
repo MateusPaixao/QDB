@@ -15,7 +15,8 @@ const Methods = {
           Products: [],
           Vitrine: "sliderVitrine-" + idCollection,
           HasSlider: slider,
-          PerPage: itemsPP
+          PerPage: itemsPP,
+          Loaded: false
         };
 
         this.mountProducts = this.mountProducts.bind(this);
@@ -172,8 +173,9 @@ const Methods = {
             }
             request.send();
         }).then((Reviews) => {
+            console.log(Reviews);
             let ProductsFull = [];
-
+            
             const sortReviewInNest = (a, b) => {
               return a.ProductId - b.ProductId;
             }
@@ -181,34 +183,47 @@ const Methods = {
               return a.productId - b.productId;
             }
 
-            let sortedReviews = Reviews.Element.sort(sortReviewInNest),
-            sortedProducts = Products.sort(sortProductInNest);
+            let sortedProducts = Products.sort(sortProductInNest);
+
+            if(Reviews.HasErrors == false){
+              let sortedReviews = Reviews.Element.sort(sortReviewInNest)
+
+              for(let i = 0; i < sortedReviews.length; i++){
+                if(sortedProducts[i] != undefined){
+                  let Product = {};
+                  Product.info = sortedProducts[i];
+                  Product.review = sortedReviews[i];
+                  Product.skuHighlight = collection.find(o => o.Product == sortedProducts[i].productId).SkuHighlight;
+                  ProductsFull.push(Product);
+                }
+              }
+            } else {
+              for(let i = 0; i < sortedProducts.length; i++){
+                if(sortedProducts[i] != undefined){
+                  let Product = {};
+                  Product.info = sortedProducts[i];
+                  Product.review = undefined;
+                  Product.skuHighlight = collection.find(o => o.Product == sortedProducts[i].productId).SkuHighlight;
+                  ProductsFull.push(Product);
+                }
+              }
+            }
             // Remove Duplicate Reviews - IEBUG don't work
             // let uniqueReviews = Array.from(new Set(sortedReviews.map(a => a.ProductId)))
             // .map(id => {
             //   return sortedReviews.find(a => a.ProductId === id)
             // });
-            for(let i = 0; i < sortedReviews.length; i++){
-              if(sortedProducts[i] != undefined){
-                let Product = {};
-                Product.info = sortedProducts[i];
-                Product.review = sortedReviews[i];
-                Product.skuHighlight = collection.find(o => o.Product == sortedProducts[i].productId).SkuHighlight;
-                ProductsFull.push(Product);
-              }
-            }
 
-            // console.log(ProductsFull)
             this.setState({
               Products: ProductsFull
-            }, ()=>{
+            }, () => {
               if(this.state.HasSlider == true){
                 this.slider(this.state.Vitrine, this.state.PerPage);
               }
               this.isInViewport();
               console.log(this.state.Products);
             })
-        })
+        }).catch(e => console.log(e));
       }
       render() {
         const Cards = () => {
@@ -220,6 +235,9 @@ const Methods = {
           })
           return (
             <React.Fragment>
+              {this.state.Products.length == 0 &&
+                <div className="render-collection__loading set--loading">carregando...</div>
+              }
               <div className={`cardProductContainer slider-${this.state.HasSlider} ${this.state.Vitrine}`}>
                 {cards}
               </div>

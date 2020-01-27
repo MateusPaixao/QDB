@@ -191,7 +191,7 @@ const watch = () => {
   gulp.watch(paths.scripts.srcWatch, bundleScripts).on('change', browserSync.reload);
 
   gulp.watch('src/assets/scss/**/checkout6-custom.scss', checkoutStyles).on('change',browserSync.reload);
-  gulp.watch('src/assets/**/checkout6-custom.js', checkoutScripts).on('change',browserSync.reload);
+  // gulp.watch('src/assets/**/checkout6-custom.js', checkoutScripts).on('change',browserSync.reload);
 
   gulp.watch('src/views/**/*', pugtranspile).on('change',browserSync.reload);
   gulp.watch('src/views/html/*', htmls).on('change',browserSync.reload);
@@ -200,7 +200,7 @@ const watch = () => {
 }
 
 //------------------------------ Tasks -----------------------------
-const build = gulp.series(gulp.parallel(sync, minimg, minsvg, styles, bundleScripts, checkoutStyles, checkoutScripts, htmls, pugtranspile, watch));
+const build = gulp.series(gulp.parallel(sync, minimg, minsvg, styles, bundleScripts, checkoutStyles, htmls, pugtranspile, watch));
 
 // exports.pluginsJs = pluginsJs;
 // exports.clean = clean;

@@ -19,6 +19,7 @@
     width: 100%;
     // padding: $headerPadding;
     min-height: 150px;
+    max-height: 235px;
 
 
     @include d('768px') {
@@ -206,7 +207,8 @@
         -webkit-appearance: none;
 
         @include d('768px') {
-            width: 100%
+            width: 100%;
+            margin: 10px 0 15px;
         }
 
         &--input {
@@ -232,10 +234,6 @@
 
         &--btn {
             display: none;
-        }
-
-        @include d('768px') {
-            margin: 10px 0;
         }
     }
 
@@ -454,7 +452,7 @@
                     @include triangle("up", .75em, $qdb-grey-l);
                     left: 50%;
                     transform: translateX(-50%);
-                    bottom: -.1em;
+                    bottom: -.2em;
                     position: absolute;
                     z-index: 1;
                 }
@@ -558,6 +556,20 @@
                 color: $principalColor;
             }
 
+            // BlackFriday
+            &.blackfriday{
+                border: none;
+                background: $blackfriday-p;
+                color: $blackfriday-s;
+                text-shadow: 0px 0px 5px $blackfriday-s;
+                padding: 4px 4px;
+                &:hover {
+                    background-color: $blackfriday-s;
+                    color: $blackfriday-p;
+                    text-shadow: none;
+                }
+            }
+
             @include d('768px') {
                 display: none;
             }
@@ -571,15 +583,21 @@
 .iphone{
     .header__container{
         @include d('768px'){
-            margin: -30px 0px;
+            height: 100%;
+            // margin: -30px 0px;
             // overflow: hidden;
         }
     }
     .header__middle-container{
         @include d('768px'){
-            padding: -20px 0px !important;
-            margin-top: -40px;
-            margin-bottom: 20px;
+            // padding: -20px 0px !important;
+            // margin-top: -40px;
+            // margin-bottom: 20px;
+        }
+    }
+    .header__second-column{
+        @include d('768px'){
+            margin-top: -50px;
         }
     }
 }
@@ -609,7 +627,7 @@
     }
 
     .header__search {
-        width: 90%;
+        width: 100%;
     }
 
     .header__nav--especial {
@@ -640,6 +658,10 @@
         }
         .header__second-column {
             width: 70%;
+        }
+
+        .header__second-column{
+            margin-top: -10px;
         }
 
         .header__third-column {

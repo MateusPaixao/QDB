@@ -19,7 +19,13 @@ export function getiPhoneModel() {
         document.body.classList.add('iphone');
         return "iPhone X";
         // iPhone 6+/6s+/7+ and 8+
-    } else if ((window.screen.height / window.screen.width == 736 / 414) && (window.devicePixelRatio == 3)) {
+    }
+    // iPhone Xr
+    else if ((window.screen.height / window.screen.width == 896 / 414) && (window.devicePixelRatio == 2)){
+        document.body.classList.add('iphone');
+        return "iPhone Xr";
+    }
+    else if ((window.screen.height / window.screen.width == 736 / 414) && (window.devicePixelRatio == 3)) {
         switch (renderer) {
             default:
                 return "iPhone 6 Plus, 6s Plus, 7 Plus or 8 Plus";
@@ -27,6 +33,7 @@ export function getiPhoneModel() {
                 window.onload = () => {
                     window.scrollBy(0, 1);
                 }
+                
                 document.body.classList.add('iphone');
                 return "iPhone 6 Plus";
             case "Apple A9 GPU":
@@ -126,6 +133,10 @@ export function getiPhoneModel() {
     } else if ((window.screen.height / window.screen.width == 1.775) && (window.devicePixelRatio == 2)) {
         switch (renderer) {
             default:
+                // window.onload = () => {
+                //     window.scrollBy(0, 1);
+                // }
+                // document.body.classList.add('iphone');
                 return "iPhone 5, 5C, 5S, SE or 6, 6s, 7 and 8 (display zoom)";
             case "PowerVR SGX 543":
                 return "iPhone 5 or 5c";

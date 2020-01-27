@@ -6,6 +6,7 @@ import {
     removeItem,
     updateItem
 } from '../_vtexHelpers';
+import barraDeFrete from '../components/bagBarraFrete'
 
 export const bag = {
     init() {
@@ -17,13 +18,8 @@ export const bag = {
             document.body.classList.contains('produto') ? bag.open() : null;
           });
         });
-        window.onload = function(){
-            getOrder().then(function ({items,totalizers}) {
-                bag.render(items,totalizers);
-                bag.open();
-                // document.body.classList.contains('produto') ? bag.open() : null;
-            });
-        }
+        // bag.cupom();
+
     },
 
     maxQuantity: [1, 2, 3, 4, 5, 6, 7],
@@ -156,4 +152,12 @@ export const bag = {
         el.cart.classList.remove('bag--open');
         overlay.close();
     },
+    cupom() {
+        vtexjs.checkout.getOrderForm().done(function (orderForm) {
+            const title = document.querySelector('.bag-top__title')
+            const couponActive = orderForm.marketingData.coupon;
+            couponActive != null ? title.innerHTML = `Cupom ativo: <span class="bag-top__coupon">${couponActive}</span>` : title.textContent = `Minha Sacola`
+
+        })
+    }
 }

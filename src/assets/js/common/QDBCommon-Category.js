@@ -1,3 +1,3 @@
-import Departament from './modules/Departament/departament-index'
+import Search from './modules/Search/search-index'
 
-Departament.init();
+Search.init();

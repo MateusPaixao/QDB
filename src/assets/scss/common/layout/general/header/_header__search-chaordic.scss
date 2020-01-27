@@ -43,9 +43,16 @@ html {
             padding: 10px;
             @include sans(1.2em, $qdb-grey-m, 900, initial);
             cursor: pointer;
+            top: 0;
+            right: 0;
         }
     }
 
+    .ac-empty-search-error{
+        border: none !important;
+        color: #c41915;
+        background-color: transparent!important;
+    }
     .ac-overlay {
         display: none !important;
     }

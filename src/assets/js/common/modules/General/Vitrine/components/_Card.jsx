@@ -518,7 +518,7 @@ class Card extends React.Component{
               
               e.querySelector(".status--adding__actions").innerHTML = 
               `<a href="/checkout/#/cart">
-                  <span class="status--adding__actions__cart">Fechar Pedido</span>
+                  <span class="status--adding__actions__cart">Finalizar Pedido</span>
                 </a>`
                 // <span class="status--adding__actions--add">+1</span>
                 // document.querySelector(".status--adding__actions--add").addEventListener("click", () => {
@@ -585,7 +585,7 @@ class Card extends React.Component{
           }
           {this.state.Avaliable != false &&
             Object.entries(this.state.clusterHighlights).map(flag =>
-              <span className={`cardProduct__flag __${flag[1].replace("ç", "c")}`}>
+              <span className={`cardProduct__flag __${flag[1].replace("ç", "c").replace(" ", "")}`}>
                 <p className="cardProduct__flag__content">
                   {flag[1]}
                 </p>
@@ -612,15 +612,18 @@ class Card extends React.Component{
         </div>
         <a {... this.state.Adding == false ? {href: "/" + this.props.info.linkText + "/p?idsku=" + this.state.Sku.itemId} : {href: "/checkout/#/cart"}} className="cardProduct__link">
             <div className="cardProduct__pictureContainer">
-              <img className="cardProduct__pictureContainer__picture" data-src={this.state.Sku.images[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "150", "#height#": "150" , "~": ""})} loading="lazy"></img>
-              {this.props.review.TotalRatings > 0 &&
+              <img className="cardProduct__pictureContainer__picture" src={this.state.Sku.images[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "150", "#height#": "150" , "~": ""})} loading="lazy"></img>
+              {this.props.review != undefined && this.props.review.TotalRatings > 0 &&
                 <div className="cardProduct__pictureContainer__review">
                   <ul className="cardProduct__pictureContainer__review__rating">
-                    {countRating()}
+                    {this.props.review != undefined && countRating()}
                   </ul>
-                  <span className="cardProduct__pictureContainer__review__qtd">
-                    {this.props.review.TotalRatings} avaliações
-                  </span>
+                    {
+                      this.props.review != undefined && 
+                        <span className="cardProduct__pictureContainer__review__qtd">
+                            {this.props.review.TotalRatings} avaliações
+                        </span>
+                    }
                 </div>
               }
             </div>

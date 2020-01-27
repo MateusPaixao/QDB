@@ -42,12 +42,12 @@
 
         &::-webkit-scrollbar-thumb{
             border-radius: 10px;
-            background-color: $qdb-grey-l;
+            background-color: $qdb-grey;
         }
     }
 
     &__menu {
-        @include sans(1.1em, $g-primary, 900, initial);
+        @include sans(1.1em, inherit, 900, initial);
         width: 100%;
         padding: 10px 15px;
         display: flex;
@@ -78,23 +78,23 @@
         }
 
         &--items {
-            @include sans(1em, $secondaryColor, 900, initial);
+            @include sans(1em, inherit, 900, initial);
             margin-left: 20px;
             display: none;
             flex-direction: column;
         }
 
         &--department {
-            @include sans(1em, $secondaryColor, 400, initial);
+            @include sans(1em, inherit, 400, initial);
             width: 100%;
             flex-direction: column;
             text-decoration: underline;
             position: relative;
             padding: 10px 0;
 
-            &:hover {
-                background: darken($color: $principalColor, $amount: 10);
-            }
+            // &:hover {
+            //     background: darken($color: $principalColor, $amount: 10);
+            // }
 
             &.has--sub {
                 text-decoration: none;
@@ -141,12 +141,12 @@
 
         &--category {
             text-decoration: underline;
-            @include sans(1rem, $g-primary, 200, initial);
+            @include sans(1rem, inherit, 200, initial);
             padding: 5px 0;
 
-            &:hover {
-                background: darken($color: $principalColor, $amount: 10);
-            }
+            // &:hover {
+            //     background: darken($color: $principalColor, $amount: 10);
+            // }
         }
 
 
@@ -231,7 +231,7 @@
         }
 
         &--account {
-            @include sans(1em, $g-primary, 900,initial);
+            @include sans(1em, inherit, 900,initial);
             text-decoration-line: underline;
         }
 
@@ -303,7 +303,7 @@
             align-items: center;
             justify-content: center;
             height: 100%;
-            @include sans(1em, $g-primary, 400, initial);
+            @include sans(1em, inherit, 400, initial);
             width: calc(100% / 3);
             a{
                 width: 100%;

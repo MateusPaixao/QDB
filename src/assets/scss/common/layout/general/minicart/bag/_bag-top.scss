@@ -32,8 +32,8 @@
             justify-self: flex-start;
             transition: 0.5s ease-in-out;
             overflow-x: hidden;
-            background: rgb(92,167,149);
-            background: linear-gradient(90deg, rgba(92,167,149,1) 0%, rgba(44,205,167,1) 100%);
+            background: rgb(92, 167, 149);
+            background: linear-gradient(90deg, rgba(92, 167, 149, 1) 0%, rgba(44, 205, 167, 1) 100%);
 
             &--ready {
                 opacity: 1;
@@ -53,15 +53,23 @@
             top: 55%;
             left: 50%;
         }
-        &__amount{
+
+        &__amount {
             position: relative;
-            .bag-svg{
+
+            .bag-svg {
                 width: 30px;
                 height: 30px;
             }
         }
+
         &__title {
             font-size: calc(18rem/16);
+        }
+
+        &__coupon {
+            font-weight: bold;
+            text-transform: uppercase;
         }
 
         &__close {

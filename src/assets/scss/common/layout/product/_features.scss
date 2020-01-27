@@ -1,0 +1,60 @@
+
+.people-seeing{
+    // position: fixed;
+    // right: 2em;
+    // bottom: 2em;
+    color: #ee5e49;
+    // color: $w-secundary;
+    display: none;
+    align-items: center;
+    // padding: 20px 10px;
+    // z-index: 999999;
+    // border-radius: 5px;
+    // @include d("768px"){
+    //     right: 1em;
+    //     bottom: 1em;
+    //     max-width: 80%;
+    // }
+    // svg{
+    //     fill: $w-secundary;
+    //     margin-right: 10px;
+    //     width: 3rem;
+    //     height: 2rem;
+    // }
+    ._now{
+        font-size: .875em;
+    }
+    // .--close{
+    //     position: absolute;
+    //     left: -25px;
+    //     top: -10px;
+    //     background: #ee5e49;
+    //     color: $w-secundary;
+    //     padding: 2px 6px;
+    //     border-radius: 15px;
+    //     cursor: pointer;
+    // }
+}
+
+
+.addToCart__stock-left{
+    @include sans(1rem, $error, 400, normal);
+}
+
+.product-flag {
+    padding: 5px 15px;
+    margin: 5px 0 15px 0;
+    font-weight: 600;
+    color: $safflower;
+    border: 1px solid $safflower;
+    font-size: 14px;
+}
+
+.validade {
+    margin: 10px 0 5px 0;
+    span{
+        color: $error;
+        text-decoration: underline;
+        padding: 1px;
+    }
+}

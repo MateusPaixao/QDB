@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     width: 100%;
     min-height: 40px;
+    max-height: 55px;
     height: 55px;
     font-size: 1.5vw;
     padding: 5px;
@@ -35,9 +36,6 @@
       @include d('425px'){
           font-size: 1.5em;
           margin: 2px !important;
-      }
-      &.texto{
-          width: auto;
       }
     }
     &--slick{

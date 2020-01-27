@@ -1,3 +1,27 @@
+// New Color Scheme
+$primary:#FD787A;
+$secundary:#0C0C0C;
+
+$white: #FBFBFB;
+$raw-white: #FFF;
+$grey-l:#EAE6E6;
+$grey-m: #D6CECE;
+$grey: #67605F;
+$grey-d: #232222;
+$black: #0C0C0C;
+
+$success: #84CEBF;
+$error: #EF3737;
+$warning: #EFBE37;
+
+$grad-progress: linear-gradient( 0deg, #FC7577 10%, #728FD6 100%);
+
+$overlay: rgba(0,0,0, .65);
+
+$blackfriday-p: #050505;
+$blackfriday-s: #FFCB08;
+
+// Old Color Scheme
 $g-primary: #686162;
 $w-secundary: #FDFDFD;
 
@@ -9,6 +33,7 @@ $safflower: #342E37;
 $mulled: #54515B;
 $dusty: #E48562;
 $rose: #FCB79D;
+$club: #00A7E1;
 
 $success: #5CA795;
-$danger: #B11C1F;
+$danger: #EF3737;

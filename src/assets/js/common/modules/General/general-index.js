@@ -12,7 +12,7 @@ const Methods = {
         Footer.init();
         Header.init();
         TopBanner.init();
-        PriceContainer.init();
+        // PriceContainer.init();
         Methods.ServiceWorker();
         Methods.Skeleton();
         Methods.SendNewsletter();
@@ -28,6 +28,7 @@ const Methods = {
         // }
         getBrowserVendor() == "ie/trident" ? Polyfill() : "";
         getBrowserVendor() == "safari/webkit" ? document.querySelector("body").classList.add("ios") : "";
+        Methods.ValorFrete();
         Minicart.init();
         // Acessibilidade.init();
     },
@@ -57,6 +58,53 @@ const Methods = {
     //         document.querySelector(".modalRegional").classList.add("hidden");
     //     });
     // },
+    ValorFrete(){
+        const HOUR = 1000 * 60 * 30;
+        const lessThanOneHourAgo = (date) => {
+            const anHourAgo = Date.now() - HOUR;
+            console.log(anHourAgo);
+            console.log(date)
+            return date > anHourAgo;
+        }
+
+        let cookieValorFrete = getCookie("ValorFrete");
+        let cookieExpiration = getCookie("CacheExpiration");
+        
+        // Objeto com o valor de frete
+        window.valorFrete = {
+            freteInternal: 109,
+            freteListener: function(val) {},
+            set Frete(val) {
+            this.freteInternal = val;
+            this.freteListener(val);
+            },
+            get Frete() {
+            return this.freteInternal;
+            },
+            registerListener: function(listener) {
+            this.freteListener = listener;
+            }
+        }
+        // Busca encontrar o Cookie de Frete
+        if(cookieValorFrete == undefined){
+            window.valorFrete.registerListener(function(val) {
+                console.log("ValorFrete=" + val);
+                document.cookie = "ValorFrete=" + val;
+                console.log(`%cShipping Value updated to ${val} 🔮, "font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#962FBF; color: #FDFDFD;"`);
+            });
+
+        // Se existir, verifica o tempo de expiração de cache e atualiza o cookie
+        }else {
+            if(!lessThanOneHourAgo(cookieExpiration)) {
+                window.valorFrete.registerListener(function(val) {
+                    document.cookie = "ValorFrete=" + val;
+                    console.log(`%cShipping Value updated to ${val} 🔮, "font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#962FBF; color: #FDFDFD;"`);
+                });
+            }else{
+                console.log("%cShipping Value is under cache ☂️", 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#8E2BB5; color: #D890F4;');
+            }
+        }
+    },
     ServiceWorker(){
         const HOUR = 1000 * 60 * 30;
         const lessThanOneHourAgo = (date) => {
@@ -65,11 +113,11 @@ const Methods = {
             console.log(date)
             return date > anHourAgo;
         }
-        let cookieSWExpiration = getCookie("SWExpiration");
+        let cookieExpiration = getCookie("CacheExpiration");
 
         if ('serviceWorker' in navigator) {
-            if(cookieSWExpiration == undefined){
-                document.cookie = "SWExpiration=" + (new Date().getTime() + HOUR);
+            if(cookieExpiration == undefined){
+                document.cookie = "CacheExpiration=" + (new Date().getTime() + HOUR);
                 window.addEventListener('load', function() {
                     navigator.serviceWorker.register('/files/service-worker.js', { scope: '/' }).then(function(registration) {
                     // Registration was successful
@@ -79,8 +127,8 @@ const Methods = {
                     console.log('%cServiceWorker registration failed: ' + err + " 🥺🥺", 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#FC2626; color: #FDFDFD;');
                     });
                 });
-            }else if(!lessThanOneHourAgo(cookieSWExpiration)){
-                document.cookie = "SWExpiration=" + (new Date().getTime() + HOUR);
+            }else if(!lessThanOneHourAgo(cookieExpiration)){
+                document.cookie = "CacheExpiration=" + (new Date().getTime() + HOUR);
                 caches.delete('dynamicCache').then(function(boolean) {
                     console.log('%cDeleted dynamicCache', 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#5FCC47; color: #FDFDFD;');
                 });
