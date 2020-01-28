@@ -4,6 +4,7 @@
     var $win = $(window);
     var $doc = $(document);
 
+    console.log("Atualizado2");
     $doc.ready(function () { 
         // #Limpa input name on focus
         // $('#clubSignUp input#field-name').focus(function () {
@@ -628,65 +629,52 @@ function apenasNumeros(string) {
     #Varifica se cadastro existe no master data
 \* ====================================================================== */
 function searchMasterData(_dataObject) {
-    $.ajax({
-        url: 'https://botiwall.corebiz.com.br/md',
-        data: {
-            table: 'CL',
-            filter: 'email=' + _dataObject.email,
-            param: 'id'
-        },
-        type: 'GET',
-        success: function (data) {
+    // $.ajax({
+    //     url: 'https://botiwall.corebiz.com.br/md',
+    //     data: {table:'CL', filter: 'email='+_dataObject.email, param:'id'},
+    //     type: 'GET',
+    //     success: function (data) {
             // if (data.length == 0) {
-            console.info('>>>>>>>>>>>>>>>> Não possui email cadastrado no master data');
-            if (typeof (idCliente) == 'undefined') {
-                idCliente = 0;
-            }
-            insertMasterData(_dataObject, idCliente, function (resp) {
-                if (resp) {
-                    console.log("Cadastrado na CL do MD!")
+                // console.info('>>>>>>>>>>>>>>>> Não possui email cadastrado no master data');
+                // if (typeof (idCliente) === "undefined") {
+                //     idCliente = 0;
+                // }
+                // insertMasterData(_dataObject, idCliente, function (resp) {
+                //     if (resp) {
+                //         console.log("Cadastrado na CL do MD!")
+                        console.log(">>>dados");
+                        console.log(_dataObject);
+                        createFidelidade(_dataObject, '1', function (data) {
+                            console.log(">>>>create fidelidade");
+                            console.log(data);
+                            // if (bool) {
+                                // var dataAtualiza = JSON.parse(xml2json(data, ""));
 
-                    createFidelidade(_dataObject, '1', function (bool, data) {
-                        if (bool) {
-                            var dataAtualiza = JSON.parse(xml2json(data, ""));
+                                // statusAtualiza = dataAtualiza["soap:Envelope"]["soap:Body"].CriaClienteSobrenomeResponse.CriaClienteSobrenomeResult.Status;
 
-                            statusAtualiza = dataAtualiza["soap:Envelope"]["soap:Body"].CriaClienteSobrenomeResponse.CriaClienteSobrenomeResult.Status;
-
-                            if (statusAtualiza == 3288334773) {
-                                $('#clubSignUp .loading-form .texto-validacao').text("O e-mail " + _dataObject.email + " já está em uso!");
-                            } else if (statusAtualiza == 3254845440) {
-                                $('#clubSignUp .loading-form .texto-validacao').text("Ocorreu um erro no processamento, revise os dados e tente novamente!");
-                            } else if (statusAtualiza == 0) {
-                                $("#clubSignUp .loading-form .texto-validacao").text("Dados Gravados 1/2");
-                                insertMasterData(_dataObject, idCliente, function (resp) {
-                                    if (resp) {
-                                        // console.log("Response " + resp)
-                                        $("#clubSignUp .loading-form .texto-validacao").text("Dados Gravados 2/2");
-                                        setTimeout(() => {
-                                            $("#clubSignUp .loading-form .texto-validacao").html("Concluído! Em breve você receberá um e-mail confirmando seu cadastro.");
-                                            $("#clubSignUp .loading-form .input-bar").css("background-color", "#00E13F");
-                                            $("#clubSignUp .loading-form #loader").css("display", "none");
-                                            $("#clubSignUp .loading-form #checked").css("display", "initial");
-                                            setTimeout(() => {
-                                                $("#clubSignUp .step-3").removeClass("hidden");
-                                                $("#clubSignUp .loading-form").addClass("hidden");
-                                                $(".modal--beres .logo-fidelidade").insertAfter("#clubSignUp .modal-top .name");
-                                                $(".modal--beres .logo-fidelidade").css("width", "5em");
-                                                $(".modal--beres .modal-info").css("display", "none");
-                                                $("#clubSignUp .modal-top .name").text("Cadastro 3/3");
-                                            }, 2000);
-                                        }, 1500);
-                                    } else {
-                                        $('#clubSignUp .loading-form .texto-validacao').text("Dados atualizados com sucesso!");
-                                    }
-                                });
-                            }
-                        } else {
-                            $('.texto-validacao').text("Ocorreu um erro no processamento, revise os dados e tente novamente!");
-                        }
-                    });
-                }
-            });
+                                // if (statusAtualiza == 3288334773) {
+                                    // $('#clubSignUp .loading-form .texto-validacao').text("O e-mail " + _dataObject.email + " já está em uso!");
+                                // } else if (statusAtualiza == 3254845440) {
+                                    // $('#clubSignUp .loading-form .texto-validacao').text("Ocorreu um erro no processamento, revise os dados e tente novamente!");
+                                // } else if (statusAtualiza == 0) {
+                                    // insertMasterData(_dataObject, idCliente, function (resp) {
+                                    //     if (resp) {
+                                    //         console.log("Response " + resp)
+                                    //         $("#clubSignUp .loading-form .texto-validacao").text("Dados Gravados 2/2");
+                                    //         setTimeout(() => {
+                                    //             _msgSuccess();
+                                    //         }, 1500);
+                                    //     } else {
+                                    //         $('#clubSignUp .loading-form .texto-validacao').text("Dados atualizados com sucesso!");
+                                    //     }
+                                    // });
+                                // }
+                            // } else {
+                            //     $('.texto-validacao').text("Ocorreu um erro no processamento, revise os dados e tente novamente!");
+                            // }
+                        });
+                //     }
+                // });
             // } else {
             //     idCliente = data[0].id;
             //     console.info('>>>>>>>>>>>>>>>> Já possui email cadastrado no master data');
@@ -699,11 +687,11 @@ function searchMasterData(_dataObject) {
             //         $("#clubSignUp .modal-top .name").text("Cadastro 2/3");
             //     }, 3000);
             // }
-        },
-        error: function (error) {
-            console.warn(error);
-        }
-    });
+        // },
+        // error: function (error) {
+        //     console.warn(error);
+        // }
+    // });
 }
 
 /* ====================================================================== *\
@@ -828,63 +816,74 @@ function createFidelidade(_dataObject, atualiza, callback) {
     var dataNascimento = _dataObject.birthDate.split('/')[2].toString() + '/'+ _dataObject.birthDate.split('/')[1].toString() + '-' + _dataObject.birthDate.split('/')[0].toString();
     dataNascimento = new Date(dataNascimento);
     let dataNascimentoComplete = {
-        day: new Date(dataNascimento).getDate(),
-        month: new Date(dataNascimento).getMonth(),
+        day: new Date(dataNascimento).getDate() < 10 ? "0" + new Date(dataNascimento).getDate() : new Date(dataNascimento).getDate(),
+        month: (new Date(dataNascimento).getMonth() + 1) < 10 ? "0" + (new Date(dataNascimento).getMonth() + 1) : (new Date(dataNascimento).getMonth() + 1),
         year: new Date(dataNascimento).getFullYear()
     }
     var telFidelidade = _dataObject.phone.split(')')[0].replace('(', '') + _dataObject.phone.split(')')[1].replace('(', '').replace('-','');
+    console.log(telFidelidade.replace(" ", ""));
 
     var data1 = {
         "consumidor": {
-            "contatos":    [
-                    {
-                "valor": _dataObject.email,
-                "tipoContato": "EMAIL"
-            },
-                    {
-                "valor": telFidelidade.match(/\d/g),
-                "tipoContato": "TELEFONE_CELULAR"
-            }
+            "contatos": [
+                {
+                    "valor": _dataObject.email,
+                    "tipoContato": "EMAIL"
+                },
+                {
+                    "valor": telFidelidade.replace(" ", ""),
+                    "tipoContato": "TELEFONE_CELULAR"
+                }
             ],
             "contatosTelefonico": [],
-            "documentos": [   {
-            "valor": _dataObject.document,
-            "tipoDocumento": "CPF"
-            }],
+            "documentos": [
+                {
+                    "valor": _dataObject.document,
+                    "tipoDocumento": "CPF"
+                }
+            ],
             "nome": _dataObject.firstName.split(' ')[0],
             "sobrenome": _dataObject.lastName,
-            "dataNascimento": dataNascimentoComplete.year + "-" + dataNascimentoComplete.month + "-" + dataNascimentoComplete.day,
+            "dataNascimento": dataNascimentoComplete.year + "-" + dataNascimentoComplete.day + "-" + dataNascimentoComplete.month,
             "sexo": idSexoSelected.toUpperCase(),
-            "enderecos": [   {
-            "logradouro": "",
-            "numero": "",
-            "cep": "",
-            "bairro": "",
-            "complemento": "",
-            "cidade":       {
-                "nome": "",
-                "estado": {"abreviacao": ""}
-            }
-            }]
+            "enderecos": [
+                {
+                    "logradouro": "",
+                    "numero": "",
+                    "cep": "",
+                    "bairro": "",
+                    "complemento": "",
+                    "cidade": {
+                        "nome": "",
+                        "estado": {
+                            "abreviacao": ""
+                        }
+                    }
+                }
+            ]
         }
     }
 
     console.log(data1);
+    $("#clubSignUp .loading-form .texto-validacao").text("Dados Gravados 1/2");
     $.ajax({
         url: "https://botiwall.corebiz.com.br/bematech/cadastrar/"+_dataObject.document,
-        // url: "https://api.grupoboticario.com.br/grb/sb/fidelidade/"+_dataObject.document+"/cadastro?client_id=cb7dd0da-226b-41bf-bb0e-770c2c54e123&client_secret=I8oT0gR6pX7mW7tW5cF8iF1tE3tW6xR5jD6sL1hG3wR0rV6bM8",
         type: "POST",
-        headers: {
-            "unidadeNegocio": "QDB",
-            "canalVenda": "LOJA"
-        },
-        data: { data: JSON.stringify(data1)},
+        data: JSON.stringify(data1),
         success: function (msg) {
             console.log(msg)
             $("#clubSignUp .loading-form .texto-validacao").text("Dados Gravados 2/2");
             $("#clubSignUp .loading-form .input-bar").css("background-color", "#00E13F");
             $("#clubSignUp .loading-form #loader").css("display", "none");
             $("#clubSignUp .loading-form #checked").css("display", "initial");
+
+
+            $("#field-nome").val("");
+            $("#field-email").val("");
+            $("#field-datenasc").val("");
+            $("#field-cel").val("");
+            $("#field-cel").val("");
+            
             setTimeout(function(){
                 _msgSuccess();
             }, 2000);
@@ -894,9 +893,8 @@ function createFidelidade(_dataObject, atualiza, callback) {
             console.info(msg);
             console.log(">>>>>>>>>>>>>>> falha para cadastrar");
             // hideLoader();
-            return false;
         }
-    });
+    })
 }
 $(document).ready(function () {
     var $win = $(window);

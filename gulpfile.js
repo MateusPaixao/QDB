@@ -49,6 +49,16 @@ const paths = {
     dest: './dist/assets/img/icon/',
     srcWatch: 'src/assets/img/icon/*'
   },
+  imgs: {
+    src: 'src/assets/img/*.{png,gif,jpg}',
+    dest: './dist/assets/img/',
+    srcWatch: 'src/assets/img/*'
+  },
+  svgs: {
+    src: 'src/assets/img/icon/*.svg',
+    dest: './dist/assets/img/icon/',
+    srcWatch: 'src/assets/img/icon/*'
+  },
   scripts: {
     src: ['src/assets/js/common/*.js', 'src/assets/js/common/*.jsx', '!src/assets/js/common/checkout6-custom.js'],
     dest: './dist/assets/js/',
