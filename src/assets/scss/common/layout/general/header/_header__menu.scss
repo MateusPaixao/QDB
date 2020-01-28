@@ -228,6 +228,14 @@
             width: 100%;
             align-items: center;
             padding: 15px 0 15px 15px;
+
+            ._price{
+                font-weight: 900;
+                font-size: 1.25em;
+                color: #00A7E1;
+                display: block;
+                line-height: normal;
+            }
         }
 
         &--account {

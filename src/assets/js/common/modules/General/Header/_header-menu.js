@@ -1,5 +1,5 @@
 import CacheSelector from '../cache-selector';
-import {getiPhoneModel} from '../../../global/global-index'
+import { getiPhoneModel, getCookie } from '../../../global/global-index'
 
 
 const Methods = {
@@ -98,10 +98,11 @@ const Methods = {
             .then(res => res.json())
             .then((log) => {
                 if(log.IsUserDefined){
-                    userInfos.innerHTML = `
-                        <p class="header__clube--name">
-                            Olá, ${log.FirstName}
-                        </p>` 
+                    log.FirstName != null ? userInfos.innerHTML += `<p class="header__clube--name"> Olá, ${log.FirstName}</p>` : userInfos.innerHTML += `<p class="header__clube--name"> Olá!`;
+                    getCookie("saldoClube") != undefined ? userInfos.innerHTML += `<p class="_saldoclube">Saldo Clube: <span class="_price">R$ <b>${getCookie("saldoClube")}</b></p>` : ""
+                        // if(getCookie("saldoClube") != undefined){
+                            
+                        // }
                 }
                 else{
                     userInfos.innerHTML =

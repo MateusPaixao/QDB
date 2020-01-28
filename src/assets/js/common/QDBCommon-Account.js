@@ -1819,6 +1819,8 @@ function setDataClub(_saldo) {
     document.querySelector("._points p").innerHTML = _saldo.toString().substr(-2) + " pontos";
     document.querySelector("._sup-club").innerHTML = "Faltam " + (_saldo.toString().substr(-2) == "00" ? 100 : Math.round(100 - parseInt(_saldo.toString().substr(-2))).toString().substr(-3)) + " pontos para ganhar R$5,00 em desconto na próxima compra.";
     document.querySelector("._fill").style.width = (Math.round(_saldo / 100) * 100 - _saldo) + "%";
+
+    document.cookie = "saldoClube="+((_saldo / 100) * 5).toFixed(2).replace(",", ".").replace(".", ",")
     if (_saldo < 100) {
         document.querySelector("._less-points").innerHTML = "(" + _saldo + " pontos, a partir de 100 pontos você poderá usar seu saldo.)";
         document.querySelector("._less-points").style.display = "flex";
