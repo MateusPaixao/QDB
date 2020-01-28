@@ -2,7 +2,7 @@
 (function ($, window, document, undefined) {
     var $win = $(window);
     var $doc = $(document);
-    console.log("CLUBE");
+    console.log("Atualizado10");
 
     $doc.ready(function () {
         // #Limpa input name on focus
@@ -240,7 +240,7 @@ function CPFvalida(CPF) {
 /* ====================================================================== *\
     #Valida formulario de cadastro
 \* ====================================================================== */
-function ValidaCPF(_cpf){
+function ValidaCPF(_cpf) {
     // #Valida CPF
     if (_cpf == '' || _cpf == undefined || _cpf == null) {
         $('#clubSignUp .group-cpf').removeClass('has-warning');
@@ -671,7 +671,6 @@ function searchMasterData(_dataObject) {
                                 // } else if (statusAtualiza == 3254845440) {
                                     // $('#clubSignUp .loading-form .texto-validacao').text("Ocorreu um erro no processamento, revise os dados e tente novamente!");
                                 // } else if (statusAtualiza == 0) {
-                                    $("#clubSignUp .loading-form .texto-validacao").text("Dados Gravados 1/2");
                                     // insertMasterData(_dataObject, idCliente, function (resp) {
                                     //     if (resp) {
                                     //         console.log("Response " + resp)
@@ -792,6 +791,15 @@ function searchFidelidade(_dataObject, idCliente) {
     #Cria fidelidade
 \* ====================================================================== */
 function createFidelidade(_dataObject, atualiza, callback) {
+    
+    String.prototype.allReplace = function(obj) {
+        var retStr = this;
+        for (var x in obj) {
+            retStr = retStr.replace(new RegExp(x, 'g'), obj[x]);
+        }
+        return retStr;
+    };
+
     $.support.cors = true;
 
     var today = new Date();
@@ -811,98 +819,76 @@ function createFidelidade(_dataObject, atualiza, callback) {
     var idSexo = document.getElementsByClassName("beres-sexoId");
     var idSexoSelected = idSexo[0].selectedOptions[0].value;
     var dataNascimento = _dataObject.birthDate.split('/')[2].toString() + '/'+ _dataObject.birthDate.split('/')[1].toString() + '-' + _dataObject.birthDate.split('/')[0].toString();
+    dataNascimento = new Date(dataNascimento);
+    let dataNascimentoComplete = {
+        day: new Date(dataNascimento).getDate() < 10 ? "0" + new Date(dataNascimento).getDate() : new Date(dataNascimento).getDate(),
+        month: (new Date(dataNascimento).getMonth() + 1) < 10 ? "0" + (new Date(dataNascimento).getMonth() + 1) : (new Date(dataNascimento).getMonth() + 1),
+        year: new Date(dataNascimento).getFullYear()
+    }
     var telFidelidade = _dataObject.phone.split(')')[0].replace('(', '') + _dataObject.phone.split(')')[1].replace('(', '').replace('-','');
+    console.log(telFidelidade.replace(" ", ""));
 
     var data1 = {
         "consumidor": {
-            "contatos":    [
-                    {
-                "valor": _dataObject.email,
-                "tipoContato": "EMAIL"
-            },
-                    {
-                "valor": telFidelidade.replace(' ',''),
-                "tipoContato": "TELEFONE_CELULAR"
-            }
+            "contatos": [
+                {
+                    "valor": _dataObject.email,
+                    "tipoContato": "EMAIL"
+                },
+                {
+                    "valor": telFidelidade.replace(" ", ""),
+                    "tipoContato": "TELEFONE_CELULAR"
+                }
             ],
             "contatosTelefonico": [],
-            "documentos": [   {
-            "valor": _dataObject.document,
-            "tipoDocumento": "CPF"
-            }],
+            "documentos": [
+                {
+                    "valor": _dataObject.document,
+                    "tipoDocumento": "CPF"
+                }
+            ],
             "nome": _dataObject.firstName.split(' ')[0],
             "sobrenome": _dataObject.lastName,
-            "dataNascimento": dataNascimento.replace('/','-'),
+            "dataNascimento": dataNascimentoComplete.year + "-" + dataNascimentoComplete.day + "-" + dataNascimentoComplete.month,
             "sexo": idSexoSelected.toUpperCase(),
-            "enderecos": [   {
-            "logradouro": "",
-            "numero": "",
-            "cep": "",
-            "bairro": "",
-            "complemento": "",
-            "cidade":       {
-                "nome": "",
-                "estado": {"abreviacao": ""}
-            }
-            }]
+            "enderecos": [
+                {
+                    "logradouro": "",
+                    "numero": "",
+                    "cep": "",
+                    "bairro": "",
+                    "complemento": "",
+                    "cidade": {
+                        "nome": "",
+                        "estado": {
+                            "abreviacao": ""
+                        }
+                    }
+                }
+            ]
         }
     }
 
-    // var data = {
-    //     'document': _dataObject.document,
-    //     'name': _dataObject.firstName.split(' ')[0],
-    //     'lastName': _dataObject.lastName,
-    //     'birthday': {
-    //         'day': _dataObject.birthDate.split('/')[0].toString(),
-    //         'month': _dataObject.birthDate.split('/')[1].toString(),
-    //         'year': _dataObject.birthDate.split('/')[2].toString()
-    //     },
-    //     'phone': {
-    //         'ddd': _dataObject.phone.split(')')[0].replace('(', ''),
-    //         'number': _dataObject.phone.split(')')[1].replace('(', '').replace('-','')
-    //     },
-    //     'email': _dataObject.email,
-    //     'TipoCliente': 1,
-    //     'atualiza': atualiza,
-    //     'datetime': {
-    //         'day': todayDay,
-    //         'month': todayMonth,
-    //         'year': todayYear,
-    //         'hour': todayHours,
-    //         'minute': todayMinutes,
-    //         'second': todaySeconds
-    //     },
-    //     'EnviaComunicacao': document.querySelector('input[name="terms"]').checked
-    // };
-
-    // myHeaders = new Headers({
-    //     "unidadenegocio": "QDB",
-    //     "canalvenda": "LOJA"
-    // });
-
-    // fetch('https://api.grupoboticario.com.br/grb/sb/fidelidade/'+_dataObject.document+'/cadastro?client_id=cb7dd0da-226b-41bf-bb0e-770c2c54e123&client_secret=I8oT0gR6pX7mW7tW5cF8iF1tE3tW6xR5jD6sL1hG3wR0rV6bM8',{
-    //     method: 'POST',
-    //     headers : myHeaders,
-    //     body:JSON.stringify(data1)
-    // }).then((res) => res.json())
-    // .then((data) =>  _msgSuccess())
-    // .catch((err)=>console.log(err))
     console.log(data1);
+    $("#clubSignUp .loading-form .texto-validacao").text("Dados Gravados 1/2");
     $.ajax({
-        // url: "https://botiwall.corebiz.com.br/bematech/cadastrar/"+_dataObject.document,
-        url: "https://api.grupoboticario.com.br/grb/sb/fidelidade/"+_dataObject.document+"/cadastro?client_id=cb7dd0da-226b-41bf-bb0e-770c2c54e123&client_secret=I8oT0gR6pX7mW7tW5cF8iF1tE3tW6xR5jD6sL1hG3wR0rV6bM8",
+        url: "https://botiwall.corebiz.com.br/bematech/cadastrar/"+_dataObject.document,
         type: "POST",
-        headers: {
-            "unidadeNegocio": "QDB",
-            "canalVenda": "LOJA"
-        },
-        data: { data: JSON.stringify(data1)},
+        data: JSON.stringify(data1),
         success: function (msg) {
             console.log(msg)
             $("#clubSignUp .loading-form .texto-validacao").text("Dados Gravados 2/2");
             $("#clubSignUp .loading-form .input-bar").css("background-color", "#00E13F");
             $("#clubSignUp .loading-form #loader").css("display", "none");
             $("#clubSignUp .loading-form #checked").css("display", "initial");
+
+
+            $("#field-nome").val("");
+            $("#field-email").val("");
+            $("#field-datenasc").val("");
+            $("#field-cel").val("");
+            $("#field-cel").val("");
+            
             setTimeout(function(){
                 _msgSuccess();
             }, 2000);
@@ -912,48 +898,8 @@ function createFidelidade(_dataObject, atualiza, callback) {
             console.info(msg);
             console.log(">>>>>>>>>>>>>>> falha para cadastrar");
             // hideLoader();
-            return false;
         }
-        // success: function (data) {
-        //     if (typeof (callback) === "function") callback(true, data);
-
-        //     if (atualiza == true) {
-        //         $("#clubSignUp .loading-form .texto-validacao").text("Já cadastrado, dados atualizados");
-        //         $("#clubSignUp .loading-form .input-bar").css("background-color", "#00E13F");
-        //         $("#clubSignUp .loading-form #loader").css("display", "none");
-        //         $("#clubSignUp .loading-form #checked").css("display", "initial");
-        //         setTimeout(() => {
-        //             _msgSuccess();
-        //         }, 2000);
-        //     } else {
-        //         $.ajax({
-        //             url: "https://botiwall.corebiz.com.br/bematech/soap/confirmar",
-        //             type: "GET",
-        //             data: { documentNumber: _dataObject.document},
-        //             success: function (msg) {
-        //                 $("#clubSignUp .loading-form .texto-validacao").text("Dados Gravados 2/2");
-        //                 $("#clubSignUp .loading-form .input-bar").css("background-color", "#00E13F");
-        //                 $("#clubSignUp .loading-form #loader").css("display", "none");
-        //                 $("#clubSignUp .loading-form #checked").css("display", "initial");
-        //                 setTimeout(function(){
-        //                     _msgSuccess();
-        //                 }, 2000);
-        //                 console.log(msg.documentElement.textContent);
-        //             },
-        //             error: function (msg) {
-        //                 console.info('>>>>>>>>>>>>>> confirmação');
-        //                 console.log(">>>>>>>>>>>>>>> falha para confirmar o cadastro");
-        //                 hideLoader();
-        //                 return false;
-        //             }
-        //         });
-        //     }
-        // },
-        // error: function (error) {
-        //     console.log(error);
-        //     if (typeof (callback) === "function") callback(false, error);
-        // }
-    });
+    })
 }
 $(document).ready(function () {
     var $win = $(window);
