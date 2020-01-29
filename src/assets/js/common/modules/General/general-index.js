@@ -90,7 +90,7 @@ const Methods = {
             window.valorFrete.registerListener(function(val) {
                 console.log("ValorFrete=" + val);
                 document.cookie = "ValorFrete=" + val;
-                console.log(`%cShipping Value updated to ${val} 🔮, "font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#962FBF; color: #FDFDFD;"`);
+                console.log('%cShipping Value updated to ' + val +  ' 🔮, font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#962FBF; color: #FDFDFD;"');
             });
 
         // Se existir, verifica o tempo de expiração de cache e atualiza o cookie
@@ -98,7 +98,7 @@ const Methods = {
             if(!lessThanOneHourAgo(cookieExpiration)) {
                 window.valorFrete.registerListener(function(val) {
                     document.cookie = "ValorFrete=" + val;
-                    console.log(`%cShipping Value updated to ${val} 🔮, "font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#962FBF; color: #FDFDFD;"`);
+                    console.log('%cShipping Value updated to ' + val + ' 🔮, "font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#962FBF; color: #FDFDFD;"');
                 });
             }else{
                 console.log("%cShipping Value is under cache ☂️", 'font-family:"sans-serif"; padding: 10px; border-radius: 5px; background:#8E2BB5; color: #D890F4;');

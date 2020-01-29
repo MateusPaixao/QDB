@@ -99,7 +99,7 @@ const Methods = {
             .then((log) => {
                 if(log.IsUserDefined){
                     log.FirstName != null ? userInfos.innerHTML += `<p class="header__clube--name"> Olá, ${log.FirstName}</p>` : userInfos.innerHTML += `<p class="header__clube--name"> Olá!`;
-                    getCookie("saldoClube") != undefined ? userInfos.innerHTML += `<p class="_saldoclube">Saldo Clube: <span class="_price">R$ <b>${getCookie("saldoClube")}</b></p>` : ""
+                    localStorage.getItem("saldoClube") != null ? userInfos.innerHTML += `<p class="_saldoclube">Saldo Clube: <span class="_price">R$ <b>${localStorage.getItem("saldoClube")}</b></p>` : ""
                         // if(getCookie("saldoClube") != undefined){
                             
                         // }
