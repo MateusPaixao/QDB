@@ -1,3 +1,5 @@
+import '../../scss/common/QDB-LP-Quiz-de-Bases.scss'
+
 class ClaroStrategy {
     getResult() {
         var obj = {

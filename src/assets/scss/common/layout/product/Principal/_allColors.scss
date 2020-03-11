@@ -1,0 +1,155 @@
+&__allColorsContainer{
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 30em;
+    max-width: 400px;
+    display: flex;
+    align-items: flex-start;
+    z-index: 100;
+    background: $grey-l;
+    transform: translateX(100%);
+    transition: all .2s;
+    &.setOpen-true{
+        transform: translateX(0);
+    }
+    @include d('768px'){
+        width: 100%;
+        max-width: initial;
+        transform: translateY(100%);
+        &.setOpen-true{
+            transform: translateY(0);
+        }
+    }
+}
+&__allColors{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    grid-template:
+    "title close" 50px
+    "list list" auto
+    / 90% 10%;
+
+    &__title{
+        grid-area: title;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        @include sans(1.5em, $secundary, 300, initial);
+        svg{
+            height: 1.25em;
+            margin-right: 10px;
+            path{
+                fill: $white;
+            }
+        }
+
+    }
+    &__close{
+        grid-area: close;
+        align-self: center;
+        cursor: pointer;
+        padding: 10px;
+        @include sans(1.5em, $secundary, 400, initial)
+    }
+    &__list{
+        grid-area: list;
+        display: flex;
+        flex-flow: column;
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: relative;
+        background: $grey-l;
+        &__color{
+            border-radius: .5em .5em 0 0;
+            &__item{
+                cursor: pointer;
+                display: grid;
+                align-items: center;
+                grid-template-columns: 80% 20%;
+                position: relative;
+                min-height: 70px;
+                margin-top: -10px;
+                overflow: hidden;
+                &__name{
+                    position: relative;
+                    z-index: 5;
+                    font-size: 1.25em;
+                    color: $white;
+                    margin-left: 10px;
+                    padding: 15px;
+                    text-shadow: 1px 1px 2px rgba(0,0,0, .35);
+                }
+                img{
+                    position: absolute;
+                    left: 0;
+                    border-radius: .5em .5em 0 0;
+                    width: 100%;
+                    height: 100%;
+                    // max-height: 100px;
+                }
+                
+                &:hover{
+                    img{
+                        filter: brightness(110%);
+                    }
+                }
+                
+                // &.set--avaliable-false{
+                //     &:after{
+                //         content: "";
+                //         display: block;
+                //         position: absolute;
+                //         top: -50%;
+                //         left: -10%;
+                //         width: 1px;
+                //         height: 150%;
+                //         background: $white;
+                //         transform: rotate(-55deg) translate(50%, 50%);
+                //         z-index: 1;
+                //     }
+                // }
+            }
+
+            svg{
+                width: 1.25em;
+                position: relative;
+                z-index: 2;
+                display: none;
+                justify-self: center;
+                path{
+                    fill: $white;
+                }
+            }
+            &.set--active{
+                svg{
+                    display: block;
+                }
+            }
+
+            &:nth-child(1){
+                .principal__allColors__list__color__item{
+                    margin-top: 0;
+                }
+            }
+
+            &:nth-last-child(1){
+                height: 100%;
+                .principal__allColors__list__color__item{
+                    height: 110%;
+                    align-items: start;
+                    svg{
+                        margin-top: 2em;
+                        align-self: start;
+                        @include d('768px'){
+                            margin-top: 1.5em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

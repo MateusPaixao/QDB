@@ -18,7 +18,7 @@ const Methods = {
             // "'>aproveite!</a>";
             _itemInfo.addEventListener("click", openInfoModal); 
         }
-        function openInfoModal() { 
+        function openInfoModal() {
             document.body.classList.add("__modal--on");
             _modalContent.innerHTML = "<span class='__closeModal'>X</span>" + 
             this.innerHTML; 

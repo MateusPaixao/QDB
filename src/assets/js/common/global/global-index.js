@@ -1,5 +1,15 @@
 import 'whatwg-fetch'
 
+export function AllReplace (){
+    // Replaces multiple instances at the same time (regex causes some issues on IOS)
+    String.prototype.allReplace = function(obj) {
+        var retStr = this;
+        for (var x in obj) {
+            retStr = retStr.replace(new RegExp(x, 'g'), obj[x]);
+        }
+        return retStr;
+    };
+}
 export function getiPhoneModel() {
     // Create a canvas element which can be used to retrieve information about the GPU.
     var canvas = document.createElement("canvas");

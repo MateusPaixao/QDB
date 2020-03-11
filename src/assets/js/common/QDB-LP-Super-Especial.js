@@ -1,4 +1,5 @@
-import Vitrine from './modules/General/Vitrine/VitrineContainer.jsx';
+import '../../scss/common/QDB-LP-Super-Especial.scss'
+import Vitrine from './modules/General/Vitrine';
 
 const Methods = {
   init() {

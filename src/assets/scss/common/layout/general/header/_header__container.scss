@@ -1,6 +1,3 @@
-.container-group {
-    position: relative;
-}
 
 .header {
     -webkit-appearance: none;
@@ -679,11 +676,11 @@
 
 }
 
-.has--topbanner{
-    .header__menu-container{
-        top: -55px;
-    }
-}
+// .has--topbanner{
+//     .header__menu-container{
+//         top: -55px;
+//     }
+// }
 
 .header-overlay {
     position: absolute;

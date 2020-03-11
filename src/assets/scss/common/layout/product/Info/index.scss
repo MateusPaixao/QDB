@@ -1,0 +1,66 @@
+@import './shipping';
+@import './return';
+@import './description';
+@import './reviews';
+
+.info{
+    background: $white;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+
+    &__title, &__handle{
+        display: inline-flex;
+        width: 50%;
+        align-items: center;
+        justify-content: flex-start;
+        cursor: pointer;
+        padding: 20px 0;
+        @include sans(1.25rem, $black, 500, 2rem);
+        @include d(xs){
+            font-size: 1.25em;
+            width: 90%;
+            padding: 20px 0;
+        }
+    }
+
+    &__handle{
+        justify-content: flex-end;
+        @include d(xs){
+            width: 10%;
+        }
+    }
+    
+    &__subtitle{
+        @include sans(1.25rem, $black, 400, 2rem);
+        margin: 20px 0;
+    }
+
+    &__content{
+        @include sans(1rem, $black, 400, 1.5rem);
+    }
+    .cta-text{
+        margin-top: 15px;
+        display: block;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    > .container{
+        &:nth-child(1){
+            border-top: none;
+        }
+        display: flex;
+        flex-flow: wrap;
+        overflow: hidden;
+        border-top: solid 1px $grey-l;
+        width: 100%;
+        &.setOpen--false{
+            max-height: 100px;
+            max-height: calc(2.225em + 30px);
+        }
+        @include d("768px"){
+            padding: 0 10px;
+        }
+    }
+}

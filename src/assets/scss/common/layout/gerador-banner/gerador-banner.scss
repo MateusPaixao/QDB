@@ -25,6 +25,17 @@ body{
 .cor{
     padding: 0 !important;
 }
+label[for="icone"] {
+    display: block !important;
+}
+.svgs{
+    display: flex !important;
+    align-items: center;
+    .svg{
+        width: 50px;
+        margin: 5px;
+    }
+}
 .x-container form input[type="button"]{
     background: #ff0066;
     color: white;

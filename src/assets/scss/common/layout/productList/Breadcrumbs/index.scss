@@ -1,0 +1,16 @@
+.breadcrumbs{
+    margin-bottom: 0;
+}
+
+@include d("768px"){
+    .breadcrumbs{
+        margin-left: 0;
+        margin-bottom: 0;
+        position: relative;
+        background: #ccc;
+    }
+
+    .breadcrumbs__container a{
+        margin-bottom: 2px;
+    }
+}

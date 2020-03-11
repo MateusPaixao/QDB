@@ -1,4 +1,6 @@
 /* 23-10-2018 18-15 */
+import '../../scss/common/QDB-LP-Mascaras-cilios.scss'
+
 var damnYouIE = function () {
     var ua = window.navigator.userAgent;
     var version = ua.indexOf('MSIE ') > 0 ? 10 : ua.indexOf('Trident/') > 0 ? 11 : ua.indexOf('Edge/') > 0 ? 12 : 0;

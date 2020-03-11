@@ -3,11 +3,11 @@
         &__content{
             text-align: center;
             h1{
-                @include sans(2.25rem, $g-primary, 900, initial);
+                @include sans(2.5rem, $g-primary, 900, initial);
             }
             p{
-                @include sans(1em, $g-primary, 400, initial);
-                max-width: 400px;
+                @include sans(1.25em, $g-primary, 400, initial);
+                max-width: 500px;
                 margin: 10px auto 0;
             }
         }
@@ -24,4 +24,119 @@
             position: relative;
         }
     }
+    &__banners{
+        position: relative;
+        h2{
+            @include sans(2rem, $g-primary, 900, initial);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        &__container{
+            max-width: 1140px;
+            margin: 0 auto;
+            .bannerHero__link{
+                // min-width: 100%;
+                .bannerHero__img{
+                    width: 100%;
+                    padding: 5px;
+                }
+            }
+            .controls__dots{
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                padding: 5px 0;
+                position: absolute;
+                left: 0;
+                bottom: -10px;
+                z-index: 5;
+                @include d("768px"){
+                    position: relative;
+                }
+                .changePosition{
+                    width: 1em;
+                    height: 10px;
+                    background-color: $qdb-grey-m;
+                    margin: 0 1px;
+                    transition: all .2s;
+                    overflow: hidden;
+                    &.active{
+                        width: 3em;
+                        position: relative;
+                        &::before{
+                            content: '';
+                            width: 0px;
+                            height: 100%;
+                            display: flex;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            width: 100%;
+                            transform: translateX(-100%);
+                            background: $safflower;
+                            @include animation(slideBar, 10s, initial, linear);
+                        }
+                    }
+                    @keyframes slideBar {
+                        0%{
+                            transform: translateX(-100%);
+                        };
+                        100%{
+                            transform: translateX(0%);
+                        }
+                    }
+                }
+            }
+            .controls__arrows{
+                .prev, .next{
+                    position: absolute;
+                    top: 50%;
+                    @include sans(2.5em, $g-primary, 400, 0);
+                    &.off{
+                        opacity: 0;
+                        pointer-events: none;
+                    }
+                }
+                .prev{
+                    left: 5%;
+                }
+                .next{
+                    right: 5%;
+                }
+                @include d("768px"){
+                    display: none;
+                }
+            }
+        }
+    }
+    &__collection{
+        &__title{
+            @include sans(2rem, $g-primary, 900, initial);
+            margin-bottom: 10px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        &__selection{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            &__options{
+                display: flex;
+                justify-content: center;
+                flex-flow: wrap;
+                button{
+                    background: $safflower;
+                    border-radius: .2em;
+                    color: $w-secundary;
+                    padding: 10px 15px;
+                    margin: 5px;
+                }
+            }
+        }
+    }
+}
+
+// FIXES
+.filters {
+    margin: 0
 }

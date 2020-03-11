@@ -1,3 +1,5 @@
+import '../../scss/common/QDB-LP-Black-Friday.scss'
+
 function sendBFForm() {
     //Form BlackFriday
     var btn = document.querySelector('#bf_form .btnSubmit');

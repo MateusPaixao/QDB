@@ -349,15 +349,21 @@ body + object {
     width: initial !important;
     align-items: center;
     @include sans(1em, $grey, 400, initial);
+    transform: scaleY(0) translateX(-50%) !important;
+    @include d("768px"){
+        width: 80% !important;
+        left: 50% !important;
+    }
 
     &.vtex-front-messages-placeholder-opened{
         display: flex !important;
-        // transform: scaleY(1) translateX(-50%) !important;
+        flex-flow: column;
+        transform: scaleY(1) translateX(-50%) !important;
     }
 
     &:before{
         content: '';
-        background-image: url("/arquivos/icon_alert.svg.png");
+        background-image: url("/arquivos/icon_alert.png");
         background-repeat: no-repeat;
         background-position: center;
         padding: 10px;

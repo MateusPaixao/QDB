@@ -1,4 +1,5 @@
-import Vitrine from "./modules/LP/sustentabilidade-index"
+import '../../scss/common/QDB-LP-Sustentabilidade.scss'
+import Vitrine from "./modules/LP/Sustentabilidade"
 
 const Methods = {
     init() {

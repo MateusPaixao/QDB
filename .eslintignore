@@ -1,0 +1,23 @@
+/node_modules/
+/dist/
+package-lock.json
+src/assets/js/common/modules/LP
+src/assets/js/common/modules/utils/_VTEXHelpers.js
+src/assets/js/common/modules/General/Acessibilidade
+**/*.test.js
+
+# ignore old LPs
+src/assets/js/common/QDBCommon-Account.js
+src/assets/js/common/QDB-LP-Black-Friday.js
+src/assets/js/common/QDB-LP-Clube.js
+src/assets/js/common/QDB-LP-Mascaras-cilios.js
+src/assets/js/common/QDB-LP-Menu-de-makes.js
+src/assets/js/common/QDB-LP-Quiz-de-Bases-Resultado.js
+src/assets/js/common/QDB-LP-Super-Especial.js
+src/assets/js/common/QDB-LP-Sustentabilidade.js
+src/assets/js/common/QDB-LP-Sustentabilidade.js
+src/assets/js/common/checkout6-custom.js
+src/assets/js/common/modules/Checkout/_checkout.js
+src/assets/js/common/modules/Checkout/oferta-caixa.js
+src/assets/js/common/QDB-gerador-contador.js
+src/assets/js/common/QDB-gerador-topbanner.js

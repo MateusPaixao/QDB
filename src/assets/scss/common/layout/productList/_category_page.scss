@@ -1,0 +1,12 @@
+@import './Filter/index.scss';
+@import './Breadcrumbs/index.scss';
+@import './Vitrine/index.scss';
+@import './Banner/index.scss';
+
+.category .list.payments .list__item--payments .payment{
+    height: 3em;
+}
+
+.category .footer .list.trusts .list__item--trusts .trust, .footer .list.trusts .list__item--payments .trust, .footer .list.payments .list__item--trusts .trust, .footer .list.payments .list__item--payments .trust{
+    height: 5em;
+}

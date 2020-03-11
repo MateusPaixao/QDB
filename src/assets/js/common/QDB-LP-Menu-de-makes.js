@@ -1,3 +1,5 @@
+import '../../scss/common/QDB-LP-Menu-de-makes.scss'
+
 function checkDevice(){
 	let isMobile;
 	if(window.innerWidth > 768){

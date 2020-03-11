@@ -1,10 +1,15 @@
 // ERRO AO TRANSPILAR ESSE CÓDIGO LEGADO, SALVAR NO DESKTOP, ATUALIZAR E SALVAR AQUI NOVAMENTE
 
+import '../../scss/common/QDBCommon-Account.scss'
+
+const mountAccount = () => {
+    // ERRO AO TRANSPILAR ESSE CÓDIGO LEGADO, SALVAR NO DESKTOP, ATUALIZAR E SALVAR AQUI NOVAMENTE
+
 (function ($, window, document, undefined) {
     var $win = $(window);
     var $doc = $(document);
 
-    console.log("Atualizado2");
+    console.log("Atualizado4");
     $doc.ready(function () { 
         // #Limpa input name on focus
         // $('#clubSignUp input#field-name').focus(function () {
@@ -844,7 +849,7 @@ function createFidelidade(_dataObject, atualiza, callback) {
             ],
             "nome": _dataObject.firstName.split(' ')[0],
             "sobrenome": _dataObject.lastName,
-            "dataNascimento": dataNascimentoComplete.year + "-" + dataNascimentoComplete.day + "-" + dataNascimentoComplete.month,
+            "dataNascimento": dataNascimentoComplete.year + "-" + dataNascimentoComplete.month + "-" + dataNascimentoComplete.day,
             "sexo": idSexoSelected.toUpperCase(),
             "enderecos": [
                 {
@@ -1815,12 +1820,15 @@ function searchFidelity(_document) {
 }
 
 function setDataClub(_saldo) {
-    document.querySelector("._price b").innerHTML = ((_saldo / 100) * 5).toFixed(2).replace(",", ".").replace(".", ",");
+    console.log(_saldo);
+    console.log(((_saldo / 100) * 5).toFixed(2).replace(",", ".").replace(".", ","));
+    document.querySelectorAll("._price b")[1].innerText = ((_saldo / 100) * 5).toFixed(2).replace(",", ".").replace(".", ",");
     document.querySelector("._points p").innerHTML = _saldo.toString().substr(-2) + " pontos";
     document.querySelector("._sup-club").innerHTML = "Faltam " + (_saldo.toString().substr(-2) == "00" ? 100 : Math.round(100 - parseInt(_saldo.toString().substr(-2))).toString().substr(-3)) + " pontos para ganhar R$5,00 em desconto na próxima compra.";
     document.querySelector("._fill").style.width = (Math.round(_saldo / 100) * 100 - _saldo) + "%";
 
-    document.cookie = "saldoClube="+((_saldo / 100) * 5).toFixed(2).replace(",", ".").replace(".", ",")
+    localStorage.setItem("saldoClube", ((_saldo / 100) * 5).toFixed(2).replace(",", ".").replace(".", ","))
+    
     if (_saldo < 100) {
         document.querySelector("._less-points").innerHTML = "(" + _saldo + " pontos, a partir de 100 pontos você poderá usar seu saldo.)";
         document.querySelector("._less-points").style.display = "flex";
@@ -2062,3 +2070,4 @@ document.querySelectorAll("input").forEach(function (el) {
 
     });
 })(document, window, domIsReady);
+}

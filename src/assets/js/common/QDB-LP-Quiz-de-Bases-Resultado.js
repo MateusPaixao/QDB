@@ -1,3 +1,5 @@
+import '../../scss/common/QDB-LP-Quiz-de-Bases-Resultado.scss'
+
 const Methods = {
     init(){
         Methods.setResults();

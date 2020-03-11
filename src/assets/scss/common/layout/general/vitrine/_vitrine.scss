@@ -270,7 +270,7 @@
             top: 10px;
             display: flex;
             flex-flow: wrap;
-            max-width: 150px;
+            max-width: 220px;
             z-index: 5;
             .cardProduct__flag{
                 margin: 2.5px;
@@ -279,6 +279,9 @@
                     display: flex;
                     padding: 2.5px 5px;
                     border-radius: .2em;
+                    border: solid 1px $error;
+                    color: $error;
+                    font-size: .875em;
                 }
                 &.__discount .cardProduct__flag__content{
                     background: $error;
@@ -1058,6 +1061,8 @@
             }
         }
     }
+    
+    // Vitrine in List Styles
     &.slider-false{
         display: flex;
         flex-flow: wrap;
@@ -1092,6 +1097,71 @@
                     .cardProduct__config__list__item{
                         @include d("768px"){
                             width: calc(100% / 2.5);
+                        }
+                    }
+                }
+                &__selected{
+                    &__name{
+                        font-size: .875em;
+                    }
+                }
+            }
+            &:not(.avaliable-false){
+                @include d("768px"){
+                    &.change-false{
+                        .cardProduct--change{
+                            .cardProduct--change__dots{
+                                opacity: 1;
+                                &::after{
+                                    @include animation("dots-r", .2s, linear, cubic-bezier(.6,.51,0,1.01));
+                                    animation-fill-mode: forwards;
+                                } 
+                                &::before{
+                                    @include animation("dots-l", .2s, linear, cubic-bezier(.6,.51,0,1.01));
+                                    animation-fill-mode: forwards;
+                                }
+                            }
+                        }
+                    }
+                    .cardProduct__price{
+                        font-size: .875em;
+                    }
+                    .cardProduct__flags{
+                        max-width: 70%;
+                        font-size: .85em;
+                    }
+                    .cardProduct--addToCart{
+                        &.status--added{
+                            .status--adding__text{
+                                max-width: 150px;
+                            }
+                            .status--adding__dots{
+                                max-width: 150px;
+                                max-height: 150px;
+
+                                &__qty{
+                                    padding: 0.65em 1em;
+                                }
+                                &__img{
+                                    min-height: 100px;
+                                    min-width: 100px;
+                                }
+                                .circle-dots{                       
+                                    height: 150px;
+                                    width: 150px;
+                                }
+                            }
+                        }
+                    }
+                    .cardProduct--addToCart:not(.status--request):not(.status--adding):not(.status--added){
+                        font-size: .875em;
+                        svg{
+                            width: 1em;
+                        }
+                    }
+                    &.change-false{
+                        .cardProduct--addToCart:not(.status--request):not(.status--adding):not(.status--added){
+                            transform: translateY(0%);
                         }
                     }
                 }

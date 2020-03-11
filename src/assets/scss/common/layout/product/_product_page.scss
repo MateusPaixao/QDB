@@ -1,0 +1,82 @@
+@import "./Principal/index";
+@import './Info/index';
+@import './Chaordic/index';
+
+.container{
+    max-width: 1190px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+    width: initial;
+}
+
+.product-page{
+    background: $grey-l;
+    .productPage{
+        display: block;
+        min-height: 30em;
+    }
+    .set--loading{
+        display: block;
+        @include animation("highlight-skeleton", 1s, infinite, cubic-bezier(.6,.51,0,1.01));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        @keyframes mask {
+            0% {
+                -webkit-mask-position: 100% 50%;
+                -webkit-mask-position: 100% 50%;
+            }
+            20% {
+                -webkit-mask-position: 0% 50%;
+                -webkit-mask-position: 0% 50%;
+            }
+            80%{
+                -webkit-mask-position: 0% 50%;
+                -webkit-mask-position: 0% 50%;
+            }
+            100%{
+                -webkit-mask-position: 100% 50%;
+                -webkit-mask-position: 100% 50%;
+            }
+        }
+
+        .cssmask.loading.mask-ok {
+            mask: url("/arquivos/LoadMask.png");
+            -webkit-mask-size: 3000% 100%;
+            -webkit-mask-position: 0% 50%;
+            -webkit-mask: url("/arquivos/LoadMask.png");
+            -webkit-mask-size: 3000% 100%;
+            -webkit-mask-position: 0% 50%;
+            animation: mask 5s steps(29) infinite forwards;
+        }
+
+        // .loading.out.cssmask {
+        //     animation: mask 1s steps(29) infinite  forwards;
+        // }
+
+        // .loading.in.cssmask {
+        //     animation: mask 1s steps(29) infinite  reverse;
+        // }
+    }
+    // .set--loading{
+    //     display: block;
+    //     width: 500px;
+    //     height: 500px;
+    //     background: $grey-m;
+    // }
+}
+
+.container{
+    @include d("768px"){
+        padding: 0 10px;
+    }
+}
+
+.seo{
+    &__h1{
+        position: absolute;
+        z-index: -2;
+    }
+}

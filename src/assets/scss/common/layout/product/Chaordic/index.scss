@@ -1,0 +1,21 @@
+@import './recommendations';
+
+.chaordicCollection{
+    background: $grey-l;
+    padding: 40px 0;
+    overflow: hidden;
+    
+    @include d("768px"){
+        .container{
+            padding: 0;
+        }
+    }
+    &__title{
+        @include sans(2rem, $secundary, 400, initial);
+        margin-bottom: 20px;
+        padding-left: 10px;
+    }
+    &__collection{
+        position: relative;
+    }
+}

@@ -1,124 +1,158 @@
 import CacheSelector from '../cache-selector';
-import { getiPhoneModel, getCookie } from '../../../global/global-index'
-
+import { getiPhoneModel } from '../../../global/global-index';
 
 const Methods = {
-    init() {
-        Methods.openCloseMenu();
-        Methods.closeMenu();
-        Methods.observeScroll();
-        Methods.setActiveAccordion();
-        Methods.updateNumberMinicart();
-        Methods.isLogged();
-        Methods.marginTopMenuHeight();
-        getiPhoneModel();
-    },
+  init() {
+    Methods.openCloseMenu();
+    Methods.closeMenu();
+    Methods.scrollDownOnLoad();
+    Methods.observeScroll();
+    Methods.setActiveAccordion();
+    Methods.updateNumberMinicart();
+    Methods.isLogged();
+    Methods.marginTopMenuHeight();
+    getiPhoneModel();
+  },
 
-    marginTopMenuHeight() {
-        setTimeout(function(){
-            const header = CacheSelector.header.header;
-            const elementToMargin = CacheSelector.$globals.body;
-            let headerHeight = header.offsetHeight;
-            elementToMargin.style.marginTop = `${headerHeight}px`;
-            window.addEventListener('scroll', function() {
-                headerHeight = header.offsetHeight;
-                elementToMargin.style.marginTop = `${headerHeight}px`;
-            })
-        }, 1000)        
-    },
-    openCloseMenu() {
-        CacheSelector.header.menuHamContainer.addEventListener('click', (el) => {
-            if (el.target == CacheSelector.header.menuHamContainer || el.target == CacheSelector.header.menuHamText) {
-                el.preventDefault;
-                CacheSelector.header.menuHam.classList.add('is--active');
-                console.log("UE1");
-                CacheSelector.header.menuList.classList.remove('js--menu-close');
-                console.log("U2");
-                CacheSelector.$globals.body.classList.add('menu--open');
-                console.log("U23");
-                el.target.classList.add('is--active');
-                el.stopPropagation;
-            }
-        })
-    },
+  scrollDownOnLoad() {
+    if (window.location.pathname.includes('p/p') && window.innerWidth < 768) {
+      document.querySelector('body').classList.add('scrollDown');
+    }
+  },
 
-    closeMenu() {
-        CacheSelector.header.menuClose.addEventListener('click', () => {
-            CacheSelector.header.menuHam.classList.remove('is--active');
-            CacheSelector.header.menuList.classList.add('js--menu-close');
-            CacheSelector.$globals.body.classList.remove('menu--open');
-        })
-        CacheSelector.header.overlay.addEventListener('click', () => {
-            CacheSelector.header.menuHam.classList.remove('is--active');
-            CacheSelector.header.menuList.classList.add('js--menu-close');
-            CacheSelector.$globals.body.classList.remove('menu--open');
-        });
-    },
+  marginTopMenuHeight() {
+    setTimeout(function() {
+      const header = CacheSelector.header.header;
+      const elementToMargin = CacheSelector.$globals.body;
+      let headerHeight = header.offsetHeight;
+      elementToMargin.style.marginTop = `${headerHeight}px`;
+      window.addEventListener('scroll', function() {
+        headerHeight = header.offsetHeight;
+        elementToMargin.style.marginTop = `${headerHeight}px`;
+      });
+    }, 1000);
+  },
+  openCloseMenu() {
+    CacheSelector.header.menuHamContainer.addEventListener('click', el => {
+      if (
+        el.target == CacheSelector.header.menuHamContainer ||
+        el.target == CacheSelector.header.menuHamText
+      ) {
+        el.preventDefault;
+        CacheSelector.header.menuHam.classList.add('is--active');
+        CacheSelector.header.menuList.classList.remove('js--menu-close');
+        CacheSelector.$globals.body.classList.add('menu--open');
+        el.target.classList.add('is--active');
+        el.stopPropagation;
+      }
+    });
+  },
 
-    observeScroll() {
-        window.addEventListener('scroll', function (ev) {
-            const body = CacheSelector.$globals.body;
+  closeMenu() {
+    CacheSelector.header.menuClose.addEventListener('click', () => {
+      CacheSelector.header.menuHam.classList.remove('is--active');
+      CacheSelector.header.menuList.classList.add('js--menu-close');
+      CacheSelector.$globals.body.classList.remove('menu--open');
+    });
+    CacheSelector.header.overlay.addEventListener('click', () => {
+      CacheSelector.header.menuHam.classList.remove('is--active');
+      CacheSelector.header.menuList.classList.add('js--menu-close');
+      CacheSelector.$globals.body.classList.remove('menu--open');
+    });
+  },
 
-            if(window.innerWidth < 768){
-                window.scrollY < 200 ? body.classList.remove('scrollDown') : body.classList.add('scrollDown');
-            }else{
-                this.oldScroll > this.scrollY ? body.classList.remove('scrollDown') : body.classList.add('scrollDown');
-                this.oldScroll < 0 && body.classList.contains('scrollDown') ? body.classList.remove('scrollDown') : null; 
-                
-                this.oldScroll = this.scrollY;
+  observeScroll() {
+    window.addEventListener('scroll', function() {
+      const body = CacheSelector.$globals.body;
 
-                return this.scrollY
-            }
-        })
-    },
+      if (!window.location.pathname.includes('p/p')) {
+        if (window.innerWidth < 768) {
+          window.scrollY < 200
+            ? body.classList.remove('scrollDown')
+            : body.classList.add('scrollDown');
+        } else {
+          this.oldScroll > this.scrollY
+            ? body.classList.remove('scrollDown')
+            : body.classList.add('scrollDown');
+          this.oldScroll < 0 && body.classList.contains('scrollDown')
+            ? body.classList.remove('scrollDown')
+            : null;
 
-    setActiveAccordion() {
-        const checkbox = document.querySelectorAll('.accordion-checkbox');
-        for(let i = 0; i < checkbox.length; i++){
-            checkbox[i].addEventListener('click', () => {
-                checkbox[i].checked ? checkbox[i].parentElement.classList.add('is--open') : checkbox[i].parentElement.classList.remove('is--open');
-            })
+          this.oldScroll = this.scrollY;
+
+          return this.scrollY;
         }
-    },
-    
-    updateNumberMinicart() {
-        $(window).on('orderFormUpdated.vtex', function () {
-            let itensInCart = document.querySelector('.minicart--itens');
-            if(vtexjs.checkout.orderForm.items.length > 1){
-                document.querySelector(".__maskBag #wave").style.transform = `translate(-50px, -${635 + vtexjs.checkout.orderForm.items.length}px)`;
-            }
-            itensInCart.textContent = vtexjs.checkout.orderForm.items.length;
-        });
-    },
+      } else {
+        if (window.innerWidth > 768) {
+          this.oldScroll > this.scrollY
+            ? body.classList.remove('scrollDown')
+            : body.classList.add('scrollDown');
+          this.oldScroll < 0 && body.classList.contains('scrollDown')
+            ? body.classList.remove('scrollDown')
+            : null;
 
-    isLogged() {
-        const url = "/no-cache/profileSystem/getProfile";
-        const userInfos = document.querySelector('.header__clube--text');
-        fetch(url)
-            .then(res => res.json())
-            .then((log) => {
-                if(log.IsUserDefined){
-                    log.FirstName != null ? userInfos.innerHTML += `<p class="header__clube--name"> Olá, ${log.FirstName}</p>` : userInfos.innerHTML += `<p class="header__clube--name"> Olá!`;
-                    localStorage.getItem("saldoClube") != null ? userInfos.innerHTML += `<p class="_saldoclube">Saldo Clube: <span class="_price">R$ <b>${localStorage.getItem("saldoClube")}</b></p>` : ""
-                        // if(getCookie("saldoClube") != undefined){
-                            
-                        // }
-                }
-                else{
-                    userInfos.innerHTML =
-                    `<a class="header__clube--account" href="/account"> 
+          this.oldScroll = this.scrollY;
+
+          return this.scrollY;
+        }
+      }
+    });
+  },
+
+  setActiveAccordion() {
+    const checkbox = document.querySelectorAll('.accordion-checkbox');
+    for (let i = 0; i < checkbox.length; i++) {
+      checkbox[i].addEventListener('click', () => {
+        checkbox[i].checked
+          ? checkbox[i].parentElement.classList.add('is--open')
+          : checkbox[i].parentElement.classList.remove('is--open');
+      });
+    }
+  },
+
+  updateNumberMinicart() {
+    $(window).on('orderFormUpdated.vtex', function() {
+      let itensInCart = document.querySelector('.minicart--itens');
+      if (vtexjs.checkout.orderForm.items.length > 1) {
+        document.querySelector('.__maskBag #wave').style.transform = `translate(-50px, -${635 +
+          vtexjs.checkout.orderForm.items.length}px)`;
+      }
+      itensInCart.textContent = vtexjs.checkout.orderForm.items.length;
+    });
+  },
+
+  isLogged() {
+    const url = '/no-cache/profileSystem/getProfile';
+    const userInfos = document.querySelector('.header__clube--text');
+    fetch(url)
+      .then(res => res.json())
+      .then(log => {
+        if (log.IsUserDefined) {
+          log.FirstName != null
+            ? (userInfos.innerHTML += `<p class="header__clube--name"> Olá, ${log.FirstName}</p>`)
+            : (userInfos.innerHTML += `<p class="header__clube--name"> Olá!`);
+          localStorage.getItem('saldoClube') != null
+            ? (userInfos.innerHTML += `<p class="_saldoclube">Saldo Clube: <span class="_price">R$ <b>${localStorage.getItem(
+                'saldoClube'
+              )}</b></p>`)
+            : '';
+          // if(getCookie("saldoClube") != undefined){
+
+          // }
+        } else {
+          userInfos.innerHTML = `<a class="header__clube--account" href="/account"> 
                         Entre ou cadastre-se
-                    </a>`
-                } 
-            })
-    },
-}
+                    </a>`;
+        }
+      });
+  }
+};
 
 export default {
-    init: Methods.init
-}
+  init: Methods.init
+};
 
-window.setTimeout(function(){
-    var bodyClass = document.body.getAttribute('class');
-    document.body.setAttribute('class',bodyClass+' iphone');
-},3000);
+// window.setTimeout(function(){
+//     var bodyClass = document.body.getAttribute('class');
+//     document.body.setAttribute('class',bodyClass+' iphone');
+// },3000);

@@ -1,0 +1,79 @@
+.info__reviewsContainer{
+    &__content{
+        display: flex;
+        flex-flow: wrap;
+        margin-top: 20px;
+        @include sans(1em, $black, 400, initial);
+
+        &__rating{
+            display: flex;
+            align-items: center;
+            @include sans(1.5em, $black, 400, initial);
+        }
+    
+        &__stars{
+            display: flex;
+            align-items: center;
+            margin: 0 20px;
+            &__star{
+                width: 1.25em;
+            }
+        }
+    
+        &__totalRating{
+            display: flex;
+            align-items: center;
+            text-decoration: underline;
+        }
+
+        &__subtitle{
+            width: 100%;
+            margin: 20px 0;
+            @include sans(1.25em, $black, 400, initial);
+        }
+
+        &__highlightReview{
+            width: 100%;
+            padding: 20px;
+            background: $grey-l;
+            border-radius: .5em;
+            margin: 5px 5px 10px;
+            max-width: 300px;
+            color: $grey;
+            &__user{
+                @include sans(1em, $grey, 500, initial);
+            }
+            &__review{
+                display: block;
+                line-height: 1.5em;
+                max-width: 300px;
+                max-height: 100px;
+                overflow: hidden;
+                margin: 10px 0;
+            }
+            
+            &.setView--true{
+                * {
+                    max-height: initial;
+                }
+                button{
+                    display: none;
+                }
+            }
+            &.review__0{
+
+            }
+            &.review__1{
+
+            }
+        }
+    }
+    .yourViews{
+        width: 100%;
+    }
+}
+
+html 
+.yv-box{
+    max-width: initial !important;
+}
