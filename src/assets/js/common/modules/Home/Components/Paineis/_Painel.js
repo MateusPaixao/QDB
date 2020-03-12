@@ -4,10 +4,10 @@
 import React from 'react';
 
 const Banner = (props) => {
-    return (
-      <a className="paineisBeleza__link" href={props.Url} >
-          <img className="paineisBeleza__img" data-src={props.Src} loading="lazy" />
-      </a>
-    );
+  return (
+    <a className="paineisBeleza__link" dataid="painel" href={props.Url} >
+      <img className="paineisBeleza__img" data-src={props.Src} loading="lazy" />
+    </a>
+  );
 }
 export default Banner
