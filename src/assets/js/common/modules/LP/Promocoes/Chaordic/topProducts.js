@@ -1,6 +1,7 @@
 // import General from "../../../General/general-index"
+// import React from 'react';
 import Vitrine from '../../../General/Vitrine';
-// Fix
+
 const Methods = {
   init() {
     Methods.buildVitrines();

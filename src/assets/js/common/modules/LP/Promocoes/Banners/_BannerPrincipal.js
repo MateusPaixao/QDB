@@ -1,7 +1,6 @@
-// import React from "react";
-// import PropTypes from "prop-types";
 import React from 'react';
-// Fix
+// import PropTypes from "prop-types";
+
 const Banner = props => {
   return (
     <a className="bannerHero__link" href={props.Url}>

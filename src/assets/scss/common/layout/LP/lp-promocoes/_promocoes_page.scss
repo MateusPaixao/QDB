@@ -25,20 +25,23 @@
         }
     }
     &__banners{
-        position: relative;
         h2{
             @include sans(2rem, $g-primary, 900, initial);
             margin-bottom: 10px;
             text-align: center;
         }
         &__container{
-            max-width: 1140px;
+            // max-width: 1140px;
+            position: relative;
+            max-width: 65%;
             margin: 0 auto;
-            .bannerHero__link{
-                // min-width: 100%;
-                .bannerHero__img{
-                    width: 100%;
-                    padding: 5px;
+            .banners{
+                .bannerHero__link{
+                    // min-width: 100%;
+                    .bannerHero__img{
+                        width: 100%;
+                        padding: 5px;
+                    }
                 }
             }
             .controls__dots{
@@ -98,10 +101,10 @@
                     }
                 }
                 .prev{
-                    left: 5%;
+                    left: -1em;
                 }
                 .next{
-                    right: 5%;
+                    right: -1em;
                 }
                 @include d("768px"){
                     display: none;

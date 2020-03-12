@@ -1,7 +1,8 @@
-import Banner from './_BannerPrincipal.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
-// Fix
+import Siema from 'siema';
+import Banner from './_BannerPrincipal';
+
 const Methods = {
   BuildBanners() {
     class BannerContainer extends React.Component {
@@ -85,7 +86,7 @@ const Methods = {
 
       buildSlider() {
         window.slideBanners = new Siema({
-          selector: '.promo__banners__container',
+          selector: '.promo__banners__container .banners',
           duration: 150,
           easing: 'ease-out',
           perPage: {
@@ -130,7 +131,7 @@ const Methods = {
           let dotControl = document.createElement('span');
           dotControl.classList.add('controls__dots');
           // controls.appendChild(dotControl);
-          this.selector.appendChild(dotControl);
+          document.querySelector('.promo__banners__container').appendChild(dotControl);
 
           for (let i = 0; i < this.innerElements.length; i++) {
             const btn = document.createElement('button');
@@ -158,7 +159,7 @@ const Methods = {
 
           let arrowsControl = document.createElement('span');
           arrowsControl.classList.add('controls__arrows');
-          _this.selector.appendChild(arrowsControl);
+          document.querySelector('.promo__banners__container').appendChild(arrowsControl);
 
           arrowsControl.appendChild(_this.prevArrow);
           arrowsControl.appendChild(_this.nextArrow);
@@ -186,14 +187,21 @@ const Methods = {
             slideBanners.next();
           }
         });
-        if (window.innerWidth < 768) slideBanners.addPagination();
+        if (window.innerWidth < 768) {
+          slideBanners.addPagination();
+        }
 
-        if (document.querySelector('.promo__banners__container').length > 2)
+        if (
+          document.querySelector('.promo__banners__container .banners div').childElementCount >= 3
+        ) {
           slideBanners.addArrows();
+        }
 
         window.addEventListener('resize', () => {
-          if (window.innerWidth < 768) slideBanners.addPagination();
-          slideBanners.addArrows();
+          if (window.innerWidth < 768) {
+            slideBanners.addPagination();
+            slideBanners.addArrows();
+          }
         });
       }
 
