@@ -89,7 +89,6 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint src/assets/js/common/**"
     }
   },
   "jest": {
