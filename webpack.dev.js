@@ -1,24 +1,23 @@
-const path = require("path");
-const webpack = require("webpack");
-const entry = require("webpack-glob-entry");
+const path = require('path');
+const webpack = require('webpack');
+const entry = require('webpack-glob-entry');
 
-const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssets = require("optimize-css-assets-webpack-plugin");
-const FileManagerPlugin = require("filemanager-webpack-plugin");
-const autoprefixer = require("autoprefixer");
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
-const storeName = "qbbr";
+const storeName = 'qbbr';
 
-const VTEX_JS = "./dist/assets/js";
-const VTEX_CSS = "./dist/assets/css";
+const VTEX_JS = './dist/assets/js';
+const VTEX_CSS = './dist/assets/css';
 
 const config = {
-  entry: entry("./src/assets/js/common/*.js"),
+  entry: entry('./src/assets/js/common/*.js'),
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "assets/js/[name].js"
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'assets/js/[name].js'
   },
   module: {
     rules: [
@@ -26,32 +25,22 @@ const config = {
         test: /\.m?js|jsx$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: 'babel-loader'
         }
       },
       {
         test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          "postcss-loader",
-          "sass-loader"
-        ]
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
       }
     ]
   },
   resolve: {
-    alias: {
-      ConfigBases: path.resolve(
-        __dirname,
-        "src/scss/config/settings/config-bases.scss"
-      )
-    }
+    alias: {}
   },
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: "assets/css/[name].css"
+      filename: 'assets/css/[name].css'
     }),
     new webpack.LoaderOptionsPlugin({
       options: {
@@ -60,15 +49,15 @@ const config = {
     }),
     new OptimizeCSSAssets(),
     new BrowserSyncPlugin({
-      open: "external",
+      open: 'external',
       https: true,
       ui: false,
       host: `${storeName}.vtexlocal.com.br`,
-      startpath: "/admin/login/",
+      startpath: '/admin/login/',
       proxy: `https://${storeName}.vtexcommercestable.com.br`,
       serveStatic: [
         {
-          route: "/arquivos",
+          route: '/arquivos',
           dir: [VTEX_JS, VTEX_CSS]
         }
       ]
