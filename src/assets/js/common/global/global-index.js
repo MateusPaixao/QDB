@@ -10,6 +10,29 @@ export function AllReplace (){
         return retStr;
     };
 }
+
+export function slugify (str) {
+    var map = {
+        '-' : ' ',
+        '-' : '_',
+        'a' : 'á|à|ã|â|À|Á|Ã|Â',
+        'e' : 'é|è|ê|É|È|Ê',
+        'i' : 'í|ì|î|Í|Ì|Î',
+        'o' : 'ó|ò|ô|õ|Ó|Ò|Ô|Õ',
+        'u' : 'ú|ù|û|ü|Ú|Ù|Û|Ü',
+        'c' : 'ç|Ç',
+        'n' : 'ñ|Ñ'
+    };
+    
+    str = str.toLowerCase().replace(/\s/g, '-');
+    
+    for (var pattern in map) {
+        str = str.replace(new RegExp(map[pattern], 'g'), pattern);
+    };
+
+    return str;
+};
+
 export function getiPhoneModel() {
     // Create a canvas element which can be used to retrieve information about the GPU.
     var canvas = document.createElement("canvas");

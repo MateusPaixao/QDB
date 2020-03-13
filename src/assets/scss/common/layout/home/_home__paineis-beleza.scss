@@ -8,13 +8,99 @@
                 overflow-x: auto;
                 justify-content: flex-start;
             }
+
+            .principal__pictures{
+                width: 100%;
+            
+
+                    ul.principal__pictures__list{                        
+                        display: flex;
+                        width: 100%;
+                        justify-content: center;
+                        overflow: hidden;            
+                    
+
+                    
+                    li.principal__banners__list{
+                        list-style: none;
+                        min-height: 340px;
+                        margin: 0;
+
+                        .category-pagination {
+                            display: none;
+                            @include d("768px"){
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+            .category-pagination{
+                @include d("768px"){
+                    position: absolute;
+                    background: rgba(0,0,0,0.8);
+                    color: #fff;
+                    -webkit-border-radius: 50px;
+                    border-radius: 50px;
+                    min-width: 48px;
+                    display: block;
+                    padding: 7px 10px;
+                    letter-spacing: 2px;
+                    font-size: 11px;
+                    text-align: center;
+                    z-index: 1;
+                }
+            }
             .paineisBeleza__link{
                 margin-right: 10px;
                 .paineisBeleza__img{
                     @include d("768px"){
+                        width: 100%;
                         min-width: 260px;
+                        height: -webkit-fill-available;
                     }
                 }
+                .paineisBeleza__button{
+                    display: none;
+                    @include d("768px"){
+                        display: block;
+                        background: #000;
+                        margin-top: -63px;
+                        position: absolute;
+                        width: 91%;
+                        height: 48px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-left: 3%;
+                        color: #FFF;
+                        border-radius: 5px;
+                        font-size: 0.935em;
+                        opacity: .875;
+                    }
+                }
+            }
+
+            .arrowPrev,.arrowNext{
+                position: absolute;
+                z-index: 5;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+                display: block;
+                padding: 5px;
+                -webkit-border-radius: 50%;
+                border-radius: 50%;
+                background: rgba(12, 12, 12, 0.96);;
+            }
+
+            .arrowPrev{
+                left: 5px;
+            }
+
+            .arrowNext{
+                right: 5px;
             }
         }
     }

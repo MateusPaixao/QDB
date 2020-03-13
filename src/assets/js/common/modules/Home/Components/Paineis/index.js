@@ -1,79 +1,133 @@
-// import React, {Component} from 'react';
-// import ReactDOM from 'react-dom';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Painel from './_Painel';
-// import General from "../../../General/general-index"
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Carousel } from 'react-pannable'
 
-// const Methods = {
-//     BuildPaineisBeleza(){
-class PaineisContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      Banners: [
-        {
-          Url: '',
-          Src: ''
+import Painel from "./_Painel"
+import { slugify } from '../../../../global/global-index'
+import { SvgPrev, SvgNext } from '../../../General/Icons'
+
+const PaineisContainer = () => {
+
+    let Banners = []
+    const getBanners = () => {
+        let bannersPaineis = document.querySelector(".paineisBeleza__banners")
+
+        for (let i = 1; i < bannersPaineis.textContent.split('<div class="box-banner">').length; i++) {
+            let Banner = {};
+            let Content = bannersPaineis.textContent.split('<div class="box-banner">')[i];
+            let banUrl = Content.substring(
+                Content.lastIndexOf('href="') + 6,
+                Content.lastIndexOf('">')
+            );
+            let banImg = Content.substring(
+                Content.lastIndexOf('src="') + 5,
+                Content.lastIndexOf('?v=')
+            );
+            let banAlt = Content.substring(
+                Content.lastIndexOf('alt="') + 5,
+                Content.lastIndexOf('" src=')
+            );
+
+            Banner["Url"] = banUrl;
+            Banner["Src"] = banImg;
+            Banner["Alt"] = banAlt
+            Banners.push(Banner);
+
         }
-      ],
-      Rendered: false
-    };
-    this.getBanners = this.getBanners.bind(this);
-  }
-
-  getBanners() {
-    let bannersPaineis = document.querySelector('.paineisBeleza__banners'),
-      Banners = [];
-
-    for (let i = 1; i < bannersPaineis.textContent.split('<div class="box-banner">').length; i++) {
-      let Banner = {};
-      let Content = bannersPaineis.textContent.split('<div class="box-banner">')[i];
-      // if(General.getBrowserVendor() == 'safari/webkit'){
-      let banUrl = Content.substring(Content.lastIndexOf('href="') + 6, Content.lastIndexOf('">'));
-      let banImg = Content.substring(Content.lastIndexOf('src="') + 5, Content.lastIndexOf('?v='));
-      Banner['Url'] = banUrl;
-      Banner['Src'] = banImg;
-      // }else{
-      //     Banner["Url"] = Content.match(/href\s*=\s*"(.+?)"/)[1];
-      //     Banner["Src"] = Content.match(/src\s*=\s*"(.+?)"/)[1];
-      // }
-      Banners.push(Banner);
-      // this.state.Banners.push(
-      //     <a className="bannerHero__link" href={bannerViewport.textContent.split('<div class="box-banner">')[i].match(/href\s*=\s*"(.+?)"/)[1]} key={i}>
-      //         <img className="bannerHero__img" src={bannerViewport.textContent.split('<div class="box-banner">')[i].match(/src\s*=\s*"(.+?)"/)[1]} loading="lazy" />
-      //     </a>
-      // )
-      // let idImg = string.match(/\d+/);;
-      // string.replace(idImg[0], idImg[0] + "#{width}-#{height}")
     }
+    getBanners()
 
-    this.setState({
-      Banners: Banners
-    });
-  }
 
-  componentDidMount() {
-    this.getBanners();
-  }
+    const [scrollToIndex, setScrollToIndex] = React.useState(null);
+    const [mainBanners, setBanners] = React.useState(
+        Banners.map((banner, index) => (
+            <li className={`principal__banners__list ${window.innerWidth > 768 && i == 0 ? 'set--active' : ''}`}>
+                <Painel
+                    Url={banner.Url}
+                    Src={banner.Src}
+                    Alt={banner.Alt}
+                    Index={index}
+                />
+            </li>
+        ))
+    )
 
-  render() {
-    const Banners = () => {
-      let banners = [];
-      this.state.Banners.map((Ban, index) => {
-        banners.push(<Painel Url={Ban.Url} Src={Ban.Src} key={index} />);
-      });
-      return <div className="shell">{banners}</div>;
-    };
+    React.useEffect(() => {
+        window.promotions.push(
+            Banners.map((Banner, i) =>
+                (
+                    {
+                        'id': Banner.Src.match(/ids\/(.*)\//)[1],
+                        'name': slugify(Banner.Alt),
+                        'creative': 'body',
+                        'position': i + 1
+                    }
+                )
+            )
+        )
+    }, [])
 
-    return <Banners />;
-  }
+    const onIndicatorPrev = React.useCallback(() => {
+        setScrollToIndex({
+            index: ({ activeIndex }) => activeIndex - 1,
+            animated: true,
+        });
+    }, []);
+
+    const onIndicatorNext = React.useCallback(() => {
+        setScrollToIndex({
+            index: ({ activeIndex }) => activeIndex + 1,
+            animated: true,
+        });
+    }, []);
+
+    const renderItem = React.useCallback(
+        ({ itemIndex }) => {
+            return mainBanners[itemIndex]
+        },
+        [mainBanners]
+    );
+
+    return (
+        <div className="shell">
+            <div className="category-pagination">
+                1/4
+            </div>
+            <div className="principal__pictures">
+                <ul className="principal__pictures__list">
+                    {window.innerWidth < 768 ?
+                        < Carousel
+                            width={355}
+                            height={355}
+                            direction="x"
+                            loop={true}
+                            itemCount={mainBanners.length}
+                            autoplayEnabled={false}
+                            renderItem={renderItem}
+                            scrollToIndex={scrollToIndex}
+                        >
+                            {
+                                mainBanners.length > 1 &&
+                                <React.Fragment>
+                                    <SvgPrev onPrev={onIndicatorPrev} />
+                                    <SvgNext onNext={onIndicatorNext} />
+
+                                </React.Fragment>
+                            }
+                        </Carousel>
+                        :
+                        mainBanners}
+                </ul>
+            </div>
+        </div >
+    )
+
 }
-//     }
-// }
-
 export function BuildPaineisBeleza() {
-  ReactDOM.render(<PaineisContainer />, document.getElementById('paineisBeleza--render'));
+    ReactDOM.render(
+        <PaineisContainer />,
+        document.getElementById('paineisBeleza--render')
+    )
 }
 
-export default PaineisContainer;
+export default PaineisContainer
