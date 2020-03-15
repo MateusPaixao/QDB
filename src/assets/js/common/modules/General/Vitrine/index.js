@@ -12,7 +12,7 @@ const Methods = {
     // Methods.BuildCard(idProduct, idSku);
   },
   BuildVitrine(idCollection, collection, slider, itemsPP, query) {
-    let showSmartResearch;
+    // let showSmartResearch;
     class CardContainer extends React.Component {
       constructor(props) {
         super(props);

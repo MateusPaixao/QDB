@@ -37,6 +37,7 @@ const Chaordic = () => {
         return response.json();
       })
       .then(col => {
+        console.log(col);
         if (col.top[0].displays != undefined) {
           let Collection = [];
 

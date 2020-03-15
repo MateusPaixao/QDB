@@ -30,21 +30,25 @@ const SmartResearch = ({ order, from, show, handleSmartResearch }) => {
     // console.log(`${window.location.pathname}?O=${order}&_from=${from}&_to=${from + 23}`);
     e.classList.add('set--loaded');
 
-    let refreshButton = setInterval(() => {
-      if (
-        document.querySelectorAll('.cardProductContainer')[
-          document.querySelectorAll('.cardProductContainer').length - 1
-        ].childElementCount > 0 &&
-        document.querySelectorAll('.cardProductContainer')[
-          document.querySelectorAll('.cardProductContainer').length - 1
-        ].childElementCount < 23
-      ) {
-        clearInterval(refreshButton);
-        handleSmartResearch();
-      } else {
-        // Quando menor que 23, eu posso sumir com o botão
-      }
-    }, 500);
+    console.log(document.querySelectorAll('.cardProductContainer'));
+
+    if (document.querySelectorAll('.cardProductContainer') != undefined) {
+      let refreshButton = setInterval(() => {
+        if (
+          document.querySelectorAll('.cardProductContainer')[
+            document.querySelectorAll('.cardProductContainer').length - 1
+          ].childElementCount > 0 &&
+          document.querySelectorAll('.cardProductContainer')[
+            document.querySelectorAll('.cardProductContainer').length - 1
+          ].childElementCount < 23
+        ) {
+          clearInterval(refreshButton);
+          handleSmartResearch();
+        } else {
+          // Quando menor que 23, eu posso sumir com o botão
+        }
+      }, 500);
+    }
 
     setTimeout(() => {
       e.classList.remove('set--loading', 'set--loaded', 'set--loadingMount');

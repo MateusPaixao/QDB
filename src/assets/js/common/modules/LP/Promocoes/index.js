@@ -6,6 +6,7 @@ import { isInViewport, getCookie } from '../../../global/global-index';
 import Filter from './Components/Filter';
 import SmartResearch from './Components/Filter/smartResearch.js';
 import Banner from './Components/Banner';
+import Paineis from './Components/Paineis';
 import Chaordic from './Components/Chaordic';
 import Breadcrumbs from '../../General/Breadcrumbs';
 // import {buildVitrines} from './Components/Vitrine/vitrine-index.jsx';
@@ -87,27 +88,26 @@ const Methods = {
 
       render() {
         return (
-          <React.Fragment>
-            {this.state.loaded == true && (
-              <React.Fragment>
-                <Breadcrumbs />
-                <Banner />
-                <Chaordic />
-                <Filter
-                  showSmartResearch={this.state.showSmart}
-                  handleSmartResearch={this.handleSmartResearch.bind(this)}
-                  handleOrder={this.handleOrder.bind(this)}
-                  info={this.state.info}
-                />
-                <SmartResearch
-                  handleSmartResearch={this.handleSmartResearch.bind(this)}
-                  show={this.state.showSmart}
-                  order={this.state.order}
-                  from={this.state.from}
-                />
-              </React.Fragment>
-            )}
-          </React.Fragment>
+          this.state.loaded == true && (
+            <React.Fragment>
+              <Breadcrumbs />
+              <Banner />
+              {/* <Paineis /> */}
+              <Chaordic />
+              <Filter
+                showSmartResearch={this.state.showSmart}
+                handleSmartResearch={this.handleSmartResearch.bind(this)}
+                handleOrder={this.handleOrder.bind(this)}
+                info={this.state.info}
+              />
+              <SmartResearch
+                handleSmartResearch={this.handleSmartResearch.bind(this)}
+                show={this.state.showSmart}
+                order={this.state.order}
+                from={this.state.from}
+              />
+            </React.Fragment>
+          )
         );
       }
     }

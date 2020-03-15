@@ -1,0 +1,101 @@
+.paineisContainer {
+    position: relative;
+
+    // &__container{
+    //     // max-width: 1140px;
+    //     position: relative;
+    //     max-width: 65%;
+    //     margin: 0 auto;
+    .bannerHero__link {
+
+        // min-width: 100%;
+        .bannerHero__img {
+            width: 100%;
+            padding: 5px;
+        }
+    }
+
+    .controls__dots {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        padding: 5px 0;
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        z-index: 5;
+
+        @include d("768px") {
+            position: relative;
+        }
+
+        .changePosition {
+            width: 1em;
+            height: 10px;
+            background-color: $qdb-grey-m;
+            margin: 0 1px;
+            transition: all .2s;
+            overflow: hidden;
+
+            &.active {
+                width: 3em;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    width: 0px;
+                    height: 100%;
+                    display: flex;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    transform: translateX(-100%);
+                    background: $safflower;
+                    @include animation(slideBar, 10s, initial, linear);
+                }
+            }
+
+            @keyframes slideBar {
+                0% {
+                    transform: translateX(-100%);
+                }
+
+                ;
+
+                100% {
+                    transform: translateX(0%);
+                }
+            }
+        }
+    }
+
+    .controls__arrows {
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            @include sans(2.5em, $g-primary, 400, 0);
+
+            &.off {
+                opacity: 0;
+                pointer-events: none;
+            }
+        }
+
+        .prev {
+            left: -1em;
+        }
+
+        .next {
+            right: -1em;
+        }
+
+        @include d("768px") {
+            display: none;
+        }
+
+        // }
+    }
+}

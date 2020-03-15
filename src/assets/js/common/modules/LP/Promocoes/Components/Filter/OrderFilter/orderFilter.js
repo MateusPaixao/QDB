@@ -10,6 +10,7 @@ const orderFilter = ({ handleOrder, showSmartResearch, handleSmartResearch }) =>
   const orderProducts = () => {
     const Content = document.querySelector('.contentProducts');
 
+    console.log('ue');
     let idCollection = Math.floor(Math.random() * 5000);
     let Collection = document.createElement('div');
     Collection.classList.add('contentProducts__render-collection', 'render-collection', 'shell');
@@ -18,7 +19,7 @@ const orderFilter = ({ handleOrder, showSmartResearch, handleSmartResearch }) =>
 
     Vitrine.build(idCollection, undefined, false, false, `?fq=H:788&O=${order}&_from=0&_to=23`);
 
-    !showSmartResearch && handleSmartResearch();
+    // !showSmartResearch && handleSmartResearch();
   };
 
   const toggleOptions = () => {
