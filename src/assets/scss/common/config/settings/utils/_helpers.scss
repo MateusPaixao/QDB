@@ -1,5 +1,5 @@
-body{
-    &.scroll-lock{
+body {
+    &.scroll-lock {
         overflow-y: hidden;
     }
 }
@@ -9,27 +9,32 @@ body{
     animation-duration: 300ms;
     animation-timing-function: cubic-bezier(0, 0, 0.4, 1);
     animation-fill-mode: forwards;
-} 
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
-}  
+}
 
-.--skeleton{
+.--skeleton {
     background: #c7c5c4 !important;
     color: transparent !important;
     border-radius: .3rem;
-    *{
+
+    * {
         opacity: 0;
     }
+
     overflow: hidden !important;
     border: none !important;
     position: relative;
-    &:before{
+
+    &:before {
         content: '';
         display: flex;
         position: absolute;
@@ -41,19 +46,20 @@ body{
         left: -25%;
         top: 0;
         transform: skew(-15deg);
-        @include animation("highlight-skeleton", 2.5s, infinite, cubic-bezier(.6,.51,0,1.01));
+        @include animation("highlight-skeleton", 2.5s, infinite, cubic-bezier(.6, .51, 0, 1.01));
     }
-    @keyframes highlight-skeleton {
-        60%{
-            left: -25%;
-        }
-        100%{
-            left: 125%;
-        }
-    }
+
+    // @keyframes highlight-skeleton {
+    //     60%{
+    //         left: -25%;
+    //     }
+    //     100%{
+    //         left: 125%;
+    //     }
+    // }
 }
 
-.hidden{
+.hidden {
     display: none !important;
 }
 

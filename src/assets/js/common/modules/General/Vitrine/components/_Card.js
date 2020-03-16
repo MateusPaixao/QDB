@@ -33,6 +33,7 @@ class Card extends React.Component {
     this.getImgSku = this.getImgSku.bind(this);
     this.OpenLetMeKnow = this.OpenLetMeKnow.bind(this);
     this.CloseLetMeKnow = this.CloseLetMeKnow.bind(this);
+    // this.viewProduct = this.viewProduct.bind(this);
   }
 
   setAvaliable() {
@@ -208,7 +209,6 @@ class Card extends React.Component {
                       : ''
                   }
                   `}
-                  key={i}
                   data-name={sku['Escolha a Cor']}
                   data-discount={
                     sku.sellers[0].commertialOffer.AvailableQuantity == 0 ||
@@ -224,6 +224,7 @@ class Card extends React.Component {
                   }
                   data-sku={sku.itemId}
                   onClick={e => changeSku(e.currentTarget)}
+                  key={i}
                 >
                   {/* {console.log(sku)} */}
                   {/* {console.log(sku.images.filter(o => { if(o.imageLabel === "thumb" || o.imageLabel === "Thumb"){ return o }}))[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "50", "#height#": "50" , "~": ""})} */}
@@ -813,6 +814,12 @@ class Card extends React.Component {
         </React.Fragment>
       );
     };
+    const viewProduct = e => {
+      e.preventDefault();
+      document.cookie = 'LinxTracking=' + this.props.trackingUrl;
+      document.location = e.currentTarget.href;
+      // {... this.state.Adding == false ? {href: "/" + this.props.info.linkText + "/p?idsku=" + this.state.Sku.itemId} : {href: "/checkout/#/cart"}}
+    };
     return (
       <div
         className={`cardProduct cardProduct-${this.props.info.productId} avaliable-${this.state.Avaliable} change-${this.state.openConfig} letMeKnow-${this.state.letMeKnow}`}
@@ -839,6 +846,7 @@ class Card extends React.Component {
           {...(this.state.Adding == false
             ? { href: '/' + this.props.info.linkText + '/p?idsku=' + this.state.Sku.itemId }
             : { href: '/checkout/#/cart' })}
+          onClick={e => viewProduct(e)}
           className="cardProduct__link"
         >
           <div className="cardProduct__pictureContainer">
@@ -959,6 +967,8 @@ class Card extends React.Component {
     );
   }
 }
+
+export const LoadCard = () => <div className={`cardProduct set--loading`}></div>;
 
 // Card.propTypes = {
 //   ProductId: PropTypes.string.isRequired,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 // const Breadcrumbs = () => {
 //     const [breadcrumbs, setBreadCrumbs] = React.useState([]);
 
@@ -17,17 +17,17 @@ import React from 'react'
 //                 <div className="breadcrumbs__container container">
 //                     <a href="/"><h2>Inicio</h2></a>
 //                     {
-//                         breadcrumbs.map(b => 
+//                         breadcrumbs.map(b =>
 //                             <a href={
 //                                 b.substring(
-//                                     b.lastIndexOf('href="') + 6, 
+//                                     b.lastIndexOf('href="') + 6,
 //                                     b.lastIndexOf('" r')
 //                                 )
 //                             }>
 //                                 <h2>
 //                                     {
 //                                         b.substring(
-//                                             b.lastIndexOf('">') + 2 , 
+//                                             b.lastIndexOf('">') + 2 ,
 //                                             b.lastIndexOf('</a')
 //                                         )
 //                                     }
@@ -45,38 +45,28 @@ import React from 'react'
 
 // Working Code
 const Breadcrumbs = () => {
-    let breadcrumbs = document.querySelector(".breadcrumbs").textContent.split('<li ');
+  let breadcrumbs = document.querySelector('.breadcrumbs').textContent.split('<li ');
 
-    return(
-        <div className="breadcrumbs">
-            {
-                <div className="breadcrumbs__container container">
-                    <a href="/"><h2>Inicio</h2></a>
-                    {
-                        breadcrumbs.map((b, i) => 
-                        i == 0 || i == 1 ? ""
-                        :
-                        <a href={
-                            b.substring(
-                                b.lastIndexOf('href="') + 6, 
-                                b.lastIndexOf('" r')
-                            )
-                        }>
-                            <h2>
-                                {
-                                    b.substring(
-                                        b.lastIndexOf('">') + 2 , 
-                                        b.lastIndexOf('</a')
-                                    )
-                                }
-                            </h2>
-                        </a>
-                        )
-                    }
-                </div>
-            }
+  return (
+    <div className="breadcrumbs">
+      {
+        <div className="breadcrumbs__container container shell">
+          <a href="/">
+            <h2>Inicio</h2>
+          </a>
+          {breadcrumbs.map((b, i) =>
+            i == 0 || i == 1 ? (
+              ''
+            ) : (
+              <a href={b.substring(b.lastIndexOf('href="') + 6, b.lastIndexOf('" r'))}>
+                <h2>{b.substring(b.lastIndexOf('">') + 2, b.lastIndexOf('</a'))}</h2>
+              </a>
+            )
+          )}
         </div>
-    )
-}
+      }
+    </div>
+  );
+};
 
 export default Breadcrumbs;

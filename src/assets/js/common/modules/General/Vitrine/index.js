@@ -2,8 +2,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Siema from 'siema';
-
-import Card from './components/_Card.jsx';
+import Card, { LoadCard } from './components/_Card';
+// import { object } from "prop-types";
 // import 'promise-polyfill/src/polyfill';
 
 const Methods = {
@@ -11,7 +11,8 @@ const Methods = {
     // Methods.Form();
     // Methods.BuildCard(idProduct, idSku);
   },
-  BuildVitrine(idCollection, collection, slider, itemsPP) {
+  BuildVitrine(idCollection, collection, slider, itemsPP, query) {
+    // let showSmartResearch;
     class CardContainer extends React.Component {
       constructor(props) {
         super(props);
@@ -29,11 +30,20 @@ const Methods = {
       }
 
       componentDidMount() {
-        let queryString = '?';
-        for (let i = 0; i < collection.length; i++) {
-          queryString += '&fq=productId:' + collection[i].Product;
+        if (this.state.HasSlider == true) {
+          this.slider(this.state.Vitrine, this.state.PerPage);
         }
-        fetch('/api/catalog_system/pub/products/search/' + queryString, {
+        let queryString = '?';
+        if (collection != undefined) {
+          for (let i = 0; i < collection.length; i++) {
+            queryString += '&fq=productId:' + collection[i].Product;
+          }
+        } else {
+          query != undefined ? (queryString = query) : '';
+        }
+        queryString = queryString.replace('&O=OrderByRatingDESC', '');
+        console.log(queryString);
+        fetch('/api/catalog_system/pub/products/search' + queryString, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -161,6 +171,9 @@ const Methods = {
       }
 
       mountProducts(Products) {
+        console.log(Products);
+        window.showSmartResearch = Products.length < 24 ? false : true;
+        console.log(window.showSmartResearch);
         let ids = [];
         for (let i = 0; i < Products.length; i++) {
           ids.push(Products[i].productId);
@@ -182,67 +195,181 @@ const Methods = {
             }
           };
           request.send();
-        })
-          .then(Reviews => {
-            console.log(Reviews);
-            let ProductsFull = [];
+        }).then(Reviews => {
+          let ProductsFull = [];
 
-            const sortReviewInNest = (a, b) => {
-              return a.ProductId - b.ProductId;
+          const getSort = (type, ProductInfo) => {
+            let SkuToHighlight = ProductInfo.items[0].itemId;
+            const defaultSort = () => {
+              SkuToHighlight = ProductInfo.items.find(
+                Sku =>
+                  Sku.sellers[0].commertialOffer.AvailableQuantity != 0 ||
+                  Sku.sellers[0].commertialOffer.Price != 0 ||
+                  Sku.sellers[0].commertialOffer.ListPrice != 0
+              );
+              SkuToHighlight = SkuToHighlight != undefined ? SkuToHighlight : ProductInfo.items[0];
+              return collection != undefined
+                ? collection.find(o => o.Product == ProductInfo.productId).SkuHighlight
+                : SkuToHighlight;
             };
-            const sortProductInNest = (a, b) => {
-              return a.productId - b.productId;
+
+            const PriceAsc = () => {
+              SkuToHighlight = ProductInfo.items.find(
+                Sku =>
+                  Sku.sellers[0].commertialOffer.Price ==
+                  Math.min.apply(
+                    Math,
+                    ProductInfo.items.map(function(o) {
+                      return o.sellers[0].commertialOffer.Price != 0
+                        ? o.sellers[0].commertialOffer.Price
+                        : 99999;
+                    })
+                  )
+              );
+              console.log(SkuToHighlight);
+              SkuToHighlight = SkuToHighlight != undefined ? SkuToHighlight : ProductInfo.items[0];
+              return collection != undefined
+                ? collection.find(o => o.Product == ProductInfo.productId).SkuHighlight
+                : SkuToHighlight;
             };
 
-            let sortedProducts = Products.sort(sortProductInNest);
+            const PriceDesc = () => {
+              console.log(query);
+              console.log(ProductInfo);
+              SkuToHighlight = ProductInfo.items.find(
+                Sku =>
+                  Sku.sellers[0].commertialOffer.Price ==
+                  Math.min.apply(
+                    Math,
+                    ProductInfo.items.map(function(o) {
+                      console.log(o.sellers[0].commertialOffer.Price);
+                      return o.sellers[0].commertialOffer.Price != 0
+                        ? o.sellers[0].commertialOffer.Price
+                        : 9999;
+                    })
+                  )
+              );
+              console.log(SkuToHighlight);
+              SkuToHighlight = SkuToHighlight != undefined ? SkuToHighlight : ProductInfo.items[0];
+              console.log(SkuToHighlight.itemId);
+              return collection != undefined
+                ? collection.find(o => o.Product == ProductInfo.productId).SkuHighlight
+                : SkuToHighlight;
+            };
 
-            if (Reviews.HasErrors == false) {
-              let sortedReviews = Reviews.Element.sort(sortReviewInNest);
+            const BestDiscounts = () => {
+              SkuToHighlight = ProductInfo.items.find(
+                Sku =>
+                  Sku.sellers[0].commertialOffer.Price ==
+                  Math.min.apply(
+                    Math,
+                    ProductInfo.items.map(function(o) {
+                      return o.sellers[0].commertialOffer.Price !=
+                        o.sellers[0].commertialOffer.ListPrice
+                        ? o.sellers[0].commertialOffer.Price
+                        : 99999;
+                    })
+                  )
+              );
+              SkuToHighlight = SkuToHighlight != undefined ? SkuToHighlight : ProductInfo.items[0];
+              return collection != undefined
+                ? collection.find(o => o.Product == ProductInfo.productId).SkuHighlight
+                : SkuToHighlight.itemId;
+            };
 
-              for (let i = 0; i < sortedReviews.length; i++) {
-                if (sortedProducts[i] != undefined) {
-                  let Product = {};
-                  Product.info = sortedProducts[i];
-                  Product.review = sortedReviews[i];
-                  Product.skuHighlight = collection.find(
-                    o => o.Product == sortedProducts[i].productId
-                  ).SkuHighlight;
-                  ProductsFull.push(Product);
-                }
-              }
-            } else {
-              for (let i = 0; i < sortedProducts.length; i++) {
-                if (sortedProducts[i] != undefined) {
-                  let Product = {};
-                  Product.info = sortedProducts[i];
-                  Product.review = undefined;
-                  Product.skuHighlight = collection.find(
-                    o => o.Product == sortedProducts[i].productId
-                  ).SkuHighlight;
-                  ProductsFull.push(Product);
-                }
-              }
+            switch (type) {
+              case 'OrderByTopSaleDESC':
+                console.log(type);
+                defaultSort();
+                break;
+              case 'OrderByPriceASC':
+                console.log(type);
+                PriceAsc();
+                break;
+              case 'OrderByPriceDESC':
+                console.log(type);
+                PriceDesc();
+                break;
+              case 'OrderByBestDiscountDESC':
+                console.log(type);
+                BestDiscounts();
+                break;
+              default:
+                console.log('Expect Default: ' + type);
+                defaultSort();
+                break;
             }
-            // Remove Duplicate Reviews - IEBUG don't work
-            // let uniqueReviews = Array.from(new Set(sortedReviews.map(a => a.ProductId)))
-            // .map(id => {
-            //   return sortedReviews.find(a => a.ProductId === id)
-            // });
 
-            this.setState(
-              {
-                Products: ProductsFull
-              },
-              () => {
-                if (this.state.HasSlider == true) {
-                  this.slider(this.state.Vitrine, this.state.PerPage);
-                }
-                this.isInViewport();
-                console.log(this.state.Products);
+            return SkuToHighlight.itemId;
+          };
+          Products.map(ProductInfo =>
+            Reviews.Element.map(Review => {
+              if (ProductInfo.productId == Review.ProductId) {
+                let Product = {};
+                Product.info = ProductInfo;
+                Product.review = Reviews.HasErrors == false ? Review : undefined;
+                Product.skuHighlight = getSort(
+                  /\O=(.*?)&_/.exec(query) == null ? 'default' : /\O=(.*?)&_/.exec(query)[1],
+                  ProductInfo,
+                  Reviews.HasErrors == false ? Review : undefined
+                );
+
+                ProductsFull.push(Product);
               }
-            );
-          })
-          .catch(e => console.log(e));
+            })
+          );
+
+          // const sortReviewInNest = (a, b) => {
+          //   return a.review.Rating + b.review.Rating;
+          // };
+          // const sortProductInNest = (a, b) => {
+          //   return a.productId - b.productId;
+          // };
+
+          if (/\O=(.*?)&_/.exec(query) != null) {
+            if (/\O=(.*?)&_/.exec(query)[1] == 'OrderByRatingDESC') {
+              ProductsFull = ProductsFull.sort(function sortReviewInNest(a, b) {
+                return b.review.Rating - a.review.Rating;
+              });
+              console.log(ProductsFull);
+            }
+          }
+          // let sortedProducts = Products.sort(sortProductInNest);
+
+          // if(Reviews.HasErrors == false){
+          // let sortedReviews = Reviews.Element.sort(sortReviewInNest)
+
+          // } else {
+          // for(let i = 0; i < sortedProducts.length; i++){
+          //   if(sortedProducts[i] != undefined){
+          //     let Product = {};
+          //     Product.info = sortedProducts[i];
+          //     Product.review = undefined;
+          //     Product.skuHighlight = collection.find(o => o.Product == sortedProducts[i].productId).SkuHighlight;
+          //     ProductsFull.push(Product);
+          //   }
+          // }
+          // }
+          // Remove Duplicate Reviews - IEBUG don't work
+          // let uniqueReviews = Array.from(new Set(sortedReviews.map(a => a.ProductId)))
+          // .map(id => {
+          //   return sortedReviews.find(a => a.ProductId === id)
+          // });
+
+          // console.log(ProductsFull)
+          this.setState(
+            {
+              Products: ProductsFull
+            },
+            () => {
+              if (this.state.HasSlider == true) {
+                this.slider(this.state.Vitrine, this.state.PerPage);
+              }
+              this.isInViewport();
+              console.log(this.state.Products);
+            }
+          );
+        });
       }
       render() {
         const Cards = () => {
@@ -253,7 +380,18 @@ const Methods = {
           return (
             <React.Fragment>
               {this.state.Products.length == 0 && (
-                <div className="render-collection__loading set--loading">carregando...</div>
+                <div
+                  className={`cardProductContainer slider-${this.state.HasSlider} ${this.state.Vitrine}`}
+                >
+                  <LoadCard />
+                  <LoadCard />
+                  <LoadCard />
+                  <LoadCard />
+                  <LoadCard />
+                  <LoadCard />
+                  <LoadCard />
+                  <LoadCard />
+                </div>
               )}
               <div
                 className={`cardProductContainer slider-${this.state.HasSlider} ${this.state.Vitrine}`}
