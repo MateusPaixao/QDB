@@ -960,6 +960,8 @@ class Card extends React.Component {
   }
 }
 
+export const LoadCard = () => <div className={`cardProduct set--loading`}></div>;
+
 // Card.propTypes = {
 //   ProductId: PropTypes.string.isRequired,
 //   idSku: PropTypes.string.isRequired,

@@ -65,7 +65,7 @@ const orderFilter = ({ handleOrder, showSmartResearch, handleSmartResearch }) =>
     <React.Fragment>
       <div className={`principal__allColorsContainer setOpen-${showOptions}`}>
         <div className="orderContainer">
-          <p>Ordernar</p>
+          <p className="orderoption__name">Ordernar</p>
 
           <div className="orderContainer__button">
             <button className="activeOrder" onClick={() => toggleOptions()}>
@@ -77,7 +77,7 @@ const orderFilter = ({ handleOrder, showSmartResearch, handleSmartResearch }) =>
           {showOptions == true && (
             <form className="orderContainer__options" onChange={setOrder}>
               <div className="containerInput" onClick={handleInput}>
-                <label>Mais vendidos</label>
+                <p className="orderoption__name">Mais vendidos</p>
                 <input
                   type="radio"
                   id="OrderByTopSaleDESC"
@@ -93,7 +93,7 @@ const orderFilter = ({ handleOrder, showSmartResearch, handleSmartResearch }) =>
               </div>
 
               <div className="containerInput" onClick={handleInput}>
-                Menor preço
+                <p className="orderoption__name">Menor preço</p>
                 <input
                   type="radio"
                   id="OrderByPriceASC"
@@ -109,7 +109,7 @@ const orderFilter = ({ handleOrder, showSmartResearch, handleSmartResearch }) =>
               </div>
 
               <div className="containerInput" onClick={handleInput}>
-                Maior preço
+                <p className="orderoption__name">Maior preço</p>
                 <input
                   type="radio"
                   id="OrderByPriceDESC"
@@ -125,7 +125,7 @@ const orderFilter = ({ handleOrder, showSmartResearch, handleSmartResearch }) =>
               </div>
 
               <div className="containerInput" onClick={handleInput}>
-                Maiores descontos
+                <p className="orderoption__name">Maiores descontos</p>
                 <input
                   type="radio"
                   id="OrderByBestDiscountDESC"
@@ -141,7 +141,7 @@ const orderFilter = ({ handleOrder, showSmartResearch, handleSmartResearch }) =>
               </div>
 
               <div className="containerInput" onClick={handleInput}>
-                Maiores Avaliações
+                <p className="orderoption__name">Maiores Avaliações</p>
                 <input
                   type="radio"
                   id="OrderByRatingDESC"

@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Siema from 'siema';
-import Card from './components/_Card';
+import Card, { LoadCard } from './components/_Card';
 // import { object } from "prop-types";
 // import 'promise-polyfill/src/polyfill';
 
@@ -30,13 +30,16 @@ const Methods = {
       }
 
       componentDidMount() {
+        if (this.state.HasSlider == true) {
+          this.slider(this.state.Vitrine, this.state.PerPage);
+        }
         let queryString = '?';
         if (collection != undefined) {
           for (let i = 0; i < collection.length; i++) {
             queryString += '&fq=productId:' + collection[i].Product;
           }
         } else {
-          query != undefined ? (queryString = query) : '';
+          query != undefined ? (queryString = query + '&isAvailablePerSalesChannel_1') : '';
         }
         queryString = queryString.replace('&O=OrderByRatingDESC', '');
         console.log(queryString);
@@ -377,7 +380,18 @@ const Methods = {
           return (
             <React.Fragment>
               {this.state.Products.length == 0 && (
-                <div className="render-collection__loading set--loading">carregando...</div>
+                <div
+                  className={`cardProductContainer slider-${this.state.HasSlider} ${this.state.Vitrine}`}
+                >
+                  <LoadCard />
+                  <LoadCard />
+                  <LoadCard />
+                  <LoadCard />
+                  <LoadCard />
+                  <LoadCard />
+                  <LoadCard />
+                  <LoadCard />
+                </div>
               )}
               <div
                 className={`cardProductContainer slider-${this.state.HasSlider} ${this.state.Vitrine}`}

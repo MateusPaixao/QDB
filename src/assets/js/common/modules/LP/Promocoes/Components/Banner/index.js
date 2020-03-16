@@ -18,15 +18,15 @@ const Banner = () => {
             />
           </a>
         </div> */}
-        <div class="content">
-          <h1 class="content__title">
+        <div className="content">
+          <h1 className="content__title">
             {bannerTitulo.substring(
               bannerTitulo.lastIndexOf('"<h2>') + 5,
               bannerTitulo.lastIndexOf('</h2>')
             )}
           </h1>
 
-          <p class="content__text">
+          <p className="content__text">
             {bannerDescricao.substring(
               bannerDescricao.lastIndexOf('"<p>') + 4,
               bannerDescricao.lastIndexOf('</p>')

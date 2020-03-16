@@ -92,7 +92,7 @@ const Methods = {
             <React.Fragment>
               <Breadcrumbs />
               <Banner />
-              {/* <Paineis /> */}
+              <Paineis />
               <Chaordic />
               <Filter
                 showSmartResearch={this.state.showSmart}
