@@ -39,7 +39,7 @@ const Methods = {
             queryString += '&fq=productId:' + collection[i].Product;
           }
         } else {
-          query != undefined ? (queryString = query + '&isAvailablePerSalesChannel_1') : '';
+          query != undefined ? (queryString = query) : '';
         }
         queryString = queryString.replace('&O=OrderByRatingDESC', '');
         console.log(queryString);
@@ -178,7 +178,7 @@ const Methods = {
         for (let i = 0; i < Products.length; i++) {
           ids.push(Products[i].productId);
         }
-        new Promise((resolve, reject) => {
+        new Promise(resolve => {
           let request = new XMLHttpRequest();
           let url =
             'https://service.yourviews.com.br/api/v2/pub/review/ReviewShelf?productids=' +
@@ -319,12 +319,12 @@ const Methods = {
             })
           );
 
-          const sortReviewInNest = (a, b) => {
-            return a.review.Rating + b.review.Rating;
-          };
-          const sortProductInNest = (a, b) => {
-            return a.productId - b.productId;
-          };
+          // const sortReviewInNest = (a, b) => {
+          //   return a.review.Rating + b.review.Rating;
+          // };
+          // const sortProductInNest = (a, b) => {
+          //   return a.productId - b.productId;
+          // };
 
           if (/\O=(.*?)&_/.exec(query) != null) {
             if (/\O=(.*?)&_/.exec(query)[1] == 'OrderByRatingDESC') {

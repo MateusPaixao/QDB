@@ -186,7 +186,7 @@ class Card extends React.Component {
               <p className="cardProduct__config__type__title">Escolha a Cor</p>
             </div>
             <ul className="cardProduct__config__list">
-              {this.props.info.items.map(sku => (
+              {this.props.info.items.map((sku, i) => (
                 <li
                   className={`cardProduct__config__list__item __color 
                   sku--${sku.itemId}
@@ -224,6 +224,7 @@ class Card extends React.Component {
                   }
                   data-sku={sku.itemId}
                   onClick={e => changeSku(e.currentTarget)}
+                  key={i}
                 >
                   {/* {console.log(sku)} */}
                   {/* {console.log(sku.images.filter(o => { if(o.imageLabel === "thumb" || o.imageLabel === "Thumb"){ return o }}))[0].imageTag.match(/([^">]+)"*\.(?:jpg|gif|png)/)[0].allReplace({ "#width#": "50", "#height#": "50" , "~": ""})} */}
@@ -257,7 +258,7 @@ class Card extends React.Component {
               <p className="cardProduct__config__type__title">Escolha o Volume</p>
             </div>
             <ul className="cardProduct__config__list">
-              {this.props.info.items.map(sku => (
+              {this.props.info.items.map((sku, i) => (
                 <li
                   className={`cardProduct__config__list__item __volume 
               sku--${sku.itemId}
@@ -295,6 +296,7 @@ class Card extends React.Component {
                         )
                   }
                   onClick={e => changeSku(e.currentTarget)}
+                  key={i}
                 >
                   {sku['Escolha o Volume']}
                 </li>
@@ -397,7 +399,7 @@ class Card extends React.Component {
             </svg>
             Enviando`;
 
-          new Promise((resolve, reject) => {
+          new Promise(resolve => {
             let request = new XMLHttpRequest();
             let url = 'https://www.quemdisseberenice.com.br/no-cache/AviseMe.aspx';
             let params =
@@ -421,7 +423,7 @@ class Card extends React.Component {
             };
             request.send(params);
           })
-            .then(r => {
+            .then(() => {
               el.parentElement
                 .querySelector('.form-group.group-email')
                 .classList.add('set--sended');
@@ -438,7 +440,7 @@ class Card extends React.Component {
                 Tudo certo, você será notificado assim que <b class="cardProduct__sendMe__steps__title__product">${this.state.Sku.name}</b> ficar disponível!`;
               el.textContent = 'Ok, entendi';
             })
-            .catch(c => {
+            .catch(() => {
               el.innerHTML =
                 '<svg  class="cardProduct--letMeKnow__mail" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z" fill="#FDFDFD"/></svg> Enviar';
               el.parentElement
@@ -477,10 +479,10 @@ class Card extends React.Component {
             ficar disponível
           </p>
 
-          <div class="form-group group-email">
+          <div className="form-group group-email">
             <input
               id="field-email"
-              class="field _form-email"
+              className="field _form-email"
               type="text"
               name="email"
               required="required"
@@ -489,13 +491,16 @@ class Card extends React.Component {
               onBlur={e => _onBlur(e.currentTarget)}
               onChange={e => permitSend(e.currentTarget)}
             />
-            <label class="control-label" for="email">
+            <label className="control-label" htmlFor="email">
               E-mail
             </label>
-            <i class="input-bar"></i>
-            <small class="hidden">E-mail obrigatório</small>
+            <i className="input-bar"></i>
+            <small className="hidden">E-mail obrigatório</small>
           </div>
-          <button class="sendMe-action set--forbidden" onClick={e => EmailSend(e.currentTarget)}>
+          <button
+            className="sendMe-action set--forbidden"
+            onClick={e => EmailSend(e.currentTarget)}
+          >
             <svg
               className="cardProduct--letMeKnow__mail"
               viewBox="0 0 24 17"
@@ -518,12 +523,12 @@ class Card extends React.Component {
     // e.target.preventDefault();
     let _this = this;
     const Add = () => {
-      return new Promise((resolve, reject) => {
+      return new Promise(resolve => {
         vtexjs.checkout
           .getOrderForm()
           .then(orderForm => {
             console.log(orderForm);
-            if (!!orderForm.items.length) {
+            if (!orderForm.items.length) {
               orderForm.items.map((e, i) => {
                 if (e.id == this.state.Sku.itemId) {
                   _this.setState(
@@ -671,23 +676,23 @@ class Card extends React.Component {
           Add().then(() => {
             e.classList.add('status--adding');
             setTimeout(() => {
-              const reset = () => {
-                this.setState(
-                  {
-                    Adding: false
-                  },
-                  () => {
-                    e.classList.add('status--remove');
-                    e.classList.remove('status--request');
-                    setTimeout(() => {
-                      e.classList = 'cardProduct--addToCart status--standBy';
-                    }, 800);
-                    e.innerHTML = `<svg class="cardProduct--addToCart__bag" width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.8779 6.22321C18.8046 5.43449 18.0966 4.83464 17.259 4.85168H14.7489V4.53631C14.7492 2.03134 12.6006 0.000399137 9.94984 3.99499e-05C9.94963 3.99499e-05 9.94941 3.99499e-05 9.9492 3.99499e-05C7.36904 -0.0102225 5.26862 1.95802 5.25779 4.39623C5.25758 4.44293 5.25817 4.48962 5.2595 4.53631V4.85291H2.74878C1.93116 4.85876 1.25334 5.45317 1.18619 6.22321L0.0167767 19.9383C-0.0877588 20.9886 0.299876 22.0295 1.07749 22.7865C1.81873 23.5618 2.8738 24.0029 3.97953 23.9997H16.0327C17.1408 24.0136 18.2003 23.5707 18.9347 22.7865C19.6662 22.0032 20.0466 20.9818 19.9954 19.9383L18.8779 6.22321ZM6.32086 4.53631C6.29403 2.61379 7.92153 1.03475 9.95597 1.00941C11.9904 0.984058 13.6614 2.52205 13.6882 4.44457C13.6886 4.47515 13.6886 4.50573 13.6882 4.53631V4.85291H6.32086V4.53631ZM18.1541 22.0475C17.6184 22.6231 16.8445 22.9502 16.0334 22.9441H3.97697C2.39256 22.9385 1.11301 21.7201 1.11904 20.2229C1.11936 20.1452 1.1232 20.0677 1.13056 19.9903L2.30248 6.27519C2.30573 6.03731 2.51246 5.84694 2.76419 5.85001C2.77785 5.85017 2.79145 5.85094 2.805 5.85222H5.31641V7.80374C5.31641 8.09504 5.56628 8.33118 5.87455 8.33118C6.18283 8.33118 6.4327 8.09504 6.4327 7.80374V5.85463H13.8V7.80615C13.8 8.09745 14.0499 8.33359 14.3581 8.33359C14.6664 8.33359 14.9163 8.09745 14.9163 7.80615V5.85463H17.4277C17.687 5.84853 17.9068 6.03351 17.9302 6.27755L19.1021 19.9926C19.0331 20.7573 18.6999 21.4793 18.1541 22.0475Z" /></svg><p class="cardProduct--addToCart__cta">Adicionar a Sacola</p>`;
-                  }
-                );
-              };
+              // const reset = () => {
+              //   this.setState(
+              //     {
+              //       Adding: false
+              //     },
+              //     () => {
+              //       e.classList.add('status--remove');
+              //       e.classList.remove('status--request');
+              //       setTimeout(() => {
+              //         e.classList = 'cardProduct--addToCart status--standBy';
+              //       }, 800);
+              //       e.innerHTML = `<svg class="cardProduct--addToCart__bag" width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.8779 6.22321C18.8046 5.43449 18.0966 4.83464 17.259 4.85168H14.7489V4.53631C14.7492 2.03134 12.6006 0.000399137 9.94984 3.99499e-05C9.94963 3.99499e-05 9.94941 3.99499e-05 9.9492 3.99499e-05C7.36904 -0.0102225 5.26862 1.95802 5.25779 4.39623C5.25758 4.44293 5.25817 4.48962 5.2595 4.53631V4.85291H2.74878C1.93116 4.85876 1.25334 5.45317 1.18619 6.22321L0.0167767 19.9383C-0.0877588 20.9886 0.299876 22.0295 1.07749 22.7865C1.81873 23.5618 2.8738 24.0029 3.97953 23.9997H16.0327C17.1408 24.0136 18.2003 23.5707 18.9347 22.7865C19.6662 22.0032 20.0466 20.9818 19.9954 19.9383L18.8779 6.22321ZM6.32086 4.53631C6.29403 2.61379 7.92153 1.03475 9.95597 1.00941C11.9904 0.984058 13.6614 2.52205 13.6882 4.44457C13.6886 4.47515 13.6886 4.50573 13.6882 4.53631V4.85291H6.32086V4.53631ZM18.1541 22.0475C17.6184 22.6231 16.8445 22.9502 16.0334 22.9441H3.97697C2.39256 22.9385 1.11301 21.7201 1.11904 20.2229C1.11936 20.1452 1.1232 20.0677 1.13056 19.9903L2.30248 6.27519C2.30573 6.03731 2.51246 5.84694 2.76419 5.85001C2.77785 5.85017 2.79145 5.85094 2.805 5.85222H5.31641V7.80374C5.31641 8.09504 5.56628 8.33118 5.87455 8.33118C6.18283 8.33118 6.4327 8.09504 6.4327 7.80374V5.85463H13.8V7.80615C13.8 8.09745 14.0499 8.33359 14.3581 8.33359C14.6664 8.33359 14.9163 8.09745 14.9163 7.80615V5.85463H17.4277C17.687 5.84853 17.9068 6.03351 17.9302 6.27755L19.1021 19.9926C19.0331 20.7573 18.6999 21.4793 18.1541 22.0475Z" /></svg><p class="cardProduct--addToCart__cta">Adicionar a Sacola</p>`;
+              //     }
+              //   );
+              // };
 
-              let removeTimeout = setTimeout(reset, 5000);
+              // let removeTimeout = setTimeout(reset, 5000);
 
               e.classList.add('status--added');
               e.querySelector(
@@ -756,7 +761,7 @@ class Card extends React.Component {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              clip-rule="evenodd"
+              clipRule="evenodd"
               d="M43.91.047a2 2 0 0 0-1.819 1.384l-9.42 29.194-30.667-.06a2 2 0 0 0-1.177 3.62l24.85 17.983-9.541 29.164a2 2 0 0 0 3.08 2.238l24.779-18.083 24.79 18.084a2 2 0 0 0 3.078-2.239l-9.541-29.164 24.85-17.982a2 2 0 0 0-1.176-3.621l-30.669.06-9.43-29.195A2 2 0 0 0 43.911.047z"
               fill="#67605F"
             />
@@ -774,7 +779,7 @@ class Card extends React.Component {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              clip-rule="evenodd"
+              clipRule="evenodd"
               d="M43.91.047a2 2 0 0 0-1.819 1.384l-9.42 29.194-30.667-.06a2 2 0 0 0-1.177 3.62l24.85 17.983-9.541 29.164a2 2 0 0 0 3.08 2.238l24.779-18.083 24.79 18.084a2 2 0 0 0 3.078-2.239l-9.541-29.164 24.85-17.982a2 2 0 0 0-1.176-3.621l-30.669.06-9.43-29.195A2 2 0 0 0 43.911.047z"
               stroke="#67605F"
             />
@@ -798,8 +803,11 @@ class Card extends React.Component {
             </span>
           )}
           {this.state.Avaliable != false &&
-            Object.entries(this.state.clusterHighlights).map(flag => (
-              <span className={`cardProduct__flag __${flag[1].replace('ç', 'c').replace(' ', '')}`}>
+            Object.entries(this.state.clusterHighlights).map((flag, i) => (
+              <span
+                className={`cardProduct__flag __${flag[1].replace('ç', 'c').replace(' ', '')}`}
+                key={i}
+              >
                 <p className="cardProduct__flag__content">{flag[1]}</p>
               </span>
             ))}
@@ -821,7 +829,7 @@ class Card extends React.Component {
       >
         {this.props.info.items[0].variations != undefined && this.props.info.items.length > 1 && (
           <React.Fragment>
-            <span className={`cardProduct--change`} onClick={e => this.openConfig()}>
+            <span className={`cardProduct--change`} onClick={() => this.openConfig()}>
               <span className="cardProduct--change__dots"></span>
               <p className="cardProduct--change__close">
                 <svg width="16" height="8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -830,7 +838,7 @@ class Card extends React.Component {
               </p>
             </span>
             {this.mountConfig()}
-            <div className="set--overlay" onClick={e => this.openConfig()}></div>
+            <div className="set--overlay" onClick={() => this.openConfig()}></div>
           </React.Fragment>
         )}
         <div className="cardProduct__flags">{flags()}</div>
@@ -935,7 +943,7 @@ class Card extends React.Component {
             {this.unAvaliable()}
             <span
               className="cardProduct--letMeKnow status--standBy"
-              onClick={e => this.OpenLetMeKnow()}
+              onClick={() => this.OpenLetMeKnow()}
             >
               <svg
                 className="cardProduct--letMeKnow__mail"
