@@ -1,45 +1,63 @@
 .infoBar__render{
+    .__contentMobile{
+        display: none;
+    }
+
+    a{
+        @include d("768px"){
+        text-align: center;
+            &:last-child{
+            margin-top: 18px;    
+            }
+        }
+    } 
+
     display: flex;
-    justify-content: center;
+    color: #FFF;
+    background: #2D2A2A;
+    height: 100px;
+    justify-content: space-around;
     align-items: center;
     margin: 20px 0 40px;
     font-size: 1rem;
     @include d("768px"){
-        display: flex;
-        overflow-y: hidden;
-        overflow-x: auto;
-        justify-content: flex-start;
+        .__contentMobile{
+            display: block;         
+            text-decoration: underline;   
+        }
+        // display: flex;
+        // overflow-y: hidden;
+        // overflow-x: auto;
+        // justify-content: space-between;
     }
     .__container{
         display: flex;
         align-items: center;
-        margin-left: 15px;
+        margin-left: 10px;
         max-width: 300px;
+        padding: 15px;
         @include d("768px"){
-            min-width: 70%;
-            &:nth-child(3){
-                min-width: 85%;
+            .__contentMobile{
+                font-size: .875em;
             }
+            padding: 0px;
+            flex-direction: column;
+            // min-width: 70%;
+            &:nth-child(3){
+                // min-width: 85%;
+            }
+
+            .__content{
+                display: none;
+            }
+            
         }
         &:nth-last-child(1){
-            margin-right: 0;
+            margin-right: 10px;
         }
+        
         .__icon{
             margin-right: 5px;
-            .truck{
-                // path{
-                //     ::nth-child(1),
-                //     ::nth-child(2),
-                //     ::nth-child(4)
-                //     {
-                //         stroke: $g-primary;
-                //         fill: transparent;
-                //     }
-                // }
-                // circle{
-                //     stroke: $g-primary;
-                // }
-            }
             .star{
                 display: flex;
                 height: 40px;
@@ -56,3 +74,47 @@
         }
     }
 }
+
+.__container:hover{    
+    border-radius: 5px;
+    border: solid 1px;
+}
+
+.bar2{
+    .infoBar__render{
+        background: #FFF;
+    }
+    .__container{
+        display: flex;
+        align-items: center;
+        margin-left: 15px;
+        max-width: 300px;                
+        padding: 15px;
+    }
+    .__container:hover{
+        border: solid 1px #000;
+        border-radius: 5px;
+    }
+    .__content, .__contentMobile{
+            color: #000;
+    }
+    .__icon g{
+        stroke: #000;
+    }
+
+    @include d("768px"){
+        flex-direction: column;
+        // min-width: 70%;
+        &:nth-child(3){
+            // min-width: 85%;
+        }
+
+        .__content{
+            display: none;
+        }
+        .__container{
+            padding: 0px;
+        }
+    }
+} 
+    

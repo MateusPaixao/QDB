@@ -1,101 +1,161 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Info from "./_Item"
-// import General from "../../../General/general-index"
+import PaymentModal from './Modal/paymentModal'
+import ShippingModal from './Modal/shippingModal'
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 const Methods = {
-    InfoBar(){
+    InfoBar() {
         class Bar extends React.Component {
-            constructor(props){
+            constructor(props) {
                 super(props);
                 this.state = {
+                    paymentModalOpen: false,
+                    shippingModalOpen: false,
                     Infos: [
                         {
                             Content: '',
-                            Icon: '<svg class="truck" xmlns="http://www.w3.org/2000/svg" width="51.146" height="37.4"><g data-name="caminhao frete"><path fill="#67605F" d="M50.007 32.146l.01-.01.03-.06.03-.06c0-.01 0-.01.01-.02s.01-.03.02-.05.01-.02.01-.03.01-.02.01-.04a1654.149 1654.149 0 0 0 .02-.06c.03-.25.619-4.965.879-8V23.8c.08-.879.12-1.618.12-2.068a9.746 9.746 0 0 0-9.74-9.74h-3.217L39.158.839v-.07a.757.757 0 0 0-.45-.689H38.7c-.02-.01-.03-.01-.05-.02s-.01 0-.02-.01-.03-.01-.04-.01-.02-.01-.03-.01a.06.06 0 0 1-.04-.01.076.076 0 0 1-.04-.01h-15.4a.755.755 0 0 0-.749.749.755.755 0 0 0 .749.749h14.51L36.1 18.63l-.38 4.315H9.69l.44-4.5h4.955a.75.75 0 1 0 0-1.5h-4.816l.919-9.49h7.892a.75.75 0 0 0 0-1.5h-7.742l.43-4.465h8.311a.755.755 0 0 0 .749-.749.755.755 0 0 0-.749-.741h-8.99a.749.749 0 0 0-.729.589V.6c0 .02-.01.04-.01.06v.02l-.51 5.284H.749A.8.8 0 0 0 0 6.743a.748.748 0 0 0 .749.749H9.69l-.919 9.49H6.094a.75.75 0 0 0 0 1.5h2.527l-.5 5.164-.769 7.991V31.787c0 .02.01.04.01.06v.02c0 .01.01.03.01.04a.037.037 0 0 0 .01.03v.01a.788.788 0 0 0 .18.29c.01.01.02.02.03.02a.656.656 0 0 0 .17.12c.01.01.03.01.04.02h.01c.02.01.04.01.06.02h.01a.637.637 0 0 0 .07.02h.01c.02 0 .04.01.07.01h3.406a5.7 5.7 0 0 0 11.308 0h12.017a5.7 5.7 0 0 0 11.308 0h3.416a.127.127 0 0 0 .06-.01c.01 0 .02 0 .02-.01s.03-.01.04-.01.02-.01.03-.01.02-.01.04-.01.02-.01.03-.01.02-.01.03-.02.02-.01.03-.02.02-.01.03-.02.02-.01.03-.02.02-.01.03-.02.02-.01.02-.02l.03-.03.02-.02.03-.03.02-.02c.01.009.023-.011.03-.021zM37.66 17.981l.39-4.5zm-1.249 6.493h.09c.02 0 .04-.01.06-.01s.02 0 .02-.01.03-.01.04-.01.02-.01.03-.01.03-.01.04-.01.02-.01.03-.01.02-.01.03-.02.02-.01.03-.02.02-.01.03-.02.02-.01.03-.02.02-.01.03-.02.02-.01.03-.02l.03-.03c.01-.01.02-.01.02-.02l.03-.03c.01-.01.01-.02.02-.02s.02-.02.02-.03.01-.02.02-.02.01-.02.02-.03a.037.037 0 0 0 .01-.03c.01-.01.01-.02.02-.04s.01-.02.01-.03.01-.02.01-.04.01-.02.01-.03.01-.02.01-.04.01-.02.01-.04a458.37 458.37 0 0 1 .02-.08v-.01l.9-10.3s5.095-.849 8.491 1.8c4.925 3.1 2.338 14.395 2.188 15.683h-2.679a5.7 5.7 0 0 0-11.308 0H22.736a5.7 5.7 0 0 0-11.308 0H8.92l.629-6.493 26.861.01zM17.082 35.922a4.206 4.206 0 1 1 4.206-4.206 4.212 4.212 0 0 1-4.206 4.206zm23.325 0a4.206 4.206 0 1 1 4.206-4.206 4.212 4.212 0 0 1-4.206 4.206z"/><path fill="#67605F" d="M7.841 12.137a.755.755 0 0 0-.749-.749H3.426a.75.75 0 0 0 0 1.5h3.666a.755.755 0 0 0 .749-.751z"/></g></svg>',
+                            ContentMobile: 'Frete',
+                            Icon: '<svg xmlns="http://www.w3.org/2000/svg" width="37" height="32"><defs><clipPath id="a"><path d="M0 0h37v32H0z"/></clipPath></defs><g data-name="Prancheta – 15" clipPath="url(#a)"><g transform="translate(4.406 2.06)" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" fill="none"><path data-name="Retângulo 959" d="M.594 2.94h18.643v15.847H.594z"/><path data-name="Caminho 987" d="M18.937 8.994h4.947l3.71 3.71v6.183h-8.657z"/><circle data-name="Elipse 43" cx="3.263" cy="3.263" r="3.263" transform="translate(3.39 18.415)"/><circle data-name="Elipse 44" cx="3.263" cy="3.263" r="3.263" transform="translate(18.651 18.415)"/></g></g></svg>',
                         },
                         {
-                            Content: 'tudo em até 10x sem juros <br> e parcela mínima de R$ 15',
-                            Icon: '<svg class="card" width="46" height="40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M36.867.425a3.204 3.204 0 0 0-.985.113L2.449 9.734c-1.757.483-2.807 2.352-2.337 4.155l1.816 6.957v13.221c0 1.867 1.486 3.394 3.305 3.394h31.956a5.301 5.301 0 0 1-.549-1.436H5.233c-1.068 0-1.906-.861-1.906-1.958V14.15c0-1.096.838-1.956 1.906-1.956h34.612c1.068 0 1.906.86 1.906 1.956v15.495c.475.015.946.097 1.398.246v-3.764c1.426-.68 2.221-2.341 1.8-3.952l-1.8-6.9V14.15c0-.893-.343-1.705-.897-2.313l-2.323-8.9C39.547 1.47 38.273.483 36.867.424zm-.237 1.433c.89-.059 1.706.523 1.948 1.45l.115.439-25.488 7.011H5.233c-1.722 0-3.143 1.368-3.29 3.098l-.366.1-.114-.44c-.277-1.058.317-2.112 1.348-2.396l33.433-9.197c.13-.035.258-.056.386-.065zM40 8.756l.543 2.08a3.194 3.194 0 0 0-.698-.078h-7.123L40 8.756zm3.15 12.063l.45 1.727a1.97 1.97 0 0 1-.45 1.846V20.82zm-4.566 8.833l-15.272.135a.735.735 0 0 0-.534.227.772.772 0 0 0-.219.55.789.789 0 0 0 .228.547.75.75 0 0 0 .538.218l14.643-.129c.392-.41.847-.75 1.347-1.009a.77.77 0 0 0-.278-.394.738.738 0 0 0-.453-.145zm-18.912.027l-9.055.08a.735.735 0 0 0-.535.227.774.774 0 0 0-.218.55.789.789 0 0 0 .227.546.748.748 0 0 0 .539.219l9.054-.08a.734.734 0 0 0 .535-.227.772.772 0 0 0 .219-.55.789.789 0 0 0-.228-.547.75.75 0 0 0-.538-.218zm21.919.653c-2.43 0-4.41 2.033-4.41 4.526 0 2.494 1.98 4.527 4.41 4.527 2.429 0 4.409-2.033 4.409-4.526 0-2.494-1.98-4.527-4.41-4.527zm0 1.06c1.87 0 3.376 1.546 3.376 3.466 0 1.921-1.505 3.467-3.376 3.467-1.872 0-3.377-1.546-3.377-3.467 0-1.92 1.505-3.466 3.377-3.466zM15.14 32.506a.245.245 0 0 0-.22.133l-.88 1.564a.262.262 0 0 0 .086.36.246.246 0 0 0 .347-.103l.88-1.564a.263.263 0 0 0-.087-.354.245.245 0 0 0-.126-.036zm26.45.117c-.929 0-1.686.756-1.724 1.7l-.001.024v.42a.225.225 0 0 0-.091.182v1.92c0 .124.098.225.22.225h3.194c.122 0 .22-.1.22-.226v-1.92a.225.225 0 0 0-.091-.18v-.022-.423c-.038-.945-.797-1.7-1.726-1.7zm-28.459.416l-2.774.041a.495.495 0 0 0-.352.156.521.521 0 0 0 .01.727.494.494 0 0 0 .357.146l2.774-.042a.495.495 0 0 0 .352-.156.52.52 0 0 0-.01-.726.494.494 0 0 0-.357-.146zm6.009 0l-2.775.041a.495.495 0 0 0-.352.156.521.521 0 0 0 .01.727.494.494 0 0 0 .357.146l2.774-.042a.49.49 0 0 0 .352-.156.514.514 0 0 0 .142-.365.528.528 0 0 0-.152-.361.5.5 0 0 0-.356-.146zm22.463.315c.055 0 .111.007.166.018.445.072.803.49.816.952.002.133.002.267.002.4h-1.996v-.342c.01-.138.03-.295.092-.427a.999.999 0 0 1 .92-.601zm-.108 1.742h.192c.035 0 .062.03.062.065v.57a.32.32 0 0 1 .16.269c0 .18-.143.326-.318.326a.323.323 0 0 1-.318-.326.32.32 0 0 1 .16-.27v-.57c0-.034.028-.064.062-.064z" fill="#67605F"/></svg>',
+                            Content: 'Troque pontos por produtos no nosso clube',
+                            ContentMobile: 'Nosso clube',
+                            Icon: '<svg xmlns="http://www.w3.org/2000/svg" width="37" height="32"><defs><clipPath id="a"><path d="M0 0h37v32H0z"/></clipPath></defs><g data-name="Prancheta – 16" clipPath="url(#a)"><path data-name="Caminho 1000" d="M29.933 13.306a1.374 1.374 0 00-.439-.643 1.354 1.354 0 00-.72-.3l-6.389-.694-2.633-5.856a1.369 1.369 0 00-2-.592 1.4 1.4 0 00-.507.592l-2.63 5.858-6.389.694a1.377 1.377 0 00-.775 2.389l4.758 4.313-1.311 6.279a1.38 1.38 0 00.537 1.392 1.341 1.341 0 00.733.26 1.388 1.388 0 00.758-.179l5.572-3.193 5.576 3.193a1.378 1.378 0 001.491-.081 1.358 1.358 0 00.473-.617 1.375 1.375 0 00.064-.775l-1.312-6.284 4.759-4.312a1.389 1.389 0 00.409-.664 1.424 1.424 0 00-.026-.779zm-.958.809l-4.937 4.479a.437.437 0 00-.128.2.422.422 0 000 .23l1.363 6.522a.5.5 0 01-.026.294.541.541 0 01-.179.234.508.508 0 01-.277.1.53.53 0 01-.29-.068l-5.784-3.334a.408.408 0 00-.213-.055.453.453 0 00-.213.055l-5.793 3.311a.53.53 0 01-.29.068.5.5 0 01-.277-.1.511.511 0 01-.179-.234.532.532 0 01-.026-.294l1.372-6.533a.42.42 0 00-.132-.426l-4.94-4.449a.508.508 0 01-.149-.545.521.521 0 01.162-.243.51.51 0 01.259-.114l6.628-.72a.45.45 0 00.2-.081.412.412 0 00.136-.17l2.752-6.08a.551.551 0 01.192-.226.521.521 0 01.571 0 .494.494 0 01.192.226l2.735 6.08a.412.412 0 00.136.17.45.45 0 00.2.081l6.628.72a.5.5 0 01.264.115.521.521 0 01.162.243.53.53 0 01.017.294.543.543 0 01-.137.25z" fill="#fff"/></g></svg>',
                         },
                         {
-                            Content: '<a href="/servicos"> venha se maquiar </a>nas nossas lojas e receba 100% do valor em produtos',
-                            Icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 393.432 393.432" width="53" height="40" class="hovered-paths"><path d="M114.18 181.563h-4.31v-34.948a7.5 7.5 0 0 0-7.5-7.5h-.644v-71.5a7.5 7.5 0 0 0-4.146-6.708L39.54 31.879a7.5 7.5 0 0 0-10.855 6.708v100.528h-.644a7.5 7.5 0 0 0-7.5 7.5v34.948h-4.317a7.5 7.5 0 0 0-7.5 7.5v196.869a7.5 7.5 0 0 0 7.5 7.5h97.954a7.5 7.5 0 0 0 7.5-7.5V189.063a7.497 7.497 0 0 0-7.498-7.5zM43.687 50.724l43.04 21.526v66.865h-43.04V50.724zm-8.143 103.391h59.327v27.448H35.544v-27.448zm71.136 224.317H23.726V196.563h82.954v181.869zM377.205 304.276H133.601c-4.143 0-7.5 3.358-7.5 7.5s3.357 7.5 7.5 7.5h231.671l-1.715 3.565c-9.421 19.576-29.546 32.226-51.271 32.226H133.601c-4.143 0-7.5 3.358-7.5 7.5s3.357 7.5 7.5 7.5h178.685c27.453 0 52.884-15.984 64.787-40.722l6.89-14.317a7.496 7.496 0 0 0-.408-7.243 7.503 7.503 0 0 0-6.35-3.509zM116.284 55.149C144.249 29.259 180.653 15 218.792 15c83.214 0 150.914 67.7 150.914 150.914 0 44.863-19.769 87.106-54.236 115.897a7.498 7.498 0 0 0-.948 10.564 7.482 7.482 0 0 0 5.76 2.692 7.47 7.47 0 0 0 4.804-1.744c37.891-31.649 59.621-78.088 59.621-127.41C384.706 74.429 310.277 0 218.792 0c-41.929 0-81.952 15.677-112.699 44.143a7.5 7.5 0 0 0 10.191 11.006z" fill="#67605F" class="hovered-path active-path"/><path d="M218.788 46.194c66.016 0 119.724 53.708 119.724 119.724s-53.708 119.724-119.724 119.724c-29.679 0-58.147-10.938-80.163-30.797a7.5 7.5 0 0 0-10.047 11.137c24.776 22.351 56.813 34.66 90.21 34.66 74.287 0 134.724-60.437 134.724-134.724S293.075 31.194 218.788 31.194c-42.665 0-83.253 20.54-108.572 54.945a7.5 7.5 0 1 0 12.081 8.891c22.504-30.579 58.576-48.836 96.491-48.836z" fill="#67605F" class="hovered-path active-path"/><path d="M301.297 106.834L164.429 243.702a7.5 7.5 0 0 0 5.304 12.803 7.478 7.478 0 0 0 5.304-2.197L311.904 117.44a7.5 7.5 0 0 0-10.607-10.606zM206.107 244.628a7.5 7.5 0 0 0 5.304 12.803 7.478 7.478 0 0 0 5.304-2.197l102.76-102.76a7.5 7.5 0 0 0-10.607-10.606l-102.761 102.76z" fill="#67605F" class="hovered-path active-path"/></svg>'
+                            Content: 'tudo em até 10x sem juros e parcela mínima de R$ 15',
+                            ContentMobile: 'Parcelas',
+                            Icon: '<svg xmlns="http://www.w3.org/2000/svg" width="37" height="32"><defs><clipPath id="a"><path d="M0 0h37v32H0z"/></clipPath></defs><g data-name="Prancheta – 17" clipPath="url(#a)"><path d="M34 24.105V7.895A2.719 2.719 0 0031.5 5h-25A2.719 2.719 0 004 7.895v16.21A2.719 2.719 0 006.5 27h25a2.719 2.719 0 002.5-2.895zM6.5 6.158h25A1.632 1.632 0 0133 7.895v1.158H5V7.895a1.632 1.632 0 011.5-1.737zM5 10.211h28v3.473H5zm1.5 15.631A1.632 1.632 0 015 24.105v-9.263h28v9.263a1.632 1.632 0 01-1.5 1.737z" fill="#fff"/></g></svg>',
                         },
                         {
-                            Content: 'troque pontos por produtos <br> no <a href="/nosso-clube">nosso clube</a>',
-                            Icon: '<svg class="star" viewBox="0 0 52 55" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M53.84 19.66a3.2 3.2 0 0 0-2.72-2.21l-15-1.63-6.18-13.76a3.22 3.22 0 0 0-5.88 0l-6.18 13.76-15 1.63a3.23 3.23 0 0 0-1.82 5.6l11.17 10.13-3.08 14.76a3.23 3.23 0 0 0 4.76 3.46L27 43.9l13.09 7.5a3.23 3.23 0 0 0 4.76-3.46l-3.08-14.76 11.17-10.13a3.199 3.199 0 0 0 .9-3.39zm-2.25 1.9L40 32.08a1 1 0 0 0-.31 1l3.2 15.32a1.23 1.23 0 0 1-1.81 1.32L27.5 41.88a1 1 0 0 0-1 0l-13.58 7.79a1.23 1.23 0 0 1-1.81-1.32L14.31 33a.999.999 0 0 0-.31-1L2.41 21.56a1.19 1.19 0 0 1-.35-1.28 1.2 1.2 0 0 1 1-.84l15.56-1.69a1 1 0 0 0 .8-.59l6.46-14.28a1.23 1.23 0 0 1 2.24 0l6.42 14.28a1 1 0 0 0 .8.59l15.56 1.69a1.2 1.2 0 0 1 1 .84 1.19 1.19 0 0 1-.31 1.28z" fill="#000"/></svg>',
-                        }
-                        // {
-                        //     Content: 'vem nos visitar em <br> <a href="/nossas-lojas"> nossas lojas </a>',
-                        //     Icon: '<svg class="marker" width="23" height="33" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.623 0a11.383 11.383 0 0 0-8.045 3.33 11.361 11.361 0 0 0-3.333 8.037c0 5.866 9.543 19.11 10.644 20.603l.734 1.03.734-1.03C13.457 30.477 23 17.233 23 11.367c0-3.015-1.199-5.906-3.332-8.038A11.383 11.383 0 0 0 11.623 0zm0 29.817c-2.261-3.23-9.506-13.94-9.506-18.45a9.492 9.492 0 0 1 2.784-6.715 9.51 9.51 0 0 1 13.443 0 9.492 9.492 0 0 1 2.784 6.715c0 4.51-7.245 15.22-9.505 18.45z" fill="#67605F"/><path d="M11.623 4.726a5.413 5.413 0 0 0-4.998 3.337 5.4 5.4 0 0 0 1.173 5.89 5.411 5.411 0 0 0 9.235-3.822 5.41 5.41 0 0 0-1.587-3.82 5.42 5.42 0 0 0-3.823-1.585zM8.07 10.131a3.547 3.547 0 0 1 2.193-3.28 3.556 3.556 0 0 1 4.844 2.588 3.547 3.547 0 0 1-1.51 3.643 3.555 3.555 0 0 1-5.527-2.95z" fill="#67605F"/></svg>',
-                        // }
+                            Content: 'Faça sua make na loja e receba 100% do valor em produtos',
+                            ContentMobile: 'Agende "<br>" sua make',
+                            Icon: '<svg xmlns="http://www.w3.org/2000/svg" width="37" height="32"><defs><clipPath id="a"><path d="M0 0h37v32H0z"/></clipPath></defs><g fill="#fff" data-name="Prancheta – 18" clipPath="url(#a)"><path data-name="Caminho 989" d="M14.65 15.283h-.275V13.35a.447.447 0 00-.473-.415h-.037V8.981a.413.413 0 00-.262-.371L9.942 7.005a.531.531 0 00-.46.018.406.406 0 00-.224.353v5.56h-.041a.447.447 0 00-.473.415v1.933h-.269a.447.447 0 00-.473.415v10.887a.447.447 0 00.473.415h6.178a.447.447 0 00.473-.415V15.698a.447.447 0 00-.476-.415zm-4.446-7.236l2.715 1.19v3.7h-2.715zm-.514 5.718h3.742v1.518H9.691zm4.485 12.409h-5.23V16.113h5.23z"/><path data-name="Caminho 990" d="M30.535 23H15.463a.456.456 0 100 .912h14.335l-.106.217a3.545 3.545 0 01-3.172 1.959H15.463a.456.456 0 100 .912h11.055a4.479 4.479 0 004.008-2.476l.426-.87a.449.449 0 00-.025-.44.466.466 0 00-.392-.214z"/><path data-name="Caminho 991" d="M12.069 8.478a9.519 9.519 0 1112.563 14.3.473.473 0 10.607.726 10.465 10.465 0 10-13.813-15.72.473.473 0 10.643.694z"/></g></svg>'
+                        },
+
                     ]
                 }
 
                 this.getShippingInfo = this.getShippingInfo.bind(this);
-                this.setInfos = this.setInfos.bind(this);
+                // this.setInfos = this.setInfos.bind(this);
+                this.toggleModal = this.toggleModal.bind(this)
+                this.togglePaymentModal = this.togglePaymentModal.bind(this)
+                this.checkUrlParams = this.checkUrlParams.bind(this)
             }
 
-            componentDidMount(){
+            componentDidMount() {
                 this.getShippingInfo();
-                this.setInfos();
+                // this.setInfos();
+                this.checkUrlParams()
             }
 
-            getShippingInfo(){
+            checkUrlParams() {
+                const url = new URLSearchParams(window.location.search)
+                if (url.has("infobar") == true) {
+                    document.querySelector("body").classList.add("bar2")
+                }
+            }
+
+            getShippingInfo() {
                 let StateInfos = this.state.Infos, Content = document.querySelector(".infoBar").textContent;
-                // if(General.getBrowserVendor() == 'safari/webkit'){
-                    StateInfos[0].Content = Content.substring(
-                        Content.lastIndexOf('shippingTextInit') + 16, 
-                        Content.lastIndexOf('shippingTextEnd')
-                    )
-                // }else{
-                //     StateInfos[0].Content = Content.match(/(?<=shippingTextInit)(.*)(?=shippingTextEnd)/)[0];
-                // }
-                // console.log(document.querySelector(".infoBar").textContent.match(/(?<=shippingTextInit)(.*)(?=shippingTextEnd)/));
+                StateInfos[0].Content = Content.substring(
+                    Content.lastIndexOf('shippingTextInit') + 127,
+                    Content.lastIndexOf('<a')
+                )
                 this.setState({
                     Infos: StateInfos
                 })
+                console.log(this.state.Infos[0])
             }
 
-            setInfos(){
+            _setInfos() {
                 setTimeout(() => {
-                    for( let i = 0; i < document.querySelectorAll(".infoBar__render .__container").length; i++){
-                        // console.log(document.querySelectorAll(".infoBar__render .__container .__icon")[i])
-                        // console.log(this.state.Infos[i]);
+                    for (let i = 0; i < document.querySelectorAll(".infoBar__render .__container").length; i++) {
                         document.querySelectorAll(".infoBar__render .__container .__icon")[i].innerHTML = this.state.Infos[i].Icon;
                         document.querySelectorAll(".infoBar__render .__container .__content")[i].innerHTML = this.state.Infos[i].Content;
+                        document.querySelectorAll(".infoBar__render .__container .__contentMobile")[i].innerHTML = this.state.Infos[i].ContentMobile;
                     }
-                }, 500);
+                }, 100);
             }
 
-            render(){
-                const Infos = () => {
-                    let items = [];
-                    this.state.Infos.map((item, index) => {
-                        items.push(
-                            <Info Icon={item.Icon} Text={item.Content} key={index} />
-                        );
-                    })
-                    return (
-                      <React.Fragment>
-                          {items}
-                      </React.Fragment>
-                    )
-                  }
-          
-                  return <Infos />
+            setInfos() {
+                this.state.Infos.map(info => {
+                    let items = []
+                    // items.push(
+                    //     <Info Icon={info.Icon} Text={info.Content} TextMobile={info.ContentMobile}/>
+                    // )
+                })
             }
-        
+
+            toggleModal() {
+                console.log("CLiquei pra abrir")
+                this.setState({ shippingModalOpen: !this.state.shippingModalOpen })
+            }
+
+            togglePaymentModal() {
+                this.setState({ paymentModalOpen: !this.state.paymentModalOpen })
+            }
+
+            render() {
+                const { Infos } = this.state
+
+                return (
+                    <React.Fragment>
+
+                        <div className="__container" onClick={() => this.toggleModal()}>
+                            <span className="__icon" ><svg xmlns="http://www.w3.org/2000/svg" width="37" height="32"><defs><clipPath id="a"><path d="M0 0h37v32H0z" /></clipPath></defs><g data-name="Prancheta – 15" clipPath="url(#a)"><g transform="translate(4.406 2.06)" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" fill="none"><path data-name="Retângulo 959" d="M.594 2.94h18.643v15.847H.594z" /><path data-name="Caminho 987" d="M18.937 8.994h4.947l3.71 3.71v6.183h-8.657z" /><circle data-name="Elipse 43" cx="3.263" cy="3.263" r="3.263" transform="translate(3.39 18.415)" /><circle data-name="Elipse 44" cx="3.263" cy="3.263" r="3.263" transform="translate(18.651 18.415)" /></g></g></svg></span>
+                            <p className="__content"><a href="/busca/?fq=P:[109TO300]&O=OrderByBestDiscountDESC"> frete grátis </a> nas compras <br /> a partir de {this.state.Infos[0].Content}<a href="/busca/?fq=P:[109TO300]&O=OrderByBestDiscountDESC" className="_ctaModal"></a></p>
+                            <p className="__contentMobile">{Infos[0].ContentMobile}</p>
+                        </div>
+
+                        <a href="/nosso-clube">
+                            <div className="__container">
+                                <span className="__icon" ><svg xmlns="http://www.w3.org/2000/svg" width="37" height="32"><defs><clipPath id="a"><path d="M0 0h37v32H0z" /></clipPath></defs><g data-name="Prancheta – 16" clipPath="url(#a)"><path data-name="Caminho 1000" d="M29.933 13.306a1.374 1.374 0 00-.439-.643 1.354 1.354 0 00-.72-.3l-6.389-.694-2.633-5.856a1.369 1.369 0 00-2-.592 1.4 1.4 0 00-.507.592l-2.63 5.858-6.389.694a1.377 1.377 0 00-.775 2.389l4.758 4.313-1.311 6.279a1.38 1.38 0 00.537 1.392 1.341 1.341 0 00.733.26 1.388 1.388 0 00.758-.179l5.572-3.193 5.576 3.193a1.378 1.378 0 001.491-.081 1.358 1.358 0 00.473-.617 1.375 1.375 0 00.064-.775l-1.312-6.284 4.759-4.312a1.389 1.389 0 00.409-.664 1.424 1.424 0 00-.026-.779zm-.958.809l-4.937 4.479a.437.437 0 00-.128.2.422.422 0 000 .23l1.363 6.522a.5.5 0 01-.026.294.541.541 0 01-.179.234.508.508 0 01-.277.1.53.53 0 01-.29-.068l-5.784-3.334a.408.408 0 00-.213-.055.453.453 0 00-.213.055l-5.793 3.311a.53.53 0 01-.29.068.5.5 0 01-.277-.1.511.511 0 01-.179-.234.532.532 0 01-.026-.294l1.372-6.533a.42.42 0 00-.132-.426l-4.94-4.449a.508.508 0 01-.149-.545.521.521 0 01.162-.243.51.51 0 01.259-.114l6.628-.72a.45.45 0 00.2-.081.412.412 0 00.136-.17l2.752-6.08a.551.551 0 01.192-.226.521.521 0 01.571 0 .494.494 0 01.192.226l2.735 6.08a.412.412 0 00.136.17.45.45 0 00.2.081l6.628.72a.5.5 0 01.264.115.521.521 0 01.162.243.53.53 0 01.017.294.543.543 0 01-.137.25z" fill="#fff" /></g></svg></span>
+                                <p className="__content">{Infos[1].Content}</p>
+                                <p className="__contentMobile">{Infos[1].ContentMobile}</p>
+                            </div>
+                        </a>
+
+                        <div className="__container" onClick={() => this.togglePaymentModal()}>
+                            <span className="__icon" ><svg xmlns="http://www.w3.org/2000/svg" width="37" height="32"><defs><clipPath id="a"><path d="M0 0h37v32H0z" /></clipPath></defs><g data-name="Prancheta – 17" clipPath="url(#a)"><path d="M34 24.105V7.895A2.719 2.719 0 0031.5 5h-25A2.719 2.719 0 004 7.895v16.21A2.719 2.719 0 006.5 27h25a2.719 2.719 0 002.5-2.895zM6.5 6.158h25A1.632 1.632 0 0133 7.895v1.158H5V7.895a1.632 1.632 0 011.5-1.737zM5 10.211h28v3.473H5zm1.5 15.631A1.632 1.632 0 015 24.105v-9.263h28v9.263a1.632 1.632 0 01-1.5 1.737z" fill="#fff" /></g></svg></span>
+                            <p className="__content">{Infos[2].Content}</p>
+                            <p className="__contentMobile">{Infos[2].ContentMobile}</p>
+                        </div>
+
+                        <a href="/servicos">
+                            <div className="__container">
+                                <span className="__icon" ><svg xmlns="http://www.w3.org/2000/svg" width="37" height="32"><defs><clipPath id="a"><path d="M0 0h37v32H0z" /></clipPath></defs><g fill="#fff" data-name="Prancheta – 18" clipPath="url(#a)"><path data-name="Caminho 989" d="M14.65 15.283h-.275V13.35a.447.447 0 00-.473-.415h-.037V8.981a.413.413 0 00-.262-.371L9.942 7.005a.531.531 0 00-.46.018.406.406 0 00-.224.353v5.56h-.041a.447.447 0 00-.473.415v1.933h-.269a.447.447 0 00-.473.415v10.887a.447.447 0 00.473.415h6.178a.447.447 0 00.473-.415V15.698a.447.447 0 00-.476-.415zm-4.446-7.236l2.715 1.19v3.7h-2.715zm-.514 5.718h3.742v1.518H9.691zm4.485 12.409h-5.23V16.113h5.23z" /><path data-name="Caminho 990" d="M30.535 23H15.463a.456.456 0 100 .912h14.335l-.106.217a3.545 3.545 0 01-3.172 1.959H15.463a.456.456 0 100 .912h11.055a4.479 4.479 0 004.008-2.476l.426-.87a.449.449 0 00-.025-.44.466.466 0 00-.392-.214z" /><path data-name="Caminho 991" d="M12.069 8.478a9.519 9.519 0 1112.563 14.3.473.473 0 10.607.726 10.465 10.465 0 10-13.813-15.72.473.473 0 10.643.694z" /></g></svg></span>
+                                <p className="__content">{Infos[3].Content}</p>
+                                <p className="__contentMobile">Agende <br /> sua make</p>
+                            </div>
+                        </a>
+
+                        {
+                            this.state.shippingModalOpen == true &&
+                            <div onClick={() => this.toggleModal()} className="overlayModal">
+                                <ShippingModal modalOpen={this.toggleModal} price={this.state.Infos[0].Content} />
+                            </div>
+                        }
+                        {
+                            this.state.paymentModalOpen == true &&
+                            <div onClick={() => this.togglePaymentModal()} className="overlayModal">
+                                <PaymentModal modalOpen={this.togglePaymentModal} />
+                            </div>
+                        }
+                    </React.Fragment>
+                )
+
+            }
+
         }
-        
+
         ReactDOM.render(
             <Bar />,
             document.getElementById('infoBar__render')
         );
     }
 }
-  
+
 export default {
     init: Methods.InfoBar
 };

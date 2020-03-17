@@ -45,7 +45,7 @@ const Banner = ({ Url, Src, Alt, Index }) => {
         onContextMenu={(e) => onPromoClick(e)}
       >
         <img className="paineisBeleza__img" src={Src} alt={Alt} loading="lazy" />
-        {/* <button className="paineisBeleza__button">Quero esse</button> */}
+        <button className="paineisBeleza__button">Quero esse</button>
       </a>
     </React.Fragment>
   );

@@ -1,12 +1,15 @@
 // import PropTypes from "prop-types";
 // import ReactHtmlParser from 'react-html-parser';
-import React from 'react';
 
-const Info = () => {
+const Info = (props) => {
     return (
-        <div className="__container">
+        <div
+            // onMouseOver={() =>props.onMouseOver()} 
+            onClick={() => props.onClick ? props.onClick() : ''} className="__container"
+        >
             <span className="__icon" ></span>
             <p className="__content"></p>
+            <p className="__contentMobile"></p>
         </div>
     );
 }
