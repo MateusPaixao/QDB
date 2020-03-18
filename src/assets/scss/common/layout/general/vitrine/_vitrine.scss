@@ -50,7 +50,7 @@
         // justify-content: center;
         // min-width: 350px;
         justify-content: flex-end;
-        padding-bottom: 40px;
+        // padding-bottom: 40px;
         min-height: 390px;
         border: solid 1px $qdb-grey-l;
         margin: 0 0 0 10px;
@@ -340,7 +340,7 @@
         .cardProduct__link {
             display: flex;
             flex-flow: column;
-            transform: translateY(-10px);
+            transform: translateY(-50px);
         }
 
         .cardProduct__flags {
@@ -412,7 +412,7 @@
                 }
 
                 .cardProduct__pictureContainer__review__qtd {
-                    max-width: 100px;
+                    // max-width: 100px;
                     display: flex;
                     font-size: .8em;
                     text-align: left;
