@@ -44,11 +44,14 @@
 
     img{
         object-fit: cover;
+        @media(min-width: 768px){
+            max-width: 300px;
+        }
     }
 
     .category_banner_texto{
         z-index: 2;
-            
+        margin-top: 25px;
         .content__title{
             @include sans(1.875rem, #fff, 900, initial);
         }
@@ -116,7 +119,7 @@
 .category-new{    
 
     .category_banner img{
-        max-width: 300px;
+        // max-width: 300px;
     }
 }
 
