@@ -37,17 +37,13 @@ const Banner = ({ Url, Src, Alt, Index }) => {
   }
 
   return (
-    <React.Fragment>
-      {/* <div class="category-pagination">{Index + 1}/SIM </div> */}
-      <a className="paineisBeleza__link"
-        href={Url}
-        onClick={(e) => onPromoClick(e)}
-        onContextMenu={(e) => onPromoClick(e)}
-      >
-        <img className="paineisBeleza__img" src={Src} alt={Alt} loading="lazy" />
-        <button className="paineisBeleza__button">Quero esse</button>
-      </a>
-    </React.Fragment>
+    <a className="paineisBeleza__link"
+      href={Url}
+      onClick={(e) => onPromoClick(e)}
+      onContextMenu={(e) => onPromoClick(e)}
+    >
+      <img className="paineisBeleza__img" data-src={Src} alt={Alt} loading="lazy" />
+    </a>
   );
 }
 export default Banner
