@@ -10,9 +10,11 @@
         }
 
     }
-    .paineisBeleza__button{
+
+    .paineisBeleza__button {
         display: none;
-        @include d("768px"){
+
+        @include d("768px") {
             display: block;
             background: #000;
             margin-top: -63px;
@@ -29,11 +31,12 @@
         }
     }
 
-    .category-pagination{
+    .category-pagination {
         display: none;
-        @include d("768px"){
+
+        @include d("768px") {
             position: absolute;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0, 0, 0, 0.8);
             color: #fff;
             -webkit-border-radius: 50px;
             border-radius: 50px;
@@ -49,7 +52,7 @@
         }
     }
 
-   
+
     .slick-slider {
         margin: 0 auto;
         overflow: hidden;
@@ -86,10 +89,11 @@
             &.slick-next {
                 right: 33px;
                 top: 50%;
-                transform: translateY(-50%)                
+                transform: translateY(-50%)
             }
 
-            &.slick-next:before, &.slick-prev:before{
+            &.slick-next:before,
+            &.slick-prev:before {
                 font-size: 35px;
             }
         }

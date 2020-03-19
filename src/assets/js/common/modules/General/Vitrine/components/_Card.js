@@ -10,7 +10,7 @@ class Card extends React.Component {
       FreeShipping: 1000,
       clusterHighlights:
         Object.entries(this.props.info.clusterHighlights).length === 0 &&
-          this.props.info.clusterHighlights.constructor === Object
+        this.props.info.clusterHighlights.constructor === Object
           ? {}
           : this.props.info.clusterHighlights,
       Avaliable: true,
@@ -79,8 +79,8 @@ class Card extends React.Component {
         RawPrice: this.props.info.items.find(sku =>
           sku.sellers[0].commertialOffer.ListPrice != 0
             ? sku.sellers[0].commertialOffer.ListPrice.toFixed(2)
-              .toString()
-              .replace('.', ',')
+                .toString()
+                .replace('.', ',')
             : ''
         )
       });
@@ -94,7 +94,7 @@ class Card extends React.Component {
     let before;
     if (
       this.state.Sku.sellers[0].commertialOffer.ListPrice ==
-      this.state.Sku.sellers[0].commertialOffer.Price ||
+        this.state.Sku.sellers[0].commertialOffer.Price ||
       this.state.Sku.sellers[0].commertialOffer.AvailableQuantity == 0
     ) {
       before = false;
@@ -193,34 +193,34 @@ class Card extends React.Component {
                   ${sku.itemId == this.props.skuHighlight ? 'selected' : ''} 
                   ${
                     sku.sellers[0].commertialOffer.AvailableQuantity == 0 ||
-                      sku.sellers[0].commertialOffer.Price == 0 ||
-                      sku.sellers[0].commertialOffer.ListPrice == 0
+                    sku.sellers[0].commertialOffer.Price == 0 ||
+                    sku.sellers[0].commertialOffer.ListPrice == 0
                       ? 'set--avaliable-false'
                       : 'set--avaliable-true'
-                    }
+                  }
                   ${
                     Math.round(
                       ((sku.sellers[0].commertialOffer.Price -
                         sku.sellers[0].commertialOffer.ListPrice) *
                         100) /
-                      sku.sellers[0].commertialOffer.ListPrice
+                        sku.sellers[0].commertialOffer.ListPrice
                     ) < 0
                       ? 'set--discount'
                       : ''
-                    }
+                  }
                   `}
                   data-name={sku['Escolha a Cor']}
                   data-discount={
                     sku.sellers[0].commertialOffer.AvailableQuantity == 0 ||
-                      sku.sellers[0].commertialOffer.Price == 0 ||
-                      sku.sellers[0].commertialOffer.ListPrice == 0
+                    sku.sellers[0].commertialOffer.Price == 0 ||
+                    sku.sellers[0].commertialOffer.ListPrice == 0
                       ? ''
                       : Math.round(
-                        ((sku.sellers[0].commertialOffer.Price -
-                          sku.sellers[0].commertialOffer.ListPrice) *
-                          100) /
-                        sku.sellers[0].commertialOffer.ListPrice
-                      )
+                          ((sku.sellers[0].commertialOffer.Price -
+                            sku.sellers[0].commertialOffer.ListPrice) *
+                            100) /
+                            sku.sellers[0].commertialOffer.ListPrice
+                        )
                   }
                   data-sku={sku.itemId}
                   onClick={e => changeSku(e.currentTarget)}
@@ -240,70 +240,70 @@ class Card extends React.Component {
             </ul>
           </React.Fragment>
         ) : (
-            <React.Fragment>
-              {this.props.info.items.map(
-                sku =>
-                  sku.itemId == this.props.skuHighlight && (
-                    <span className="cardProduct__config__selected __volume">
-                      <p className="cardProduct__config__selected__name">
-                        {this.state.Sku['Escolha o Volume']}
-                      </p>
-                    </span>
-                  )
-              )}
-              <div className="cardProduct__config__type">
-                {/* {this.props.info.items.map(sku => console.log(sku))} */}
-                {/* {console.log(this.props.info)} */}
-                <span className="cardProduct__config__type__bulk"></span>
-                <p className="cardProduct__config__type__title">Escolha o Volume</p>
-              </div>
-              <ul className="cardProduct__config__list">
-                {this.props.info.items.map((sku, i) => (
-                  <li
-                    className={`cardProduct__config__list__item __volume 
+          <React.Fragment>
+            {this.props.info.items.map(
+              sku =>
+                sku.itemId == this.props.skuHighlight && (
+                  <span className="cardProduct__config__selected __volume">
+                    <p className="cardProduct__config__selected__name">
+                      {this.state.Sku['Escolha o Volume']}
+                    </p>
+                  </span>
+                )
+            )}
+            <div className="cardProduct__config__type">
+              {/* {this.props.info.items.map(sku => console.log(sku))} */}
+              {/* {console.log(this.props.info)} */}
+              <span className="cardProduct__config__type__bulk"></span>
+              <p className="cardProduct__config__type__title">Escolha o Volume</p>
+            </div>
+            <ul className="cardProduct__config__list">
+              {this.props.info.items.map((sku, i) => (
+                <li
+                  className={`cardProduct__config__list__item __volume 
               sku--${sku.itemId}
               ${sku.itemId == this.props.skuHighlight ? 'selected' : ''}
               ${
-                      sku.sellers[0].commertialOffer.AvailableQuantity == 0 ||
-                        sku.sellers[0].commertialOffer.Price == 0 ||
-                        sku.sellers[0].commertialOffer.ListPrice == 0
-                        ? 'set--avaliable-false'
-                        : 'set--avaliable-true'
-                      }
+                sku.sellers[0].commertialOffer.AvailableQuantity == 0 ||
+                sku.sellers[0].commertialOffer.Price == 0 ||
+                sku.sellers[0].commertialOffer.ListPrice == 0
+                  ? 'set--avaliable-false'
+                  : 'set--avaliable-true'
+              }
               ${
-                      Math.round(
-                        ((sku.sellers[0].commertialOffer.Price -
-                          sku.sellers[0].commertialOffer.ListPrice) *
-                          100) /
-                        sku.sellers[0].commertialOffer.ListPrice
-                      ) < 0
-                        ? 'set--discount'
-                        : ''
-                      }
+                Math.round(
+                  ((sku.sellers[0].commertialOffer.Price -
+                    sku.sellers[0].commertialOffer.ListPrice) *
+                    100) /
+                    sku.sellers[0].commertialOffer.ListPrice
+                ) < 0
+                  ? 'set--discount'
+                  : ''
+              }
               `}
-                    data-name={sku['Escolha o Volume']}
-                    data-sku={sku.itemId}
-                    data-discount={
-                      sku.sellers[0].commertialOffer.AvailableQuantity == 0 ||
-                        sku.sellers[0].commertialOffer.Price == 0 ||
-                        sku.sellers[0].commertialOffer.ListPrice == 0
-                        ? ''
-                        : Math.round(
+                  data-name={sku['Escolha o Volume']}
+                  data-sku={sku.itemId}
+                  data-discount={
+                    sku.sellers[0].commertialOffer.AvailableQuantity == 0 ||
+                    sku.sellers[0].commertialOffer.Price == 0 ||
+                    sku.sellers[0].commertialOffer.ListPrice == 0
+                      ? ''
+                      : Math.round(
                           ((sku.sellers[0].commertialOffer.Price -
                             sku.sellers[0].commertialOffer.ListPrice) *
                             100) /
-                          sku.sellers[0].commertialOffer.ListPrice
+                            sku.sellers[0].commertialOffer.ListPrice
                         )
-                    }
-                    onClick={e => changeSku(e.currentTarget)}
-                    key={i}
-                  >
-                    {sku['Escolha o Volume']}
-                  </li>
-                ))}
-              </ul>
-            </React.Fragment>
-          )}
+                  }
+                  onClick={e => changeSku(e.currentTarget)}
+                  key={i}
+                >
+                  {sku['Escolha o Volume']}
+                </li>
+              ))}
+            </ul>
+          </React.Fragment>
+        )}
       </div>
     );
   }
@@ -576,7 +576,7 @@ class Card extends React.Component {
               );
             }
           })
-          .done(function (orderForm) {
+          .done(function(orderForm) {
             // Legado Minicart
             vtexjs.checkout
               .getOrderForm()
@@ -687,7 +687,9 @@ class Card extends React.Component {
                   }
                 );
               };
+
               let removeTimeout = setTimeout(reset, 5000);
+
               e.classList.add('status--added');
               e.querySelector(
                 '.status--adding__text'
@@ -696,10 +698,10 @@ class Card extends React.Component {
                 '.status--adding__dots'
               ).innerHTML = `<span class="status--adding__dots__qty">${_this.state.Qty}</span>
               <img class="status--adding__dots__img" src="${_this.state.Sku.images[0].imageTag
-                  .match(/([^">]+)"*\.(?:jpg|gif|png)/)[0]
-                  .allReplace({ '#width#': '150', '#height#': '150', '~': '' })}" alt="${
+                .match(/([^">]+)"*\.(?:jpg|gif|png)/)[0]
+                .allReplace({ '#width#': '150', '#height#': '150', '~': '' })}" alt="${
                 _this.state.Sku.name
-                }" />
+              }" />
               <svg class="circle-dots" viewBox="0 0 95 95"><circle cx="48" cy="48" r="46" class="circle time-count"></circle></svg>`;
               e.querySelector('.status--adding__actions').innerHTML = `<a href="/checkout/#/cart">
                   <span class="status--adding__actions__cart">Finalizar Pedido</span>
@@ -731,7 +733,7 @@ class Card extends React.Component {
   }
 
   render() {
-    String.prototype.allReplace = function (obj) {
+    String.prototype.allReplace = function(obj) {
       var retStr = this;
       for (var x in obj) {
         retStr = retStr.replace(new RegExp(x, 'g'), obj[x]);
@@ -887,7 +889,7 @@ class Card extends React.Component {
                 {'até ' +
                   Math.max.apply(
                     Math,
-                    this.state.Sku.sellers[0].commertialOffer.Installments.map(function (o) {
+                    this.state.Sku.sellers[0].commertialOffer.Installments.map(function(o) {
                       return o.NumberOfInstallments;
                     })
                   ) +
@@ -895,7 +897,7 @@ class Card extends React.Component {
                   Math.min
                     .apply(
                       Math,
-                      this.state.Sku.sellers[0].commertialOffer.Installments.map(function (o) {
+                      this.state.Sku.sellers[0].commertialOffer.Installments.map(function(o) {
                         return o.Value;
                       })
                     )
@@ -906,10 +908,10 @@ class Card extends React.Component {
               </p>
             </div>
           ) : (
-              <div className="cardProduct__price">
-                {/* <p className="cardProduct__price__actual">{"R$" + this.state.RawPrice}</p> */}
-              </div>
-            )}
+            <div className="cardProduct__price">
+              {/* <p className="cardProduct__price__actual">{"R$" + this.state.RawPrice}</p> */}
+            </div>
+          )}
         </a>
         {this.state.Avaliable != false ? (
           <span
@@ -931,30 +933,30 @@ class Card extends React.Component {
             </p>
           </span>
         ) : (
-            <React.Fragment>
-              {this.unAvaliable()}
-              <span
-                className="cardProduct--letMeKnow status--standBy"
-                onClick={() => this.OpenLetMeKnow()}
+          <React.Fragment>
+            {this.unAvaliable()}
+            <span
+              className="cardProduct--letMeKnow status--standBy"
+              onClick={() => this.OpenLetMeKnow()}
+            >
+              <svg
+                className="cardProduct--letMeKnow__mail"
+                width="24"
+                height="17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  className="cardProduct--letMeKnow__mail"
-                  width="24"
-                  height="17"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z"
-                    fill="#FDFDFD"
-                  />
-                </svg>
-                <p className={`cardProduct--letMeKnow__cta sku--${this.state.Sku.itemId}`}>
-                  Avise-me quando chegar
+                <path
+                  d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z"
+                  fill="#FDFDFD"
+                />
+              </svg>
+              <p className={`cardProduct--letMeKnow__cta sku--${this.state.Sku.itemId}`}>
+                Avise-me quando chegar
               </p>
-              </span>
-            </React.Fragment>
-          )}
+            </span>
+          </React.Fragment>
+        )}
       </div>
     );
   }

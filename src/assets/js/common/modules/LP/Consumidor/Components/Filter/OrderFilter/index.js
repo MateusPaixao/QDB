@@ -50,9 +50,9 @@ const orderFilter = ({ handleOrder, showSmartResearch, handleSmartResearch }) =>
     setOptionSelected(event.currentTarget.childNodes[1].id);
   };
 
-  const closeModal = () => {
-    setShowOptions(false);
-  };
+  // const closeModal = () => {
+  //   setShowOptions(false);
+  // };
 
   React.useEffect(() => {
     orderProducts();
@@ -69,7 +69,7 @@ const orderFilter = ({ handleOrder, showSmartResearch, handleSmartResearch }) =>
           <div className="orderContainer__button">
             <button className="activeOrder" onClick={() => toggleOptions()}>
               {!orderValue ? 'Mais vendidos' : orderValue}
-              <i class="arrow down"></i>
+              <i className="arrow down"></i>
             </button>
           </div>
 

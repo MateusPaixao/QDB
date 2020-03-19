@@ -3,7 +3,10 @@
 package-lock.json
 src/assets/js/common/modules/utils/_VTEXHelpers.js
 src/assets/js/common/modules/General/Acessibilidade
+src/assets/js/common/modules/LPsOLD/*
+src/assets/js/common/oldcommon/*
 **/*.test.js
+
 
 # ignore old LPs
 src/assets/js/common/QDBCommon-Account.js

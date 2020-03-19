@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { isInViewport, getCookie } from '../../../global/global-index';
+import { isInViewport } from '../../../global/global-index';
 import Filter from './Components/Filter';
 import SmartResearch from './Components/Filter/smartResearch.js';
 import Banner from './Components/Banner';

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Banner = ({ pos }) => {
   const [banner, setBanner] = React.useState({ Url: '', Src: '' });
-  const [viewPort, setViewPort] = React.useState(window.innerWidth < 768 ? 'Mob' : 'Desk');
+  const [viewPort, setViewport] = React.useState(window.innerWidth < 768 ? 'Mob' : 'Desk');
 
   let bannersCollection = document.querySelectorAll('.bannerCollectionHidden')[pos];
 
@@ -10,9 +10,11 @@ const Banner = ({ pos }) => {
 
   // setBanners(Banners);
 
-  // const Resize = () => {
-  //     setViewport(window.innerWidth);
-  // }
+  const Resize = () => {
+    window.onresize = () => {
+      setViewport(window.innerWidth < 768 ? 'Mob' : 'Desk');
+    };
+  };
 
   React.useEffect(() => {
     let Content = bannersCollection.querySelector('.bannerVitrine' + viewPort).textContent;
@@ -21,6 +23,7 @@ const Banner = ({ pos }) => {
     console.log(bannersCollection.querySelector('.titleVitrine'));
 
     setBanner({ Url: banUrl, Src: banImg });
+    Resize();
   }, []);
 
   return (

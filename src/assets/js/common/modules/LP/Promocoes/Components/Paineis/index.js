@@ -1,6 +1,6 @@
 // import React, {Component} from 'react';
 // import ReactDOM from 'react-dom';
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import Painel from './_Painel';
 // import { Carousel } from 'react-pannable';
@@ -11,7 +11,7 @@ import Slider from '../../../../General/Slider';
 //     BuildPaineisBeleza(){
 const PaineisContainer = () => {
   let bannersPaineis = document.querySelector('.promo__banners__source');
-  const [scrollToIndex, setScrollToIndex] = React.useState(null);
+  // const [scrollToIndex, setScrollToIndex] = React.useState(null);
   const [Banners, setBanners] = useState([]);
 
   // const Banners = () => {
