@@ -11,9 +11,9 @@ const Banner = ({ pos }) => {
   // setBanners(Banners);
 
   const Resize = () => {
-    window.onresize(() => {
+    window.onresize = () => {
       setViewport(window.innerWidth < 768 ? 'Mob' : 'Desk');
-    });
+    };
   };
 
   React.useEffect(() => {

@@ -3,7 +3,7 @@
 import BuildCounter from './Components/CounterProduct';
 import { BuildBanners } from './Components/Hero';
 import BuildInfoBar from './Components/InfoBar';
-import BuildPaineisBeleza from './Components/Paineis';
+import { BuildPaineisBeleza } from './Components/Paineis';
 import BuildBannerCollection from './Components/BannerCollection';
 import BuildTopProducts from './Components/TopProducts';
 // FOI ADIADA A SUBIDA DO MODAL NA INFOBAR
@@ -15,7 +15,7 @@ const Methods = {
   init() {
     BuildBanners();
     BuildInfoBar.init();
-    BuildPaineisBeleza.init();
+    BuildPaineisBeleza();
     BuildTopProducts.init();
     BuildBannerCollection.init();
 
