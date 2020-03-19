@@ -1,0 +1,54 @@
+#render--stores {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(20%, 300px));
+    grid-template-rows: repeat(5, auto);
+    grid-gap: 1em;
+    margin: 20px;
+
+    @include d('768px') {
+        justify-content: center;
+        grid-template-columns: repeat(1, minmax(20%, auto));
+    }
+
+}
+
+.store {
+    &__container {
+        background: $grey-m;
+        @include sans(1rem, $grey-l 500, 1.5em);
+        width: 300px;
+        height: 100%;
+        margin: 10px 3px;
+        padding: 20px;
+        border-radius: .2em;
+        @include d('768px') {
+            width: 100%;
+        }
+    }
+
+    &__address {
+        margin: 10px 0px;
+    }
+
+    &__name {
+        @include sans(1rem, $secundary, 500, initial);
+
+    }
+
+    &__check {
+        height: 10px;
+        width: 15px;
+        margin: 0 5px;
+        @include sans(1rem, $grey-d, 500, initial);
+        fill: $grey-d;
+    }
+    &__city-state {
+        display: flex;
+        margin: 5px 0;
+    }
+    &__agendar,
+    &__map {
+        text-decoration: underline;
+        @include sans(.9rem, $secundary, 300, initial);
+    }
+}

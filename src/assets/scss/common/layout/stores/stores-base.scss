@@ -1,0 +1,9 @@
+@import "../../config/settings/config-bases.scss";
+@import "Components/Title/_Title";
+@import "Components/Filter/_Filter";
+@import "Components/ContainerPrincipal/_ContainerPrincipal";
+@import "Components/AllStores/_AllStores";
+
+.new-nossas-lojas {
+    background: $grey-l;
+}

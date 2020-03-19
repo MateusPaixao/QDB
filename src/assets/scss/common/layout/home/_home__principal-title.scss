@@ -1,0 +1,5 @@
+.mainTitle {
+    margin-bottom: 20px;
+    font-weight: bold;
+    @include sans(2em, $grey-d, 900, normal);
+}
