@@ -51,4 +51,12 @@
         text-decoration: underline;
         @include sans(.9rem, $secundary, 300, initial);
     }
+    &__percent {
+        font-weight: 900;
+        font-size: 1.2em;
+    }
+    &__coupon {
+        font-weight: 900;
+        text-decoration: underline;
+    }
 }

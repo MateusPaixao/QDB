@@ -49,7 +49,7 @@ const Methods = {
         };
 
         const url =
-          'https://api.vtexcrm.com.br/qbbr/dataentities/NN/search?_fields=storeName,city,make,phone,state,street,zone,zipcode,number,complement,linkMaps&_sort=state';
+          'https://api.vtexcrm.com.br/qbbr/dataentities/NN/search?_fields=storeName,city,make,phone,state,street,zone,zipcode,number,complement,linkMaps,coupon&_sort=state';
         fetch(url, vtexHeaderConfig)
           .then(res => res.json())
           .then(data => {
@@ -75,11 +75,11 @@ const Methods = {
           !this.state.isLoaded ? (
             <div className="stores__loading">Loading...</div>
           ) : (
-            <Container Stores={this.state.Stores} />
-          )
+              <Container Stores={this.state.Stores} />
+            )
         ) : (
-          <div className="stores__error">Algo aconteceu, tente recarregar a página</div>
-        );
+            <div className="stores__error">Algo aconteceu, tente recarregar a página</div>
+          );
       }
     }
     ReactDOM.render(<BuildStores />, document.getElementById('render--stores'));

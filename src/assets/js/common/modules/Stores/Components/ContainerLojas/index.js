@@ -2,7 +2,7 @@ import React from 'react';
 
 import { CheckSVG } from '../SVGs';
 const Container = ({ Stores }) => {
-  React.useEffect(() => {}, []);
+  React.useEffect(() => { }, []);
 
   return (
     // console.log(Stores)
@@ -33,11 +33,12 @@ const Container = ({ Stores }) => {
           <div className="store__address">
             <p className="store__hasMake">
               {' '}
-              <CheckSVG /> Possui agendamento de make{' '}
+              {/* <CheckSVG />  */}
+              <b className="store__percent">%</b> Cupom da loja: <b className="store__coupon"> {store.coupon} </b>
             </p>
-            <a className="store__agendar" href="/servicos">
+            {/* <a className="store__agendar" href="/servicos">
               Agendar make
-            </a>
+            </a> */}
           </div>
         )}
       </div>
