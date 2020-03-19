@@ -21,8 +21,8 @@ const filter = props => {
     <React.Fragment>
       <div className="filterContainer shell">
         <h2 className="title">Pra todos os gostos e bolsos</h2>
-        <div class="filterContainer__selection">
-          <nav class="filterContainer__selection__options">
+        <div className="filterContainer__selection">
+          <nav className="filterContainer__selection__options">
             <a href="/busca/?fq=P:[0TO25]&amp;O=OrderByBestDiscountDESC">
               <button data-href="/busca/?&amp;fq=P:[0TO25]">até R$ 25</button>
             </a>

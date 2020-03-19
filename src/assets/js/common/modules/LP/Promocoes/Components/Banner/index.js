@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Banner = () => {
-  let bannerTopo = document.querySelector('.bannerTopo').textContent;
+  // let bannerTopo = document.querySelector('.bannerTopo').textContent;
   let bannerTitulo = document.querySelector('.titulo').textContent;
   let bannerDescricao = document.querySelector('.descricao').textContent;
 

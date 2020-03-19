@@ -6,15 +6,15 @@ const Container = ({ Stores }) => {
 
   return (
     // console.log(Stores)
-    Stores.map(store => (
-      <div className="store__container">
+    Stores.map((store, i) => (
+      <div className="store__container" key={i}>
         <div className="store__address">
           <p className="store__name"> {store.storeName} </p>
           <p className="store__street">
             {' '}
             {store.street} , {store.number} - {store.complement}
           </p>
-          <a className="store__map" target="_blank" href={store.linkMaps}>
+          <a className="store__map" target="_blank" href={store.linkMaps} rel="noopener noreferrer">
             Ver no Google Maps
           </a>
         </div>
