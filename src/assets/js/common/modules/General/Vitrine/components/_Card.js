@@ -10,7 +10,7 @@ class Card extends React.Component {
       FreeShipping: 1000,
       clusterHighlights:
         Object.entries(this.props.info.clusterHighlights).length === 0 &&
-        this.props.info.clusterHighlights.constructor === Object
+          this.props.info.clusterHighlights.constructor === Object
           ? {}
           : this.props.info.clusterHighlights,
       Avaliable: true,
@@ -79,8 +79,8 @@ class Card extends React.Component {
         RawPrice: this.props.info.items.find(sku =>
           sku.sellers[0].commertialOffer.ListPrice != 0
             ? sku.sellers[0].commertialOffer.ListPrice.toFixed(2)
-                .toString()
-                .replace('.', ',')
+              .toString()
+              .replace('.', ',')
             : ''
         )
       });
@@ -94,7 +94,7 @@ class Card extends React.Component {
     let before;
     if (
       this.state.Sku.sellers[0].commertialOffer.ListPrice ==
-        this.state.Sku.sellers[0].commertialOffer.Price ||
+      this.state.Sku.sellers[0].commertialOffer.Price ||
       this.state.Sku.sellers[0].commertialOffer.AvailableQuantity == 0
     ) {
       before = false;
@@ -193,34 +193,34 @@ class Card extends React.Component {
                   ${sku.itemId == this.props.skuHighlight ? 'selected' : ''} 
                   ${
                     sku.sellers[0].commertialOffer.AvailableQuantity == 0 ||
-                    sku.sellers[0].commertialOffer.Price == 0 ||
-                    sku.sellers[0].commertialOffer.ListPrice == 0
+                      sku.sellers[0].commertialOffer.Price == 0 ||
+                      sku.sellers[0].commertialOffer.ListPrice == 0
                       ? 'set--avaliable-false'
                       : 'set--avaliable-true'
-                  }
+                    }
                   ${
                     Math.round(
                       ((sku.sellers[0].commertialOffer.Price -
                         sku.sellers[0].commertialOffer.ListPrice) *
                         100) /
-                        sku.sellers[0].commertialOffer.ListPrice
+                      sku.sellers[0].commertialOffer.ListPrice
                     ) < 0
                       ? 'set--discount'
                       : ''
-                  }
+                    }
                   `}
                   data-name={sku['Escolha a Cor']}
                   data-discount={
                     sku.sellers[0].commertialOffer.AvailableQuantity == 0 ||
-                    sku.sellers[0].commertialOffer.Price == 0 ||
-                    sku.sellers[0].commertialOffer.ListPrice == 0
+                      sku.sellers[0].commertialOffer.Price == 0 ||
+                      sku.sellers[0].commertialOffer.ListPrice == 0
                       ? ''
                       : Math.round(
-                          ((sku.sellers[0].commertialOffer.Price -
-                            sku.sellers[0].commertialOffer.ListPrice) *
-                            100) /
-                            sku.sellers[0].commertialOffer.ListPrice
-                        )
+                        ((sku.sellers[0].commertialOffer.Price -
+                          sku.sellers[0].commertialOffer.ListPrice) *
+                          100) /
+                        sku.sellers[0].commertialOffer.ListPrice
+                      )
                   }
                   data-sku={sku.itemId}
                   onClick={e => changeSku(e.currentTarget)}
@@ -240,70 +240,70 @@ class Card extends React.Component {
             </ul>
           </React.Fragment>
         ) : (
-          <React.Fragment>
-            {this.props.info.items.map(
-              sku =>
-                sku.itemId == this.props.skuHighlight && (
-                  <span className="cardProduct__config__selected __volume">
-                    <p className="cardProduct__config__selected__name">
-                      {this.state.Sku['Escolha o Volume']}
-                    </p>
-                  </span>
-                )
-            )}
-            <div className="cardProduct__config__type">
-              {/* {this.props.info.items.map(sku => console.log(sku))} */}
-              {/* {console.log(this.props.info)} */}
-              <span className="cardProduct__config__type__bulk"></span>
-              <p className="cardProduct__config__type__title">Escolha o Volume</p>
-            </div>
-            <ul className="cardProduct__config__list">
-              {this.props.info.items.map((sku, i) => (
-                <li
-                  className={`cardProduct__config__list__item __volume 
+            <React.Fragment>
+              {this.props.info.items.map(
+                sku =>
+                  sku.itemId == this.props.skuHighlight && (
+                    <span className="cardProduct__config__selected __volume">
+                      <p className="cardProduct__config__selected__name">
+                        {this.state.Sku['Escolha o Volume']}
+                      </p>
+                    </span>
+                  )
+              )}
+              <div className="cardProduct__config__type">
+                {/* {this.props.info.items.map(sku => console.log(sku))} */}
+                {/* {console.log(this.props.info)} */}
+                <span className="cardProduct__config__type__bulk"></span>
+                <p className="cardProduct__config__type__title">Escolha o Volume</p>
+              </div>
+              <ul className="cardProduct__config__list">
+                {this.props.info.items.map((sku, i) => (
+                  <li
+                    className={`cardProduct__config__list__item __volume 
               sku--${sku.itemId}
               ${sku.itemId == this.props.skuHighlight ? 'selected' : ''}
               ${
-                sku.sellers[0].commertialOffer.AvailableQuantity == 0 ||
-                sku.sellers[0].commertialOffer.Price == 0 ||
-                sku.sellers[0].commertialOffer.ListPrice == 0
-                  ? 'set--avaliable-false'
-                  : 'set--avaliable-true'
-              }
+                      sku.sellers[0].commertialOffer.AvailableQuantity == 0 ||
+                        sku.sellers[0].commertialOffer.Price == 0 ||
+                        sku.sellers[0].commertialOffer.ListPrice == 0
+                        ? 'set--avaliable-false'
+                        : 'set--avaliable-true'
+                      }
               ${
-                Math.round(
-                  ((sku.sellers[0].commertialOffer.Price -
-                    sku.sellers[0].commertialOffer.ListPrice) *
-                    100) /
-                    sku.sellers[0].commertialOffer.ListPrice
-                ) < 0
-                  ? 'set--discount'
-                  : ''
-              }
+                      Math.round(
+                        ((sku.sellers[0].commertialOffer.Price -
+                          sku.sellers[0].commertialOffer.ListPrice) *
+                          100) /
+                        sku.sellers[0].commertialOffer.ListPrice
+                      ) < 0
+                        ? 'set--discount'
+                        : ''
+                      }
               `}
-                  data-name={sku['Escolha o Volume']}
-                  data-sku={sku.itemId}
-                  data-discount={
-                    sku.sellers[0].commertialOffer.AvailableQuantity == 0 ||
-                    sku.sellers[0].commertialOffer.Price == 0 ||
-                    sku.sellers[0].commertialOffer.ListPrice == 0
-                      ? ''
-                      : Math.round(
+                    data-name={sku['Escolha o Volume']}
+                    data-sku={sku.itemId}
+                    data-discount={
+                      sku.sellers[0].commertialOffer.AvailableQuantity == 0 ||
+                        sku.sellers[0].commertialOffer.Price == 0 ||
+                        sku.sellers[0].commertialOffer.ListPrice == 0
+                        ? ''
+                        : Math.round(
                           ((sku.sellers[0].commertialOffer.Price -
                             sku.sellers[0].commertialOffer.ListPrice) *
                             100) /
-                            sku.sellers[0].commertialOffer.ListPrice
+                          sku.sellers[0].commertialOffer.ListPrice
                         )
-                  }
-                  onClick={e => changeSku(e.currentTarget)}
-                  key={i}
-                >
-                  {sku['Escolha o Volume']}
-                </li>
-              ))}
-            </ul>
-          </React.Fragment>
-        )}
+                    }
+                    onClick={e => changeSku(e.currentTarget)}
+                    key={i}
+                  >
+                    {sku['Escolha o Volume']}
+                  </li>
+                ))}
+              </ul>
+            </React.Fragment>
+          )}
       </div>
     );
   }
@@ -523,12 +523,12 @@ class Card extends React.Component {
     // e.target.preventDefault();
     let _this = this;
     const Add = () => {
-      return new Promise(resolve => {
+      return new Promise((resolve, reject) => {
         vtexjs.checkout
           .getOrderForm()
           .then(orderForm => {
             console.log(orderForm);
-            if (!orderForm.items.length) {
+            if (!!orderForm.items.length) {
               orderForm.items.map((e, i) => {
                 if (e.id == this.state.Sku.itemId) {
                   _this.setState(
@@ -576,7 +576,7 @@ class Card extends React.Component {
               );
             }
           })
-          .done(function(orderForm) {
+          .done(function (orderForm) {
             // Legado Minicart
             vtexjs.checkout
               .getOrderForm()
@@ -584,7 +584,6 @@ class Card extends React.Component {
                 window._orderForm = orderForm;
                 // document.querySelector('.__cart-link a span').textContent = document.querySelector('.__cart-link a span').textContent++;
                 // let qty = 0;
-
                 // Foreach IE Testar
                 for (let i = 0; i < orderForm.items.length; i++) {
                   console.log(orderForm.items[i]);
@@ -628,7 +627,6 @@ class Card extends React.Component {
                 //     i = rules.length,
                 //     keyframes,
                 //     keyframe;
-
                 //     while (i--) {
                 //         keyframes = rules.item(i);
                 //         if (
@@ -664,10 +662,8 @@ class Card extends React.Component {
       e.innerHTML = `<div class="status--adding__text">ADICIONANDO</div>
       <span class="status--adding__dots"></span>
       <span class="status--adding__actions"></span>`;
-
       e.classList.add('status--request');
       e.classList.remove('status--standBy');
-
       this.setState(
         {
           Adding: true
@@ -676,39 +672,35 @@ class Card extends React.Component {
           Add().then(() => {
             e.classList.add('status--adding');
             setTimeout(() => {
-              // const reset = () => {
-              //   this.setState(
-              //     {
-              //       Adding: false
-              //     },
-              //     () => {
-              //       e.classList.add('status--remove');
-              //       e.classList.remove('status--request');
-              //       setTimeout(() => {
-              //         e.classList = 'cardProduct--addToCart status--standBy';
-              //       }, 800);
-              //       e.innerHTML = `<svg class="cardProduct--addToCart__bag" width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.8779 6.22321C18.8046 5.43449 18.0966 4.83464 17.259 4.85168H14.7489V4.53631C14.7492 2.03134 12.6006 0.000399137 9.94984 3.99499e-05C9.94963 3.99499e-05 9.94941 3.99499e-05 9.9492 3.99499e-05C7.36904 -0.0102225 5.26862 1.95802 5.25779 4.39623C5.25758 4.44293 5.25817 4.48962 5.2595 4.53631V4.85291H2.74878C1.93116 4.85876 1.25334 5.45317 1.18619 6.22321L0.0167767 19.9383C-0.0877588 20.9886 0.299876 22.0295 1.07749 22.7865C1.81873 23.5618 2.8738 24.0029 3.97953 23.9997H16.0327C17.1408 24.0136 18.2003 23.5707 18.9347 22.7865C19.6662 22.0032 20.0466 20.9818 19.9954 19.9383L18.8779 6.22321ZM6.32086 4.53631C6.29403 2.61379 7.92153 1.03475 9.95597 1.00941C11.9904 0.984058 13.6614 2.52205 13.6882 4.44457C13.6886 4.47515 13.6886 4.50573 13.6882 4.53631V4.85291H6.32086V4.53631ZM18.1541 22.0475C17.6184 22.6231 16.8445 22.9502 16.0334 22.9441H3.97697C2.39256 22.9385 1.11301 21.7201 1.11904 20.2229C1.11936 20.1452 1.1232 20.0677 1.13056 19.9903L2.30248 6.27519C2.30573 6.03731 2.51246 5.84694 2.76419 5.85001C2.77785 5.85017 2.79145 5.85094 2.805 5.85222H5.31641V7.80374C5.31641 8.09504 5.56628 8.33118 5.87455 8.33118C6.18283 8.33118 6.4327 8.09504 6.4327 7.80374V5.85463H13.8V7.80615C13.8 8.09745 14.0499 8.33359 14.3581 8.33359C14.6664 8.33359 14.9163 8.09745 14.9163 7.80615V5.85463H17.4277C17.687 5.84853 17.9068 6.03351 17.9302 6.27755L19.1021 19.9926C19.0331 20.7573 18.6999 21.4793 18.1541 22.0475Z" /></svg><p class="cardProduct--addToCart__cta">Adicionar a Sacola</p>`;
-              //     }
-              //   );
-              // };
-
-              // let removeTimeout = setTimeout(reset, 5000);
-
+              const reset = () => {
+                this.setState(
+                  {
+                    Adding: false
+                  },
+                  () => {
+                    e.classList.add('status--remove');
+                    e.classList.remove('status--request');
+                    setTimeout(() => {
+                      e.classList = 'cardProduct--addToCart status--standBy';
+                    }, 800);
+                    e.innerHTML = `<svg class="cardProduct--addToCart__bag" width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.8779 6.22321C18.8046 5.43449 18.0966 4.83464 17.259 4.85168H14.7489V4.53631C14.7492 2.03134 12.6006 0.000399137 9.94984 3.99499e-05C9.94963 3.99499e-05 9.94941 3.99499e-05 9.9492 3.99499e-05C7.36904 -0.0102225 5.26862 1.95802 5.25779 4.39623C5.25758 4.44293 5.25817 4.48962 5.2595 4.53631V4.85291H2.74878C1.93116 4.85876 1.25334 5.45317 1.18619 6.22321L0.0167767 19.9383C-0.0877588 20.9886 0.299876 22.0295 1.07749 22.7865C1.81873 23.5618 2.8738 24.0029 3.97953 23.9997H16.0327C17.1408 24.0136 18.2003 23.5707 18.9347 22.7865C19.6662 22.0032 20.0466 20.9818 19.9954 19.9383L18.8779 6.22321ZM6.32086 4.53631C6.29403 2.61379 7.92153 1.03475 9.95597 1.00941C11.9904 0.984058 13.6614 2.52205 13.6882 4.44457C13.6886 4.47515 13.6886 4.50573 13.6882 4.53631V4.85291H6.32086V4.53631ZM18.1541 22.0475C17.6184 22.6231 16.8445 22.9502 16.0334 22.9441H3.97697C2.39256 22.9385 1.11301 21.7201 1.11904 20.2229C1.11936 20.1452 1.1232 20.0677 1.13056 19.9903L2.30248 6.27519C2.30573 6.03731 2.51246 5.84694 2.76419 5.85001C2.77785 5.85017 2.79145 5.85094 2.805 5.85222H5.31641V7.80374C5.31641 8.09504 5.56628 8.33118 5.87455 8.33118C6.18283 8.33118 6.4327 8.09504 6.4327 7.80374V5.85463H13.8V7.80615C13.8 8.09745 14.0499 8.33359 14.3581 8.33359C14.6664 8.33359 14.9163 8.09745 14.9163 7.80615V5.85463H17.4277C17.687 5.84853 17.9068 6.03351 17.9302 6.27755L19.1021 19.9926C19.0331 20.7573 18.6999 21.4793 18.1541 22.0475Z" /></svg><p class="cardProduct--addToCart__cta">Adicionar a Sacola</p>`;
+                  }
+                );
+              };
+              let removeTimeout = setTimeout(reset, 5000);
               e.classList.add('status--added');
               e.querySelector(
                 '.status--adding__text'
               ).innerHTML = `${_this.state.Sku.name} foi adicionado!`;
-
               e.querySelector(
                 '.status--adding__dots'
               ).innerHTML = `<span class="status--adding__dots__qty">${_this.state.Qty}</span>
               <img class="status--adding__dots__img" src="${_this.state.Sku.images[0].imageTag
-                .match(/([^">]+)"*\.(?:jpg|gif|png)/)[0]
-                .allReplace({ '#width#': '150', '#height#': '150', '~': '' })}" alt="${
+                  .match(/([^">]+)"*\.(?:jpg|gif|png)/)[0]
+                  .allReplace({ '#width#': '150', '#height#': '150', '~': '' })}" alt="${
                 _this.state.Sku.name
-              }" />
+                }" />
               <svg class="circle-dots" viewBox="0 0 95 95"><circle cx="48" cy="48" r="46" class="circle time-count"></circle></svg>`;
-
               e.querySelector('.status--adding__actions').innerHTML = `<a href="/checkout/#/cart">
                   <span class="status--adding__actions__cart">Finalizar Pedido</span>
                 </a>`;
@@ -739,7 +731,7 @@ class Card extends React.Component {
   }
 
   render() {
-    String.prototype.allReplace = function(obj) {
+    String.prototype.allReplace = function (obj) {
       var retStr = this;
       for (var x in obj) {
         retStr = retStr.replace(new RegExp(x, 'g'), obj[x]);
@@ -895,7 +887,7 @@ class Card extends React.Component {
                 {'até ' +
                   Math.max.apply(
                     Math,
-                    this.state.Sku.sellers[0].commertialOffer.Installments.map(function(o) {
+                    this.state.Sku.sellers[0].commertialOffer.Installments.map(function (o) {
                       return o.NumberOfInstallments;
                     })
                   ) +
@@ -903,7 +895,7 @@ class Card extends React.Component {
                   Math.min
                     .apply(
                       Math,
-                      this.state.Sku.sellers[0].commertialOffer.Installments.map(function(o) {
+                      this.state.Sku.sellers[0].commertialOffer.Installments.map(function (o) {
                         return o.Value;
                       })
                     )
@@ -914,10 +906,10 @@ class Card extends React.Component {
               </p>
             </div>
           ) : (
-            <div className="cardProduct__price">
-              {/* <p className="cardProduct__price__actual">{"R$" + this.state.RawPrice}</p> */}
-            </div>
-          )}
+              <div className="cardProduct__price">
+                {/* <p className="cardProduct__price__actual">{"R$" + this.state.RawPrice}</p> */}
+              </div>
+            )}
         </a>
         {this.state.Avaliable != false ? (
           <span
@@ -939,30 +931,30 @@ class Card extends React.Component {
             </p>
           </span>
         ) : (
-          <React.Fragment>
-            {this.unAvaliable()}
-            <span
-              className="cardProduct--letMeKnow status--standBy"
-              onClick={() => this.OpenLetMeKnow()}
-            >
-              <svg
-                className="cardProduct--letMeKnow__mail"
-                width="24"
-                height="17"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+            <React.Fragment>
+              {this.unAvaliable()}
+              <span
+                className="cardProduct--letMeKnow status--standBy"
+                onClick={() => this.OpenLetMeKnow()}
               >
-                <path
-                  d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z"
-                  fill="#FDFDFD"
-                />
-              </svg>
-              <p className={`cardProduct--letMeKnow__cta sku--${this.state.Sku.itemId}`}>
-                Avise-me quando chegar
+                <svg
+                  className="cardProduct--letMeKnow__mail"
+                  width="24"
+                  height="17"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3.098 0h17.698c1.692 0 2.993 1.301 2.993 2.993v10.671c0 1.692-1.301 3.123-2.993 3.123H3.098c-1.692 0-2.994-1.431-2.994-3.123V2.994C.104 1.3 1.406 0 3.098 0zM2.057 1.822l8.328 6.897c.781.65 2.212.65 3.123 0l8.329-6.897c-.26-.26-.65-.52-1.041-.52H3.098c-.39 0-.781.26-1.041.52zm20.43 1.301L14.42 9.76c-1.431 1.171-3.643 1.171-4.945 0L1.406 3.123v10.541c0 .911.78 1.692 1.692 1.692h17.698c.91 0 1.692-.78 1.692-1.692V3.124z"
+                    fill="#FDFDFD"
+                  />
+                </svg>
+                <p className={`cardProduct--letMeKnow__cta sku--${this.state.Sku.itemId}`}>
+                  Avise-me quando chegar
               </p>
-            </span>
-          </React.Fragment>
-        )}
+              </span>
+            </React.Fragment>
+          )}
       </div>
     );
   }
