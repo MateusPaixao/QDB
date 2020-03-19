@@ -212,7 +212,7 @@ const Methods = {
           .getOrderForm()
           .then(function(orderForm) {
             // console.log(orderForm);
-            if (!orderForm.items.length) {
+            if (!!orderForm.items.length) {
               orderForm.items.map((e, i) => {
                 if (e.id == skuId) {
                   quantity = e.quantity;
@@ -240,7 +240,7 @@ const Methods = {
               return vtexjs.checkout.addToCart([newitem]);
             }
           })
-          .done(function() {
+          .done(function(orderForm) {
             el.target.style = `background-color:${document
               .querySelector('.w-counter--bg')
               .getAttribute('data-color')}`;

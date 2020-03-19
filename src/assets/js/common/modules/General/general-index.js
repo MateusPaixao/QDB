@@ -84,7 +84,7 @@ const Methods = {
 
     // Objeto com o valor de frete
     window.valorFrete = {
-      freteInternal: 109,
+      freteInternal: 79,
       freteListener: function() {},
       set Frete(val) {
         this.freteInternal = val;
