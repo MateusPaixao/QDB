@@ -47,6 +47,7 @@ const BarraFrete = {
         } else {
           desconto = 0;
         }
+        console.log(window.valorFrete.Frete);
         let valorFrete = window.valorFrete.Frete;
         let valueRemainingText = document.querySelector('.price__remaining');
 
