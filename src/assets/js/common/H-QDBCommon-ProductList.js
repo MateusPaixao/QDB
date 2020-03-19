@@ -1,4 +1,4 @@
 import ProductList from './modules/ProductList'
-import '../../scss/common/QDBCommon-New-Category.scss'
+import '../../scss/common/QDBCommon-ProductList.scss'
 
 ProductList.init();
