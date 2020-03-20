@@ -1,0 +1,122 @@
+.bannerContainer {
+    display: grid;
+    grid-template-columns: 45% 50%;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5%;
+    background: $white;
+    width: 100%;
+    padding: 40px;
+
+    @include d("768px") {
+        display: flex;
+        flex-flow: column-reverse;
+        padding: 15px;
+    }
+
+    &__left {
+        display: grid;
+        justify-content: center;
+
+        .title {
+            @include sans(2.5em, $black, 900, initial);
+            margin: 0 auto;
+            max-width: 50%;
+
+            @include d("768px") {
+                max-width: 100%;
+                font-size: 1.875em;
+            }
+        }
+
+        .content {
+            @include sans(1.5em, $black, 300, 1.5em);
+            margin: 10px auto;
+            max-width: 50%;
+
+            @include d("768px") {
+                max-width: 100%;
+            }
+
+            strong {
+                @include sans(1em, $black, 900, initial);
+            }
+        }
+    }
+
+    &__right {
+        position: relative;
+
+        @include d("768px") {
+            padding: 60px 0 40px;
+        }
+
+        .bannerOver {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-70%, -30%);
+            width: 30%;
+        }
+
+        .banner {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.infosContainer {
+    background: $white;
+    position: relative;
+    height: 300px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+
+    @include d("768px") {
+        padding: 15px;
+        height: initial;
+        min-height: 600px;
+    }
+
+    &__infos {
+        padding: 40px;
+        border-radius: 5px;
+        box-shadow: 0 4px 20px 4px rgba(0, 0, 0, .4);
+        position: relative;
+        z-index: 1;
+        background: $white;
+        max-width: 100%;
+
+        @include d("768px") {
+            margin-bottom: 10px;
+            padding: 40px 60px;
+        }
+
+        .number {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            @include sans(1.5em, #AAAED0, 900, initial);
+        }
+
+        .content {
+            @include sans(1.875em, $black, 400, initial);
+        }
+    }
+
+    &__wave {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+
+        @include d("768px") {
+            height: 900px;
+            width: initial;
+            transform: translateX(30%);
+        }
+    }
+}

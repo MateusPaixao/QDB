@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Banner from './Banner';
 import Container from './ContainerLojas';
 import AllStores from './AllStores';
 import { Filter, InputFilter } from './Filter';
@@ -9,25 +8,20 @@ import { Title } from './Title';
 
 const Methods = {
   init() {
-    Methods.BuildBanner();
     Methods.buildTitle();
     Methods.buildFilter();
     // Methods.ReactFilter();
     Methods.buildStores();
   },
 
-  BuildBanner() {
-    ReactDOM.render(<Banner />, document.getElementById('render--banner'));
-  },
-
   buildTitle() {
     class BuildTitle extends React.Component {
       render() {
         return (
-          <div className="shell">
+          <>
             <Title />
             <AllStores />
-          </div>
+          </>
         );
       }
     }
@@ -81,13 +75,11 @@ const Methods = {
           !this.state.isLoaded ? (
             <div className="stores__loading">Loading...</div>
           ) : (
-            <div className="shell">
               <Container Stores={this.state.Stores} />
-            </div>
-          )
+            )
         ) : (
-          <div className="stores__error">Algo aconteceu, tente recarregar a página</div>
-        );
+            <div className="stores__error">Algo aconteceu, tente recarregar a página</div>
+          );
       }
     }
     ReactDOM.render(<BuildStores />, document.getElementById('render--stores'));
@@ -96,11 +88,7 @@ const Methods = {
   buildFilter() {
     class BuildFilter extends React.Component {
       render() {
-        return (
-          <div className="shell">
-            <InputFilter />
-          </div>
-        );
+        return <InputFilter />;
       }
     }
     ReactDOM.render(<BuildFilter />, document.getElementById('render--filter'));

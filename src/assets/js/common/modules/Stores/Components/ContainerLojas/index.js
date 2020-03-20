@@ -2,7 +2,19 @@ import React from 'react';
 
 import { CheckSVG } from '../SVGs';
 const Container = ({ Stores }) => {
-  React.useEffect(() => { }, []);
+  function copyCoupon(ev) {
+    const couponCode = ev.target.previousElementSibling;
+    couponCode.select();
+    document.execCommand('copy');
+
+    const couponTarget = ev.target;
+    couponTarget.textContent = 'copiado!';
+
+    setTimeout(() => {
+      console.log(couponTarget);
+      couponTarget.textContent = 'copiar';
+    }, 3000);
+  }
 
   return (
     // console.log(Stores)
@@ -30,13 +42,16 @@ const Container = ({ Stores }) => {
         </div>
 
         {store.make && (
-          <div className="store__address">
+          <div className="store__address store__especial">
             <p className="store__hasMake">
-              {' '}
               {/* <CheckSVG />  */}
-              <b className="store__percent">%</b> Cupom da loja: <b className="store__coupon"> {store.coupon} </b>
+              Cupom da loja: <input type="text" value={store.coupon} className="store__coupon" />
+              <button class="store__button" onClick={ev => copyCoupon(ev)}>
+                {' '}
+                copiar{' '}
+              </button>
             </p>
-            {/* <a className="store__agendar" href="/servicos">
+            {/* <a className= href="/servicos">
               Agendar make
             </a> */}
           </div>

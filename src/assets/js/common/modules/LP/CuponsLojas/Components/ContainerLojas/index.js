@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { CheckSVG } from '../SVGs';
 const Container = ({ Stores }) => {
-  React.useEffect(() => { }, []);
+  const [copy, setCopy] = useState('copiar');
+
+  function copyCoupon(ev) {
+    const couponCode = ev.target.previousElementSibling;
+    couponCode.select();
+    document.execCommand('copy');
+
+    setCopy('copiado');
+
+    setTimeout(() => {
+      console.log(couponTarget);
+      setCopy('copiar');
+    }, 3000);
+  }
 
   return (
     // console.log(Stores)
@@ -14,9 +27,9 @@ const Container = ({ Stores }) => {
             {' '}
             {store.street} , {store.number} - {store.complement}
           </p>
-          <a className="store__map" target="_blank" href={store.linkMaps} rel="noopener noreferrer">
+          {/* <a className="store__map" target="_blank" href={store.linkMaps} rel="noopener noreferrer">
             Ver no Google Maps
-          </a>
+          </a> */}
         </div>
 
         <div className="store__address">
@@ -26,17 +39,19 @@ const Container = ({ Stores }) => {
             <p className="store__city"> {store.city} </p> -{' '}
             <p className="store__state">{store.state}</p>{' '}
           </p>
-          <p className="store__phone"> {store.phone} </p>
+          {/* <p className="store__phone"> {store.phone} </p> */}
         </div>
 
         {store.make && (
-          <div className="store__address">
+          <div className="store__address store__especial">
             <p className="store__hasMake">
-              {' '}
               {/* <CheckSVG />  */}
-              <b className="store__percent">%</b> Cupom da loja: <b className="store__coupon"> {store.coupon} </b>
+              Cupom da loja: <input type="text" value={store.coupon} className="store__coupon" />
+              <button className={`store__button ${copy}`} onClick={ev => copyCoupon(ev)}>
+                {copy}
+              </button>
             </p>
-            {/* <a className="store__agendar" href="/servicos">
+            {/* <a className= href="/servicos">
               Agendar make
             </a> */}
           </div>

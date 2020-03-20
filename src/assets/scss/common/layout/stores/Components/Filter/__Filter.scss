@@ -1,6 +1,6 @@
 .filter {
     &__container {
-        margin: 23px;
+        margin: 20px 0;
         width: 50%;
     }
 
@@ -8,11 +8,13 @@
         position: relative;
         display: flex;
         flex-direction: column;
+
         &--state {
             display: flex;
             align-items: center;
         }
     }
+
     &__wrapper {
         width: 400px;
         background-color: white;
@@ -20,13 +22,16 @@
         border-radius: 0.2em;
         display: flex;
         border: 1px solid black;
+
         @include d('768px') {
-            width: 320px;
+            max-width: 280px;
         }
     }
+
     &__submit {
         width: 10%;
     }
+
     &__select {
         width: 120px;
         background: white;
@@ -37,18 +42,21 @@
 
     &__input {
         width: 90%;
+
         &.open {
             border-bottom: none;
             border-bottom-right-radius: none;
             border-bottom-left-radius: none;
         }
+
         @include d('768px') {
             width: 350px;
         }
     }
 
-    &__makes { 
+    &__makes {
         display: none;
+
         &--label {
             display: flex;
             align-items: center;
@@ -77,6 +85,7 @@
         justify-content: center;
         flex-direction: column;
         text-align: left;
+
         @include d('768px') {
             width: 350px;
         }
