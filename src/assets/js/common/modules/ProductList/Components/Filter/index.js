@@ -12,7 +12,6 @@ const filter = (props) => {
 
     return (
         <React.Fragment>
-            {/* <div className="overlay-2"></div> */}
             <Breadcrumbs />
             <Banner />
             <div className="filterContainer">

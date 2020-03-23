@@ -50,8 +50,6 @@ class fastFilterMobile extends React.Component {
     const { departament } = this.props;
 
     const category = this.categoryNames();
-    console.log(category)
-
     // const allCategory = this.groupCategory()
 
     let url = window.location.href.split('/');
