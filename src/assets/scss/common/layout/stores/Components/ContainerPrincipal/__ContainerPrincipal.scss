@@ -20,6 +20,7 @@
         height: 100%;
         margin: 10px 3px;
         padding: 20px;
+        position: relative;
         border-radius: .2em;
         @include d('768px') {
             width: 100%;
@@ -28,6 +29,8 @@
 
     &__address {
         margin: 10px 0px;
+        margin-bottom: 30px;
+
     }
 
     &__name {
@@ -46,9 +49,49 @@
         display: flex;
         margin: 5px 0;
     }
+    &__button {
+        padding: 10px 15px;
+        background: black;
+        color: white;
+        border-radius: 5px;
+    }
+
     &__agendar,
     &__map {
         text-decoration: underline;
         @include sans(.9rem, $secundary, 300, initial);
+    }
+    &__percent {
+        font-weight: 900;
+        font-size: 1.2em;
+    }
+    &__coupon {
+        font-weight: 900;
+        width: 70px;
+        margin-left: 5px;
+        color: #000;
+        text-decoration: underline;
+    }
+    &__hasMake {
+        display: flex;
+        align-items: baseline;
+    }
+    &__especial {
+        width: 100%;
+        background: white;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        padding: 15px;
+        margin-bottom: 0;
+        &:after {
+            position: absolute;
+            content: '10%';
+            bottom: 50px;
+            left: 0;
+            background: red;
+            color: white;
+            padding: 0 10px;
+        }
     }
 }

@@ -13,7 +13,6 @@ export function AllReplace() {
 
 export function slugify(str) {
   var map = {
-    '-': ' ',
     '-': '_',
     a: 'á|à|ã|â|À|Á|Ã|Â',
     e: 'é|è|ê|É|È|Ê',

@@ -2,19 +2,33 @@ import React from 'react';
 
 import { CheckSVG } from '../SVGs';
 const Container = ({ Stores }) => {
-  React.useEffect(() => {}, []);
+  React.useEffect(() => { }, []);
+
+  function copyCoupon(ev) {
+    const couponCode = ev.target.previousElementSibling;
+    couponCode.select();
+    document.execCommand("copy");
+
+    const couponTarget = ev.target;
+    couponTarget.textContent = "copiado!";
+
+    setTimeout(() => {
+      console.log(couponTarget)
+      couponTarget.textContent = "copiar";
+    }, 3000);
+  }
 
   return (
     // console.log(Stores)
-    Stores.map(store => (
-      <div className="store__container">
+    Stores.map((store, i) => (
+      <div className="store__container" key={i}>
         <div className="store__address">
           <p className="store__name"> {store.storeName} </p>
           <p className="store__street">
             {' '}
             {store.street} , {store.number} - {store.complement}
           </p>
-          <a className="store__map" target="_blank" href={store.linkMaps}>
+          <a className="store__map" target="_blank" href={store.linkMaps} rel="noopener noreferrer">
             Ver no Google Maps
           </a>
         </div>
@@ -30,14 +44,15 @@ const Container = ({ Stores }) => {
         </div>
 
         {store.make && (
-          <div className="store__address">
+          <div className="store__address store__especial">
             <p className="store__hasMake">
-              {' '}
-              <CheckSVG /> Possui agendamento de make{' '}
+              {/* <CheckSVG />  */}
+              Cupom da loja: <input type="text" value={store.coupon} className="store__coupon" />
+              <button class="store__button" onClick={ev => copyCoupon(ev)}> copiar </button>
             </p>
-            <a className="store__agendar" href="/servicos">
+            {/* <a className= href="/servicos">
               Agendar make
-            </a>
+            </a> */}
           </div>
         )}
       </div>

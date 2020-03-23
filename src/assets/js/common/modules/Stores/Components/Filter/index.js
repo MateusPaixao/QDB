@@ -41,7 +41,7 @@ export const InputFilter = () => {
         <div className="filter__wrapper">
           <input type="text" className="filter__input " placeholder="Cidade, Loja, Endereço..." />
           <input type="button" className="filter__submit" id="filter__submit" />
-          <label for="search-btn" class="header__search--label" htmlFor="filter__submit">
+          <label className="header__search--label" htmlFor="filter__submit">
             <svg
               width="21"
               height="21"
