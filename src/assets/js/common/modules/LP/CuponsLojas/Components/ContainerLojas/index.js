@@ -1,31 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+import { CheckSVG } from '../SVGs';
 const Container = ({ Stores }) => {
-  function copyCoupon(ev) {
-    const couponCode = ev.target.previousElementSibling;
-    couponCode.select();
-    document.execCommand('copy');
-
-    const couponTarget = ev.target;
-    couponTarget.textContent = 'copiado!';
-
-    setTimeout(() => {
-      console.log(couponTarget);
-      couponTarget.textContent = 'copiar';
-    }, 3000);
-  }
+  const [copy, setCopy] = useState('copiar');
 
   function copyCoupon(ev) {
     const couponCode = ev.target.previousElementSibling;
     couponCode.select();
     document.execCommand('copy');
 
-    const couponTarget = ev.target;
-    couponTarget.textContent = 'copiado!';
+    setCopy('copiado');
 
     setTimeout(() => {
       console.log(couponTarget);
-      couponTarget.textContent = 'copiar';
+      setCopy('copiar');
     }, 3000);
   }
 
@@ -39,9 +27,9 @@ const Container = ({ Stores }) => {
             {' '}
             {store.street} , {store.number} - {store.complement}
           </p>
-          <a className="store__map" target="_blank" href={store.linkMaps} rel="noopener noreferrer">
+          {/* <a className="store__map" target="_blank" href={store.linkMaps} rel="noopener noreferrer">
             Ver no Google Maps
-          </a>
+          </a> */}
         </div>
 
         <div className="store__address">
@@ -51,7 +39,7 @@ const Container = ({ Stores }) => {
             <p className="store__city"> {store.city} </p> -{' '}
             <p className="store__state">{store.state}</p>{' '}
           </p>
-          <p className="store__phone"> {store.phone} </p>
+          {/* <p className="store__phone"> {store.phone} </p> */}
         </div>
 
         {store.make && (
@@ -59,9 +47,8 @@ const Container = ({ Stores }) => {
             <p className="store__hasMake">
               {/* <CheckSVG />  */}
               Cupom da loja: <input type="text" value={store.coupon} className="store__coupon" />
-              <button class="store__button" onClick={ev => copyCoupon(ev)}>
-                {' '}
-                copiar{' '}
+              <button className={`store__button ${copy}`} onClick={ev => copyCoupon(ev)}>
+                {copy}
               </button>
             </p>
             {/* <a className= href="/servicos">

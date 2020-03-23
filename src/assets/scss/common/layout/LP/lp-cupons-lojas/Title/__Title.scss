@@ -1,8 +1,7 @@
 .stores {
-    &__title {
+    &__title{
         font-size: 2em;
-        margin: 30px 0;
-
+        margin: 30px 20px;
         &:after {
             content: '';
             display: block;
@@ -13,7 +12,6 @@
         }
     }
 }
-
-#render--title {
+#render--title{
     padding-top: 10px;
 }
