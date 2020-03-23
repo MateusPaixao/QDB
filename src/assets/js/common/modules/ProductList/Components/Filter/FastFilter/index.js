@@ -48,26 +48,36 @@ class fastFilter extends React.Component {
     return actualCategory;
   }
 
-  // showMore(){
-  //     this.setState({showMore: !this.state.showMore})
-  // }
-
   render() {
+
     const { departament } = this.props;
 
     const category = this.categoryNames();
+    console.clear()
+    console.log("category =>", category)
 
-    // const allCategory = this.groupCategory()
+    let url = window.location.href.split('/');
+    if (url[4] == "") {
+      url = url.slice(0, -1)
+    }
 
-    // const firstCategories = allCategory.slice(0,2);
+    console.log(url)
 
-    // const newCategories = allCategory.splice(2)
-
-    const url = window.location.href.split('/');
 
     return (
       <div className="filterContainer__fastFilter__names">
-        <p>Já sabe o que procura?</p>
+
+        {url.length <= 4 && departament.hasChildren == true ?
+          <p>Já sabe o que procura?</p> :
+
+          ''
+        }
+
+        {url.length == 5 && category[0].hasChildren == true ?
+          <p>Já sabe o que procura?</p> :
+
+          ''
+        }
         <ul>
           {(url.length <= 4 && (
             <React.Fragment>
@@ -80,16 +90,17 @@ class fastFilter extends React.Component {
           )) ||
             (url.length == 5 && (
               <React.Fragment>
-                {category[0].children.map((actualCategory, i) => (
+
+                {category.length > 0 && category[0].children.map((actualCategory, i) => (
                   <a href={actualCategory.url} key={i}>
                     <li>{actualCategory.name}</li>
                   </a>
                 ))
-                // firstCategories.map((children) =>
-                //     <a href={children.url}>
-                //         <li>{children.name}</li>
-                //     </a>
-                // )
+                  // firstCategories.map((children) =>
+                  //     <a href={children.url}>
+                  //         <li>{children.name}</li>
+                  //     </a>
+                  // )
                 }
                 {/* <p className="filterContainer__otherOptions" onClick={() => this.showMore()}>{this.state.showMore == true ? 'Menos opções' : 'Mais opções'}</p> */}
               </React.Fragment>

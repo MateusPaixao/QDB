@@ -36,6 +36,8 @@ const Methods = {
       }
 
       handleInfos() {
+        console.clear()
+        console.log("OI")
         fetch('/api/catalog_system/pub/category/tree/3/')
           .then(res => res.json())
           .then(departaments => {
@@ -65,7 +67,7 @@ const Methods = {
             let banner_sub = document.querySelectorAll('.category_banner');
             banner_sub[1].classList.add('shell');
           }, 1000);
-        } else if (url.length == 5) {
+        } else if (url.length == 5 && body.length > 0) {
           body[0].classList.add('category-new');
         }
       }
@@ -93,6 +95,8 @@ const Methods = {
       render() {
         return (
           <React.Fragment>
+            {/* <div className="generalContainer"> */}
+            {/* <div className="overlay"></div> */}
             {this.state.loaded == true && (
               <React.Fragment>
                 <Filter
@@ -109,6 +113,7 @@ const Methods = {
                 />
               </React.Fragment>
             )}
+            {/* </div> */}
           </React.Fragment>
         );
       }
