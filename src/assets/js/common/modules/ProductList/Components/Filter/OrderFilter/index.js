@@ -49,6 +49,8 @@ const orderFilter = ({ handleOrder, showSmartResearch, handleSmartResearch }) =>
   };
 
   const toggleOptions = () => {
+    let open = document.querySelector('.setOpen-true')
+    console.log(open)
     setShowOptions(!showOptions);
   };
 
@@ -77,19 +79,15 @@ const orderFilter = ({ handleOrder, showSmartResearch, handleSmartResearch }) =>
     setOptionSelected(event.currentTarget.childNodes[1].id);
   };
 
-  // const closeModal = () => {
-  //     setShowOptions(false);
-  // }
 
   React.useEffect(() => {
     orderProducts();
     handleOrder(order);
-    // document.body.addEventListener('click', closeModal);
   }, [order]);
 
   return (
     <React.Fragment>
-      <div className={`principal__allColorsContainer setOpen-${showOptions}`}>
+      <div className={`orderFilterContainer setOpen-${showOptions}`}>
         <div className="filterContainer__fastFilter__button">
           <p>Ordernar</p>
 

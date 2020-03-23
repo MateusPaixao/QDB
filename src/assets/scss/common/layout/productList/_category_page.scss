@@ -10,3 +10,7 @@
 .category .footer .list.trusts .list__item--trusts .trust, .footer .list.trusts .list__item--payments .trust, .footer .list.payments .list__item--trusts .trust, .footer .list.payments .list__item--payments .trust{
     height: 5em;
 }
+
+.iphone .header__menu a {
+    height: initial !important;
+}

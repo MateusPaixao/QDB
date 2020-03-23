@@ -38,6 +38,7 @@
     z-index: 10;
 
   div{
+    cursor: pointer;
     padding: 20px;
     align-items: center;    
     display: flex;
@@ -46,6 +47,10 @@
     border-bottom: solid 1px #ccc;
 
     @include sans(1em, #232222, 400, initial);
+
+    &:hover{
+      background: rgba(0,0,0,.25);
+    }
   }
 
   div:last-child{
@@ -110,11 +115,11 @@
   opacity: 0;
 }
 
-.principal__allColorsContainer {
+.orderFilterContainer {
   top: 0;
   width: 30em;
   max-width: 360px;
-  z-index: 10;
+  z-index: 20;
   transition: all .2s;
 }
 
@@ -126,7 +131,14 @@
   z-index: 100;
 }
 
-.principal__allColorsContainer.setOpen-true{
+// .overlay{
+//   position: fixed;
+//   width: 100%;
+//   height: 100vh;
+//   background: rgba(0,0,0,.6);
+// }
+
+.orderFilterContainer.setOpen-true{  
   transform: translateX(0);
     .arrow{
       transform: rotate(-135deg);
@@ -152,7 +164,7 @@
     width: 100%;
   }
 
-  .principal__allColorsContainer{
+  .orderFilterContainer{
     margin-top: 15px;
   }
 }
