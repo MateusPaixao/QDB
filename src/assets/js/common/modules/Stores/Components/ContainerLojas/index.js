@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { CheckSVG } from '../SVGs';
 const Container = ({ Stores }) => {
   function copyCoupon(ev) {
     const couponCode = ev.target.previousElementSibling;
@@ -46,7 +45,7 @@ const Container = ({ Stores }) => {
             <p className="store__hasMake">
               {/* <CheckSVG />  */}
               Cupom da loja: <input type="text" value={store.coupon} className="store__coupon" />
-              <button class="store__button" onClick={ev => copyCoupon(ev)}>
+              <button className="store__button" onClick={ev => copyCoupon(ev)}>
                 {' '}
                 copiar{' '}
               </button>
