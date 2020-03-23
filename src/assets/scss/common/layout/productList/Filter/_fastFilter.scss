@@ -9,7 +9,11 @@
     align-items: center;
     padding-top: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.filterAlignContainer{
+    background: #f8f7f7;
 }
 
 .filterContainer__fastFilter__names{
@@ -29,7 +33,7 @@
         padding: 0px;
 
         a:hover{
-            text-decoration: underline;
+            text-decoration: underline !important;
         }
 
         li{
