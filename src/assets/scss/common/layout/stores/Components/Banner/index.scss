@@ -83,18 +83,18 @@
     }
 
     &__infos {
-        padding: 40px;
+        padding: 20px 40px;
         border-radius: 5px;
         box-shadow: 0 4px 20px 4px rgba(0, 0, 0, .4);
         position: relative;
         z-index: 1;
         background: $white;
-        max-width: 100%;
+        max-width: 400px;
 
-        @include d("768px") {
-            margin-bottom: 10px;
-            padding: 40px 60px;
-        }
+        // @include d("768px") {
+        //     // margin-bottom: 10px;
+        //     padding: 20px 40px;
+        // }
 
         .number {
             position: absolute;
@@ -104,7 +104,7 @@
         }
 
         .content {
-            @include sans(1.875em, $black, 400, initial);
+            @include sans(1.875em, $black, 300, initial);
         }
     }
 
