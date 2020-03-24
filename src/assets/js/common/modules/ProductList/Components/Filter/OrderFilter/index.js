@@ -2,6 +2,7 @@ import React from 'react';
 import Vitrine from '../../../../General/Vitrine';
 
 const orderFilter = ({ handleOrder, showSmartResearch, handleSmartResearch }) => {
+  // document.querySelector('body').addEventListener('click', () => console.log("OI OI PUXEI"))
   const [showOptions, setShowOptions] = React.useState(false);
   const [optionSelected, setOptionSelected] = React.useState('');
   const [order, setOrderFilter] = React.useState('OrderByTopSaleDESC');
@@ -79,11 +80,22 @@ const orderFilter = ({ handleOrder, showSmartResearch, handleSmartResearch }) =>
     setOptionSelected(event.currentTarget.childNodes[1].id);
   };
 
-
   React.useEffect(() => {
     orderProducts();
     handleOrder(order);
   }, [order]);
+
+
+  document.addEventListener('click', function (e) {
+    e = e || window.event;
+    let target = e.target.classList[0]
+    console.log(target)
+    if (target == 'containerInput' || target == 'activeOrder') {
+      console.log("clicando dentro do modal")
+    } else {
+      setShowOptions(false)
+    }
+  }, false);
 
   return (
     <React.Fragment>

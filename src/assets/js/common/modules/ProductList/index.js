@@ -36,8 +36,6 @@ const Methods = {
       }
 
       handleInfos() {
-        console.clear()
-        console.log("OI")
         fetch('/api/catalog_system/pub/category/tree/3/')
           .then(res => res.json())
           .then(departaments => {
@@ -95,8 +93,6 @@ const Methods = {
       render() {
         return (
           <React.Fragment>
-            {/* <div className="generalContainer"> */}
-            {/* <div className="overlay"></div> */}
             {this.state.loaded == true && (
               <React.Fragment>
                 <Filter
@@ -113,7 +109,6 @@ const Methods = {
                 />
               </React.Fragment>
             )}
-            {/* </div> */}
           </React.Fragment>
         );
       }

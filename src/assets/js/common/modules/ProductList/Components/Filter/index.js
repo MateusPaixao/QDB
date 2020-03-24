@@ -12,14 +12,15 @@ const filter = (props) => {
 
     return (
         <React.Fragment>
-            {/* <div className="overlay-2"></div> */}
             <Breadcrumbs />
             <Banner />
-            <div className="filterContainer">
-                <FastFilter departament={departament} />
-                <FastFilterMobile departament={departament} />
+            <div class="filterAlignContainer">
+                <div className="filterContainer shell">
+                    <FastFilter departament={departament} />
+                    <FastFilterMobile departament={departament} />
 
-                <OrderFilter showSmartResearch={props.showSmartResearch} handleSmartResearch={props.handleSmartResearch} handleOrder={props.handleOrder} />
+                    <OrderFilter showSmartResearch={props.showSmartResearch} handleSmartResearch={props.handleSmartResearch} handleOrder={props.handleOrder} />
+                </div>
             </div>
 
         </React.Fragment>

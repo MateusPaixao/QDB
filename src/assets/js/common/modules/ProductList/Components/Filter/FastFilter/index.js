@@ -53,16 +53,11 @@ class fastFilter extends React.Component {
     const { departament } = this.props;
 
     const category = this.categoryNames();
-    console.clear()
-    console.log("category =>", category)
 
     let url = window.location.href.split('/');
     if (url[4] == "") {
       url = url.slice(0, -1)
     }
-
-    console.log(url)
-
 
     return (
       <div className="filterContainer__fastFilter__names">
