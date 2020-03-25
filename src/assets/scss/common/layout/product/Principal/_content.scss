@@ -1,6 +1,7 @@
-&__contentContainer{
+&__contentContainer {
     grid-area: content;
-    @include d("768px"){
+
+    @include d("768px") {
         margin-bottom: 30px;
         padding: 10px;
         order: 2;
@@ -8,46 +9,55 @@
     }
 }
 
-&__content{
+&__content {
     display: grid;
     grid-template:
-    "reference reference" auto
-    "price reviews" auto
-    "button button" auto
-    "sendEmail sendEmail" auto
-    "shelfLife shelfLife" auto
-    "leftInStock leftInStock" auto
-    "peopleOnPage peopleOnPage" auto
-    "flags flags" auto
-    / auto auto;
+        "reference reference"auto "price reviews"auto "button button"auto "sendEmail sendEmail"auto "shelfLife shelfLife"auto "leftInStock leftInStock"auto "peopleOnPage peopleOnPage"auto "flags flags"auto / auto auto;
 
-    &__reference{
+    &__reference {
         grid-area: price;
         @include sans(.875em, $grey, 400, initial);
     }
-    &__price{
+
+    &__price {
         display: block;
         grid-area: price;
-        &__before{
+
+        &__before {
             @include sans(1em, $grey, 400, initial);
         }
-        &__actual{
+
+        &__actual {
             @include sans(1.5em, $black, 500, initial);
+            display: flex;
+            align-items: center;
+
+            .set--discount {
+                font-size: .5em;
+                color: $white;
+                background: $danger;
+                padding: 2px 5px;
+                border-radius: 20px;
+                margin-left: 5px;
+            }
         }
-        &__installments{
+
+        &__installments {
             @include sans(1em, $grey, 400, initial);
         }
     }
-    &__letMeKnow{
+
+    &__letMeKnow {
         grid-area: sendEmail;
         display: flex;
         flex-flow: column;
-        &__title{
+
+        &__title {
             margin-top: 20px;
             @include sans(1.25em, $black, 400, initial);
         }
 
-        &__sendContainer{
+        &__sendContainer {
             @include sans(1em, $black, 400, initial);
             justify-self: start;
             border: solid 1px $secundary;
@@ -61,15 +71,17 @@
             justify-content: center;
             overflow: hidden;
 
-            &.status--true, &.status--sent{
+            &.status--true,
+            &.status--sent {
                 grid-template-columns: 0% 100%;
                 border: none;
             }
 
-            &__input{
+            &__input {
                 padding: 15px 0 15px 15px;
             }
-            &__send{
+
+            &__send {
                 align-self: center;
                 justify-self: center;
                 display: flex;
@@ -79,116 +91,140 @@
                 width: 100%;
                 height: 100%;
                 margin-right: -1px;
-                @include d('768px'){
+
+                @include d('768px') {
                     padding: 5px 10px;
                 }
-                svg{
+
+                svg {
                     width: 1.5em;
-                    path{
+
+                    path {
                         fill: $secundary;
                     }
                 }
-                &:hover{
+
+                &:hover {
                     background: $secundary;
-                    svg{
-                        path{
+
+                    svg {
+                        path {
                             fill: $white;
                         }
                     }
                 }
-                @include d("768px"){
+
+                @include d("768px") {
                     background: $secundary;
-                    svg{
-                        path{
+
+                    svg {
+                        path {
                             fill: $white;
                         }
                     }
                 }
-                &:disabled{
+
+                &:disabled {
                     background: $grey-m;
-                    svg{
-                        path{
+
+                    svg {
+                        path {
                             fill: $grey;
                             opacity: .5;
                         }
                     }
-                    &:hover{
+
+                    &:hover {
                         background: $grey-m;
                         cursor: not-allowed;
-                        svg{
-                            path{
+
+                        svg {
+                            path {
                                 fill: $grey;
                             }
                         }
                     }
                 }
 
-                &.status--sent{
+                &.status--sent {
                     display: block;
                     background: $success;
                     color: $white;
                     opacity: .8;
                     cursor: not-allowed;
-                    &:hover{
+
+                    &:hover {
                         background: $success;
                     }
                 }
 
-                &.status--true{
+                &.status--true {
                     display: block;
                     background: $black;
                     color: $white;
                     opacity: .8;
                     cursor: not-allowed;
-                    &:hover{
+
+                    &:hover {
                         background: $black;
                     }
                 }
-                
+
             }
 
-            @include d("768px"){
+            @include d("768px") {
                 grid-template-columns: 87% 13%;
             }
         }
     }
-    &__reviews{
+
+    &__reviews {
         grid-area: reviews;
         align-self: end;
-        justify-self: end;  
+        justify-self: end;
         @include sans(1em, $black, 400, initial);
         text-decoration: underline;
-        @include d(xs){
+
+        @include d(xs) {
             align-self: end;
         }
     }
-    &__shelfLife, &__leftInStock, &__peopleOnPage{
+
+    &__shelfLife,
+    &__leftInStock,
+    &__peopleOnPage {
         display: flex;
         align-items: center;
         font-size: 1em;
         margin: 10px 0 0;
-        @include d(xs){
+
+        @include d(xs) {
             font-size: .875em;
         }
-        svg{
+
+        svg {
             width: 1.5em;
             margin: 0 5px 0 0;
-            path{
+
+            path {
                 fill: $grey;
             }
         }
     }
-    &__shelfLife{
+
+    &__shelfLife {
         grid-area: shelfLife;
     }
-    &__leftInStock{
+
+    &__leftInStock {
         grid-area: leftInStock;
     }
-    &__peopleOnPage{
+
+    &__peopleOnPage {
         grid-area: peopleOnPage;
     }
 
-    &__addToCart{
+    &__addToCart {
         grid-area: button;
         background: $black;
         color: $white;
@@ -198,49 +234,60 @@
         text-align: center;
         width: 100%;
         transition: all .2s;
-        &:disabled{
+
+        &:disabled {
             cursor: not-allowed;
             opacity: .8;
         }
-        &.status--added{
+
+        &.status--added {
             background: $success;
         }
-        &.unavaliable{
+
+        &.unavaliable {
             background: $grey-m;
             color: $grey;
             cursor: not-allowed;
         }
     }
-    &__flags{
+
+    &__flags {
         grid-area: flags;
         margin-top: 10px;
         display: flex;
         flex-flow: wrap;
-        .flag{
+
+        .flag {
             padding: 5px;
             margin: 0 5px 0 0;
             font-size: 1em;
             background: $grey-m;
             border-radius: .2em;
-            @include d(xs){
+
+            @include d(xs) {
                 font-size: .875em;
             }
         }
     }
-    @include d("768px"){
-        &__title{
+
+    @include d("768px") {
+        &__title {
             font-size: 1.25em;
         }
-        &__price{
+
+        &__price {
             margin-top: 10px;
-            &__installments{
+
+            &__installments {
                 font-size: 0.875em;
             }
         }
-        &__letmeknow{
+
+        &__letmeknow {
             margin-top: 10px;
         }
-        &__reviews{
+
+        &__reviews {
             font-size: .75em;
         }
     }
@@ -326,7 +373,7 @@
 //             &::-webkit-scrollbar {
 //                 width: 5px;
 //             }
-                
+
 //             /* Track */
 //             &::-webkit-scrollbar-track {
 //                 box-shadow: inset 0 0 0px $qdb-grey-m;

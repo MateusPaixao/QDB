@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 export const Content = ({ Product, Sku, Reviews, onPage, handleReviews }) => {
-  const [addStatus, setaddStatus] = React.useState(false);
-  const [sendStatus, setsendStatus] = React.useState(false);
-  const [email, setEmail] = React.useState('');
-  const BtnAddToCart = React.useRef(null);
+  const [addStatus, setaddStatus] = useState(false);
+  const [sendStatus, setsendStatus] = useState(false);
+  const [discount, setDiscount] = useState(
+    Sku.sellers[0].commertialOffer.Price - Sku.sellers[0].commertialOffer.ListPrice
+  );
+  const [email, setEmail] = useState('');
+  const BtnAddToCart = useRef(null);
+
+  useEffect(() => {
+    setDiscount(Sku.sellers[0].commertialOffer.Price - Sku.sellers[0].commertialOffer.ListPrice);
+  }, [Sku]);
 
   const Add = () => {
     setaddStatus(true);
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       vtexjs.checkout
         .getOrderForm()
         .then(orderForm => {
           // console.log(orderForm);
-          if (!orderForm.items.length) {
+          if (!!orderForm.items.length) {
             orderForm.items.map((e, i) => {
               if (e.id == Sku.itemId) {
                 let quantity = e.quantity + 1;
@@ -51,7 +58,7 @@ export const Content = ({ Product, Sku, Reviews, onPage, handleReviews }) => {
               }
             })
             .done(() => {
-              BtnAddToCart.textContent = 'O produto foi adicionado';
+              BtnAddToCart.current.textContent = 'O produto foi adicionado';
               setaddStatus('added');
               setTimeout(() => {
                 setaddStatus(false);
@@ -324,6 +331,11 @@ export const Content = ({ Product, Sku, Reviews, onPage, handleReviews }) => {
               {Sku.sellers[0].commertialOffer.Price.toFixed(2)
                 .toString()
                 .replace('.', ',')}
+              {discount != 0 && (
+                <span className="set--discount">
+                  {Math.round((discount * 100) / Sku.sellers[0].commertialOffer.ListPrice)}%
+                </span>
+              )}
             </p>
             <small className="principal__content__price__installments">
               até{' '}

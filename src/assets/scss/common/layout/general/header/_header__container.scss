@@ -1,6 +1,6 @@
-
 .header {
     -webkit-appearance: none;
+
     svg {
         path {
             fill: $secondaryColor
@@ -23,13 +23,13 @@
         min-height: auto;
         height: auto;
     }
-    
+
     svg {
         path {
             fill: $secondaryColor
         }
     }
-    
+
     &__first-column {
         display: flex;
         flex-direction: column;
@@ -123,6 +123,7 @@
             align-items: center;
             justify-content: space-around;
             position: relative;
+
             @include d('768px') {
                 justify-content: flex-start;
                 width: 30px;
@@ -134,17 +135,21 @@
 
     &__accessibility {
         margin-right: 5px;
-        &:hover{
+
+        &:hover {
             background: $g-primary;
-            .box-icon{
+
+            .box-icon {
                 background: $g-primary;
-                svg{
-                    path{
+
+                svg {
+                    path {
                         fill: $w-secundary;
                     }
                 }
             }
-            .box-acessibilidade{
+
+            .box-acessibilidade {
                 box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
             }
         }
@@ -274,9 +279,10 @@
             }
 
             &.account {
-                @include d('768px'){
+                @include d('768px') {
                     margin-right: 5px;
                 }
+
                 a {
                     display: flex;
                 }
@@ -292,56 +298,70 @@
             svg {
                 width: 35px;
             }
-            .header__options--item__cartBag{
+
+            .header__options--item__cartBag {
                 position: relative;
-                .__maskBag{
+
+                .__maskBag {
                     width: 40px;
                     height: 40px;
-                    #mask{
+
+                    #mask {
                         transition: all .2s;
                     }
                 }
-                .__bag{
+
+                .__bag {
                     position: absolute;
                     left: 0;
                     width: 40px;
                     height: 40px;
-                    path{
+
+                    path {
                         stroke: $g-primary;
                         stroke-width: 3px;
                         fill: transparent;
                     }
                 }
-                &.set--highlightFill{
-                    #wave{
-                        @include animation("HighlightWave", .5s, linear, cubic-bezier(.6,.51,0,1.01));
+
+                &.set--highlightFill {
+                    #wave {
+                        @include animation("HighlightWave", .5s, linear, cubic-bezier(.6, .51, 0, 1.01));
                         animation-fill-mode: forwards;
-                        @keyframes HighlightWave{
-                            0%{
+
+                        @keyframes HighlightWave {
+                            0% {
                                 fill: $g-primary;
                             }
-                            90%{
+
+                            90% {
                                 fill: #fff;
                             }
-                            100%{
+
+                            100% {
                                 fill: $g-primary;
                             }
                         }
                     }
-                    #bagMask{
-                        @include animation("HighlightMask", 1.5s, linear, cubic-bezier(.6,.51,0,1.01));
+
+                    #bagMask {
+                        @include animation("HighlightMask", 1.5s, linear, cubic-bezier(.6, .51, 0, 1.01));
                         animation-fill-mode: forwards;
-                        @keyframes HighlightMask{
-                            0%{
+
+                        @keyframes HighlightMask {
+                            0% {
                                 fill: $g-primary;
                             }
-                            20%{
+
+                            20% {
                                 fill: #00c8e1;
                             }
-                            90%{
+
+                            90% {
                                 fill: #00c8e1;
                             }
-                            100%{
+
+                            100% {
                                 fill: $g-primary;
                             }
                         }
@@ -431,6 +451,7 @@
         align-items: center;
         width: 100%;
         cursor: pointer;
+
         &--list {
             position: relative;
             margin-bottom: $marginBottom;
@@ -444,7 +465,7 @@
             &:hover {
                 text-decoration: underline;
 
-                &::after{
+                &::after {
                     content: '';
                     @include triangle("up", .75em, $qdb-grey-l);
                     left: 50%;
@@ -453,11 +474,12 @@
                     position: absolute;
                     z-index: 1;
                 }
+
                 .header__nav--menu {
                     display: flex;
                 }
             }
-            
+
 
             &:first-child {
                 margin-left: 0;
@@ -467,7 +489,8 @@
             &:last-child {
                 margin-right: 0;
                 padding-right: 0;
-                &::after{
+
+                &::after {
                     display: none;
                 }
             }
@@ -507,7 +530,8 @@
             height: 100%;
             width: 230px;
             padding: 0;
-            img{
+
+            img {
                 height: 100%;
                 object-fit: cover;
             }
@@ -554,12 +578,13 @@
             }
 
             // BlackFriday
-            &.blackfriday{
+            &.blackfriday {
                 border: none;
                 background: $blackfriday-p;
                 color: $blackfriday-s;
                 text-shadow: 0px 0px 5px $blackfriday-s;
                 padding: 4px 4px;
+
                 &:hover {
                     background-color: $blackfriday-s;
                     color: $blackfriday-p;
@@ -577,37 +602,42 @@
         }
     }
 }
-.iphone{
-    .header__container{
-        @include d('768px'){
+
+.iphone {
+    .header__container {
+        @include d('768px') {
             height: 100%;
             // margin: -30px 0px;
             // overflow: hidden;
         }
     }
-    .header__middle-container{
-        @include d('768px'){
+
+    .header__middle-container {
+        @include d('768px') {
             // padding: -20px 0px !important;
             // margin-top: -40px;
             // margin-bottom: 20px;
         }
     }
-    .header__second-column{
-        @include d('768px'){
+
+    .header__second-column {
+        @include d('768px') {
             margin-top: -50px;
         }
     }
 }
+
 .scrollDown {
-    &.scrollDown{
-        .header__middle-container{
+    &.scrollDown {
+        .header__middle-container {
             margin-bottom: 0;
             padding: 0;
             margin-top: 0;
         }
     }
-    
+
     transition: all .2s;
+
     .header {
         min-height: inherit;
         height: auto;
@@ -634,30 +664,34 @@
     .header__menu-hamburguer-container {
         display: none;
     }
-    .header__middle-container{
+
+    .header__middle-container {
         @include d('768px') {
             padding: 0;
         }
     }
 
     @include d('768px') {
-        
+
         .header__logo {
             display: none;
         }
-        .header__first-column{
+
+        .header__first-column {
             width: initial;
         }
-        .header__menu-hamburguer-container{
+
+        .header__menu-hamburguer-container {
             display: flex;
             width: initial;
             margin-bottom: initial;
         }
+
         .header__second-column {
             width: 70%;
         }
 
-        .header__second-column{
+        .header__second-column {
             margin-top: -10px;
         }
 
@@ -665,7 +699,8 @@
             order: 3;
             width: initial;
         }
-        .header__search{
+
+        .header__search {
             width: 100%;
         }
 
