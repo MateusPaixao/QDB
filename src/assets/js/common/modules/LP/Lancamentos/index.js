@@ -19,7 +19,7 @@ const Methods = {
   },
 
   BuildPage() {
-    class Promotions extends React.Component {
+    class Newest extends React.Component {
       constructor(props) {
         super(props);
         this.state = {
@@ -92,8 +92,8 @@ const Methods = {
             <React.Fragment>
               <Breadcrumbs />
               <Banner />
-              <Paineis />
-              <Chaordic />
+              {/* <Paineis />
+              <Chaordic /> */}
               <Filter
                 showSmartResearch={this.state.showSmart}
                 handleSmartResearch={this.handleSmartResearch.bind(this)}
@@ -112,7 +112,7 @@ const Methods = {
       }
     }
 
-    ReactDOM.render(<Promotions />, document.getElementById('render--promo'));
+    ReactDOM.render(<Newest />, document.getElementById('render--lancamentos'));
   }
 };
 

@@ -98,49 +98,5 @@
 
     //     // }
     // }
-
-    .slick-slider {
-        margin: 0 auto;
-        // overflow: hidden;
-        padding: 10px 0;
-        margin: -10px 0;
-
-        .slick-track {
-            display: flex;
-        }
-
-        .slick-slide {
-            margin: 0 5px;
-        }
-
-        .slick-arrow {
-            position: absolute;
-            z-index: 2;
-            padding: 5px;
-            border-radius: .2em;
-            cursor: pointer;
-            // background: $black;
-            font-size: 1.25em;
-            display: flex;
-
-            @include d("768px") {
-                display: none;
-            }
-
-            /* ${down('lg')} {
-                display: none;
-            } */
-            &.slick-prev {
-                // left: -60px;
-                // top: 50%;
-                // transform: translateY(-50%)
-            }
-
-            &.slick-next {
-                // right: -60px;
-                // top: 50%;
-                // transform: translateY(-50%)
-            }
-        }
-    }
+    @import '../../general/slider/slider-page';
 }

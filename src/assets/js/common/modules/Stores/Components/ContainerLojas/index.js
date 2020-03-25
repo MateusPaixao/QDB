@@ -15,20 +15,6 @@ const Container = ({ Stores }) => {
     }, 3000);
   }
 
-  function copyCoupon(ev) {
-    const couponCode = ev.target.previousElementSibling;
-    couponCode.select();
-    document.execCommand('copy');
-
-    const couponTarget = ev.target;
-    couponTarget.textContent = 'copiado!';
-
-    setTimeout(() => {
-      console.log(couponTarget);
-      couponTarget.textContent = 'copiar';
-    }, 3000);
-  }
-
   return (
     // console.log(Stores)
     Stores.map((store, i) => (
@@ -59,7 +45,7 @@ const Container = ({ Stores }) => {
             <p className="store__hasMake">
               {/* <CheckSVG />  */}
               Cupom da loja: <input type="text" value={store.coupon} className="store__coupon" />
-              <button class="store__button" onClick={ev => copyCoupon(ev)}>
+              <button className="store__button" onClick={ev => copyCoupon(ev)}>
                 {' '}
                 copiar{' '}
               </button>

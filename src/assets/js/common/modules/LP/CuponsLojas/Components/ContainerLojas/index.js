@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import { CheckSVG } from '../SVGs';
 const Container = ({ Stores }) => {
   const [copy, setCopy] = useState('copiar');
 
@@ -12,7 +11,6 @@ const Container = ({ Stores }) => {
     setCopy('copiado');
 
     setTimeout(() => {
-      console.log(couponTarget);
       setCopy('copiar');
     }, 3000);
   }
