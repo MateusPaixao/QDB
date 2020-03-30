@@ -17,7 +17,12 @@
 }
 
 .filterContainer__fastFilter__names{
-    margin-right: 12%;
+    ul{
+        flex-wrap: wrap;
+    }
+    li{
+        margin-bottom: 10px;
+    }
 }
 
 .filterContainer__fastFilter__names, .filterContainer__fastFilter__mobile{
