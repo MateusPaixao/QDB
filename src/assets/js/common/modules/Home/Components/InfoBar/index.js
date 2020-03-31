@@ -116,7 +116,7 @@ const Methods = {
         return (
           <React.Fragment>
             <div className="__container" onClick={() => this.toggleModal()}>
-              <span className="__icon">
+              <span className="__icon firstIcon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="37" height="32">
                   <defs>
                     <clipPath id="a">
@@ -156,7 +156,7 @@ const Methods = {
               </span>
               <p className="__content">
                 <a href="/busca/?fq=P:[109TO300]&O=OrderByBestDiscountDESC"> frete grátis </a> nas
-                compras <br /> a partir de {this.state.Infos[0].Content}
+                compras a partir de {this.state.Infos[0].Content}
                 <a
                   href="/busca/?fq=P:[109TO300]&O=OrderByBestDiscountDESC"
                   className="_ctaModal"
@@ -167,7 +167,7 @@ const Methods = {
 
             <a href="/nosso-clube">
               <div className="__container">
-                <span className="__icon">
+                <span className="__icon secondIcon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="37" height="32">
                     <defs>
                       <clipPath id="a">
@@ -189,7 +189,7 @@ const Methods = {
             </a>
 
             <div className="__container" onClick={() => this.togglePaymentModal()}>
-              <span className="__icon">
+              <span className="__icon thirdIcon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="37" height="32">
                   <defs>
                     <clipPath id="a">
@@ -210,7 +210,7 @@ const Methods = {
 
             <a href="/servicos">
               <div className="__container">
-                <span className="__icon">
+                <span className="__icon fourthIcon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="37" height="32">
                     <defs>
                       <clipPath id="a">
