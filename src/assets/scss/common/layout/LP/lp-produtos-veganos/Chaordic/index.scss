@@ -1,0 +1,15 @@
+.chaordicCollection {
+    background: $grey-l;
+    padding: 20px 0;
+    overflow: hidden;
+
+    @include d("768px") {
+        .container {
+            padding: 0;
+        }
+    }
+
+    &__collection {
+        position: relative;
+    }
+}

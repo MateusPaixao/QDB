@@ -1,0 +1,14 @@
+@import './Filter/index';
+@import './Banner/index';
+@import './Chaordic/index';
+@import './Initiatives/index';
+
+body {
+    background: $grey-l;
+}
+
+.section__title {
+    @include sans(2rem, $secundary, 900, initial);
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
