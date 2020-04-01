@@ -17,7 +17,6 @@
         @include d("768px") {
             display: block;
             background: #000;
-            margin-top: -63px;
             width: 90%;
             height: 48px;
             justify-content: center;
@@ -47,7 +46,7 @@
             font-size: 11px;
             text-align: center;
             z-index: 1;
-            top: 15%;
+            top: 7%;
             right: 30px;
         }
     }
@@ -68,27 +67,32 @@
         }
 
         .slick-arrow {
-            // position: absolute;
+            position: absolute;
             z-index: 2;
             padding: 5px;
-            border-radius: .2em;
+            border-radius: 2.2em;
             cursor: pointer;
-            // background: $black;
+            background: rgba(0, 0, 0, 0.8);
             display: flex;
+
+            svg{
+                width: 33px;
+                height: 33px;
+            }
 
             @include d("768px") {
                 // display: none;
             }
 
             &.slick-prev {
-                left: 6px;
-                top: 50%;
+                left: 7%;
+                top: 40%;
                 transform: translateY(-50%)
             }
 
             &.slick-next {
-                right: 33px;
-                top: 50%;
+                right: 7%;
+                top: 40%;
                 transform: translateY(-50%)
             }
 
