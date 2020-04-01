@@ -83,7 +83,7 @@ const PaineisContainer = () => {
         </Slider>
         {/* :
                     Banners} */}
-        {/* <button className="paineisBeleza__button">Quero esse</button> */}
+        <button className="paineisBeleza__button">Quero esse</button>
       </div>
     </div>
   );
