@@ -54,14 +54,19 @@ const Breadcrumbs = () => {
           <a href="/">
             <h2>Inicio</h2>
           </a>
-          {breadcrumbs.map((b, i) =>
+          {breadcrumbs.map((bread, i) =>
             i == 0 || i == 1 ? (
               ''
             ) : (
-              <a href={b.substring(b.lastIndexOf('href="') + 6, b.lastIndexOf('" r'))}>
-                <h2>{b.substring(b.lastIndexOf('">') + 2, b.lastIndexOf('</a'))}</h2>
-              </a>
-            )
+                <>
+
+                  <a href={bread.substring(bread.lastIndexOf('href="') + 6, bread.lastIndexOf('" r'))}>
+                    <h2>{bread.substring(bread.lastIndexOf('">') + 2, bread.lastIndexOf('</span>'))}</h2>
+                  </a>
+                  {console.log('bread', bread.substring(bread.lastIndexOf('href="') + 6, 100))}
+                </>
+
+              )
           )}
         </div>
       }
