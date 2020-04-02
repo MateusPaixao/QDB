@@ -59,11 +59,10 @@ const Breadcrumbs = () => {
               ''
             ) : (
                 <>
-
-                  <a href={bread.substring(bread.lastIndexOf('href="') + 6, bread.lastIndexOf('" r'))}>
+                  <a href={bread.substring(bread.indexOf('href="') + 6, bread.lastIndexOf('" i'))}>
                     <h2>{bread.substring(bread.lastIndexOf('">') + 2, bread.lastIndexOf('</span>'))}</h2>
                   </a>
-                  {console.log('bread', bread.substring(bread.lastIndexOf('href="') + 6, 100))}
+                  {/* {console.log("OPA", bread.substring(bread.indexOf('href="') + 6, bread.lastIndexOf('" i')))} */}
                 </>
 
               )
