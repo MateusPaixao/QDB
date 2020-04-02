@@ -15,6 +15,7 @@ const Methods = {
   init() {
     Methods.BuildPage();
     isInViewport();
+    console.log('teste');
     // buildVitrines();
   },
 
@@ -53,9 +54,9 @@ const Methods = {
         });
       }
 
-      handleSmartResearch() {
+      handleSmartResearch(value) {
         this.setState({
-          showSmart: !this.state.showSmart
+          showSmart: value
         });
       }
 

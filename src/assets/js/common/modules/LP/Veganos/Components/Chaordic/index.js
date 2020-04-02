@@ -3,10 +3,12 @@ import Vitrine from '../../../../General/Vitrine';
 
 const TopSell = () => {
   const [colRecommend, setcolRecommend] = React.useState([]);
+  const idCollection = Math.floor(Math.random() * 5000);
 
   React.useEffect(() => {
     if (colRecommend.length > 0) {
-      Vitrine.build('Recommendations', colRecommend, true, '4.2');
+      console.log('id' + idCollection);
+      Vitrine.build(idCollection, colRecommend, true, '4.2');
     }
   }, [colRecommend]);
 
@@ -54,7 +56,7 @@ const TopSell = () => {
     <div className="chaordicCollection recommendations">
       <div className="shell">
         <h2 className="chaordicCollection__title section__title">Mais Vendidos</h2>
-        <div id="collectionRecommendations" className="chaordicCollection__collection"></div>
+        <div id={`collection${idCollection}`} className="chaordicCollection__collection"></div>
       </div>
     </div>
   ) : (

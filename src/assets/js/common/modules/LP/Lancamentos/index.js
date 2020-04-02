@@ -6,8 +6,6 @@ import { isInViewport } from '../../../global/global-index';
 import Filter from './Components/Filter';
 import SmartResearch from './Components/Filter/smartResearch.js';
 import Banner from './Components/Banner';
-import Paineis from './Components/Paineis';
-import Chaordic from './Components/Chaordic';
 import Breadcrumbs from '../../General/Breadcrumbs';
 // import {buildVitrines} from './Components/Vitrine/vitrine-index.jsx';
 

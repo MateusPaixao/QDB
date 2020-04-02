@@ -543,7 +543,7 @@
         }
 
         &--categories {
-            @include sans(1rem, $g-primary, 200, initial);
+            @include sans(1rem, $g-primary, 400, initial);
         }
 
         &--category {

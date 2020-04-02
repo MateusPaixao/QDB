@@ -62,7 +62,7 @@ const orderFilter = ({ handleOrder }) => {
   }, [order]);
 
   return (
-    <React.Fragment>
+    <>
       <div className={`principal__allColorsContainer setOpen-${showOptions}`}>
         <div className="orderContainer">
           <p className="orderoption__name">Ordernar</p>
@@ -159,7 +159,7 @@ const orderFilter = ({ handleOrder }) => {
           )}
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

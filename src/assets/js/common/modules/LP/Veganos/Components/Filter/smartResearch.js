@@ -43,7 +43,7 @@ const SmartResearch = ({ order, from, show, handleSmartResearch }) => {
           ].childElementCount < 23
         ) {
           clearInterval(refreshButton);
-          handleSmartResearch();
+          handleSmartResearch(false);
         } else {
           // Quando menor que 23, eu posso sumir com o botão
         }
@@ -52,7 +52,7 @@ const SmartResearch = ({ order, from, show, handleSmartResearch }) => {
 
     setTimeout(() => {
       e.classList.remove('set--loading', 'set--loaded', 'set--loadingMount');
-      if (window.showSmartResearch == undefined || window.showSmartResearch == true) {
+      if (show == true) {
         Vitrine.build(
           idCollection,
           undefined,
@@ -61,19 +61,19 @@ const SmartResearch = ({ order, from, show, handleSmartResearch }) => {
           `?fq=H:820&O=${order}&_from=${queryFrom}&_to=${queryFrom + 23}`
         );
       } else {
-        handleSmartResearch();
+        handleSmartResearch(false);
       }
     }, 500);
   };
 
   return (
-    <React.Fragment>
+    <>
       <div className="contentProducts"></div>
       <button
         onClick={e => showMore(e.currentTarget)}
         className={`contentProducts__smartResearch set--smartResearch ${!show && 'hidden'}`}
       />
-    </React.Fragment>
+    </>
   );
 };
 

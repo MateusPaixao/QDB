@@ -102,7 +102,7 @@
                     &__item {
                         &--small {
                             margin: 0;
-                            @include sans(.75em, inherit, 200, initial);
+                            @include sans(.75em, inherit, 400, initial);
                             text-transform: lowercase;
                         }
                     }
@@ -394,7 +394,7 @@
 
     .list-wrapper {
         display: flex;
-        height: 160px;
+        min-height: 240px;
 
         @include d('768px') {
             height: initial;
@@ -422,7 +422,7 @@
 
             &__item {
                 text-transform: initial;
-                @include sans(1rem, inherit, 200, initial);
+                @include sans(1rem, inherit, 400, initial);
                 margin: 5px 0;
 
                 & a {
