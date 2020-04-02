@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { isInViewport } from '../../../global/global-index';
 import Breadcrumbs from '../../General/Breadcrumbs';
-import Banner from '../../Components/Banner';
+import Banner from '../../Components/BannerText';
 import Filter from '../../Components/Filter';
 import SmartResearch from '../../Components/Filter/smartResearch';
 
@@ -38,7 +38,11 @@ const Methods = {
         });
       }
 
+      componentDidMount() {}
+
       render() {
+        const collection = document.querySelector('.collection-number').textContent;
+
         return (
           <>
             <Breadcrumbs />
@@ -48,14 +52,14 @@ const Methods = {
               handleSmartResearch={this.handleSmartResearch.bind(this)}
               handleOrder={this.handleOrder.bind(this)}
               info={this.state.info}
-              search="fq=H:820"
+              search={collection}
             />
             <SmartResearch
               handleSmartResearch={this.handleSmartResearch.bind(this)}
               show={this.state.showSmart}
               order={this.state.order}
               from={this.state.from}
-              search="fq=H:820"
+              search={collection}
             />
           </>
         );

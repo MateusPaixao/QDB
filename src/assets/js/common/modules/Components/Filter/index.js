@@ -20,26 +20,6 @@ const filter = props => {
   return (
     <div className="filterContainer">
       <div className="shell">
-        <h2 className="section__title">Todos os produtos veganos</h2>
-      </div>
-      <span className="filters">
-        <div className="shell">
-          <p className="filters__title">Já sabe o que procura?</p>
-          <ul className="filters__list">
-            <li className="item">
-              <a>Maquiagem</a>
-            </li>
-            <li className="item">
-              <a>Perfumaria</a>
-            </li>
-            <li className="item">
-              <a>Unha</a>
-            </li>
-          </ul>
-        </div>
-      </span>
-
-      <div className="shell">
         <OrderFilter
           showSmartResearch={props.showSmartResearch}
           handleSmartResearch={props.handleSmartResearch}
