@@ -1,7 +1,7 @@
 import React from 'react';
-import Vitrine from '../../../../../General/Vitrine';
+import Vitrine from '../../../General/Vitrine';
 
-const orderFilter = ({ handleOrder }) => {
+const orderFilter = ({ handleOrder, search }) => {
   const [showOptions, setShowOptions] = React.useState(false);
   const [optionSelected, setOptionSelected] = React.useState('');
   const [order, setOrderFilter] = React.useState('OrderByTopSaleDESC');
@@ -10,14 +10,13 @@ const orderFilter = ({ handleOrder }) => {
   const orderProducts = () => {
     const Content = document.querySelector('.contentProducts');
 
-    console.log('ue');
     let idCollection = Math.floor(Math.random() * 5000);
     let Collection = document.createElement('div');
     Collection.classList.add('contentProducts__render-collection', 'render-collection', 'shell');
     Collection.setAttribute('id', 'collection' + idCollection);
     Content.appendChild(Collection);
 
-    Vitrine.build(idCollection, undefined, false, false, `?fq=H:820&O=${order}&_from=0&_to=23`);
+    Vitrine.build(idCollection, undefined, false, false, `?${search}&O=${order}&_from=0&_to=23`);
 
     // !showSmartResearch && handleSmartResearch();
   };
