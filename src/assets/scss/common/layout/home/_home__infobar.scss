@@ -1,16 +1,17 @@
-.infoBar__render{
-    .__contentMobile{
+.infoBar__render {
+    .__contentMobile {
         display: none;
     }
 
-    a{
-        @include d("768px"){
-        text-align: center;
-            &:last-child{
-            margin-top: 18px;    
+    a {
+        @include d("768px") {
+            text-align: center;
+
+            &:last-child {
+                margin-top: 18px;
             }
         }
-    } 
+    }
 
     display: flex;
     color: #000;
@@ -21,53 +22,62 @@
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 1rem;
-    @include d("768px"){
-        .__contentMobile{
-            display: block;         
-            text-decoration: underline;   
-        }        
+
+    @include d("768px") {
+        .__contentMobile {
+            display: block;
+            text-decoration: underline;
+        }
     }
-    .__container{
+
+    .__container {
         cursor: pointer;
         display: flex;
         align-items: center;
         margin-left: 15px;
-        max-width: 300px;                
+        max-width: 300px;
         padding: 15px;
-        @include d("768px"){
-            .__contentMobile{
+
+        @include d("768px") {
+            .__contentMobile {
                 font-size: .875em;
             }
+
             padding: 0px;
-            flex-direction: column;            
-            .__content{
+            flex-direction: column;
+
+            .__content {
                 display: none;
             }
-            
+
         }
-        
-        .__icon{
+
+        .__icon {
             margin-right: 5px;
-            .star{
-                display: flex;
-                height: 40px;
-                width: 40px;
-                path{
-                    fill: #67605f;
-                }
+
+            svg {
+                width: 35px;
             }
+
+            // .star{
+            //     display: flex;
+            //     height: 40px;
+            //     width: 40px;
+            //     path{
+            //         fill: #67605f;
+            //     }
+            // }
         }
-        .__content{
-            a{
+
+        .__content {
+            a {
                 text-decoration: underline;
             }
         }
     }
 }
 
-.__container:hover{    
+.__container:hover {
     border: solid 1px #000;
     border-radius: 5px;
 }
-
-    
