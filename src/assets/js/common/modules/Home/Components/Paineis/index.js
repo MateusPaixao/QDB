@@ -10,6 +10,7 @@ const PaineisContainer = () => {
   const [Banners, setBanners] = useState([]);
   const [actualIndex, setIndex] = useState(1);
   let bannersPaineis = document.querySelector('.paineisBeleza__banners');
+  const [BannerUrl, setBannerUrl] = useState(null)
 
   useEffect(() => {
     console.log(actualIndex);
@@ -27,7 +28,8 @@ const PaineisContainer = () => {
 
       setBanners(Banners => [
         ...Banners,
-        <Painel Url={banUrl} Src={banImg} Alt={banAlt} key={i} />
+        <Painel Url={banUrl} Src={banImg} Alt={banAlt} key={i} />,
+        setBannerUrl(banUrl)
       ]);
     }
   }, []);
@@ -83,7 +85,7 @@ const PaineisContainer = () => {
         </Slider>
         {/* :
                     Banners} */}
-        <button className="paineisBeleza__button">Quero esse</button>
+        <a href={BannerUrl}> <button className="paineisBeleza__button">Quero esse</button></a>
       </div>
     </div>
   );
