@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PaymentModal from './Modal/paymentModal';
 import ShippingModal from './Modal/shippingModal';
+import Modal from './Modal';
 
 const Methods = {
   InfoBar() {
@@ -11,6 +12,7 @@ const Methods = {
         this.state = {
           paymentModalOpen: false,
           shippingModalOpen: false,
+          modals: [false, false, false, false],
           Infos: [
             {
               Content: '',
@@ -99,16 +101,10 @@ const Methods = {
         this.getShippingInfo = this.getShippingInfo.bind(this);
         // this.setInfos = this.setInfos.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
+        this.toggleShippingModal = this.toggleShippingModal.bind(this);
         this.togglePaymentModal = this.togglePaymentModal.bind(this);
         this.checkUrlParams = this.checkUrlParams.bind(this);
       }
-
-      componentDidMount() {
-        this.getShippingInfo();
-        // this.setInfos();
-        this.checkUrlParams();
-      }
-
       checkUrlParams() {
         const url = new URLSearchParams(window.location.search);
         if (url.has('infobar') == true) {
@@ -149,8 +145,7 @@ const Methods = {
         }, 100);
       }
 
-      toggleModal() {
-        console.log('CLiquei pra abrir');
+      toggleShippingModal() {
         this.setState({ shippingModalOpen: !this.state.shippingModalOpen });
       }
 
@@ -158,12 +153,27 @@ const Methods = {
         this.setState({ paymentModalOpen: !this.state.paymentModalOpen });
       }
 
+      toggleModal(index) {
+        let modals = [...this.state.modal];
+        let modal = { ...modals[index] };
+        modal = !modals[index];
+        modals[index] = modal;
+        console.log(modals);
+        this.setState({ modals: modals });
+      }
+
+      componentDidMount() {
+        this.getShippingInfo();
+        // this.setInfos();
+        this.checkUrlParams();
+      }
+
       render() {
         const { Infos } = this.state;
 
         return (
           <>
-            <div className="__container" onClick={() => this.toggleModal()}>
+            <div className="__container" onClick={() => this.toggleShippingModal()}>
               <span className="__icon firstIcon">{this.state.Infos[0].Icon}</span>
               <p className="__content">
                 <a href="/busca/?fq=P:[109TO300]&O=OrderByBestDiscountDESC"> frete grátis </a> nas
@@ -176,33 +186,65 @@ const Methods = {
               <p className="__contentMobile">{Infos[0].ContentMobile}</p>
             </div>
 
-            <a href="/nosso-clube">
-              <div className="__container">
-                <span className="__icon secondIcon">{this.state.Infos[1].Icon}</span>
-                <p className="__content">{Infos[1].Content}</p>
-                <p className="__contentMobile">{Infos[1].ContentMobile}</p>
-              </div>
-            </a>
+            <div className="__container" onClick={() => this.toggleModal(1)}>
+              <span className="__icon secondIcon">{Infos[1].Icon}</span>
+              <p className="__content">{Infos[1].Content}</p>
+              <p className="__contentMobile">{Infos[1].ContentMobile}</p>
+            </div>
 
-            <div className="__container" onClick={() => this.togglePaymentModal()}>
-              <span className="__icon thirdIcon">{this.state.Infos[2].Icon}</span>
+            <div className="__container" onClick={() => this.toggleModal(2)}>
+              <span className="__icon thirdIcon">{Infos[2].Icon}</span>
               <p className="__content">{Infos[2].Content}</p>
               <p className="__contentMobile">{Infos[2].ContentMobile}</p>
             </div>
 
-            <a href="/servicos">
-              <div className="__container">
-                <span className="__icon fourthIcon">{this.state.Infos[3].Icon}</span>
-                <p className="__content">{Infos[3].Content}</p>
-                <p className="__contentMobile">
-                  Agende <br /> sua make
-                </p>
+            <div className="__container" onClick={() => this.togglePaymentModal()}>
+              <span className="__icon fourthIcon">{Infos[3].Icon}</span>
+              <p className="__content">{Infos[3].Content}</p>
+              <p className="__contentMobile">{Infos[3].ContentMobile}</p>
+            </div>
+
+            {this.state.modal[0] && (
+              <div onClick={() => this.toggleModal(0)} className="overlayModal">
+                <Modal modalOpen={this.toggleModal} />
               </div>
-            </a>
+            )}
+
+            {this.state.modal[1] && (
+              <div onClick={() => this.toggleModal(1)} className="overlayModal">
+                <Modal
+                  modalOpen={this.toggleModal}
+                  title={Infos[1].Content}
+                  content={Infos[1].ContentMobile}
+                  hasCTA={false}
+                />
+              </div>
+            )}
+
+            {this.state.modal[2] && (
+              <div onClick={() => this.toggleModal(2)} className="overlayModal">
+                <Modal
+                  modalOpen={this.toggleModal}
+                  title={Infos[2].Content}
+                  content={Infos[2].ContentMobile}
+                  hasCTA={true}
+                  link="https://www.quemdisseberenice.com.br/institucional/trocas-e-devolucoes"
+                />
+              </div>
+            )}
+
+            {this.state.modal[3] && (
+              <div onClick={() => this.toggleModal()} className="overlayModal">
+                <Modal modalOpen={this.toggleModal} />
+              </div>
+            )}
 
             {this.state.shippingModalOpen == true && (
-              <div onClick={() => this.toggleModal()} className="overlayModal">
-                <ShippingModal modalOpen={this.toggleModal} price={this.state.Infos[0].Content} />
+              <div onClick={() => this.toggleShippingModal()} className="overlayModal">
+                <ShippingModal
+                  modalOpen={this.toggleShippingModal}
+                  price={this.state.Infos[0].Content}
+                />
               </div>
             )}
             {this.state.paymentModalOpen == true && (
