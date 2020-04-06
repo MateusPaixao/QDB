@@ -9,8 +9,9 @@ const PaineisContainer = () => {
   // const getBanners = () => {
   const [Banners, setBanners] = useState([]);
   const [actualIndex, setIndex] = useState(1);
+
   let bannersPaineis = document.querySelector('.paineisBeleza__banners');
-  const [BannerUrl, setBannerUrl] = useState(null)
+  const [BannerUrl, setBannerUrl] = useState(null);
 
   useEffect(() => {
     console.log(actualIndex);
@@ -52,9 +53,7 @@ const PaineisContainer = () => {
   return (
     <div className="shell paineisContainer">
       <div className="paineis">
-        <div className="category-pagination">
-          {actualIndex}/{Banners.length}{' '}
-        </div>
+        <div className="category-pagination">{actualIndex}/4</div>
         {/* {window.innerWidth < 768 ? */}
         <Slider
           settings={{
@@ -85,7 +84,10 @@ const PaineisContainer = () => {
         </Slider>
         {/* :
                     Banners} */}
-        <a href={BannerUrl}> <button className="paineisBeleza__button">Quero esse</button></a>
+        <a href={BannerUrl}>
+          {' '}
+          <button className="paineisBeleza__button">Quero esse</button>
+        </a>
       </div>
     </div>
   );

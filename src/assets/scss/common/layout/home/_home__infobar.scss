@@ -15,7 +15,7 @@
 
     display: flex;
     color: #000;
-    background: #FFF;
+    background: $white;
     height: 100px;
     justify-content: space-around;
     align-items: center;
@@ -81,4 +81,96 @@
 .__container:hover {
     border: solid 1px #000;
     border-radius: 5px;
+}
+
+
+// Modal
+.hidden {
+    display: none;
+}
+
+.overlayModal {
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    top: 0;
+    position: fixed;
+    background-color: #686161b3;
+}
+
+.modal_shipping {
+    width: 296px;
+    height: 250px;
+    top: 40%;
+    left: 39%;
+    background: $white;
+    position: fixed;
+    z-index: 10;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+.close-modal {
+    display: flex;
+    align-self: flex-end;
+    padding: 20px;
+
+    img {
+        cursor: pointer;
+    }
+}
+
+.modal-content {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    width: 86%;
+    margin-top: -20px;
+    color: #686161;
+
+    &__icon {
+        margin-bottom: 10px;
+
+        svg {
+            max-width: 3em;
+        }
+    }
+
+    &__title {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    button {
+        align-self: baseline;
+        width: 145px;
+        border: solid;
+        background: $black;
+        padding: 8px;
+        border-radius: 10px;
+        color: $white;
+        margin-top: 10px;
+    }
+}
+
+@include d("768px") {
+    .modal_shipping {
+        width: 80%;
+        height: 250px;
+        background: $white;
+        position: fixed;
+        z-index: 10;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0 auto;
+        top: 30%;
+        left: 10%;
+        flex-direction: column;
+    }
 }

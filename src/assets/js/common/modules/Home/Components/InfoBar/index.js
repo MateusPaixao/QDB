@@ -154,8 +154,10 @@ const Methods = {
       }
 
       toggleModal(index) {
-        let modals = [...this.state.modal];
+        let modals = [...this.state.modals];
         let modal = { ...modals[index] };
+        console.log(modal);
+        console.log('Modal');
         modal = !modals[index];
         modals[index] = modal;
         console.log(modals);
@@ -204,37 +206,39 @@ const Methods = {
               <p className="__contentMobile">{Infos[3].ContentMobile}</p>
             </div>
 
-            {this.state.modal[0] && (
+            {this.state.modals[0] && (
               <div onClick={() => this.toggleModal(0)} className="overlayModal">
                 <Modal modalOpen={this.toggleModal} />
               </div>
             )}
 
-            {this.state.modal[1] && (
+            {this.state.modals[1] && (
               <div onClick={() => this.toggleModal(1)} className="overlayModal">
                 <Modal
+                  icon={Infos[1].Icon}
                   modalOpen={this.toggleModal}
-                  title={Infos[1].Content}
-                  content={Infos[1].ContentMobile}
+                  title={Infos[1].ContentMobile}
+                  content={Infos[1].Content}
                   hasCTA={false}
                 />
               </div>
             )}
 
-            {this.state.modal[2] && (
+            {this.state.modals[2] && (
               <div onClick={() => this.toggleModal(2)} className="overlayModal">
                 <Modal
+                  icon={Infos[2].Icon}
                   modalOpen={this.toggleModal}
-                  title={Infos[2].Content}
-                  content={Infos[2].ContentMobile}
+                  title={Infos[2].ContentMobile}
+                  content={Infos[2].Content}
                   hasCTA={true}
                   link="https://www.quemdisseberenice.com.br/institucional/trocas-e-devolucoes"
                 />
               </div>
             )}
 
-            {this.state.modal[3] && (
-              <div onClick={() => this.toggleModal()} className="overlayModal">
+            {this.state.modals[3] && (
+              <div onClick={() => this.toggleModal(3)} className="overlayModal">
                 <Modal modalOpen={this.toggleModal} />
               </div>
             )}
