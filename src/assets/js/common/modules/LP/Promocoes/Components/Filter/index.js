@@ -35,11 +35,11 @@ const filter = props => {
               <button data-href="/busca/?&amp;fq=P:[0TO75]">até R$ 75</button>
             </a>
 
-            <a href="/busca/?fq=P:[75TO500]&amp;O=OrderByBestDiscountDESC">
+            {/* <a href="/busca/?fq=P:[75TO500]&amp;O=OrderByBestDiscountDESC">
               <button data-href="/busca/?&amp;fq=P:[75TO500]&amp;O=OrderByBestDiscountDESC">
                 acima de R$ 75
               </button>
-            </a>
+            </a> */}
           </nav>
         </div>
         <OrderFilter

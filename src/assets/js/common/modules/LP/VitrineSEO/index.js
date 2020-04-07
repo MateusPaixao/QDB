@@ -38,8 +38,6 @@ const Methods = {
         });
       }
 
-      componentDidMount() {}
-
       render() {
         const collection = document.querySelector('.collection-number').textContent;
 

@@ -19,6 +19,17 @@ export const Content = ({ Product, Sku, Reviews, onPage, handleReviews }) => {
       vtexjs.checkout
         .getOrderForm()
         .then(orderForm => {
+          let marketingData;
+
+          const params = new URLSearchParams(window.location.search);
+
+          marketingData = {
+            utmSource: params.get('utm_source'),
+            utmCampaign: params.get('utm_campaign'),
+            utmMedium: params.get('utm_medium')
+          };
+
+          vtexjs.checkout.sendAttachment('marketingData', marketingData);
           // console.log(orderForm);
           if (!!orderForm.items.length) {
             orderForm.items.map((e, i) => {

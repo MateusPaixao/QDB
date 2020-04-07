@@ -2,9 +2,9 @@ import React from 'react';
 
 const paymentModal = ({ modalOpen }) => {
   return (
-    <div className="modal_shipping">
-      <div className="close-modal">
-        <img onClick={() => modalOpen()} src="/arquivos/close-icon.png?v=1" alt="" />
+    <div className="modal">
+      <div className="close-modal" onClick={() => modalOpen()}>
+        X
       </div>
 
       <div className="modal-content">
