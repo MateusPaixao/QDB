@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PaymentModal from './Modal/paymentModal';
-import ShippingModal from './Modal/shippingModal';
+import PaymentModal from './Modal/paymentModal'; // ignorar e excluir
+import ShippingModal from './Modal/shippingModal'; // ignorar e excluir
 import Modal from './Modal';
 
 const Methods = {
@@ -17,6 +17,7 @@ const Methods = {
             {
               Content: '',
               ContentMobile: 'Frete',
+              ContentModal: '',
               Icon: (
                 <svg xmlns="http://www.w3.org/2000/svg" width="37" height="32">
                   <defs>
@@ -59,6 +60,8 @@ const Methods = {
             {
               Content: 'Itens de pele podem ser devolvidos abertos se você errou na cor!*',
               ContentMobile: 'Devolução garantida',
+              ContentModal:
+                'Comprou algum produto pra pele* até o dia 15/04 e errou no tom? Você pode trocá-lo ou devolvê-lo mesmo tendo aberto a embalagem! Entre em contato com nosso SAC pelo telefone 0800 726 6482 em até 15 dias após a data de recebimento do produto.\n\nbase, pó, iluminador, corretivo, contorno, cc creme, bb creme.*',
               Icon: (
                 <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 302 512">
                   <path
@@ -75,6 +78,7 @@ const Methods = {
             {
               Content: 'Aumentamos o prazo de devolução para 30 dias',
               ContentMobile: 'Prazo de troca',
+              ContentModal: 'Aumentamos o prazo de devolução para 30 dias',
               Icon: (
                 <svg viewBox="0 1 512 511" xmlns="http://www.w3.org/2000/svg">
                   <path d="M506.813 111.23L307.405 1.734a10.005 10.005 0 00-9.625 0l-75.16 41.27a10.029 10.029 0 00-4.293 2.36L98.378 111.23a9.994 9.994 0 00-5.187 8.766v132.43c-20.234 6.328-38.777 17.488-54.195 32.91C-1.19 325.52-11.438 386.809 13.5 437.844c2.422 4.96 8.41 7.02 13.371 4.594 4.965-2.426 7.02-8.415 4.598-13.375-21.188-43.364-12.48-95.438 21.668-129.586 21.355-21.356 49.746-33.118 79.945-33.118s58.59 11.762 79.945 33.118c21.352 21.351 33.114 49.742 33.114 79.941s-11.762 58.59-33.118 79.945c-34.148 34.149-86.222 42.856-129.585 21.668-4.961-2.426-10.95-.367-13.372 4.594-2.425 4.965-.37 10.953 4.594 13.375a132.667 132.667 0 0058.336 13.5c34.543-.004 68.625-13.45 94.172-38.996 11.715-11.715 20.973-25.23 27.523-39.922l43.09 23.66c1.5.824 3.156 1.235 4.813 1.235s3.316-.41 4.812-1.235L506.812 347.75a10.003 10.003 0 005.188-8.766v-69.496c0-5.523-4.477-10-10-10s-10 4.477-10 10v63.578l-179.375 98.497V235.39l59.2-32.508v51.531a9.996 9.996 0 0010 10c1.655 0 3.316-.41 4.82-1.238l42.73-23.52a9.992 9.992 0 005.176-8.758v-62.46L492 136.895v52.597c0 5.524 4.477 10 10 10s10-4.476 10-10v-69.496a9.998 9.998 0 00-5.188-8.766zm-204.22-89.324l178.63 98.09-56.348 30.942-178.629-98.09zm0 196.176l-178.628-98.086 58.414-32.078 178.633 98.086zm79.192-43.484L203.156 76.512l22.313-12.254 178.633 98.086zM227.168 285.336c-25.133-25.133-58.547-38.973-94.086-38.973-6.723 0-13.363.496-19.89 1.469V136.895l179.437 98.53v196.173l-31.145-17.102c3.067-11.289 4.653-23.062 4.653-35.078 0-35.54-13.84-68.953-38.969-94.082zm187.387-60.348l-22.73 12.512v-45.598l22.73-12.48zm0 0" />
@@ -85,6 +89,7 @@ const Methods = {
             {
               Content: 'tudo em até 10x sem juros e parcela mínima de R$ 15',
               ContentMobile: 'Parcelas',
+              ContentModal: 'tudo em até 10x sem juros e parcela mínima de R$ 15',
               Icon: (
                 <svg xmlns="http://www.w3.org/2000/svg" width="37" height="32">
                   <defs>
@@ -224,7 +229,7 @@ const Methods = {
                   icon={Infos[1].Icon}
                   modalOpen={this.toggleModal}
                   title={Infos[1].ContentMobile}
-                  content={Infos[1].Content}
+                  content={Infos[1].ContentModal}
                   hasCTA={false}
                 />
               </div>
@@ -236,7 +241,7 @@ const Methods = {
                   icon={Infos[2].Icon}
                   modalOpen={this.toggleModal}
                   title={Infos[2].ContentMobile}
-                  content={Infos[2].Content}
+                  content={Infos[2].ContentModal}
                   hasCTA={true}
                   link="https://www.quemdisseberenice.com.br/institucional/trocas-e-devolucoes"
                 />

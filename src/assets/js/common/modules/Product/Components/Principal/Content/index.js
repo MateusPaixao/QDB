@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { getCookie } from '../../../../../global/global-index';
 
 export const Content = ({ Product, Sku, Reviews, onPage, handleReviews }) => {
   const [addStatus, setaddStatus] = useState(false);
@@ -19,17 +20,30 @@ export const Content = ({ Product, Sku, Reviews, onPage, handleReviews }) => {
       vtexjs.checkout
         .getOrderForm()
         .then(orderForm => {
+          console.log(orderForm);
+
           let marketingData;
 
-          const params = new URLSearchParams(window.location.search);
+          if (getCookie('IPS') != undefined) {
+            try {
+              let IPS = getCookie('IPS');
 
-          marketingData = {
-            utmSource: params.get('utm_source'),
-            utmCampaign: params.get('utm_campaign'),
-            utmMedium: params.get('utm_medium')
-          };
+              const params = new URLSearchParams(IPS);
 
-          vtexjs.checkout.sendAttachment('marketingData', marketingData);
+              marketingData = {
+                utmSource: params.get('Midia'),
+                utmCampaign: params.get('Campanha'),
+                utmMedium: params.get('Parceiro')
+              };
+
+              console.log(marketingData);
+
+              vtexjs.checkout.sendAttachment('marketingData', marketingData);
+            } catch (e) {
+              console.log(e);
+            }
+          }
+
           // console.log(orderForm);
           if (!!orderForm.items.length) {
             orderForm.items.map((e, i) => {

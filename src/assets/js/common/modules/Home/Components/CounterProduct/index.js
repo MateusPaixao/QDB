@@ -1,4 +1,5 @@
 import { bag } from '../../../General/Minicart/bag/_bagMain';
+import { getCookie } from '../../../../global/global-index';
 
 const Methods = {
   init() {
@@ -211,17 +212,29 @@ const Methods = {
         vtexjs.checkout
           .getOrderForm()
           .then(function(orderForm) {
+            console.log(orderForm);
+
             let marketingData;
 
-            const params = new URLSearchParams(window.location.search);
+            if (getCookie('IPS') != undefined) {
+              try {
+                let IPS = getCookie('IPS');
 
-            marketingData = {
-              utmSource: params.get('utm_source'),
-              utmCampaign: params.get('utm_campaign'),
-              utmMedium: params.get('utm_medium')
-            };
+                const params = new URLSearchParams(IPS);
 
-            vtexjs.checkout.sendAttachment('marketingData', marketingData);
+                marketingData = {
+                  utmSource: params.get('Midia'),
+                  utmCampaign: params.get('Campanha'),
+                  utmMedium: params.get('Parceiro')
+                };
+
+                console.log(marketingData);
+
+                vtexjs.checkout.sendAttachment('marketingData', marketingData);
+              } catch (e) {
+                console.log(e);
+              }
+            }
             // console.log(orderForm);
             if (!!orderForm.items.length) {
               orderForm.items.map((e, i) => {
