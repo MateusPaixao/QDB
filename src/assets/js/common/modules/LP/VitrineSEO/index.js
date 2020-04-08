@@ -38,7 +38,7 @@ const Methods = {
         });
       }
 
-      componentDidMount() {}
+      componentDidMount() { }
 
       render() {
         const collection = document.querySelector('.collection-number').textContent;
