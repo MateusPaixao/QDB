@@ -24,7 +24,7 @@
         position: relative;
 
         .content__title {
-            @include sans(1.875rem, #fff, 900, initial);
+            @include sans(1.5rem, #fff, 900, initial);
             margin: 0 0 10px;
         }
 

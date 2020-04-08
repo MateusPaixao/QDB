@@ -527,6 +527,18 @@ class Card extends React.Component {
         vtexjs.checkout
           .getOrderForm()
           .then(orderForm => {
+            let marketingData;
+
+            const params = new URLSearchParams(window.location.search);
+
+            marketingData = {
+              utmSource: params.get('utm_source'),
+              utmCampaign: params.get('utm_campaign'),
+              utmMedium: params.get('utm_medium')
+            };
+
+            vtexjs.checkout.sendAttachment('marketingData', marketingData);
+
             console.log(orderForm);
             if (!!orderForm.items.length) {
               orderForm.items.map((e, i) => {
@@ -582,6 +594,7 @@ class Card extends React.Component {
               .getOrderForm()
               .then(orderForm => {
                 window._orderForm = orderForm;
+
                 // document.querySelector('.__cart-link a span').textContent = document.querySelector('.__cart-link a span').textContent++;
                 // let qty = 0;
                 // Foreach IE Testar
@@ -602,6 +615,7 @@ class Card extends React.Component {
               })
               .done(() => {
                 resolve(console.log(orderForm));
+
                 let cartBag = document.querySelector('.header__options--item__cartBag');
                 cartBag.classList.add('set--highlightFill');
                 setTimeout(() => {

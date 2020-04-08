@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PaymentModal from './Modal/paymentModal';
 import ShippingModal from './Modal/shippingModal';
+import Modal from './Modal';
 
 const Methods = {
   InfoBar() {
@@ -11,6 +12,7 @@ const Methods = {
         this.state = {
           paymentModalOpen: false,
           shippingModalOpen: false,
+          modals: [false, false, false, false],
           Infos: [
             {
               Content: '',
@@ -58,9 +60,15 @@ const Methods = {
               Content: 'Itens de pele podem ser devolvidos abertos se você errou na cor!*',
               ContentMobile: 'Devolução garantida',
               Icon: (
-                <svg viewBox="0 0 512.131 512.131" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M326.293 497.131h-78.659c-9.705 0-17.602-7.896-17.602-17.602v-56.993h75.41c4.143 0 7.5-3.358 7.5-7.5s-3.357-7.5-7.5-7.5h-83.048c-3.866 0-7.063-3.023-7.274-6.853L199.123 89.681a7.513 7.513 0 00-1.026-3.418l-23.934-40.678h234.233l-20.857 35.448a7.5 7.5 0 1012.928 7.606l27.508-46.751a7.493 7.493 0 001.036-3.803v-25.17C429.011 5.793 423.217 0 416.095 0H166.464c-7.122 0-12.916 5.793-12.916 12.915v25.169c0 1.337.357 2.65 1.036 3.803l29.653 50.398 15.904 309.198c.511 9.229 6.608 16.872 14.891 19.778v58.267c0 17.977 14.625 32.602 32.602 32.602h78.659a7.5 7.5 0 100-14.999zM414.011 15v15.584H168.548V15z" />
-                  <path d="M450.541 112.551a16.545 16.545 0 00-12.032-5.215H325.284c-4.542 0-8.928 1.901-12.033 5.216s-4.717 7.816-4.421 12.35L322.859 339.5a7.492 7.492 0 007.974 6.995 7.5 7.5 0 006.995-7.973l-11.622-177.78h111.382L421.404 408.29c-.548 8.387-7.562 14.957-15.967 14.957h-47.082c-8.405 0-15.419-6.57-15.967-14.957l-2.472-37.806c-.271-4.134-3.869-7.271-7.974-6.995a7.5 7.5 0 00-6.995 7.973l2.472 37.806c.779 11.919 8.302 21.937 18.681 26.433v53.533c0 12.625 10.271 22.896 22.896 22.896h25.8c12.625 0 22.896-10.271 22.896-22.896v-53.533c10.379-4.497 17.901-14.514 18.681-26.433l18.591-284.369a16.55 16.55 0 00-4.423-12.348zm-47.849 376.683c0 4.354-3.542 7.896-7.896 7.896h-25.8c-4.354 0-7.896-3.542-7.896-7.896v-50.987h41.592zm-77.467-343.493l-1.426-21.819a1.455 1.455 0 01.399-1.116 1.455 1.455 0 011.086-.471h113.225c.533 0 .885.256 1.087.471.201.215.435.583.399 1.116l-1.427 21.819zM168.548 343.494v-59.467c0-8.18-6.654-14.834-14.833-14.834h-.659v-12.632c0-4.142-3.357-7.5-7.5-7.5s-7.5 3.358-7.5 7.5v12.632H97.981v-49.524c16.985-7.649 30.652-21.008 38.747-37.51a138.82 138.82 0 011.327 19.143v23.297c0 4.142 3.357 7.5 7.5 7.5s7.5-3.358 7.5-7.5v-23.297c0-21.842-4.555-43.013-13.537-62.927a17.07 17.07 0 00-13.271-9.938c-5.873-.823-11.66 1.394-15.484 5.923l-10.907 12.915a71.581 71.581 0 00-16.875 46.129v75.79h-.658c-8.18 0-14.834 6.654-14.834 14.834v59.467c-6.03 2.195-10.355 7.968-10.355 14.748v27.11l-.001.019.001.019v29.374c0 4.142 3.357 7.5 7.5 7.5s7.5-3.358 7.5-7.5v-21.894h91.771v83.864c0 11.245-9.149 20.394-20.395 20.394H92.527c-11.245 0-20.394-9.149-20.394-20.394v-30.008c0-4.142-3.357-7.5-7.5-7.5s-7.5 3.358-7.5 7.5v30.008c0 19.516 15.878 35.394 35.394 35.394h50.982c19.517 0 35.395-15.878 35.395-35.394V358.243c0-6.78-4.326-12.554-10.356-14.749zm-57.233-186.541l10.907-12.915a2.102 2.102 0 011.951-.746c.441.062 1.245.306 1.672 1.251 1.5 3.325 2.861 6.69 4.086 10.089l-1.957 7.962c-4.178 17.003-15.119 31.451-29.994 40.192v-9.384a56.571 56.571 0 0113.335-36.449zm-28.826 127.24h71.059v58.342H82.489zm-10.355 93.679v-19.629c0-.39.316-.707.706-.707h90.357c.39 0 .707.317.707.707v19.629z" />
+                <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 302 512">
+                  <path
+                    d="M173.21 497.004H94.57c-9.702 0-17.597-7.894-17.597-17.598v-56.978h75.391a7.497 7.497 0 007.498-7.498 7.497 7.497 0 00-7.498-7.498H69.337c-3.865 0-7.061-3.022-7.272-6.851L46.072 89.658a7.51 7.51 0 00-1.026-3.417L21.118 45.573h234.174l-20.852 35.44a7.498 7.498 0 1012.925 7.604l27.501-46.74a7.499 7.499 0 001.035-3.802V12.912c0-7.12-5.792-12.912-12.912-12.912H13.421C6.301 0 .51 5.792.51 12.912v25.162c0 1.337.357 2.65 1.035 3.802L31.19 92.261l15.9 309.119c.51 9.227 6.606 16.868 14.887 19.773v58.252c0 17.973 14.621 32.594 32.594 32.594h78.639a7.498 7.498 0 000-14.995zm87.695-482.008v15.58h-245.4v-15.58h245.4z"
+                    fill="#232222"
+                  />
+                  <path
+                    d="M297.426 112.522a16.54 16.54 0 00-12.029-5.213H172.201c-4.541 0-8.926 1.9-12.03 5.214a16.55 16.55 0 00-4.42 12.347l14.025 214.543a7.49 7.49 0 007.972 6.993 7.499 7.499 0 006.994-7.971l-11.619-177.734h111.353l-16.18 247.485c-.548 8.384-7.56 14.953-15.963 14.953h-47.07c-8.402 0-15.415-6.569-15.963-14.953l-2.471-37.797c-.271-4.133-3.868-7.269-7.972-6.993a7.498 7.498 0 00-6.993 7.971l2.471 37.796c.779 11.916 8.3 21.932 18.676 26.427v53.519c0 12.622 10.269 22.89 22.891 22.89h25.793c12.622 0 22.89-10.268 22.89-22.89V435.59c10.376-4.496 17.897-14.511 18.676-26.427l18.587-284.296a16.546 16.546 0 00-4.422-12.345zm-47.837 376.587c0 4.353-3.541 7.894-7.894 7.894h-25.793c-4.353 0-7.894-3.541-7.894-7.894v-50.974h41.581v50.974zm-77.447-343.405l-1.426-21.814c-.035-.533.197-.9.399-1.115a1.455 1.455 0 011.086-.471h113.196c.533 0 .885.256 1.087.471.201.215.434.582.398 1.115l-1.426 21.814H172.142z"
+                    fill="#232222"
+                  />
                 </svg>
               )
             },
@@ -99,16 +107,10 @@ const Methods = {
         this.getShippingInfo = this.getShippingInfo.bind(this);
         // this.setInfos = this.setInfos.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
+        this.toggleShippingModal = this.toggleShippingModal.bind(this);
         this.togglePaymentModal = this.togglePaymentModal.bind(this);
         this.checkUrlParams = this.checkUrlParams.bind(this);
       }
-
-      componentDidMount() {
-        this.getShippingInfo();
-        // this.setInfos();
-        this.checkUrlParams();
-      }
-
       checkUrlParams() {
         const url = new URLSearchParams(window.location.search);
         if (url.has('infobar') == true) {
@@ -149,8 +151,7 @@ const Methods = {
         }, 100);
       }
 
-      toggleModal() {
-        console.log('CLiquei pra abrir');
+      toggleShippingModal() {
         this.setState({ shippingModalOpen: !this.state.shippingModalOpen });
       }
 
@@ -158,12 +159,29 @@ const Methods = {
         this.setState({ paymentModalOpen: !this.state.paymentModalOpen });
       }
 
+      toggleModal(index) {
+        let modals = [...this.state.modals];
+        let modal = { ...modals[index] };
+        console.log(modal);
+        console.log('Modal');
+        modal = !modals[index];
+        modals[index] = modal;
+        console.log(modals);
+        this.setState({ modals: modals });
+      }
+
+      componentDidMount() {
+        this.getShippingInfo();
+        // this.setInfos();
+        this.checkUrlParams();
+      }
+
       render() {
         const { Infos } = this.state;
 
         return (
           <>
-            <div className="__container" onClick={() => this.toggleModal()}>
+            <div className="__container" onClick={() => this.toggleShippingModal()}>
               <span className="__icon firstIcon">{this.state.Infos[0].Icon}</span>
               <p className="__content">
                 <a href="/busca/?fq=P:[109TO300]&O=OrderByBestDiscountDESC"> frete grátis </a> nas
@@ -176,33 +194,67 @@ const Methods = {
               <p className="__contentMobile">{Infos[0].ContentMobile}</p>
             </div>
 
-            <a href="/nosso-clube">
-              <div className="__container">
-                <span className="__icon secondIcon">{this.state.Infos[1].Icon}</span>
-                <p className="__content">{Infos[1].Content}</p>
-                <p className="__contentMobile">{Infos[1].ContentMobile}</p>
-              </div>
-            </a>
+            <div className="__container" onClick={() => this.toggleModal(1)}>
+              <span className="__icon secondIcon">{Infos[1].Icon}</span>
+              <p className="__content">{Infos[1].Content}</p>
+              <p className="__contentMobile">{Infos[1].ContentMobile}</p>
+            </div>
 
-            <div className="__container" onClick={() => this.togglePaymentModal()}>
-              <span className="__icon thirdIcon">{this.state.Infos[2].Icon}</span>
+            <div className="__container" onClick={() => this.toggleModal(2)}>
+              <span className="__icon thirdIcon">{Infos[2].Icon}</span>
               <p className="__content">{Infos[2].Content}</p>
               <p className="__contentMobile">{Infos[2].ContentMobile}</p>
             </div>
 
-            <a href="/servicos">
-              <div className="__container">
-                <span className="__icon fourthIcon">{this.state.Infos[3].Icon}</span>
-                <p className="__content">{Infos[3].Content}</p>
-                <p className="__contentMobile">
-                  Agende <br /> sua make
-                </p>
+            <div className="__container" onClick={() => this.togglePaymentModal()}>
+              <span className="__icon fourthIcon">{Infos[3].Icon}</span>
+              <p className="__content">{Infos[3].Content}</p>
+              <p className="__contentMobile">{Infos[3].ContentMobile}</p>
+            </div>
+
+            {this.state.modals[0] && (
+              <div onClick={() => this.toggleModal(0)} className="overlayModal">
+                <Modal modalOpen={this.toggleModal} />
               </div>
-            </a>
+            )}
+
+            {this.state.modals[1] && (
+              <div onClick={() => this.toggleModal(1)} className="overlayModal">
+                <Modal
+                  icon={Infos[1].Icon}
+                  modalOpen={this.toggleModal}
+                  title={Infos[1].ContentMobile}
+                  content={Infos[1].Content}
+                  hasCTA={false}
+                />
+              </div>
+            )}
+
+            {this.state.modals[2] && (
+              <div onClick={() => this.toggleModal(2)} className="overlayModal">
+                <Modal
+                  icon={Infos[2].Icon}
+                  modalOpen={this.toggleModal}
+                  title={Infos[2].ContentMobile}
+                  content={Infos[2].Content}
+                  hasCTA={true}
+                  link="https://www.quemdisseberenice.com.br/institucional/trocas-e-devolucoes"
+                />
+              </div>
+            )}
+
+            {this.state.modals[3] && (
+              <div onClick={() => this.toggleModal(3)} className="overlayModal">
+                <Modal modalOpen={this.toggleModal} />
+              </div>
+            )}
 
             {this.state.shippingModalOpen == true && (
-              <div onClick={() => this.toggleModal()} className="overlayModal">
-                <ShippingModal modalOpen={this.toggleModal} price={this.state.Infos[0].Content} />
+              <div onClick={() => this.toggleShippingModal()} className="overlayModal">
+                <ShippingModal
+                  modalOpen={this.toggleShippingModal}
+                  price={this.state.Infos[0].Content}
+                />
               </div>
             )}
             {this.state.paymentModalOpen == true && (

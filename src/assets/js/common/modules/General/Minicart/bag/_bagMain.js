@@ -12,6 +12,17 @@ export const bag = {
       getOrder().then(function({ items, totalizers }) {
         bag.render(items, totalizers);
         document.body.classList.contains('produto') ? bag.open() : null;
+
+        // var marketingData = orderForm.marketingData;
+
+        // const params = new URLSearchParams(window.location.search);
+
+        // marketingData = {
+        //   utmSource: params.get('utm_source'),
+        //   utmCampaign: params.get('utm_campaign')
+        // };
+
+        // vtexjs.checkout.sendAttachment('marketingData', marketingData);
       });
     });
     // bag.cupom();
