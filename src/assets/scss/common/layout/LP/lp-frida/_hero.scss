@@ -1,0 +1,37 @@
+.heroContainer {
+    background: $fridaBlack;
+
+    &__title {}
+
+    &__btn {}
+
+    &__video {
+        height: 500px;
+        display: flex;
+        justify-content: center;
+
+        .fit {
+            position: relative;
+            padding-bottom: 26.25%;
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+
+            iframe,
+            object,
+            embed {
+                position: absolute;
+                /* expand to fill */
+                // top: 50%;
+                // left: 50%;
+                top: 0;
+                left: 0;
+                // right: 0px;
+                // bottom: 0px;
+                width: 100%;
+                height: 100%;
+                // transform: translate(-50%, -50%);
+            }
+        }
+    }
+}

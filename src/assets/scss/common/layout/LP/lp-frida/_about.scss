@@ -1,0 +1,20 @@
+.aboutContainer {
+    &__banner {
+        min-height: 150px;
+        background: $fridaRed;
+    }
+
+    &__content {
+        max-width: 500px;
+        margin: 40px auto 60px;
+        padding: 0 10px;
+
+        .highlight {
+            color: $fridaRed;
+        }
+
+        .title {
+            font-size: 1.5em;
+        }
+    }
+}

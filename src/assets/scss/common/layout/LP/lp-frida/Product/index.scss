@@ -1,0 +1,122 @@
+.principal {
+    display: grid;
+    grid-template:
+        "left right"auto / auto 30%;
+    column-gap: 20px;
+    justify-content: center;
+    background: $white;
+    padding-top: 60px;
+
+    &__left {
+        grid-area: left;
+    }
+
+    &__right {
+        grid-area: right;
+        display: flex;
+        flex-flow: column;
+    }
+
+    .set--maxtrue {
+        max-height: 100px;
+        overflow: hidden;
+    }
+
+    &__ask {
+        margin: 10px 0 5px;
+        @include sans(1em, $fridaBlack, 500, initial);
+        display: block;
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    &__ask,
+    &__rule {
+        @include d("768px") {
+            padding: 0 10px;
+        }
+    }
+
+    &__productContainer {
+        padding: 20px 40px;
+        border: solid 1px $grey-l;
+        border-radius: 5px;
+        position: relative;
+        left: -40px;
+
+        @include d("768px") {
+            left: 0;
+            border: none;
+            padding: 0;
+        }
+    }
+
+    &__more {
+        margin-top: 20px;
+
+        @include d("768px") {
+            padding: 0 10px;
+        }
+
+
+        .info {
+            margin-top: 20px;
+
+            &__title {
+                @include sans(1.25em, $fridaBlack, 900, initial);
+            }
+
+            &__content {
+                @include sans(1em, $fridaBlack, 400, 1.5em);
+                margin-top: 10px;
+                position: relative;
+                padding-bottom: 40px;
+            }
+        }
+    }
+
+    &__ref {
+        margin-bottom: 20px;
+
+        @include d("768px") {
+            margin: 0 10px;
+            order: 1;
+        }
+    }
+
+    @include d("768px") {
+        grid-template:
+            "left"auto "right"auto / auto;
+        padding-top: 0px;
+        margin-bottom: 0px;
+        row-gap: 20px;
+    }
+
+    @import "./_pictures";
+    @import "./_content";
+
+    &.unavaliable {
+        .principal__content__price {
+            opacity: .7;
+        }
+
+        .addToCart,
+        .setQtd {
+            pointer-events: none;
+            opacity: .7;
+            cursor: not-allowed;
+        }
+    }
+}
+
+@keyframes highlight-skeleton {
+    50% {
+        background: $grey-m;
+    }
+
+    100% {
+        background: $grey-l;
+    }
+}

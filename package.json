@@ -36,6 +36,7 @@
     "react-html-parser": "^2.0.2",
     "react-pannable": "^3.3.1",
     "react-slick": "^0.25.2",
+    "react-youtube": "^7.11.1",
     "sass-rem": "^2.0.1",
     "siema": "^1.5.1",
     "stylelint": "^10.1.0",
