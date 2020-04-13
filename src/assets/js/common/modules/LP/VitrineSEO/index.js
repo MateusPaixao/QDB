@@ -38,11 +38,6 @@ const Methods = {
         });
       }
 
-<<<<<<< HEAD
-      componentDidMount() { }
-
-=======
->>>>>>> 07bb5a01303b81de87da43b4001c5d45a479f707
       render() {
         const collection = document.querySelector('.collection-number').textContent;
 
