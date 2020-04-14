@@ -1,20 +1,42 @@
 .aboutContainer {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+
     &__banner {
         min-height: 150px;
         background: $fridaRed;
     }
 
     &__content {
-        max-width: 500px;
-        margin: 40px auto 60px;
-        padding: 0 10px;
+        margin: 0px auto 60px;
+        width: 100%;
 
         .highlight {
             color: $fridaRed;
+            display: block;
+            font-size: 1.875em;
         }
 
         .title {
             font-size: 1.5em;
+            max-width: initial;
+            margin: 0;
         }
+
+        .content {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+    }
+
+    .hover-text {
+        display: block;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+        pointer-events: none;
     }
 }

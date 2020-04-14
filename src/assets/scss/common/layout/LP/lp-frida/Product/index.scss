@@ -2,10 +2,11 @@
     display: grid;
     grid-template:
         "left right"auto / auto 30%;
-    column-gap: 20px;
+    column-gap: 50px;
     justify-content: center;
     background: $white;
     padding-top: 60px;
+    // margin-top: 40px;
 
     &__left {
         grid-area: left;
@@ -20,6 +21,10 @@
     .set--maxtrue {
         max-height: 100px;
         overflow: hidden;
+
+        @include d("768px") {
+            max-height: 200px;
+        }
     }
 
     &__ask {
@@ -54,7 +59,7 @@
     }
 
     &__more {
-        margin-top: 20px;
+        // margin-top: 20px;
 
         @include d("768px") {
             padding: 0 10px;
@@ -63,6 +68,11 @@
 
         .info {
             margin-top: 20px;
+
+            @include d("768px") {
+                margin-top: initial;
+                margin: 40px 0 60px;
+            }
 
             &__title {
                 @include sans(1.25em, $fridaBlack, 900, initial);
@@ -73,6 +83,10 @@
                 margin-top: 10px;
                 position: relative;
                 padding-bottom: 40px;
+
+                @include d("768px") {
+                    padding-bottom: 0;
+                }
             }
         }
     }

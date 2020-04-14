@@ -1,0 +1,71 @@
+.infoContainer {
+    .content {
+        @include sans(1em, $DarkRed, 400, 1.5em);
+        margin-top: 60px;
+
+        a {
+            margin: 0 5px;
+            font-weight: 900;
+        }
+
+        b {
+            display: block;
+            font-weight: 900;
+        }
+
+        &__block {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        &__steps {
+            .step {
+                margin-top: 20px;
+                display: block;
+
+                .title {
+                    background: $LightRed;
+                    display: flex;
+                    align-items: center;
+                    @include sans(1.25em, $DarkRed, 400, 1.5em);
+
+                    svg {
+                        background: $DarkRed;
+                        width: 2em;
+                        padding: 5px;
+                        margin-right: 10px;
+
+                        path {
+                            fill: $white;
+                        }
+                    }
+                }
+
+                a.title {
+                    @include d("768px") {
+                        svg {
+                            display: none;
+                        }
+
+                        padding: 10px;
+                        font-size: .875em;
+                    }
+                }
+
+                &__termo {
+                    color: $DarkRed;
+                    text-decoration: underline;
+                }
+
+                .list {
+                    list-style: square;
+                    margin-left: 25px;
+
+                    &__item {
+                        margin: 5px 0;
+                    }
+                }
+            }
+        }
+    }
+}
