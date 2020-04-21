@@ -1,5 +1,6 @@
 import CacheSelector from '../cache-selector';
 import { getiPhoneModel } from '../../../global/global-index';
+import { TweenLite } from 'gsap';
 
 const Methods = {
   init() {
@@ -11,6 +12,7 @@ const Methods = {
     Methods.updateNumberMinicart();
     Methods.isLogged();
     Methods.marginTopMenuHeight();
+    Methods.SVGHoverEffect();
     getiPhoneModel();
   },
 
@@ -19,6 +21,91 @@ const Methods = {
       document.querySelector('body').classList.add('scrollDown');
     }
   },
+
+  SVGHoverEffect() {
+    function toBase64(url, callback) {
+      var img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = function() {
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        canvas.height = this.height;
+        canvas.width = this.width;
+        ctx.drawImage(this, 0, 0);
+
+        var dataURL = canvas.toDataURL('image/png');
+        callback(dataURL);
+        canvas = null;
+      };
+
+      img.src = url;
+    }
+
+    var xlink = 'http://www.w3.org/1999/xlink';
+    var imgUrl = '/arquivos/ripple.png';
+
+    toBase64(imgUrl, function(data) {
+      var isSafari = /constructor/i.test(window.HTMLElement);
+      var isFF = !!navigator.userAgent.match(/firefox/i);
+
+      var bt = document.querySelector('#btnAqua');
+      var turb = document.querySelector('#filter-ripple-1 feImage');
+      var dm = document.querySelector('#filter-ripple-1 feDisplacementMap');
+
+      turb.setAttributeNS(xlink, 'href', data);
+
+      setInterval(() => {
+        TweenLite.set(turb, {
+          attr: {
+            x: 0,
+            y: 0,
+            width: 0,
+            height: 0
+          }
+        });
+        TweenLite.to(turb, 3, { attr: { x: '-=300', y: '-=300', width: 600, height: 600 } });
+        TweenLite.fromTo(dm, 2, { attr: { scale: 30 } }, { attr: { scale: 0 } });
+      }, 10000);
+
+      bt.addEventListener('mouseover', function(e) {
+        console.log('Yau');
+        TweenLite.set(turb, {
+          attr: {
+            x: isFF ? e.offsetX : e.offsetX + 10,
+            y: isFF ? e.offsetY : e.offsetY + 10,
+            width: 0,
+            height: 0
+          }
+        });
+        TweenLite.to(turb, 3, { attr: { x: '-=300', y: '-=300', width: 600, height: 600 } });
+        TweenLite.fromTo(dm, 2, { attr: { scale: 30 } }, { attr: { scale: 0 } });
+      });
+    });
+  },
+  // SVGHoverEffect() {
+  //   var bt = document.querySelectorAll('#btnAqua')[0];
+  //   var turbVal = { val: 0.000001 };
+  //   var turb = document.querySelectorAll('#filter-glitch-3 feTurbulence')[0];
+  //   var btTl = new TimelineLite({
+  //     paused: true,
+  //     onUpdate: function() {
+  //       turb.setAttribute('baseFrequency', '0.00001 ' + turbVal.val); // Firefox bug is value is 0
+  //     },
+  //     onStart: function() {
+  //       bt.style.filter = 'url(#filter-glitch-3)';
+  //     },
+  //     onComplete: function() {
+  //       bt.style.filter = 'none';
+  //     }
+  //   });
+
+  //   btTl.to(turbVal, 0.4, { val: 0.4 });
+  //   btTl.to(turbVal, 0.2, { val: 0.000001 });
+
+  //   bt.addEventListener('click', function() {
+  //     btTl.restart();
+  //   });
+  // },
 
   marginTopMenuHeight() {
     setTimeout(function() {

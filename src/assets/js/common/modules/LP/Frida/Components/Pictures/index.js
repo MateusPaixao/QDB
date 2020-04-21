@@ -289,17 +289,17 @@ const Pictures = ({ Sku }) => {
       <div
         className="principal__mainPicture"
         // onMouseMove={e => handleMouseMove(e)}
-        style={MainPicStyles}
+        // style={MainPicStyles}
       >
         {window.innerWidth > 768 && (
           <picture>
             <source
               media="(min-width: 1920px)"
-              srcSet={mainPicture.allReplace({ '#width#': '600', '#height#': '600', '~': '' })}
+              srcSet={mainPicture.allReplace({ '#width#': '400', '#height#': '400', '~': '' })}
             />
             <source
               media="(min-width: 465px)"
-              srcSet={mainPicture.allReplace({ '#width#': '500', '#height#': '500', '~': '' })}
+              srcSet={mainPicture.allReplace({ '#width#': '400', '#height#': '400', '~': '' })}
             />
             <img
               className="principal__mainPicture__img"

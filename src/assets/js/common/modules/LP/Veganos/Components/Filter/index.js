@@ -1,5 +1,6 @@
 import React from 'react';
 import OrderFilter from './OrderFilter/orderFilter';
+import Vitrine from '../../../../General/Vitrine';
 
 const filter = props => {
   // const resizeForSubcategory = () => {
@@ -17,6 +18,29 @@ const filter = props => {
   //     resizeForSubcategory();
   // }, []);
 
+  const handleFilter = department => {
+    document.querySelector('.contentProducts').innerHTML = '';
+    const Content = document.querySelector('.contentProducts');
+
+    let idCollection = Math.floor(Math.random() * 5000);
+    let Collection = document.createElement('div');
+    Collection.classList.add('contentProducts__render-collection', 'render-collection', 'shell');
+    Collection.setAttribute('id', 'collection' + idCollection);
+    Content.appendChild(Collection);
+
+    Vitrine.build(
+      idCollection,
+      undefined,
+      false,
+      false,
+      `${department}?fq=specificationFilter_114:Sim&O=${props.order}`
+    );
+
+    props.handleSmartResearch(false);
+
+    props.handleOrigin(department);
+    // !showSmartResearch && handleSmartResearch();
+  };
   return (
     <div className="filterContainer">
       <div className="shell">
@@ -26,14 +50,11 @@ const filter = props => {
         <div className="shell">
           <p className="filters__title">Já sabe o que procura?</p>
           <ul className="filters__list">
-            <li className="item">
+            <li className="item" onClick={() => handleFilter('/maquiagem')}>
               <a>Maquiagem</a>
             </li>
-            <li className="item">
+            <li className="item" onClick={() => handleFilter('/perfumaria')}>
               <a>Perfumaria</a>
-            </li>
-            <li className="item">
-              <a>Unha</a>
             </li>
           </ul>
         </div>
@@ -44,6 +65,8 @@ const filter = props => {
           showSmartResearch={props.showSmartResearch}
           handleSmartResearch={props.handleSmartResearch}
           handleOrder={props.handleOrder}
+          handleOrigin={props.handleOrigin}
+          origin={props.origin}
         />
       </div>
     </div>

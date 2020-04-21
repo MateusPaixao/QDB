@@ -39,6 +39,8 @@
 
     &__ask,
     &__rule {
+        font-size: .875em;
+
         @include d("768px") {
             padding: 0 10px;
         }
@@ -58,8 +60,15 @@
         }
     }
 
+    // &:nth-child(3) {
+    //     .principal__more {
+    //         display: none;
+    //     }
+    // }
+
     &__more {
         // margin-top: 20px;
+        margin-bottom: 60px;
 
         @include d("768px") {
             padding: 0 10px;
@@ -71,7 +80,7 @@
 
             @include d("768px") {
                 margin-top: initial;
-                margin: 40px 0 60px;
+                margin: 40px 0 20px;
             }
 
             &__title {
@@ -82,10 +91,15 @@
                 @include sans(1em, $fridaBlack, 400, 1.5em);
                 margin-top: 10px;
                 position: relative;
-                padding-bottom: 40px;
+                // padding-bottom: 40px;
 
                 @include d("768px") {
                     padding-bottom: 0;
+                }
+
+                .list {
+                    list-style: unset;
+                    margin-left: 20px;
                 }
             }
         }
@@ -103,7 +117,7 @@
     @include d("768px") {
         grid-template:
             "left"auto "right"auto / auto;
-        padding-top: 0px;
+        padding-top: 40px;
         margin-bottom: 0px;
         row-gap: 20px;
     }

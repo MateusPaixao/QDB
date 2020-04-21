@@ -1,34 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Breadcrumbs from '../../General/Breadcrumbs';
 import Hero from './Components/Hero';
 import Product from './Components/Product';
-import Load from '../../Components/LoadingPage';
 import Banner from './Components/Banner';
 import About from './Components/About';
+import Shipping from './Components/Shipping';
+import Return from './Components/Return';
 
 // import Banner from '../../Components/BannerText';
 // import Filter from '../../Components/Filter';
 // import SmartResearch from '../../Components/Filter/smartResearch';
 
 const FridaKahlo = () => {
-  const [Loaded, setLoaded] = useState(false);
   return (
     <>
-      {Loaded == true ? (
-        <Load />
-      ) : (
-        <>
-          <Breadcrumbs />
-          <Banner />
-          <Product ProductID="1626" />
-          <Hero />
-          <Product ProductID="1622" />
-          <Product ProductID="1621" />
-          <About />
-        </>
-      )}
+      <Breadcrumbs />
+      <Banner />
+      <Product ProductID="1626" Colecao={true} />
+      <Hero />
+      <Product ProductID="1622" Colecao={false} />
+      <span className="bar shell"></span>
+      <Product ProductID="1621" Colecao={false} />
+      <About />
+      <div className="more__info">
+        <Shipping />
+        <Return />
+      </div>
     </>
   );
 };

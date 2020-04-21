@@ -21,7 +21,7 @@ export default function Hero() {
   return (
     <div className="heroContainer">
       <div className="heroContainer__video">
-        <YouTube containerClassName="fit" videoId="q6bC4ZNUzzg" opts={opts} />
+        <YouTube containerClassName="fit" videoId="LF52JbF8H5E" opts={opts} />
       </div>
     </div>
   );

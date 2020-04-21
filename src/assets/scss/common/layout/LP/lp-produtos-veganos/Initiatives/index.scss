@@ -53,7 +53,8 @@
             @include d("768px") {
                 grid-template:
                     "img"50% "title"30% "link"20% / 100%;
-                min-height: 360px;
+                height: 360px;
+                min-width: 260px;
 
                 &__title {
                     font-size: 1.25em;

@@ -26,6 +26,7 @@ const Methods = {
         this.state = {
           loaded: true,
           order: '',
+          origin: '?fq=H:820',
           showSmart: true,
           from: 24
         };
@@ -47,10 +48,17 @@ const Methods = {
         // this.resizeForSubcategory()
         // this.handleInfos()
       }
+
       handleOrder(newOrder) {
         this.setState({
           order: newOrder,
           from: 24
+        });
+      }
+
+      handleOrigin(newOrigin) {
+        this.setState({
+          origin: newOrigin
         });
       }
 
@@ -71,12 +79,17 @@ const Methods = {
               showSmartResearch={this.state.showSmart}
               handleSmartResearch={this.handleSmartResearch.bind(this)}
               handleOrder={this.handleOrder.bind(this)}
+              handleOrigin={this.handleOrigin.bind(this)}
               info={this.state.info}
+              order={this.state.order}
+              origin={this.state.origin}
             />
             <SmartResearch
               handleSmartResearch={this.handleSmartResearch.bind(this)}
+              handleOrigin={this.handleOrigin.bind(this)}
               show={this.state.showSmart}
               order={this.state.order}
+              origin={this.state.origin}
               from={this.state.from}
             />
           </>

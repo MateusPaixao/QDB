@@ -3,8 +3,9 @@ import ReactHtmlParser from 'react-html-parser';
 
 import Pictures from './Pictures';
 import Content from './Content';
+import Description from './Description';
 
-export default function Product({ ProductID }) {
+export default function Product({ ProductID, Colecao }) {
   const [Product, setProduct] = useState([]);
   const [mainPicture, setMainPicture] = useState(null);
   const [Loaded, setLoaded] = useState(false);
@@ -73,36 +74,76 @@ export default function Product({ ProductID }) {
               <h1 className="title">{Product.Sku.nameComplete}</h1>
               <Content Product={Product.Info} Sku={Product.Sku} />
               <small className="principal__ask">
-                Dúvidas? Entre em contato via{' '}
+                Compre pelo
                 <a href="https://wa.me/554187757336" target="_blank" rel="noopener noreferrer">
                   WhatsApp clicando aqui
                 </a>
               </small>
-              <small className="principal__rule">*Válido para os clientes em Maceió e Natal</small>
+              {/* <small className="principal__rule">*Válido para os clientes em Maceió e Natal</small> */}
             </div>
             <div className="principal__more">
-              <div className="info">
-                <h2 className="info__title">Descubra Mais</h2>
-                <p className={`info__content set--max${MaxHeight[0]}`}>
-                  {ReactHtmlParser(Product.Info.description)}
-                  {
-                    <span className="seemore" onClick={() => handleHeight(0)}>
-                      {MaxHeight[0] == true ? 'ler mais' : 'ler menos'}
-                    </span>
-                  }
-                </p>
-              </div>
-              <div className="info">
-                <h2 className="info__title">Como Usar</h2>
-                <p className={`info__content`}>
-                  {ReactHtmlParser(Product.Info['Modo de Uso'])}
-                  {/* {
-                    <span className="seemore" onClick={() => handleHeight(1)}>
-                      {MaxHeight[1] == true ? 'ler mais' : 'ler menos'}
-                    </span>
-                  } */}
-                </p>
-              </div>
+              {Colecao == true ? (
+                <>
+                  <div className="info">
+                    <h2 className="info__title">Motivos para amar a Paleta Multifuncional</h2>
+                    <p className={`info__content set--max${MaxHeight[0]}`}>
+                      <ul className="list">
+                        <li className="item">Longa duração</li>
+                        <li className="item">
+                          Cores que podem ser usadas como blush, sombra e iluminador
+                        </li>
+                      </ul>
+                    </p>
+                  </div>
+                  <div className="info">
+                    <h2 className="info__title">Motivos para amar o Batom Mate Vervida</h2>
+                    <p className={`info__content set--max${MaxHeight[0]}`}>
+                      <ul className="list">
+                        <li className="item">Efeito mate</li>
+                        <li className="item">Alta cobertura</li>
+                        <li className="item">Longa duração</li>
+                        <li className="item">Proteção UVB com FPS 12</li>
+                      </ul>
+                    </p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  {window.innerWidth <= 768 ? (
+                    <div className="more__info">
+                      <Description Product={Product.Info} Sku={Product.Sku} />
+                    </div>
+                  ) : (
+                    <>
+                      <div className="info">
+                        <h2 className="info__title">Descubra Mais</h2>
+                        <p className={`info__content set--max${MaxHeight[0]}`}>
+                          {ReactHtmlParser(Product.Info.description)}
+                          <br />
+                          <br />
+                          <br />
+                          {
+                            <span className="seemore" onClick={() => handleHeight(0)}>
+                              {MaxHeight[0] == true ? 'ler mais' : 'ler menos'}
+                            </span>
+                          }
+                        </p>
+                      </div>
+                      <div className="info">
+                        <h2 className="info__title">Como Usar</h2>
+                        <p className={`info__content`}>
+                          {ReactHtmlParser(Product.Info['Modo de Uso'])}
+                          {/* {
+                        <span className="seemore" onClick={() => handleHeight(1)}>
+                          {MaxHeight[1] == true ? 'ler mais' : 'ler menos'}
+                        </span>
+                      } */}
+                        </p>
+                      </div>
+                    </>
+                  )}
+                </>
+              )}
             </div>
           </div>
         </div>

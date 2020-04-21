@@ -561,20 +561,29 @@
         }
 
         &--especial {
-            padding: 2px 4px;
-            border: 1px solid $secondaryColor;
-            cursor: pointer;
-            border-radius: 1em;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-content: center;
-            margin-bottom: $marginBottom + 5px;
-            transition: all .2s;
+            .svg-filters {
+                position: absolute;
+                visibility: hidden;
+                width: 1px;
+                height: 1px;
+            }
 
-            &:hover {
-                background-color: $secondaryColor;
-                color: $principalColor;
+            .nav_button--aqua {
+                padding: 5px;
+                // border: solid 1px $white;
+                cursor: pointer;
+                border-radius: 1em;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                margin-bottom: $marginBottom + 5px;
+                transition: all .2s;
+                position: relative;
+                z-index: 1;
+                outline: 10px solid $white;
+                background-color: #7C82BF;
+                color: $white;
             }
 
             // BlackFriday

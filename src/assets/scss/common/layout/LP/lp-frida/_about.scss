@@ -1,7 +1,8 @@
 .aboutContainer {
-    min-height: 100vh;
+    // min-height: 100vh;
     display: flex;
     align-items: center;
+    margin-top: -40px;
 
     &__banner {
         min-height: 150px;
@@ -21,7 +22,7 @@
         .title {
             font-size: 1.5em;
             max-width: initial;
-            margin: 0;
+            margin: 20px 0 10px;
         }
 
         .content {
@@ -33,10 +34,13 @@
 
     .hover-text {
         display: block;
-        position: absolute;
+        // position: absolute;
         top: 0px;
         left: 0px;
-        z-index: -1;
+        // z-index: -1;
+        width: 100%;
+        height: 100%;
+        min-height: 300px;
         pointer-events: none;
     }
 }

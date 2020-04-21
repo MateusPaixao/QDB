@@ -6,14 +6,15 @@
     &__btn {}
 
     &__video {
-        height: 500px;
-        width: 400px;
+        height: 350px;
+        width: 280px;
         margin: 0 auto;
         display: flex;
         justify-content: center;
 
         @include d("768px") {
             width: 100%;
+            height: 70vh;
         }
 
         .fit {
@@ -23,9 +24,7 @@
             height: 100%;
             overflow: hidden;
 
-            @include d("768px") {
-                min-height: 500px;
-            }
+            @include d("768px") {}
 
             iframe,
             object,

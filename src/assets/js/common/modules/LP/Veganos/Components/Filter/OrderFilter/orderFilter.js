@@ -1,7 +1,7 @@
 import React from 'react';
 import Vitrine from '../../../../../General/Vitrine';
 
-const orderFilter = ({ handleOrder }) => {
+const orderFilter = ({ origin, handleOrder, handleSmartResearch, handleOrigin }) => {
   const [showOptions, setShowOptions] = React.useState(false);
   const [optionSelected, setOptionSelected] = React.useState('');
   const [order, setOrderFilter] = React.useState('OrderByTopSaleDESC');
@@ -10,14 +10,14 @@ const orderFilter = ({ handleOrder }) => {
   const orderProducts = () => {
     const Content = document.querySelector('.contentProducts');
 
-    console.log('ue');
     let idCollection = Math.floor(Math.random() * 5000);
     let Collection = document.createElement('div');
     Collection.classList.add('contentProducts__render-collection', 'render-collection', 'shell');
     Collection.setAttribute('id', 'collection' + idCollection);
     Content.appendChild(Collection);
+    console.log(origin);
 
-    Vitrine.build(idCollection, undefined, false, false, `?fq=H:820&O=${order}&_from=0&_to=23`);
+    Vitrine.build(idCollection, undefined, false, false, `${origin}?O=${order}&_from=0&_to=23`);
 
     // !showSmartResearch && handleSmartResearch();
   };
@@ -58,6 +58,23 @@ const orderFilter = ({ handleOrder }) => {
   React.useEffect(() => {
     orderProducts();
     handleOrder(order);
+    if (document.querySelectorAll('.cardProductContainer') != undefined) {
+      let refreshButton = setInterval(() => {
+        if (
+          document.querySelectorAll('.cardProductContainer')[
+            document.querySelectorAll('.cardProductContainer').length - 1
+          ].childElementCount > 0 &&
+          document.querySelectorAll('.cardProductContainer')[
+            document.querySelectorAll('.cardProductContainer').length - 1
+          ].childElementCount < 23
+        ) {
+          clearInterval(refreshButton);
+          handleSmartResearch(false);
+        } else {
+          handleSmartResearch(true);
+        }
+      }, 500);
+    }
     // document.body.addEventListener('click', closeModal);
   }, [order]);
 

@@ -62,7 +62,7 @@ const Background = () => {
     }
 
     var loadedAssetsCount = 0;
-    var requiredAssetsCount = 2;
+    var requiredAssetsCount = 1;
 
     function hasEverythingLoaded() {
       if (loadedAssetsCount === requiredAssetsCount) {
@@ -100,6 +100,7 @@ const Background = () => {
       updateSize();
 
       console.log('Textura: ' + imageTexture1);
+      console.log(imageTexture1);
 
       scene = new THREE.Scene();
 
@@ -130,7 +131,7 @@ const Background = () => {
         vertexShader: `
        uniform vec2 uOffset;
        varying vec2 vUv;
- 
+
        void main() {
          vUv = uv;
          vec3 newPosition = position;
@@ -141,7 +142,7 @@ const Background = () => {
        uniform sampler2D uTexture;
        uniform float uAlpha;
        varying vec2 vUv;
- 
+
        void main() {
          vec3 color = texture2D(uTexture,vUv).rgb;
          gl_FragColor = vec4(color,1.0);
@@ -211,7 +212,7 @@ const Background = () => {
     createHeroInteractive(HeroInteractive);
   }, []);
 
-  return <canvas className="hover-text" ref={HeroInteractive}></canvas>;
+  return <div className="hover-text" ref={HeroInteractive}></div>;
 };
 
 export default Background;
