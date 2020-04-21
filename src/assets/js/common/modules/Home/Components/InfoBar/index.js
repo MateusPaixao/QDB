@@ -61,7 +61,7 @@ const Methods = {
               Content: 'Itens de pele podem ser devolvidos abertos se você errou na cor!*',
               ContentMobile: 'Devolução garantida',
               ContentModal:
-                'Comprou algum produto pra pele* até o dia 15/04 e errou no tom? Você pode trocá-lo ou devolvê-lo mesmo tendo aberto a embalagem! Entre em contato com nosso SAC pelo telefone 0800 726 6482 em até 15 dias após a data de recebimento do produto.\n\nbase, pó, iluminador, corretivo, contorno, cc creme, bb creme.*',
+                'Comprou algum produto pra pele* até o dia 30/04 e errou no tom? Você pode trocá-lo ou devolvê-lo mesmo tendo aberto a embalagem! Entre em contato com nosso SAC pelo telefone 0800 726 6482 em até 15 dias após a data de recebimento do produto.\n\nbase, pó, iluminador, corretivo, contorno, cc creme, bb creme.*',
               Icon: (
                 <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 302 512">
                   <path
