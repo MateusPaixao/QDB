@@ -742,3 +742,9 @@
         display: block;
     }
 }
+
+body:not(.safari) {
+    .nav_button--aqua {
+        filter: url('#filter-ripple-1')
+    }
+}

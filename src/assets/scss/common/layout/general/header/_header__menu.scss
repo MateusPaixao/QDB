@@ -449,3 +449,11 @@
         display: flex;
     }
 }
+
+body:not(.safari) {
+    .header__menu--aqua {
+        .button__menu {
+            filter: url('#filter-ripple-1')
+        }
+    }
+}

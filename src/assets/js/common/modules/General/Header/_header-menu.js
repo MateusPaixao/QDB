@@ -48,6 +48,10 @@ const Methods = {
       var isSafari = /constructor/i.test(window.HTMLElement);
       var isFF = !!navigator.userAgent.match(/firefox/i);
 
+      if (isSafari == true) {
+        document.querySelector('body').classList.add('safari');
+      }
+
       var bt = document.querySelector('#btnAqua');
       var turb = document.querySelector('#filter-ripple-1 feImage');
       var dm = document.querySelector('#filter-ripple-1 feDisplacementMap');
