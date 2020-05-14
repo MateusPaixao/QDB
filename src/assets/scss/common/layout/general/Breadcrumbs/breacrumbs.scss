@@ -1,0 +1,41 @@
+.breadcrumbs {
+    display: flex;
+    padding: 5px;
+    display: block;
+    background: $grey-m;
+    z-index: 5;
+    position: relative;
+
+    @include d('768px') {
+        margin-bottom: -40px;
+        background: transparent;
+        position: absolute;
+    }
+
+    &__container {
+        a {
+            display: inline-flex;
+            padding: 5px;
+            transform: skew(-5deg);
+            background: $white;
+            border-radius: .2em;
+            color: $secundary;
+            font-size: .875em;
+            text-transform: capitalize;
+        }
+
+        a+a {
+            margin-left: 2px;
+        }
+
+        @include d("768px") {
+            &.container {
+                padding: 0;
+            }
+
+            a {
+                background: transparentize($color: $white, $amount: .4);
+            }
+        }
+    }
+}

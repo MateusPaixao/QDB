@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`painel test snapshopt renders and displays information 1`] = `
+<a
+  className="paineisBeleza__link"
+  dataid="painel"
+  href="/busca/?fq=H:464"
+>
+  <img
+    className="paineisBeleza__img"
+    loading="lazy"
+    src="https://qbbr.vteximg.com.br/arquivos/ids/170372/painel_SUPER-BLACK_01.png"
+  />
+</a>
+`;

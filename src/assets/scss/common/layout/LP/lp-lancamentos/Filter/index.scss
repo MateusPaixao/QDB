@@ -1,0 +1,149 @@
+.category_banner {
+    display: flex;
+    // justify-content: space-evenly !important;
+    flex-direction: row-reverse;
+}
+
+.filterContainer__selection {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    &__options {
+        display: flex;
+        justify-content: center;
+        flex-flow: wrap;
+
+        button {
+            background: $black;
+            border-radius: .2em;
+            color: $white;
+            padding: 10px 15px;
+            margin: 5px;
+        }
+    }
+}
+
+
+.contentProducts__smartResearch {
+    display: flex;
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: .2em;
+    transition: all .2s;
+    background-color: $black;
+    color: $w-secundary;
+    position: relative;
+    overflow: hidden;
+
+    // box-shadow: 0 0 20px 5px rgba($color: $black, $alpha: .25);
+    &::before {
+        content: "mais produtos";
+        position: relative;
+        z-index: 5;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        transform: translateX(-101%);
+    }
+
+    &.set--loading {
+        pointer-events: none;
+        cursor: not-allowed;
+        position: relative;
+
+        &::before {
+            content: "carregando produtos...(1/2)";
+        }
+
+        &::after {
+            @include animation("requestSend", 2s, linear, cubic-bezier(.98, .01, .35, 1));
+            animation-fill-mode: forwards;
+            background-color: $success;
+
+            @keyframes requestSend {
+                0% {
+                    transform: translateX(-101%);
+                }
+
+                80% {
+                    transform: translateX(-55%);
+                }
+
+                85% {
+                    transform: translateX(-40%);
+                }
+
+                95% {
+                    transform: translateX(-35%);
+                }
+
+                100% {
+                    transform: translateX(-30%);
+                }
+            }
+        }
+    }
+
+    &.set--loadingMount {
+        pointer-events: none;
+        cursor: not-allowed;
+        position: relative;
+
+        // box-shadow: 0 0 20px 5px rgba($color: $dusty, $alpha: .25);
+        &::before {
+            content: "montando vitrine...(2/2)";
+        }
+
+        &::after {
+            @include animation("requestReceived", 1.5s, linear, cubic-bezier(.98, .01, .35, 1));
+            animation-fill-mode: forwards;
+            background-color: $success;
+
+            @keyframes requestReceived {
+                from {
+                    transform: translateX(-30%);
+                }
+
+                to {
+                    transform: translateX(-5%);
+                }
+            }
+        }
+    }
+
+    &.set--loaded {
+        pointer-events: none;
+        cursor: not-allowed;
+        position: relative;
+
+        // box-shadow: 0 0 20px 5px rgba($color: $dusty, $alpha: .25);
+        &::before {
+            content: "produtos carregados";
+        }
+
+        &::after {
+            @include animation("requestReceived", .2s, linear, cubic-bezier(.98, .01, .35, 1));
+            animation-fill-mode: forwards;
+            background-color: $success;
+
+            @keyframes requestReceived {
+                from {
+                    transform: translateX(-5%);
+                }
+
+                to {
+                    transform: translateX(0);
+                }
+            }
+        }
+    }
+}
+
+@import './orderFilter/index.scss'

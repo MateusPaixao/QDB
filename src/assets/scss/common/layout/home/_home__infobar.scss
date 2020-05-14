@@ -1,58 +1,184 @@
-.infoBar__render{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0 40px;
-    font-size: 1rem;
-    @include d("768px"){
-        display: flex;
-        overflow-y: hidden;
-        overflow-x: auto;
-        justify-content: flex-start;
+.infoBar__render {
+    .__contentMobile {
+        display: none;
     }
-    .__container{
+
+    a {
+        @include d("768px") {
+            text-align: center;
+
+            &:last-child {
+                margin-top: 18px;
+            }
+        }
+    }
+
+    display: flex;
+    color: #000;
+    background: $white;
+    height: 100px;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+
+    @include d("768px") {
+        .__contentMobile {
+            display: block;
+            text-decoration: underline;
+        }
+    }
+
+    .__container {
+        cursor: pointer;
         display: flex;
         align-items: center;
         margin-left: 15px;
         max-width: 300px;
-        @include d("768px"){
-            min-width: 70%;
-            &:nth-child(3){
-                min-width: 85%;
+        padding: 15px;
+
+        @include d("768px") {
+            .__contentMobile {
+                font-size: .875em;
+                text-align: center;
             }
+
+            padding: 0px;
+            flex-direction: column;
+
+            .__content {
+                display: none;
+            }
+
         }
-        &:nth-last-child(1){
-            margin-right: 0;
-        }
-        .__icon{
+
+        .__icon {
             margin-right: 5px;
-            .truck{
-                // path{
-                //     ::nth-child(1),
-                //     ::nth-child(2),
-                //     ::nth-child(4)
-                //     {
-                //         stroke: $g-primary;
-                //         fill: transparent;
-                //     }
-                // }
-                // circle{
-                //     stroke: $g-primary;
-                // }
-            }
-            .star{
-                display: flex;
-                height: 40px;
+
+            svg {
                 width: 40px;
-                path{
-                    fill: #67605f;
-                }
+                height: 40px;
             }
+
+            // .star{
+            //     display: flex;
+            //     height: 40px;
+            //     width: 40px;
+            //     path{
+            //         fill: #67605f;
+            //     }
+            // }
         }
-        .__content{
-            a{
+
+        .__content {
+            a {
                 text-decoration: underline;
             }
         }
+    }
+}
+
+.__container:hover {
+    border: solid 1px #000;
+    border-radius: 5px;
+}
+
+
+// Modal
+.hidden {
+    display: none;
+}
+
+.overlayModal {
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    top: 0;
+    position: fixed;
+    background-color: #686161b3;
+}
+
+.modal {
+    width: 296px;
+    min-height: 250px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $white;
+    position: fixed;
+    z-index: 10;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.close-modal {
+    display: flex;
+    align-self: flex-end;
+    padding: 20px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+.modal-content {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    width: 86%;
+    color: #686161;
+
+    &__icon {
+        margin-bottom: 10px;
+
+        svg {
+            max-width: 3em;
+            max-height: 3em;
+        }
+    }
+
+    &__title {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    p {
+        white-space: pre-wrap;
+    }
+
+    button {
+        align-self: baseline;
+        width: 145px;
+        background: $black;
+        padding: 8px;
+        border-radius: .2em;
+        color: $white;
+        margin-top: 10px;
+    }
+}
+
+@include d("768px") {
+    .modal {
+        width: 80%;
+        min-height: 250px;
+        background: $white;
+        position: fixed;
+        z-index: 10;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0 auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        flex-direction: column;
     }
 }

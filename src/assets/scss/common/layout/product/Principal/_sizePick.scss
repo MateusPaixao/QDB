@@ -1,0 +1,35 @@
+&__sizeContainer{
+    grid-area: colorpick;
+    display: grid;
+    align-items: center;
+    margin-bottom: 20px;
+    @include d("768px"){
+        padding: 0;
+        margin-bottom: 10px;
+        order: 0;
+    }
+
+}
+
+&__sizes{
+    &__list{
+        display: inline-flex;
+        overflow: hidden;
+        border-radius: .2em;
+        font-size: 1.25em;
+        background: $grey-m;
+        color: $grey;
+        cursor: pointer;
+        transition: all .2s;
+        &__size{
+            padding: 10px;
+            &.set--active{
+                background: $primary;
+                color: $white;
+            }
+        }
+        &__size + &__size{
+            border-left: solid 1px $grey-l;
+        }
+    }
+}

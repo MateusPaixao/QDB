@@ -1,20 +1,104 @@
-.paineisBeleza{
-    .paineisBeleza__container{
-        .shell{
+.paineisContainer {
+    position: relative;
+
+    .paineisBeleza__link {
+
+
+        .paineisBeleza__img {
+            width: 100%;
+            padding: 5px;
+        }
+
+    }
+
+    .paineisBeleza__button {
+        display: none;
+
+        @include d("768px") {
+            display: block;
+            background: #000;
+            width: 90%;
+            height: 48px;
+            justify-content: center;
+            align-items: center;
+            margin-left: 5%;
+            color: #fff;
+            border-radius: 5px;
+            font-size: .935em;
+            position: relative;
+            top: -64px;
+        }
+    }
+
+    .category-pagination {
+        display: none;
+
+        @include d("768px") {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            -webkit-border-radius: 50px;
+            border-radius: 50px;
+            min-width: 48px;
+            display: block;
+            padding: 7px 10px;
+            letter-spacing: 2px;
+            font-size: 11px;
+            text-align: center;
+            z-index: 1;
+            top: 7%;
+            right: 30px;
+        }
+    }
+
+
+    .slick-slider {
+        margin: 0 auto;
+        overflow: hidden;
+        padding: 10px 0;
+        margin: -10px 0;
+
+        .slick-track {
             display: flex;
-            justify-content: space-between;
-            @include d("768px"){
-                overflow-y: hidden;
-                overflow-x: auto;
-                justify-content: flex-start;
+        }
+
+        .slick-slide {
+            margin: 0 5px;
+        }
+
+        .slick-arrow {
+            position: absolute;
+            z-index: 2;
+            padding: 5px;
+            border-radius: 2.2em;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+
+            svg{
+                width: 33px;
+                height: 33px;
             }
-            .paineisBeleza__link{
-                margin-right: 10px;
-                .paineisBeleza__img{
-                    @include d("768px"){
-                        min-width: 260px;
-                    }
-                }
+
+            @include d("768px") {
+                // display: none;
+            }
+
+            &.slick-prev {
+                left: 7%;
+                top: 40%;
+                transform: translateY(-50%)
+            }
+
+            &.slick-next {
+                right: 7%;
+                top: 40%;
+                transform: translateY(-50%)
+            }
+
+            &.slick-next:before,
+            &.slick-prev:before {
+                font-size: 35px;
             }
         }
     }

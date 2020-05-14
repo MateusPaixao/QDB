@@ -4,105 +4,112 @@
  */
 
 @mixin d($width, $type: max) {
-    @if $type == max {
+    @if $type==max {
         @media only screen and (#{$type}-width: $width) {
             @content;
         }
-        @if $width == l {
+
+        @if $width==l {
             @media screen and (min-width: #{$l-device}) {
                 @content;
             }
         }
-        @else if $width == mb {
+
+        @else if $width==mb {
             @media screen and (min-width: #{$m-b-device}) and (max-width: #{$l-device}) {
-              @content;
+                @content;
             }
         }
-        @else if $width == m {
+
+        @else if $width==m {
             @media screen and (min-width: #{$m-device}) and (max-width: #{$m-b-device}) {
-              @content;
+                @content;
             }
         }
-        @else if $width == s {
+
+        @else if $width==s {
             @media screen and (min-width: #{$s-device}) and (max-width: #{$m-device}) {
-              @content;
+                @content;
             }
         }
-        @else if $width == xs {
+
+        @else if $width==xs {
             @media screen and (max-width: #{$s-device}) {
-              @content;
+                @content;
             }
         }
-        @else if $width == mobile {
+
+        @else if $width==mobile {
             @media screen and (max-width: #{$mobile}) {
-              @content;
+                @content;
             }
         }
 
         /* iphone 3 */
-        @else if $width == i3 {
+        @else if $width==i3 {
             @media only screen and (min-device-width: 320px) and (max-device-height: 480px) and (-webkit-device-pixel-ratio: 1) {
                 @content;
             }
         }
 
         /* iphone 4 */
-        @else if $width == i4 {
-            @media only screen and (min-device-width: 320px) and (max-device-height: 480px) and (-webkit-device-pixel-ratio: 2) { 
+        @else if $width==i4 {
+            @media only screen and (min-device-width: 320px) and (max-device-height: 480px) and (-webkit-device-pixel-ratio: 2) {
                 @content;
             }
         }
 
         /* iphone 5 */
-        @else if $width == i5 {
-            @media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (-webkit-device-pixel-ratio: 2) { 
+        @else if $width==i5 {
+            @media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (-webkit-device-pixel-ratio: 2) {
                 @content;
             }
         }
 
         /* iphone 6, 6s, 7, 8 */
-        @else if $width == i6-8 {
-            @media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (-webkit-device-pixel-ratio: 2) { 
+        @else if $width==i6-8 {
+            @media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
                 @content;
             }
         }
-        
+
         /* iphone 6+, 6s+, 7+, 8+ */
-        @else if $width == i6-8Plus {
-            @media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (-webkit-device-pixel-ratio: 3) { 
+        @else if $width==i6-8Plus {
+            @media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (-webkit-device-pixel-ratio: 3) {
                 @content;
             }
         }
 
         /* iphone X */
-        @else if $width == X {
-            @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) { 
+        @else if $width==X {
+            @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
                 @content;
             }
         }
 
         /* iphone XR */
-        @else if $width == XR {
-            @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) { 
+        @else if $width==XR {
+            @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
                 @content;
             }
         }
 
         /* iphone XS */
-        @else if $width == XS {
-            @media only screen and (min-device-width : 375px) and (max-device-height : 812px) and (-webkit-device-pixel-ratio : 3) { 
+        @else if $width==XS {
+            @media only screen and (min-device-width : 375px) and (max-device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
                 @content;
             }
         }
 
         /* iphone XS Max */
-        @else if $width == XSMax {
-           @media only screen and (min-device-width : 414px) and (max-device-height : 896px) and (-webkit-device-pixel-ratio : 3) { 
+        @else if $width==XSMax {
+            @media only screen and (min-device-width : 414px) and (max-device-height : 896px) and (-webkit-device-pixel-ratio : 3) {
                 @content;
-           }
+            }
         }
     }
-    @else{
+
+    @else {
         @media only screen and (#{$type}-width: $width + 1) {
             @content;
         }
@@ -112,20 +119,55 @@
 /**
  * Animation
 */
-@mixin animation($nome: false, $duracao: false, $count: false, $timing: false){
-    @if $nome {-webkit-animation-name: $nome;}
-    @if $duracao {-webkit-animation-duration: $duracao;}
-    @if $count {-webkit-animation-iteration-count: $count;}
-    @if $timing {-webkit-animation-timing-function: $timing;}
-    @if $nome {-moz-animation-name: $nome;}
-    @if $duracao {-moz-animation-duration: $duracao;}
-    @if $count {-moz-animation-iteration-count: $count;}
-    @if $timing {-moz-animation-timing-function: $timing;}
-    @if $nome {-ms-animation-name: $nome;}
-    @if $duracao {-ms-animation-duration: $duracao;}
-    @if $count {-ms-animation-iteration-count: $count;}
-    @if $timing {-ms-animation-timing-function: $timing;}
-    
+@mixin animation($nome: false, $duracao: false, $count: false, $timing: false) {
+    @if $nome {
+        -webkit-animation-name: $nome;
+    }
+
+    @if $duracao {
+        -webkit-animation-duration: $duracao;
+    }
+
+    @if $count {
+        -webkit-animation-iteration-count: $count;
+    }
+
+    @if $timing {
+        -webkit-animation-timing-function: $timing;
+    }
+
+    @if $nome {
+        -moz-animation-name: $nome;
+    }
+
+    @if $duracao {
+        -moz-animation-duration: $duracao;
+    }
+
+    @if $count {
+        -moz-animation-iteration-count: $count;
+    }
+
+    @if $timing {
+        -moz-animation-timing-function: $timing;
+    }
+
+    @if $nome {
+        -ms-animation-name: $nome;
+    }
+
+    @if $duracao {
+        -ms-animation-duration: $duracao;
+    }
+
+    @if $count {
+        -ms-animation-iteration-count: $count;
+    }
+
+    @if $timing {
+        -ms-animation-timing-function: $timing;
+    }
+
     animation-name: $nome;
     animation-duration: $duracao;
     animation-iteration-count: $count;
@@ -144,35 +186,43 @@
 
     font-weight: $output;
 }
-@mixin sans($size: false, $colour: false, $weight: false,  $lh: false) {
+
+@mixin sans($size: false, $colour: false, $weight: false, $lh: false) {
+
     // font-family: "Centrale";
-    @if $weight == 200{
-        font-family: "CentraleSans-Light";
-    }
-    // @else if $weight == 400{
-    //     font-family: "CentraleSans-Regular";
-    // }
-    @else if $weight == 900{
-      font-family: "CentraleSans-Bold", sans-serif;
-    }
-    
-    @else if $weight == 300{
-        font-family: "WorkSans-Light", sans-serif;;
+    @if $weight==300 {
+        font-family: "WorkSans-Light", sans-serif;
     }
 
-    @else if $weight == 400{
-        font-family: "WorkSans-Regular", sans-serif;;
+    @else if $weight==400 {
+        font-family: "WorkSans-Regular", sans-serif;
     }
 
-    @else if $weight == 500{
-      font-family: "WorkSans-Medium", sans-serif;
+    @else if $weight==500 {
+        font-family: "WorkSans-Medium", sans-serif;
     }
 
-    @if $weight { font-weight: $weight; }
-    @if $size { font-size: $size; }
-    @if $colour { color: $colour; }
-    @if $lh { line-height: $lh; }
+    @else if $weight==900 {
+        font-family: "WorkSans-Bold", sans-serif;
+    }
+
+    @if $weight {
+        font-weight: $weight;
+    }
+
+    @if $size {
+        font-size: $size;
+    }
+
+    @if $colour {
+        color: $colour;
+    }
+
+    @if $lh {
+        line-height: $lh;
+    }
 }
+
 /**
  * Common Helpers
  */
@@ -220,10 +270,13 @@
  *    `:before` to contain the top-margins of child elements.
  */
 @mixin clearfix {
+
     &:before,
     &:after {
-        content: ' '; /* 1 */
-        display: table; /* 2 */
+        content: ' ';
+        /* 1 */
+        display: table;
+        /* 2 */
     }
 
     &:after {
@@ -258,11 +311,13 @@
     justify-content: center;
     align-items: center;
 }
-%flex-column{
+
+%flex-column {
     display: flex;
     flex-direction: column;
 }
-%flex-around{
+
+%flex-around {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -416,22 +471,26 @@
  * Custom input placeholders
  */
 @mixin placeholder($color, $opacity) {
-    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    &::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
         color: $color;
         opacity: $opacity;
     }
 
-    &::-moz-placeholder { /* Firefox 19+ */
+    &::-moz-placeholder {
+        /* Firefox 19+ */
         color: $color;
         opacity: $opacity;
     }
 
-    &:-ms-input-placeholder { /* IE 10+ */
+    &:-ms-input-placeholder {
+        /* IE 10+ */
         color: $color;
         opacity: $opacity;
     }
 
-    &:-moz-placeholder { /* Firefox 18- */
+    &:-moz-placeholder {
+        /* Firefox 18- */
         color: $color;
         opacity: $opacity;
     }
@@ -440,20 +499,20 @@
 /**
  * Custom default browser scrollbar
  */
- @mixin scrollbar($width: .5em) {
+@mixin scrollbar($width: .5em) {
 
-    &::-webkit-scrollbar-track{
-        box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
         border-radius: 10px;
         background-color: #F5F5F5;
     }
 
-    &::-webkit-scrollbar{
+    &::-webkit-scrollbar {
         width: $width;
         background-color: #F5F5F5;
     }
 
-    &::-webkit-scrollbar-thumb{
+    &::-webkit-scrollbar-thumb {
         border-radius: 10px;
         background-color: $qdb-grey-l;
     }
@@ -473,23 +532,25 @@
 @mixin arrow-generate($position: 'up', $arrow-width: 20px, $arrow-size: $arrow-width / 4) {
     $pos: -45deg;
 
-    @if ( $position == 'up' ) {
+    @if ($position=='up') {
         $pos: $pos;
     }
 
-    @else if ( $position == 'right' ) {
+    @else if ($position=='right') {
         $pos: 45deg;
     }
 
-    @else if ( $position == 'down' ) {
+    @else if ($position=='down') {
         $pos: 135deg;
     }
 
-    @else if ( $position == 'left' ) {
+    @else if ($position=='left') {
         $pos: -135deg;
     }
 
-    @else { /* */ }
+    @else {
+        /* */
+    }
 
     content: '';
     display: inline-block;
@@ -511,25 +572,25 @@
     height: 0;
     width: 0;
 
-    @if ( $direction == 'up' ) {
+    @if ($direction=='up') {
         border-bottom: $size solid $color;
         border-left: 1/2*$size solid transparent;
         border-right: 1/2*$size solid transparent;
     }
 
-    @else if ( $direction == 'down' ) {
+    @else if ($direction=='down') {
         border-top: $size solid $color;
         border-left: 1/2*$size solid transparent;
         border-right: 1/2*$size solid transparent;
     }
 
-    @else if ( $direction == 'left' ) {
+    @else if ($direction=='left') {
         border-top: 1/2*$size solid transparent;
         border-bottom: 1/2*$size solid transparent;
         border-right: $size solid $color;
     }
 
-    @else if ( $direction == 'right' ) {
+    @else if ($direction=='right') {
         border-top: 1/2*$size solid transparent;
         border-bottom: 1/2*$size solid transparent;
         border-left: $size solid $color;
@@ -546,7 +607,8 @@
     }
 
     &:hover {
-        &:after { // for text bubble
+        &:after {
+            // for text bubble
             content: $content;
             display: block;
             position: absolute;
@@ -559,7 +621,7 @@
             background-color: #222;
         }
 
-        @if ( $direction == 'top' ) {
+        @if ($direction=='top') {
             &:before {
                 @include triangle(down, 6px, #222);
                 top: -6px;
@@ -574,7 +636,7 @@
             }
         }
 
-        @else if ( $direction == 'bottom' ) {
+        @else if ($direction=='bottom') {
             &:before {
                 @include triangle(up, 6px, #222);
                 top: auto;
@@ -599,8 +661,8 @@
     text-overflow: ellipsis;
 }
 
-body{
-	&.is--lock{
-		overflow: hidden;
-	}
+body {
+    &.is--lock {
+        overflow: hidden;
+    }
 }

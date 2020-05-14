@@ -1,3 +1,4 @@
-import Product from './modules/Product/product-index'
+import Product from './modules/Product';
+import '../../scss/common/QDBCommon-Product.scss';
 
 Product.init();

@@ -1,0 +1,42 @@
+.info__returnContainer{
+    &__subtitle{
+        @include sans(1.25rem, $black, 400, 2rem);
+        margin: 20px 0;
+    }
+
+    &__content{
+        @include sans(1rem, $black, 400, 1.5rem);
+
+        &__ctaText{
+            @include sans(1rem, $black, 400, 1.5rem);
+            width: 100%;
+            
+            &::before{
+                content: '';
+                display: block;
+                width: 100px;
+                margin: 20px 0;
+                height: 1px;
+                background: $primary;
+                // background-image: linear-gradient( 45deg, #febebf 10%, #FD787A 100%);
+            }
+        }
+        &__cta{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+            @include sans(1rem, $black, 400, 1.5rem);
+            border-radius: .2em;
+            border: solid 1px;
+            margin: 10px auto;
+            padding: 10px;
+            transition: all .2s;
+            &:hover{
+                background: $black;
+                color: $white;
+            }
+        }
+    }
+}

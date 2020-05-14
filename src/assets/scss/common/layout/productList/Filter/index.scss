@@ -1,0 +1,9 @@
+.category_banner {
+    display: flex;
+    justify-content: space-between !important;
+    flex-direction: row-reverse;
+}
+
+@import './fastFilter';
+@import './orderFilter/orderFilter';
+@import './smartresearch';

@@ -1,0 +1,8 @@
+@import './Banner/';
+@import './Filter';
+
+.title {
+    @include sans(2rem, $g-primary, 900, initial);
+    margin: 40px 0 20px;
+    text-align: center;
+}

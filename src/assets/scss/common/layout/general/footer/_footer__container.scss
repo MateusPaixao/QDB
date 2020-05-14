@@ -9,8 +9,8 @@
     flex-direction: column;
     background: $principalColor;
     position: relative;
-    margin-top: 20px;
-    
+    padding-top: 20px;
+
     &__first-wrapper {
         display: flex;
         justify-content: center;
@@ -23,7 +23,8 @@
             justify-content: center;
             align-items: center;
             padding: 40px 0;
-            @include d("768px"){
+
+            @include d("768px") {
                 padding: 40px 0 0;
             }
 
@@ -35,7 +36,8 @@
 
                     &:first-child {
                         margin-left: 20px;
-                        @include d('768px'){
+
+                        @include d('768px') {
                             margin-left: 5px;
                         }
                     }
@@ -43,6 +45,7 @@
 
                 &--svg {
                     margin: 0 5px;
+
                     svg {
                         path {
                             fill: $secondaryColor;
@@ -99,7 +102,7 @@
                     &__item {
                         &--small {
                             margin: 0;
-                            @include sans(.75em, inherit, 200, initial);
+                            @include sans(.75em, inherit, 400, initial);
                             text-transform: lowercase;
                         }
                     }
@@ -119,47 +122,56 @@
             .social-media {
                 display: flex;
                 margin: 15px 0;
-                @include d("768px"){
+
+                @include d("768px") {
                     justify-content: center;
                 }
+
                 &__logo {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    &.__instagram{
-                        svg{
+
+                    &.__instagram {
+                        svg {
                             fill: $g-primary;
                             transition: all .2s;
                         }
-                        &:hover{
-                            svg{
+
+                        &:hover {
+                            svg {
                                 fill: url(#rg);
                             }
                         }
                     }
-                    &.__facebook{
-                        svg{
+
+                    &.__facebook {
+                        svg {
                             fill: $g-primary;
                             transition: all .2s;
                         }
-                        &:hover{
-                            svg{
+
+                        &:hover {
+                            svg {
                                 fill: #4267B2;
                             }
                         }
                     }
-                    &.__youtube{
-                        svg{
+
+                    &.__youtube {
+                        svg {
                             fill: $g-primary;
                             transition: all .2s;
                         }
-                        &:hover{
-                            svg{
+
+                        &:hover {
+                            svg {
                                 fill: #FF0000;
                             }
                         }
                     }
-                    svg{
+
+                    svg {
                         height: 2em;
                         width: 2em;
                     }
@@ -179,27 +191,40 @@
                     border: .1em solid $g-primary;
                     border-radius: 20px;
 
-                    .group-email{
+                    .group-email {
                         margin: 0;
                         width: 90%;
                         padding: 5px 10px;
-                        input{
+
+                        input {
                             font-size: 1em;
                             height: initial;
                         }
-                        .control-label{
+
+                        .control-label {
                             top: .75em;
                             font-size: 1em;
                         }
                     }
-                    .group-email select ~ .control-label, .group-email input:focus ~ .control-label, .group-email input:valid ~ .control-label, .group-email input.form-file ~ .control-label, .group-email input.has-value ~ .control-label, .group-email textarea:focus ~ .control-label, .group-email textarea:valid ~ .control-label, .group-email textarea.form-file ~ .control-label, .group-email textarea.has-value ~ .control-label{
+
+                    .group-email select~.control-label,
+                    .group-email input:focus~.control-label,
+                    .group-email input:valid~.control-label,
+                    .group-email input.form-file~.control-label,
+                    .group-email input.has-value~.control-label,
+                    .group-email textarea:focus~.control-label,
+                    .group-email textarea:valid~.control-label,
+                    .group-email textarea.form-file~.control-label,
+                    .group-email textarea.has-value~.control-label {
                         top: -1.5em;
                         font-size: .875em;
                     }
+
                     &--email {
                         width: 90%;
                         padding: 10px 0 10px 10px;
                     }
+
                     &--submit {
                         display: flex;
                         align-items: center;
@@ -215,18 +240,22 @@
                         .newsletter__icon {
                             width: 30px;
                             height: 100%;
-                            path{
+
+                            path {
                                 fill: $g-primary;
                             }
-                            rect{
+
+                            rect {
                                 stroke: $g-primary;
                             }
                         }
                     }
                 }
-                &.set--sending{
-                    .form-newsletter__controls{
+
+                &.set--sending {
+                    .form-newsletter__controls {
                         border: none;
+
                         &--submit {
                             right: 0;
                             height: 100%;
@@ -234,6 +263,7 @@
                             background: $dusty;
                             cursor: not-allowed;
                             pointer-events: none;
+
                             // @include animation("sendNewsletter", 2s, infinite, linear);
                             // animation-fill-mode: forwards;
                             // animation-delay: .2s;
@@ -245,37 +275,48 @@
                             //         transform: rotate(360deg);
                             //     }
                             // }
-                            .newsletter__icon{
+                            .newsletter__icon {
                                 width: 40px;
                                 @include animation("airplane", 2s, infinite, linear);
                                 animation-fill-mode: forwards;
+
                                 @keyframes airplane {
-                                    0%{
-                                        transform: translate(0, 0px) rotate(45deg);;
+                                    0% {
+                                        transform: translate(0, 0px) rotate(45deg);
+                                        ;
                                     }
-                                    50%{
-                                        transform: translate(0, -2px) rotate(45deg);;
+
+                                    50% {
+                                        transform: translate(0, -2px) rotate(45deg);
+                                        ;
                                     }
-                                    100%{
-                                        transform: translate(0, 0px) rotate(45deg);;
+
+                                    100% {
+                                        transform: translate(0, 0px) rotate(45deg);
+                                        ;
                                     }
                                 }
-                                path{
+
+                                path {
                                     fill: $w-secundary;
                                 }
-                                rect{
+
+                                rect {
                                     stroke: none;
                                 }
                             }
                         }
                     }
-                    .control-label{
+
+                    .control-label {
                         opacity: 0;
                     }
                 }
-                &.set--sended{
-                    .form-newsletter__controls{
+
+                &.set--sended {
+                    .form-newsletter__controls {
                         border: none;
+
                         &--submit {
                             right: 0;
                             height: 100%;
@@ -283,35 +324,43 @@
                             background: $success;
                             cursor: not-allowed;
                             pointer-events: none;
-                            
-                            .newsletter__icon{
+
+                            .newsletter__icon {
                                 width: 40px;
-                                @include animation("airplaneSended", .5s, linear, cubic-bezier(.6,.51,0,1.01));
+                                @include animation("airplaneSended", .5s, linear, cubic-bezier(.6, .51, 0, 1.01));
                                 animation-fill-mode: forwards;
+
                                 @keyframes airplaneSended {
-                                    0%{
-                                        transform: translateX(0) rotate(45deg);;
+                                    0% {
+                                        transform: translateX(0) rotate(45deg);
+                                        ;
                                     }
-                                    100%{
+
+                                    100% {
                                         transform: translateX(20em) rotate(45deg);
                                     }
                                 }
-                                path{
+
+                                path {
                                     fill: $w-secundary;
                                 }
-                                rect{
+
+                                rect {
                                     stroke: none;
                                 }
                             }
                         }
                     }
-                    .control-label{
+
+                    .control-label {
                         opacity: 0;
                     }
                 }
-                &.set--fail{
-                    .form-newsletter__controls{
+
+                &.set--fail {
+                    .form-newsletter__controls {
                         border: none;
+
                         &--submit {
                             right: 0;
                             height: 100%;
@@ -321,17 +370,21 @@
                             pointer-events: none;
                         }
                     }
-                    .control-label{
+
+                    .control-label {
                         opacity: 0;
                     }
                 }
             }
-            .info-small{
+
+            .info-small {
                 font-size: .875em;
-                @include d("768px"){
+
+                @include d("768px") {
                     font-size: .75em;
                     text-align: center;
                 }
+
                 .privacy {
                     text-decoration: underline;
                 }
@@ -341,7 +394,7 @@
 
     .list-wrapper {
         display: flex;
-        height: 160px;
+        min-height: 240px;
 
         @include d('768px') {
             height: initial;
@@ -352,7 +405,8 @@
             @include sans(1.2rem, inherit, 900, initial);
             margin-left: 30px;
             text-transform: capitalize;
-            @include d('768px'){
+
+            @include d('768px') {
                 margin-left: initial;
                 margin: 10px;
                 width: 50%;
@@ -361,16 +415,18 @@
             &:first-child {
                 margin-left: 0;
             }
-            &:last-child{
+
+            &:last-child {
                 margin-right: 0;
             }
 
             &__item {
                 text-transform: initial;
-                @include sans(1rem, inherit, 200, initial);
+                @include sans(1rem, inherit, 400, initial);
                 margin: 5px 0;
-                & a{
-                    &:hover{
+
+                & a {
+                    &:hover {
                         text-decoration: underline;
                     }
                 }
@@ -387,9 +443,11 @@
             margin-top: 40px;
             @include sans(1rem, inherit, 900, initial);
             flex-direction: column;
-            @include d("768px"){
+
+            @include d("768px") {
                 margin-top: 20px;
             }
+
             .list__item {
                 color: $secondaryColor;
                 margin: 0;
@@ -406,9 +464,11 @@
                         justify-content: center;
                         align-items: center;
                         overflow: hidden;
-                        @include d('768px'){
+
+                        @include d('768px') {
                             width: 2em;
                         }
+
                         height: 100%;
                         margin-left: 10px;
 
@@ -422,15 +482,19 @@
                         }
 
                     }
+
                     .payment {
                         width: 2.5em;
                     }
+
                     .trust {
                         width: 4em;
-                        &:nth-last-child(1){
+
+                        &:nth-last-child(1) {
                             width: 7em;
                         }
                     }
+
                     .payment:nth-child(5) {
                         background-color: #B3131B;
                         width: 5em;
@@ -455,8 +519,9 @@
                 }
             }
         }
-        &.payments{
-            @include d("768px"){
+
+        &.payments {
+            @include d("768px") {
                 margin-top: 40px;
             }
         }
@@ -482,9 +547,11 @@
                     justify-content: flex-start;
                     margin-left: 5px;
                 }
-                svg{
+
+                svg {
                     width: 100%;
                 }
+
                 .svg--logo-principal {
                     path {
                         fill: $secondaryColor;
@@ -502,7 +569,8 @@
             margin: 0 auto;
         }
     }
-    .heart__breakline{
+
+    .heart__breakline {
         content: '';
         position: absolute;
         top: 0px;
@@ -513,13 +581,16 @@
         transform: translate(-50%, -50%);
         padding: 20px;
         z-index: 5;
-        svg{
+
+        svg {
             fill: $g-primary;
             transform: translate(-50%, -50%);
         }
     }
+
     .shell {
         width: 100%;
+
         &:before {
             content: '';
             border-top: 1px solid $secondaryColor;

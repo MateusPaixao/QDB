@@ -1,0 +1,12 @@
+@import '../../components/Filter/index';
+@import '../../components/BannerText/index';
+
+body {
+    background: $grey-l;
+}
+
+.section__title {
+    @include sans(2rem, $secundary, 900, initial);
+    margin-bottom: 20px;
+    margin-top: 20px;
+}

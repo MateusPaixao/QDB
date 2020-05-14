@@ -1,1 +1,0 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var getOrderForm=exports.getOrderForm=function(){return vtexjs.checkout.getOrderForm()},updateOrderForm=exports.updateOrderForm=function(e,r){return vtexjs.checkout.sendAttachment(e,r)};

@@ -1,3 +1,5 @@
+import '../../scss/common/QDB-gerador-contador.scss'
+
 const searchSku = document.querySelector('.w-gerador--fetch');
 const btnGerador = document.querySelector('.w-gerador--generate');
 const Methods = {
@@ -29,6 +31,7 @@ const Methods = {
         const Attributes = {
             idProduto: document.querySelector('.w-gerador--text.idproduto').value,
             idSku: document.querySelector('.w-gerador--text.idsku').value,
+            cor: document.querySelector('.w-gerador--color.color').value,
             titulo: document.querySelector('.w-gerador--text.title').value,
             color: document.querySelector(".w-gerador--color").value,
             texto: document.querySelector('.w-gerador--text.text').value,
@@ -50,29 +53,29 @@ const Methods = {
         ${attributesReturn}
         <article class="w-product--counter">
             <div class="w-promo-text">
-                <p class="w-product--title">${Attributes.titulo}</p>
-                <p class="w-product--text">${Attributes.texto}</p>
+                <p class="w-product--title" style="color: ${Attributes.cor}">${Attributes.titulo}</p>
+                <p class="w-product--text" style="color: ${Attributes.cor}">${Attributes.texto}</p>
             </div>
             <div class="w-promo-text-sad hidden">
-                <p class="w-product--title">${Attributes.tituloSad}</p>
-                <p class="w-product--text">${Attributes.textoSad}</p>
+                <p class="w-product--title" style="color: ${Attributes.cor}">${Attributes.tituloSad}</p>
+                <p class="w-product--text" style="color: ${Attributes.cor}">${Attributes.textoSad}</p>
             </div>
             <div class="w-promo-text-out hidden">
-                <p class="w-product--title">${Attributes.tituloOut}</p>
-                <p class="w-product--text">${Attributes.textoOut}</p>
+                <p class="w-product--title" style="color: ${Attributes.cor}">${Attributes.tituloOut}</p>
+                <p class="w-product--text" style="color: ${Attributes.cor}">${Attributes.textoOut}</p>
             </div>
             <div class="w-product--contador">
                 <div class="w-product--contador--timer">
-                    <span style="color: ${Attributes.color}" class="w-product--contador--timer--time --hours">0</span>
-                    <small class="w-product--contador--timer--small hora">horas</small>
+                    <span class="w-product--contador--timer--time --hours" style="color: ${Attributes.cor}">0</span>
+                    <small class="w-product--contador--timer--small hora" style="color: ${Attributes.cor}">horas</small>
                 </div>
                 <div class="w-product--contador--timer">
-                    <span style="color: ${Attributes.color}" class="w-product--contador--time --minutes">0</span>
-                    <small class="w-product--contador--timer--small min">minutos</small>
+                    <span class="w-product--contador--time --minutes" style="color: ${Attributes.cor}">0</span>
+                    <small class="w-product--contador--timer--small min" style="color: ${Attributes.cor}">minutos</small>
                 </div>
                 <div class="w-product--contador--timer">
-                    <span style="color: ${Attributes.color}" class="w-product--contador--time --segundos">0</span>
-                    <small class="w-product--contador--timer--small seg">segundos</small>
+                    <span class="w-product--contador--time --segundos" style="color: ${Attributes.cor}">0</span>
+                    <small class="w-product--contador--timer--small seg" style="color: ${Attributes.cor}">segundos</small>
                 </div>
             </div>
         </article>

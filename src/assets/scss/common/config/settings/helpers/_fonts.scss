@@ -1,42 +1,31 @@
 /* FONTES CENTRALE */
 @font-face {
-    font-family: 'CentraleSans-Light';
-    src: url("https://qbbr.vteximg.com.br/arquivos/CentraleSans-Light.eot.css");
-    src: url("https://qbbr.vteximg.com.br/arquivos/CentraleSans-Light.eot.css?#iefix") format("embedded-opentype"), url("https://qbbr.vteximg.com.br/arquivos/CentraleSansRegular.ttf.css") format("truetype");
-    font-weight: 200;
-}
-@font-face {
-    font-family: 'CentraleSans-Regular';
-    src: url("https://qbbr.vteximg.com.br/arquivos/CentraleSansRegular.eot.css");
-    src: url("https://qbbr.vteximg.com.br/arquivos/CentraleSansRegular.eot.css?#iefix") format("embedded-opentype"), url("https://qbbr.vteximg.com.br/arquivos/CentraleSansRegular.woff.css") format("woff"), url("https://qbbr.vteximg.com.br/arquivos/CentraleSansRegular.ttf.css") format("truetype");
-    font-weight: 400;
-}
-  
-@font-face {
-  font-family: 'CentraleSans-Bold';
-  src: url("https://qbbr.vteximg.com.br/arquivos/CentraleSans-Bold.eot.css");
-  src: url("https://qbbr.vteximg.com.br/arquivos/CentraleSans-Bold.eot.css?#iefix") format("embedded-opentype"), url("https://qbbr.vteximg.com.br/arquivos/CentraleSans-Bold.woff.css") format("woff"), url("https://qbbr.vteximg.com.br/arquivos/CentraleSans-Bold.ttf.css") format("truetype");
-  font-weight: 900;
-}
-
-@font-face {
   font-family: 'WorkSans-Light';
   src: url("https://qbbr.vteximg.com.br/arquivos/worksans-light.woff.css") format("woff");
   // src: url("https://qbbr.vteximg.com.br/arquivos/CentraleSans-Light.eot.css?#iefix") format("embedded-opentype"), url("https://qbbr.vteximg.com.br/arquivos/CentraleSansRegular.ttf.css") format("truetype");
   font-weight: 300;
 }
+
 @font-face {
   font-family: 'WorkSans-Regular';
   src: url("https://qbbr.vteximg.com.br/arquivos/worksans-regular.woff.css") format("woff");
   // src: url("https://qbbr.vteximg.com.br/arquivos/CentraleSansRegular.eot.css?#iefix") format("embedded-opentype"), url("https://qbbr.vteximg.com.br/arquivos/CentraleSansRegular.woff.css") format("woff"), url("https://qbbr.vteximg.com.br/arquivos/CentraleSansRegular.ttf.css") format("truetype");
   font-weight: 400;
 }
+
 @font-face {
   font-family: 'WorkSans-Medium';
   src: url("https://qbbr.vteximg.com.br/arquivos/worksans-medium.woff.css") format("woff");
   // src: url("https://qbbr.vteximg.com.br/arquivos/CentraleSans-Bold.eot.css?#iefix") format("embedded-opentype"), url("https://qbbr.vteximg.com.br/arquivos/CentraleSans-Bold.woff.css") format("woff"), url("https://qbbr.vteximg.com.br/arquivos/CentraleSans-Bold.ttf.css") format("truetype");
   font-weight: 500;
 }
-  // @font-face{font-family:'Open Sans';src:url(https://fonts.googleapis.com/css?family=Open+Sans) format("otf");font-style:normal;font-weight:400}
-  // @font-face{font-family:museo_700;src:url(https://www.girafa.com.br/visao/girafa/fonts/MUSEO700-REGULAR_1.otf) format("otf");font-style:normal;font-weight:700}
-  
+
+@font-face {
+  font-family: 'WorkSans-Bold';
+  src: url("https://qbbr.vteximg.com.br/arquivos/worksans-bold.woff.css") format("woff");
+  // src: url("https://qbbr.vteximg.com.br/arquivos/CentraleSans-Bold.eot.css?#iefix") format("embedded-opentype"), url("https://qbbr.vteximg.com.br/arquivos/CentraleSans-Bold.woff.css") format("woff"), url("https://qbbr.vteximg.com.br/arquivos/CentraleSans-Bold.ttf.css") format("truetype");
+  font-weight: 900;
+}
+
+// @font-face{font-family:'Open Sans';src:url(https://fonts.googleapis.com/css?family=Open+Sans) format("otf");font-style:normal;font-weight:400}
+// @font-face{font-family:museo_700;src:url(https://www.girafa.com.br/visao/girafa/fonts/MUSEO700-REGULAR_1.otf) format("otf");font-style:normal;font-weight:700}

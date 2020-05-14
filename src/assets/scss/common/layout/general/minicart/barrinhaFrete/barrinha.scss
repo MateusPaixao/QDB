@@ -1,13 +1,8 @@
-$heightBarrinha: 40px;
 .bag-top {
     &__bar {
         width: 100%;
         text-align: center;
-        min-height: $heightBarrinha;
-        height: $heightBarrinha;
-        max-height: $heightBarrinha;
-        padding: 0;
-        margin: 0;
+        height: 40px;
         display: flex;
         position: relative;
         justify-content: center;
@@ -18,6 +13,7 @@ $heightBarrinha: 40px;
 
 .price {
     &__text {
+
         &-content,
         &-success {
             z-index: 2;
@@ -37,9 +33,7 @@ $heightBarrinha: 40px;
 
     &__track.js--price-track {
         background: #C7C5C4;
-        min-height: $heightBarrinha;
-        height: $heightBarrinha;
-        max-height: $heightBarrinha;
+        height: 40px;
         padding: 0;
         margin: 0;
         width: 100%;

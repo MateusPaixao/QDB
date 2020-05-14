@@ -1,0 +1,21 @@
+@import './config';
+
+.apoieMaquiadores {
+    .title {
+        @include sans(1.875em, $white, 900, initial);
+        margin-bottom: 20px;
+
+        @include d("768px") {
+            font-size: 1.5em;
+        }
+    }
+
+    .content {
+        @include sans(1em, $white, 400, 1.5em);
+    }
+
+    @import './banner';
+    @import './about';
+    @import './info';
+
+}

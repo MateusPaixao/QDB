@@ -1,4 +1,5 @@
-import Home from "./modules/Home/home-index"
+import Home from "./modules/Home"
+import '../../scss/common/QDBCommon-home.scss'
 
 const Methods = {
     init() {

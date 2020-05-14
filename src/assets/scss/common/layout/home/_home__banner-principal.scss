@@ -1,9 +1,13 @@
 .bannerHero{
 	.bannerHero__banners{
 		position: relative;
-		height: 320px;
+		padding-bottom: 20px;
+		min-height: 320px;
+		max-height: 25vw;
 		@include d("768px"){
+			min-height: initial;
 			height: initial;
+			max-height: initial;
 		}
 		.bannerHero__link{
 			// min-width: 100%;

@@ -1,0 +1,51 @@
+.promo {
+    &__titleContainer {
+        &__content {
+            text-align: center;
+
+            h1 {
+                @include sans(2.5rem, $g-primary, 900, initial);
+            }
+
+            p {
+                @include sans(1.25em, $g-primary, 400, initial);
+                max-width: 500px;
+                margin: 10px auto 0;
+            }
+        }
+    }
+
+    &__collection {
+        &__title {
+            @include sans(2rem, $g-primary, 900, initial);
+            margin-bottom: 10px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        &__selection {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+
+            &__options {
+                display: flex;
+                justify-content: center;
+                flex-flow: wrap;
+
+                button {
+                    background: $safflower;
+                    border-radius: .2em;
+                    color: $w-secundary;
+                    padding: 10px 15px;
+                    margin: 5px;
+                }
+            }
+        }
+    }
+}
+
+// FIXES
+.filters {
+    margin: 0
+}

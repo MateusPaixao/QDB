@@ -1,24 +1,41 @@
-
-html,body {
+html,
+body {
     background: $w-secundary;
     @include sans(1vw, $g-primary, 400, normal);
 
-    @include d(l){
+    @include d(l) {
         font-size: 14px;
     }
-    @include d(s){
+
+    @include d(s) {
         font-size: 3vw;
     }
-    @include d(xs){
+
+    @include d(xs) {
         font-size: 4vw;
     }
+
+    &.setOverlay-true {
+        overflow: hidden;
+
+        .generalOverlay {
+            transition: all .2s;
+            display: block;
+            background: $overlay;
+            opacity: 1;
+            z-index: 100;
+        }
+    }
 }
-#ajaxBusy{
+
+#ajaxBusy {
     display: none !important;
 }
+
 ._header-base {
     margin-top: 0 !important;
 }
+
 // html, body{
 //     @i
 // }
@@ -987,6 +1004,7 @@ a.vejamais-vtexresearch:hover {
 .clube-beres .main {
     padding: 0;
 }
+
 .texto--legal {
     font-size: 12px;
     background: $qdb-grey-m;
@@ -1123,16 +1141,47 @@ body.nm-noscroll {
 .hide-important {
     display: none !important;
 }
-// .container{
-//   max-width: 1190px;
-//   padding-left: 20px;
-//   padding-right: 20px;
-//   margin: auto;
-//   width: initial;
-// }
 
 .hidden {
-    display: none;
+    display: none !important;
+}
+
+.--skeleton {
+    background: #c7c5c4 !important;
+    color: transparent !important;
+    border-radius: .3rem !important;
+
+    * {
+        opacity: 0;
+    }
+
+    overflow: hidden !important;
+    border: none !important;
+    position: relative;
+
+    &:before {
+        content: '';
+        display: flex;
+        position: absolute;
+        height: 110%;
+        width: 5em;
+        background: $qdb-grey-m;
+        filter: blur(20px);
+        opacity: .3;
+        left: -25%;
+        top: 0;
+        transform: skew(-15deg);
+        @include animation("highlight-skeleton", 2.5s, infinite, cubic-bezier(.6, .51, 0, 1.01));
+    }
+
+    //   @keyframes highlight-skeleton {
+    //       60%{
+    //           left: -25%;
+    //       }
+    //       100%{
+    //           left: 125%;
+    //       }
+    //   }
 }
 
 .svg--logo-principal {
@@ -1140,28 +1189,31 @@ body.nm-noscroll {
 }
 
 // REFATORAR
-html .yv-qa .yv-qa-main-ask, 
-html .yv-qa strong, 
-html .yv-qa span, 
-html .yv-qa label, 
-html .yv-qa small, 
-html #yv-reviews strong, 
-html #yv-reviews .yv-control-label, 
-html #yv-reviews .yv-radio-inline, 
-html #yv-reviews .yv-login-group div label, 
-html #yv-reviews .yv-form-group ~ label, 
-html #yv-reviews span, 
-html #yv-reviews small, 
-html .yv-login-frame .yv-title-socialn, 
-html .yv-reviewform-title, .yv-control-label, 
-html .yv-radio-inline, .yv-reviewform-title, 
-html .yv-control-label, 
-html .yv-bootstrap p[itemprop="description"], 
-html .yv-row, .yv-bootstrap label, 
-html .yv-bootstrap .yv-confirmation, 
-html .yv-bootstrap .yv-confirmation p, 
-html .yv-bootstrap .soc, 
-html .yv-bootstrap .soc div, 
+html .yv-qa .yv-qa-main-ask,
+html .yv-qa strong,
+html .yv-qa span,
+html .yv-qa label,
+html .yv-qa small,
+html #yv-reviews strong,
+html #yv-reviews .yv-control-label,
+html #yv-reviews .yv-radio-inline,
+html #yv-reviews .yv-login-group div label,
+html #yv-reviews .yv-form-group~label,
+html #yv-reviews span,
+html #yv-reviews small,
+html .yv-login-frame .yv-title-socialn,
+html .yv-reviewform-title,
+.yv-control-label,
+html .yv-radio-inline,
+.yv-reviewform-title,
+html .yv-control-label,
+html .yv-bootstrap p[itemprop="description"],
+html .yv-row,
+.yv-bootstrap label,
+html .yv-bootstrap .yv-confirmation,
+html .yv-bootstrap .yv-confirmation p,
+html .yv-bootstrap .soc,
+html .yv-bootstrap .soc div,
 html .yv-bootstrap .yv-reviewalso,
 html #yv-review-quickreview a,
 html .yv-bootstrap .yv-filter,
@@ -1222,20 +1274,16 @@ html .uploadcare-widget-button-open:active {
 //     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
 // }
 
-// .overlay {
-//     content: '';
-//     position: fixed;
-//     width: 100%;
-//     height: 100%;
-//     top: 100%;
-//     left: 0;
-//     top: 0;
-//     background: rgba(0, 0, 0, .5);
-//     z-index: 9;
-//     transition: .3s;
-//     visibility: hidden;
-//     opacity: 0;
-// }
+.generalOverlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -5;
+    transition: .3s;
+    opacity: 0;
+}
 
 // .overlay.active,
 // .overlay-active {
